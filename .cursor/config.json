@@ -1,0 +1,16 @@
+{
+  "cursor.ai": {
+    "autoAccept": true,
+    "autoRun": true,
+    "autoInstall": true,
+    "skipConfirmations": true,
+    "preferences": {
+      "preferNewFiles": true,
+      "useModernPatterns": true,
+      "includeTypes": true,
+      "useTailwind": true,
+      "preferFreeServices": true
+    }
+  }
+}
+

@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The VoTer GuidEr
 
-## Getting Started
+**A modern, future-proof system for tracking voting choices across multiple jurisdictions.**
 
-First, run the development server:
+## Features
+
+- ✅ **Save & Return**: Your voting choices are automatically saved using browser sessions
+- ✅ **Easy Sharing**: Share your guide with a simple link - no account required
+- ✅ **Future Proof**: Handles elections across multiple jurisdictions and election cycles
+- ✅ **Professional Maps**: Interactive US map with jurisdiction selection
+- ✅ **Free Services**: Built with Supabase (free tier) and Vercel (free hosting)
+
+## Tech Stack
+
+- **Next.js 14+** - App Router with Server Components
+- **TypeScript** - Type-safe development
+- **Prisma** - Database ORM
+- **PostgreSQL** - Via Supabase (free tier)
+- **Tailwind CSS** - Modern styling
+- **Vercel** - Free hosting and deployment
+
+## Quick Start
+
+### 1. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+Fill in:
+- `DATABASE_URL` - From Supabase project settings
+- `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon key
+
+### 2. Set up database
+
+```bash
+# Generate Prisma client
+npx prisma generate
+
+# Run migrations (after setting up Supabase)
+npx prisma migrate dev
+```
+
+### 3. Seed initial data (optional)
+
+```bash
+npm run seed
+```
+
+### 4. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Option 1: Supabase (Recommended - Free)
 
-## Learn More
+1. Create account at [supabase.com](https://supabase.com)
+2. Create new project
+3. Go to Settings > Database
+4. Copy the connection string
+5. Update `.env` with `DATABASE_URL`
 
-To learn more about Next.js, take a look at the following resources:
+### Option 2: Local PostgreSQL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install PostgreSQL locally
+2. Create database: `createdb voter-guider`
+3. Update `.env` with: `DATABASE_URL="postgresql://user:password@localhost:5432/voter-guider"`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+### Vercel (Free Tier)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push to GitHub
+2. Connect repo to Vercel
+3. Add environment variables
+4. Deploy!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Or use Vercel CLI
+npm i -g vercel
+vercel
+```
+
+## Project Structure
+
+```
+the-voter-guider/
+├── app/
+│   ├── api/           # API routes
+│   ├── guide/         # Guide pages
+│   └── page.tsx       # Home page
+├── components/
+│   ├── map/           # US map component
+│   └── ...            # UI components
+├── lib/
+│   ├── prisma.ts      # Prisma client
+│   ├── session.ts     # Session management
+│   └── election-data.ts # Election data fetchers
+├── prisma/
+│   └── schema.prisma  # Database schema
+└── ...
+```
+
+## API Routes
+
+- `GET /api/jurisdictions` - List available jurisdictions
+- `GET /api/elections` - Get elections for a jurisdiction
+- `GET /api/guides` - Get user's guides
+- `POST /api/guides` - Create new guide
+- `POST /api/choices` - Save voting choice
+- `GET /api/guides?shareToken=xxx` - View shared guide
+
+## Free Data Sources
+
+- **Ballotpedia API** - Election information
+- **Google Civic Information API** - Voter information
+- **Census.gov** - US county/GIS data
+- **Vote411.org** - Ballot information
+
+## License
+
+MIT - Feel free to use and modify for your own projects.
+
+## Contributing
+
+This is a brainstorming repository. Ideas and contributions welcome!

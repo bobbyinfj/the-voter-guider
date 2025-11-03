@@ -1,0 +1,133 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // Works with Supabase, Neon, or any PostgreSQL database
+}
+
+// Jurisdictions (Counties/States)
+model Jurisdiction {
+  id          String   @id @default(cuid())
+  name        String
+  state       String
+  countyName  String?
+  fipsCode    String?  @unique
+  type        String   @default("county") // county, state, city
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  elections   Election[]
+  guides      Guide[]
+
+  @@index([state, countyName])
+  @@map("jurisdictions")
+}
+
+// Elections (upcoming or past)
+model Election {
+  id              String   @id @default(cuid())
+  jurisdictionId  String
+  title           String
+  description     String?
+  electionDate     DateTime
+  type            String   // primary, general, special, etc.
+  status          String   @default("upcoming") // upcoming, active, completed
+  officialUrl     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  ballots         Ballot[]
+  guides          Guide[]
+
+  @@index([jurisdictionId, electionDate])
+  @@index([status, electionDate])
+  @@map("elections")
+}
+
+// Ballot Measures/Candidates
+model Ballot {
+  id          String   @id @default(cuid())
+  electionId  String
+  number      String?  // e.g., "Prop 50", "Measure 1"
+  title       String
+  description String?
+  type        String   // proposition, measure, candidate, referendum, etc.
+  options     Json?    // For measures: YES/NO, For candidates: array of candidates
+  metadata    Json?    // Additional data (tax rates, funding amounts, etc.)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  election    Election @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  choices     Choice[]
+
+  @@index([electionId])
+  @@map("ballots")
+}
+
+// User's voting choices
+model Choice {
+  id          String   @id @default(cuid())
+  guideId     String
+  ballotId    String
+  selection   String   // YES, NO, candidate name, abstain, etc.
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  guide       Guide    @relation(fields: [guideId], references: [id], onDelete: Cascade)
+  ballot      Ballot   @relation(fields: [ballotId], references: [id], onDelete: Cascade)
+
+  @@unique([guideId, ballotId])
+  @@index([guideId])
+  @@map("choices")
+}
+
+// Voter Guides
+model Guide {
+  id              String   @id @default(cuid())
+  electionId      String
+  jurisdictionId  String
+  title           String
+  author          String?
+  description     String?
+  shareToken      String   @unique @default(cuid())
+  isPublic        Boolean  @default(false)
+  isTemplate      Boolean  @default(false) // For pre-made guides
+  sessionId       String?  // For anonymous users
+  userId          String?  // For registered users (future)
+  metadata        Json?    // Additional guide data
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  lastAccessedAt DateTime @default(now())
+
+  election        Election     @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  choices         Choice[]
+
+  @@index([electionId])
+  @@index([shareToken])
+  @@index([sessionId])
+  @@index([isPublic, isTemplate])
+  @@map("guides")
+}
+
+// Analytics (for tracking guide views/shares)
+model GuideAnalytics {
+  id          String   @id @default(cuid())
+  guideId     String
+  eventType   String   // view, share, download, etc.
+  ipAddress   String?
+  userAgent   String?
+  referrer    String?
+  createdAt   DateTime @default(now())
+
+  @@index([guideId, createdAt])
+  @@map("guide_analytics")
+}
