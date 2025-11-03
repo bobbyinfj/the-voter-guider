@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getSessionId } from '@/lib/session'
+import { handleApiError } from '@/lib/errors'
 
 // GET - Fetch guides for current session or by shareToken
 export async function GET(request: NextRequest) {
@@ -65,10 +66,10 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(guides)
   } catch (error) {
-    console.error('Error fetching guides:', error)
+    const { message, statusCode } = handleApiError(error)
     return NextResponse.json(
-      { error: 'Failed to fetch guides' },
-      { status: 500 }
+      { error: message },
+      { status: statusCode }
     )
   }
 }
