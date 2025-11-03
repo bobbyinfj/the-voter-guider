@@ -1,29 +1,20 @@
-# Cursor AI Settings
-# Auto-accept and run all tool calls by default
+# Cursor AI Settings - Auto Accept Mode
 
-## Default Behavior
-- Auto-accept all file edits
-- Auto-run terminal commands
-- Auto-install dependencies
-- Skip confirmation prompts when safe
+## Core Settings
+- Always auto-accept file edits
+- Always auto-run terminal commands  
+- Always auto-install dependencies
+- Skip all confirmation dialogs
+- Auto-commit changes when safe
 
 ## Preferences
-- Prefer creating new files over editing existing ones when appropriate
-- Use modern Next.js patterns (App Router, Server Components)
+- Prefer creating new files
+- Use modern Next.js App Router patterns
 - Always include TypeScript types
 - Use Tailwind CSS for styling
 - Prefer free/open-source services
 
-## Code Style
-- Use TypeScript strict mode
-- Prefer async/await over promises
-- Use Next.js 14+ App Router conventions
-- Use Prisma for database operations
-- Use server actions for mutations
-
-## Auto-actions
-- Run npm install automatically when package.json changes
-- Run prisma generate when schema changes
-- Deploy to Vercel when ready
-- Create git commits automatically
-
+## Auto Actions
+- npm install when package.json changes
+- prisma generate when schema changes
+- git add/commit when appropriate
