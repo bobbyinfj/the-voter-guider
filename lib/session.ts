@@ -1,8 +1,8 @@
 // Utility functions for sessions
 import { cookies } from 'next/headers'
 
-export function getSessionId(): string {
-  const cookieStore = cookies()
+export async function getSessionId(): Promise<string> {
+  const cookieStore = await cookies()
   let sessionId = cookieStore.get('voter-guide-session')?.value
 
   if (!sessionId) {

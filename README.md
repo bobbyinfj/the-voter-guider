@@ -23,38 +23,28 @@
 
 ### 1. Set up environment variables
 
-```bash
-cp .env.example .env
-```
-
-Fill in:
-- `DATABASE_URL` - From Supabase project settings
-- `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon key
-
-### 2. Set up database
+Create `.env.local` with your Supabase connection:
 
 ```bash
-# Generate Prisma client
-npx prisma generate
-
-# Run migrations (after setting up Supabase)
-npx prisma migrate dev
+echo 'DATABASE_URL="YOUR_SUPABASE_URI"' > .env.local
 ```
 
-### 3. Seed initial data (optional)
+Get your Supabase URI from: Dashboard → Settings → Database → Connection pooling → URI
+
+### 2. Launch
 
 ```bash
-npm run seed
+./launch.sh
 ```
 
-### 4. Run development server
+This will:
+- Validate your DATABASE_URL
+- Generate Prisma client
+- Set up database schema
+- Seed initial data
+- Start the dev server
 
-```bash
-npm run dev
-```
-
-Visit [http://localhost:3000](http://localhost:3000)
+The app will be available at http://localhost:3000
 
 ## Database Setup
 

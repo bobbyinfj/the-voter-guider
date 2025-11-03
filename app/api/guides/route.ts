@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const shareToken = searchParams.get('shareToken')
-    const sessionId = searchParams.get('sessionId') || getSessionId()
+    const sessionId = searchParams.get('sessionId') || await getSessionId()
 
     if (shareToken) {
       // Fetch shared guide
@@ -78,7 +78,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = getSessionId()
+    const sessionId = await getSessionId()
 
     const guide = await prisma.guide.create({
       data: {
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = getSessionId()
+    const sessionId = await getSessionId()
 
     const guide = await prisma.guide.update({
       where: {
@@ -144,7 +144,7 @@ export async function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const guideId = searchParams.get('id')
-    const sessionId = getSessionId()
+    const sessionId = await getSessionId()
 
     if (!guideId) {
       return NextResponse.json(

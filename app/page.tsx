@@ -46,9 +46,16 @@ export default function HomePage() {
     try {
       const response = await fetch('/api/jurisdictions')
       const data = await response.json()
-      setJurisdictions(data)
+      if (response.ok && Array.isArray(data)) {
+        setJurisdictions(data)
+      } else {
+        const errorMessage = (data as any)?.error || 'Unknown error'
+        console.error('Error fetching jurisdictions:', errorMessage)
+        setJurisdictions([])
+      }
     } catch (error) {
       console.error('Error fetching jurisdictions:', error)
+      setJurisdictions([])
     } finally {
       setLoading(false)
     }
@@ -58,9 +65,16 @@ export default function HomePage() {
     try {
       const response = await fetch(`/api/elections?jurisdictionId=${jurisdictionId}&status=upcoming`)
       const data = await response.json()
-      setElections(data)
+      if (response.ok && Array.isArray(data)) {
+        setElections(data)
+      } else {
+        const errorMessage = (data as any)?.error || 'Unknown error'
+        console.error('Error fetching elections:', errorMessage)
+        setElections([])
+      }
     } catch (error) {
       console.error('Error fetching elections:', error)
+      setElections([])
     }
   }
 

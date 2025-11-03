@@ -8,7 +8,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // Works with Supabase, Neon, or any PostgreSQL database
+  // Use connection pooling URL with ?pgbouncer=true for Session mode (supports prepared statements)
+  // Or use directUrl if you have a direct connection string
 }
 
 // Jurisdictions (Counties/States)

@@ -21,12 +21,21 @@ export default function NewGuidePage() {
     try {
       const response = await fetch(`/api/elections?jurisdictionId=${jurisdictionId}&status=upcoming`)
       const data = await response.json()
-      setElections(data)
-      if (data.length > 0) {
-        setSelectedElection(data[0])
+      if (response.ok && Array.isArray(data)) {
+        setElections(data)
+        if (data.length > 0) {
+          setSelectedElection(data[0])
+        }
+      } else {
+        const errorMessage = (data as any)?.error || 'Unknown error'
+        console.error('Error fetching elections:', errorMessage)
+        setElections([])
+        setSelectedElection(null)
       }
     } catch (error) {
       console.error('Error fetching elections:', error)
+      setElections([])
+      setSelectedElection(null)
     }
   }
 

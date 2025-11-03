@@ -7,7 +7,7 @@ import { getSessionId } from '@/lib/session'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = getSessionId()
+    const sessionId = await getSessionId()
 
     // Verify guide belongs to session
     const guide = await prisma.guide.findFirst({
@@ -66,7 +66,7 @@ export async function DELETE(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const guideId = searchParams.get('guideId')
     const ballotId = searchParams.get('ballotId')
-    const sessionId = getSessionId()
+    const sessionId = await getSessionId()
 
     if (!guideId || !ballotId) {
       return NextResponse.json(
