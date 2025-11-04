@@ -238,50 +238,6 @@ async function main() {
     },
   })
 
-  // NOTE: These are SAMPLE/PLACEHOLDER ballot items
-  // Real ballot data will be fetched automatically if API key is available below
-  // Or run: npm run data:populate-ballots
-  
-  // Monterey Park ballots (SAMPLE DATA - NOT REAL)
-  await prisma.ballot.upsert({
-    where: { id: 'mp-council-district-1' },
-    update: {},
-    create: {
-      id: 'mp-council-district-1',
-      electionId: montereyParkElection.id,
-      number: 'City Council District 1',
-      title: 'Monterey Park City Council - District 1 (SAMPLE)',
-      description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Use "Fetch Real Ballot Data" to get actual ballot items.',
-      type: 'candidate',
-      options: ['Candidate A', 'Candidate B', 'Candidate C', 'Write-in'],
-      metadata: {
-        term: '4 years',
-        district: 'District 1',
-        isSample: true,
-      },
-    },
-  })
-
-  await prisma.ballot.upsert({
-    where: { id: 'mp-measure-x' },
-    update: {},
-    create: {
-      id: 'mp-measure-x',
-      electionId: montereyParkElection.id,
-      number: 'Measure X',
-      title: 'Public Safety and Emergency Services Funding (SAMPLE)',
-      description: 'Shall the City of Monterey Park adopt a 0.5% sales tax increase to fund public safety and emergency services?\n\n⚠️ This is sample data. Use "Fetch Real Ballot Data" to get actual ballot items.',
-      type: 'measure',
-      options: ['YES', 'NO'],
-      metadata: {
-        taxRate: '0.5% sales tax',
-        purpose: 'Public safety and emergency services',
-        duration: 'Ongoing',
-        isSample: true,
-      },
-    },
-  })
-
   // === FORT COLLINS ELECTION ===
   const fortCollinsElection = await prisma.election.upsert({
     where: { id: 'fort-collins-2025' },
@@ -295,43 +251,6 @@ async function main() {
       type: 'general',
       status: 'upcoming',
       officialUrl: 'https://www.fcgov.com/elections',
-    },
-  })
-
-  await prisma.ballot.upsert({
-    where: { id: 'fc-mayor-2025' },
-    update: {},
-    create: {
-      id: 'fc-mayor-2025',
-      electionId: fortCollinsElection.id,
-      number: 'Mayor',
-      title: 'Fort Collins Mayor',
-      description: 'Vote for one candidate for Mayor of Fort Collins',
-      type: 'candidate',
-      options: ['Candidate A', 'Candidate B', 'Write-in'],
-      metadata: {
-        term: '4 years',
-        office: 'Mayor',
-      },
-    },
-  })
-
-  await prisma.ballot.upsert({
-    where: { id: 'fc-measure-1' },
-    update: {},
-    create: {
-      id: 'fc-measure-1',
-      electionId: fortCollinsElection.id,
-      number: 'Ballot Issue 1',
-      title: 'Affordable Housing Fund',
-      description: 'Shall the City of Fort Collins be authorized to create and fund an affordable housing program through a 0.25% sales tax increase?',
-      type: 'measure',
-      options: ['YES', 'NO'],
-      metadata: {
-        taxRate: '0.25% sales tax',
-        purpose: 'Affordable housing',
-        duration: '10 years',
-      },
     },
   })
 
@@ -351,34 +270,16 @@ async function main() {
     },
   })
 
-  // Sample ballot for Seattle (will be replaced with real data if API key is available)
-  await prisma.ballot.upsert({
-    where: { id: 'wa-seattle-council-1' },
-    update: {},
-    create: {
-      id: 'wa-seattle-council-1',
-      electionId: seattleElection.id,
-      number: 'City Council District 1',
-      title: 'Seattle City Council - District 1 (SAMPLE)',
-      description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Real data will be fetched if GOOGLE_CIVIC_API_KEY is set.',
-      type: 'candidate',
-      options: ['Candidate A', 'Candidate B', 'Write-in'],
-      metadata: {
-        term: '4 years',
-        district: 'District 1',
-        isSample: true,
-      },
-    },
-  })
-
   console.log('✅ Created elections')
-  console.log('✅ Created sample ballot measures')
   console.log('')
   
-  // Try to fetch real ballot data if API key is available
+  // PRIORITY: Fetch REAL ballot data FIRST (if API key available)
   const apiKey = process.env.GOOGLE_CIVIC_API_KEY
+  let realDataFetched = false
+  
   if (apiKey) {
-    console.log('🔍 API key found! Fetching real ballot data from Google Civic API...')
+    console.log('🔍 API key found! Fetching REAL ballot data from Google Civic API...')
+    console.log('   (Real data will be used - sample data will NOT be created if real data is available)')
     console.log('')
     
     try {
@@ -409,7 +310,7 @@ async function main() {
             const ballotItems = convertGoogleCivicToBallotItems(civicData.contests)
             console.log(`      ✅ Found ${ballotItems.length} real ballot items`)
             
-            // Delete sample ballots for this election
+            // Delete any existing sample ballots for this election
             await prisma.ballot.deleteMany({
               where: {
                 electionId: jurisdiction.electionId,
@@ -466,6 +367,7 @@ async function main() {
               })
             }
             console.log(`      ✅ Stored ${ballotItems.length} real ballot items`)
+            realDataFetched = true
           } else {
             console.log(`      ⚠️  No contests found (may be no upcoming election)`)
           }
@@ -475,13 +377,140 @@ async function main() {
       }
     } catch (error) {
       console.log(`   ⚠️  Could not fetch real data: ${error instanceof Error ? error.message : 'Unknown error'}`)
-      console.log(`   Will use sample data. Run \`npm run fetch-ballots\` later to fetch real data.`)
     }
   } else {
     console.log('⚠️  No GOOGLE_CIVIC_API_KEY found in .env.local')
-    console.log('   Sample data created. To populate real ballot data:')
+    console.log('   Will create sample data as fallback.')
+    console.log('   To use real ballot data:')
     console.log('   1. Add GOOGLE_CIVIC_API_KEY to .env.local')
     console.log('   2. Run: npm run data:populate-ballots')
+    console.log('')
+  }
+  
+  // Only create sample data if NO real data was fetched
+  const hasRealData = await prisma.ballot.count({
+    where: {
+      metadata: {
+        path: ['isSample'],
+        equals: false,
+      },
+    },
+  })
+  
+  if (hasRealData === 0) {
+    console.log('📝 Creating sample ballot data (fallback only - no real data available)...')
+    
+    // Delete any existing sample ballots first
+    await prisma.ballot.deleteMany({
+      where: {
+        metadata: {
+          path: ['isSample'],
+          equals: true,
+        },
+      },
+    })
+    
+    // Create sample ballots only as fallback
+    await prisma.ballot.upsert({
+      where: { id: 'mp-council-district-1' },
+      update: {},
+      create: {
+        id: 'mp-council-district-1',
+        electionId: montereyParkElection.id,
+        number: 'City Council District 1',
+        title: 'Monterey Park City Council - District 1 (SAMPLE)',
+        description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.',
+        type: 'candidate',
+        options: ['Candidate A', 'Candidate B', 'Candidate C', 'Write-in'],
+        metadata: {
+          term: '4 years',
+          district: 'District 1',
+          isSample: true,
+        },
+      },
+    })
+
+    await prisma.ballot.upsert({
+      where: { id: 'mp-measure-x' },
+      update: {},
+      create: {
+        id: 'mp-measure-x',
+        electionId: montereyParkElection.id,
+        number: 'Measure X',
+        title: 'Public Safety and Emergency Services Funding (SAMPLE)',
+        description: 'Shall the City of Monterey Park adopt a 0.5% sales tax increase to fund public safety and emergency services?\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.',
+        type: 'measure',
+        options: ['YES', 'NO'],
+        metadata: {
+          taxRate: '0.5% sales tax',
+          purpose: 'Public safety and emergency services',
+          duration: 'Ongoing',
+          isSample: true,
+        },
+      },
+    })
+
+    await prisma.ballot.upsert({
+      where: { id: 'fc-mayor-2025' },
+      update: {},
+      create: {
+        id: 'fc-mayor-2025',
+        electionId: fortCollinsElection.id,
+        number: 'Mayor',
+        title: 'Fort Collins Mayor (SAMPLE)',
+        description: 'Vote for one candidate for Mayor of Fort Collins\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.',
+        type: 'candidate',
+        options: ['Candidate A', 'Candidate B', 'Write-in'],
+        metadata: {
+          term: '4 years',
+          office: 'Mayor',
+          isSample: true,
+        },
+      },
+    })
+
+    await prisma.ballot.upsert({
+      where: { id: 'fc-measure-1' },
+      update: {},
+      create: {
+        id: 'fc-measure-1',
+        electionId: fortCollinsElection.id,
+        number: 'Ballot Issue 1',
+        title: 'Affordable Housing Fund (SAMPLE)',
+        description: 'Shall the City of Fort Collins be authorized to create and fund an affordable housing program through a 0.25% sales tax increase?\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.',
+        type: 'measure',
+        options: ['YES', 'NO'],
+        metadata: {
+          taxRate: '0.25% sales tax',
+          purpose: 'Affordable housing',
+          duration: '10 years',
+          isSample: true,
+        },
+      },
+    })
+
+    await prisma.ballot.upsert({
+      where: { id: 'wa-seattle-council-1' },
+      update: {},
+      create: {
+        id: 'wa-seattle-council-1',
+        electionId: seattleElection.id,
+        number: 'City Council District 1',
+        title: 'Seattle City Council - District 1 (SAMPLE)',
+        description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.',
+        type: 'candidate',
+        options: ['Candidate A', 'Candidate B', 'Write-in'],
+        metadata: {
+          term: '4 years',
+          district: 'District 1',
+          isSample: true,
+        },
+      },
+    })
+    
+    console.log('✅ Created sample ballot measures (fallback only)')
+  } else {
+    console.log('✅ Using real ballot data (no sample data created)')
   }
   
   console.log('')
