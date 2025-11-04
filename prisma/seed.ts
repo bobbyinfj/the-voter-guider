@@ -541,15 +541,18 @@ async function main() {
   
   console.log(`   - Ballot Items: ${await prisma.ballot.count()} (${realBallotCount} real, ${sampleBallotCount} sample)`)
   
-  if (apiKey && realBallotCount > 0) {
+  if (realBallotCount > 0) {
     console.log('')
-    console.log('✅ Real ballot data fetched and stored!')
+    console.log('✅ Real ballot data is being used!')
+    console.log('   No sample data warnings will appear for users.')
   } else if (apiKey) {
     console.log('')
     console.log('⚠️  API key found but no real data fetched (may be no upcoming elections)')
+    console.log('   Sample data created as fallback. Run `npm run data:populate-ballots` to try again.')
   } else {
     console.log('')
     console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run `npm run data:populate-ballots`')
+    console.log('   This will replace sample data with real ballot data.')
   }
 }
 
