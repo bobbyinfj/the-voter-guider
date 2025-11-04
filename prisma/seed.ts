@@ -497,7 +497,7 @@ async function main() {
     console.log('✅ Real ballot data fetched and stored!')
   } else {
     console.log('')
-    console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run \`npm run fetch-ballots\``)
+    console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run `npm run fetch-ballots`')
   }
 }
 
