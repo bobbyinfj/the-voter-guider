@@ -239,10 +239,8 @@ async function main() {
   })
 
   // NOTE: These are SAMPLE/PLACEHOLDER ballot items
-  // To get REAL ballot data, use the /api/fetch-real-ballot endpoint
-  // with a real address and Google Civic API key
-  
-  console.log('⚠️  NOTE: Using sample ballot data. Use /api/fetch-real-ballot to get real ballot items.')
+  // Real ballot data will be fetched automatically if API key is available below
+  // Or run: npm run data:populate-ballots
   
   // Monterey Park ballots (SAMPLE DATA - NOT REAL)
   await prisma.ballot.upsert({
@@ -481,7 +479,9 @@ async function main() {
     }
   } else {
     console.log('⚠️  No GOOGLE_CIVIC_API_KEY found in .env.local')
-    console.log('   Using sample data. Add API key to fetch real ballot data.')
+    console.log('   Sample data created. To populate real ballot data:')
+    console.log('   1. Add GOOGLE_CIVIC_API_KEY to .env.local')
+    console.log('   2. Run: npm run data:populate-ballots')
   }
   
   console.log('')
@@ -491,13 +491,36 @@ async function main() {
   console.log(`   - Jurisdictions: 3 (Monterey Park, Fort Collins, Seattle - all precinct-level)`)
   console.log(`   - Precincts: ${await prisma.precinct.count()}`)
   console.log(`   - Elections: ${await prisma.election.count()}`)
-  console.log(`   - Ballot Items: ${await prisma.ballot.count()}`)
-  if (apiKey) {
+  
+  // Check if we have real data or sample data
+  const realBallotCount = await prisma.ballot.count({
+    where: {
+      metadata: {
+        path: ['isSample'],
+        equals: false,
+      },
+    },
+  })
+  const sampleBallotCount = await prisma.ballot.count({
+    where: {
+      metadata: {
+        path: ['isSample'],
+        equals: true,
+      },
+    },
+  })
+  
+  console.log(`   - Ballot Items: ${await prisma.ballot.count()} (${realBallotCount} real, ${sampleBallotCount} sample)`)
+  
+  if (apiKey && realBallotCount > 0) {
     console.log('')
     console.log('✅ Real ballot data fetched and stored!')
+  } else if (apiKey) {
+    console.log('')
+    console.log('⚠️  API key found but no real data fetched (may be no upcoming elections)')
   } else {
     console.log('')
-    console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run `npm run fetch-ballots`')
+    console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run `npm run data:populate-ballots`')
   }
 }
 

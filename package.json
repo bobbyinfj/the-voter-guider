@@ -9,6 +9,7 @@
     "lint": "eslint",
     "seed": "tsx prisma/seed.ts",
     "fetch-ballots": "tsx scripts/fetch-real-ballot-data.ts",
+    "data:populate-ballots": "tsx scripts/data-collection/populate-real-ballot-data.ts",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio"
