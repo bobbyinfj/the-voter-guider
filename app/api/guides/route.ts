@@ -115,6 +115,7 @@ export async function POST(request: NextRequest) {
         title: body.title,
         author: body.author,
         description: body.description,
+        notes: body.notes || null, // Free-form notes for research/thoughts
         electionId: body.electionId,
         jurisdictionId: body.jurisdictionId,
         precinctId: body.precinctId || null, // Use precinct if provided (smallest unit)
@@ -165,6 +166,7 @@ export async function PATCH(request: NextRequest) {
         title: body.title,
         author: body.author,
         description: body.description,
+        notes: body.notes !== undefined ? body.notes : undefined, // Allow updating notes
         visibility: body.visibility,
         lastAccessedAt: new Date(),
       },

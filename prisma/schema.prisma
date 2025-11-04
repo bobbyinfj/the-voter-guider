@@ -132,6 +132,7 @@ model Guide {
   title          String
   author         String?
   description    String?
+  notes          String? // Free-form notes for research/thoughts to save for future elections
   shareToken     String   @unique @default(cuid())
   visibility     String   @default("private") // "public", "private", "friends"
   isTemplate     Boolean  @default(false) // For pre-made guides

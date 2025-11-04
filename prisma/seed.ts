@@ -66,15 +66,15 @@ async function main() {
     },
   })
 
-  // Spokane Precincts (Spokane County, WA)
-  const spokaneJurisdiction = await prisma.jurisdiction.upsert({
-    where: { fipsCode: '530630' },
+  // Seattle Precincts (King County, WA)
+  const seattleJurisdiction = await prisma.jurisdiction.upsert({
+    where: { fipsCode: '53033' },
     update: {},
     create: {
-      name: 'Spokane Voting Districts',
+      name: 'Seattle Voting Districts',
       state: 'Washington',
-      countyName: 'Spokane',
-      fipsCode: '530630',
+      countyName: 'King',
+      fipsCode: '53033',
       type: 'precinct',
     },
   })
@@ -173,21 +173,21 @@ async function main() {
     createdFCPrecincts.push(created)
   }
 
-  // === SPOKANE PRECINCTS ===
-  const spokanePrecincts = [
-    { number: '1', name: 'Spokane Precinct 1', centerLat: 47.6588, centerLng: -117.4260, zipCodes: ['99201'] },
-    { number: '2', name: 'Spokane Precinct 2', centerLat: 47.6600, centerLng: -117.4240, zipCodes: ['99201'] },
-    { number: '3', name: 'Spokane Precinct 3', centerLat: 47.6570, centerLng: -117.4280, zipCodes: ['99201'] },
-    { number: '4', name: 'Spokane Precinct 4', centerLat: 47.6620, centerLng: -117.4220, zipCodes: ['99202'] },
-    { number: '5', name: 'Spokane Precinct 5', centerLat: 47.6560, centerLng: -117.4300, zipCodes: ['99201'] },
-    { number: '6', name: 'Spokane Precinct 6', centerLat: 47.6640, centerLng: -117.4200, zipCodes: ['99202'] },
+  // === SEATTLE PRECINCTS ===
+  const seattlePrecincts = [
+    { number: '1', name: 'Seattle Precinct 1', centerLat: 47.6062, centerLng: -122.3321, zipCodes: ['98101'] },
+    { number: '2', name: 'Seattle Precinct 2', centerLat: 47.6080, centerLng: -122.3300, zipCodes: ['98101'] },
+    { number: '3', name: 'Seattle Precinct 3', centerLat: 47.6040, centerLng: -122.3340, zipCodes: ['98104'] },
+    { number: '4', name: 'Seattle Precinct 4', centerLat: 47.6100, centerLng: -122.3280, zipCodes: ['98102'] },
+    { number: '5', name: 'Seattle Precinct 5', centerLat: 47.6020, centerLng: -122.3360, zipCodes: ['98104'] },
+    { number: '6', name: 'Seattle Precinct 6', centerLat: 47.6120, centerLng: -122.3260, zipCodes: ['98102'] },
   ]
 
-  const createdSpokanePrecincts = []
-  for (const precinct of spokanePrecincts) {
+  const createdSeattlePrecincts = []
+  for (const precinct of seattlePrecincts) {
     const existing = await prisma.precinct.findFirst({
       where: {
-        jurisdictionId: spokaneJurisdiction.id,
+        jurisdictionId: seattleJurisdiction.id,
         number: precinct.number,
       },
     })
@@ -207,19 +207,19 @@ async function main() {
           data: {
             name: precinct.name,
             number: precinct.number,
-            jurisdictionId: spokaneJurisdiction.id,
+            jurisdictionId: seattleJurisdiction.id,
             centerLat: precinct.centerLat,
             centerLng: precinct.centerLng,
             zipCodes: precinct.zipCodes,
             registeredVoters: Math.floor(Math.random() * 700) + 1200, // Approximate
           },
         })
-    createdSpokanePrecincts.push(created)
+    createdSeattlePrecincts.push(created)
   }
 
   console.log(`✅ Created ${createdMPPrecincts.length} Monterey Park precincts`)
   console.log(`✅ Created ${createdFCPrecincts.length} Fort Collins precincts`)
-  console.log(`✅ Created ${createdSpokanePrecincts.length} Spokane precincts`)
+  console.log(`✅ Created ${createdSeattlePrecincts.length} Seattle precincts`)
 
   // === MONTEREY PARK ELECTION ===
   // Use the first Monterey Park precinct's jurisdiction for the election
@@ -337,31 +337,31 @@ async function main() {
     },
   })
 
-  // === SPOKANE ELECTION ===
-  const spokaneElection = await prisma.election.upsert({
-    where: { id: 'wa-spokane-2025' },
+  // === SEATTLE ELECTION ===
+  const seattleElection = await prisma.election.upsert({
+    where: { id: 'wa-seattle-2025' },
     update: {},
     create: {
-      id: 'wa-spokane-2025',
-      jurisdictionId: spokaneJurisdiction.id,
-      title: 'Spokane General Election - November 2025',
+      id: 'wa-seattle-2025',
+      jurisdictionId: seattleJurisdiction.id,
+      title: 'Seattle General Election - November 2025',
       description: 'City Council election and local ballot measures',
       electionDate: new Date('2025-11-04'),
       type: 'general',
       status: 'upcoming',
-      officialUrl: 'https://www.spokane.gov/elections',
+      officialUrl: 'https://www.seattle.gov/elections',
     },
   })
 
-  // Sample ballot for Spokane (will be replaced with real data if API key is available)
+  // Sample ballot for Seattle (will be replaced with real data if API key is available)
   await prisma.ballot.upsert({
-    where: { id: 'wa-spokane-council-1' },
+    where: { id: 'wa-seattle-council-1' },
     update: {},
     create: {
-      id: 'wa-spokane-council-1',
-      electionId: spokaneElection.id,
+      id: 'wa-seattle-council-1',
+      electionId: seattleElection.id,
       number: 'City Council District 1',
-      title: 'Spokane City Council - District 1 (SAMPLE)',
+      title: 'Seattle City Council - District 1 (SAMPLE)',
       description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Real data will be fetched if GOOGLE_CIVIC_API_KEY is set.',
       type: 'candidate',
       options: ['Candidate A', 'Candidate B', 'Write-in'],
@@ -390,13 +390,13 @@ async function main() {
       const addresses = {
         'Monterey Park Voting Districts': '123 W Garvey Ave, Monterey Park, CA 91754',
         'Fort Collins Voting Districts': '300 Laporte Ave, Fort Collins, CO 80521',
-        'Spokane Voting Districts': '808 W Spokane Falls Blvd, Spokane, WA 99201',
+        'Seattle Voting Districts': '600 4th Ave, Seattle, WA 98104',
       }
       
       const jurisdictions = [
         { id: montereyParkJurisdiction.id, name: 'Monterey Park Voting Districts', electionId: montereyParkElection.id },
         { id: fortCollinsJurisdiction.id, name: 'Fort Collins Voting Districts', electionId: fortCollinsElection.id },
-        { id: spokaneJurisdiction.id, name: 'Spokane Voting Districts', electionId: spokaneElection.id },
+        { id: seattleJurisdiction.id, name: 'Seattle Voting Districts', electionId: seattleElection.id },
       ]
       
       for (const jurisdiction of jurisdictions) {
@@ -488,7 +488,7 @@ async function main() {
   console.log('🎉 Seeding complete!')
   console.log('')
   console.log('📊 Summary:')
-  console.log(`   - Jurisdictions: 3 (Monterey Park, Fort Collins, Spokane - all precinct-level)`)
+  console.log(`   - Jurisdictions: 3 (Monterey Park, Fort Collins, Seattle - all precinct-level)`)
   console.log(`   - Precincts: ${await prisma.precinct.count()}`)
   console.log(`   - Elections: ${await prisma.election.count()}`)
   console.log(`   - Ballot Items: ${await prisma.ballot.count()}`)

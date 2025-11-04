@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import BallotTracker from '@/components/BallotTracker'
-import { Share2, Copy, CheckCircle2, Globe, Lock, Users, Trash2, Eye } from 'lucide-react'
+import { Share2, Copy, CheckCircle2, Globe, Lock, Users, Trash2, Eye, Save } from 'lucide-react'
 
 export default function GuidePage() {
   const params = useParams()
@@ -16,6 +16,8 @@ export default function GuidePage() {
   const [loading, setLoading] = useState(true)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [updatingVisibility, setUpdatingVisibility] = useState(false)
+  const [notes, setNotes] = useState<string>('')
+  const [savingNotes, setSavingNotes] = useState(false)
 
   useEffect(() => {
     fetchGuide()
@@ -31,16 +33,17 @@ export default function GuidePage() {
         if (shareResponse.ok) {
           const shareData = await shareResponse.json()
           setGuide(shareData)
-          // Convert choices array to object
-          const choicesObj: Record<string, { selection: string; notes?: string }> = {}
-          shareData.choices?.forEach((choice: any) => {
-            choicesObj[choice.ballotId] = {
-              selection: choice.selection,
-              notes: choice.notes,
-            }
-          })
-          setChoices(choicesObj)
-          return
+      // Convert choices array to object
+      const choicesObj: Record<string, { selection: string; notes?: string }> = {}
+      shareData.choices?.forEach((choice: any) => {
+        choicesObj[choice.ballotId] = {
+          selection: choice.selection,
+          notes: choice.notes,
+        }
+      })
+      setChoices(choicesObj)
+      setNotes(shareData.notes || '')
+      return
         }
       }
       const data = await response.json()
@@ -57,6 +60,7 @@ export default function GuidePage() {
         }
       })
       setChoices(choicesObj)
+      setNotes(guideData.notes || '')
     } catch (error) {
       console.error('Error fetching guide:', error)
     } finally {
@@ -154,6 +158,34 @@ export default function GuidePage() {
     } catch (error) {
       console.error('Error deleting guide:', error)
       alert('Failed to delete guide')
+    }
+  }
+
+  const handleNotesSave = async () => {
+    if (!guide) return
+
+    setSavingNotes(true)
+    try {
+      const response = await fetch('/api/guides', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: guide.id,
+          notes: notes,
+        }),
+      })
+
+      if (response.ok) {
+        const updatedGuide = await response.json()
+        setGuide(updatedGuide)
+      } else {
+        alert('Failed to save notes')
+      }
+    } catch (error) {
+      console.error('Error saving notes:', error)
+      alert('Failed to save notes')
+    } finally {
+      setSavingNotes(false)
     }
   }
 
@@ -296,6 +328,33 @@ export default function GuidePage() {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Free-form Notes Section */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold text-gray-800">Research & Notes</h2>
+            <button
+              onClick={handleNotesSave}
+              disabled={savingNotes}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            >
+              <Save className="w-4 h-4" />
+              {savingNotes ? 'Saving...' : 'Save Notes'}
+            </button>
+          </div>
+          <p className="text-sm text-gray-600 mb-4">
+            Save your research, thoughts, and information here. These notes will be preserved for future elections.
+          </p>
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            placeholder="Write your research, thoughts, candidate positions, policy notes, or any other information you want to save for future elections..."
+            className="w-full min-h-[200px] px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-y font-mono text-sm"
+          />
+          <p className="text-xs text-gray-500 mt-2">
+            💡 Tip: These notes are saved with your guide and can be referenced for future elections.
+          </p>
         </div>
 
         {guide.election?.ballots && guide.election.ballots.length > 0 ? (
