@@ -145,10 +145,10 @@ Each precinct includes:
 - ZIPs: 80521, 80524, 80525
 - Coordinates: Approximate centers throughout Fort Collins
 
-### Larimer County, Colorado
-- 5 precincts created (unincorporated areas)
-- ZIPs: 80525, 80526
-- Coordinates: Approximate centers throughout Larimer County
+### Seattle, Washington
+- 6 precincts created
+- ZIPs: 98101, 98102, 98104
+- Coordinates: Approximate centers throughout Seattle
 
 ## Next Steps
 
