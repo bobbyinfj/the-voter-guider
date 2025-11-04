@@ -4,6 +4,8 @@
 
 All outstanding issues have been fixed. The repository is now ready to push to GitHub.
 
+**NOTE (2025-11-XX):** This project has been migrated from Supabase to Neon PostgreSQL 17. All Supabase references have been removed. See commit history for migration details.
+
 ## Issues Fixed
 
 ### 1. ✅ Git Status - All Changes Committed

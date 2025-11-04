@@ -10,14 +10,14 @@ fi
 
 export DATABASE_URL=$(awk -F'=' '/^DATABASE_URL=/ {sub(/^[^=]*=/, ""); gsub(/^["'\'']|["'\'']$/, ""); print; exit}' .env.local)
 
-echo "Testing connection to Supabase..."
+echo "Testing connection to PostgreSQL database..."
 echo "Target: $(echo $DATABASE_URL | sed 's/:[^:]*@/:***@/' | sed 's/\/.*//')"
 echo ""
 
 # Try simple connection test using Prisma (it has its own timeout)
 echo "Attempting connection test..."
 echo ""
-npx prisma db execute --stdin <<< "SELECT 1 as test;" 2>&1
+npx prisma db execute --schema=./prisma/schema.prisma --stdin <<< "SELECT 1 as test;" 2>&1
 
 if [ $? -eq 0 ]; then
   echo ""
@@ -27,10 +27,10 @@ else
   echo "❌ Connection failed"
   echo ""
   echo "Possible issues:"
-  echo "  1. Supabase project might be paused (check dashboard)"
+  echo "  1. Database might be paused or unavailable (check Neon dashboard)"
   echo "  2. Network/firewall blocking connection"
   echo "  3. Incorrect DATABASE_URL"
   echo ""
-  echo "Check Supabase Dashboard → Settings → Database"
+  echo "Check your Neon PostgreSQL dashboard → Connection Details"
 fi
 

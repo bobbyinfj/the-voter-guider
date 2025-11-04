@@ -12,16 +12,16 @@
 
 ## Next Steps
 
-1. **Set up database (Supabase - FREE):**
-   - Go to https://supabase.com
-   - Create account and new project
-   - Copy DATABASE_URL from Settings > Database
-   - Add to .env file
+1. **Set up database (Neon PostgreSQL - FREE):**
+   - Go to https://neon.tech
+   - Create account and new project (PostgreSQL 17)
+   - Copy DATABASE_URL from Dashboard > Connection Details
+   - Add to .env.local file
 
 2. **Set environment variables:**
    ```bash
-   cp .env.example .env
-   # Edit .env with your Supabase credentials
+   # Create .env.local with your Neon connection string
+   echo 'DATABASE_URL="YOUR_NEON_CONNECTION_STRING"' > .env.local
    ```
 
 3. **Generate Prisma client:**

@@ -23,12 +23,12 @@ echo "Current DATABASE_URL (first 100 chars):"
 echo "${CURRENT:0:100}..."
 echo ""
 
-# Check if it looks like Supabase Transaction Pooler
-if [[ "$CURRENT" =~ pooler\.supabase\.com.*:6543 ]]; then
-  echo "✅ Looks like Transaction Pooler (port 6543)"
-elif [[ "$CURRENT" =~ db\..*\.supabase\.co.*:5432 ]]; then
-  echo "⚠️  Using direct connection (port 5432)"
-  echo "   Consider switching to Transaction Pooler for better performance"
+# Check if it looks like a valid PostgreSQL connection string
+if [[ "$CURRENT" =~ ^postgresql:// ]]; then
+  echo "✅ Valid PostgreSQL connection string format"
+  if [[ "$CURRENT" =~ neon\.tech ]]; then
+    echo "✅ Detected Neon PostgreSQL"
+  fi
 elif [[ "$CURRENT" =~ @.*: ]]; then
   # Try to parse it
   if node -e "
@@ -57,8 +57,8 @@ else
 fi
 
 echo ""
-echo "If you see 'SX1' or parsing errors, your password needs URL encoding."
+echo "If you see parsing errors, your password may need URL encoding."
 echo ""
-echo "Get a fresh Transaction Pooler URI from Supabase Dashboard:"
-echo "  Settings → Database → Connection pooling → Transaction Pooler URI"
+echo "Get your connection string from Neon Dashboard:"
+echo "  Dashboard → Your Project → Connection Details → Connection String"
 

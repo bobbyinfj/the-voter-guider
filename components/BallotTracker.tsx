@@ -10,6 +10,10 @@ interface BallotItem {
   description?: string
   type: string
   options?: any
+  metadata?: {
+    isSample?: boolean
+    [key: string]: any
+  }
 }
 
 interface BallotTrackerProps {
@@ -57,8 +61,29 @@ export default function BallotTracker({ ballots, guideId, choices, onChoiceChang
     ? Math.round((Object.keys(choices).length / ballots.length) * 100)
     : 0
 
+  const hasSampleData = ballots.some(b => b.metadata?.isSample || b.title?.includes('(SAMPLE)'))
+
   return (
     <div className="space-y-6">
+      {/* Sample Data Warning */}
+      {hasSampleData && (
+        <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
+          <div className="flex items-start gap-3">
+            <div className="text-2xl">⚠️</div>
+            <div className="flex-1">
+              <h4 className="font-semibold text-yellow-900 mb-1">Sample Data - Not Your Real Ballot</h4>
+              <p className="text-sm text-yellow-800 mb-2">
+                These ballot items are <strong>placeholder examples</strong>, not your actual ballot. 
+                To get your real ballot items, go back and click "📥 Fetch Real Ballot Data" button.
+              </p>
+              <p className="text-xs text-yellow-700">
+                You'll need a Google Civic API key (free) and your full address to fetch real data.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Progress Header */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
         <div className="flex items-center justify-between mb-2">
@@ -112,13 +137,20 @@ export default function BallotTracker({ ballots, guideId, choices, onChoiceChang
                     {ballot.number && (
                       <span className="font-semibold text-blue-600">{ballot.number}</span>
                     )}
-                    <h4 className="text-lg font-semibold text-gray-800">{ballot.title}</h4>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      {ballot.title.replace('(SAMPLE)', '')}
+                    </h4>
+                    {(ballot.metadata?.isSample || ballot.title?.includes('(SAMPLE)')) && (
+                      <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded font-medium">
+                        SAMPLE
+                      </span>
+                    )}
                     {isCompleted && (
                       <CheckCircle2 className="w-5 h-5 text-green-500" />
                     )}
                   </div>
                   {ballot.description && (
-                    <p className="text-sm text-gray-600 mt-1">{ballot.description}</p>
+                    <p className="text-sm text-gray-600 mt-1 whitespace-pre-line">{ballot.description}</p>
                   )}
                 </div>
               </div>

@@ -8,14 +8,14 @@
 - ✅ **Easy Sharing**: Share your guide with a simple link - no account required
 - ✅ **Future Proof**: Handles elections across multiple jurisdictions and election cycles
 - ✅ **Professional Maps**: Interactive US map with jurisdiction selection
-- ✅ **Free Services**: Built with Supabase (free tier) and Vercel (free hosting)
+- ✅ **Free Services**: Built with Neon PostgreSQL (free tier) and Vercel (free hosting)
 
 ## Tech Stack
 
 - **Next.js 14+** - App Router with Server Components
 - **TypeScript** - Type-safe development
 - **Prisma** - Database ORM
-- **PostgreSQL** - Via Supabase (free tier)
+- **PostgreSQL** - Via Neon (PostgreSQL 17, free tier)
 - **Tailwind CSS** - Modern styling
 - **Vercel** - Free hosting and deployment
 
@@ -23,13 +23,13 @@
 
 ### 1. Set up environment variables
 
-Create `.env.local` with your Supabase connection:
+Create `.env.local` with your Neon PostgreSQL connection:
 
 ```bash
-echo 'DATABASE_URL="YOUR_SUPABASE_URI"' > .env.local
+echo 'DATABASE_URL="YOUR_NEON_POSTGRES_URI"' > .env.local
 ```
 
-Get your Supabase URI from: Dashboard → Settings → Database → Connection pooling → URI
+Get your Neon connection string from: Dashboard → Connection Details → Connection String
 
 ### 2. Launch
 
@@ -48,13 +48,13 @@ The app will be available at http://localhost:3000
 
 ## Database Setup
 
-### Option 1: Supabase (Recommended - Free)
+### Option 1: Neon PostgreSQL (Recommended - Free)
 
-1. Create account at [supabase.com](https://supabase.com)
-2. Create new project
-3. Go to Settings > Database
+1. Create account at [neon.tech](https://neon.tech)
+2. Create new project (PostgreSQL 17)
+3. Go to Dashboard > Connection Details
 4. Copy the connection string
-5. Update `.env` with `DATABASE_URL`
+5. Update `.env.local` with `DATABASE_URL`
 
 ### Option 2: Local PostgreSQL
 

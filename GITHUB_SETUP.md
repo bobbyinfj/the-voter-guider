@@ -38,14 +38,14 @@
 
 If using GitHub Actions, add secrets:
 - Settings → Secrets and variables → Actions
-- Add: `DATABASE_URL`, `SUPABASE_URL`, etc.
+- Add: `DATABASE_URL` (your Neon PostgreSQL connection string)
 
 ## Next Steps After GitHub Setup
 
 1. ✅ Push code to GitHub
 2. ✅ Connect to Vercel for deployment
-3. ✅ Set up Supabase database
-4. ✅ Add environment variables in Vercel
+3. ✅ Set up Neon PostgreSQL database
+4. ✅ Add environment variables in Vercel (DATABASE_URL)
 5. ✅ Run database migrations
 6. ✅ Seed initial data
 

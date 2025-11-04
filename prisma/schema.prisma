@@ -8,44 +8,77 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // Use connection pooling URL with ?pgbouncer=true for Session mode (supports prepared statements)
-  // Or use directUrl if you have a direct connection string
+  // Neon PostgreSQL 17 - works directly with Prisma, no special connection pooling needed
 }
 
-// Jurisdictions (Counties/States)
+// Jurisdictions (Counties/States/Cities)
 model Jurisdiction {
-  id          String   @id @default(cuid())
-  name        String
-  state       String
-  countyName  String?
-  fipsCode    String?  @unique
-  type        String   @default("county") // county, state, city
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         String   @id @default(cuid())
+  name       String
+  state      String
+  countyName String?
+  fipsCode   String?  @unique
+  type       String   @default("county") // county, state, city
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  elections   Election[]
-  guides      Guide[]
+  elections Election[]
+  guides    Guide[]
+  precincts Precinct[]
 
   @@index([state, countyName])
   @@map("jurisdictions")
 }
 
+// Precincts - smallest voting unit
+model Precinct {
+  id             String       @id @default(cuid())
+  name           String // e.g., "Precinct 1234" or "Precinct 5-12"
+  number         String? // Precinct number/code
+  jurisdictionId String
+  jurisdiction   Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+
+  // Geographic data
+  boundaries Json? // GeoJSON boundaries for the precinct
+  centerLat  Float? // Center latitude for map display
+  centerLng  Float? // Center longitude for map display
+
+  // Address matching
+  addressRange Json? // Address ranges within this precinct
+  zipCodes     String[] // ZIP codes in this precinct
+
+  // Metadata
+  registeredVoters Int? // Number of registered voters
+  metadata         Json? // Additional precinct data
+
+  guides Guide[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([jurisdictionId, number]) // Ensure unique precinct numbers per jurisdiction
+  @@index([jurisdictionId])
+  @@index([number])
+  @@index([centerLat, centerLng])
+  @@map("precincts")
+}
+
 // Elections (upcoming or past)
 model Election {
-  id              String   @id @default(cuid())
-  jurisdictionId  String
-  title           String
-  description     String?
-  electionDate     DateTime
-  type            String   // primary, general, special, etc.
-  status          String   @default("upcoming") // upcoming, active, completed
-  officialUrl     String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id             String   @id @default(cuid())
+  jurisdictionId String
+  title          String
+  description    String?
+  electionDate   DateTime
+  type           String // primary, general, special, etc.
+  status         String   @default("upcoming") // upcoming, active, completed
+  officialUrl    String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
-  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
-  ballots         Ballot[]
-  guides          Guide[]
+  jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  ballots      Ballot[]
+  guides       Guide[]
 
   @@index([jurisdictionId, electionDate])
   @@index([status, electionDate])
@@ -56,17 +89,17 @@ model Election {
 model Ballot {
   id          String   @id @default(cuid())
   electionId  String
-  number      String?  // e.g., "Prop 50", "Measure 1"
+  number      String? // e.g., "Prop 50", "Measure 1"
   title       String
   description String?
-  type        String   // proposition, measure, candidate, referendum, etc.
-  options     Json?    // For measures: YES/NO, For candidates: array of candidates
-  metadata    Json?    // Additional data (tax rates, funding amounts, etc.)
+  type        String // proposition, measure, candidate, referendum, etc.
+  options     Json? // For measures: YES/NO, For candidates: array of candidates
+  metadata    Json? // Additional data (tax rates, funding amounts, etc.)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  election    Election @relation(fields: [electionId], references: [id], onDelete: Cascade)
-  choices     Choice[]
+  election Election @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  choices  Choice[]
 
   @@index([electionId])
   @@map("ballots")
@@ -74,60 +107,63 @@ model Ballot {
 
 // User's voting choices
 model Choice {
-  id          String   @id @default(cuid())
-  guideId     String
-  ballotId    String
-  selection   String   // YES, NO, candidate name, abstain, etc.
-  notes       String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(cuid())
+  guideId   String
+  ballotId  String
+  selection String // YES, NO, candidate name, abstain, etc.
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  guide       Guide    @relation(fields: [guideId], references: [id], onDelete: Cascade)
-  ballot      Ballot   @relation(fields: [ballotId], references: [id], onDelete: Cascade)
+  guide  Guide  @relation(fields: [guideId], references: [id], onDelete: Cascade)
+  ballot Ballot @relation(fields: [ballotId], references: [id], onDelete: Cascade)
 
   @@unique([guideId, ballotId])
   @@index([guideId])
   @@map("choices")
 }
 
-// Voter Guides
+// Voter Guides - now based on precinct (smallest unit)
 model Guide {
-  id              String   @id @default(cuid())
-  electionId      String
-  jurisdictionId  String
-  title           String
-  author          String?
-  description     String?
-  shareToken      String   @unique @default(cuid())
-  isPublic        Boolean  @default(false)
-  isTemplate      Boolean  @default(false) // For pre-made guides
-  sessionId       String?  // For anonymous users
-  userId          String?  // For registered users (future)
-  metadata        Json?    // Additional guide data
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id             String   @id @default(cuid())
+  electionId     String
+  jurisdictionId String
+  precinctId     String? // Precinct-based guide (preferred)
+  title          String
+  author         String?
+  description    String?
+  shareToken     String   @unique @default(cuid())
+  visibility     String   @default("private") // "public", "private", "friends"
+  isTemplate     Boolean  @default(false) // For pre-made guides
+  sessionId      String? // For anonymous users
+  userId         String? // For registered users (future)
+  metadata       Json? // Additional guide data (address, etc.)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
   lastAccessedAt DateTime @default(now())
 
-  election        Election     @relation(fields: [electionId], references: [id], onDelete: Cascade)
-  jurisdiction    Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
-  choices         Choice[]
+  election     Election     @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  precinct     Precinct?    @relation(fields: [precinctId], references: [id], onDelete: SetNull)
+  choices      Choice[]
 
   @@index([electionId])
+  @@index([precinctId])
   @@index([shareToken])
   @@index([sessionId])
-  @@index([isPublic, isTemplate])
+  @@index([visibility])
   @@map("guides")
 }
 
 // Analytics (for tracking guide views/shares)
 model GuideAnalytics {
-  id          String   @id @default(cuid())
-  guideId     String
-  eventType   String   // view, share, download, etc.
-  ipAddress   String?
-  userAgent   String?
-  referrer    String?
-  createdAt   DateTime @default(now())
+  id        String   @id @default(cuid())
+  guideId   String
+  eventType String // view, share, download, etc.
+  ipAddress String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
 
   @@index([guideId, createdAt])
   @@map("guide_analytics")

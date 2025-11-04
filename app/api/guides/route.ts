@@ -4,30 +4,54 @@ import { prisma } from '@/lib/prisma'
 import { getSessionId } from '@/lib/session'
 import { handleApiError } from '@/lib/errors'
 
-// GET - Fetch guides for current session or by shareToken
+// GET - Fetch guides for current session or by shareToken or id
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const shareToken = searchParams.get('shareToken')
+    const guideId = searchParams.get('id')
     const sessionId = searchParams.get('sessionId') || await getSessionId()
+
+    // Common include structure
+    const includeStructure = {
+      choices: {
+        include: {
+          ballot: true,
+        },
+      },
+      election: {
+        include: {
+          ballots: {
+            orderBy: { number: 'asc' },
+          },
+          jurisdiction: true, // Include jurisdiction through election as fallback
+        },
+      },
+      jurisdiction: true, // Direct jurisdiction relation
+    }
+
+    if (guideId) {
+      // Fetch guide by ID
+      const guide = await prisma.guide.findUnique({
+        where: { id: guideId },
+        include: includeStructure,
+      })
+
+      if (!guide) {
+        return NextResponse.json(
+          { error: 'Guide not found' },
+          { status: 404 }
+        )
+      }
+
+      return NextResponse.json(guide)
+    }
 
     if (shareToken) {
       // Fetch shared guide
       const guide = await prisma.guide.findUnique({
         where: { shareToken },
-        include: {
-          choices: {
-            include: {
-              ballot: true,
-            },
-          },
-          election: {
-            include: {
-              ballots: true,
-            },
-          },
-          jurisdiction: true,
-        },
+        include: includeStructure,
       })
 
       if (!guide) {
@@ -38,12 +62,17 @@ export async function GET(request: NextRequest) {
       }
 
       // Track analytics
-      await prisma.guideAnalytics.create({
-        data: {
-          guideId: guide.id,
-          eventType: 'view',
-        },
-      })
+      try {
+        await prisma.guideAnalytics.create({
+          data: {
+            guideId: guide.id,
+            eventType: 'view',
+          },
+        })
+      } catch (error) {
+        // Ignore analytics errors
+        console.warn('Failed to track analytics:', error)
+      }
 
       return NextResponse.json(guide)
     }
@@ -74,7 +103,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST - Create new guide
+// POST - Create new guide (precinct-based preferred)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -87,11 +116,22 @@ export async function POST(request: NextRequest) {
         description: body.description,
         electionId: body.electionId,
         jurisdictionId: body.jurisdictionId,
+        precinctId: body.precinctId || null, // Use precinct if provided (smallest unit)
         sessionId,
-        isPublic: body.isPublic || false,
+        visibility: body.visibility || 'private', // public, private, or friends
+        metadata: body.metadata || null,
       },
       include: {
         election: {
+          include: {
+            jurisdiction: true,
+            ballots: {
+              orderBy: { number: 'asc' },
+            },
+          },
+        },
+        jurisdiction: true,
+        precinct: {
           include: {
             jurisdiction: true,
           },
@@ -124,7 +164,7 @@ export async function PATCH(request: NextRequest) {
         title: body.title,
         author: body.author,
         description: body.description,
-        isPublic: body.isPublic,
+        visibility: body.visibility,
         lastAccessedAt: new Date(),
       },
     })

@@ -5,8 +5,7 @@
   "framework": "nextjs",
   "env": {
     "DATABASE_URL": "@database-url",
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key"
+    "GOOGLE_CIVIC_API_KEY": "@google-civic-api-key"
   }
 }
 

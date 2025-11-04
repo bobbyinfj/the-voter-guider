@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import USMap from '@/components/map/USMap'
+import Image from 'next/image'
+import RealUSMap from '@/components/map/RealUSMap'
 import { MapPin, Calendar, FileText, ArrowRight } from 'lucide-react'
 
 interface Jurisdiction {
@@ -88,7 +89,17 @@ export default function HomePage() {
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-gray-800">The VoTer GuidEr</h1>
+            <div className="flex items-center gap-4">
+              <Image
+                src="/moleses-2.png"
+                alt="Moleses"
+                width={80}
+                height={80}
+                className="object-contain"
+                priority
+              />
+              <h1 className="text-2xl font-bold text-gray-800">The VoTer GuidEr</h1>
+            </div>
             <nav className="flex gap-4">
               <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">Home</Link>
               <Link href="/guides" className="text-gray-600 hover:text-gray-800 font-medium">My Guides</Link>
@@ -101,21 +112,33 @@ export default function HomePage() {
       {/* Hero Section */}
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Track Your Voting Choices
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Create personalized voter guides for upcoming elections. Save your choices, 
-            add notes, and easily share with others.
-          </p>
+          <div className="flex items-center justify-center gap-6 mb-6">
+            <Image
+              src="/moleses-1.png"
+              alt="Moleses"
+              width={200}
+              height={133}
+              className="object-contain"
+              priority
+            />
+            <div>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                Track Your Voting Choices
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Create personalized voter guides for upcoming elections. Save your choices, 
+                add notes, and easily share with others.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Interactive Map */}
+        {/* Interactive Real Map */}
         <div className="mb-12">
           <h3 className="text-2xl font-semibold text-center mb-6 text-gray-800">
             Select Your Jurisdiction
           </h3>
-          <USMap
+          <RealUSMap
             selectedJurisdiction={selectedJurisdiction || undefined}
             onJurisdictionSelect={handleJurisdictionSelect}
             jurisdictions={jurisdictions}

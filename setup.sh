@@ -18,7 +18,7 @@ echo "📝 Step 2: Setting up environment file..."
 if [ ! -f .env ]; then
   cp .env.example .env
   echo "✅ Created .env file from template"
-  echo "⚠️  IMPORTANT: Edit .env and add your DATABASE_URL from Supabase"
+  echo "⚠️  IMPORTANT: Edit .env and add your DATABASE_URL from Neon PostgreSQL"
 else
   echo "✅ .env file already exists"
 fi
@@ -27,7 +27,7 @@ fi
 echo ""
 echo "🔍 Step 3: Checking database configuration..."
 if grep -q "DATABASE_URL=\"postgresql://user:password@" .env 2>/dev/null; then
-  echo "⚠️  DATABASE_URL appears to be a template - update it with your actual Supabase URL"
+  echo "⚠️  DATABASE_URL appears to be a template - update it with your actual Neon PostgreSQL URL"
   SKIP_DB=true
 elif grep -q "DATABASE_URL=" .env 2>/dev/null; then
   echo "✅ DATABASE_URL found in .env"
@@ -70,10 +70,10 @@ echo ""
 echo "Next steps:"
 echo ""
 if [ "$SKIP_DB" = true ]; then
-  echo "1. Set up Supabase database:"
-  echo "   - Go to https://supabase.com"
+  echo "1. Set up Neon PostgreSQL database:"
+  echo "   - Go to https://neon.tech"
   echo "   - Create new project"
-  echo "   - Copy DATABASE_URL from Settings > Database"
+  echo "   - Copy DATABASE_URL from Dashboard > Connection Details"
   echo "   - Update .env file with your DATABASE_URL"
   echo ""
   echo "2. Run database migrations:"

@@ -2,18 +2,54 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import USMap from '@/components/map/USMap'
+import Image from 'next/image'
+import RealUSMap from '@/components/map/RealUSMap'
+import PrecinctMap from '@/components/map/PrecinctMap'
 import BallotTracker from '@/components/BallotTracker'
+
+interface Jurisdiction {
+  id: string
+  name: string
+  state: string
+  countyName?: string
+  fipsCode?: string
+  precincts?: Array<{
+    id: string
+    name: string
+    number?: string
+    centerLat?: number
+    centerLng?: number
+  }>
+}
 
 export default function NewGuidePage() {
   const router = useRouter()
+  const [jurisdictions, setJurisdictions] = useState<Jurisdiction[]>([])
   const [selectedJurisdiction, setSelectedJurisdiction] = useState<string | null>(null)
+  const [selectedPrecinct, setSelectedPrecinct] = useState<string | null>(null)
   const [elections, setElections] = useState<any[]>([])
   const [selectedElection, setSelectedElection] = useState<any | null>(null)
   const [guideTitle, setGuideTitle] = useState('')
   const [guideAuthor, setGuideAuthor] = useState('')
   const [guideId, setGuideId] = useState<string | null>(null)
   const [choices, setChoices] = useState<Record<string, { selection: string; notes?: string }>>({})
+  const [showPrecinctMap, setShowPrecinctMap] = useState(false)
+
+  // Fetch jurisdictions on mount
+  useEffect(() => {
+    const fetchJurisdictions = async () => {
+      try {
+        const response = await fetch('/api/jurisdictions')
+        const data = await response.json()
+        if (response.ok && Array.isArray(data)) {
+          setJurisdictions(data)
+        }
+      } catch (error) {
+        console.error('Error fetching jurisdictions:', error)
+      }
+    }
+    fetchJurisdictions()
+  }, [])
 
   const handleJurisdictionSelect = async (jurisdictionId: string) => {
     setSelectedJurisdiction(jurisdictionId)
@@ -51,6 +87,7 @@ export default function NewGuidePage() {
           author: guideAuthor,
           electionId: selectedElection.id,
           jurisdictionId: selectedJurisdiction,
+          precinctId: selectedPrecinct || undefined, // Use precinct if available
         }),
       })
       const guide = await response.json()
@@ -58,6 +95,47 @@ export default function NewGuidePage() {
       router.push(`/guide/${guide.id}`)
     } catch (error) {
       console.error('Error creating guide:', error)
+    }
+  }
+
+  const handlePrecinctSelect = (precinctId: string) => {
+    setSelectedPrecinct(precinctId)
+    setShowPrecinctMap(false)
+  }
+
+  const handleFetchRealBallot = async () => {
+    if (!selectedJurisdiction) {
+      alert('Please select a jurisdiction first')
+      return
+    }
+
+    const address = prompt('Enter your full address to fetch real ballot data:\n(e.g., "123 Main St, Monterey Park, CA 91754")')
+    if (!address || !address.trim()) return
+
+    try {
+      const response = await fetch('/api/fetch-real-ballot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          address: address.trim(),
+          jurisdictionId: selectedJurisdiction,
+        }),
+      })
+
+      const data = await response.json()
+      if (response.ok && data.success) {
+        // Refresh elections list to show the updated data
+        await handleJurisdictionSelect(selectedJurisdiction)
+        alert(`✅ Successfully fetched real ballot data!\n\nFound ${data.ballots?.length || 0} ballot items.\n\nRefresh the page to see the updated elections.`)
+      } else {
+        const errorMsg = data.error || 'Failed to fetch ballot data'
+        const details = data.message || data.details || ''
+        const suggestion = data.suggestion || ''
+        alert(`❌ ${errorMsg}\n\n${details}\n\n${suggestion}\n\nNote: You need a Google Civic API key in .env.local to use this feature.`)
+      }
+    } catch (error) {
+      console.error('Error fetching real ballot:', error)
+      alert(`Error fetching real ballot data: ${error instanceof Error ? error.message : 'Unknown error'}\n\nCheck the console for details.`)
     }
   }
 
@@ -88,36 +166,94 @@ export default function NewGuidePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">Create New Voter Guide</h1>
+        {/* Header with Moleses */}
+        <div className="flex items-center justify-center gap-6 mb-8">
+          <Image
+            src="/moleses-1.png"
+            alt="Moleses"
+            width={200}
+            height={133}
+            className="object-contain"
+            priority
+          />
+          <h1 className="text-3xl font-bold text-gray-800">Create New Voter Guide</h1>
+        </div>
 
         {!selectedJurisdiction ? (
           <div>
             <h2 className="text-xl font-semibold mb-4 text-gray-700">Select Your Jurisdiction</h2>
-            <USMap
+            <RealUSMap
+              jurisdictions={jurisdictions}
               onJurisdictionSelect={handleJurisdictionSelect}
+              selectedJurisdiction={selectedJurisdiction || undefined}
             />
           </div>
         ) : !selectedElection ? (
           <div>
-            <h2 className="text-xl font-semibold mb-4 text-gray-700">Select Election</h2>
-            <div className="grid gap-4 md:grid-cols-2">
-              {elections.map((election) => (
-                <button
-                  key={election.id}
-                  onClick={() => setSelectedElection(election)}
-                  className="bg-white rounded-lg border-2 border-gray-200 p-6 text-left hover:border-blue-500 transition-colors"
-                >
-                  <h3 className="text-lg font-semibold mb-2">{election.title}</h3>
-                  <p className="text-sm text-gray-600">
-                    {new Date(election.electionDate).toLocaleDateString()}
+            {/* Show Precinct Selection First */}
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold mb-4 text-gray-700">Select Your Precinct (Optional)</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Select your specific precinct for more accurate ballot information, or skip to see all elections.
+              </p>
+              
+              <PrecinctMap
+                jurisdictionId={selectedJurisdiction}
+                onPrecinctSelect={handlePrecinctSelect}
+                selectedPrecinctId={selectedPrecinct || undefined}
+              />
+              
+              {selectedPrecinct && (
+                <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-sm text-green-800">
+                    ✓ Precinct selected. You can continue to select an election below.
                   </p>
-                  {election.ballots && (
-                    <p className="text-sm text-gray-500 mt-2">
-                      {election.ballots.length} ballot items
-                    </p>
-                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="border-t pt-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-semibold text-gray-700">Select Election</h2>
+                <button
+                  onClick={handleFetchRealBallot}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  title="Fetch real ballot data from Google Civic Information API"
+                >
+                  📥 Fetch Real Ballot Data
                 </button>
-              ))}
+              </div>
+              <p className="text-sm text-gray-600 mb-4">
+                Current elections are sample data. Click "Fetch Real Ballot Data" to get your actual ballot items.
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                {elections.length > 0 ? (
+                  elections.map((election) => (
+                    <button
+                      key={election.id}
+                      onClick={() => setSelectedElection(election)}
+                      className="bg-white rounded-lg border-2 border-gray-200 p-6 text-left hover:border-blue-500 transition-colors"
+                    >
+                      <h3 className="text-lg font-semibold mb-2">{election.title}</h3>
+                      <p className="text-sm text-gray-600">
+                        {new Date(election.electionDate).toLocaleDateString()}
+                      </p>
+                      {election.ballots && (
+                        <p className="text-sm text-gray-500 mt-2">
+                          {election.ballots.length} ballot items
+                        </p>
+                      )}
+                    </button>
+                  ))
+                ) : (
+                  <div className="col-span-2 p-6 bg-gray-50 rounded-lg text-center">
+                    <p className="text-gray-600">No elections found for this jurisdiction.</p>
+                    <p className="text-sm text-gray-500 mt-2">
+                      Elections may need to be created or data needs to be fetched from APIs.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ) : !guideId ? (

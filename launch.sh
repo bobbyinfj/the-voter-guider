@@ -10,9 +10,9 @@ if [ ! -f .env.local ]; then
   echo "❌ .env.local not found"
   echo ""
   echo "Create it with:"
-  echo "  echo 'DATABASE_URL=\"YOUR_SUPABASE_URI\"' > .env.local"
+  echo "  echo 'DATABASE_URL=\"YOUR_NEON_POSTGRES_URI\"' > .env.local"
   echo ""
-  echo "Get your Supabase URI from: Dashboard → Settings → Database → Connection pooling → URI"
+  echo "Get your Neon PostgreSQL connection string from: Dashboard → Connection Details"
   exit 1
 fi
 
@@ -29,13 +29,6 @@ fi
 if [[ ! "$DATABASE_URL" =~ ^postgresql:// ]]; then
   echo "❌ Invalid DATABASE_URL format (must start with postgresql://)"
   exit 1
-fi
-
-# Check if it's a Supabase URL (accepts both .com and .co domains)
-if [[ ! "$DATABASE_URL" =~ (supabase\.com|supabase\.co) ]]; then
-  echo "⚠️  Warning: DATABASE_URL doesn't appear to be a Supabase URL"
-  echo "   Continuing anyway - if connection fails, check your DATABASE_URL"
-  echo ""
 fi
 
 export DATABASE_URL
@@ -58,20 +51,8 @@ echo "   Connecting to: $(echo $DATABASE_URL | sed 's/:[^:]*@/:***@/')"
 echo "   (This may take 10-30 seconds on first connection...)"
 export DATABASE_URL
 
-# Convert Transaction Pooler to Session Pooler for migrations
-# Transaction Pooler doesn't support prepared statements, but Session Pooler does
-if [[ "$DATABASE_URL" =~ pooler\.supabase\.com ]] && [[ ! "$DATABASE_URL" =~ pgbouncer=true ]]; then
-  # Add ?pgbouncer=true to use Session Pooler mode (supports prepared statements)
-  if [[ "$DATABASE_URL" =~ \? ]]; then
-    # Already has query params, append
-    DATABASE_URL="${DATABASE_URL}&pgbouncer=true"
-  else
-    # No query params, add it
-    DATABASE_URL="${DATABASE_URL}?pgbouncer=true"
-  fi
-  export DATABASE_URL
-  echo "   Using Session Pooler mode for migrations (supports prepared statements)..."
-fi
+# Neon PostgreSQL works directly with Prisma migrations
+# No special connection string modifications needed
 
 # Run prisma db push (Prisma has its own timeout handling)
 npx prisma db push --skip-generate --accept-data-loss
