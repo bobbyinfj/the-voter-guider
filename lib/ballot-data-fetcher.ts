@@ -208,16 +208,26 @@ export function getSampleBallotData(
   if (jurisdictionLower.includes('seattle') && state === 'Washington') {
     return [
       {
-        number: 'Issue 1A',
-        title: 'Transportation Funding Measure',
-        description: 'Shall Larimer County taxes be increased $15,000,000 annually by the imposition of a 0.15% sales and use tax for transportation infrastructure improvements? Tax exempts groceries, gasoline, diapers, and prescription drugs. Duration: 15 years.',
+        number: 'Proposition 1',
+        title: 'Transportation Levy',
+        description: 'Shall Seattle adopt a transportation levy to fund street improvements, transit, and bike/pedestrian infrastructure?',
         type: 'measure',
         options: ['YES', 'NO'],
         metadata: {
-          taxRate: '0.15%',
-          revenue: '$15 million annually',
-          duration: '15 years',
-          exemptions: ['groceries', 'gasoline', 'diapers', 'prescription drugs'],
+          taxRate: 'Property tax levy',
+          purpose: 'Transportation infrastructure',
+          duration: '10 years',
+        },
+      },
+      {
+        number: 'City Council District 1',
+        title: 'Seattle City Council - District 1',
+        description: 'Vote for one candidate for City Council Member representing District 1. Term: 4 years.',
+        type: 'candidate',
+        options: ['Candidate A', 'Candidate B', 'Write-in'],
+        metadata: {
+          term: '4 years',
+          district: 'District 1',
         },
       },
     ]
