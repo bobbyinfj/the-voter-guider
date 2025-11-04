@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import Header from '@/components/Header'
 import RealUSMap from '@/components/map/RealUSMap'
 import PrecinctMap from '@/components/map/PrecinctMap'
 import BallotTracker from '@/components/BallotTracker'
@@ -165,18 +165,14 @@ export default function NewGuidePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <Header />
+      
       <div className="container mx-auto px-4 py-8">
-        {/* Header with Moleses */}
-        <div className="flex items-center justify-center gap-6 mb-8">
-          <Image
-            src="/moleses-1.png"
-            alt="Moleses"
-            width={200}
-            height={133}
-            className="object-contain"
-            priority
-          />
+        {/* Page Title */}
+        <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Create New Voter Guide</h1>
+          <p className="text-gray-600 mt-2">Select your jurisdiction and election to create a personalized voting guide</p>
         </div>
 
         {!selectedJurisdiction ? (

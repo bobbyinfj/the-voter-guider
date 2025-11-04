@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import Header from '@/components/Header'
 import BallotTracker from '@/components/BallotTracker'
 import { Share2, Copy, CheckCircle2, Globe, Lock, Users, Trash2, Eye } from 'lucide-react'
 
@@ -177,6 +178,9 @@ export default function GuidePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <Header />
+
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex items-start justify-between mb-4">

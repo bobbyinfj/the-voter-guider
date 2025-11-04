@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Header from '@/components/Header'
 import RealUSMap from '@/components/map/RealUSMap'
 import { MapPin, Calendar, FileText, ArrowRight } from 'lucide-react'
 
@@ -86,28 +87,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Image
-                src="/moleses-2.png"
-                alt="Moleses"
-                width={80}
-                height={80}
-                className="object-contain"
-                priority
-              />
-              <h1 className="text-2xl font-bold text-gray-800">The VoTer GuidEr</h1>
-            </div>
-            <nav className="flex gap-4">
-              <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">Home</Link>
-              <Link href="/guides" className="text-gray-600 hover:text-gray-800 font-medium">My Guides</Link>
-              <Link href="/guide/new" className="text-blue-600 hover:text-blue-800 font-medium">New Guide</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <main className="container mx-auto px-4 py-12">
