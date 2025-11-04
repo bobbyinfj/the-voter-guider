@@ -113,8 +113,10 @@ export function convertGoogleCivicToBallotItems(contests: GoogleCivicContest[]):
   const ballotItems: BallotItem[] = []
 
   for (const contest of contests) {
-    if (contest.type === 'Referendum') {
+    // Handle Referendum types
+    if (contest.type === 'Referendum' || contest.referendumTitle || contest.referendumText) {
       ballotItems.push({
+        number: contest.title?.match(/^(Proposition|Measure|Issue|Prop)\s+([A-Z0-9]+)/i)?.[2],
         title: contest.referendumTitle || contest.title || 'Referendum',
         description: contest.referendumSubtitle || contest.referendumText || contest.description || '',
         type: 'referendum',
@@ -124,15 +126,16 @@ export function convertGoogleCivicToBallotItems(contests: GoogleCivicContest[]):
           type: contest.type,
         },
       })
-    } else if (contest.type === 'General' || contest.type === 'Primary' || contest.office) {
-      // Candidate race
+    } 
+    // Handle candidate races (offices)
+    else if (contest.office || contest.type === 'General' || contest.type === 'Primary' || contest.candidates) {
       const candidates = contest.candidates?.map((c) => c.name) || []
       ballotItems.push({
         number: contest.office,
         title: contest.office || contest.title || 'Office',
         description: contest.description || '',
         type: 'candidate',
-        options: [...candidates, 'Write-in'],
+        options: candidates.length > 0 ? [...candidates, 'Write-in'] : ['Write-in'],
         metadata: {
           source: 'Google Civic Information API',
           type: contest.type,
@@ -147,9 +150,11 @@ export function convertGoogleCivicToBallotItems(contests: GoogleCivicContest[]):
           })),
         },
       })
-    } else if (contest.type === 'BallotMeasure' || contest.type === 'Proposition') {
+    } 
+    // Handle Ballot Measures and Propositions
+    else if (contest.type === 'BallotMeasure' || contest.type === 'Proposition' || contest.type === 'Measure') {
       ballotItems.push({
-        number: contest.title?.match(/^(Proposition|Measure|Issue)\s+([A-Z0-9]+)/i)?.[2],
+        number: contest.title?.match(/^(Proposition|Measure|Issue|Prop)\s+([A-Z0-9]+)/i)?.[2],
         title: contest.referendumTitle || contest.title || 'Ballot Measure',
         description: contest.referendumText || contest.referendumSubtitle || contest.description || '',
         type: 'measure',
@@ -157,6 +162,21 @@ export function convertGoogleCivicToBallotItems(contests: GoogleCivicContest[]):
         metadata: {
           source: 'Google Civic Information API',
           type: contest.type,
+        },
+      })
+    }
+    // Fallback: handle any other contest types
+    else {
+      console.warn(`Unknown contest type: ${contest.type}`, contest)
+      ballotItems.push({
+        title: contest.title || contest.office || 'Ballot Item',
+        description: contest.description || '',
+        type: 'referendum',
+        options: ['YES', 'NO'],
+        metadata: {
+          source: 'Google Civic Information API',
+          type: contest.type,
+          raw: contest,
         },
       })
     }
