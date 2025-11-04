@@ -41,10 +41,35 @@ This will:
 - Validate your DATABASE_URL
 - Generate Prisma client
 - Set up database schema
-- Seed initial data
 - Start the dev server
 
 The app will be available at http://localhost:3000
+
+### 3. Seed initial data (one-time setup)
+
+After the first launch, seed the database with initial jurisdictions and elections:
+
+```bash
+npm run seed
+```
+
+This creates sample jurisdictions (Monterey Park, CA; Fort Collins, CO; Seattle, WA) with precincts and elections.
+
+### 4. Populate real ballot data (optional)
+
+To fetch real ballot data from Google Civic Information API, add your API key to `.env.local`:
+
+```bash
+echo 'GOOGLE_CIVIC_API_KEY="YOUR_API_KEY"' >> .env.local
+```
+
+Then run:
+
+```bash
+npm run data:populate-ballots
+```
+
+This will replace any sample ballot data with real data from the API.
 
 ## Database Setup
 

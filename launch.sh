@@ -57,11 +57,6 @@ export DATABASE_URL
 # Run prisma db push (Prisma has its own timeout handling)
 npx prisma db push --skip-generate --accept-data-loss
 
-# Seed data (if needed)
-echo ""
-echo "🌱 Seeding data..."
-npm run seed || true
-
 # Start server
 echo ""
 echo "🚀 Starting server at http://localhost:3000"
