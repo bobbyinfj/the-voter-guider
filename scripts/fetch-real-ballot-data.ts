@@ -18,7 +18,7 @@ const prisma = new PrismaClient()
 const sampleAddresses = {
   'Monterey Park': '123 W Garvey Ave, Monterey Park, CA 91754',
   'Fort Collins': '300 Laporte Ave, Fort Collins, CO 80521',
-  'Larimer County': '200 W Oak St, Fort Collins, CO 80521', // Use Fort Collins address for Larimer County
+  'Spokane': '808 W Spokane Falls Blvd, Spokane, WA 99201',
 }
 
 async function fetchAndStoreBallotData(jurisdictionName: string, address: string, jurisdictionId: string) {
@@ -128,7 +128,7 @@ async function main() {
   const jurisdictions = await prisma.jurisdiction.findMany({
     where: {
       name: {
-        in: ['Monterey Park Voting Districts', 'Fort Collins Voting Districts', 'Larimer County Voting Districts'],
+        in: ['Monterey Park Voting Districts', 'Fort Collins Voting Districts', 'Spokane Voting Districts'],
       },
     },
   })
@@ -142,7 +142,7 @@ async function main() {
   const jurisdictionMap: Record<string, string> = {
     'Monterey Park Voting Districts': sampleAddresses['Monterey Park'],
     'Fort Collins Voting Districts': sampleAddresses['Fort Collins'],
-    'Larimer County Voting Districts': sampleAddresses['Larimer County'],
+    'Spokane Voting Districts': sampleAddresses['Spokane'],
   }
 
   for (const jurisdiction of jurisdictions) {
@@ -168,5 +168,6 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
+
 
 

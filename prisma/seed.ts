@@ -66,16 +66,16 @@ async function main() {
     },
   })
 
-  // Larimer County Precincts (CO)
-  const larimerJurisdiction = await prisma.jurisdiction.upsert({
-    where: { fipsCode: '08069' },
+  // Spokane Precincts (Spokane County, WA)
+  const spokaneJurisdiction = await prisma.jurisdiction.upsert({
+    where: { fipsCode: '530630' },
     update: {},
     create: {
-      name: 'Larimer County Voting Districts',
-      state: 'Colorado',
-      countyName: 'Larimer',
-      fipsCode: '08069',
-      type: 'precinct', // Changed from 'county' to 'precinct'
+      name: 'Spokane Voting Districts',
+      state: 'Washington',
+      countyName: 'Spokane',
+      fipsCode: '530630',
+      type: 'precinct',
     },
   })
 
@@ -173,20 +173,21 @@ async function main() {
     createdFCPrecincts.push(created)
   }
 
-  // === LARIMER COUNTY PRECINCTS (unincorporated areas) ===
-  const larimerPrecincts = [
-    { number: '201', name: 'Larimer County Precinct 201', centerLat: 40.5850, centerLng: -105.0900, zipCodes: ['80525', '80526'] },
-    { number: '202', name: 'Larimer County Precinct 202', centerLat: 40.6000, centerLng: -105.1000, zipCodes: ['80526'] },
-    { number: '203', name: 'Larimer County Precinct 203', centerLat: 40.5700, centerLng: -105.0950, zipCodes: ['80525'] },
-    { number: '204', name: 'Larimer County Precinct 204', centerLat: 40.6100, centerLng: -105.1050, zipCodes: ['80526'] },
-    { number: '205', name: 'Larimer County Precinct 205', centerLat: 40.5600, centerLng: -105.1000, zipCodes: ['80525'] },
+  // === SPOKANE PRECINCTS ===
+  const spokanePrecincts = [
+    { number: '1', name: 'Spokane Precinct 1', centerLat: 47.6588, centerLng: -117.4260, zipCodes: ['99201'] },
+    { number: '2', name: 'Spokane Precinct 2', centerLat: 47.6600, centerLng: -117.4240, zipCodes: ['99201'] },
+    { number: '3', name: 'Spokane Precinct 3', centerLat: 47.6570, centerLng: -117.4280, zipCodes: ['99201'] },
+    { number: '4', name: 'Spokane Precinct 4', centerLat: 47.6620, centerLng: -117.4220, zipCodes: ['99202'] },
+    { number: '5', name: 'Spokane Precinct 5', centerLat: 47.6560, centerLng: -117.4300, zipCodes: ['99201'] },
+    { number: '6', name: 'Spokane Precinct 6', centerLat: 47.6640, centerLng: -117.4200, zipCodes: ['99202'] },
   ]
 
-  const createdLarimerPrecincts = []
-  for (const precinct of larimerPrecincts) {
+  const createdSpokanePrecincts = []
+  for (const precinct of spokanePrecincts) {
     const existing = await prisma.precinct.findFirst({
       where: {
-        jurisdictionId: larimerJurisdiction.id,
+        jurisdictionId: spokaneJurisdiction.id,
         number: precinct.number,
       },
     })
@@ -199,26 +200,26 @@ async function main() {
             centerLat: precinct.centerLat,
             centerLng: precinct.centerLng,
             zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 600) + 800,
+            registeredVoters: Math.floor(Math.random() * 700) + 1200,
           },
         })
       : await prisma.precinct.create({
           data: {
             name: precinct.name,
             number: precinct.number,
-            jurisdictionId: larimerJurisdiction.id,
+            jurisdictionId: spokaneJurisdiction.id,
             centerLat: precinct.centerLat,
             centerLng: precinct.centerLng,
             zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 600) + 800, // Approximate
+            registeredVoters: Math.floor(Math.random() * 700) + 1200, // Approximate
           },
         })
-    createdLarimerPrecincts.push(created)
+    createdSpokanePrecincts.push(created)
   }
 
   console.log(`✅ Created ${createdMPPrecincts.length} Monterey Park precincts`)
   console.log(`✅ Created ${createdFCPrecincts.length} Fort Collins precincts`)
-  console.log(`✅ Created ${createdLarimerPrecincts.length} Larimer County precincts`)
+  console.log(`✅ Created ${createdSpokanePrecincts.length} Spokane precincts`)
 
   // === MONTEREY PARK ELECTION ===
   // Use the first Monterey Park precinct's jurisdiction for the election
@@ -336,54 +337,168 @@ async function main() {
     },
   })
 
-  // === LARIMER COUNTY ELECTION ===
-  const larimerElection = await prisma.election.upsert({
-    where: { id: 'co-larimer-2025' },
+  // === SPOKANE ELECTION ===
+  const spokaneElection = await prisma.election.upsert({
+    where: { id: 'wa-spokane-2025' },
     update: {},
     create: {
-      id: 'co-larimer-2025',
-      jurisdictionId: larimerJurisdiction.id,
-      title: 'Larimer County Coordinated Election - November 2025',
-      description: 'Coordinated election with county ballot measures',
+      id: 'wa-spokane-2025',
+      jurisdictionId: spokaneJurisdiction.id,
+      title: 'Spokane General Election - November 2025',
+      description: 'City Council election and local ballot measures',
       electionDate: new Date('2025-11-04'),
-      type: 'coordinated',
+      type: 'general',
       status: 'upcoming',
-      officialUrl: 'https://www.larimer.org/clerk/elections',
+      officialUrl: 'https://www.spokane.gov/elections',
     },
   })
 
+  // Sample ballot for Spokane (will be replaced with real data if API key is available)
   await prisma.ballot.upsert({
-    where: { id: 'co-larimer-transport' },
+    where: { id: 'wa-spokane-council-1' },
     update: {},
     create: {
-      id: 'co-larimer-transport',
-      electionId: larimerElection.id,
-      number: 'Issue 1A',
-      title: 'Transportation Funding Measure',
-      description: 'Shall Larimer County taxes be increased $15,000,000 annually by the imposition of a 0.15% sales and use tax for transportation infrastructure improvements?',
-      type: 'measure',
-      options: ['YES', 'NO'],
+      id: 'wa-spokane-council-1',
+      electionId: spokaneElection.id,
+      number: 'City Council District 1',
+      title: 'Spokane City Council - District 1 (SAMPLE)',
+      description: 'Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Real data will be fetched if GOOGLE_CIVIC_API_KEY is set.',
+      type: 'candidate',
+      options: ['Candidate A', 'Candidate B', 'Write-in'],
       metadata: {
-        taxRate: '0.15%',
-        revenue: '$15 million annually',
-        duration: '15 years',
-        exemptions: ['groceries', 'gasoline', 'diapers', 'prescription drugs'],
+        term: '4 years',
+        district: 'District 1',
+        isSample: true,
       },
     },
   })
 
   console.log('✅ Created elections')
-  console.log('✅ Created ballot measures')
+  console.log('✅ Created sample ballot measures')
+  console.log('')
+  
+  // Try to fetch real ballot data if API key is available
+  const apiKey = process.env.GOOGLE_CIVIC_API_KEY
+  if (apiKey) {
+    console.log('🔍 API key found! Fetching real ballot data from Google Civic API...')
+    console.log('')
+    
+    try {
+      const { fetchGoogleCivicData, convertGoogleCivicToBallotItems } = await import('../lib/api-collectors/google-civic')
+      
+      // Sample addresses for fetching real data
+      const addresses = {
+        'Monterey Park Voting Districts': '123 W Garvey Ave, Monterey Park, CA 91754',
+        'Fort Collins Voting Districts': '300 Laporte Ave, Fort Collins, CO 80521',
+        'Spokane Voting Districts': '808 W Spokane Falls Blvd, Spokane, WA 99201',
+      }
+      
+      const jurisdictions = [
+        { id: montereyParkJurisdiction.id, name: 'Monterey Park Voting Districts', electionId: montereyParkElection.id },
+        { id: fortCollinsJurisdiction.id, name: 'Fort Collins Voting Districts', electionId: fortCollinsElection.id },
+        { id: spokaneJurisdiction.id, name: 'Spokane Voting Districts', electionId: spokaneElection.id },
+      ]
+      
+      for (const jurisdiction of jurisdictions) {
+        const address = addresses[jurisdiction.name as keyof typeof addresses]
+        if (!address) continue
+        
+        console.log(`   📥 Fetching data for ${jurisdiction.name}...`)
+        try {
+          const civicData = await fetchGoogleCivicData(address, apiKey)
+          
+          if (civicData && civicData.contests && civicData.contests.length > 0) {
+            const ballotItems = convertGoogleCivicToBallotItems(civicData.contests)
+            console.log(`      ✅ Found ${ballotItems.length} real ballot items`)
+            
+            // Delete sample ballots for this election
+            await prisma.ballot.deleteMany({
+              where: {
+                electionId: jurisdiction.electionId,
+                metadata: {
+                  path: ['isSample'],
+                  equals: true,
+                },
+              },
+            })
+            
+            // Update election with real data
+            await prisma.election.update({
+              where: { id: jurisdiction.electionId },
+              data: {
+                title: civicData.election.name,
+                electionDate: new Date(civicData.election.electionDay),
+              },
+            })
+            
+            // Create real ballot items
+            for (const ballotItem of ballotItems) {
+              const ballotId = `ballot-${jurisdiction.electionId}-${ballotItem.title.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 50)}`
+              
+              await prisma.ballot.upsert({
+                where: { id: ballotId },
+                update: {
+                  title: ballotItem.title,
+                  description: ballotItem.description,
+                  type: ballotItem.type,
+                  options: ballotItem.options,
+                  number: ballotItem.number,
+                  metadata: {
+                    ...ballotItem.metadata,
+                    source: 'Google Civic Information API',
+                    fetchedAt: new Date().toISOString(),
+                    isSample: false,
+                  },
+                },
+                create: {
+                  id: ballotId,
+                  electionId: jurisdiction.electionId,
+                  number: ballotItem.number,
+                  title: ballotItem.title,
+                  description: ballotItem.description,
+                  type: ballotItem.type,
+                  options: ballotItem.options,
+                  metadata: {
+                    ...ballotItem.metadata,
+                    source: 'Google Civic Information API',
+                    fetchedAt: new Date().toISOString(),
+                    isSample: false,
+                  },
+                },
+              })
+            }
+            console.log(`      ✅ Stored ${ballotItems.length} real ballot items`)
+          } else {
+            console.log(`      ⚠️  No contests found (may be no upcoming election)`)
+          }
+        } catch (error) {
+          console.log(`      ⚠️  Error fetching data: ${error instanceof Error ? error.message : 'Unknown error'}`)
+        }
+      }
+    } catch (error) {
+      console.log(`   ⚠️  Could not fetch real data: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      console.log(`   Will use sample data. Run \`npm run fetch-ballots\` later to fetch real data.`)
+    }
+  } else {
+    console.log('⚠️  No GOOGLE_CIVIC_API_KEY found in .env.local')
+    console.log('   Using sample data. Add API key to fetch real ballot data.')
+  }
+  
+  console.log('')
   console.log('🎉 Seeding complete!')
   console.log('')
   console.log('📊 Summary:')
-  console.log(`   - Jurisdictions: 3 (Monterey Park, Fort Collins, Larimer County - all precinct-level)`)
+  console.log(`   - Jurisdictions: 3 (Monterey Park, Fort Collins, Spokane - all precinct-level)`)
   console.log(`   - Precincts: ${await prisma.precinct.count()}`)
   console.log(`   - Elections: ${await prisma.election.count()}`)
   console.log(`   - Ballot Items: ${await prisma.ballot.count()}`)
-  console.log('')
-  console.log('📥 Next step: Run `npm run fetch-ballots` to fetch real ballot data from Google Civic API')
-  console.log('   (Requires GOOGLE_CIVIC_API_KEY in .env.local)')
+  if (apiKey) {
+    console.log('')
+    console.log('✅ Real ballot data fetched and stored!')
+  } else {
+    console.log('')
+    console.log('📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run \`npm run fetch-ballots\``)
+  }
 }
 
 main()

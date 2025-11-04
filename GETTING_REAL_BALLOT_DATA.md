@@ -70,3 +70,4 @@ If you enter your Monterey Park address, you should see:
 The sample data (City Council District 1, Measure X) will remain in the database until you fetch real data. Once you fetch real data, it will replace or supplement the sample data for that election.
 
 
+
