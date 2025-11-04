@@ -53,14 +53,14 @@ async function main() {
     },
   })
 
-  // Fort Collins Precincts (Larimer County, CO)
+  // Fort Collins Precincts (Fort Collins, CO)
   const fortCollinsJurisdiction = await prisma.jurisdiction.upsert({
     where: { fipsCode: '0806927270' },
     update: {},
     create: {
       name: 'Fort Collins Voting Districts',
       state: 'Colorado',
-      countyName: 'Larimer',
+      countyName: 'Larimer', // Fort Collins is in Larimer County
       fipsCode: '0806927270',
       type: 'precinct', // Changed from 'city' to 'precinct'
     },

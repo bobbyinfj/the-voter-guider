@@ -37,7 +37,7 @@ The voter guide system now includes comprehensive API collectors for fetching re
 ### 3. Updated Seed Data ✅
 - **Monterey Park**: 5 precincts created
 - **Fort Collins**: 8 precincts created
-- **Larimer County**: 5 precincts created
+- **Seattle**: 6 precincts created
 - All with approximate geographic coordinates and ZIP codes
 - Elections and ballot items linked to precinct-level jurisdictions
 
@@ -68,7 +68,7 @@ This will:
 - Create precinct-level jurisdictions for:
   - Monterey Park (5 precincts)
   - Fort Collins (8 precincts)
-  - Larimer County (5 precincts)
+  - Seattle (6 precincts)
 - Create elections and ballot items
 
 ### 3. Set Up API Keys

@@ -1,6 +1,6 @@
 /**
  * Script to automatically fetch real ballot data from Google Civic API
- * for the 3 sample areas: Monterey Park, Fort Collins, Larimer County
+ * for the 3 sample areas: Monterey Park, Fort Collins, Seattle
  * 
  * Run: npx tsx scripts/fetch-real-ballot-data.ts
  */

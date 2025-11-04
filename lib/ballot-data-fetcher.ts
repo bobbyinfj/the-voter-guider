@@ -119,7 +119,7 @@ export async function fetchFromOfficialSite(
   // Examples of official sites:
   // - Monterey Park: https://www.montereypark.ca.gov
   // - King County: https://www.kingcounty.gov/elections
-  // - Larimer County: https://www.larimer.org/clerk/elections
+  // - Seattle: https://www.seattle.gov/elections
   
   return []
 }
@@ -204,8 +204,8 @@ export function getSampleBallotData(
     ]
   }
 
-  // Larimer County, Colorado
-  if (jurisdictionLower.includes('larimer') && state === 'Colorado') {
+  // Seattle, Washington
+  if (jurisdictionLower.includes('seattle') && state === 'Washington') {
     return [
       {
         number: 'Issue 1A',
