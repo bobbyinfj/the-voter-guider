@@ -1,11 +1,6 @@
 {
-  "version": 2,
   "buildCommand": "prisma generate && next build",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "env": {
-    "DATABASE_URL": "@database-url",
-    "GOOGLE_CIVIC_API_KEY": "@google-civic-api-key"
-  }
+  "framework": "nextjs"
 }
 
