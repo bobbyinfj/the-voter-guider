@@ -185,3 +185,4 @@ export async function getElections(apiKey: string): Promise<GoogleCivicElection[
   }
 }
 
+

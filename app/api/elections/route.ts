@@ -1,5 +1,6 @@
 // API Route: Get elections for a jurisdiction
 import { NextRequest, NextResponse } from 'next/server'
+import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 
 export async function GET(request: NextRequest) {
@@ -23,13 +24,13 @@ export async function GET(request: NextRequest) {
       include: {
         jurisdiction: true,
         ballots: {
-          orderBy: { number: 'asc' },
+          orderBy: { number: Prisma.SortOrder.asc },
         },
         _count: {
           select: { guides: true },
         },
       },
-      orderBy: { electionDate: 'asc' },
+      orderBy: { electionDate: Prisma.SortOrder.asc },
     })
 
     return NextResponse.json(elections)

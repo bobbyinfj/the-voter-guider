@@ -1,5 +1,6 @@
 // API Route: Get jurisdictions (precinct-level preferred, fallback to all)
 import { NextResponse } from 'next/server'
+import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 
 export async function GET() {
@@ -11,12 +12,12 @@ export async function GET() {
       },
       include: {
         precincts: {
-          orderBy: { number: 'asc' },
+          orderBy: { number: Prisma.SortOrder.asc },
         },
       },
       orderBy: [
-        { state: 'asc' },
-        { name: 'asc' },
+        { state: Prisma.SortOrder.asc },
+        { name: Prisma.SortOrder.asc },
       ],
     })
 
@@ -25,15 +26,15 @@ export async function GET() {
     if (jurisdictions.length === 0) {
       console.log('No precinct-level jurisdictions found, returning all jurisdictions')
       jurisdictions = await prisma.jurisdiction.findMany({
-        include: {
-          precincts: {
-            orderBy: { number: 'asc' },
-          },
+      include: {
+        precincts: {
+          orderBy: { number: Prisma.SortOrder.asc },
         },
-        orderBy: [
-          { state: 'asc' },
-          { name: 'asc' },
-        ],
+      },
+      orderBy: [
+        { state: Prisma.SortOrder.asc },
+        { name: Prisma.SortOrder.asc },
+      ],
       })
     }
 

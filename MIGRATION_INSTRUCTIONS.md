@@ -59,3 +59,4 @@ If you get errors about the table already existing or other issues:
    npx prisma studio
    ```
 
+

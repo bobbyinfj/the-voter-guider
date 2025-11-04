@@ -155,3 +155,4 @@ interface BallotItem {
 - Cache API responses when possible to reduce API calls
 - Use address-based queries when available for more accurate results
 
+

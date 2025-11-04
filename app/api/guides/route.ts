@@ -1,5 +1,6 @@
 // API Route: CRUD operations for voter guides
 import { NextRequest, NextResponse } from 'next/server'
+import { Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import { getSessionId } from '@/lib/session'
 import { handleApiError } from '@/lib/errors'
@@ -22,7 +23,7 @@ export async function GET(request: NextRequest) {
       election: {
         include: {
           ballots: {
-            orderBy: { number: 'asc' },
+            orderBy: { number: Prisma.SortOrder.asc },
           },
           jurisdiction: true, // Include jurisdiction through election as fallback
         },
@@ -90,7 +91,7 @@ export async function GET(request: NextRequest) {
           select: { choices: true },
         },
       },
-      orderBy: { updatedAt: 'desc' },
+      orderBy: { updatedAt: Prisma.SortOrder.desc },
     })
 
     return NextResponse.json(guides)
@@ -126,7 +127,7 @@ export async function POST(request: NextRequest) {
           include: {
             jurisdiction: true,
             ballots: {
-              orderBy: { number: 'asc' },
+              orderBy: { number: Prisma.SortOrder.asc },
             },
           },
         },
