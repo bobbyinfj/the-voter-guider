@@ -265,7 +265,7 @@ export default function NewGuidePage() {
                   value={guideTitle}
                   onChange={(e) => setGuideTitle(e.target.value)}
                   placeholder="My 2025 Voting Guide"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
               </div>
               <div>
@@ -277,7 +277,7 @@ export default function NewGuidePage() {
                   value={guideAuthor}
                   onChange={(e) => setGuideAuthor(e.target.value)}
                   placeholder="John Doe"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
               </div>
               <button
