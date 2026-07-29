@@ -5,14 +5,16 @@
  * Run: npx tsx scripts/fetch-real-ballot-data.ts
  */
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../generated/prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
 import { config } from 'dotenv'
 import { resolve } from 'path'
 import { fetchGoogleCivicData, convertGoogleCivicToBallotItems } from '../lib/api-collectors/google-civic'
 
 config({ path: resolve(process.cwd(), '.env.local') })
 
-const prisma = new PrismaClient()
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+const prisma = new PrismaClient({ adapter })
 
 // Sample addresses for the 3 areas
 const sampleAddresses = {
