@@ -1,6 +1,6 @@
 // API Route: CRUD operations for voter guides
 import { NextRequest, NextResponse } from 'next/server'
-import { Prisma } from '@prisma/client'
+import { Prisma } from '@/generated/prisma/client'
 import { prisma } from '@/lib/prisma'
 import { getSessionId } from '@/lib/session'
 import { handleApiError } from '@/lib/errors'
