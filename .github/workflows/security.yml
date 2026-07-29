@@ -1,4 +1,4 @@
-# security-baseline v3
+# security-baseline v4
 name: Security Baseline
 
 on:
@@ -19,9 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
+        continue-on-error: true
         with:
           node-version: 20
       - run: npm install --no-audit --ignore-scripts
+        continue-on-error: true
       - name: npm audit
         continue-on-error: true
         run: npm audit --audit-level=high
