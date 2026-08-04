@@ -34,7 +34,7 @@
     "react-dom": "19.2.8",
     "react-leaflet": "^5.0.0",
     "recharts": "^3.3.0",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
