@@ -2,7 +2,7 @@
 
 ## Stack
 - **Framework**: Next.js 16 App Router (React 19, TypeScript 5)
-- **Database**: PostgreSQL (Neon) via Prisma 6
+- **Database**: PostgreSQL (Neon) via Prisma 7 (driver adapter `@prisma/adapter-pg`)
 - **Styling**: Tailwind CSS v4 (`@import "tailwindcss"` — no `tailwind.config.js`)
 - **Auth**: None. Anonymous sessions via httpOnly cookie `voter-guide-session` (UUID). See `lib/session.ts`.
 
@@ -55,7 +55,7 @@ and only scores matching offices.
 ```bash
 cp .env.local.example .env.local   # add DATABASE_URL
 npx prisma migrate dev             # apply schema
-npm run seed                       # seed data including CA 2026
+npm run seed                       # legacy sample data + every data/elections bundle
 npm run dev
 ```
 Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and run `npm run data:populate-ballots`.
@@ -63,7 +63,7 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 ## Important paths
 | Route | Purpose |
 |---|---|
-| `/` | Home — map, jurisdiction picker, featured CA 2026 banner |
+| `/` | Home — map, jurisdiction picker, featured Nov 2026 general elections |
 | `/elections/[id]` | Election overview — offices, quiz CTA, issues |
 | `/elections/[id]/quiz` | Dynamic quiz with live results panel |
 | `/elections/[id]/quiz/results` | Full results with transparent score breakdown |
@@ -83,9 +83,13 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 
 ## Schema migrations
 Use `prisma migrate dev` (not `db push`) for all schema changes. The Neon DB uses PostgreSQL 17.
-`prisma/migrations/0_init` is a baseline of the pre-quiz schema. A database that already has
-those tables (e.g. the Neon DB) needs `prisma migrate resolve --applied 0_init` once before
-`prisma migrate deploy`.
+`prisma/migrations/0_init` is a baseline of the pre-quiz schema (as of main before the quiz work).
+For a database that already has tables (e.g. Neon), first confirm it matches the baseline:
+`prisma migrate diff --from-config-datasource --to-migrations prisma/migrations/0_init ...`
+(or diff against `0_init/migration.sql`). Only if it matches, run
+`prisma migrate resolve --applied 0_init`, then `prisma migrate deploy`.
+Merging is not deploying: the Vercel build only runs `prisma generate && next build`.
+Never run `launch.sh` against a shared DB — it does `prisma db push --accept-data-loss`.
 After schema changes, run `npx prisma generate` to regenerate the client.
 
 ## Linting / type-check
