@@ -43,6 +43,26 @@ export default function Header() {
               Home
             </Link>
             <Link
+              href="/elections/ca-primary-2026"
+              className={`font-medium transition-colors ${
+                pathname.startsWith('/elections')
+                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              CA 2026
+            </Link>
+            <Link
+              href="/issues/housing"
+              className={`font-medium transition-colors ${
+                pathname.startsWith('/issues')
+                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              Issues
+            </Link>
+            <Link
               href="/guides"
               className={`font-medium transition-colors ${
                 isActive('/guides')

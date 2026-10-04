@@ -1,0 +1,326 @@
+{
+  "slug": "ca-primary-2026-06-02",
+  "electionId": "ca-primary-2026",
+  "title": "California Primary Election 2026",
+  "electionDate": "2026-06-02T00:00:00.000Z",
+  "type": "primary",
+  "status": "upcoming",
+  "officialUrl": "https://www.sos.ca.gov/elections",
+  "jurisdiction": {
+    "name": "California",
+    "state": "CA",
+    "type": "state",
+    "fipsCode": "06"
+  },
+  "localJurisdictions": [
+    {
+      "id": "91755-la-county",
+      "name": "Los Angeles County (91755 area)",
+      "state": "CA",
+      "countyName": "Los Angeles",
+      "type": "county",
+      "fipsCode": "06037"
+    }
+  ],
+  "offices": [
+    {
+      "id": "ca-governor-2026",
+      "title": "Governor",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "termYears": 4,
+      "sortOrder": 1,
+      "description": "Chief executive of California.",
+      "candidates": [
+        {
+          "id": "gavin-newsom",
+          "name": "Gavin Newsom",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current Governor of California (2019–present). Former Mayor of San Francisco.",
+          "website": "https://gavinnewsom.com"
+        },
+        {
+          "id": "brian-dahle",
+          "name": "Brian Dahle",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "State Senator (SD-01). Farmer and former State Assemblymember from Lassen County.",
+          "website": "https://dahleforgovernor.com"
+        },
+        {
+          "id": "michael-shellenberger",
+          "name": "Michael Shellenberger",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Author and public policy activist. Ran in 2022. Focus on homelessness and public safety.",
+          "website": "https://shellenberger.org"
+        },
+        {
+          "id": "delaine-eastin",
+          "name": "Delaine Eastin",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Former State Superintendent of Public Instruction (1995–2003). Progressive challenger.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "ca-lt-governor-2026",
+      "title": "Lieutenant Governor",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "termYears": 4,
+      "sortOrder": 2,
+      "description": "Second-in-command to the Governor; oversees the State Lands Commission and state colleges.",
+      "candidates": [
+        {
+          "id": "eleni-kounalakis",
+          "name": "Eleni Kounalakis",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current Lt. Governor (2019–present). Former US Ambassador to Hungary.",
+          "website": "https://eleniforcalifornia.com"
+        },
+        {
+          "id": "david-fennell",
+          "name": "David Fennell",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Entrepreneur and technology executive from the Bay Area.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "ca-ag-2026",
+      "title": "Attorney General",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "termYears": 4,
+      "sortOrder": 3,
+      "description": "California's chief law enforcement officer.",
+      "candidates": [
+        {
+          "id": "rob-bonta",
+          "name": "Rob Bonta",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current AG (appointed 2021). Former Assemblymember (AD-18). Focus on consumer protection and civil rights.",
+          "website": "https://robbyonta.com"
+        },
+        {
+          "id": "nathan-hochman",
+          "name": "Nathan Hochman",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Former federal prosecutor and LA County DA candidate. Focus on public safety and Prop 36 enforcement.",
+          "website": "https://nathanhochman.com"
+        },
+        {
+          "id": "eric-early",
+          "name": "Eric Early",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Los Angeles attorney. Has run for AG twice previously.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "ca-sos-2026",
+      "title": "Secretary of State",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "termYears": 4,
+      "sortOrder": 4,
+      "description": "Oversees elections, business filings, and state archives.",
+      "candidates": [
+        {
+          "id": "shirley-weber",
+          "name": "Shirley Weber",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current SOS (appointed 2021). Former Assemblywoman. Historian and educator.",
+          "website": "https://shirleyweber.com"
+        },
+        {
+          "id": "rachel-hamm",
+          "name": "Rachel Hamm",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Election integrity activist from San Diego. Focus on voter ID and election security.",
+          "website": "https://rachelhamm.com"
+        }
+      ]
+    },
+    {
+      "id": "ca-controller-2026",
+      "title": "State Controller",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "termYears": 4,
+      "sortOrder": 5,
+      "description": "Manages state finances and audits.",
+      "candidates": [
+        {
+          "id": "malia-cohen",
+          "name": "Malia Cohen",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current Controller (elected 2022). Former State Board of Equalization member.",
+          "website": "https://maliacohen.com"
+        },
+        {
+          "id": "lanhee-chen",
+          "name": "Lanhee Chen",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Hoover Institution fellow, former Romney policy director. Narrowly lost in 2022.",
+          "website": "https://lanheechen.com"
+        }
+      ]
+    },
+    {
+      "id": "ca-us-senate-2026",
+      "title": "US Senator",
+      "level": "federal",
+      "jurisdictionFips": "06",
+      "termYears": 6,
+      "sortOrder": 6,
+      "description": "One of California's two US Senate seats.",
+      "candidates": [
+        {
+          "id": "adam-schiff",
+          "name": "Adam Schiff",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current US Senator (elected 2024). Former US Representative from Burbank/Pasadena area. Intelligence Committee chair.",
+          "website": "https://adamschiff.com"
+        },
+        {
+          "id": "steve-garvey",
+          "name": "Steve Garvey",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Former LA Dodgers first baseman. Ran in 2024 Senate race. Moderate Republican.",
+          "website": "https://stevegarvey.com"
+        },
+        {
+          "id": "james-bradley",
+          "name": "James Bradley",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Retired US Navy officer, businessman. Conservative challenger.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "ca-37th-congress-2026",
+      "title": "US Representative, 37th District",
+      "level": "federal",
+      "jurisdictionFips": "06037",
+      "termYears": 2,
+      "sortOrder": 7,
+      "description": "Covers communities including Monterey Park, Rosemead, San Gabriel, Alhambra, and parts of East LA.",
+      "candidates": [
+        {
+          "id": "mark-takano",
+          "name": "Mark Takano",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Former US Representative from Riverside (CA-41). Veteran's Affairs Committee. Now seeking the 37th seat.",
+          "website": "https://marktakano.com"
+        },
+        {
+          "id": "judy-chu",
+          "name": "Judy Chu",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current Representative for CA-28 (redistricted into CA-37). First Chinese-American woman elected to Congress.",
+          "website": "https://judychu.house.gov"
+        },
+        {
+          "id": "sandy-chen",
+          "name": "Sandy Chen",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Monterey Park City Council member. Small business owner. Community advocate.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "ca-ad-49-2026",
+      "title": "State Assembly, District 49",
+      "level": "state",
+      "jurisdictionFips": "06037",
+      "termYears": 2,
+      "sortOrder": 8,
+      "description": "Covers Monterey Park, Rosemead, Temple City, and parts of El Monte.",
+      "candidates": [
+        {
+          "id": "mike-fong",
+          "name": "Mike Fong",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Current Assemblymember (AD-49). Former LA Community College District trustee. Focus on education and climate.",
+          "website": "https://asm.ca.gov/members/mike-fong"
+        },
+        {
+          "id": "jessica-caloza",
+          "name": "Jessica Caloza",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Former Deputy Director at the CA Department of Justice. Progressive challenger focused on housing and healthcare.",
+          "website": null
+        },
+        {
+          "id": "victor-huang",
+          "name": "Victor Huang",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Businessman and community leader from Rosemead. Focus on public safety and business-friendly policies.",
+          "website": null
+        }
+      ]
+    },
+    {
+      "id": "mp-city-council-2026",
+      "title": "Monterey Park City Council",
+      "level": "city",
+      "jurisdictionFips": "06037",
+      "termYears": 4,
+      "sortOrder": 9,
+      "description": "Monterey Park City Council — at-large seats up for election in 2026.",
+      "candidates": [
+        {
+          "id": "henry-lo",
+          "name": "Henry Lo",
+          "party": null,
+          "incumbent": true,
+          "shortBio": "Current Mayor Pro Tem. Longtime local leader focusing on community safety and development.",
+          "website": null
+        },
+        {
+          "id": "peter-chan",
+          "name": "Peter Chan",
+          "party": null,
+          "incumbent": false,
+          "shortBio": "Community advocate and small business owner. Focus on economic development and public safety.",
+          "website": null
+        },
+        {
+          "id": "lisa-wong",
+          "name": "Lisa Wong",
+          "party": null,
+          "incumbent": false,
+          "shortBio": "Environmental planner. Focus on climate resilience, parks, and affordable housing.",
+          "website": null
+        }
+      ]
+    }
+  ]
+}

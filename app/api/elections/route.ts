@@ -6,8 +6,19 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
+    const electionId = searchParams.get('id')
     const jurisdictionId = searchParams.get('jurisdictionId')
     const status = searchParams.get('status') || 'upcoming'
+
+    // Single election lookup by id
+    if (electionId) {
+      const election = await prisma.election.findUnique({
+        where: { id: electionId },
+        include: { jurisdiction: true },
+      })
+      if (!election) return NextResponse.json({ error: 'Not found' }, { status: 404 })
+      return NextResponse.json(election)
+    }
 
     if (!jurisdictionId) {
       return NextResponse.json(

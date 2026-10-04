@@ -1,0 +1,770 @@
+{
+  "electionSlug": "ca-primary-2026-06-02",
+  "stances": [
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "housing",
+      "position": 1,
+      "summary": "Signed dozens of housing bills but delivery has fallen far short of 2.5M unit goal; prioritizes production over rent control.",
+      "sources": [
+        { "url": "https://www.gov.ca.gov/2023/09/07/governor-newsom-signs-package-of-major-housing-bills/", "title": "Governor Newsom Signs Package of Major Housing Bills (2023)" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Champion of nation-leading climate policy: 100% clean electricity by 2045, EV mandates, and major wildfire prevention funding.",
+      "sources": [
+        { "url": "https://www.gov.ca.gov/2022/09/16/governor-newsom-signs-sweeping-climate-measures/", "title": "Governor Newsom Signs Sweeping Climate Measures (2022)" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "public-safety",
+      "position": 0,
+      "summary": "Backed Prop 36 (2024) after initial opposition; balances progressive criminal-justice reform with accountability for retail theft.",
+      "sources": [
+        { "url": "https://calmatters.org/justice/2024/10/proposition-36-prop-36-newsom/", "title": "CalMatters: Newsom on Prop 36 (2024)" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "economy",
+      "position": 0,
+      "summary": "Oversaw tech-driven growth and higher taxes on the wealthy, but chronic budget deficits ($68B gap in 2024) have drawn criticism.",
+      "sources": [
+        { "url": "https://calmatters.org/economy/2024/01/california-budget-deficit-newsom/", "title": "CalMatters: California's Budget Deficit (2024)" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Expanded Medi-Cal to all income-eligible undocumented adults; supports multi-payer approach over single-payer.",
+      "sources": [
+        { "url": "https://www.dhcs.ca.gov/", "title": "CA DHCS: Medi-Cal Expansion" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Strong sanctuary-state defender; expanded state services to undocumented residents; vocally opposes federal deportation crackdowns.",
+      "sources": [
+        { "url": "https://oag.ca.gov/immigration", "title": "CA DOJ: Immigrant Rights" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "education",
+      "position": 1,
+      "summary": "Increased K-12 spending to record levels; supports universal pre-K and free community college but mixed results on test scores.",
+      "sources": [
+        { "url": "https://www.gov.ca.gov/2022/06/13/governor-newsom-signs-budget/", "title": "Governor Newsom Signs Budget (2022)" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "water",
+      "position": 1,
+      "summary": "Supports Delta conveyance tunnel and water recycling investments; signed major water resilience package in 2022.",
+      "sources": [
+        { "url": "https://resources.ca.gov/Initiatives/Building-Water-Resilience", "title": "CA Water Resilience Portfolio" }
+      ]
+    },
+    {
+      "candidateId": "gavin-newsom",
+      "issueId": "transportation",
+      "position": 1,
+      "summary": "Backs high-speed rail and zero-emission vehicle infrastructure; ordered audit of HSR cost overruns.",
+      "sources": [
+        { "url": "https://hsr.ca.gov/", "title": "California High-Speed Rail Authority" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "housing",
+      "position": -1,
+      "summary": "Opposes state mandates overriding local zoning; favors market-rate construction over government intervention.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "climate",
+      "position": -2,
+      "summary": "Skeptical of aggressive climate mandates; supports fossil fuel development to lower energy costs for rural Californians.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Backed Prop 36; advocates tough-on-crime approach, more prosecutors, and reversing criminal-justice reforms.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "economy",
+      "position": 2,
+      "summary": "Advocates for cutting regulations, reducing taxes, and reining in state spending to address California's deficit.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "healthcare",
+      "position": -1,
+      "summary": "Opposes state-run single-payer healthcare; prefers market competition and is skeptical of Medi-Cal expansion costs.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "immigration",
+      "position": -2,
+      "summary": "Opposes sanctuary policies; supports cooperation with federal immigration enforcement and reducing state services for undocumented residents.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "education",
+      "position": 0,
+      "summary": "Supports school choice and local control but has not made education a signature issue.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "water",
+      "position": 1,
+      "summary": "Strongly supports expanded storage, new reservoirs, and water security for agriculture in Northern California.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "brian-dahle",
+      "issueId": "transportation",
+      "position": -1,
+      "summary": "Opposes high-speed rail; favors road infrastructure over transit expansion.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Brian_Dahle", "title": "Ballotpedia: Brian Dahle" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "housing",
+      "position": 1,
+      "summary": "Advocates removing zoning barriers and market-rate building; opposes rent control as counterproductive.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "climate",
+      "position": 0,
+      "summary": "Acknowledges climate change but opposes aggressive mandates; advocates nuclear power over renewables-only approach.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Made homelessness and public disorder his signature issue; supports forced treatment over housing-first for drug addiction.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Supports deregulation and reducing business costs; frames California's homelessness crisis as a result of government failure.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "healthcare",
+      "position": -1,
+      "summary": "Opposes single-payer; supports expanding mental health courts and forced treatment as healthcare policy.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "michael-shellenberger",
+      "issueId": "immigration",
+      "position": -1,
+      "summary": "Skeptical of sanctuary policies; links homelessness crisis to lack of immigration enforcement in some contexts.",
+      "sources": [
+        { "url": "https://shellenberger.org", "title": "Shellenberger Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "housing",
+      "position": 2,
+      "summary": "Strong tenant protections, expanded rent stabilization, and aggressive state investment in affordable housing.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Advocates rapid transition off fossil fuels, with special focus on environmental justice for low-income communities.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "public-safety",
+      "position": -1,
+      "summary": "Focuses on root causes of crime through investment in education and mental health; skeptical of incarceration-first approaches.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Progressive: raise taxes on corporations and wealthy to fund public services; strong labor protections.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Long-standing single-payer advocate; wants California to lead a Medicare-for-All style state system.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Full sanctuary state, expansion of services, and pathway to citizenship advocacy.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "delaine-eastin",
+      "issueId": "education",
+      "position": 2,
+      "summary": "Made K-12 reform her defining issue as State Superintendent; advocates universal pre-K, higher teacher pay, and arts funding.",
+      "sources": [
+        { "url": "https://ballotpedia.org/Delaine_Eastin", "title": "Ballotpedia: Delaine Eastin" }
+      ]
+    },
+    {
+      "candidateId": "rob-bonta",
+      "issueId": "housing",
+      "position": 2,
+      "summary": "Used AG office to sue cities and counties blocking state housing law compliance; strong enforcement of AB 2011 and SB 9.",
+      "sources": [
+        { "url": "https://oag.ca.gov/housing", "title": "CA AG Housing Enforcement" }
+      ]
+    },
+    {
+      "candidateId": "rob-bonta",
+      "issueId": "public-safety",
+      "position": 0,
+      "summary": "Balances consumer protection and civil rights focus with accountability; backed Prop 36 framework after passage.",
+      "sources": [
+        { "url": "https://oag.ca.gov/", "title": "CA Department of Justice" }
+      ]
+    },
+    {
+      "candidateId": "rob-bonta",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Sued pharmaceutical companies over drug pricing; advocates for reproductive healthcare access as a civil right.",
+      "sources": [
+        { "url": "https://oag.ca.gov/healthcare", "title": "CA AG Healthcare" }
+      ]
+    },
+    {
+      "candidateId": "rob-bonta",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Created immigrant rights unit; active in challenging federal immigration enforcement actions in California.",
+      "sources": [
+        { "url": "https://oag.ca.gov/immigration", "title": "CA AG Immigration" }
+      ]
+    },
+    {
+      "candidateId": "rob-bonta",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Sued oil companies for climate disinformation; aggressive environmental enforcement.",
+      "sources": [
+        { "url": "https://oag.ca.gov/environment", "title": "CA AG Environment" }
+      ]
+    },
+    {
+      "candidateId": "nathan-hochman",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Centered campaign on Prop 36 enforcement, reversing 'soft on crime' policies, and accountability for repeat offenders.",
+      "sources": [
+        { "url": "https://nathanhochman.com", "title": "Hochman Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "nathan-hochman",
+      "issueId": "housing",
+      "position": 0,
+      "summary": "Has not made housing a central issue; views homelessness as primarily a public safety and mental health problem.",
+      "sources": [
+        { "url": "https://nathanhochman.com", "title": "Hochman Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "nathan-hochman",
+      "issueId": "immigration",
+      "position": -1,
+      "summary": "Supports cooperation with federal law enforcement; skeptical of sanctuary policies that limit information sharing.",
+      "sources": [
+        { "url": "https://nathanhochman.com", "title": "Hochman Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "nathan-hochman",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Reduce business regulation to keep companies in California; enforce consumer protection laws more robustly.",
+      "sources": [
+        { "url": "https://nathanhochman.com", "title": "Hochman Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "housing",
+      "position": 1,
+      "summary": "Authored federal legislation to fund affordable housing; supports local control with state minimum standards.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Voted for Inflation Reduction Act; consistent champion of climate legislation and international agreements.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "public-safety",
+      "position": 1,
+      "summary": "Supports criminal justice reform while backing resources for law enforcement; focus on gun safety legislation.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Defended ACA repeatedly; supports drug price negotiation and Medicare expansion; backed abortion protections.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Supports comprehensive immigration reform and DACA protections; opposes mass deportations.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "adam-schiff",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Backed Inflation Reduction Act investments; supports progressive taxation but moderate on business regulation.",
+      "sources": [
+        { "url": "https://adamschiff.com", "title": "Schiff Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "housing",
+      "position": -1,
+      "summary": "Opposes top-down state mandates on local zoning; favors private-sector solutions over government programs.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "climate",
+      "position": -1,
+      "summary": "Skeptical of aggressive mandates that raise costs; supports energy independence over rapid decarbonization.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Strong law-and-order platform; supports Prop 36 enforcement and more federal funding for border security.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "economy",
+      "position": 2,
+      "summary": "Tax cuts, deregulation, and reducing California's cost of living by rolling back mandates.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "immigration",
+      "position": -2,
+      "summary": "Supports border security, opposes sanctuary policies, and backed tougher enforcement measures.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "steve-garvey",
+      "issueId": "healthcare",
+      "position": -1,
+      "summary": "Opposes government-run healthcare; supports market competition and repealing costly insurance mandates.",
+      "sources": [
+        { "url": "https://stevegarvey.com", "title": "Garvey Campaign Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "housing",
+      "position": 2,
+      "summary": "Backed federal affordable housing investments; authored legislation for AAPI community housing access.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Voted for IRA and all major climate bills; championed environmental justice for communities of color in LA.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "public-safety",
+      "position": 0,
+      "summary": "Supports gun safety legislation; balanced on policing reform with focus on anti-hate crime legislation.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Voted for ACA, drug pricing reforms, and mental health parity; advocates expanded Medicare.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Championed DACA, Dream Act, and family reunification; vocal critic of mass deportation policies.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "judy-chu",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Progressive taxation, workers' rights, and strong support for small businesses in the San Gabriel Valley.",
+      "sources": [
+        { "url": "https://chu.house.gov", "title": "Rep. Judy Chu Official Site" }
+      ]
+    },
+    {
+      "candidateId": "sandy-chen",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Monterey Park City Council member focused on neighborhood safety; backed local policing increases.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "sandy-chen",
+      "issueId": "economy",
+      "position": 2,
+      "summary": "Pro-small business; advocates for reducing local permitting costs and streamlining regulations.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "sandy-chen",
+      "issueId": "housing",
+      "position": -1,
+      "summary": "Prefers local control over housing policy; skeptical of state mandates on density.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "sandy-chen",
+      "issueId": "immigration",
+      "position": -1,
+      "summary": "Supports secure legal immigration pathways; skeptical of expanded sanctuary protections.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "mike-fong",
+      "issueId": "education",
+      "position": 2,
+      "summary": "Made education equity his signature issue; authored bills for transitional kindergarten and community college access.",
+      "sources": [
+        { "url": "https://a49.asmdc.org/", "title": "Assemblymember Mike Fong Official Site" }
+      ]
+    },
+    {
+      "candidateId": "mike-fong",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Authored environmental justice bills targeting pollution in the San Gabriel Valley.",
+      "sources": [
+        { "url": "https://a49.asmdc.org/", "title": "Assemblymember Mike Fong Official Site" }
+      ]
+    },
+    {
+      "candidateId": "mike-fong",
+      "issueId": "housing",
+      "position": 1,
+      "summary": "Backed state housing production bills; focused on middle-income affordability.",
+      "sources": [
+        { "url": "https://a49.asmdc.org/", "title": "Assemblymember Mike Fong Official Site" }
+      ]
+    },
+    {
+      "candidateId": "mike-fong",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Supports small business growth in the SGV with workforce development; backed progressive taxation.",
+      "sources": [
+        { "url": "https://a49.asmdc.org/", "title": "Assemblymember Mike Fong Official Site" }
+      ]
+    },
+    {
+      "candidateId": "mike-fong",
+      "issueId": "immigration",
+      "position": 2,
+      "summary": "Supports immigrant rights legislation; the SGV district is majority Asian-American and immigrant.",
+      "sources": [
+        { "url": "https://a49.asmdc.org/", "title": "Assemblymember Mike Fong Official Site" }
+      ]
+    },
+    {
+      "candidateId": "jessica-caloza",
+      "issueId": "housing",
+      "position": 2,
+      "summary": "Supports aggressive rent stabilization and public land banking for affordable housing.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "jessica-caloza",
+      "issueId": "healthcare",
+      "position": 2,
+      "summary": "Worked at CA DOJ on healthcare fraud; supports Medi-Cal expansion and reproductive rights.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "jessica-caloza",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Worker-first economic agenda: raise minimum wage, expand labor protections, tax corporate profits.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "jessica-caloza",
+      "issueId": "public-safety",
+      "position": 0,
+      "summary": "Favors community investment over incarceration; backs accountability for law enforcement.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "victor-huang",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Public safety is primary platform; supports more officers, strict Prop 36 enforcement, and business security.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "victor-huang",
+      "issueId": "economy",
+      "position": 2,
+      "summary": "Cut red tape for small businesses; oppose state tax increases that drive businesses out of California.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "victor-huang",
+      "issueId": "housing",
+      "position": -1,
+      "summary": "Skeptical of state housing mandates; prefers local decisions on development density.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "victor-huang",
+      "issueId": "climate",
+      "position": -1,
+      "summary": "Energy affordability over aggressive mandates; skeptical of EV mandates hurting working-class residents.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "henry-lo",
+      "issueId": "public-safety",
+      "position": 1,
+      "summary": "Backed increased Monterey Park police funding; community-oriented policing advocate.",
+      "sources": [
+        { "url": "https://www.montereypark.ca.gov/", "title": "City of Monterey Park" }
+      ]
+    },
+    {
+      "candidateId": "henry-lo",
+      "issueId": "economy",
+      "position": 1,
+      "summary": "Supports local business development and economic revitalization of the Atlantic Blvd corridor.",
+      "sources": [
+        { "url": "https://www.montereypark.ca.gov/", "title": "City of Monterey Park" }
+      ]
+    },
+    {
+      "candidateId": "henry-lo",
+      "issueId": "housing",
+      "position": 0,
+      "summary": "Balanced: supports some infill housing near transit while preserving neighborhood character.",
+      "sources": [
+        { "url": "https://www.montereypark.ca.gov/", "title": "City of Monterey Park" }
+      ]
+    },
+    {
+      "candidateId": "peter-chan",
+      "issueId": "economy",
+      "position": 2,
+      "summary": "Prioritizes attracting businesses to Monterey Park and supporting local Asian-American entrepreneurs.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "peter-chan",
+      "issueId": "public-safety",
+      "position": 2,
+      "summary": "Advocates for expanded community safety programs especially after the Star Ballroom Dance Studio shooting.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "peter-chan",
+      "issueId": "housing",
+      "position": 0,
+      "summary": "Supports senior and middle-income housing; cautious about high-density development.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "lisa-wong",
+      "issueId": "climate",
+      "position": 2,
+      "summary": "Environmental planner by profession; advocates for climate resilience, urban tree canopy, and active transportation.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "lisa-wong",
+      "issueId": "housing",
+      "position": 2,
+      "summary": "Supports affordable housing near transit and accessible senior housing in Monterey Park.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "lisa-wong",
+      "issueId": "economy",
+      "position": 0,
+      "summary": "Focuses on sustainable development; supportive of local businesses but not at the expense of environmental standards.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    },
+    {
+      "candidateId": "lisa-wong",
+      "issueId": "public-safety",
+      "position": 0,
+      "summary": "Supports community-based safety initiatives and mental health diversion alongside traditional policing.",
+      "sources": [
+        { "url": "https://ballotpedia.org", "title": "Ballotpedia" }
+      ]
+    }
+  ]
+}
