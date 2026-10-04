@@ -47,3 +47,7 @@ No US Senate, Governor or statewide executive races in WA in 2026.
 - City Council District 5: Nilu Jenks vs Julie Kang
 - Municipal Court Judge Pos 5: Gabe Rothstein vs Garmon Newsom
 - No Seattle measures on Nov ballot [S5]; Prop 1 library levy was the AUGUST ballot and passed (75%)
+
+## Not yet listed (no primary held; King County Nov local pamphlet not yet published as of 2026-10-04)
+- [S6] VoteWA scheduled races for King County (https://voter.votewa.gov/ScheduledRaces.aspx?y=2026&c=17) shows these offices are up: Prosecuting Attorney (inc. Leesa Manion), Director of Elections (inc. Julie Wise), County Council D2 (4-year short & full term; appointed inc. Rhonda Lewis), D4 (inc. Jorge L. Barón — northwest Seattle), D6, D8; Seattle Municipal Court Judge Positions 1–7; King County Superior Court seats.
+- General-election candidate names for D4, Prosecutor, Elections Director, Muni Court 1–4/6–7: NOT VERIFIED — add once the King County local voters' pamphlet is published.

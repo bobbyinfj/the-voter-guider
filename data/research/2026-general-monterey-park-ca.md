@@ -6,6 +6,7 @@ Sources:
 - [C3] AB 604 (Prop 50) congressional equivalency file: https://aelc.assembly.ca.gov/system/files/2025-08/ab604.csv  + Census geocoder (5 MP addresses → CD28 under AB604; SLDU 25; SLDL 49). Tract 4825.22 blocks in CD38 are Montebello/South San Gabriel, not MP.
 - [C4] City of Monterey Park, 2026 General Election page + Certified Candidates in Ballot Order (2026-08-28): https://www.montereypark.ca.gov/1738/2026-General-Election-Information , https://www.montereypark.ca.gov/DocumentCenter/View/19520/Candidate-Status-Table-ballot-order-08282026
 - [C5] Wikipedia 2026 Los Angeles County elections (June primary results; cross-check): https://en.wikipedia.org/wiki/2026_Los_Angeles_County_elections
+- [C7] LA County RR/CC, Measures Appearing on the Ballot, Nov 3 2026 (rev 8/14/2026): https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf
 - [C6] LAist: Durazo won Supervisor D1 outright, no November runoff: https://laist.com/news/politics/voter-guides/2026-election-california-primary-la-live-results-la-county-supervisor-district-1-and-3
 
 No US Senate race in CA in 2026. State Senate District 25 (Monterey Park) is NOT up in 2026 (odd-numbered).
@@ -47,7 +48,7 @@ EXISTING DATA BUG: data/elections/ca-primary-2026-06-02.json lists Gavin Newsom 
 - Sheriff (runoff): Robert Luna* vs Alex Villanueva (June: 44.15% / 21.70%)
 - Assessor: Jeffrey Prang won outright in June (57.73%) — NOT on Nov ballot
 - Supervisor D1 (Monterey Park): Maria Elena Durazo won outright in June — NOT on Nov ballot
-- November countywide measures: NOT VERIFIED — omit until checked against LA County RR/CC
+- November countywide measures [C7]: Measure A (Charter amendment: good-faith negotiation + binding arbitration for public safety employee disputes; prohibits strikes by DA investigators, medical examiners, lifeguards, etc.) and Measure E (Ethics Commission + community investment budget allocation charter amendment). Majority vote. C7 also confirms Monterey Park HOM and AAA.
 
 ## City of Monterey Park [C4]
 - City Council District 1: Thomas Wong (unopposed; Monterey Park City Councilmember)

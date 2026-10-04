@@ -5,7 +5,7 @@
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "Colorado's November 3 general election as it appears on Fort Collins ballots: U.S. Senate, U.S. House District 2, Governor and the other statewide offices, CU Regent, State House Districts 52 and 53, Larimer County offices, 14 statewide measures and two local tax measures. Fort Collins city elections are held in odd years, so there are no city races. Candidates are from the Secretary of State's list certified Sept 4, 2026.",
+  "description": "Colorado's November 3 general election as it appears on Fort Collins ballots: U.S. Senate, U.S. House District 2, Governor and the other statewide offices, CU Regent, State House Districts 52 and 53 (plus Senate District 15 and House District 65 for unincorporated areas with Fort Collins addresses), Larimer County offices, 14 statewide measures and two local tax measures. Fort Collins city elections are held in odd years, so there are no city races. Candidates are from the Secretary of State's list certified Sept 4, 2026.",
   "officialUrl": "https://www.coloradosos.gov/pubs/elections/main.html",
   "districtLookupUrl": "https://www.coloradosos.gov/voter/pages/pub/olvr/findVoterReg.xhtml",
   "jurisdiction": {
@@ -332,6 +332,52 @@
         {
           "id": "co26-daniel-frick",
           "name": "Daniel Frick",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-senate-15",
+      "title": "State Senator, District 15",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 39,
+      "description": "4-year term. Not inside Fort Collins city limits, but covers unincorporated areas with Fort Collins addresses (e.g. north and west of the city). City residents are in Senate Districts 14 or 23, which are not up this year.",
+      "district": "Senate District 15",
+      "districtType": "state-senate",
+      "districtCode": "15",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-janice-marchman",
+          "name": "Janice Marchman",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-rob-woodward",
+          "name": "Rob Woodward",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-house-65",
+      "title": "State Representative, District 65",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 42,
+      "description": "2-year term. Unopposed. Covers unincorporated areas with Fort Collins addresses north and west of the city.",
+      "district": "House District 65",
+      "districtType": "state-house",
+      "districtCode": "65",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "co26-lori-garcia-sander",
+          "name": "Lori Garcia Sander",
           "party": "Republican",
           "incumbent": false
         }

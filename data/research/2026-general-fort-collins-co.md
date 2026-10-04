@@ -22,6 +22,9 @@ Fort Collins city elections are odd-year; no city races on this ballot.
 - State House HD-52: Yara Zokaie (D) vs Steve Yurash (Center)
 - State House HD-53: Andy Boesenecker (D) vs Daniel Frick (R)
 - No state senate race inside Fort Collins city (SD14, SD23 not up).
+- Unincorporated areas with Fort Collins mailing addresses (2721 N Shields St, 800 N Overland Trl, 3300 W Vine Dr) geocode to SD15 / HD65 [K4]:
+  - State Senate SD-15: Janice Marchman (D) vs Rob Woodward (R) [K1,K3]
+  - State House HD-65: Lori Garcia Sander (R) unopposed [K1,K3]
 
 ## Statewide measures [K2]
 - Amendment 81: Law Enforcement Communication with Federal Immigration Authorities

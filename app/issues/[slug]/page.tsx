@@ -14,6 +14,8 @@ export default async function IssuePage({ params }: Props) {
     where: { slug },
     include: {
       stances: {
+        // Only races voters can still act on — past elections stay on their own pages
+        where: { candidate: { office: { election: { status: { not: "completed" } } } } },
         include: {
           candidate: {
             include: {

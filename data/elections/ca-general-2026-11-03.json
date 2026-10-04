@@ -5,7 +5,7 @@
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "California's November 3 general election as it appears on Monterey Park ballots: Governor and the other statewide offices, U.S. House District 28, Assembly District 49, the Los Angeles County Sheriff runoff, Monterey Park city races, 14 statewide propositions and two city measures. California has no U.S. Senate race in 2026. Candidates and ballot designations are from the Secretary of State's certified list (Aug 27, 2026).",
+  "description": "California's November 3 general election as it appears on Monterey Park ballots: Governor and the other statewide offices, U.S. House District 28, Assembly District 49, the Los Angeles County Sheriff runoff, Monterey Park city races, 14 statewide propositions, two county charter amendments and two city measures. School and special-district measures are not included. California has no U.S. Senate race in 2026. Candidates and ballot designations are from the Secretary of State's certified list (Aug 27, 2026).",
   "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
   "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
   "jurisdiction": {
@@ -526,6 +526,24 @@
       "type": "proposition",
       "description": "Initiative statute.",
       "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-la-a",
+      "number": "Measure A",
+      "title": "Los Angeles County Charter Amendment: Good-Faith Negotiation and Binding Arbitration for Public Safety Employee Disputes",
+      "level": "county",
+      "type": "measure",
+      "description": "Would amend the County Charter to prohibit strikes by district attorney investigators, medical examiners, lifeguards, their supervisors, and non-administrative civilian employees of the Fire, Sheriff's and Medical Examiner departments; restate existing good-faith negotiation obligations; and set up impartial binding arbitration for labor disputes with certified public safety employee organizations. Majority vote.",
+      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf"
+    },
+    {
+      "id": "ca26-m-la-e",
+      "number": "Measure E",
+      "title": "County of Los Angeles Ethics Commission and Community Investment Budget Allocation Charter Amendment",
+      "level": "county",
+      "type": "measure",
+      "description": "Would amend the County Charter to give the county Ethics Commission, Office of Ethics Compliance and Ethics Compliance Officer more independence and structure (appointments, qualifications, terms, duties), and continue the county's commitment to community investment and alternatives to incarceration. Majority vote.",
+      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf"
     },
     {
       "id": "ca26-m-mp-hom",

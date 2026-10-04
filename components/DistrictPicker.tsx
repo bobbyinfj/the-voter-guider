@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import type { DistrictOption, DistrictSelection } from "@/lib/districts";
+import { NO_RACE, type DistrictOption, type DistrictSelection } from "@/lib/districts";
 
 interface Props {
   options: DistrictOption[];
@@ -49,6 +49,8 @@ export default function DistrictPicker({ options, selection, lookupUrl }: Props)
                   {c.label}
                 </option>
               ))}
+              {/* Matches no district code, so it hides every race of this type */}
+              <option value={NO_RACE}>My district isn&apos;t listed</option>
             </select>
           </label>
         ))}

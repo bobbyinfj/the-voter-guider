@@ -14,6 +14,9 @@ export type DistrictType = keyof typeof DISTRICT_TYPES;
 
 export type DistrictSelection = Partial<Record<DistrictType, string>>;
 
+// Picker value for voters whose district has no race of this type this year
+export const NO_RACE = "none";
+
 export function isDistrictType(value: string): value is DistrictType {
   return Object.prototype.hasOwnProperty.call(DISTRICT_TYPES, value);
 }

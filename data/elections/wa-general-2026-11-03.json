@@ -5,7 +5,7 @@
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "Washington's November 3 general election as it appears on Seattle ballots: two U.S. House seats, the state legislature, the state Supreme Court, King County and City of Seattle races, and three statewide initiatives. Washington has no U.S. Senate or statewide executive races in 2026. Party labels are each candidate's stated party preference, as printed on the ballot. Ballots are mailed by October 16.",
+  "description": "Washington's November 3 general election as it appears on Seattle ballots: two U.S. House seats, the state legislature, the state Supreme Court, King County and City of Seattle races, and three statewide initiatives. Washington has no U.S. Senate or statewide executive races in 2026. Party labels are each candidate's stated party preference, as printed on the ballot. Ballots are mailed by October 16. Not yet listed: races with one or two candidates skipped the August primary, and King County has not yet published its November local pamphlet. These include King County Council District 4 (northwest Seattle), Prosecuting Attorney, Director of Elections, Seattle Municipal Court positions other than 5, and King County District Court and Superior Court seats. They will be added once they are confirmed.",
   "officialUrl": "https://www.sos.wa.gov/elections",
   "districtLookupUrl": "https://voter.votewa.gov/",
   "jurisdiction": {
@@ -726,7 +726,7 @@
       "level": "county",
       "jurisdictionFips": "53033",
       "sortOrder": 101,
-      "description": "Nonpartisan.",
+      "description": "Nonpartisan. VoteWA lists this seat as a short and full term: the winner also serves the rest of the current term.",
       "district": "County Council District 2",
       "districtType": "county-council",
       "districtCode": "2",
