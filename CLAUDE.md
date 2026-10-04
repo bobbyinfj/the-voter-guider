@@ -32,13 +32,24 @@ Shared DB helpers in `lib/quiz/db.ts`.
 ## Data files (curated ballot content)
 ```
 data/
-  issues/       # one JSON per issue (slug, name, summary, description, level)
-  elections/    # ca-primary-2026-06-02.json — offices + candidates
-  stances/      # ca-primary-2026-06-02.json — candidateId × issueId → position + sources
-  quizzes/      # ca-primary-2026-06-02.json — questions, options, issue links
+  issues/       # one JSON per issue (slug, name, summary, description, level) — keep state-neutral
+  elections/    # <slug>.json — offices + candidates + measures (e.g. wa-general-2026-11-03.json)
+  stances/      # <slug>.json — optional; candidateId × issueId → position + sources
+  quizzes/      # <slug>.json — optional; questions, options, issue links
+  research/     # sourced fact sheets the election bundles were built from
 ```
-Seed reads these files in `seedCAPrimary2026()` inside `prisma/seed.ts`.
-To add a new location: drop a new bundle under `data/elections/<slug>.json` + matching stances/quiz files and re-seed.
+`seedElectionBundles()` in `prisma/seed.ts` seeds every `data/elections/*.json`, plus the
+stances/quiz files with the same slug when they exist. To add a location, add a bundle and re-seed.
+
+Every ballot fact (candidate, party, measure) must come from an official source (SOS
+certified list, voters' pamphlet, county sample ballot) recorded in `data/research/`.
+Stances need a fetched source URL; leave a stance out rather than guess.
+
+### Districts
+Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`).
+Unscoped items are on every ballot. The election page's district picker filters by URL
+params (`?congressional=7&legislative=43`); the quiz copies them into `Guide.metadata.districts`
+and only scores matching offices.
 
 ## Running locally
 ```bash
@@ -72,6 +83,9 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 
 ## Schema migrations
 Use `prisma migrate dev` (not `db push`) for all schema changes. The Neon DB uses PostgreSQL 17.
+`prisma/migrations/0_init` is a baseline of the pre-quiz schema. A database that already has
+those tables (e.g. the Neon DB) needs `prisma migrate resolve --applied 0_init` once before
+`prisma migrate deploy`.
 After schema changes, run `npx prisma generate` to regenerate the client.
 
 ## Linting / type-check

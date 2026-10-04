@@ -344,7 +344,8 @@ async function main() {
   // Use the first Monterey Park precinct's jurisdiction for the election
   const montereyParkElection = await prisma.election.upsert({
     where: { id: "monterey-park-2025" },
-    update: {},
+    // Held Nov 4, 2025 — keep it out of the "upcoming" lists
+    update: { status: "completed" },
     create: {
       id: "monterey-park-2025",
       jurisdictionId: montereyParkJurisdiction.id,
@@ -352,7 +353,7 @@ async function main() {
       description: "City Council election and local ballot measures",
       electionDate: new Date("2025-11-04"),
       type: "general",
-      status: "upcoming",
+      status: "completed",
       officialUrl: "https://www.montereypark.ca.gov",
     },
   });
@@ -360,7 +361,8 @@ async function main() {
   // === FORT COLLINS ELECTION ===
   const fortCollinsElection = await prisma.election.upsert({
     where: { id: "fort-collins-2025" },
-    update: {},
+    // Held Nov 4, 2025 — keep it out of the "upcoming" lists
+    update: { status: "completed" },
     create: {
       id: "fort-collins-2025",
       jurisdictionId: fortCollinsJurisdiction.id,
@@ -368,7 +370,7 @@ async function main() {
       description: "City Council election and local ballot measures",
       electionDate: new Date("2025-11-04"),
       type: "general",
-      status: "upcoming",
+      status: "completed",
       officialUrl: "https://www.fcgov.com/elections",
     },
   });
@@ -376,7 +378,8 @@ async function main() {
   // === SEATTLE ELECTION ===
   const seattleElection = await prisma.election.upsert({
     where: { id: "wa-seattle-2025" },
-    update: {},
+    // Held Nov 4, 2025 — keep it out of the "upcoming" lists
+    update: { status: "completed" },
     create: {
       id: "wa-seattle-2025",
       jurisdictionId: seattleJurisdiction.id,
@@ -384,7 +387,7 @@ async function main() {
       description: "City Council election and local ballot measures",
       electionDate: new Date("2025-11-04"),
       type: "general",
-      status: "upcoming",
+      status: "completed",
       officialUrl: "https://www.seattle.gov/elections",
     },
   });
@@ -683,8 +686,8 @@ async function main() {
     console.log("✅ Using real ballot data (no sample data created)");
   }
 
-  // Seed CA Primary 2026 quiz data
-  await seedCAPrimary2026();
+  // Seed curated election bundles (data/elections/*.json + matching stances/quizzes)
+  await seedElectionBundles();
 
   console.log("");
   console.log("🎉 Seeding complete!");
@@ -740,7 +743,7 @@ async function main() {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// CA Primary 2026 seed
+// Curated election bundles
 // ────────────────────────────────────────────────────────────────────────────
 
 interface IssueFile {
@@ -770,10 +773,26 @@ interface OfficeData {
   title: string;
   level: string;
   jurisdictionFips: string;
+  district?: string;
+  districtType?: string;
+  districtCode?: string;
   termYears?: number;
   sortOrder?: number;
   description?: string;
   candidates: CandidateData[];
+}
+
+interface MeasureData {
+  id: string;
+  number?: string;
+  title: string;
+  description?: string;
+  // state | county | city | district
+  level: string;
+  type?: string;
+  districtType?: string;
+  districtCode?: string;
+  sourceUrl?: string;
 }
 
 interface ElectionFile {
@@ -783,7 +802,9 @@ interface ElectionFile {
   electionDate: string;
   type: string;
   status: string;
+  description?: string;
   officialUrl?: string;
+  districtLookupUrl?: string;
   jurisdiction: { name: string; state: string; type: string; fipsCode: string };
   localJurisdictions?: Array<{
     id: string;
@@ -794,6 +815,7 @@ interface ElectionFile {
     fipsCode: string;
   }>;
   offices: OfficeData[];
+  measures?: MeasureData[];
 }
 
 interface StanceData {
@@ -825,20 +847,26 @@ interface QuizFile {
   questions: QuestionData[];
 }
 
-async function seedCAPrimary2026() {
-  const dataRoot = resolve(process.cwd(), "data");
-
-  // Check election data file
-  const electionPath = resolve(dataRoot, "elections", "ca-primary-2026-06-02.json");
-  let electionData: ElectionFile;
+async function seedElectionBundles() {
+  const electionsDir = resolve(process.cwd(), "data", "elections");
+  let files: string[];
   try {
-    electionData = JSON.parse(readFileSync(electionPath, "utf-8"));
+    files = readdirSync(electionsDir).filter((f) => f.endsWith(".json")).sort();
   } catch {
-    console.log("⚠️  CA Primary 2026 data file not found — skipping.");
+    console.log("⚠️  data/elections not found — skipping election bundles.");
     return;
   }
+  for (const file of files) {
+    await seedElectionBundle(file.replace(/\.json$/, ""));
+  }
+}
 
-  console.log("\n🇨🇦  Seeding California Primary 2026...");
+async function seedElectionBundle(slug: string) {
+  const dataRoot = resolve(process.cwd(), "data");
+  const electionPath = resolve(dataRoot, "elections", `${slug}.json`);
+  const electionData: ElectionFile = JSON.parse(readFileSync(electionPath, "utf-8"));
+
+  console.log(`\n🗳️  Seeding ${electionData.title} (${slug})...`);
 
   // 1. Upsert jurisdictions
   const stateJurisdiction = await prisma.jurisdiction.upsert({
@@ -876,18 +904,22 @@ async function seedCAPrimary2026() {
     where: { id: electionData.electionId },
     update: {
       title: electionData.title,
+      description: electionData.description,
       electionDate: new Date(electionData.electionDate),
       status: electionData.status,
+      officialUrl: electionData.officialUrl,
+      districtLookupUrl: electionData.districtLookupUrl ?? null,
     },
     create: {
       id: electionData.electionId,
       jurisdictionId: stateJurisdiction.id,
       title: electionData.title,
-      description: `California statewide primary election. Includes state offices, federal seats, and local races for ZIP 91755 (Monterey Park / Rosemead area).`,
+      description: electionData.description,
       electionDate: new Date(electionData.electionDate),
       type: electionData.type,
       status: electionData.status,
       officialUrl: electionData.officialUrl,
+      districtLookupUrl: electionData.districtLookupUrl ?? null,
     },
   });
   console.log("   ✅ Election upserted");
@@ -937,6 +969,10 @@ async function seedCAPrimary2026() {
         title: officeData.title,
         level: officeData.level,
         description: officeData.description,
+        district: officeData.district ?? null,
+        districtType: officeData.districtType ?? null,
+        districtCode: officeData.districtCode ?? null,
+        termYears: officeData.termYears,
         sortOrder: officeData.sortOrder ?? 100,
       },
       create: {
@@ -946,6 +982,9 @@ async function seedCAPrimary2026() {
         title: officeData.title,
         level: officeData.level,
         description: officeData.description,
+        district: officeData.district ?? null,
+        districtType: officeData.districtType ?? null,
+        districtCode: officeData.districtCode ?? null,
         termYears: officeData.termYears,
         sortOrder: officeData.sortOrder ?? 100,
       },
@@ -982,13 +1021,35 @@ async function seedCAPrimary2026() {
     `   ✅ ${electionData.offices.length} offices + ${Object.keys(candidateLocalId).length} candidates upserted`,
   );
 
+  // 4b. Upsert ballot measures (ids are bundle-stable so re-seeding is idempotent)
+  for (const m of electionData.measures ?? []) {
+    const data = {
+      number: m.number ?? null,
+      title: m.title,
+      description: m.description ?? null,
+      type: m.type ?? "measure",
+      options: ["YES", "NO"],
+      metadata: { level: m.level, sourceUrl: m.sourceUrl ?? null },
+      districtType: m.districtType ?? null,
+      districtCode: m.districtCode ?? null,
+    };
+    await prisma.ballot.upsert({
+      where: { id: m.id },
+      update: data,
+      create: { id: m.id, electionId: election.id, ...data },
+    });
+  }
+  if (electionData.measures?.length) {
+    console.log(`   ✅ ${electionData.measures.length} ballot measures upserted`);
+  }
+
   // 5. Upsert stances + sources
-  const stancesPath = resolve(dataRoot, "stances", "ca-primary-2026-06-02.json");
+  const stancesPath = resolve(dataRoot, "stances", `${slug}.json`);
   let stancesFile: StancesFile;
   try {
     stancesFile = JSON.parse(readFileSync(stancesPath, "utf-8"));
   } catch {
-    console.log("   ⚠️  Stances file not found — skipping stances.");
+    console.log("   ℹ️  No stances file — skipping stances.");
     stancesFile = { electionSlug: "", stances: [] };
   }
 
@@ -1028,12 +1089,12 @@ async function seedCAPrimary2026() {
   console.log(`   ✅ ${stanceCount} stances upserted`);
 
   // 6. Upsert quiz + questions + options + question-issue links
-  const quizPath = resolve(dataRoot, "quizzes", "ca-primary-2026-06-02.json");
+  const quizPath = resolve(dataRoot, "quizzes", `${slug}.json`);
   let quizFile: QuizFile;
   try {
     quizFile = JSON.parse(readFileSync(quizPath, "utf-8"));
   } catch {
-    console.log("   ⚠️  Quiz file not found — skipping quiz.");
+    console.log("   ℹ️  No quiz file — skipping quiz.");
     return;
   }
 

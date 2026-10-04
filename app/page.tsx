@@ -28,6 +28,12 @@ interface Election {
   }
 }
 
+const FEATURED_ELECTIONS = [
+  { id: "wa-general-2026", city: "Seattle, WA", highlights: "U.S. House, legislature, Supreme Court, 3 initiatives" },
+  { id: "co-general-2026", city: "Fort Collins, CO", highlights: "Governor, U.S. Senate, CO-2, 14 measures" },
+  { id: "ca-general-2026", city: "Monterey Park, CA", highlights: "Governor, CA-28, Sheriff, 14 propositions" },
+];
+
 export default function HomePage() {
   const [jurisdictions, setJurisdictions] = useState<Jurisdiction[]>([])
   const [selectedJurisdiction, setSelectedJurisdiction] = useState<string | null>(null)
@@ -125,33 +131,28 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Featured: CA Primary 2026 */}
+        {/* Featured: November 3, 2026 general election */}
         <div className="max-w-4xl mx-auto mb-10">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-6 text-white">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
-                <span className="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded-full mb-2 inline-block">
-                  Featured Election
-                </span>
-                <h3 className="text-xl font-bold mt-1">California Primary Election 2026</h3>
-                <p className="text-blue-100 mt-1 text-sm">
-                  June 2, 2026 · Governor, US Senate, Assembly, Congress + local races for ZIP 91755
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
+            <span className="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded-full mb-2 inline-block">
+              Featured Election
+            </span>
+            <h3 className="text-xl font-bold mt-1">2026 General Election · November 3</h3>
+            <p className="text-blue-100 mt-1 text-sm">
+              Every race and measure on the ballot, from U.S. House down to city council. Pick your
+              districts to see only your races.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-3 mt-4">
+              {FEATURED_ELECTIONS.map((e) => (
                 <Link
-                  href="/elections/ca-primary-2026"
-                  className="px-5 py-2.5 bg-white text-blue-700 rounded-lg font-semibold hover:bg-blue-50 text-sm text-center"
+                  key={e.id}
+                  href={`/elections/${e.id}`}
+                  className="block px-4 py-3 bg-white text-blue-700 rounded-lg hover:bg-blue-50"
                 >
-                  Explore election
+                  <span className="font-semibold">{e.city}</span>
+                  <span className="block text-xs text-gray-500 mt-0.5">{e.highlights}</span>
                 </Link>
-                <Link
-                  href="/elections/ca-primary-2026/quiz"
-                  className="px-5 py-2.5 bg-white/20 border border-white/40 text-white rounded-lg font-medium hover:bg-white/30 text-sm text-center"
-                >
-                  🗳️ Take the quiz
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </div>

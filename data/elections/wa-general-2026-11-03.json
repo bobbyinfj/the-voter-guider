@@ -1,0 +1,842 @@
+{
+  "slug": "wa-general-2026-11-03",
+  "electionId": "wa-general-2026",
+  "title": "2026 General Election — Seattle, WA",
+  "electionDate": "2026-11-03T00:00:00.000Z",
+  "type": "general",
+  "status": "upcoming",
+  "description": "Washington's November 3 general election as it appears on Seattle ballots: two U.S. House seats, the state legislature, the state Supreme Court, King County and City of Seattle races, and three statewide initiatives. Washington has no U.S. Senate or statewide executive races in 2026. Party labels are each candidate's stated party preference, as printed on the ballot. Ballots are mailed by October 16.",
+  "officialUrl": "https://www.sos.wa.gov/elections",
+  "districtLookupUrl": "https://voter.votewa.gov/",
+  "jurisdiction": {
+    "name": "Washington",
+    "state": "WA",
+    "type": "state",
+    "fipsCode": "53"
+  },
+  "localJurisdictions": [
+    {
+      "id": "king-county",
+      "name": "King County",
+      "state": "WA",
+      "countyName": "King",
+      "type": "county",
+      "fipsCode": "53033"
+    },
+    {
+      "id": "seattle",
+      "name": "Seattle",
+      "state": "WA",
+      "countyName": "King",
+      "type": "city",
+      "fipsCode": "5363000"
+    }
+  ],
+  "offices": [
+    {
+      "id": "wa26-us-house-7",
+      "title": "U.S. Representative, District 7",
+      "level": "federal",
+      "jurisdictionFips": "53",
+      "sortOrder": 10,
+      "description": "2-year term. Covers most of Seattle.",
+      "district": "WA-7",
+      "districtType": "congressional",
+      "districtCode": "7",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-pramila-jayapal",
+          "name": "Pramila Jayapal",
+          "party": "Prefers Democratic Party",
+          "incumbent": true,
+          "website": "https://www.pramilaforcongress.com"
+        },
+        {
+          "id": "wa26-nirav-sheth",
+          "name": "Nirav Sheth",
+          "party": "Prefers Republican Party",
+          "incumbent": false,
+          "website": "https://www.shethforcongress.com"
+        }
+      ]
+    },
+    {
+      "id": "wa26-us-house-9",
+      "title": "U.S. Representative, District 9",
+      "level": "federal",
+      "jurisdictionFips": "53",
+      "sortOrder": 11,
+      "description": "2-year term. Covers southeast Seattle and south King County.",
+      "district": "WA-9",
+      "districtType": "congressional",
+      "districtCode": "9",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-adam-smith",
+          "name": "Adam Smith",
+          "party": "Prefers Democratic Party",
+          "incumbent": true,
+          "website": "https://www.electadamsmith.com"
+        },
+        {
+          "id": "wa26-doug-basler",
+          "name": "Doug Basler",
+          "party": "Prefers Republican Party",
+          "incumbent": false,
+          "website": "https://dougbasler.com"
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld11-rep1",
+      "title": "State Representative, Position 1, LD 11",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 30,
+      "description": "2-year term.",
+      "district": "Legislative District 11",
+      "districtType": "legislative",
+      "districtCode": "11",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-david-hackney",
+          "name": "David Hackney",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-ashley-fedan",
+          "name": "Ashley Fedan",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld11-rep2",
+      "title": "State Representative, Position 2, LD 11",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 31,
+      "description": "2-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 11",
+      "districtType": "legislative",
+      "districtCode": "11",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-steve-bergquist",
+          "name": "Steve Bergquist",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld32-sen",
+      "title": "State Senator, LD 32",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 32,
+      "description": "4-year term.",
+      "district": "Legislative District 32",
+      "districtType": "legislative",
+      "districtCode": "32",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-cindy-ryu",
+          "name": "Cindy Ryu",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-jesse-salomon",
+          "name": "Jesse Salomon",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld32-rep1",
+      "title": "State Representative, Position 1, LD 32",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 33,
+      "description": "2-year term.",
+      "district": "Legislative District 32",
+      "districtType": "legislative",
+      "districtCode": "32",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-keith-scully",
+          "name": "Keith Scully",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-danica-noble",
+          "name": "Danica Noble",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld32-rep2",
+      "title": "State Representative, Position 2, LD 32",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 34,
+      "description": "2-year term.",
+      "district": "Legislative District 32",
+      "districtType": "legislative",
+      "districtCode": "32",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-lauren-davis",
+          "name": "Lauren Davis",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-imraan-siddiqi",
+          "name": "Imraan Siddiqi",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld34-sen",
+      "title": "State Senator, LD 34",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 35,
+      "description": "4-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 34",
+      "districtType": "legislative",
+      "districtCode": "34",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-emily-alvarado",
+          "name": "Emily Alvarado",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld34-rep1",
+      "title": "State Representative, Position 1, LD 34",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 36,
+      "description": "2-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 34",
+      "districtType": "legislative",
+      "districtCode": "34",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-brianna-k-thomas",
+          "name": "Brianna K. Thomas",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld34-rep2",
+      "title": "State Representative, Position 2, LD 34",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 37,
+      "description": "2-year term.",
+      "district": "Legislative District 34",
+      "districtType": "legislative",
+      "districtCode": "34",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-joe-fitzgibbon",
+          "name": "Joe Fitzgibbon",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-mary-anito",
+          "name": "Mary Anito",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld36-sen",
+      "title": "State Senator, LD 36",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 38,
+      "description": "4-year term.",
+      "district": "Legislative District 36",
+      "districtType": "legislative",
+      "districtCode": "36",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-noel-c-frame",
+          "name": "Noel C. Frame",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-jillian-england",
+          "name": "Jillian England",
+          "party": "Prefers Republican Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld36-rep1",
+      "title": "State Representative, Position 1, LD 36",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 39,
+      "description": "2-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 36",
+      "districtType": "legislative",
+      "districtCode": "36",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-julia-grant-reed",
+          "name": "Julia Grant Reed",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld36-rep2",
+      "title": "State Representative, Position 2, LD 36",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 40,
+      "description": "2-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 36",
+      "districtType": "legislative",
+      "districtCode": "36",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-liz-berry",
+          "name": "Liz Berry",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld37-sen",
+      "title": "State Senator, LD 37",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 41,
+      "description": "4-year term.",
+      "district": "Legislative District 37",
+      "districtType": "legislative",
+      "districtCode": "37",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-chipalo-street",
+          "name": "Chipalo Street",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-tatiana-brown",
+          "name": "Tatiana Brown",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld37-rep1",
+      "title": "State Representative, Position 1, LD 37",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 42,
+      "description": "2-year term.",
+      "district": "Legislative District 37",
+      "districtType": "legislative",
+      "districtCode": "37",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-sharon-tomiko-santos",
+          "name": "Sharon Tomiko Santos",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-kelabe-tewolde",
+          "name": "Kelabe Tewolde",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld37-rep2",
+      "title": "State Representative, Position 2, LD 37",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 43,
+      "description": "2-year term.",
+      "district": "Legislative District 37",
+      "districtType": "legislative",
+      "districtCode": "37",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-jaelynn-scott",
+          "name": "Jaelynn Scott",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-evon-mccorkle",
+          "name": "Evon McCorkle",
+          "party": "Prefers Independent Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld43-sen",
+      "title": "State Senator, LD 43",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 44,
+      "description": "4-year term.",
+      "district": "Legislative District 43",
+      "districtType": "legislative",
+      "districtCode": "43",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-jamie-pedersen",
+          "name": "Jamie Pedersen",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-hannah-sabio-howell",
+          "name": "Hannah Sabio-Howell",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld43-rep1",
+      "title": "State Representative, Position 1, LD 43",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 45,
+      "description": "2-year term.",
+      "district": "Legislative District 43",
+      "districtType": "legislative",
+      "districtCode": "43",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-nicole-macri",
+          "name": "Nicole Macri",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-alby-clendennin",
+          "name": "Alby Clendennin",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld43-rep2",
+      "title": "State Representative, Position 2, LD 43",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 46,
+      "description": "2-year term. Unopposed on the general election ballot.",
+      "district": "Legislative District 43",
+      "districtType": "legislative",
+      "districtCode": "43",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-shaun-scott",
+          "name": "Shaun Scott",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld46-sen",
+      "title": "State Senator, LD 46",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 47,
+      "description": "4-year term.",
+      "district": "Legislative District 46",
+      "districtType": "legislative",
+      "districtCode": "46",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "wa26-javier-valdez",
+          "name": "Javier Valdez",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-sandra-stephens",
+          "name": "Sandra Stephens",
+          "party": "Prefers Republican Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld46-rep1",
+      "title": "State Representative, Position 1, LD 46",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 48,
+      "description": "2-year term.",
+      "district": "Legislative District 46",
+      "districtType": "legislative",
+      "districtCode": "46",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-gerry-pollet",
+          "name": "Gerry Pollet",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-will-dreher",
+          "name": "Will Dreher",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-ld46-rep2",
+      "title": "State Representative, Position 2, LD 46",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 49,
+      "description": "2-year term.",
+      "district": "Legislative District 46",
+      "districtType": "legislative",
+      "districtCode": "46",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "wa26-darya-farivar",
+          "name": "Darya Farivar",
+          "party": "Prefers Democratic Party",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-rodney-star-thornley",
+          "name": "Rodney 'Star' Thornley",
+          "party": "States No Party Preference",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-supreme-1",
+      "title": "Supreme Court Justice, Position 1",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 80,
+      "description": "2-year unexpired term. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-colleen-melody",
+          "name": "Colleen Melody",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-scott-edwards",
+          "name": "Scott Edwards",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-supreme-3",
+      "title": "Supreme Court Justice, Position 3",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 81,
+      "description": "6-year term. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-david-stevens",
+          "name": "David Stevens",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-jaime-michelle-hawk",
+          "name": "Jaime Michelle Hawk",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-supreme-4",
+      "title": "Supreme Court Justice, Position 4",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 82,
+      "description": "6-year term. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-ian-birk",
+          "name": "Ian Birk",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-sean-o-donnell",
+          "name": "Sean O'Donnell",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-supreme-5",
+      "title": "Supreme Court Justice, Position 5",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 83,
+      "description": "2-year unexpired term. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-theo-angelis",
+          "name": "Theo Angelis",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-dave-larson",
+          "name": "Dave Larson",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-supreme-7",
+      "title": "Supreme Court Justice, Position 7",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 84,
+      "description": "6-year term. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-debra-l-stephens",
+          "name": "Debra L. Stephens",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-todd-a-bloom",
+          "name": "Todd A. Bloom",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-appeals-1-1-5",
+      "title": "Court of Appeals Judge, Division 1, District 1, Position 5",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 85,
+      "description": "6-year term. Nonpartisan. District 1 is King County.",
+      "candidates": [
+        {
+          "id": "wa26-david-s-mann",
+          "name": "David S. Mann",
+          "party": "Nonpartisan",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-bill-a-bowman",
+          "name": "Bill A. Bowman",
+          "party": "Nonpartisan",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-king-assessor",
+      "title": "King County Assessor",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 100,
+      "description": "Countywide. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-rob-foxcurran",
+          "name": "Rob Foxcurran",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-dominique-m-scarimbolo",
+          "name": "Dominique M. Scarimbolo",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-king-council-2",
+      "title": "King County Council, District 2",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 101,
+      "description": "Nonpartisan.",
+      "district": "County Council District 2",
+      "districtType": "county-council",
+      "districtCode": "2",
+      "candidates": [
+        {
+          "id": "wa26-rebecca-salda-a",
+          "name": "Rebecca Saldaña",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-toshiko-grace-hasegawa",
+          "name": "Toshiko Grace Hasegawa",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-king-council-8",
+      "title": "King County Council, District 8",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 102,
+      "description": "Nonpartisan. Includes West Seattle.",
+      "district": "County Council District 8",
+      "districtType": "county-council",
+      "districtCode": "8",
+      "candidates": [
+        {
+          "id": "wa26-teresa-mosqueda",
+          "name": "Teresa Mosqueda",
+          "incumbent": true
+        },
+        {
+          "id": "wa26-nick-duda",
+          "name": "Nick Duda",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-seattle-council-5",
+      "title": "Seattle City Council, District 5",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 110,
+      "description": "Nonpartisan. North Seattle.",
+      "district": "Seattle District 5",
+      "districtType": "city-council",
+      "districtCode": "5",
+      "candidates": [
+        {
+          "id": "wa26-nilu-jenks",
+          "name": "Nilu Jenks",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-julie-kang",
+          "name": "Julie Kang",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "wa26-seattle-muni-5",
+      "title": "Seattle Municipal Court Judge, Position 5",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 111,
+      "description": "Citywide. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-gabe-rothstein",
+          "name": "Gabe Rothstein",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-garmon-newsom",
+          "name": "Garmon Newsom",
+          "incumbent": false
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "id": "wa26-m-ip26-645",
+      "number": "IP26-645",
+      "title": "Initiative concerning state and local taxes",
+      "level": "state",
+      "type": "initiative",
+      "description": "Would repeal the 9.9% tax on annual individual income over $1,000,000, prohibit taxes measured by or on individual income, and define \"income.\" The state's fiscal statement says it would decrease funding for K-12 and higher education and human services (primarily healthcare).",
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+    },
+    {
+      "id": "wa26-m-il26-001",
+      "number": "IL26-001",
+      "title": "Initiative concerning parental rights relating to their children in public school",
+      "level": "state",
+      "type": "initiative",
+      "description": "Would restore the parents' rights law (RCW 28A.605.005) as the Legislature passed it in 2024 and repeal the 2025 amendments. It lists rights of parents and guardians of public-school children, such as reviewing school records, receiving notifications, and opting their child out of certain activities.",
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+    },
+    {
+      "id": "wa26-m-il26-638",
+      "number": "IL26-638",
+      "title": "Initiative concerning participation in athletics at K-12 schools",
+      "level": "state",
+      "type": "initiative",
+      "description": "Would prohibit students it defines as \"biologically male\" from competing in certain school athletic activities intended for female students only, with biological sex verified by students' healthcare providers.",
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+    }
+  ]
+}

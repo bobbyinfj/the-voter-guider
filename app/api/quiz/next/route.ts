@@ -22,7 +22,10 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Guide not found or unauthorized" }, { status: 403 });
     }
 
-    const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(guide.electionId);
+    const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(
+      guide.electionId,
+      guide.metadata,
+    );
 
     const answers = await prisma.userAnswer.findMany({
       where: { guideId },

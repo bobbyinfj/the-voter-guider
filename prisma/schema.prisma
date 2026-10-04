@@ -69,16 +69,18 @@ model Precinct {
 
 // Elections (upcoming or past)
 model Election {
-  id             String   @id @default(cuid())
-  jurisdictionId String
-  title          String
-  description    String?
-  electionDate   DateTime
-  type           String // primary, general, special, etc.
-  status         String   @default("upcoming") // upcoming, active, completed
-  officialUrl    String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id                String   @id @default(cuid())
+  jurisdictionId    String
+  title             String
+  description       String?
+  electionDate      DateTime
+  type              String // primary, general, special, etc.
+  status            String   @default("upcoming") // upcoming, active, completed
+  officialUrl       String?
+  // Official "which district am I in?" lookup, shown next to the district picker
+  districtLookupUrl String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 
   jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   ballots      Ballot[]
@@ -93,17 +95,20 @@ model Election {
 
 // Ballot Measures/Candidates
 model Ballot {
-  id          String   @id @default(cuid())
-  electionId  String
-  officeId    String?  @unique // links to Office for candidate races
-  number      String? // e.g., "Prop 50", "Measure 1"
-  title       String
-  description String?
-  type        String // proposition, measure, candidate, referendum, etc.
-  options     Json? // For measures: YES/NO, For candidates: array of candidates
-  metadata    Json? // Additional data (tax rates, funding amounts, etc.)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  electionId   String
+  officeId     String?  @unique // links to Office for candidate races
+  number       String? // e.g., "Prop 50", "Measure 1"
+  title        String
+  description  String?
+  type         String // proposition, measure, candidate, referendum, etc.
+  options      Json? // For measures: YES/NO, For candidates: array of candidates
+  metadata     Json? // Additional data (tax rates, funding amounts, etc.)
+  // Same district scoping as Office; null = on every ballot in the election
+  districtType String?
+  districtCode String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   election Election @relation(fields: [electionId], references: [id], onDelete: Cascade)
   office   Office?  @relation(fields: [officeId], references: [id], onDelete: SetNull)
@@ -190,6 +195,10 @@ model Office {
   electionId     String
   title          String // "Governor", "US Senator", "Mayor", "City Council District 1"
   district       String? // "District 1", "Seat A"
+  // District scoping for the district picker; null = on every ballot in the election.
+  // districtType is a key from lib/districts.ts ("congressional", "state-house", ...)
+  districtType   String?
+  districtCode   String? // "7", "43", "D5"
   // federal | state | county | city | school | special
   level          String
   description    String?
@@ -208,17 +217,17 @@ model Office {
 
 // A person running for an Office in a given election
 model Candidate {
-  id       String  @id @default(cuid())
-  officeId String
-  name     String
-  party    String?
+  id        String  @id @default(cuid())
+  officeId  String
+  name      String
+  party     String?
   incumbent Boolean @default(false)
-  shortBio String?
-  longBio  String? @db.Text
-  photoUrl String?
-  website  String?
-  email    String?
-  phone    String?
+  shortBio  String?
+  longBio   String? @db.Text
+  photoUrl  String?
+  website   String?
+  email     String?
+  phone     String?
 
   office  Office            @relation(fields: [officeId], references: [id], onDelete: Cascade)
   stances CandidateStance[]
@@ -238,7 +247,7 @@ model Issue {
   // national | state | local
   level          String  @default("state")
 
-  jurisdiction  Jurisdiction?   @relation(fields: [jurisdictionId], references: [id], onDelete: SetNull)
+  jurisdiction  Jurisdiction?     @relation(fields: [jurisdictionId], references: [id], onDelete: SetNull)
   stances       CandidateStance[]
   questionLinks QuestionIssue[]
 
@@ -302,7 +311,7 @@ model Question {
   helpText String?
   order    Int
 
-  quiz    Quiz            @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  quiz    Quiz             @relation(fields: [quizId], references: [id], onDelete: Cascade)
   options QuestionOption[]
   issues  QuestionIssue[]
   answers UserAnswer[]
@@ -326,12 +335,12 @@ model QuestionIssue {
 
 // An answer option for a question
 model QuestionOption {
-  id         String @id @default(cuid())
-  questionId String
-  label      String
+  id          String @id @default(cuid())
+  questionId  String
+  label       String
   // user's implied stance on linked issues if they pick this: -2..+2
   stanceValue Int
-  order      Int
+  order       Int
 
   question Question     @relation(fields: [questionId], references: [id], onDelete: Cascade)
   answers  UserAnswer[]

@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ConfidenceIndicator from "@/components/quiz/ConfidenceIndicator";
 import type { QuizResults } from "@/lib/quiz/types";
+import { parseDistrictSelection } from "@/lib/districts";
 
 interface QuestionOption {
   id: string;
@@ -36,6 +37,8 @@ interface QuizState {
 export default function QuizPage() {
   const { electionId } = useParams<{ electionId: string }>();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const districtKey = searchParams.toString();
 
   const [state, setState] = useState<QuizState>({
     guideId: "",
@@ -67,6 +70,7 @@ export default function QuizPage() {
             electionId,
             title: "My Quiz Guide",
             jurisdictionId: election.jurisdictionId,
+            metadata: { districts: parseDistrictSelection(new URLSearchParams(districtKey)) },
           }),
         });
         if (!guideRes.ok) throw new Error("Could not create guide");
@@ -91,7 +95,7 @@ export default function QuizPage() {
       }
     }
     init();
-  }, [electionId]);
+  }, [electionId, districtKey]);
 
   const submitAnswer = useCallback(async () => {
     if (!state.selectedOption || !state.question || !state.guideId || state.submitting) return;

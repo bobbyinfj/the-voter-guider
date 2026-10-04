@@ -3,6 +3,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Prisma } from '@/generated/prisma/client'
 import { prisma } from '@/lib/prisma'
 
+const STATE_ABBREVIATIONS: Record<string, string> = {
+  california: 'CA',
+  colorado: 'CO',
+  washington: 'WA',
+}
+
+function stateAliases(state: string): string[] {
+  const abbreviation = STATE_ABBREVIATIONS[state.trim().toLowerCase()] ?? state.trim().toUpperCase()
+  const fullNames = Object.keys(STATE_ABBREVIATIONS).filter(
+    (name) => STATE_ABBREVIATIONS[name] === abbreviation,
+  )
+  return [abbreviation, ...fullNames.map((n) => n[0].toUpperCase() + n.slice(1))]
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -27,10 +41,21 @@ export async function GET(request: NextRequest) {
       )
     }
 
+    // Statewide elections (e.g. the Nov 2026 general) hang off the state jurisdiction,
+    // so include them for any jurisdiction in that state. Older precinct-level
+    // jurisdictions spell the state out ("Washington"), newer ones use "WA".
+    const selected = await prisma.jurisdiction.findUnique({ where: { id: jurisdictionId } })
+    const stateNames = selected ? stateAliases(selected.state) : []
+
     const elections = await prisma.election.findMany({
       where: {
-        jurisdictionId,
         status,
+        OR: [
+          { jurisdictionId },
+          ...(stateNames.length
+            ? [{ jurisdiction: { type: 'state', state: { in: stateNames } } }]
+            : []),
+        ],
       },
       include: {
         jurisdiction: true,

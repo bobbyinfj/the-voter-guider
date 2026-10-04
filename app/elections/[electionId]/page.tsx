@@ -1,13 +1,35 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import DistrictPicker from "@/components/DistrictPicker";
+import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 
 interface Props {
   params: Promise<{ electionId: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function ElectionPage({ params }: Props) {
+const MEASURE_LEVEL_LABELS: Record<string, string> = {
+  state: "Statewide",
+  county: "County",
+  city: "City",
+  district: "Special district",
+};
+
+function measureLevel(metadata: unknown): string {
+  if (metadata && typeof metadata === "object" && "level" in metadata) {
+    const level = (metadata as { level?: unknown }).level;
+    if (typeof level === "string") return level;
+  }
+  return "state";
+}
+
+export default async function ElectionPage({ params, searchParams }: Props) {
   const { electionId } = await params;
+  const rawParams = await searchParams;
+  const selection = parseDistrictSelection(
+    Object.fromEntries(Object.entries(rawParams).filter(([, v]) => typeof v === "string")),
+  );
 
   const election = await prisma.election.findUnique({
     where: { id: electionId },
@@ -27,6 +49,16 @@ export default async function ElectionPage({ params }: Props) {
   if (!election) notFound();
 
   const hasQuiz = (election.quiz?.questions.length ?? 0) > 0;
+  const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
+  const offices = election.offices.filter((o) => matchesSelection(o, selection));
+  const measures = election.ballots
+    .filter((b) => b.type !== "candidate" && matchesSelection(b, selection))
+    .sort((a, b) => (a.number ?? "").localeCompare(b.number ?? "", undefined, { numeric: true }));
+  const measureGroups = ["state", "county", "city", "district"]
+    .map((level) => ({ level, items: measures.filter((m) => measureLevel(m.metadata) === level) }))
+    .filter((g) => g.items.length > 0);
+  const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
+  const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
   const electionDate = new Date(election.electionDate).toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -59,7 +91,7 @@ export default async function ElectionPage({ params }: Props) {
             </div>
             {hasQuiz && (
               <Link
-                href={`/elections/${electionId}/quiz`}
+                href={quizHref}
                 className="flex-shrink-0 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-center"
               >
                 🗳️ Take the Quiz
@@ -78,17 +110,24 @@ export default async function ElectionPage({ params }: Props) {
           {/* Offices / Candidate Races */}
           <div className="lg:col-span-2 space-y-4">
             <h2 className="text-lg font-semibold text-gray-800">Candidate Races</h2>
-            {election.offices.length === 0 ? (
+            {offices.length === 0 ? (
               <p className="text-sm text-gray-500 italic">No offices loaded yet.</p>
             ) : (
-              election.offices.map((office) => (
+              offices.map((office) => (
                 <div
                   key={office.id}
                   className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
                 >
                   <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
                     <div>
-                      <h3 className="font-semibold text-gray-800">{office.title}</h3>
+                      <h3 className="font-semibold text-gray-800">
+                        {office.title}
+                        {office.districtType && office.district && !selection[office.districtType as keyof typeof selection] && (
+                          <span className="ml-2 align-middle text-xs font-normal bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">
+                            {office.district} only
+                          </span>
+                        )}
+                      </h3>
                       {office.description && (
                         <p className="text-xs text-gray-500 mt-0.5">{office.description}</p>
                       )}
@@ -130,34 +169,39 @@ export default async function ElectionPage({ params }: Props) {
             )}
 
             {/* Ballot measures */}
-            {election.ballots.filter((b) => b.type !== "candidate").length > 0 && (
-              <>
-                <h2 className="text-lg font-semibold text-gray-800 mt-6">Ballot Measures</h2>
-                {election.ballots
-                  .filter((b) => b.type !== "candidate")
-                  .map((b) => (
-                    <div key={b.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-                      <div className="flex items-start gap-3">
-                        {b.number && (
-                          <span className="flex-shrink-0 text-xs font-bold bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                            {b.number}
-                          </span>
+            {measureGroups.map((group) => (
+              <div key={group.level} className="space-y-4">
+                <h2 className="text-lg font-semibold text-gray-800 mt-6">
+                  {MEASURE_LEVEL_LABELS[group.level] ?? group.level} Ballot Measures
+                </h2>
+                {group.items.map((b) => (
+                  <div key={b.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                    <div className="flex items-start gap-3">
+                      {b.number && (
+                        <span className="flex-shrink-0 text-xs font-bold bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                          {b.number}
+                        </span>
+                      )}
+                      <div>
+                        <h3 className="font-semibold text-gray-800">{b.title}</h3>
+                        {b.description && (
+                          <p className="text-sm text-gray-600 mt-1">{b.description}</p>
                         )}
-                        <div>
-                          <h3 className="font-semibold text-gray-800">{b.title}</h3>
-                          {b.description && (
-                            <p className="text-sm text-gray-600 mt-1 line-clamp-3">{b.description}</p>
-                          )}
-                        </div>
                       </div>
                     </div>
-                  ))}
-              </>
-            )}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-4">
+            <DistrictPicker
+              options={pickerOptions}
+              selection={selection}
+              lookupUrl={election.districtLookupUrl}
+            />
             {hasQuiz && (
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
                 <h3 className="font-semibold text-blue-800 mb-2">Not sure who to vote for?</h3>
@@ -166,7 +210,7 @@ export default async function ElectionPage({ params }: Props) {
                   match your views — with a full explanation of every point.
                 </p>
                 <Link
-                  href={`/elections/${electionId}/quiz`}
+                  href={quizHref}
                   className="block text-center px-4 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 text-sm"
                 >
                   Start the quiz

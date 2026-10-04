@@ -1,0 +1,549 @@
+{
+  "slug": "ca-general-2026-11-03",
+  "electionId": "ca-general-2026",
+  "title": "2026 General Election — Monterey Park, CA",
+  "electionDate": "2026-11-03T00:00:00.000Z",
+  "type": "general",
+  "status": "upcoming",
+  "description": "California's November 3 general election as it appears on Monterey Park ballots: Governor and the other statewide offices, U.S. House District 28, Assembly District 49, the Los Angeles County Sheriff runoff, Monterey Park city races, 14 statewide propositions and two city measures. California has no U.S. Senate race in 2026. Candidates and ballot designations are from the Secretary of State's certified list (Aug 27, 2026).",
+  "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
+  "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
+  "jurisdiction": {
+    "name": "California",
+    "state": "CA",
+    "type": "state",
+    "fipsCode": "06"
+  },
+  "localJurisdictions": [
+    {
+      "id": "la-county",
+      "name": "Los Angeles County",
+      "state": "CA",
+      "countyName": "Los Angeles",
+      "type": "county",
+      "fipsCode": "06037"
+    },
+    {
+      "id": "monterey-park",
+      "name": "Monterey Park",
+      "state": "CA",
+      "countyName": "Los Angeles",
+      "type": "city",
+      "fipsCode": "0648914"
+    }
+  ],
+  "offices": [
+    {
+      "id": "ca26-us-house-28",
+      "title": "U.S. Representative, District 28",
+      "level": "federal",
+      "jurisdictionFips": "06",
+      "sortOrder": 10,
+      "description": "2-year term. Monterey Park is entirely in District 28 under the Proposition 50 (2025) congressional map.",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "ca26-judy-chu",
+          "name": "Judy Chu",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "United States Representative"
+        },
+        {
+          "id": "ca26-april-a-verlato",
+          "name": "April A. Verlato",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Small Business Owner"
+        }
+      ]
+    },
+    {
+      "id": "ca26-governor",
+      "title": "Governor",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 20,
+      "description": "Chief executive of California. 4-year term; Gavin Newsom is term-limited.",
+      "candidates": [
+        {
+          "id": "ca26-xavier-becerra",
+          "name": "Xavier Becerra",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Voting Rights Attorney"
+        },
+        {
+          "id": "ca26-steve-hilton",
+          "name": "Steve Hilton",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Small Business Owner"
+        }
+      ]
+    },
+    {
+      "id": "ca26-lt-governor",
+      "title": "Lieutenant Governor",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 21,
+      "description": "4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-fiona-ma",
+          "name": "Fiona Ma",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "State Treasurer/CPA"
+        },
+        {
+          "id": "ca26-gloria-romero",
+          "name": "Gloria Romero",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Educator/Businesswoman"
+        }
+      ]
+    },
+    {
+      "id": "ca26-secretary-of-state",
+      "title": "Secretary of State",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 22,
+      "description": "Chief elections officer. 4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-shirley-n-weber",
+          "name": "Shirley N. Weber",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California Secretary of State"
+        },
+        {
+          "id": "ca26-donald-p-don-wagner",
+          "name": "Donald P. (Don) Wagner",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Orange County Supervisor"
+        }
+      ]
+    },
+    {
+      "id": "ca26-controller",
+      "title": "Controller",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 23,
+      "description": "4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-malia-m-cohen",
+          "name": "Malia M. Cohen",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "State Controller/Mother"
+        },
+        {
+          "id": "ca26-herb-w-morgan",
+          "name": "Herb W Morgan",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Chief Investment Officer"
+        }
+      ]
+    },
+    {
+      "id": "ca26-treasurer",
+      "title": "Treasurer",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 24,
+      "description": "4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-eleni-kounalakis",
+          "name": "Eleni Kounalakis",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Lieutenant Governor of California"
+        },
+        {
+          "id": "ca26-jennifer-hawks",
+          "name": "Jennifer Hawks",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Retired Business Executive"
+        }
+      ]
+    },
+    {
+      "id": "ca26-attorney-general",
+      "title": "Attorney General",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 25,
+      "description": "4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-rob-bonta",
+          "name": "Rob Bonta",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California Attorney General"
+        },
+        {
+          "id": "ca26-michael-e-gates",
+          "name": "Michael E. Gates",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Deputy United States Attorney"
+        }
+      ]
+    },
+    {
+      "id": "ca26-insurance-commissioner",
+      "title": "Insurance Commissioner",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 26,
+      "description": "4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-ben-allen",
+          "name": "Ben Allen",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "California State Senator"
+        },
+        {
+          "id": "ca26-jane-kim",
+          "name": "Jane Kim",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Attorney/Consumer Advocate"
+        }
+      ]
+    },
+    {
+      "id": "ca26-superintendent",
+      "title": "Superintendent of Public Instruction",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 27,
+      "description": "Nonpartisan. 4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-richard-barrera",
+          "name": "Richard Barrera",
+          "party": "Nonpartisan",
+          "incumbent": false,
+          "shortBio": "State Superintendent Advisor"
+        },
+        {
+          "id": "ca26-sonja-shaw",
+          "name": "Sonja Shaw",
+          "party": "Nonpartisan",
+          "incumbent": false,
+          "shortBio": "School District President"
+        }
+      ]
+    },
+    {
+      "id": "ca26-boe-3",
+      "title": "Board of Equalization, District 3",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 28,
+      "description": "District 3 is all of Los Angeles County. 4-year term.",
+      "candidates": [
+        {
+          "id": "ca26-mike-gipson",
+          "name": "Mike Gipson",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "State Assemblymember/Father"
+        },
+        {
+          "id": "ca26-samuel-p-sukaton",
+          "name": "Samuel P. Sukaton",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Labor Union Organizer"
+        }
+      ]
+    },
+    {
+      "id": "ca26-assembly-49",
+      "title": "State Assembly, District 49",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 40,
+      "description": "2-year term. Monterey Park is in Assembly District 49. (Its State Senate seat, District 25, is not up in 2026.)",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "ca26-mike-fong",
+          "name": "Mike Fong",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California State Assemblymember"
+        },
+        {
+          "id": "ca26-long-david-liu",
+          "name": "Long David Liu",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Attorney/Father"
+        }
+      ]
+    },
+    {
+      "id": "ca26-la-sheriff",
+      "title": "Los Angeles County Sheriff",
+      "level": "county",
+      "jurisdictionFips": "06037",
+      "sortOrder": 60,
+      "description": "Nonpartisan runoff; no candidate won a majority in the June 2 primary. A rematch of 2022.",
+      "candidates": [
+        {
+          "id": "ca26-robert-luna",
+          "name": "Robert Luna",
+          "incumbent": true
+        },
+        {
+          "id": "ca26-alex-villanueva",
+          "name": "Alex Villanueva",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "ca26-mp-council-1",
+      "title": "Monterey Park City Council, District 1",
+      "level": "city",
+      "jurisdictionFips": "0648914",
+      "sortOrder": 70,
+      "description": "4-year term. Unopposed.",
+      "district": "Council District 1",
+      "districtType": "city-council",
+      "districtCode": "1",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-thomas-wong",
+          "name": "Thomas Wong",
+          "incumbent": true,
+          "shortBio": "Monterey Park City Councilmember"
+        }
+      ]
+    },
+    {
+      "id": "ca26-mp-council-5",
+      "title": "Monterey Park City Council, District 5",
+      "level": "city",
+      "jurisdictionFips": "0648914",
+      "sortOrder": 71,
+      "description": "4-year term.",
+      "district": "Council District 5",
+      "districtType": "city-council",
+      "districtCode": "5",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-steven-kung",
+          "name": "Steven Kung",
+          "incumbent": false,
+          "shortBio": "Filmmaker/Community Organizer"
+        },
+        {
+          "id": "ca26-vinh-t-ngo",
+          "name": "Vinh T. Ngo",
+          "incumbent": true,
+          "shortBio": "Monterey Park City Councilmember"
+        }
+      ]
+    },
+    {
+      "id": "ca26-mp-clerk",
+      "title": "Monterey Park City Clerk",
+      "level": "city",
+      "jurisdictionFips": "0648914",
+      "sortOrder": 72,
+      "description": "At-large. 4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-dora-leung",
+          "name": "Dora Leung",
+          "incumbent": false,
+          "shortBio": "Mother/Realtor/Entrepreneur"
+        }
+      ]
+    },
+    {
+      "id": "ca26-mp-treasurer",
+      "title": "Monterey Park City Treasurer",
+      "level": "city",
+      "jurisdictionFips": "0648914",
+      "sortOrder": 73,
+      "description": "At-large. 4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-amy-lee",
+          "name": "Amy Lee",
+          "incumbent": true,
+          "shortBio": "City Treasurer/Attorney"
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "id": "ca26-m-prop-1",
+      "number": "Prop 1",
+      "title": "Authorizes Bonds for Housing Affordability Programs",
+      "level": "state",
+      "type": "proposition",
+      "description": "Legislative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-2",
+      "number": "Prop 2",
+      "title": "Increases State's Rainy Day Fund",
+      "level": "state",
+      "type": "proposition",
+      "description": "Legislative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-3",
+      "number": "Prop 3",
+      "title": "Provides Permanent Funding for Schools and Health Care by Extending Existing Tax on High Incomes",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-4",
+      "number": "Prop 4",
+      "title": "Repeals Prohibition Against Public Funding of Election Campaigns",
+      "level": "state",
+      "type": "proposition",
+      "description": "Legislative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-5",
+      "number": "Prop 5",
+      "title": "Changes Recall Election Process for Statewide Officers",
+      "level": "state",
+      "type": "proposition",
+      "description": "Legislative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-37",
+      "number": "Prop 37",
+      "title": "Creates Loan Program for Middle-Income Buyers of Qualified New Homes",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-38",
+      "number": "Prop 38",
+      "title": "Authorizes Bonds for Immunology Medical Research",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-39",
+      "number": "Prop 39",
+      "title": "Prohibits Citizens from Voting Unless They Present Government-Issued Identification",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-40",
+      "number": "Prop 40",
+      "title": "Imposes One-Time Tax on Certain Taxpayers",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative constitutional amendment and statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-41",
+      "number": "Prop 41",
+      "title": "Prohibits New State Taxes That Exclude Revenues from State Spending Limit. Requires Audits for New State Special Taxes",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-42",
+      "number": "Prop 42",
+      "title": "Prohibits New State Personal Property Taxes and Certain Retroactive State Taxes",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-43",
+      "number": "Prop 43",
+      "title": "Limits Voters' Ability to Raise Revenues for Local Government Services",
+      "level": "state",
+      "type": "proposition",
+      "description": "Legislative constitutional amendment.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-44",
+      "number": "Prop 44",
+      "title": "Requires Community Health Clinics Spend 90% of Revenue on Program Services",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-prop-45",
+      "number": "Prop 45",
+      "title": "Modifies Environmental Review for Certain Projects",
+      "level": "state",
+      "type": "proposition",
+      "description": "Initiative statute.",
+      "sourceUrl": "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
+    },
+    {
+      "id": "ca26-m-mp-hom",
+      "number": "Measure HOM",
+      "title": "Create HOME Housing Overlays in Monterey Park",
+      "level": "city",
+      "type": "measure",
+      "description": "Would amend the city's Land Use Element to create a Housing Overlay Mixed Environments (HOME) designation allowing housing (multifamily, townhomes, condos, mixed use) in identified commercial and industrial areas. It would not approve any project by itself, would not apply in R-1 or R-2 zones, and keeps the city's ban on data centers.",
+      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information"
+    },
+    {
+      "id": "ca26-m-mp-aaa",
+      "number": "Measure AAA",
+      "title": "Transient Occupancy Tax",
+      "level": "city",
+      "type": "measure",
+      "description": "Would raise the hotel/motel guest tax from 13% to 14% and set a 16% rate for short-term rental guests, raising about $600,000 a year for city services until ended by voters.",
+      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information"
+    }
+  ]
+}

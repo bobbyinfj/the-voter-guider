@@ -2,9 +2,10 @@ import { prisma } from "@/lib/prisma";
 import type { ScoringAnswer, ScoringCandidate, ScoringQuestion } from "./types";
 import { scoreQuiz } from "./score";
 import { pickNextQuestion } from "./nextQuestion";
+import { matchesSelection, parseDistrictSelection } from "@/lib/districts";
 import type { QuizResults } from "./types";
 
-export async function loadQuizContext(electionId: string) {
+export async function loadQuizContext(electionId: string, guideMetadata?: unknown) {
   const quiz = await prisma.quiz.findUnique({
     where: { electionId },
     include: {
@@ -18,7 +19,7 @@ export async function loadQuizContext(electionId: string) {
     },
   });
 
-  const offices = await prisma.office.findMany({
+  const allOffices = await prisma.office.findMany({
     where: { electionId },
     include: {
       candidates: {
@@ -27,6 +28,15 @@ export async function loadQuizContext(electionId: string) {
     },
     orderBy: { sortOrder: "asc" },
   });
+  // Only score races in the districts the voter picked before starting the quiz
+  const districts =
+    guideMetadata && typeof guideMetadata === "object" && "districts" in guideMetadata
+      ? (guideMetadata as { districts?: unknown }).districts
+      : undefined;
+  const selection = parseDistrictSelection(
+    districts && typeof districts === "object" ? (districts as Record<string, unknown>) : null,
+  );
+  const offices = allOffices.filter((o) => matchesSelection(o, selection));
 
   const issues = await prisma.issue.findMany();
   const issueNames: Record<string, string> = Object.fromEntries(
@@ -43,7 +53,11 @@ export async function computeResults(
   guideId: string,
   electionId: string,
 ): Promise<QuizResults & { nextQuestionId: string | null }> {
-  const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(electionId);
+  const guide = await prisma.guide.findUnique({ where: { id: guideId }, select: { metadata: true } });
+  const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(
+    electionId,
+    guide?.metadata,
+  );
 
   const answers = await prisma.userAnswer.findMany({
     where: { guideId },
