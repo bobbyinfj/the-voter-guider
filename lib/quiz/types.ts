@@ -54,6 +54,9 @@ export interface OfficeResult {
   officeTitle: string;
   rankedCandidates: RankedCandidate[];
   confidence: number; // 0..1
+  // False when fewer than two candidates have a stated position on the answered
+  // questions — then there is no fair ranking, only individual agreement
+  comparable: boolean;
 }
 
 export interface QuizResults {

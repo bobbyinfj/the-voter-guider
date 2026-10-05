@@ -17,6 +17,12 @@ function stateAliases(state: string): string[] {
   return [abbreviation, ...fullNames.map((n) => n[0].toUpperCase() + n.slice(1))]
 }
 
+function startOfTodayUtc(): Date {
+  const d = new Date()
+  d.setUTCHours(0, 0, 0, 0)
+  return d
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -50,6 +56,8 @@ export async function GET(request: NextRequest) {
     const elections = await prisma.election.findMany({
       where: {
         status,
+        // "upcoming" means on or after today, even if a stale row says otherwise
+        ...(status === 'upcoming' ? { electionDate: { gte: startOfTodayUtc() } } : {}),
         OR: [
           { jurisdictionId },
           ...(stateNames.length

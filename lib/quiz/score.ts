@@ -83,12 +83,14 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
         Number(b.maxPossible > 0) - Number(a.maxPossible > 0) || b.normalized - a.normalized,
     );
 
-    const confidence = computeConfidence(rankedCandidates, answers.length);
+    const comparable = rankedCandidates.filter((r) => r.maxPossible > 0).length >= 2;
+    const confidence = comparable ? computeConfidence(rankedCandidates, answers.length) : 0;
     officeResults.push({
       officeId,
       officeTitle: officeInfo[officeId]?.title ?? officeId,
       rankedCandidates,
       confidence,
+      comparable,
     });
   }
 

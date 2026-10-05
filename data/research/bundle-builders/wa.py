@@ -4,10 +4,10 @@ PAMPHLET = "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet
 offices = [
   office(P, "us-house-7", "U.S. Representative, District 7", "federal", "53", 10,
          [("Pramila Jayapal", D, True, None, "https://www.pramilaforcongress.com"), ("Nirav Sheth", R, False, None, "https://www.shethforcongress.com")],
-         desc="2-year term. Covers most of Seattle.", district="WA-7", dtype="congressional", dcode="7", term=2),
+         desc="2-year term.", district="WA-7", dtype="congressional", dcode="7", term=2),
   office(P, "us-house-9", "U.S. Representative, District 9", "federal", "53", 11,
          [("Adam Smith", D, True, None, "https://www.electadamsmith.com"), ("Doug Basler", R, False, None, "https://dougbasler.com")],
-         desc="2-year term. Covers southeast Seattle and south King County.", district="WA-9", dtype="congressional", dcode="9", term=2),
+         desc="2-year term.", district="WA-9", dtype="congressional", dcode="9", term=2),
 ]
 leg = {  # district: (senate or None, rep1, rep2); each race = list of (name, party, incumbent)
   "11": (None, [("David Hackney", D, False), ("Ashley Fedan", D, False)], [("Steve Bergquist", D, False)]),
@@ -44,7 +44,7 @@ offices += [
   office(P, "king-council-8", "King County Council, District 8", "county", "53033", 102, [("Teresa Mosqueda", None, True), "Nick Duda"],
          desc="Nonpartisan. Includes West Seattle.", district="County Council District 8", dtype="county-council", dcode="8"),
   office(P, "seattle-council-5", "Seattle City Council, District 5", "city", "5363000", 110, ["Nilu Jenks", "Julie Kang"],
-         desc="Nonpartisan. North Seattle.", district="Seattle District 5", dtype="city-council", dcode="5"),
+         desc="Nonpartisan.", district="Seattle District 5", dtype="city-council", dcode="5"),
   office(P, "seattle-muni-5", "Seattle Municipal Court Judge, Position 5", "city", "5363000", 111, ["Gabe Rothstein", "Garmon Newsom"],
          desc="Citywide. Nonpartisan."),
 ]

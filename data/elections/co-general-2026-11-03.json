@@ -517,7 +517,7 @@
           "id": "co26-tom-donnelly",
           "name": "Tom Donnelly",
           "party": "Republican",
-          "incumbent": true
+          "incumbent": false
         }
       ]
     },

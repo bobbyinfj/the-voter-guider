@@ -47,7 +47,7 @@ offices = [
   office(P, "larimer-treasurer", "Larimer County Treasurer", "county", "08069", 62, [("Joann Ginal", D, False), ("Steve Olson", R, False)], desc="4-year term.", term=4),
   office(P, "larimer-assessor", "Larimer County Assessor", "county", "08069", 63, [("Bob Overbeck", D, False), ("Patrick Edwards", R, False), ("Sam Bradley", "Forward", False)], desc="4-year term.", term=4),
   office(P, "larimer-sheriff", "Larimer County Sheriff", "county", "08069", 64, [("John J. Feyen", R, False)], desc="4-year term. Unopposed.", term=4),
-  office(P, "larimer-surveyor", "Larimer County Surveyor", "county", "08069", 65, [("Tom Donnelly", R, True)], desc="4-year term. Unopposed.", term=4),
+  office(P, "larimer-surveyor", "Larimer County Surveyor", "county", "08069", 65, [("Tom Donnelly", R, False)], desc="4-year term. Unopposed.", term=4),
   office(P, "larimer-coroner", "Larimer County Coroner", "county", "08069", 66, [("Stephen Hanks", D, False)], desc="4-year term. Unopposed.", term=4),
 ]
 state_measures = [

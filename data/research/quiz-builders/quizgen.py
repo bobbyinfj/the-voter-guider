@@ -33,14 +33,29 @@ def build(slug, title, axes, sources):
         questions.append({"id": f"{slug}-q{i:02d}", "prompt": ax["statement"], "helpText": ax["help"], "order": i,
                           "issues": [{"issueId": ax["slug"], "weight": 1}],
                           "options": [{"label": l, "stanceValue": v, "order": n} for n, (l, v) in enumerate(OPTIONS, 1)]})
-    for kind, payload in [("stances", {"electionSlug": slug, "stances": stances}),
-                          ("quizzes", {"electionSlug": slug, "title": title, "questions": questions})]:
+    # every candidate id must exist in the election bundle
+    bundle = json.load(open(os.path.join(REPO, 'data', 'elections', slug + '.json')))
+    office_of = {c["id"]: o["id"] for o in bundle["offices"] for c in o["candidates"]}
+    missing = {s["candidateId"] for s in stances} - set(office_of)
+    assert not missing, missing
+
+    # A quiz is only fair where it can compare: require at least one race in which two or
+    # more candidates have stated positions on the same statement. Otherwise publish the stances (issue and
+    # candidate pages) but no quiz.
+    # (two candidates in the same race with a position on the same statement)
+    with_positions = {}
+    for s in stances:
+        with_positions.setdefault((office_of[s["candidateId"]], s["issueId"]), set()).add(s["candidateId"])
+    comparable = sorted({office for (office, _), cands in with_positions.items() if len(cands) >= 2})
+    outputs = [("stances", {"electionSlug": slug, "stances": stances})]
+    quiz_path = os.path.join(REPO, 'data', 'quizzes', slug + '.json')
+    if comparable:
+        outputs.append(("quizzes", {"electionSlug": slug, "title": title, "questions": questions}))
+    elif os.path.exists(quiz_path):
+        os.remove(quiz_path)
+    for kind, payload in outputs:
         os.makedirs(os.path.join(REPO, 'data', kind), exist_ok=True)
         with open(os.path.join(REPO, 'data', kind, slug + '.json'), 'w') as f:
             json.dump(payload, f, indent=2, ensure_ascii=False); f.write('\n')
-    # every candidate id must exist in the election bundle
-    bundle = json.load(open(os.path.join(REPO, 'data', 'elections', slug + '.json')))
-    ids = {c["id"] for o in bundle["offices"] for c in o["candidates"]}
-    missing = {s["candidateId"] for s in stances} - ids
-    assert not missing, missing
-    print(slug, len(axes), 'questions', len(stances), 'stances')
+    print(slug, len(axes), 'statements', len(stances), 'stances;',
+          f'quiz written ({len(comparable)} comparable races)' if comparable else 'NO quiz: no race has positions from 2+ candidates')

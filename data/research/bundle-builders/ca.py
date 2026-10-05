@@ -29,13 +29,13 @@ offices += [
   office(P, "la-sheriff", "Los Angeles County Sheriff", "county", "06037", 60, [("Robert Luna", None, True), "Alex Villanueva"],
          desc="Nonpartisan runoff; no candidate won a majority in the June 2 primary. A rematch of 2022."),
   office(P, "mp-council-1", "Monterey Park City Council, District 1", "city", "0648914", 70,
-         [("Thomas Wong", None, True, "Monterey Park City Councilmember")],
+         [("Thomas Wong", None, False, "Monterey Park City Councilmember")],
          desc="4-year term. Unopposed.", district="Council District 1", dtype="city-council", dcode="1", term=4),
   office(P, "mp-council-5", "Monterey Park City Council, District 5", "city", "0648914", 71,
-         [("Steven Kung", None, False, "Filmmaker/Community Organizer"), ("Vinh T. Ngo", None, True, "Monterey Park City Councilmember")],
+         [("Steven Kung", None, False, "Filmmaker/Community Organizer"), ("Vinh T. Ngo", None, False, "Monterey Park City Councilmember")],
          desc="4-year term.", district="Council District 5", dtype="city-council", dcode="5", term=4),
   office(P, "mp-clerk", "Monterey Park City Clerk", "city", "0648914", 72, [("Dora Leung", None, False, "Mother/Realtor/Entrepreneur")], desc="At-large. 4-year term. Unopposed.", term=4),
-  office(P, "mp-treasurer", "Monterey Park City Treasurer", "city", "0648914", 73, [("Amy Lee", None, True, "City Treasurer/Attorney")], desc="At-large. 4-year term. Unopposed.", term=4),
+  office(P, "mp-treasurer", "Monterey Park City Treasurer", "city", "0648914", 73, [("Amy Lee", None, False, "City Treasurer/Attorney")], desc="At-large. 4-year term. Unopposed.", term=4),
 ]
 props = [
   ("1", "Authorizes Bonds for Housing Affordability Programs", "Legislative statute."),

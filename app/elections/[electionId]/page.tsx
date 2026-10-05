@@ -44,26 +44,19 @@ export default async function ElectionPage({ params, searchParams }: Props) {
         },
         orderBy: { sortOrder: "asc" },
       },
-      quiz: {
-        select: {
-          id: true,
-          questions: {
-            select: { id: true, issues: { select: { issue: { select: { slug: true, name: true } } } } },
-            orderBy: { order: "asc" },
-          },
-        },
-      },
+      quiz: { select: { id: true, questions: { select: { id: true } } } },
     },
   });
 
   if (!election) notFound();
 
   const hasQuiz = (election.quiz?.questions.length ?? 0) > 0;
-  const quizIssues = Array.from(
-    new Map(
-      (election.quiz?.questions ?? []).flatMap((q) => q.issues.map((qi) => [qi.issue.slug, qi.issue] as const)),
-    ).values(),
-  );
+  // Topics where at least one candidate on this ballot has a sourced position
+  const quizIssues = await prisma.issue.findMany({
+    where: { stances: { some: { candidate: { office: { electionId } } } } },
+    select: { slug: true, name: true },
+    orderBy: { name: "asc" },
+  });
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
   const offices = election.offices.filter((o) => matchesSelection(o, selection));
   const measures = election.ballots

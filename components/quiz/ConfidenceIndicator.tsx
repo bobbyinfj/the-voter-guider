@@ -49,7 +49,7 @@ export default function ConfidenceIndicator({ results, onStop }: Props) {
       {/* Per-office mini confidence */}
       <div className="space-y-1">
         {results.officeResults.map((o) => {
-          const known = o.rankedCandidates.filter((r) => r.maxPossible > 0);
+          const known = o.comparable ? o.rankedCandidates.filter((r) => r.maxPossible > 0) : [];
           const top = known[0];
           const second = known[1];
           return (

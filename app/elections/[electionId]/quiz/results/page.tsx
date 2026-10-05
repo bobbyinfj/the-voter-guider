@@ -90,6 +90,9 @@ export default function QuizResultsPage() {
             <div key={officeResult.officeId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-800">{officeResult.officeTitle}</h2>
+                {!officeResult.comparable ? (
+                  <span className="text-xs text-gray-500">Not enough stated positions to compare</span>
+                ) : (
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <div className="bg-gray-100 rounded-full h-2 w-20 overflow-hidden">
                     <div
@@ -99,17 +102,26 @@ export default function QuizResultsPage() {
                   </div>
                   <span>{Math.round(officeResult.confidence * 100)}% confident</span>
                 </div>
+                )}
               </div>
+              {!officeResult.comparable && (
+                <p className="px-6 pt-3 text-xs text-gray-500">
+                  {officeResult.rankedCandidates.filter((r) => r.maxPossible > 0).map((r) => r.candidate.name).join(", ") ||
+                    "No candidate"}{" "}
+                  has stated positions on the questions you answered; the others haven&apos;t, so this
+                  isn&apos;t a ranking — just how much you agree with what was said.
+                </p>
+              )}
 
               <div className="divide-y divide-gray-50">
                 {officeResult.rankedCandidates.map((rc: RankedCandidate, idx) => {
                   const key = `${officeResult.officeId}-${rc.candidate.id}`;
-                  const isTop = idx === 0;
+                  const isTop = idx === 0 && officeResult.comparable;
                   return (
                     <div key={rc.candidate.id} className={`px-6 py-4 ${isTop ? "bg-blue-50" : ""}`}>
                       <div className="flex items-center gap-4 flex-wrap">
                         <span className={`text-lg font-bold w-8 text-center ${isTop ? "text-blue-600" : "text-gray-400"}`}>
-                          {idx + 1}
+                          {officeResult.comparable ? idx + 1 : "·"}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">

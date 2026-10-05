@@ -132,7 +132,7 @@ axes = [
          (WL, -2, "Opposes broad use of mail-in voting and tabulation machines.", "wiley",
           "He opposes the broad use of mail-in voting as well as tabulation machines for counting votes."),
          (GZ, 1, "Says Colorado's voting system is among the best in the country.", "gonzalez",
-          "who said Colorado’s voting system is among the best in the country."),
+          "Federal efforts to exert more control over state elections worry Gonzalez, who said Colorado’s voting system is among the best in the country."),
        ]),
   dict(slug="congress-stock-trading-ban", name="Congressional stock trading", level="federal",
        statement="Members of Congress should be banned from trading individual stocks.",

@@ -46,3 +46,4 @@ next-env.d.ts
 # Downloaded source pages for the quiz builders (copyrighted; not committed)
 data/research/quiz-builders/*.html
 data/research/quiz-builders/*.txt
+__pycache__/

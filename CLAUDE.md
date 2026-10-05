@@ -88,10 +88,11 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 ## Schema migrations
 Use `prisma migrate dev` (not `db push`) for all schema changes. The Neon DB uses PostgreSQL 17.
 `prisma/migrations/0_init` is a baseline of the pre-quiz schema (as of main before the quiz work).
-For a database that already has tables (e.g. Neon), first confirm it matches the baseline:
-`prisma migrate diff --from-config-datasource --to-migrations prisma/migrations/0_init ...`
-(or diff against `0_init/migration.sql`). Only if it matches, run
-`prisma migrate resolve --applied 0_init`, then `prisma migrate deploy`.
+For a database that already has tables (e.g. Neon), first confirm it matches the baseline —
+this must print an empty migration:
+`git show 79b9d8f:prisma/schema.prisma > /tmp/main.prisma && npx prisma migrate diff --from-config-datasource --to-schema /tmp/main.prisma --script`
+Only then run `prisma migrate resolve --applied 0_init`, then `prisma migrate deploy`.
+Vercel Preview and Production share one DATABASE_URL, so a PR preview reads/writes prod data.
 Merging is not deploying: the Vercel build only runs `prisma generate && next build`.
 Never run `launch.sh` against a shared DB — it does `prisma db push --accept-data-loss`.
 After schema changes, run `npx prisma generate` to regenerate the client.

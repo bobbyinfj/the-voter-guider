@@ -428,7 +428,10 @@ async function seedElectionBundle(slug: string) {
   try {
     quizFile = JSON.parse(readFileSync(quizPath, "utf-8"));
   } catch {
-    console.log("   ℹ️  No quiz file — skipping quiz.");
+    // No quiz for this election (e.g. no race with comparable positions yet): remove any
+    // quiz a previous seed created
+    const removed = await prisma.quiz.deleteMany({ where: { electionId: election.id } });
+    console.log(`   ℹ️  No quiz file${removed.count ? " — removed the existing quiz" : " — skipping quiz"}.`);
     return;
   }
 

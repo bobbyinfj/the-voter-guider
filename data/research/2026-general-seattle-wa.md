@@ -5,6 +5,7 @@ Sources:
 - [S2] King County Aug 2026 primary Statement of Votes (2026-08-17): https://election-results-01.kingcounty.gov/results.pdf (KING-ONLY votes; NOT authoritative for multi-county races)
 - [S3] WA SOS certification release 2026-08-21: https://www.sos.wa.gov/about-office/news/2026/secretary-state-certifies-candidates-and-measures-november-general-election
 - [S4] Wikipedia 2026 WA House / Senate election (cross-check for district-wide primary results + parties)
+- [S7] Wikipedia, 2026 King County Council election (district descriptions, incumbents): https://en.wikipedia.org/wiki/2026_King_County_Council_election
 - [S5] King County Elections ballot measures page (Nov list has no Seattle / countywide measures): https://info.kingcounty.gov/kcelections/Vote/contests/ballotmeasures.aspx
 
 No US Senate, Governor or statewide executive races in WA in 2026.
@@ -40,7 +41,7 @@ No US Senate, Governor or statewide executive races in WA in 2026.
 ## King County (countywide primary results are authoritative here) [S2]
 - Assessor: Rob Foxcurran vs Dominique M. Scarimbolo
 - Council D2: Rebecca Saldaña vs Toshiko Grace Hasegawa
-- Council D8: Teresa Mosqueda vs Nick Duda
+- Council D8: Teresa Mosqueda (incumbent) vs Nick Duda — D8 includes West Seattle; Mosqueda is the incumbent [S7]
 - Prosecuting Attorney (Leesa Manion) / Elections Director (Julie Wise): no primary held; likely unopposed — VERIFY before including
 
 ## City of Seattle [S2]

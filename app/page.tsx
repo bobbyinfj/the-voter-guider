@@ -8,8 +8,11 @@ import { formatElectionDate } from "@/lib/format";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
+  // Only elections that haven't happened yet, whatever their stored status says
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
   const elections = await prisma.election.findMany({
-    where: { status: { not: "completed" } },
+    where: { status: { not: "completed" }, electionDate: { gte: today } },
     include: {
       jurisdiction: true,
       _count: { select: { offices: true } },

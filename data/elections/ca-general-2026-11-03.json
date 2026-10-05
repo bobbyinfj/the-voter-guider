@@ -334,7 +334,7 @@
         {
           "id": "ca26-thomas-wong",
           "name": "Thomas Wong",
-          "incumbent": true,
+          "incumbent": false,
           "shortBio": "Monterey Park City Councilmember"
         }
       ]
@@ -360,7 +360,7 @@
         {
           "id": "ca26-vinh-t-ngo",
           "name": "Vinh T. Ngo",
-          "incumbent": true,
+          "incumbent": false,
           "shortBio": "Monterey Park City Councilmember"
         }
       ]
@@ -394,7 +394,7 @@
         {
           "id": "ca26-amy-lee",
           "name": "Amy Lee",
-          "incumbent": true,
+          "incumbent": false,
           "shortBio": "City Treasurer/Attorney"
         }
       ]
