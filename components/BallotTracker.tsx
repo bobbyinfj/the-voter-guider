@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Download } from 'lucide-react'
+import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 
 export interface BallotItem {
   id: string
@@ -10,6 +11,7 @@ export interface BallotItem {
   description?: string | null
   type: string
   options?: unknown
+  metadata?: unknown
 }
 
 interface BallotTrackerProps {
@@ -97,6 +99,12 @@ export default function BallotTracker({
           {choice && <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />}
         </div>
         {ballot.description && <p className="text-sm text-gray-600 mb-3">{ballot.description}</p>}
+        {isMeasure && (
+          <details className="mb-3">
+            <summary className="text-xs text-blue-600 cursor-pointer">What a yes or no vote means</summary>
+            <MeasureExplainer official={measureOfficial(ballot.metadata)} />
+          </details>
+        )}
 
         {readOnly ? (
           <p className="text-sm">

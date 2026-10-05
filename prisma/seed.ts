@@ -75,6 +75,12 @@ interface MeasureData {
   districtType?: string;
   districtCode?: string;
   sourceUrl?: string;
+  // Official explanations, verbatim from the state/county voter guide
+  yesMeans?: string;
+  noMeans?: string;
+  fiscalImpact?: string;
+  placedBy?: string;
+  passes?: string;
 }
 
 interface ElectionFile {
@@ -341,7 +347,15 @@ async function seedElectionBundle(slug: string) {
       description: m.description ?? null,
       type: m.type ?? "measure",
       options: ["YES", "NO"],
-      metadata: { level: m.level, sourceUrl: m.sourceUrl ?? null },
+      metadata: {
+        level: m.level,
+        sourceUrl: m.sourceUrl ?? null,
+        yesMeans: m.yesMeans ?? null,
+        noMeans: m.noMeans ?? null,
+        fiscalImpact: m.fiscalImpact ?? null,
+        placedBy: m.placedBy ?? null,
+        passes: m.passes ?? null,
+      },
       districtType: m.districtType ?? null,
       districtCode: m.districtCode ?? null,
     };

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import DistrictPicker from "@/components/DistrictPicker";
+import MeasureExplainer, { measureOfficial } from "@/components/MeasureExplainer";
 import { formatElectionDate } from "@/lib/format";
 import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 
@@ -210,6 +211,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
                         {b.description && (
                           <p className="text-sm text-gray-600 mt-1">{b.description}</p>
                         )}
+                        <MeasureExplainer official={measureOfficial(b.metadata)} />
                       </div>
                     </div>
                   </div>

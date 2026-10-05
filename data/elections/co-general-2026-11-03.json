@@ -546,8 +546,11 @@
       "title": "Law Enforcement Communication with Federal Immigration Authorities",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment (citizen initiative).",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 81 requires law enforcement to notify federal immigration authorities after filing certain criminal charges against individuals who are not confirmed to be lawfully present.",
+      "noMeans": "A “no” vote on Amendment 81 maintains current law, which allows cooperation with federal immigration authorities in some criminal matters, but limits state and local law enforcement involvement in civil immigration enforcement.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-82",
@@ -555,8 +558,11 @@
       "title": "Constitutional Right to Purchase and Sell Natural Gas",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 82 establishes a state constitutional right to purchase and sell natural gas for use in homes and businesses.",
+      "noMeans": "A “no” vote on Amendment 82 maintains current law and regulations related to the purchase and sale of natural gas.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-83",
@@ -564,8 +570,11 @@
       "title": "Constitutional Right to Hunt and Fish",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 83 establishes a state constitutional right to hunt and fish.",
+      "noMeans": "A “no” vote on Amendment 83 means that hunting and fishing will continue as allowed under existing state and federal law.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-84",
@@ -573,8 +582,11 @@
       "title": "Mail Ballot Voter Identification",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 84 requires voters to provide identification information with their mail ballot, in addition to their signature.",
+      "noMeans": "A “no” vote on Amendment 84 continues the current signature-only verification system for mail ballots.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-85",
@@ -582,8 +594,11 @@
       "title": "Plain Language Ballot Titles",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 85 requires that ballot titles be written in plain language, defined as an eighth-grade reading level, and prohibits any law from interfering with this requirement.",
+      "noMeans": "A “no” vote on Amendment 85 maintains current law, which requires plain language for ballot titles, but does not specify a particular grade-level reading standard.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-86",
@@ -591,8 +606,11 @@
       "title": "Requirements for Off-Cycle Congressional Redistricting",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 86 requires the Colorado Independent Congressional Redistricting Commission to approve any new congressional districts proposed outside of a scheduled redistricting year.",
+      "noMeans": "A “no” vote on Amendment 86 continues the current requirements for changing congressional districts every ten years.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
     },
     {
       "id": "co26-m-amendment-87",
@@ -600,8 +618,11 @@
       "title": "Graduated Income Tax",
       "level": "state",
       "type": "amendment",
-      "description": "Constitutional amendment and statute. Replaces the flat income tax with graduated rates; interacts with Proposition 136.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 87 creates a graduated state income tax that increases revenue; uses the additional money for K-12 education, health care, and early childhood care and education; and exempts additional revenue collected from the state’s constitutional revenue limit.",
+      "noMeans": "A “no” vote on Amendment 87 keeps the current constitutional requirement for a flat state income tax rate.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-nn",
@@ -609,8 +630,11 @@
       "title": "Keep and Spend Money for Education and Other Purposes",
       "level": "state",
       "type": "proposition",
-      "description": "Statute referred by the legislature. Lets the state keep revenue above its TABOR limit instead of refunding it.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition NN allows the state to keep some or all of the revenue that otherwise would be refunded to taxpayers under TABOR. The retained revenue must be spent on K-12 education, programs that support children, and any other purposes.",
+      "noMeans": "A “no” vote on Proposition NN maintains current TABOR refunds and funding levels for K-12 education, programs that support children, and other state purposes.",
+      "placedBy": "Placed on the ballot by the legislature",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-132",
@@ -618,8 +642,11 @@
       "title": "Increase Penalties for Fentanyl Crimes",
       "level": "state",
       "type": "proposition",
-      "description": "Statute.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 132 makes possession of any amount of fentanyl a felony, requires a mandatory minimum 8-year prison sentence for any quantity of fentanyl distribution, and eliminates options to reduce penalties for certain possession and distribution offenses.",
+      "noMeans": "A “no” vote on Proposition 132 keeps minor possession charges of fentanyl a misdemeanor, maintains tiered felony penalties for fentanyl distribution based on drug quantity, and keeps options to reduce penalties for certain possession and distribution offenses.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-133",
@@ -627,8 +654,11 @@
       "title": "Penalties for Human Trafficking of a Minor",
       "level": "state",
       "type": "proposition",
-      "description": "Statute.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 133 increases the penalties for child sex trafficking to life in prison without parole, and expands child sex trafficking to include buying sexual activity with a minor.",
+      "noMeans": "A “no” vote on Proposition 133 keeps the existing felony criminal penalties for child sex trafficking with a sentencing range of 8 to 48 years in prison plus a mandatory parole period.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-134",
@@ -636,8 +666,11 @@
       "title": "Male and Female Participation in School and Collegiate Sports",
       "level": "state",
       "type": "proposition",
-      "description": "Statute.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 134 means that all school-based athletic teams and sports must be designated as being for biological males or biological females only, or as mixed, and requires schools and school districts to adopt policies on sex eligibility for sports.",
+      "noMeans": "A “no” vote on Proposition 134 means that individual schools, school districts, and athletic associations may continue to set their own policies in alignment with current state and federal law about who is eligible to participate on a team or in a sport.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-135",
@@ -645,8 +678,11 @@
       "title": "Prohibit Surgery on Minors in Response to Perception of Sex or Gender",
       "level": "state",
       "type": "proposition",
-      "description": "Statute.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 135 prohibits surgeries on minors that would alter their biological sex characteristics as a treatment in response to a minor’s perception of sex or gender, and prohibits the use of government funds or health insurance to pay for the surgeries.",
+      "noMeans": "A “no” vote on Proposition 135 maintains Colorado law, which protects access to surgery altering minors’ biological sex characteristics and allows public and private health insurance programs to pay for these surgeries.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-136",
@@ -654,8 +690,11 @@
       "title": "Income Tax Rate Limit",
       "level": "state",
       "type": "proposition",
-      "description": "Statute. Caps the state income tax rate at the current 4.4%; interacts with Amendment 87.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 136 establishes the current state income tax rate of 4.4 percent as the maximum rate.",
+      "noMeans": "A “no” vote on Proposition 136 keeps the current state income tax rate of 4.4 percent without establishing a new limit in statute.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-proposition-137",
@@ -663,8 +702,11 @@
       "title": "Direct Sporting Goods Sales Tax Revenue for Conservation",
       "level": "state",
       "type": "proposition",
-      "description": "Statute.",
-      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 137 directs existing sales tax revenue collected from sales of sporting goods to be spent on certain conservation, wildfire risk mitigation, and outdoor recreation programs, and exempts it from state revenue limitations.",
+      "noMeans": "A “no” vote on Proposition 137 keeps the sales tax revenue collected from sporting goods in the state’s general budget and subject to the state’s revenue limit, with the revenue either spent on priorities decided annually by the legislature or refunded to taxpayers when required.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
     },
     {
       "id": "co26-m-larimer-1a",
