@@ -105,7 +105,7 @@ export default async function CandidatePage({ params }: Props) {
         {/* Stances */}
         {candidate.stances.length > 0 && (
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-gray-800">Policy Stances</h2>
+            <h2 className="text-lg font-semibold text-gray-800">Stated Positions</h2>
             {candidate.stances.map((stance) => (
               <div key={stance.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
                 <div className="flex items-start gap-3 flex-wrap">
@@ -119,6 +119,7 @@ export default async function CandidatePage({ params }: Props) {
                       </Link>
                       <StanceBadge position={stance.position} />
                     </div>
+                    <p className="text-xs text-gray-500 mb-1">Statement: &ldquo;{stance.issue.summary}&rdquo;</p>
                     <p className="text-sm text-gray-700">{stance.summary}</p>
                     {stance.rationale && (
                       <p className="text-sm text-gray-500 mt-2">{stance.rationale}</p>

@@ -29,10 +29,10 @@ export default async function OfficePage({ params }: Props) {
   if (!office || office.election.id !== electionId) notFound();
 
   // Collect all unique issues across all candidates
-  const issueSet = new Map<string, { id: string; name: string; slug: string }>();
+  const issueSet = new Map<string, { id: string; name: string; slug: string; summary: string }>();
   for (const c of office.candidates) {
     for (const s of c.stances) {
-      issueSet.set(s.issue.id, { id: s.issue.id, name: s.issue.name, slug: s.issue.slug });
+      issueSet.set(s.issue.id, { id: s.issue.id, name: s.issue.name, slug: s.issue.slug, summary: s.issue.summary });
     }
   }
   const issues = [...issueSet.values()].sort((a, b) => a.name.localeCompare(b.name));
@@ -107,6 +107,7 @@ export default async function OfficePage({ params }: Props) {
                       <Link href={`/issues/${issue.slug}`} className="font-medium text-gray-700 hover:text-blue-600 hover:underline">
                         {issue.name}
                       </Link>
+                      <p className="text-xs text-gray-500 mt-0.5">&ldquo;{issue.summary}&rdquo;</p>
                     </td>
                     {office.candidates.map((c) => {
                       const stance = c.stances.find((s) => s.issueId === issue.id);
@@ -118,7 +119,7 @@ export default async function OfficePage({ params }: Props) {
                               <p className="text-xs text-gray-500 mt-1 text-left">{stance.summary}</p>
                             </div>
                           ) : (
-                            <span className="text-xs text-gray-300">No data</span>
+                            <span className="text-xs text-gray-400">No stated position</span>
                           )}
                         </td>
                       );
