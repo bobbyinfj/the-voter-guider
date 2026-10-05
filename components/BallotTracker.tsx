@@ -1,95 +1,171 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { CheckCircle2, XCircle, FileText, Share2, Copy, Download } from 'lucide-react'
+import { useState } from 'react'
+import { CheckCircle2, Download } from 'lucide-react'
+import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 
-interface BallotItem {
+export interface BallotItem {
   id: string
-  number?: string
+  number?: string | null
   title: string
-  description?: string
+  description?: string | null
   type: string
-  options?: any
-  metadata?: {
-    isSample?: boolean
-    [key: string]: any
-  }
+  options?: unknown
+  metadata?: unknown
 }
 
 interface BallotTrackerProps {
   ballots: BallotItem[]
-  guideId: string
+  guideTitle: string
   choices: Record<string, { selection: string; notes?: string }>
-  onChoiceChange: (ballotId: string, selection: string, notes?: string) => void
+  readOnly?: boolean
+  onChoiceChange?: (ballotId: string, selection: string, notes?: string) => void
 }
 
-export default function BallotTracker({ ballots, guideId, choices, onChoiceChange }: BallotTrackerProps) {
-  const [copied, setCopied] = useState(false)
+const MEASURE_CHOICES = [
+  { value: 'YES', label: 'Yes', active: 'bg-green-500 text-white', idle: 'hover:bg-green-100' },
+  { value: 'NO', label: 'No', active: 'bg-red-500 text-white', idle: 'hover:bg-red-100' },
+  { value: 'ABSTAIN', label: 'Skip', active: 'bg-yellow-500 text-white', idle: 'hover:bg-yellow-100' },
+]
 
-  const handleShare = async () => {
-    const shareUrl = `${window.location.origin}/guide/${guideId}`
-    if (navigator.share) {
-      await navigator.share({
-        title: 'My Voter Guide',
-        url: shareUrl,
-      })
-    } else {
-      await navigator.clipboard.writeText(shareUrl)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
-  }
+function optionList(options: unknown): string[] {
+  return Array.isArray(options) ? options.filter((o): o is string => typeof o === 'string') : []
+}
+
+function NotesField({
+  initial,
+  onSave,
+}: {
+  initial: string
+  onSave: (notes: string) => void
+}) {
+  const [value, setValue] = useState(initial)
+  return (
+    <textarea
+      placeholder="Add notes about your choice..."
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onBlur={() => value !== initial && onSave(value)}
+      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      rows={2}
+      maxLength={5000}
+    />
+  )
+}
+
+export default function BallotTracker({
+  ballots,
+  guideTitle,
+  choices,
+  readOnly = false,
+  onChoiceChange,
+}: BallotTrackerProps) {
+  const answered = ballots.filter((b) => choices[b.id]).length
+  const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
 
   const handleExport = () => {
-    const data = {
-      guideId,
-      ballots: ballots.map(ballot => ({
-        ...ballot,
-        choice: choices[ballot.id],
-      })),
-      exportedAt: new Date().toISOString(),
+    const lines = [`${guideTitle}`, '']
+    for (const ballot of ballots) {
+      const choice = choices[ballot.id]
+      const label = ballot.number ? `${ballot.number} — ${ballot.title}` : ballot.title
+      lines.push(`${label}: ${choice ? choice.selection : '(no choice)'}`)
+      if (choice?.notes) lines.push(`  Notes: ${choice.notes}`)
     }
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `voter-guide-${guideId}.json`
+    a.download = 'my-voter-guide.txt'
     a.click()
+    URL.revokeObjectURL(url)
   }
 
-  const completionPercentage = ballots.length > 0
-    ? Math.round((Object.keys(choices).length / ballots.length) * 100)
-    : 0
+  const races = ballots.filter((b) => b.type === 'candidate')
+  const measures = ballots.filter((b) => b.type !== 'candidate')
 
-  const hasSampleData = ballots.some(b => b.metadata?.isSample || b.title?.includes('(SAMPLE)'))
+  const renderItem = (ballot: BallotItem) => {
+    const choice = choices[ballot.id]
+    const isMeasure = ballot.type !== 'candidate'
+    return (
+      <div
+        key={ballot.id}
+        className={`bg-white rounded-lg border-2 p-4 transition-all ${
+          choice ? 'border-green-200 bg-green-50/30' : 'border-gray-200'
+        }`}
+      >
+        <div className="flex items-center gap-2 mb-1">
+          {ballot.number && <span className="font-semibold text-blue-600">{ballot.number}</span>}
+          <h4 className="text-lg font-semibold text-gray-800">{ballot.title}</h4>
+          {choice && <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />}
+        </div>
+        {ballot.description && <p className="text-sm text-gray-600 mb-3">{ballot.description}</p>}
+        {isMeasure && (
+          <details className="mb-3">
+            <summary className="text-xs text-blue-600 cursor-pointer">What a yes or no vote means</summary>
+            <MeasureExplainer official={measureOfficial(ballot.metadata)} />
+          </details>
+        )}
+
+        {readOnly ? (
+          <p className="text-sm">
+            <span className="text-gray-500">Choice: </span>
+            <span className="font-medium text-gray-800">
+              {choice ? (isMeasure ? MEASURE_CHOICES.find((m) => m.value === choice.selection)?.label ?? choice.selection : choice.selection) : '—'}
+            </span>
+            {choice?.notes && <span className="block text-gray-600 mt-1">{choice.notes}</span>}
+          </p>
+        ) : (
+          <div className="space-y-2">
+            {isMeasure ? (
+              <div className="flex gap-2">
+                {MEASURE_CHOICES.map((m) => (
+                  <button
+                    key={m.value}
+                    onClick={() => onChoiceChange?.(ballot.id, m.value, choice?.notes)}
+                    className={`flex-1 px-4 py-2 rounded-md font-medium transition-all ${
+                      choice?.selection === m.value ? m.active : `bg-gray-100 text-gray-700 ${m.idle}`
+                    }`}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              optionList(ballot.options).map((option) => (
+                <button
+                  key={option}
+                  onClick={() => onChoiceChange?.(ballot.id, option, choice?.notes)}
+                  className={`w-full text-left px-4 py-2 rounded-md transition-all ${
+                    choice?.selection === option ? 'bg-blue-500 text-white' : 'bg-gray-100 hover:bg-blue-50 text-gray-700'
+                  }`}
+                >
+                  {option}
+                </button>
+              ))
+            )}
+            {choice && (
+              <div className="mt-3 pt-3 border-t border-gray-200">
+                <NotesField
+                  initial={choice.notes ?? ''}
+                  onSave={(notes) => onChoiceChange?.(ballot.id, choice.selection, notes)}
+                />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
-      {/* Sample Data Warning */}
-      {hasSampleData && (
-        <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
-          <div className="flex items-start gap-3">
-            <div className="text-2xl">⚠️</div>
-            <div className="flex-1">
-              <h4 className="font-semibold text-yellow-900 mb-1">Sample Data - Not Your Real Ballot</h4>
-              <p className="text-sm text-yellow-800 mb-2">
-                These ballot items are <strong>placeholder examples</strong>, not your actual ballot. 
-                To get your real ballot items, go back and click "📥 Fetch Real Ballot Data" button.
-              </p>
-              <p className="text-xs text-yellow-700">
-                You'll need a Google Civic API key (free) and your full address to fetch real data.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Progress Header */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-lg font-semibold text-gray-800">Your Voting Choices</h3>
+          <h3 className="text-lg font-semibold text-gray-800">
+            {readOnly ? 'Choices' : 'Your Voting Choices'}
+          </h3>
           <div className="text-sm font-medium text-gray-600">
-            {Object.keys(choices).length} of {ballots.length} completed
+            {answered} of {ballots.length} decided
           </div>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2.5">
@@ -98,134 +174,27 @@ export default function BallotTracker({ ballots, guideId, choices, onChoiceChang
             style={{ width: `${completionPercentage}%` }}
           />
         </div>
-        <div className="mt-2 flex gap-2">
-          <button
-            onClick={handleShare}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-white hover:bg-gray-50 rounded-md border border-gray-300"
-          >
-            <Share2 className="w-4 h-4" />
-            {copied ? 'Copied!' : 'Share'}
-          </button>
-          <button
-            onClick={handleExport}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-white hover:bg-gray-50 rounded-md border border-gray-300"
-          >
-            <Download className="w-4 h-4" />
-            Export
-          </button>
-        </div>
+        <button
+          onClick={handleExport}
+          className="mt-2 flex items-center gap-2 px-3 py-1.5 text-sm bg-white hover:bg-gray-50 rounded-md border border-gray-300"
+        >
+          <Download className="w-4 h-4" />
+          Download as text
+        </button>
       </div>
 
-      {/* Ballot Items */}
-      <div className="space-y-4">
-        {ballots.map((ballot) => {
-          const choice = choices[ballot.id]
-          const isCompleted = !!choice
-
-          return (
-            <div
-              key={ballot.id}
-              className={`bg-white rounded-lg border-2 p-4 transition-all ${
-                isCompleted
-                  ? 'border-green-200 bg-green-50/30'
-                  : 'border-gray-200 hover:border-blue-300'
-              }`}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    {ballot.number && (
-                      <span className="font-semibold text-blue-600">{ballot.number}</span>
-                    )}
-                    <h4 className="text-lg font-semibold text-gray-800">
-                      {ballot.title.replace('(SAMPLE)', '')}
-                    </h4>
-                    {(ballot.metadata?.isSample || ballot.title?.includes('(SAMPLE)')) && (
-                      <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded font-medium">
-                        SAMPLE
-                      </span>
-                    )}
-                    {isCompleted && (
-                      <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    )}
-                  </div>
-                  {ballot.description && (
-                    <p className="text-sm text-gray-600 mt-1 whitespace-pre-line">{ballot.description}</p>
-                  )}
-                </div>
-              </div>
-
-              {/* Choice Options */}
-              <div className="space-y-2">
-                {ballot.type === 'proposition' || ballot.type === 'measure' ? (
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => onChoiceChange(ballot.id, 'YES')}
-                      className={`flex-1 px-4 py-2 rounded-md font-medium transition-all ${
-                        choice?.selection === 'YES'
-                          ? 'bg-green-500 text-white'
-                          : 'bg-gray-100 hover:bg-green-100 text-gray-700'
-                      }`}
-                    >
-                      YES
-                    </button>
-                    <button
-                      onClick={() => onChoiceChange(ballot.id, 'NO')}
-                      className={`flex-1 px-4 py-2 rounded-md font-medium transition-all ${
-                        choice?.selection === 'NO'
-                          ? 'bg-red-500 text-white'
-                          : 'bg-gray-100 hover:bg-red-100 text-gray-700'
-                      }`}
-                    >
-                      NO
-                    </button>
-                    <button
-                      onClick={() => onChoiceChange(ballot.id, 'ABSTAIN')}
-                      className={`px-4 py-2 rounded-md font-medium transition-all ${
-                        choice?.selection === 'ABSTAIN'
-                          ? 'bg-yellow-500 text-white'
-                          : 'bg-gray-100 hover:bg-yellow-100 text-gray-700'
-                      }`}
-                    >
-                      Abstain
-                    </button>
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    {ballot.options?.map((option: string, idx: number) => (
-                      <button
-                        key={idx}
-                        onClick={() => onChoiceChange(ballot.id, option)}
-                        className={`w-full text-left px-4 py-2 rounded-md transition-all ${
-                          choice?.selection === option
-                            ? 'bg-blue-500 text-white'
-                            : 'bg-gray-100 hover:bg-blue-50 text-gray-700'
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {/* Notes Section */}
-                {isCompleted && (
-                  <div className="mt-3 pt-3 border-t border-gray-200">
-                    <textarea
-                      placeholder="Add notes about your choice..."
-                      value={choice?.notes || ''}
-                      onChange={(e) => onChoiceChange(ballot.id, choice.selection, e.target.value)}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      rows={2}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          )
-        })}
-      </div>
+      {races.length > 0 && (
+        <section className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-800">Candidates</h3>
+          {races.map(renderItem)}
+        </section>
+      )}
+      {measures.length > 0 && (
+        <section className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-800">Ballot Measures</h3>
+          {measures.map(renderItem)}
+        </section>
+      )}
     </div>
   )
 }
-

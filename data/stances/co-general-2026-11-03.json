@@ -1,0 +1,408 @@
+{
+  "electionSlug": "co-general-2026-11-03",
+  "stances": [
+    {
+      "candidateId": "co26-phil-weiser",
+      "issueId": "co-challenge-federal-government",
+      "position": 2,
+      "summary": "Says he won't \"bend the knee\" to an administration he calls lawless; as AG he has filed or joined dozens of lawsuits against it.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-phil-weiser-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Phil Weiser",
+          "quote": "He said he is not going to give in or bend the knee to an administration that has acted in a lawless and bullying manner."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "co-challenge-federal-government",
+      "position": -2,
+      "summary": "Says the governor's job is to build relationships with the administration, not pick fights.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-victor-marx-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx",
+          "quote": "But I believe the governor's job is to build relationships with that administration, not pick fights for political theater."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-john-hickenlooper",
+      "issueId": "co-challenge-federal-government",
+      "position": 2,
+      "summary": "Lists \"Stopping the Trump Administration's Lawlessness\" as the top priority on his campaign website.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-john-hickenlooper-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: John Hickenlooper",
+          "quote": "In fact, he lists the top priority on his campaign website as “Stopping the Trump Administration’s Lawlessness.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-jena-griswold",
+      "issueId": "co-challenge-federal-government",
+      "position": 2,
+      "summary": "Says Colorado must stand up to the administration, including through lawsuits, and supports Weiser's suits.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-jena-griswold-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Jena Griswold",
+          "quote": "We must stand up to the administration, and that includes through lawsuits."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-michael-j-allen",
+      "issueId": "co-challenge-federal-government",
+      "position": 0,
+      "summary": "Would judge each lawsuit on whether it serves Colorado and is based in fact and law, steering away from politically motivated suits.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-michael-allen-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Michael Allen",
+          "quote": "Allen said his core belief is to steer away from politically motivated lawsuits, and he sensed there were some currently pending but wouldn’t go into details."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-phil-weiser",
+      "issueId": "us-limit-ice-tactics",
+      "position": 2,
+      "summary": "Calls ICE's approach to enforcement often lawless, cruel and wrong.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-phil-weiser/",
+          "title": "CPR News 2026 Voter Guide: Phil Weiser (primary)",
+          "quote": "And ICE's approach to immigration enforcement is often lawless, is cruel, and is wrong."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-john-hickenlooper",
+      "issueId": "us-limit-ice-tactics",
+      "position": 2,
+      "summary": "Called ICE \"out of control\" and criticized officers wearing masks and not identifying themselves.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-john-hickenlooper-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: John Hickenlooper",
+          "quote": "Hickenlooper called ICE “out of control” and faulted the federal law enforcement agency for not following “the basic fundamentals” of conduct used by police departments around the country, citing ICE officers wearing masks and not identifying themselves."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-joe-neguse",
+      "issueId": "us-limit-ice-tactics",
+      "position": 2,
+      "summary": "Outraged by what he calls the cruelty of current immigration policy toward immigrants who haven't committed crimes.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-joe-neguse-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Joe Neguse",
+          "quote": "Neguse said he’d been outraged by what he called the cruelty of the current administration’s immigration policy, which he said targets immigrants who haven’t committed crimes."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-kelley-anne-dennison",
+      "issueId": "us-limit-ice-tactics",
+      "position": 0,
+      "summary": "\"Pro rule of law\" and wants immigration laws enforced, with \"a balance\" that treats people with dignity.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-kelley-dennison-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Kelley Dennison",
+          "quote": "Dennison said she was “pro rule of law” and wants to see immigration laws enforced but said, “There has to be a balance while treating these people with dignity and humility.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "us-limit-ice-tactics",
+      "position": -1,
+      "summary": "Says Colorado will work with federal agents, who must enforce the law professionally and constitutionally.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-victor-marx/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx (primary)",
+          "quote": "Federal agents must enforce the law professionally and constitutionally, and Colorado will work with them, not against them."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "co-require-ice-cooperation",
+      "position": 2,
+      "summary": "Would end sanctuary policies and require state and local police to cooperate with federal immigration authorities.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-victor-marx/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx (primary)",
+          "quote": "As governor, I will end sanctuary policies that shield violent and repeat offenders, require state and local law enforcement to cooperate with federal immigration authorities, and establish a Border-Related Crime Strike Force to dismantle fentanyl pipelines and trafficking networks harming Colorado families."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-phil-weiser",
+      "issueId": "co-pathway-to-citizenship",
+      "position": 2,
+      "summary": "Supports a secure border and pathways to citizenship for Dreamers and others.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-phil-weiser/",
+          "title": "CPR News 2026 Voter Guide: Phil Weiser (primary)",
+          "quote": "I believe we both need a secure border and we need pathways to citizenship for dreamers and others."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-joe-neguse",
+      "issueId": "co-pathway-to-citizenship",
+      "position": 2,
+      "summary": "Supports comprehensive reform with a secure border and a pathway to citizenship for people who've committed no crimes.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-joe-neguse-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Joe Neguse",
+          "quote": "“I believe strongly in comprehensive immigration reform that recognizes the necessity for a secure border and also creates a pathway to citizenship for those in our community who've committed no crimes and who know no other country but the United States as their home,” Neguse said."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "co-keep-tabor-limits",
+      "position": 2,
+      "summary": "Promises to protect TABOR.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-victor-marx/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx (primary)",
+          "quote": "And I'll protect TABOR, so government can't quietly drain your wallet when families are already stretched thin."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-kevin-grantham",
+      "issueId": "co-keep-tabor-limits",
+      "position": 2,
+      "summary": "Supports TABOR as a check on government growth.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-kevin-j-grantham-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Kevin Grantham",
+          "quote": "TABOR is a good mechanism that helps limit the growth of government and limit government's ability to use more and more of the citizens' dollars when they're hurting to try to buy groceries."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-jeff-bridges",
+      "issueId": "co-keep-tabor-limits",
+      "position": -1,
+      "summary": "Wants to raise the TABOR cap to invest more in K-12 schools, while keeping voters' right to approve tax increases.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-jeff-bridges-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Jeff Bridges",
+          "quote": "I think we need to raise the TABOR [cap] in order to invest more in public K-12 education,"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "co-cut-housing-regulation",
+      "position": 2,
+      "summary": "Would cut the red tape he says drives up home-building costs.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-victor-marx/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx (primary)",
+          "quote": "I'll cut the red tape driving up home-building and childcare costs, making Colorado easier and more affordable to live in."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-kelley-anne-dennison",
+      "issueId": "co-cut-housing-regulation",
+      "position": 2,
+      "summary": "Would prioritize more housing supply by reducing burdensome regulations.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-kelley-dennison-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Kelley Dennison",
+          "quote": "Dennison said she would prioritize increasing the housing supply to reduce costs by “working with local lawmakers to bring down the burdensome regulations that I think contribute majorly to the increase in housing prices … [development] and building.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-phil-weiser",
+      "issueId": "co-cut-housing-regulation",
+      "position": 1,
+      "summary": "Says supply is held back by high permitting fees and a permitting process that needs improvement, alongside consumer protections.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-phil-weiser/",
+          "title": "CPR News 2026 Voter Guide: Phil Weiser (primary)",
+          "quote": "He said the lack of housing supply is also hampered by high permitting fees and a permitting process that needs improvement."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-victor-marx",
+      "issueId": "co-expand-energy-production",
+      "position": 2,
+      "summary": "Would \"unleash our energy resources\" to lower gas and utility bills.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/05/29/vg-2026-primary-election-colorado-governor-victor-marx/",
+          "title": "CPR News 2026 Voter Guide: Victor Marx (primary)",
+          "quote": "We'll unleash our energy resources to lower gas and utility bills for every household."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-jeff-bridges",
+      "issueId": "co-tariffs-hurting",
+      "position": 2,
+      "summary": "Says the White House is waging \"a war on rural Colorado\" through tariffs.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-jeff-bridges-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Jeff Bridges",
+          "quote": "You want to talk about a war on rural Colorado; it's being waged by the White House through tariffs,"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-kevin-grantham",
+      "issueId": "co-tariffs-hurting",
+      "position": 1,
+      "summary": "Says tariffs are ultimately a tax consumers pay and \"probably not great policy overall.\"",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-kevin-j-grantham-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Kevin Grantham",
+          "quote": "There may be an alternative view to the overall long-term effect of those tariffs, but tariffs ultimately are a tax that the consumer ends up paying for and it's probably not great policy overall."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-john-hickenlooper",
+      "issueId": "co-tariffs-hurting",
+      "position": 1,
+      "summary": "Lists the administration's tariffs as a force behind higher prices.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-john-hickenlooper-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: John Hickenlooper",
+          "quote": "He listed the Trump Administration’s tariffs as another force behind higher prices."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-joe-neguse",
+      "issueId": "co-tariffs-hurting",
+      "position": 1,
+      "summary": "Blames rising costs on the president's trade war.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-joe-neguse-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Joe Neguse",
+          "quote": "He blamed those rising costs on President Trump’s trade war and the war in Iran."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-mark-baisley",
+      "issueId": "us-senate-filibuster",
+      "position": 2,
+      "summary": "Says he would vote to eliminate the filibuster rule.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-mark-baisley-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Mark Baisley",
+          "quote": "“Bearing in mind that the filibuster is not mentioned in the Constitution,” Baisley said, “I would vote to eliminate the filibuster rule.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-john-hickenlooper",
+      "issueId": "us-senate-filibuster",
+      "position": 1,
+      "summary": "Open to modifying it, including lowering the threshold to end a filibuster.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-john-hickenlooper-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: John Hickenlooper",
+          "quote": "“I would be open to modifications to the filibuster, including reducing the threshold to end a filibuster and requiring members to be transparent with the public and take to the floor to voice their opinion.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-amanda-gonzalez",
+      "issueId": "co-proof-of-citizenship-to-register",
+      "position": -2,
+      "summary": "Says it would be \"really terrible\" for Colorado elections and calls such efforts \"voter suppression at its finest.\"",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-amanda-gonzalez-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Amanda Gonzalez",
+          "quote": "Gonzalez called such efforts “voter suppression at its finest.”"
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-james-wiley",
+      "issueId": "co-proof-of-citizenship-to-register",
+      "position": 1,
+      "summary": "Says it would have \"pretty much zero\" impact on in-person voters and concerns about it are overstated.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-james-wiley-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: James Wiley",
+          "quote": "Stricter identification requirements are often criticized by Democrats for their disproportionate impact on vulnerable populations, but Wiley said those concerns are overstated and can be resolved by shifting back to a model of predominantly in-person voting."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-james-wiley",
+      "issueId": "co-keep-mail-voting",
+      "position": -2,
+      "summary": "Opposes broad use of mail-in voting and tabulation machines.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-james-wiley-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: James Wiley",
+          "quote": "He opposes the broad use of mail-in voting as well as tabulation machines for counting votes."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-amanda-gonzalez",
+      "issueId": "co-keep-mail-voting",
+      "position": 1,
+      "summary": "Says Colorado's voting system is among the best in the country.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-amanda-gonzalez-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Amanda Gonzalez",
+          "quote": "Federal efforts to exert more control over state elections worry Gonzalez, who said Colorado’s voting system is among the best in the country."
+        }
+      ]
+    },
+    {
+      "candidateId": "co26-joe-neguse",
+      "issueId": "congress-stock-trading-ban",
+      "position": 2,
+      "summary": "Part of a bipartisan effort to ban members of Congress from trading stocks.",
+      "sources": [
+        {
+          "url": "https://www.cpr.org/2026/09/25/vg-2026-joe-neguse-voter-guide/",
+          "title": "CPR News 2026 Voter Guide: Joe Neguse",
+          "quote": "He also noted his role in a bipartisan effort to ban members of Congress from trading stocks and his support for a bill to ban Congressional members from becoming lobbyists."
+        }
+      ]
+    }
+  ]
+}

@@ -1,147 +1,64 @@
 # The VoTer GuidEr
 
-**A modern, future-proof system for tracking voting choices across multiple jurisdictions.**
+**Know your whole ballot.** Every race and measure on your ballot, from Congress down to
+city council, sourced from official election offices — plus a quiz that compares you with
+what candidates have actually said, and a guide to record and share your picks.
 
-## Features
+Currently covers the **November 3, 2026 general election** for Seattle (WA), Fort Collins
+(CO) and Monterey Park (CA).
 
-- ✅ **Save & Return**: Your voting choices are automatically saved using browser sessions
-- ✅ **Easy Sharing**: Share your guide with a simple link - no account required
-- ✅ **Future Proof**: Handles elections across multiple jurisdictions and election cycles
-- ✅ **Professional Maps**: Interactive US map with jurisdiction selection
-- ✅ **Free Services**: Built with Neon PostgreSQL (free tier) and Vercel (free hosting)
+## What's in it
 
-## Tech Stack
+- **Election pages** — every office and candidate, every statewide/county/city measure,
+  with official "what a YES/NO vote means" text where the state publishes it.
+- **District picker** — pick your congressional, legislative and local districts to see
+  only the races on your ballot. Choices live in the URL, so links are shareable.
+- **Quiz** — each question is one statement; candidates are placed on it only when they
+  (or a cited source) have said so, with the quote shown. Scores say how many stated
+  positions they rest on; candidates with no stated positions are shown as "no data".
+- **Voter guides** — record a pick and notes for every contest, download as text, and share
+  a read-only link (or keep it private). No account needed: guides are tied to an
+  anonymous, httpOnly session cookie.
 
-- **Next.js 14+** - App Router with Server Components
-- **TypeScript** - Type-safe development
-- **Prisma** - Database ORM
-- **PostgreSQL** - Via Neon (PostgreSQL 17, free tier)
-- **Tailwind CSS** - Modern styling
-- **Vercel** - Free hosting and deployment
+## No made-up data
 
-## Quick Start
+All ballot content lives in `data/` and is generated from official sources:
 
-### 1. Set up environment variables
+| Path | What |
+|---|---|
+| `data/elections/*.json` | Offices, candidates and measures (built by `data/research/bundle-builders/`) |
+| `data/quizzes/`, `data/stances/`, `data/issues/` | Quiz statements and sourced positions (built by `data/research/quiz-builders/`) |
+| `data/research/*.md` | Fact sheets listing the source for every ballot fact |
 
-Create `.env.local` with your Neon PostgreSQL connection:
+`npm run seed` loads the bundles (and prunes anything removed from them).
+`npm run data:cleanup` (dry run unless `--execute`) removes database rows that no bundle
+backs. See `CLAUDE.md` for the rules.
 
-```bash
-echo 'DATABASE_URL="YOUR_NEON_POSTGRES_URI"' > .env.local
-```
+## Stack
 
-Get your Neon connection string from: Dashboard → Connection Details → Connection String
+Next.js 16 (App Router, React 19), TypeScript, Prisma 7 with PostgreSQL (Neon), Tailwind
+CSS 4, hosted on Vercel.
 
-### 2. Launch
-
-```bash
-./launch.sh
-```
-
-This will:
-- Validate your DATABASE_URL
-- Generate Prisma client
-- Set up database schema
-- Start the dev server
-
-The app will be available at http://localhost:3000
-
-### 3. Seed initial data (one-time setup)
-
-After the first launch, seed the database with initial jurisdictions and elections:
+## Running locally
 
 ```bash
-npm run seed
+cp .env.example .env.local          # set DATABASE_URL
+npx prisma migrate deploy           # apply migrations
+npm run seed                        # load the election bundles
+npm run dev
 ```
 
-This creates sample jurisdictions (Monterey Park, CA; Fort Collins, CO; Seattle, WA) with precincts and elections.
-
-### 4. Populate real ballot data (optional)
-
-To fetch real ballot data from Google Civic Information API, add your API key to `.env.local`:
+A throwaway local database works fine:
 
 ```bash
-echo 'GOOGLE_CIVIC_API_KEY="YOUR_API_KEY"' >> .env.local
+docker run -d --name voter-guider-pg -e POSTGRES_PASSWORD=localdev -e POSTGRES_DB=voter_guider -p 5433:5432 postgres:17
+DATABASE_URL=postgresql://postgres:localdev@localhost:5433/voter_guider npx prisma migrate deploy
 ```
 
-Then run:
+## Checks
 
 ```bash
-npm run data:populate-ballots
+npx tsc --noEmit --skipLibCheck
+npm run lint
+npm run build
 ```
-
-This will replace any sample ballot data with real data from the API.
-
-## Database Setup
-
-### Option 1: Neon PostgreSQL (Recommended - Free)
-
-1. Create account at [neon.tech](https://neon.tech)
-2. Create new project (PostgreSQL 17)
-3. Go to Dashboard > Connection Details
-4. Copy the connection string
-5. Update `.env.local` with `DATABASE_URL`
-
-### Option 2: Local PostgreSQL
-
-1. Install PostgreSQL locally
-2. Create database: `createdb voter-guider`
-3. Update `.env` with: `DATABASE_URL="postgresql://user:password@localhost:5432/voter-guider"`
-
-## Deployment
-
-### Vercel (Free Tier)
-
-1. Push to GitHub
-2. Connect repo to Vercel
-3. Add environment variables
-4. Deploy!
-
-```bash
-# Or use Vercel CLI
-npm i -g vercel
-vercel
-```
-
-## Project Structure
-
-```
-the-voter-guider/
-├── app/
-│   ├── api/           # API routes
-│   ├── guide/         # Guide pages
-│   └── page.tsx       # Home page
-├── components/
-│   ├── map/           # US map component
-│   └── ...            # UI components
-├── lib/
-│   ├── prisma.ts      # Prisma client
-│   ├── session.ts     # Session management
-│   └── election-data.ts # Election data fetchers
-├── prisma/
-│   └── schema.prisma  # Database schema
-└── ...
-```
-
-## API Routes
-
-- `GET /api/jurisdictions` - List available jurisdictions
-- `GET /api/elections` - Get elections for a jurisdiction
-- `GET /api/guides` - Get user's guides
-- `POST /api/guides` - Create new guide
-- `POST /api/choices` - Save voting choice
-- `GET /api/guides?shareToken=xxx` - View shared guide
-
-## Free Data Sources
-
-- **Ballotpedia API** - Election information
-- **Google Civic Information API** - Voter information
-- **Census.gov** - US county/GIS data
-- **Vote411.org** - Ballot information
-
-## License
-
-MIT - Feel free to use and modify for your own projects.
-
-## Contributing
-
-This is a brainstorming repository. Ideas and contributions welcome!

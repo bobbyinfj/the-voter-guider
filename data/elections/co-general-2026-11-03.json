@@ -1,0 +1,730 @@
+{
+  "slug": "co-general-2026-11-03",
+  "electionId": "co-general-2026",
+  "title": "2026 General Election — Fort Collins, CO",
+  "electionDate": "2026-11-03T00:00:00.000Z",
+  "type": "general",
+  "status": "upcoming",
+  "description": "Colorado's November 3 general election as it appears on Fort Collins ballots: U.S. Senate, U.S. House District 2, Governor and the other statewide offices, CU Regent, State House Districts 52 and 53 (plus Senate District 15 and House District 65 for unincorporated areas with Fort Collins addresses), Larimer County offices, 14 statewide measures and two local tax measures. Fort Collins city elections are held in odd years, so there are no city races. Candidates are from the Secretary of State's list certified Sept 4, 2026.",
+  "officialUrl": "https://www.coloradosos.gov/pubs/elections/main.html",
+  "districtLookupUrl": "https://www.coloradosos.gov/voter/pages/pub/olvr/findVoterReg.xhtml",
+  "jurisdiction": {
+    "name": "Colorado",
+    "state": "CO",
+    "type": "state",
+    "fipsCode": "08"
+  },
+  "localJurisdictions": [
+    {
+      "id": "larimer-county",
+      "name": "Larimer County",
+      "state": "CO",
+      "countyName": "Larimer",
+      "type": "county",
+      "fipsCode": "08069"
+    },
+    {
+      "id": "fort-collins",
+      "name": "Fort Collins",
+      "state": "CO",
+      "countyName": "Larimer",
+      "type": "city",
+      "fipsCode": "0827425"
+    }
+  ],
+  "offices": [
+    {
+      "id": "co26-us-senate",
+      "title": "U.S. Senator",
+      "level": "federal",
+      "jurisdictionFips": "08",
+      "sortOrder": 1,
+      "description": "6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "co26-john-hickenlooper",
+          "name": "John Hickenlooper",
+          "party": "Democratic",
+          "incumbent": true
+        },
+        {
+          "id": "co26-mark-baisley",
+          "name": "Mark Baisley",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-bob-chew",
+          "name": "Bob Chew",
+          "party": "Forward",
+          "incumbent": false
+        },
+        {
+          "id": "co26-christopher-baum",
+          "name": "Christopher Baum",
+          "party": "Approval Voting",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-us-house-2",
+      "title": "U.S. Representative, District 2",
+      "level": "federal",
+      "jurisdictionFips": "08",
+      "sortOrder": 10,
+      "description": "2-year term. All of Fort Collins is in District 2.",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "co26-joe-neguse",
+          "name": "Joe Neguse",
+          "party": "Democratic",
+          "incumbent": true
+        },
+        {
+          "id": "co26-kelley-anne-dennison",
+          "name": "Kelley Anne Dennison",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-gaylon-kent",
+          "name": "Gaylon Kent",
+          "party": "Libertarian",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-governor",
+      "title": "Governor / Lieutenant Governor",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 20,
+      "description": "Elected as a ticket. 4-year term; Jared Polis is term-limited.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-phil-weiser",
+          "name": "Phil Weiser",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Running mate: Lesley Dahlkemper"
+        },
+        {
+          "id": "co26-victor-marx",
+          "name": "Victor Marx",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Running mate: George Washington Markert"
+        },
+        {
+          "id": "co26-greg-lopez",
+          "name": "Greg Lopez",
+          "party": "Unaffiliated",
+          "incumbent": false,
+          "shortBio": "Running mate: Taralyn Romero"
+        },
+        {
+          "id": "co26-eric-mulder",
+          "name": "Eric Mulder",
+          "party": "Libertarian",
+          "incumbent": false,
+          "shortBio": "Running mate: Wayne Harlos"
+        },
+        {
+          "id": "co26-stephen-t-hamilton",
+          "name": "Stephen T. Hamilton",
+          "party": "American Constitution",
+          "incumbent": false,
+          "shortBio": "Running mate: James K Treibert"
+        },
+        {
+          "id": "co26-jeff-peckman",
+          "name": "Jeff Peckman",
+          "party": "Unity",
+          "incumbent": false,
+          "shortBio": "Running mate: T.J. Cole"
+        },
+        {
+          "id": "co26-erik-underwood",
+          "name": "Erik Underwood",
+          "party": "Approval Voting",
+          "incumbent": false,
+          "shortBio": "Running mate: Frank Atwood"
+        }
+      ]
+    },
+    {
+      "id": "co26-secretary-of-state",
+      "title": "Secretary of State",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 21,
+      "description": "Chief elections officer. 4-year term; Jena Griswold is term-limited.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-amanda-gonzalez",
+          "name": "Amanda Gonzalez",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-james-wiley",
+          "name": "James Wiley",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-sean-vadney",
+          "name": "Sean Vadney",
+          "party": "Libertarian",
+          "incumbent": false
+        },
+        {
+          "id": "co26-amanda-campbell",
+          "name": "Amanda Campbell",
+          "party": "American Constitution",
+          "incumbent": false
+        },
+        {
+          "id": "co26-celeste-landry",
+          "name": "Celeste Landry",
+          "party": "Forward",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-treasurer",
+      "title": "State Treasurer",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 22,
+      "description": "4-year term.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-jeff-bridges",
+          "name": "Jeff Bridges",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-kevin-grantham",
+          "name": "Kevin Grantham",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-jodie-barr",
+          "name": "Jodie Barr",
+          "party": "Libertarian",
+          "incumbent": false
+        },
+        {
+          "id": "co26-marilee-langner-sturgis",
+          "name": "Marilee Langner Sturgis",
+          "party": "Approval Voting",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-attorney-general",
+      "title": "Attorney General",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 23,
+      "description": "4-year term; Phil Weiser is term-limited.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-jena-griswold",
+          "name": "Jena Griswold",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-michael-j-allen",
+          "name": "Michael J. Allen",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-cu-regent-2",
+      "title": "CU Regent, Congressional District 2",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 24,
+      "description": "University of Colorado Board of Regents. 6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "co26-edie-hooton",
+          "name": "Edie Hooton",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-marty-neilson",
+          "name": "Marty Neilson",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-richard-friend",
+          "name": "Richard Friend",
+          "party": "Libertarian",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-house-52",
+      "title": "State Representative, District 52",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 40,
+      "description": "2-year term. Covers parts of east and south Fort Collins.",
+      "district": "House District 52",
+      "districtType": "state-house",
+      "districtCode": "52",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "co26-yara-zokaie",
+          "name": "Yara Zokaie",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-steve-yurash",
+          "name": "Steve Yurash",
+          "party": "Center",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-house-53",
+      "title": "State Representative, District 53",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 41,
+      "description": "2-year term. Covers parts of central, north and west Fort Collins.",
+      "district": "House District 53",
+      "districtType": "state-house",
+      "districtCode": "53",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "co26-andy-boesenecker",
+          "name": "Andy Boesenecker",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-daniel-frick",
+          "name": "Daniel Frick",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-senate-15",
+      "title": "State Senator, District 15",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 39,
+      "description": "4-year term. Not inside Fort Collins city limits, but covers unincorporated areas with Fort Collins addresses (e.g. north and west of the city). City residents are in Senate Districts 14 or 23, which are not up this year.",
+      "district": "Senate District 15",
+      "districtType": "state-senate",
+      "districtCode": "15",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-janice-marchman",
+          "name": "Janice Marchman",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-rob-woodward",
+          "name": "Rob Woodward",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-house-65",
+      "title": "State Representative, District 65",
+      "level": "state",
+      "jurisdictionFips": "08",
+      "sortOrder": 42,
+      "description": "2-year term. Unopposed. Covers unincorporated areas with Fort Collins addresses north and west of the city.",
+      "district": "House District 65",
+      "districtType": "state-house",
+      "districtCode": "65",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "co26-lori-garcia-sander",
+          "name": "Lori Garcia Sander",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-commissioner-1",
+      "title": "Larimer County Commissioner, District 1",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 60,
+      "description": "Commissioners must live in their district but are elected by all Larimer County voters. 4-year term.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-shane-atkinson",
+          "name": "Shane Atkinson",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-marc-roberson",
+          "name": "Marc Roberson",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-stephen-fowler",
+          "name": "Stephen Fowler",
+          "party": "Center",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-clerk",
+      "title": "Larimer County Clerk and Recorder",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 61,
+      "description": "4-year term.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-kenneth-forsythe",
+          "name": "Kenneth Forsythe",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-tina-harris",
+          "name": "Tina Harris",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-treasurer",
+      "title": "Larimer County Treasurer",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 62,
+      "description": "4-year term.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-joann-ginal",
+          "name": "Joann Ginal",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-steve-olson",
+          "name": "Steve Olson",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-assessor",
+      "title": "Larimer County Assessor",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 63,
+      "description": "4-year term.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-bob-overbeck",
+          "name": "Bob Overbeck",
+          "party": "Democratic",
+          "incumbent": false
+        },
+        {
+          "id": "co26-patrick-edwards",
+          "name": "Patrick Edwards",
+          "party": "Republican",
+          "incumbent": false
+        },
+        {
+          "id": "co26-sam-bradley",
+          "name": "Sam Bradley",
+          "party": "Forward",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-sheriff",
+      "title": "Larimer County Sheriff",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 64,
+      "description": "4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-john-j-feyen",
+          "name": "John J. Feyen",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-surveyor",
+      "title": "Larimer County Surveyor",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 65,
+      "description": "4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-tom-donnelly",
+          "name": "Tom Donnelly",
+          "party": "Republican",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "id": "co26-larimer-coroner",
+      "title": "Larimer County Coroner",
+      "level": "county",
+      "jurisdictionFips": "08069",
+      "sortOrder": 66,
+      "description": "4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "co26-stephen-hanks",
+          "name": "Stephen Hanks",
+          "party": "Democratic",
+          "incumbent": false
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "id": "co26-m-amendment-81",
+      "number": "Amdt 81",
+      "title": "Law Enforcement Communication with Federal Immigration Authorities",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 81 requires law enforcement to notify federal immigration authorities after filing certain criminal charges against individuals who are not confirmed to be lawfully present.",
+      "noMeans": "A “no” vote on Amendment 81 maintains current law, which allows cooperation with federal immigration authorities in some criminal matters, but limits state and local law enforcement involvement in civil immigration enforcement.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-82",
+      "number": "Amdt 82",
+      "title": "Constitutional Right to Purchase and Sell Natural Gas",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 82 establishes a state constitutional right to purchase and sell natural gas for use in homes and businesses.",
+      "noMeans": "A “no” vote on Amendment 82 maintains current law and regulations related to the purchase and sale of natural gas.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-83",
+      "number": "Amdt 83",
+      "title": "Constitutional Right to Hunt and Fish",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 83 establishes a state constitutional right to hunt and fish.",
+      "noMeans": "A “no” vote on Amendment 83 means that hunting and fishing will continue as allowed under existing state and federal law.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-84",
+      "number": "Amdt 84",
+      "title": "Mail Ballot Voter Identification",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 84 requires voters to provide identification information with their mail ballot, in addition to their signature.",
+      "noMeans": "A “no” vote on Amendment 84 continues the current signature-only verification system for mail ballots.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-85",
+      "number": "Amdt 85",
+      "title": "Plain Language Ballot Titles",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 85 requires that ballot titles be written in plain language, defined as an eighth-grade reading level, and prohibits any law from interfering with this requirement.",
+      "noMeans": "A “no” vote on Amendment 85 maintains current law, which requires plain language for ballot titles, but does not specify a particular grade-level reading standard.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-86",
+      "number": "Amdt 86",
+      "title": "Requirements for Off-Cycle Congressional Redistricting",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 86 requires the Colorado Independent Congressional Redistricting Commission to approve any new congressional districts proposed outside of a scheduled redistricting year.",
+      "noMeans": "A “no” vote on Amendment 86 continues the current requirements for changing congressional districts every ten years.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with 55 percent of the vote"
+    },
+    {
+      "id": "co26-m-amendment-87",
+      "number": "Amdt 87",
+      "title": "Graduated Income Tax",
+      "level": "state",
+      "type": "amendment",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Amendment 87 creates a graduated state income tax that increases revenue; uses the additional money for K-12 education, health care, and early childhood care and education; and exempts additional revenue collected from the state’s constitutional revenue limit.",
+      "noMeans": "A “no” vote on Amendment 87 keeps the current constitutional requirement for a flat state income tax rate.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-nn",
+      "number": "Prop NN",
+      "title": "Keep and Spend Money for Education and Other Purposes",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition NN allows the state to keep some or all of the revenue that otherwise would be refunded to taxpayers under TABOR. The retained revenue must be spent on K-12 education, programs that support children, and any other purposes.",
+      "noMeans": "A “no” vote on Proposition NN maintains current TABOR refunds and funding levels for K-12 education, programs that support children, and other state purposes.",
+      "placedBy": "Placed on the ballot by the legislature",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-132",
+      "number": "Prop 132",
+      "title": "Increase Penalties for Fentanyl Crimes",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 132 makes possession of any amount of fentanyl a felony, requires a mandatory minimum 8-year prison sentence for any quantity of fentanyl distribution, and eliminates options to reduce penalties for certain possession and distribution offenses.",
+      "noMeans": "A “no” vote on Proposition 132 keeps minor possession charges of fentanyl a misdemeanor, maintains tiered felony penalties for fentanyl distribution based on drug quantity, and keeps options to reduce penalties for certain possession and distribution offenses.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-133",
+      "number": "Prop 133",
+      "title": "Penalties for Human Trafficking of a Minor",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 133 increases the penalties for child sex trafficking to life in prison without parole, and expands child sex trafficking to include buying sexual activity with a minor.",
+      "noMeans": "A “no” vote on Proposition 133 keeps the existing felony criminal penalties for child sex trafficking with a sentencing range of 8 to 48 years in prison plus a mandatory parole period.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-134",
+      "number": "Prop 134",
+      "title": "Male and Female Participation in School and Collegiate Sports",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 134 means that all school-based athletic teams and sports must be designated as being for biological males or biological females only, or as mixed, and requires schools and school districts to adopt policies on sex eligibility for sports.",
+      "noMeans": "A “no” vote on Proposition 134 means that individual schools, school districts, and athletic associations may continue to set their own policies in alignment with current state and federal law about who is eligible to participate on a team or in a sport.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-135",
+      "number": "Prop 135",
+      "title": "Prohibit Surgery on Minors in Response to Perception of Sex or Gender",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 135 prohibits surgeries on minors that would alter their biological sex characteristics as a treatment in response to a minor’s perception of sex or gender, and prohibits the use of government funds or health insurance to pay for the surgeries.",
+      "noMeans": "A “no” vote on Proposition 135 maintains Colorado law, which protects access to surgery altering minors’ biological sex characteristics and allows public and private health insurance programs to pay for these surgeries.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-136",
+      "number": "Prop 136",
+      "title": "Income Tax Rate Limit",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 136 establishes the current state income tax rate of 4.4 percent as the maximum rate.",
+      "noMeans": "A “no” vote on Proposition 136 keeps the current state income tax rate of 4.4 percent without establishing a new limit in statute.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-proposition-137",
+      "number": "Prop 137",
+      "title": "Direct Sporting Goods Sales Tax Revenue for Conservation",
+      "level": "state",
+      "type": "proposition",
+      "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
+      "yesMeans": "A “yes” vote on Proposition 137 directs existing sales tax revenue collected from sales of sporting goods to be spent on certain conservation, wildfire risk mitigation, and outdoor recreation programs, and exempts it from state revenue limitations.",
+      "noMeans": "A “no” vote on Proposition 137 keeps the sales tax revenue collected from sporting goods in the state’s general budget and subject to the state’s revenue limit, with the revenue either spent on priorities decided annually by the legislature or refunded to taxpayers when required.",
+      "placedBy": "Placed on the ballot by citizen initiative",
+      "passes": "Passes with a majority vote"
+    },
+    {
+      "id": "co26-m-larimer-1a",
+      "number": "1A",
+      "title": "Larimer County sales and use tax for resilience, roads, parks and public safety",
+      "level": "county",
+      "type": "measure",
+      "description": "Would create a 0.3% countywide sales and use tax (food for home, gasoline, diapers and prescriptions exempt), raising up to $34.5 million a year from 2027 for wildfire and watershed protection, natural-hazard resilience, roads, bridges, parks, trails, open space, emergency services and county facilities. Revenue audited annually and exempt from TABOR limits.",
+      "sourceUrl": "https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf"
+    },
+    {
+      "id": "co26-m-frprd-7a",
+      "number": "7A",
+      "title": "Front Range Passenger Rail District tax and debt",
+      "level": "district",
+      "type": "measure",
+      "description": "Would create a 0.333% sales and use tax ($295 million a year) and authorize $580 million of debt (up to $785 million repayment) to build and run Colorado Connector (CoCo) passenger rail from Pueblo to Fort Collins. Fort Collins is inside the district.",
+      "sourceUrl": "https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf"
+    }
+  ]
+}

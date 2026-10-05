@@ -1,738 +1,482 @@
-// Seed script for precinct-based jurisdiction and election data
-// Only creates precinct-level jurisdictions (no county/city duplicates)
+// Seed script: loads the curated, source-backed election bundles in data/.
+// Nothing here invents data — every election, office, candidate and measure comes
+// from a bundle file whose facts are documented in data/research/.
 import { PrismaClient } from "../generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
+import { readFileSync, readdirSync } from "fs";
 import { resolve } from "path";
 
-// Load environment variables from .env.local
+// Load environment variables from .env.local (an explicit DATABASE_URL wins)
 config({ path: resolve(process.cwd(), ".env.local") });
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  console.log("🌱 Seeding database with precinct-based data...");
-
-  // Check if precincts table exists
-  try {
-    await prisma.$queryRaw`SELECT 1 FROM precincts LIMIT 1`;
-  } catch (error: any) {
-    if (error.code === "P2021" || error.message?.includes("does not exist")) {
-      console.error("❌ ERROR: The precincts table does not exist!");
-      console.error("");
-      console.error("Please run a migration first:");
-      console.error("  npx prisma migrate dev --name add_precincts_table");
-      console.error("");
-      console.error("Or use db push (development only):");
-      console.error("  npx prisma db push");
-      console.error("");
-      process.exit(1);
-    }
-    throw error;
-  }
-
-  // Clean up: Delete any existing county/city jurisdictions that aren't needed
-  // We'll only keep precinct-level jurisdictions
-  await prisma.jurisdiction.deleteMany({
-    where: {
-      type: { in: ["county", "city"] },
-    },
-  });
-  console.log("🧹 Cleaned up redundant county/city jurisdictions");
-
-  // Create base jurisdictions for precincts (these represent the voting districts)
-  // Monterey Park Precincts (Los Angeles County, CA)
-  const montereyParkJurisdiction = await prisma.jurisdiction.upsert({
-    where: { fipsCode: "0603748848" },
-    update: {},
-    create: {
-      name: "Monterey Park Voting Districts",
-      state: "California",
-      countyName: "Los Angeles",
-      fipsCode: "0603748848",
-      type: "precinct", // Changed from 'city' to 'precinct'
-    },
-  });
-
-  // Fort Collins Precincts (Fort Collins, CO)
-  const fortCollinsJurisdiction = await prisma.jurisdiction.upsert({
-    where: { fipsCode: "0806927270" },
-    update: {},
-    create: {
-      name: "Fort Collins Voting Districts",
-      state: "Colorado",
-      countyName: "Larimer", // Fort Collins is in Larimer County
-      fipsCode: "0806927270",
-      type: "precinct", // Changed from 'city' to 'precinct'
-    },
-  });
-
-  // Seattle Precincts (King County, WA)
-  const seattleJurisdiction = await prisma.jurisdiction.upsert({
-    where: { fipsCode: "53033" },
-    update: {},
-    create: {
-      name: "Seattle Voting Districts",
-      state: "Washington",
-      countyName: "King",
-      fipsCode: "53033",
-      type: "precinct",
-    },
-  });
-
-  console.log("✅ Created precinct-level jurisdictions");
-
-  // === MONTEREY PARK PRECINCTS ===
-  // Approximate precincts for Monterey Park (typically 5-7 voting precincts)
-  const mpPrecincts = [
-    {
-      number: "1",
-      name: "Monterey Park Precinct 1",
-      centerLat: 34.0625,
-      centerLng: -118.1233,
-      zipCodes: ["91754"],
-    },
-    {
-      number: "2",
-      name: "Monterey Park Precinct 2",
-      centerLat: 34.065,
-      centerLng: -118.12,
-      zipCodes: ["91754"],
-    },
-    {
-      number: "3",
-      name: "Monterey Park Precinct 3",
-      centerLat: 34.06,
-      centerLng: -118.125,
-      zipCodes: ["91754"],
-    },
-    {
-      number: "4",
-      name: "Monterey Park Precinct 4",
-      centerLat: 34.058,
-      centerLng: -118.118,
-      zipCodes: ["91754"],
-    },
-    {
-      number: "5",
-      name: "Monterey Park Precinct 5",
-      centerLat: 34.064,
-      centerLng: -118.122,
-      zipCodes: ["91754"],
-    },
-  ];
-
-  const createdMPPrecincts = [];
-  for (const precinct of mpPrecincts) {
-    // Try to find existing precinct first
-    const existing = await prisma.precinct.findFirst({
-      where: {
-        jurisdictionId: montereyParkJurisdiction.id,
-        number: precinct.number,
-      },
-    });
-
-    const created = existing
-      ? await prisma.precinct.update({
-          where: { id: existing.id },
-          data: {
-            name: precinct.name,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 500) + 1000,
-          },
-        })
-      : await prisma.precinct.create({
-          data: {
-            name: precinct.name,
-            number: precinct.number,
-            jurisdictionId: montereyParkJurisdiction.id,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 500) + 1000, // Approximate
-          },
-        });
-    createdMPPrecincts.push(created);
-  }
-
-  // === FORT COLLINS PRECINCTS ===
-  // Approximate precincts for Fort Collins (typically 20-30 precincts, we'll create sample ones)
-  const fcPrecincts = [
-    {
-      number: "101",
-      name: "Fort Collins Precinct 101",
-      centerLat: 40.5853,
-      centerLng: -105.0844,
-      zipCodes: ["80521"],
-    },
-    {
-      number: "102",
-      name: "Fort Collins Precinct 102",
-      centerLat: 40.5875,
-      centerLng: -105.082,
-      zipCodes: ["80521"],
-    },
-    {
-      number: "103",
-      name: "Fort Collins Precinct 103",
-      centerLat: 40.583,
-      centerLng: -105.086,
-      zipCodes: ["80521"],
-    },
-    {
-      number: "104",
-      name: "Fort Collins Precinct 104",
-      centerLat: 40.59,
-      centerLng: -105.08,
-      zipCodes: ["80524"],
-    },
-    {
-      number: "105",
-      name: "Fort Collins Precinct 105",
-      centerLat: 40.58,
-      centerLng: -105.088,
-      zipCodes: ["80525"],
-    },
-    {
-      number: "106",
-      name: "Fort Collins Precinct 106",
-      centerLat: 40.588,
-      centerLng: -105.083,
-      zipCodes: ["80521"],
-    },
-    {
-      number: "107",
-      name: "Fort Collins Precinct 107",
-      centerLat: 40.582,
-      centerLng: -105.085,
-      zipCodes: ["80521"],
-    },
-    {
-      number: "108",
-      name: "Fort Collins Precinct 108",
-      centerLat: 40.586,
-      centerLng: -105.081,
-      zipCodes: ["80524"],
-    },
-  ];
-
-  const createdFCPrecincts = [];
-  for (const precinct of fcPrecincts) {
-    const existing = await prisma.precinct.findFirst({
-      where: {
-        jurisdictionId: fortCollinsJurisdiction.id,
-        number: precinct.number,
-      },
-    });
-
-    const created = existing
-      ? await prisma.precinct.update({
-          where: { id: existing.id },
-          data: {
-            name: precinct.name,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 800) + 1500,
-          },
-        })
-      : await prisma.precinct.create({
-          data: {
-            name: precinct.name,
-            number: precinct.number,
-            jurisdictionId: fortCollinsJurisdiction.id,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 800) + 1500, // Approximate
-          },
-        });
-    createdFCPrecincts.push(created);
-  }
-
-  // === SEATTLE PRECINCTS ===
-  const seattlePrecincts = [
-    {
-      number: "1",
-      name: "Seattle Precinct 1",
-      centerLat: 47.6062,
-      centerLng: -122.3321,
-      zipCodes: ["98101"],
-    },
-    {
-      number: "2",
-      name: "Seattle Precinct 2",
-      centerLat: 47.608,
-      centerLng: -122.33,
-      zipCodes: ["98101"],
-    },
-    {
-      number: "3",
-      name: "Seattle Precinct 3",
-      centerLat: 47.604,
-      centerLng: -122.334,
-      zipCodes: ["98104"],
-    },
-    {
-      number: "4",
-      name: "Seattle Precinct 4",
-      centerLat: 47.61,
-      centerLng: -122.328,
-      zipCodes: ["98102"],
-    },
-    {
-      number: "5",
-      name: "Seattle Precinct 5",
-      centerLat: 47.602,
-      centerLng: -122.336,
-      zipCodes: ["98104"],
-    },
-    {
-      number: "6",
-      name: "Seattle Precinct 6",
-      centerLat: 47.612,
-      centerLng: -122.326,
-      zipCodes: ["98102"],
-    },
-  ];
-
-  const createdSeattlePrecincts = [];
-  for (const precinct of seattlePrecincts) {
-    const existing = await prisma.precinct.findFirst({
-      where: {
-        jurisdictionId: seattleJurisdiction.id,
-        number: precinct.number,
-      },
-    });
-
-    const created = existing
-      ? await prisma.precinct.update({
-          where: { id: existing.id },
-          data: {
-            name: precinct.name,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 700) + 1200,
-          },
-        })
-      : await prisma.precinct.create({
-          data: {
-            name: precinct.name,
-            number: precinct.number,
-            jurisdictionId: seattleJurisdiction.id,
-            centerLat: precinct.centerLat,
-            centerLng: precinct.centerLng,
-            zipCodes: precinct.zipCodes,
-            registeredVoters: Math.floor(Math.random() * 700) + 1200, // Approximate
-          },
-        });
-    createdSeattlePrecincts.push(created);
-  }
-
-  console.log(
-    `✅ Created ${createdMPPrecincts.length} Monterey Park precincts`
-  );
-  console.log(`✅ Created ${createdFCPrecincts.length} Fort Collins precincts`);
-  console.log(`✅ Created ${createdSeattlePrecincts.length} Seattle precincts`);
-
-  // === MONTEREY PARK ELECTION ===
-  // Use the first Monterey Park precinct's jurisdiction for the election
-  const montereyParkElection = await prisma.election.upsert({
-    where: { id: "monterey-park-2025" },
-    update: {},
-    create: {
-      id: "monterey-park-2025",
-      jurisdictionId: montereyParkJurisdiction.id,
-      title: "Monterey Park General Municipal Election - November 2025",
-      description: "City Council election and local ballot measures",
-      electionDate: new Date("2025-11-04"),
-      type: "general",
-      status: "upcoming",
-      officialUrl: "https://www.montereypark.ca.gov",
-    },
-  });
-
-  // === FORT COLLINS ELECTION ===
-  const fortCollinsElection = await prisma.election.upsert({
-    where: { id: "fort-collins-2025" },
-    update: {},
-    create: {
-      id: "fort-collins-2025",
-      jurisdictionId: fortCollinsJurisdiction.id,
-      title: "Fort Collins Municipal Election - November 2025",
-      description: "City Council election and local ballot measures",
-      electionDate: new Date("2025-11-04"),
-      type: "general",
-      status: "upcoming",
-      officialUrl: "https://www.fcgov.com/elections",
-    },
-  });
-
-  // === SEATTLE ELECTION ===
-  const seattleElection = await prisma.election.upsert({
-    where: { id: "wa-seattle-2025" },
-    update: {},
-    create: {
-      id: "wa-seattle-2025",
-      jurisdictionId: seattleJurisdiction.id,
-      title: "Seattle General Election - November 2025",
-      description: "City Council election and local ballot measures",
-      electionDate: new Date("2025-11-04"),
-      type: "general",
-      status: "upcoming",
-      officialUrl: "https://www.seattle.gov/elections",
-    },
-  });
-
-  console.log("✅ Created elections");
-  console.log("");
-
-  // PRIORITY: Fetch REAL ballot data FIRST (if API key available)
-  const apiKey = process.env.GOOGLE_CIVIC_API_KEY;
-  let realDataFetched = false;
-
-  if (apiKey) {
-    console.log(
-      "🔍 API key found! Fetching REAL ballot data from Google Civic API..."
-    );
-    console.log(
-      "   (Real data will be used - sample data will NOT be created if real data is available)"
-    );
-    console.log("");
-
-    try {
-      const { fetchGoogleCivicData, convertGoogleCivicToBallotItems } =
-        await import("../lib/api-collectors/google-civic");
-
-      // Sample addresses for fetching real data
-      const addresses = {
-        "Monterey Park Voting Districts":
-          "123 W Garvey Ave, Monterey Park, CA 91754",
-        "Fort Collins Voting Districts":
-          "300 Laporte Ave, Fort Collins, CO 80521",
-        "Seattle Voting Districts": "600 4th Ave, Seattle, WA 98104",
-      };
-
-      const jurisdictions = [
-        {
-          id: montereyParkJurisdiction.id,
-          name: "Monterey Park Voting Districts",
-          electionId: montereyParkElection.id,
-        },
-        {
-          id: fortCollinsJurisdiction.id,
-          name: "Fort Collins Voting Districts",
-          electionId: fortCollinsElection.id,
-        },
-        {
-          id: seattleJurisdiction.id,
-          name: "Seattle Voting Districts",
-          electionId: seattleElection.id,
-        },
-      ];
-
-      for (const jurisdiction of jurisdictions) {
-        const address = addresses[jurisdiction.name as keyof typeof addresses];
-        if (!address) continue;
-
-        console.log(`   📥 Fetching data for ${jurisdiction.name}...`);
-        try {
-          const civicData = await fetchGoogleCivicData(address, apiKey);
-
-          if (
-            civicData &&
-            civicData.contests &&
-            civicData.contests.length > 0
-          ) {
-            const ballotItems = convertGoogleCivicToBallotItems(
-              civicData.contests
-            );
-            console.log(
-              `      ✅ Found ${ballotItems.length} real ballot items`
-            );
-
-            // Delete any existing sample ballots for this election
-            await prisma.ballot.deleteMany({
-              where: {
-                electionId: jurisdiction.electionId,
-                metadata: {
-                  path: ["isSample"],
-                  equals: true,
-                },
-              },
-            });
-
-            // Update election with real data
-            await prisma.election.update({
-              where: { id: jurisdiction.electionId },
-              data: {
-                title: civicData.election.name,
-                electionDate: new Date(civicData.election.electionDay),
-              },
-            });
-
-            // Create real ballot items
-            for (const ballotItem of ballotItems) {
-              const ballotId = `ballot-${
-                jurisdiction.electionId
-              }-${ballotItem.title
-                .replace(/[^a-zA-Z0-9]/g, "-")
-                .toLowerCase()
-                .substring(0, 50)}`;
-
-              await prisma.ballot.upsert({
-                where: { id: ballotId },
-                update: {
-                  title: ballotItem.title,
-                  description: ballotItem.description,
-                  type: ballotItem.type,
-                  options: ballotItem.options,
-                  number: ballotItem.number,
-                  metadata: {
-                    ...ballotItem.metadata,
-                    source: "Google Civic Information API",
-                    fetchedAt: new Date().toISOString(),
-                    isSample: false,
-                  },
-                },
-                create: {
-                  id: ballotId,
-                  electionId: jurisdiction.electionId,
-                  number: ballotItem.number,
-                  title: ballotItem.title,
-                  description: ballotItem.description,
-                  type: ballotItem.type,
-                  options: ballotItem.options,
-                  metadata: {
-                    ...ballotItem.metadata,
-                    source: "Google Civic Information API",
-                    fetchedAt: new Date().toISOString(),
-                    isSample: false,
-                  },
-                },
-              });
-            }
-            console.log(
-              `      ✅ Stored ${ballotItems.length} real ballot items`
-            );
-            realDataFetched = true;
-          } else {
-            console.log(
-              `      ⚠️  No contests found (may be no upcoming election)`
-            );
-          }
-        } catch (error) {
-          console.log(
-            `      ⚠️  Error fetching data: ${
-              error instanceof Error ? error.message : "Unknown error"
-            }`
-          );
-        }
-      }
-    } catch (error) {
-      console.log(
-        `   ⚠️  Could not fetch real data: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
-    }
-  } else {
-    console.log("⚠️  No GOOGLE_CIVIC_API_KEY found in .env.local");
-    console.log("   Will create sample data as fallback.");
-    console.log("   To use real ballot data:");
-    console.log("   1. Add GOOGLE_CIVIC_API_KEY to .env.local");
-    console.log("   2. Run: npm run data:populate-ballots");
-    console.log("");
-  }
-
-  // Only create sample data if NO real data was fetched
-  const hasRealData = await prisma.ballot.count({
-    where: {
-      metadata: {
-        path: ["isSample"],
-        equals: false,
-      },
-    },
-  });
-
-  if (hasRealData === 0) {
-    console.log(
-      "📝 Creating sample ballot data (fallback only - no real data available)..."
-    );
-
-    // Delete any existing sample ballots first
-    await prisma.ballot.deleteMany({
-      where: {
-        metadata: {
-          path: ["isSample"],
-          equals: true,
-        },
-      },
-    });
-
-    // Create sample ballots only as fallback
-    await prisma.ballot.upsert({
-      where: { id: "mp-council-district-1" },
-      update: {},
-      create: {
-        id: "mp-council-district-1",
-        electionId: montereyParkElection.id,
-        number: "City Council District 1",
-        title: "Monterey Park City Council - District 1 (SAMPLE)",
-        description:
-          "Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.",
-        type: "candidate",
-        options: ["Candidate A", "Candidate B", "Candidate C", "Write-in"],
-        metadata: {
-          term: "4 years",
-          district: "District 1",
-          isSample: true,
-        },
-      },
-    });
-
-    await prisma.ballot.upsert({
-      where: { id: "mp-measure-x" },
-      update: {},
-      create: {
-        id: "mp-measure-x",
-        electionId: montereyParkElection.id,
-        number: "Measure X",
-        title: "Public Safety and Emergency Services Funding (SAMPLE)",
-        description:
-          "Shall the City of Monterey Park adopt a 0.5% sales tax increase to fund public safety and emergency services?\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.",
-        type: "measure",
-        options: ["YES", "NO"],
-        metadata: {
-          taxRate: "0.5% sales tax",
-          purpose: "Public safety and emergency services",
-          duration: "Ongoing",
-          isSample: true,
-        },
-      },
-    });
-
-    await prisma.ballot.upsert({
-      where: { id: "fc-mayor-2025" },
-      update: {},
-      create: {
-        id: "fc-mayor-2025",
-        electionId: fortCollinsElection.id,
-        number: "Mayor",
-        title: "Fort Collins Mayor (SAMPLE)",
-        description:
-          "Vote for one candidate for Mayor of Fort Collins\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.",
-        type: "candidate",
-        options: ["Candidate A", "Candidate B", "Write-in"],
-        metadata: {
-          term: "4 years",
-          office: "Mayor",
-          isSample: true,
-        },
-      },
-    });
-
-    await prisma.ballot.upsert({
-      where: { id: "fc-measure-1" },
-      update: {},
-      create: {
-        id: "fc-measure-1",
-        electionId: fortCollinsElection.id,
-        number: "Ballot Issue 1",
-        title: "Affordable Housing Fund (SAMPLE)",
-        description:
-          "Shall the City of Fort Collins be authorized to create and fund an affordable housing program through a 0.25% sales tax increase?\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.",
-        type: "measure",
-        options: ["YES", "NO"],
-        metadata: {
-          taxRate: "0.25% sales tax",
-          purpose: "Affordable housing",
-          duration: "10 years",
-          isSample: true,
-        },
-      },
-    });
-
-    await prisma.ballot.upsert({
-      where: { id: "wa-seattle-council-1" },
-      update: {},
-      create: {
-        id: "wa-seattle-council-1",
-        electionId: seattleElection.id,
-        number: "City Council District 1",
-        title: "Seattle City Council - District 1 (SAMPLE)",
-        description:
-          "Vote for one candidate for City Council Member representing District 1\n\n⚠️ This is sample data. Run `npm run data:populate-ballots` to get real ballot items.",
-        type: "candidate",
-        options: ["Candidate A", "Candidate B", "Write-in"],
-        metadata: {
-          term: "4 years",
-          district: "District 1",
-          isSample: true,
-        },
-      },
-    });
-
-    console.log("✅ Created sample ballot measures (fallback only)");
-  } else {
-    console.log("✅ Using real ballot data (no sample data created)");
-  }
-
+  console.log("🌱 Seeding curated election bundles...");
+  await seedElectionBundles();
   console.log("");
   console.log("🎉 Seeding complete!");
-  console.log("");
-  console.log("📊 Summary:");
-  console.log(
-    `   - Jurisdictions: 3 (Monterey Park, Fort Collins, Seattle - all precinct-level)`
-  );
-  console.log(`   - Precincts: ${await prisma.precinct.count()}`);
   console.log(`   - Elections: ${await prisma.election.count()}`);
+  console.log(`   - Offices: ${await prisma.office.count()}`);
+  console.log(`   - Candidates: ${await prisma.candidate.count()}`);
+  console.log(`   - Ballot items: ${await prisma.ballot.count()}`);
+}
 
-  // Check if we have real data or sample data
-  const realBallotCount = await prisma.ballot.count({
-    where: {
-      metadata: {
-        path: ["isSample"],
-        equals: false,
-      },
+// ────────────────────────────────────────────────────────────────────────────
+// Curated election bundles
+// ────────────────────────────────────────────────────────────────────────────
+
+interface IssueFile {
+  slug: string;
+  name: string;
+  level: string;
+  summary: string;
+  description?: string;
+  jurisdictionFips?: string;
+}
+
+interface CandidateData {
+  id: string;
+  name: string;
+  party?: string;
+  incumbent?: boolean;
+  shortBio?: string;
+  longBio?: string;
+  photoUrl?: string;
+  website?: string | null;
+  email?: string;
+  phone?: string;
+}
+
+interface OfficeData {
+  id: string;
+  title: string;
+  level: string;
+  jurisdictionFips: string;
+  district?: string;
+  districtType?: string;
+  districtCode?: string;
+  termYears?: number;
+  sortOrder?: number;
+  description?: string;
+  candidates: CandidateData[];
+}
+
+interface MeasureData {
+  id: string;
+  number?: string;
+  title: string;
+  description?: string;
+  // state | county | city | district
+  level: string;
+  type?: string;
+  districtType?: string;
+  districtCode?: string;
+  sourceUrl?: string;
+  // Official explanations, verbatim from the state/county voter guide
+  yesMeans?: string;
+  noMeans?: string;
+  fiscalImpact?: string;
+  placedBy?: string;
+  passes?: string;
+}
+
+interface ElectionFile {
+  slug: string;
+  electionId: string;
+  title: string;
+  electionDate: string;
+  type: string;
+  status: string;
+  description?: string;
+  officialUrl?: string;
+  districtLookupUrl?: string;
+  jurisdiction: { name: string; state: string; type: string; fipsCode: string };
+  localJurisdictions?: Array<{
+    id: string;
+    name: string;
+    state: string;
+    countyName?: string;
+    type: string;
+    fipsCode: string;
+  }>;
+  offices: OfficeData[];
+  measures?: MeasureData[];
+}
+
+interface StanceData {
+  candidateId: string;
+  issueId: string;
+  position: number;
+  summary: string;
+  rationale?: string;
+  sources: Array<{ url: string; title?: string; quote?: string; publishedAt?: string }>;
+}
+
+interface StancesFile {
+  electionSlug: string;
+  stances: StanceData[];
+}
+
+interface QuestionData {
+  id: string;
+  prompt: string;
+  helpText?: string;
+  order: number;
+  issues: Array<{ issueId: string; weight: number }>;
+  options: Array<{ label: string; stanceValue: number; order: number }>;
+}
+
+interface QuizFile {
+  electionSlug: string;
+  title: string;
+  questions: QuestionData[];
+}
+
+async function seedElectionBundles() {
+  const electionsDir = resolve(process.cwd(), "data", "elections");
+  let files: string[];
+  try {
+    files = readdirSync(electionsDir).filter((f) => f.endsWith(".json")).sort();
+  } catch {
+    console.log("⚠️  data/elections not found — skipping election bundles.");
+    return;
+  }
+  for (const file of files) {
+    await seedElectionBundle(file.replace(/\.json$/, ""));
+  }
+}
+
+async function seedElectionBundle(slug: string) {
+  const dataRoot = resolve(process.cwd(), "data");
+  const electionPath = resolve(dataRoot, "elections", `${slug}.json`);
+  const electionData: ElectionFile = JSON.parse(readFileSync(electionPath, "utf-8"));
+
+  console.log(`\n🗳️  Seeding ${electionData.title} (${slug})...`);
+
+  // 1. Upsert jurisdictions
+  const stateJurisdiction = await prisma.jurisdiction.upsert({
+    where: { fipsCode: electionData.jurisdiction.fipsCode },
+    update: { name: electionData.jurisdiction.name },
+    create: {
+      name: electionData.jurisdiction.name,
+      state: electionData.jurisdiction.state,
+      type: electionData.jurisdiction.type,
+      fipsCode: electionData.jurisdiction.fipsCode,
     },
   });
-  const sampleBallotCount = await prisma.ballot.count({
-    where: {
-      metadata: {
-        path: ["isSample"],
-        equals: true,
+
+  const localJurisdictions: Record<string, string> = {};
+  for (const lj of electionData.localJurisdictions ?? []) {
+    const jur = await prisma.jurisdiction.upsert({
+      where: { fipsCode: lj.fipsCode },
+      update: { name: lj.name },
+      create: {
+        name: lj.name,
+        state: lj.state,
+        countyName: lj.countyName,
+        type: lj.type,
+        fipsCode: lj.fipsCode,
       },
+    });
+    localJurisdictions[lj.fipsCode] = jur.id;
+  }
+  localJurisdictions[electionData.jurisdiction.fipsCode] = stateJurisdiction.id;
+
+  console.log("   ✅ Jurisdictions upserted");
+
+  // 2. Upsert election
+  const election = await prisma.election.upsert({
+    where: { id: electionData.electionId },
+    update: {
+      title: electionData.title,
+      description: electionData.description,
+      electionDate: new Date(electionData.electionDate),
+      status: electionData.status,
+      officialUrl: electionData.officialUrl,
+      districtLookupUrl: electionData.districtLookupUrl ?? null,
+    },
+    create: {
+      id: electionData.electionId,
+      jurisdictionId: stateJurisdiction.id,
+      title: electionData.title,
+      description: electionData.description,
+      electionDate: new Date(electionData.electionDate),
+      type: electionData.type,
+      status: electionData.status,
+      officialUrl: electionData.officialUrl,
+      districtLookupUrl: electionData.districtLookupUrl ?? null,
     },
   });
+  console.log("   ✅ Election upserted");
 
+  // 3. Upsert issues from data/issues/*.json
+  const issuesDir = resolve(dataRoot, "issues");
+  const issueFiles = readdirSync(issuesDir).filter((f) => f.endsWith(".json"));
+  const issueSlugToId: Record<string, string> = {};
+
+  for (const file of issueFiles) {
+    const issueData: IssueFile = JSON.parse(readFileSync(resolve(issuesDir, file), "utf-8"));
+    const jurisdictionId = issueData.jurisdictionFips
+      ? localJurisdictions[issueData.jurisdictionFips]
+      : undefined;
+
+    const issue = await prisma.issue.upsert({
+      where: { slug: issueData.slug },
+      update: {
+        name: issueData.name,
+        summary: issueData.summary,
+        description: issueData.description,
+        level: issueData.level,
+      },
+      create: {
+        slug: issueData.slug,
+        name: issueData.name,
+        summary: issueData.summary,
+        description: issueData.description,
+        level: issueData.level,
+        jurisdictionId: jurisdictionId ?? null,
+      },
+    });
+    issueSlugToId[issueData.slug] = issue.id;
+  }
+  console.log(`   ✅ ${issueFiles.length} issues upserted`);
+
+  // 4. Upsert offices + candidates
+  const candidateLocalId: Record<string, string> = {}; // data-file id → db id
+
+  for (const officeData of electionData.offices) {
+    const jurisdictionId =
+      localJurisdictions[officeData.jurisdictionFips] ?? stateJurisdiction.id;
+
+    const office = await prisma.office.upsert({
+      where: { id: officeData.id },
+      update: {
+        title: officeData.title,
+        level: officeData.level,
+        description: officeData.description,
+        district: officeData.district ?? null,
+        districtType: officeData.districtType ?? null,
+        districtCode: officeData.districtCode ?? null,
+        termYears: officeData.termYears,
+        sortOrder: officeData.sortOrder ?? 100,
+      },
+      create: {
+        id: officeData.id,
+        jurisdictionId,
+        electionId: election.id,
+        title: officeData.title,
+        level: officeData.level,
+        description: officeData.description,
+        district: officeData.district ?? null,
+        districtType: officeData.districtType ?? null,
+        districtCode: officeData.districtCode ?? null,
+        termYears: officeData.termYears,
+        sortOrder: officeData.sortOrder ?? 100,
+      },
+    });
+
+    // Ballot row for the race, so guides can record a pick for every contest
+    const raceBallot = {
+      number: null,
+      title: officeData.title,
+      description: officeData.description ?? null,
+      type: "candidate",
+      options: officeData.candidates.map((c) => c.name),
+      metadata: { level: officeData.level, sortOrder: officeData.sortOrder ?? 100 },
+      districtType: officeData.districtType ?? null,
+      districtCode: officeData.districtCode ?? null,
+    };
+    await prisma.ballot.upsert({
+      where: { officeId: office.id },
+      update: raceBallot,
+      create: { id: `${office.id}-race`, electionId: election.id, officeId: office.id, ...raceBallot },
+    });
+
+    for (const cd of officeData.candidates) {
+      const candidate = await prisma.candidate.upsert({
+        where: { id: cd.id },
+        update: {
+          name: cd.name,
+          party: cd.party,
+          incumbent: cd.incumbent ?? false,
+          shortBio: cd.shortBio,
+          website: cd.website ?? null,
+        },
+        create: {
+          id: cd.id,
+          officeId: office.id,
+          name: cd.name,
+          party: cd.party,
+          incumbent: cd.incumbent ?? false,
+          shortBio: cd.shortBio,
+          longBio: cd.longBio,
+          photoUrl: cd.photoUrl,
+          website: cd.website ?? null,
+          email: cd.email,
+          phone: cd.phone,
+        },
+      });
+      candidateLocalId[cd.id] = candidate.id;
+    }
+  }
   console.log(
-    `   - Ballot Items: ${await prisma.ballot.count()} (${realBallotCount} real, ${sampleBallotCount} sample)`
+    `   ✅ ${electionData.offices.length} offices + ${Object.keys(candidateLocalId).length} candidates upserted`,
   );
 
-  if (realBallotCount > 0) {
-    console.log("");
-    console.log("✅ Real ballot data is being used!");
-    console.log("   No sample data warnings will appear for users.");
-  } else if (apiKey) {
-    console.log("");
-    console.log(
-      "⚠️  API key found but no real data fetched (may be no upcoming elections)"
-    );
-    console.log(
-      "   Sample data created as fallback. Run `npm run data:populate-ballots` to try again."
-    );
-  } else {
-    console.log("");
-    console.log(
-      "📥 Next step: Add GOOGLE_CIVIC_API_KEY to .env.local and run `npm run data:populate-ballots`"
-    );
-    console.log("   This will replace sample data with real ballot data.");
+  // Prune offices/candidates that were removed from the bundle (bundles are the source of truth)
+  const bundleOfficeIds = electionData.offices.map((o) => o.id);
+  const bundleCandidateIds = Object.keys(candidateLocalId);
+  const prunedCandidates = await prisma.candidate.deleteMany({
+    where: { office: { electionId: election.id }, id: { notIn: bundleCandidateIds } },
+  });
+  const prunedOffices = await prisma.office.deleteMany({
+    where: { electionId: election.id, id: { notIn: bundleOfficeIds } },
+  });
+  if (prunedCandidates.count || prunedOffices.count) {
+    console.log(`   🧹 Pruned ${prunedOffices.count} offices, ${prunedCandidates.count} candidates no longer in the bundle`);
   }
+
+  // 4b. Upsert ballot measures (ids are bundle-stable so re-seeding is idempotent)
+  for (const m of electionData.measures ?? []) {
+    const data = {
+      number: m.number ?? null,
+      title: m.title,
+      description: m.description ?? null,
+      type: m.type ?? "measure",
+      options: ["YES", "NO"],
+      metadata: {
+        level: m.level,
+        sourceUrl: m.sourceUrl ?? null,
+        yesMeans: m.yesMeans ?? null,
+        noMeans: m.noMeans ?? null,
+        fiscalImpact: m.fiscalImpact ?? null,
+        placedBy: m.placedBy ?? null,
+        passes: m.passes ?? null,
+      },
+      districtType: m.districtType ?? null,
+      districtCode: m.districtCode ?? null,
+    };
+    await prisma.ballot.upsert({
+      where: { id: m.id },
+      update: data,
+      create: { id: m.id, electionId: election.id, ...data },
+    });
+  }
+  const keepBallotIds = [
+    ...(electionData.measures ?? []).map((m) => m.id),
+    ...bundleOfficeIds.map((id) => `${id}-race`),
+  ];
+  const prunedBallots = await prisma.ballot.deleteMany({
+    where: { electionId: election.id, id: { notIn: keepBallotIds } },
+  });
+  if (prunedBallots.count) console.log(`   🧹 Pruned ${prunedBallots.count} ballot items no longer in the bundle`);
+  if (electionData.measures?.length) {
+    console.log(`   ✅ ${electionData.measures.length} ballot measures upserted`);
+  }
+
+  // 5. Upsert stances + sources
+  const stancesPath = resolve(dataRoot, "stances", `${slug}.json`);
+  let stancesFile: StancesFile;
+  try {
+    stancesFile = JSON.parse(readFileSync(stancesPath, "utf-8"));
+  } catch {
+    console.log("   ℹ️  No stances file — skipping stances.");
+    stancesFile = { electionSlug: "", stances: [] };
+  }
+
+  let stanceCount = 0;
+  for (const s of stancesFile.stances) {
+    const candidateDbId = candidateLocalId[s.candidateId];
+    const issueDbId = issueSlugToId[s.issueId];
+    if (!candidateDbId || !issueDbId) continue;
+
+    const stance = await prisma.candidateStance.upsert({
+      where: { candidateId_issueId: { candidateId: candidateDbId, issueId: issueDbId } },
+      update: { position: s.position, summary: s.summary, rationale: s.rationale },
+      create: {
+        candidateId: candidateDbId,
+        issueId: issueDbId,
+        position: s.position,
+        summary: s.summary,
+        rationale: s.rationale,
+      },
+    });
+
+    // Replace sources every time
+    await prisma.source.deleteMany({ where: { stanceId: stance.id } });
+    for (const src of s.sources) {
+      await prisma.source.create({
+        data: {
+          stanceId: stance.id,
+          url: src.url,
+          title: src.title,
+          quote: src.quote,
+          publishedAt: src.publishedAt ? new Date(src.publishedAt) : null,
+        },
+      });
+    }
+    stanceCount++;
+  }
+  console.log(`   ✅ ${stanceCount} stances upserted`);
+
+  // 6. Upsert quiz + questions + options + question-issue links
+  const quizPath = resolve(dataRoot, "quizzes", `${slug}.json`);
+  let quizFile: QuizFile;
+  try {
+    quizFile = JSON.parse(readFileSync(quizPath, "utf-8"));
+  } catch {
+    // No quiz for this election (e.g. no race with comparable positions yet): remove any
+    // quiz a previous seed created
+    const removed = await prisma.quiz.deleteMany({ where: { electionId: election.id } });
+    console.log(`   ℹ️  No quiz file${removed.count ? " — removed the existing quiz" : " — skipping quiz"}.`);
+    return;
+  }
+
+  const quiz = await prisma.quiz.upsert({
+    where: { electionId: election.id },
+    update: { title: quizFile.title },
+    create: { electionId: election.id, title: quizFile.title },
+  });
+
+  for (const qd of quizFile.questions) {
+    const question = await prisma.question.upsert({
+      where: { id: qd.id },
+      update: { prompt: qd.prompt, helpText: qd.helpText, order: qd.order },
+      create: {
+        id: qd.id,
+        quizId: quiz.id,
+        prompt: qd.prompt,
+        helpText: qd.helpText,
+        order: qd.order,
+      },
+    });
+
+    // Replace options + question-issue links
+    await prisma.questionOption.deleteMany({ where: { questionId: question.id } });
+    for (const opt of qd.options) {
+      await prisma.questionOption.create({
+        data: {
+          questionId: question.id,
+          label: opt.label,
+          stanceValue: opt.stanceValue,
+          order: opt.order,
+        },
+      });
+    }
+
+    await prisma.questionIssue.deleteMany({ where: { questionId: question.id } });
+    for (const qi of qd.issues) {
+      const issueDbId = issueSlugToId[qi.issueId];
+      if (!issueDbId) continue;
+      await prisma.questionIssue.create({
+        data: { questionId: question.id, issueId: issueDbId, weight: qi.weight },
+      });
+    }
+  }
+  console.log(`   ✅ Quiz with ${quizFile.questions.length} questions upserted`);
 }
 
 main()

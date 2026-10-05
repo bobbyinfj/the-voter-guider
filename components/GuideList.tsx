@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Plus, FileText, Calendar, MapPin } from 'lucide-react'
 import Link from 'next/link'
+import { formatElectionDate } from '@/lib/format'
 
 interface Guide {
   id: string
@@ -56,11 +57,11 @@ export default function GuideList() {
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-800">Your Voter Guides</h2>
         <Link
-          href="/guide/new"
+          href="/"
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          New Guide
+          Start a guide
         </Link>
       </div>
 
@@ -84,11 +85,11 @@ export default function GuideList() {
               )}
               <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
                 <MapPin className="w-4 h-4" />
-                <span>{guide.election.jurisdiction.name}, {guide.election.jurisdiction.state}</span>
+                <span>{guide.election.title}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
                 <Calendar className="w-4 h-4" />
-                <span>{new Date(guide.election.electionDate).toLocaleDateString()}</span>
+                <span>{formatElectionDate(guide.election.electionDate, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
               </div>
               {guide._count && (
                 <div className="text-sm text-blue-600 font-medium">
