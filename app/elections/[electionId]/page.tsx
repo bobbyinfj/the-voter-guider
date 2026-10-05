@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import DistrictPicker from "@/components/DistrictPicker";
+import { formatElectionDate } from "@/lib/format";
 import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 
 interface Props {
@@ -59,12 +60,8 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     .filter((g) => g.items.length > 0);
   const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
   const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
-  const electionDate = new Date(election.electionDate).toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const guideHref = `/guide/new?electionId=${electionId}${districtQuery ? `&${districtQuery}` : ""}`;
+  const electionDate = formatElectionDate(election.electionDate);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -89,17 +86,30 @@ export default async function ElectionPage({ params, searchParams }: Props) {
                 </a>
               )}
             </div>
-            {hasQuiz && (
-              <Link
-                href={quizHref}
-                className="flex-shrink-0 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-center"
-              >
-                🗳️ Take the Quiz
-                <p className="text-xs font-normal opacity-80 mt-0.5">
-                  {election.quiz?.questions.length} questions · see who matches you
-                </p>
-              </Link>
-            )}
+            <div className="flex flex-col gap-2 flex-shrink-0">
+              {election.status !== "completed" && (
+                <Link
+                  href={guideHref}
+                  className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors text-center"
+                >
+                  📝 Build my guide
+                  <p className="text-xs font-normal opacity-80 mt-0.5">
+                    Record your picks and notes · share it
+                  </p>
+                </Link>
+              )}
+              {hasQuiz && (
+                <Link
+                  href={quizHref}
+                  className="flex-shrink-0 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-center"
+                >
+                  🗳️ Take the Quiz
+                  <p className="text-xs font-normal opacity-80 mt-0.5">
+                    {election.quiz?.questions.length} questions · see who matches you
+                  </p>
+                </Link>
+              )}
+            </div>
           </div>
           {election.description && (
             <p className="text-gray-600 mt-4 text-sm">{election.description}</p>

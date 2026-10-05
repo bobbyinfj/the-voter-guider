@@ -27,61 +27,27 @@ export default function Header() {
             <Link href="/" className="hover:opacity-80 transition-opacity">
               <div>
                 <h1 className="text-2xl font-bold text-gray-800">The VoTer GuidEr</h1>
-                <p className="text-sm text-gray-600">Track your voting choices</p>
+                <p className="text-sm text-gray-600">Know your whole ballot</p>
               </div>
             </Link>
           </div>
           <nav className="flex items-center gap-4">
-            <Link
-              href="/"
-              className={`font-medium transition-colors ${
-                isActive('/')
-                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/elections/ca-primary-2026"
-              className={`font-medium transition-colors ${
-                pathname.startsWith('/elections')
-                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              CA 2026
-            </Link>
-            <Link
-              href="/issues/housing"
-              className={`font-medium transition-colors ${
-                pathname.startsWith('/issues')
-                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              Issues
-            </Link>
-            <Link
-              href="/guides"
-              className={`font-medium transition-colors ${
-                isActive('/guides')
-                  ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              My Guides
-            </Link>
-            <Link
-              href="/guide/new"
-              className={`px-4 py-2 rounded-lg transition-colors font-medium ${
-                isActive('/guide/new')
-                  ? 'bg-blue-700 text-white'
-                  : 'bg-blue-600 text-white hover:bg-blue-700'
-              }`}
-            >
-              New Guide
-            </Link>
+            {[
+              { href: '/', label: 'Elections', active: isActive('/') || pathname.startsWith('/elections') },
+              { href: '/guides', label: 'My Guides', active: isActive('/guides') || pathname.startsWith('/guide/') },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`font-medium transition-colors ${
+                  item.active
+                    ? 'text-blue-600 font-semibold border-b-2 border-blue-600 pb-1'
+                    : 'text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

@@ -52,13 +52,6 @@ export default async function IssuePage({ params }: Props) {
     byElection.get(electionId)!.stances.push(stance);
   }
 
-  const positionLabel: Record<number, string> = {
-    2: "Strongly Supports",
-    1: "Supports",
-    0: "Neutral / Unclear",
-    [-1]: "Opposes",
-    [-2]: "Strongly Opposes",
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">

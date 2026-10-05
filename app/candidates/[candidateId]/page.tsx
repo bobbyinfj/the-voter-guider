@@ -143,7 +143,7 @@ export default async function CandidatePage({ params }: Props) {
                           )}
                           {src.quote && (
                             <blockquote className="mt-1 pl-3 border-l-2 border-gray-200 text-gray-500 italic">
-                              "{src.quote}"
+                              &ldquo;{src.quote}&rdquo;
                             </blockquote>
                           )}
                         </li>

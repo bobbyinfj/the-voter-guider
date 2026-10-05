@@ -5,7 +5,6 @@ import { useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ScoreBar from "@/components/quiz/ScoreBar";
 import BreakdownTable from "@/components/quiz/BreakdownTable";
-import StanceBadge from "@/components/quiz/StanceBadge";
 import type { QuizResults, RankedCandidate } from "@/lib/quiz/types";
 
 export default function QuizResultsPage() {
@@ -15,15 +14,13 @@ export default function QuizResultsPage() {
 
   const [results, setResults] = useState<QuizResults | null>(null);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [loadingState, setLoading] = useState(true);
+  const [fetchError, setError] = useState<string | null>(null);
+  const loading = guideId ? loadingState : false;
+  const error = guideId ? fetchError : "No guide ID provided.";
 
   useEffect(() => {
-    if (!guideId) {
-      setError("No guide ID provided.");
-      setLoading(false);
-      return;
-    }
+    if (!guideId) return;
     fetch(`/api/quiz/results?guideId=${guideId}`)
       .then((r) => (r.ok ? r.json() : Promise.reject("Failed to load results")))
       .then((data: QuizResults) => { setResults(data); setLoading(false); })
@@ -178,7 +175,7 @@ export default function QuizResultsPage() {
         <div className="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <h2 className="text-base font-semibold text-gray-700 mb-4">Explore issues</h2>
           <p className="text-sm text-gray-500 mb-4">
-            See all candidates' stances on each policy topic.
+            See all candidates&apos; stances on each policy topic.
           </p>
           <div className="flex flex-wrap gap-2">
             {["housing", "climate", "public-safety", "economy", "healthcare", "immigration", "education", "water", "transportation"].map((slug) => (
