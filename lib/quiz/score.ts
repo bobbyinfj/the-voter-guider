@@ -34,6 +34,9 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
   const officeResults: OfficeResult[] = [];
 
   for (const [officeId, officeCandidates] of byOffice) {
+    // Races with no researched positions can't be matched — leave them out of results
+    if (officeCandidates.every((c) => c.stances.length === 0)) continue;
+
     const rankedCandidates: RankedCandidate[] = officeCandidates.map((candidate) => {
       let score = 0;
       let maxPossible = 0;
@@ -73,7 +76,12 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
       return { candidate, score, maxPossible, normalized, breakdown };
     });
 
-    rankedCandidates.sort((a, b) => b.normalized - a.normalized);
+    // Candidates with no stated position on anything answered so far sort last — an
+    // unknown is not a disagreement
+    rankedCandidates.sort(
+      (a, b) =>
+        Number(b.maxPossible > 0) - Number(a.maxPossible > 0) || b.normalized - a.normalized,
+    );
 
     const confidence = computeConfidence(rankedCandidates, answers.length);
     officeResults.push({
@@ -95,8 +103,10 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
   return { officeResults, questionsAnswered, totalQuestions, overallConfidence, stopSuggestion };
 }
 
-function computeConfidence(ranked: RankedCandidate[], answeredCount: number): number {
-  if (ranked.length < 2) return 1;
+function computeConfidence(allRanked: RankedCandidate[], answeredCount: number): number {
+  if (allRanked.length < 2) return 1;
+  const ranked = allRanked.filter((r) => r.maxPossible > 0);
+  if (ranked.length < 2) return 0;
   if (answeredCount === 0) return 0;
   const gap = ranked[0].normalized - ranked[1].normalized;
   // Confidence grows with both gap and number of answers (plateaus at 10 questions)

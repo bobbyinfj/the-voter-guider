@@ -49,8 +49,9 @@ export default function ConfidenceIndicator({ results, onStop }: Props) {
       {/* Per-office mini confidence */}
       <div className="space-y-1">
         {results.officeResults.map((o) => {
-          const top = o.rankedCandidates[0];
-          const second = o.rankedCandidates[1];
+          const known = o.rankedCandidates.filter((r) => r.maxPossible > 0);
+          const top = known[0];
+          const second = known[1];
           return (
             <div key={o.officeId} className="flex items-center gap-2 text-xs">
               <span className="text-gray-500 truncate max-w-[120px]" title={o.officeTitle}>

@@ -3,10 +3,14 @@
 interface Props {
   normalized: number; // 0..1
   topScore?: boolean;
+  hasData?: boolean; // false = no stated positions on the questions answered
   label?: string;
 }
 
-export default function ScoreBar({ normalized, topScore, label }: Props) {
+export default function ScoreBar({ normalized, topScore, label, hasData = true }: Props) {
+  if (!hasData) {
+    return <p className="text-xs text-gray-400 italic">No stated positions on the questions you answered</p>;
+  }
   const pct = Math.round(normalized * 100);
   const barColor = topScore ? "bg-blue-600" : "bg-gray-400";
 
@@ -21,7 +25,7 @@ export default function ScoreBar({ normalized, topScore, label }: Props) {
       <span className={`text-sm font-semibold w-10 text-right ${topScore ? "text-blue-700" : "text-gray-500"}`}>
         {pct}%
       </span>
-      {label && <span className="text-xs text-gray-500 hidden sm:inline">{label}</span>}
+      {label && <span className="text-xs text-gray-500 whitespace-nowrap">{label}</span>}
     </div>
   );
 }

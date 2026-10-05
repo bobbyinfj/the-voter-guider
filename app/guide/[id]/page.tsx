@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
-import Header from '@/components/Header'
 import BallotTracker from '@/components/BallotTracker'
 import { Share2, CheckCircle2, Globe, Lock, Trash2, Save } from 'lucide-react'
 import { matchesSelection, parseDistrictSelection, type DistrictSelection } from '@/lib/districts'
@@ -183,7 +182,6 @@ export default function GuidePage() {
   if (!guide) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header />
         <div className="text-center py-24">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Guide not found</h2>
           <p className="text-gray-600">
@@ -200,7 +198,6 @@ export default function GuidePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
 
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {error && (

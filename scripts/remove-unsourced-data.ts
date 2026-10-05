@@ -1,6 +1,7 @@
 // Removes data that isn't backed by a curated, source-documented election bundle:
 // elections with no data/elections/*.json bundle, the old sample precincts and the
-// precinct-level jurisdictions they hung off, and sample ballot items.
+// precinct-level jurisdictions they hung off, sample ballot items, and issues no
+// bundle uses any more.
 //
 // Dry run by default — prints what would be deleted, including user guides that
 // would be removed with their election. Pass --execute to delete.
@@ -38,6 +39,11 @@ async function main() {
     where: { metadata: { path: ["isSample"], equals: true } },
   });
   const precincts = await prisma.precinct.count();
+  // Issues no bundle uses any more (no stances and not linked to any quiz question)
+  const orphanIssues = await prisma.issue.findMany({
+    where: { stances: { none: {} }, questionLinks: { none: {} } },
+    select: { slug: true },
+  });
 
   console.log("\nElections with no bundle:");
   for (const e of elections) {
@@ -49,6 +55,7 @@ async function main() {
   }
   console.log(`\nSample ballot items: ${sampleBallots}`);
   console.log(`Precincts: ${precincts}`);
+  console.log(`Unused issues: ${orphanIssues.map((i) => i.slug).join(", ") || "none"}`);
 
   if (!execute) {
     console.log("\nDry run — nothing deleted. Re-run with --execute to delete the above.");
@@ -62,9 +69,13 @@ async function main() {
   const deletedElections = await prisma.election.deleteMany({ where: { id: { notIn: keep } } });
   const deletedPrecincts = await prisma.precinct.deleteMany({});
   const deletedJurisdictions = await prisma.jurisdiction.deleteMany({ where: { type: "precinct" } });
+  const deletedIssues = await prisma.issue.deleteMany({
+    where: { stances: { none: {} }, questionLinks: { none: {} } },
+  });
   console.log(
     `\nDeleted: ${deletedElections.count} elections, ${deletedBallots.count} sample ballot items, ` +
-      `${deletedPrecincts.count} precincts, ${deletedJurisdictions.count} precinct jurisdictions.`,
+      `${deletedPrecincts.count} precincts, ${deletedJurisdictions.count} precinct jurisdictions, ` +
+      `${deletedIssues.count} unused issues.`,
   );
 }
 

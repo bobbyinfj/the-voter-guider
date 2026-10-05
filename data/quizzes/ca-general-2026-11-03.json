@@ -1,0 +1,513 @@
+{
+  "electionSlug": "ca-general-2026-11-03",
+  "title": "California 2026 General Election Quiz",
+  "questions": [
+    {
+      "id": "ca-general-2026-11-03-q01",
+      "prompt": "California should keep higher income tax rates on top earners to help fund schools.",
+      "helpText": "Prop 3 on this ballot would extend the existing tax on high incomes to fund schools and health care. Supporters say it funds schools and health care; opponents say California's taxes are already among the highest and push people and businesses out.",
+      "order": 1,
+      "issues": [
+        {
+          "issueId": "ca-top-earner-income-tax",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q02",
+      "prompt": "California should keep its clean-energy and emissions-reduction mandates, even if they raise energy costs.",
+      "helpText": "State law requires utilities to shift to renewable power, and the state has pushed to phase out new gas-car sales. Supporters cite climate and air quality; critics say the mandates raise electricity and gas prices.",
+      "order": 2,
+      "issues": [
+        {
+          "issueId": "ca-clean-energy-mandates",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q03",
+      "prompt": "The state should require cities to allow more housing, including apartments, even over local objections.",
+      "helpText": "Supporters say local rules block needed housing; opponents say land-use decisions belong to local communities.",
+      "order": 3,
+      "issues": [
+        {
+          "issueId": "ca-state-housing-mandates",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q04",
+      "prompt": "Police should clear homeless encampments, and people offered shelter should not be allowed to stay on the street.",
+      "helpText": "Since a 2024 Supreme Court ruling, cities can ban camping in public. Supporters say it gets people indoors and restores public spaces; opponents say it moves people around without solving homelessness.",
+      "order": 4,
+      "issues": [
+        {
+          "issueId": "ca-clear-encampments",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q05",
+      "prompt": "California should keep its sanctuary law limiting local police cooperation with federal immigration enforcement.",
+      "helpText": "The 2017 California Values Act limits when local police can help federal immigration agents. Supporters say it keeps immigrant communities willing to work with police; opponents say it shields people who should be deported.",
+      "order": 5,
+      "issues": [
+        {
+          "issueId": "ca-sanctuary-law",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q06",
+      "prompt": "State-funded Medi-Cal should keep covering undocumented immigrants.",
+      "helpText": "Supporters cite public health and lower emergency-room costs; opponents cite the cost to taxpayers.",
+      "order": 6,
+      "issues": [
+        {
+          "issueId": "ca-medi-cal-undocumented",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q07",
+      "prompt": "California's leaders should fight the Trump administration in court rather than seek a cooperative relationship.",
+      "helpText": "California has sued the federal government over immigration, environmental and funding decisions. Supporters say it protects state law and residents; others say cooperation would bring more federal help.",
+      "order": 7,
+      "issues": [
+        {
+          "issueId": "ca-challenge-federal-government",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q08",
+      "prompt": "The state should regulate AI and children's social media use, such as banning social media for kids under 16.",
+      "helpText": "Supporters say AI and social media need guardrails to protect kids and workers; opponents say regulation will drive the tech industry out of California.",
+      "order": 8,
+      "issues": [
+        {
+          "issueId": "ca-tech-regulation",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q09",
+      "prompt": "California should be tougher on crime with longer sentences and fewer early releases from prison.",
+      "helpText": "Voters passed Prop 36 in 2024, raising penalties for some theft and drug crimes. Supporters want more accountability; opponents favor treatment and say longer sentences are costly and don't reduce crime.",
+      "order": 9,
+      "issues": [
+        {
+          "issueId": "ca-tougher-sentencing",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q10",
+      "prompt": "California should create a state-run program that guarantees wildfire and flood insurance coverage.",
+      "helpText": "Supporters of a public program say it would guarantee coverage; skeptics worry about cost and risk to the state.",
+      "order": 10,
+      "issues": [
+        {
+          "issueId": "ca-public-disaster-insurance",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q11",
+      "prompt": "California's low-cost auto insurance program should be open to every driver, not just low-income drivers.",
+      "helpText": "The state's low-cost auto insurance program currently serves income-eligible drivers.",
+      "order": 11,
+      "issues": [
+        {
+          "issueId": "ca-low-cost-auto-insurance",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q12",
+      "prompt": "Voters should have to show identification to vote.",
+      "helpText": "California doesn't require ID for most voters. Prop 39 on this ballot would require it. Supporters say ID prevents fraud; opponents say fraud is rare and ID rules keep eligible people from voting.",
+      "order": 12,
+      "issues": [
+        {
+          "issueId": "ca-voter-id",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q13",
+      "prompt": "Schools should keep California's protections for transgender students.",
+      "helpText": "State law protects students' gender identity in school activities and records. Supporters say it prevents discrimination; opponents argue it limits parents' rights and fairness in sports.",
+      "order": 13,
+      "issues": [
+        {
+          "issueId": "ca-transgender-student-protections",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

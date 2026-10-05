@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, FileText, MapPin, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
 import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
 
@@ -21,7 +20,6 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      <Header />
 
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">

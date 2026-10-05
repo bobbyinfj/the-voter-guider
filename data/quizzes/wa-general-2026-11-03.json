@@ -1,0 +1,279 @@
+{
+  "electionSlug": "wa-general-2026-11-03",
+  "title": "Washington 2026 General Election Quiz",
+  "questions": [
+    {
+      "id": "wa-general-2026-11-03-q01",
+      "prompt": "Federal immigration enforcement (ICE) has gone too far and needs new limits on its tactics.",
+      "helpText": "Recent enforcement operations, including officers wearing masks and not identifying themselves, have drawn criticism. Supporters of the current approach say agents are enforcing the law against people who are here illegally.",
+      "order": 1,
+      "issues": [
+        {
+          "issueId": "us-limit-ice-tactics",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q02",
+      "prompt": "The U.S. should move to a single-payer health system like Medicare for All.",
+      "helpText": "Single-payer would replace most private insurance with one public plan. Supporters say it guarantees coverage and cuts administrative costs; opponents cite tax increases and loss of private plans.",
+      "order": 2,
+      "issues": [
+        {
+          "issueId": "us-medicare-for-all",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q03",
+      "prompt": "Congress should tax the wealth of ultra-millionaires.",
+      "helpText": "A wealth tax would apply to a person's total assets above a high threshold, not just income. Supporters say it addresses inequality; opponents say it's hard to enforce and may be unconstitutional.",
+      "order": 3,
+      "issues": [
+        {
+          "issueId": "us-ultra-millionaire-wealth-tax",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q04",
+      "prompt": "Members of Congress should be banned from trading individual stocks.",
+      "helpText": "Supporters say lawmakers shouldn't profit from information they get on the job; opponents say disclosure rules are enough.",
+      "order": 4,
+      "issues": [
+        {
+          "issueId": "congress-stock-trading-ban",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q05",
+      "prompt": "Washington's carbon-pricing law, the Climate Commitment Act, is worth what it costs.",
+      "helpText": "The Climate Commitment Act makes large emitters buy allowances for carbon pollution and funds climate projects. Supporters say it cuts emissions; critics say it raises gas and energy prices.",
+      "order": 5,
+      "issues": [
+        {
+          "issueId": "wa-climate-commitment-act",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q06",
+      "prompt": "Washington should keep its 9.9% tax on income over $1 million.",
+      "helpText": "Initiative IP26-645 on this ballot would repeal the tax and ban taxes on individual income. Supporters of the tax say it funds schools and health care; opponents say it opens the door to a broad income tax.",
+      "order": 6,
+      "issues": [
+        {
+          "issueId": "wa-keep-millionaires-tax",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "wa-general-2026-11-03-q07",
+      "prompt": "Washington should limit how much landlords can raise rent each year.",
+      "helpText": "Washington passed a rent-stabilization law capping annual increases. Supporters say it prevents displacement; opponents say it discourages building and maintaining rentals.",
+      "order": 7,
+      "issues": [
+        {
+          "issueId": "wa-rent-stabilization",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

@@ -6,11 +6,11 @@ interface Props {
 }
 
 const labels: Record<number, string> = {
-  2: "Strongly Supports",
-  1: "Supports",
-  0: "Neutral / Unclear",
-  "-1": "Opposes",
-  "-2": "Strongly Opposes",
+  2: "Strongly agrees",
+  1: "Agrees",
+  0: "Mixed",
+  "-1": "Disagrees",
+  "-2": "Strongly disagrees",
 };
 
 const colors: Record<number, string> = {

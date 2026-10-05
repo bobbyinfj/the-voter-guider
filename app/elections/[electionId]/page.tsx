@@ -43,13 +43,26 @@ export default async function ElectionPage({ params, searchParams }: Props) {
         },
         orderBy: { sortOrder: "asc" },
       },
-      quiz: { select: { id: true, questions: { select: { id: true } } } },
+      quiz: {
+        select: {
+          id: true,
+          questions: {
+            select: { id: true, issues: { select: { issue: { select: { slug: true, name: true } } } } },
+            orderBy: { order: "asc" },
+          },
+        },
+      },
     },
   });
 
   if (!election) notFound();
 
   const hasQuiz = (election.quiz?.questions.length ?? 0) > 0;
+  const quizIssues = Array.from(
+    new Map(
+      (election.quiz?.questions ?? []).flatMap((q) => q.issues.map((qi) => [qi.issue.slug, qi.issue] as const)),
+    ).values(),
+  );
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
   const offices = election.offices.filter((o) => matchesSelection(o, selection));
   const measures = election.ballots
@@ -228,20 +241,25 @@ export default async function ElectionPage({ params, searchParams }: Props) {
               </div>
             )}
 
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-              <h3 className="font-semibold text-gray-700 mb-3 text-sm">Explore issues</h3>
-              <div className="flex flex-wrap gap-1.5">
-                {["housing", "climate", "public-safety", "economy", "healthcare", "immigration", "education", "water", "transportation"].map((slug) => (
-                  <Link
-                    key={slug}
-                    href={`/issues/${slug}`}
-                    className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full text-xs transition-colors"
-                  >
-                    {slug.replace(/-/g, " ")}
-                  </Link>
-                ))}
+            {quizIssues.length > 0 && (
+              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                <h3 className="font-semibold text-gray-700 mb-1 text-sm">Where candidates stand</h3>
+                <p className="text-xs text-gray-500 mb-3">
+                  Each topic shows candidates&apos; stated positions, quoted from their sources.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {quizIssues.map((issue) => (
+                    <Link
+                      key={issue.slug}
+                      href={`/issues/${issue.slug}`}
+                      className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full text-xs transition-colors"
+                    >
+                      {issue.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

@@ -3,7 +3,6 @@
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import Header from "@/components/Header";
 import { parseDistrictSelection } from "@/lib/districts";
 
 // Creates a guide for ?electionId=… (carrying any district picks from the election
@@ -65,7 +64,6 @@ function NewGuide() {
 export default function NewGuidePage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <Suspense fallback={<div className="text-center py-24 text-gray-500">Loading…</div>}>
         <NewGuide />
       </Suspense>

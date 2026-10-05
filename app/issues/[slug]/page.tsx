@@ -58,8 +58,11 @@ export default async function IssuePage({ params }: Props) {
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Issue header */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">{issue.name}</h1>
-          <p className="text-gray-700">{issue.summary}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">{issue.name}</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">&ldquo;{issue.summary}&rdquo;</h1>
+          <p className="text-sm text-gray-500">
+            Where candidates stand on this statement, based only on what they or a cited source have said.
+          </p>
           {issue.description && (
             <p className="text-gray-600 mt-3 text-sm leading-relaxed">{issue.description}</p>
           )}
@@ -85,11 +88,11 @@ export default async function IssuePage({ params }: Props) {
               {/* Visual stance spectrum */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-4">
                 <div className="px-4 py-2 bg-gray-50 border-b border-gray-100 grid grid-cols-5 text-xs text-center font-medium text-gray-400">
-                  <span className="text-red-500">Strongly Opposes</span>
-                  <span className="text-orange-500">Opposes</span>
-                  <span className="text-gray-400">Neutral</span>
-                  <span className="text-lime-600">Supports</span>
-                  <span className="text-green-600">Strongly Supports</span>
+                  <span className="text-red-500">Strongly disagrees</span>
+                  <span className="text-orange-500">Disagrees</span>
+                  <span className="text-gray-400">Mixed</span>
+                  <span className="text-lime-600">Agrees</span>
+                  <span className="text-green-600">Strongly agrees</span>
                 </div>
                 <div className="divide-y divide-gray-50">
                   {stances.map((stance) => (
@@ -111,6 +114,13 @@ export default async function IssuePage({ params }: Props) {
                           <StanceBadge position={stance.position} />
                         </div>
                         <p className="text-xs text-gray-600 mt-0.5">{stance.summary}</p>
+                        {stance.sources
+                          .filter((src) => src.quote)
+                          .map((src) => (
+                            <blockquote key={`q-${src.id}`} className="text-xs text-gray-500 italic border-l-2 border-gray-200 pl-2 mt-1">
+                              &ldquo;{src.quote}&rdquo;
+                            </blockquote>
+                          ))}
                         {stance.sources.length > 0 && (
                           <div className="flex flex-wrap gap-2 mt-1">
                             {stance.sources.map((src) => (
@@ -130,23 +140,9 @@ export default async function IssuePage({ params }: Props) {
           ))
         )}
 
-        {/* Other issues nav */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-          <h3 className="text-sm font-semibold text-gray-600 mb-3">Other issues</h3>
-          <div className="flex flex-wrap gap-2">
-            {["housing", "climate", "public-safety", "economy", "healthcare", "immigration", "education", "water", "transportation"]
-              .filter((s) => s !== slug)
-              .map((s) => (
-                <Link
-                  key={s}
-                  href={`/issues/${s}`}
-                  className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full text-xs transition-colors"
-                >
-                  {s.replace(/-/g, " ")}
-                </Link>
-              ))}
-          </div>
-        </div>
+        <Link href="/" className="text-sm text-blue-600 hover:underline">
+          ← All elections
+        </Link>
       </div>
     </div>
   );

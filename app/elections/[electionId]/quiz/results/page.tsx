@@ -133,7 +133,9 @@ export default function QuizResultsPage() {
                           <div className="mt-1.5">
                             <ScoreBar
                               normalized={rc.normalized}
-                              topScore={isTop}
+                              topScore={isTop && rc.maxPossible > 0}
+                              hasData={rc.maxPossible > 0}
+                              label={`based on ${rc.breakdown.length} stated position${rc.breakdown.length === 1 ? "" : "s"}`}
                             />
                           </div>
                         </div>
