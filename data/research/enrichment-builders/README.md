@@ -29,6 +29,18 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   profile" clips, party-club endorsement interviews, personal channels.
 - Endorsement quotes and logos aren't copied, only names.
 
+## Colorado and California
+
+- **California:** summaries are the Secretary of State's official candidate statements
+  (`cache/ca/candidate-statements.pdf`, statewide offices only; "No candidate statement." is
+  shown as printed). Videos: KCRA 3 "California Politics 360" interviews where every candidate
+  in the race has one (not Treasurer: only one does), plus two-candidate debates.
+- **Colorado:** Colorado publishes no candidate statements. The League of Women Voters' VOTE411
+  has a questionnaire for every candidate, but its terms forbid automated access and copying,
+  so we only link to each race's VOTE411 page (`co-vote411-races.json`). Multi-candidate
+  debates and the League's Larimer County forum are attached to the race, not to candidates.
+- Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
+
 ## Re-running (Washington)
 
 The cache isn't committed (copyrighted pages). Rebuild it into `cache/wa/`:

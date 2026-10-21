@@ -6,7 +6,8 @@ import { CheckCircle2, ChevronDown, ExternalLink, Info, PlayCircle } from 'lucid
 import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
-import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl } from '@/lib/profile'
+import RaceExtras from '@/components/candidate/RaceExtras'
+import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
   ABSTAIN,
   MEASURE_VALUES,
@@ -349,6 +350,7 @@ function Enhancements({
               <CandidateSnack key={c.id} candidate={c} />
             ))}
           </ul>
+          {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}
           {people.some((c) => c.profile?.endorserTotal) && (
             <p className="text-[11px] text-sky-800">
               Endorsements as listed on each campaign&apos;s website; some campaigns don&apos;t publish a list we can read.

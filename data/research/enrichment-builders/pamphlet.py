@@ -129,3 +129,75 @@ def parse_wa(state_pdf, local_pdf, candidates):
         contact = ' '.join(line for _, line in lines[h:i])
         result[c['id']] = {'pamphlet': 'local', 'page': lines[i][0], 'fields': f, 'website': website(contact)}
     return result
+
+
+# California Secretary of State voter guide candidate statements: one office per page,
+# each candidate as a "Name | PARTY" line, then the statement (or "No candidate
+# statement."), then an optional contact block (address, Tel, E-mail, website).
+CA_PAGES = {
+    'GOVERNOR': 'governor', 'LIEUTENANT GOVERNOR': 'lt-governor', 'SECRETARY OF STATE': 'secretary-of-state',
+    'CONTROLLER': 'controller', 'TREASURER': 'treasurer', 'ATTORNEY GENERAL': 'attorney-general',
+    'INSURANCE COMMISSIONER': 'insurance-commissioner', 'SUPERINTENDENT OF PUBLIC INSTRUCTION': 'superintendent',
+}
+
+
+SOCIAL = re.compile(r'twitter|x\.com|facebook|instagram|tiktok|linkedin|youtube|threads', re.I)
+CONTACT = re.compile(r'\bTel:|E-mail:|\bWebsite:|P\.O\. Box|\b\d{3,5} [A-Z][a-z]+ (?:Ave|Avenue|Blvd|St|Street|Road|Rd|Dr|Way)\b')
+
+
+def ca_website(contact, last_name):
+    m = re.search(r'(?:Website|Web):\s*(\S+)', contact)
+    if m:
+        return website(m.group(1))
+    sites = [s for s in re.findall(r'(?<![@\w.])((?:https?://)?(?:www\.)?[A-Za-z0-9-]+\.(?:com|org|net|us|vote))\b', contact) if not SOCIAL.search(s)]
+    sites.sort(key=lambda s: last_name not in s.lower())
+    return website(sites[0]) if sites else None
+
+
+def parse_ca(pdf_path, candidates):
+    by_key = {name_key(c['name']): c for c in candidates}
+    result = {}
+    for i, page in enumerate(pymupdf.open(pdf_path)):
+        blocks = [(b[0], b[1], norm(b[4])) for b in page.get_text('blocks') if b[6] == 0 and b[4].strip()]
+        heads = [t for _, _, t in blocks if t.isupper() and t != 'CANDIDATE STATEMENTS']
+        if not heads:
+            continue
+
+        def who(t):
+            m = re.match(r'^(.+?)(?: \| ([A-Z][A-Z ]+))?$', t)
+            c = by_key.get(name_key(m.group(1))) if m and len(t) < 70 and not t.endswith('.') else None
+            return c if c and (m.group(2) or t == norm(c['name'])) else None
+
+        # Name lines first when a statement block starts a few points above them
+        blocks.sort(key=lambda b: (round(b[1] / 8), 0 if who(b[2]) else 1, b[0]))
+        current = None
+        for _, _, t in blocks:
+            c = who(t)
+            if c:
+                current = c['id']
+                result[current] = {'pamphlet': 'state', 'page': i + 1, 'office': ' '.join(heads), 'fields': {}, 'website': None}
+                continue
+            if t.startswith('The views and opinions expressed'):
+                current = None
+                continue
+            contact = CONTACT.search(t)
+            # A contact block belongs to the candidate it names (layout order isn't reliable)
+            owner = next((cid for cid in result if result[cid]['page'] == i + 1 and
+                          name_key(next(x['name'] for x in candidates if x['id'] == cid))[1] in t.lower()), None) if contact else None
+            target = owner or current
+            if not target:
+                continue
+            entry = result[target]
+            if contact:
+                statement, info = t[:contact.start()].strip(), t[contact.start():]
+                if statement and 'Statement' not in entry['fields'] and target == current:
+                    entry['fields']['Statement'] = statement
+                entry['website'] = entry['website'] or ca_website(info, name_key(next(x['name'] for x in candidates if x['id'] == target))[1])
+            elif 'Statement' not in entry['fields'] and target == current:
+                entry['fields']['Statement'] = t
+    # Most statements end with the campaign site ("Join me: GloriajRomero.com")
+    for cid, entry in result.items():
+        if not entry['website'] and entry['fields'].get('Statement'):
+            last = name_key(next(x['name'] for x in candidates if x['id'] == cid))[1]
+            entry['website'] = ca_website(entry['fields']['Statement'], last)
+    return result

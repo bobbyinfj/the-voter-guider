@@ -8,7 +8,8 @@ import { inPrintedOrder } from "@/components/ballot/ballot";
 import PamphletSummary from "@/components/candidate/PamphletSummary";
 import VideoFacade from "@/components/candidate/VideoFacade";
 import { EndorserStrip } from "@/components/candidate/Endorsements";
-import { asProfile, snippet } from "@/lib/profile";
+import { asProfile, raceExtrasOf, snippet } from "@/lib/profile";
+import RaceExtras from "@/components/candidate/RaceExtras";
 
 interface Props {
   params: Promise<{ electionId: string; officeId: string }>;
@@ -36,6 +37,7 @@ export default async function OfficePage({ params }: Props) {
 
   if (!office || office.election.id !== electionId) notFound();
   const candidates = inPrintedOrder(office.candidates, office.ballot);
+  const raceExtras = raceExtrasOf(office.ballot?.metadata);
 
   // Collect all unique issues across all candidates
   const issueSet = new Map<string, { id: string; name: string; slug: string; summary: string }>();
@@ -79,6 +81,13 @@ export default async function OfficePage({ params }: Props) {
           </BallotHeader>
         </div>
 
+        {raceExtras && (
+          <section aria-labelledby="race-extras" className="mb-6 border-[1.5px] border-ballot-ink bg-ballot-paper p-4 font-sans">
+            <h2 id="race-extras" className="mb-3 font-ballot-heading text-base font-bold">Debates, forums and more on this race</h2>
+            <RaceExtras extras={raceExtras} />
+          </section>
+        )}
+
         {/* Side-by-side: each candidate's own words, a video, endorsements */}
         <div className="mb-8 grid gap-4 font-sans sm:grid-cols-2 lg:grid-cols-3">
           {candidates.map((c) => {
@@ -96,7 +105,7 @@ export default async function OfficePage({ params }: Props) {
                 </header>
                 <div className="flex flex-1 flex-col gap-3 p-4">
                   {profile?.summary ? (
-                    <PamphletSummary summary={{ ...profile.summary, statement: null }} />
+                    <PamphletSummary summary={profile.summary.fields.length ? { ...profile.summary, statement: null } : profile.summary} />
                   ) : (
                     c.shortBio && <p className="text-sm">{c.shortBio}</p>
                   )}
