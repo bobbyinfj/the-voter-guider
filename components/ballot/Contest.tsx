@@ -16,6 +16,7 @@ import {
   type BallotItem,
   type ChoiceValue,
 } from './ballot'
+import { ContestHead, Extra } from './Paper'
 
 export type Density = 'ballot' | 'easy'
 
@@ -67,7 +68,7 @@ function Oval({
       />
       <span
         aria-hidden
-        className="mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-gray-900 bg-white peer-checked:bg-gray-900 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1"
+        className="mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-ballot-ink bg-white peer-checked:bg-ballot-ink peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1"
       />
       <span className="min-w-0 flex-1">{children}</span>
     </label>
@@ -87,13 +88,6 @@ function NotesField({ initial, onSave }: { initial: string; onSave: (notes: stri
       rows={2}
       maxLength={5000}
     />
-  )
-}
-
-// Everything that isn't printed on the ballot is drawn in this sky-blue "Voter Guider extra" style
-function Extra({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div className={`border-l-2 border-sky-400 bg-sky-50 px-2 py-1.5 text-sky-950 print:hidden ${className}`}>{children}</div>
   )
 }
 
@@ -134,16 +128,16 @@ function RaceChoices({
           onSelect={() => onChange(item.id, row.name, choice?.notes)}
         >
           <span className={partyRight ? 'flex items-baseline justify-between gap-2' : 'block'}>
-            <span className="block text-[13px] font-semibold leading-snug text-gray-900">{row.label}</span>
+            <span className="block text-[13px] font-semibold leading-snug">{row.label}</span>
             {row.party && (
-              <span className={`text-[11px] leading-snug text-gray-700 ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
+              <span className={`text-[11px] leading-snug ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
                 {partyRight || !printed ? row.party : `(${row.party})`}
               </span>
             )}
           </span>
         </Oval>
       ))}
-      {(printed ? printed.writeIn : true) && (!readOnly || isWriteIn) && (
+      {(printed ? printed.writeIn : true) && (
         <Oval
           name={item.id}
           value={WRITE_IN}
@@ -153,7 +147,7 @@ function RaceChoices({
           onSelect={saveWriteIn}
         >
           {readOnly ? (
-            <span className="block border-b border-gray-500 text-[13px] font-semibold uppercase">{writeIn}</span>
+            <span className="block min-h-[1.25rem] border-b border-gray-500 text-[13px] font-semibold uppercase">{writeIn}</span>
           ) : (
             <input
               type="text"
@@ -198,7 +192,7 @@ function MeasureChoices({
           disabled={readOnly}
           onSelect={() => onChange(item.id, value, choice?.notes)}
         >
-          <span className="text-[13px] font-semibold text-gray-900">{labels[i]}</span>
+          <span className="text-[13px] font-semibold">{labels[i]}</span>
         </Oval>
       ))}
     </div>
@@ -209,7 +203,7 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
   const printed = layoutOf(item)
   if (!printed?.question) return null
   return (
-    <div className="space-y-2 px-2 py-2 text-[12.5px] leading-snug text-gray-900">
+    <div className="space-y-2 px-2 py-2 text-[12.5px] leading-snug">
       <p>{printed.question}</p>
       {printed.table && (
         <table className="w-full border-collapse text-[11px]">
@@ -370,22 +364,10 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
   return (
     <fieldset
       id={contestDomId(first)}
-      className="mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-gray-900 bg-white"
+      className="mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper"
     >
       <legend className="sr-only">{heading.join(' ')}</legend>
-      <div className="flex items-start gap-2 bg-gray-200 px-2 py-1.5 print:bg-gray-100">
-        <div className="min-w-0 flex-1">
-          {heading.map((line) => (
-            <p key={line} className="text-[13px] font-bold leading-snug text-gray-900">
-              {line}
-            </p>
-          ))}
-          {instructions.map((line) => (
-            <p key={line} className="text-[12px] leading-snug text-gray-800">
-              {line}
-            </p>
-          ))}
-        </div>
+      <ContestHead heading={heading} instructions={instructions}>
         <div className="flex shrink-0 items-center gap-1 print:hidden">
           {decided && (
             <CheckCircle2
@@ -405,7 +387,7 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
             <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
           </button>
         </div>
-      </div>
+      </ContestHead>
       {run.map((item, i) => (
         <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} className="scroll-mt-48 border-t border-gray-400">
           {isMeasure(item) ? (

@@ -5,11 +5,67 @@
   --foreground: #171717;
 }
 
+/*
+ * Ballot design system. Each election's pages take the look of the county's official
+ * sample ballot (fonts and colors measured from the PDF; see lib/ballot-theme.ts), set with
+ * data-ballot on a wrapper. Only the layout grammar is copied: no seals, signatures or
+ * "official ballot" wording. Ballot paper stays light in dark mode, like paper.
+ *
+ *   ink      text and contest box rules       bar      section heading bar (white text)
+ *   head     contest heading box               sub      subsection heading box
+ *   paper    page background                   accent   the ballot's one color (buttons, rule)
+ */
+:root,
+[data-ballot="plain"] {
+  --ballot-font: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --ballot-font-heading: var(--ballot-font);
+  --ballot-ink: #111827;
+  --ballot-bar: #111827;
+  --ballot-head: #e5e7eb;
+  --ballot-sub: #d1d5db;
+  --ballot-paper: #ffffff;
+  --ballot-accent: #2563eb;
+  --ballot-accent-ink: #ffffff;
+}
+
+/* King County, WA: Noto Sans; black bars; #dedede heads; blue "Begin voting here" box */
+[data-ballot="king"] {
+  --ballot-font: var(--font-noto-sans), "Noto Sans", Arial, sans-serif;
+  --ballot-font-heading: var(--ballot-font);
+  --ballot-ink: #000000;
+  --ballot-bar: #232323;
+  --ballot-head: #dedede;
+  --ballot-sub: #dedede;
+  --ballot-accent: #1c75db;
+  --ballot-accent-ink: #ffffff;
+}
+
+/* Larimer County, CO: Arial Narrow body, Roboto Bold title; #231f20 bars; #dedee0 heads; orange rule */
+[data-ballot="larimer"] {
+  --ballot-font: "Arial Narrow", var(--font-roboto-condensed), "Roboto Condensed", Arial, sans-serif;
+  --ballot-font-heading: var(--font-roboto), Roboto, Arial, sans-serif;
+  --ballot-ink: #231f20;
+  --ballot-bar: #231f20;
+  --ballot-head: #dedee0;
+  --ballot-sub: #ebebec;
+  --ballot-accent: #f2a35a;
+  --ballot-accent-ink: #231f20;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-ballot: var(--ballot-font);
+  --font-ballot-heading: var(--ballot-font-heading);
+  --color-ballot-ink: var(--ballot-ink);
+  --color-ballot-bar: var(--ballot-bar);
+  --color-ballot-head: var(--ballot-head);
+  --color-ballot-sub: var(--ballot-sub);
+  --color-ballot-paper: var(--ballot-paper);
+  --color-ballot-accent: var(--ballot-accent);
+  --color-ballot-accent-ink: var(--ballot-accent-ink);
 }
 
 @media (prefers-color-scheme: dark) {

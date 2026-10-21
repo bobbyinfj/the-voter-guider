@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import StanceBadge from "@/components/quiz/StanceBadge";
+import { BallotPage, accentButton, outlineButton } from "@/components/ballot/Paper";
 
 interface Props {
   params: Promise<{ candidateId: string }>;
@@ -34,7 +35,7 @@ export default async function CandidatePage({ params }: Props) {
   const { election } = office;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <BallotPage electionId={election.id}>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Breadcrumb */}
         <div className="mb-6 text-sm text-gray-500 flex flex-wrap gap-2">
@@ -50,7 +51,7 @@ export default async function CandidatePage({ params }: Props) {
         </div>
 
         {/* Candidate header */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+        <div className="mb-6 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper p-6">
           <div className="flex items-start gap-4">
             {candidate.photoUrl ? (
               <img
@@ -107,7 +108,7 @@ export default async function CandidatePage({ params }: Props) {
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-gray-800">Stated Positions</h2>
             {candidate.stances.map((stance) => (
-              <div key={stance.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+              <div key={stance.id} className="border-[1.5px] border-ballot-ink bg-ballot-paper p-5">
                 <div className="flex items-start gap-3 flex-wrap">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -161,18 +162,18 @@ export default async function CandidatePage({ params }: Props) {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href={`/elections/${election.id}/offices/${office.id}`}
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50"
+            className={outlineButton}
           >
             ← Compare all candidates for {office.title}
           </Link>
           <Link
             href={`/elections/${election.id}/quiz`}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700"
+            className={accentButton}
           >
             Take the quiz
           </Link>
         </div>
       </div>
-    </div>
+    </BallotPage>
   );
 }

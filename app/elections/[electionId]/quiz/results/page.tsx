@@ -56,7 +56,7 @@ export default function QuizResultsPage() {
     : null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="mb-6">
@@ -77,7 +77,7 @@ export default function QuizResultsPage() {
             </div>
             <Link
               href={`/elections/${electionId}/quiz?guideId=${guideId}`}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700"
+              className="px-4 py-2 bg-ballot-accent text-ballot-accent-ink text-sm font-bold hover:brightness-95"
             >
               Continue quiz
             </Link>
@@ -87,7 +87,7 @@ export default function QuizResultsPage() {
         {/* Per-office results */}
         <div className="space-y-8">
           {results.officeResults.map((officeResult) => (
-            <div key={officeResult.officeId} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div key={officeResult.officeId} className="border-[1.5px] border-ballot-ink bg-ballot-paper overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-800">{officeResult.officeTitle}</h2>
                 {!officeResult.comparable ? (
@@ -186,7 +186,7 @@ export default function QuizResultsPage() {
         </div>
 
         {/* Issue alignment summary */}
-        <div className="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div className="mt-8 border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
           <h2 className="text-base font-semibold text-gray-700 mb-4">Explore issues</h2>
           <p className="text-sm text-gray-500 mb-4">
             See all candidates&apos; stances on each policy topic.

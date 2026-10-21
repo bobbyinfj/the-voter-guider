@@ -2,28 +2,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import DistrictPicker from "@/components/DistrictPicker";
-import MeasureExplainer, { measureOfficial } from "@/components/MeasureExplainer";
 import { formatElectionDate } from "@/lib/format";
+import BallotSheet from "@/components/ballot/BallotSheet";
+import { BallotHeader, Extra, accentButton, outlineButton } from "@/components/ballot/Paper";
+import { groupSections, hasPrintedLayout, layoutOf, orderForBallot } from "@/components/ballot/ballot";
 import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 
 interface Props {
   params: Promise<{ electionId: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
-}
-
-const MEASURE_LEVEL_LABELS: Record<string, string> = {
-  state: "Statewide",
-  county: "County",
-  city: "City",
-  district: "Special district",
-};
-
-function measureLevel(metadata: unknown): string {
-  if (metadata && typeof metadata === "object" && "level" in metadata) {
-    const level = (metadata as { level?: unknown }).level;
-    if (typeof level === "string") return level;
-  }
-  return "state";
 }
 
 export default async function ElectionPage({ params, searchParams }: Props) {
@@ -37,13 +24,27 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     where: { id: electionId },
     include: {
       jurisdiction: true,
-      ballots: { orderBy: { number: "asc" } },
-      offices: {
-        include: {
-          candidates: { orderBy: [{ incumbent: "desc" }, { name: "asc" }] },
+      ballots: {
+        select: {
+          id: true,
+          number: true,
+          title: true,
+          description: true,
+          type: true,
+          options: true,
+          metadata: true,
+          districtType: true,
+          districtCode: true,
+          office: {
+            select: {
+              id: true,
+              district: true,
+              candidates: { select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true } },
+            },
+          },
         },
-        orderBy: { sortOrder: "asc" },
       },
+      offices: { select: { districtType: true, districtCode: true, district: true } },
       quiz: { select: { id: true, questions: { select: { id: true } } } },
     },
   });
@@ -58,206 +59,104 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     orderBy: { name: "asc" },
   });
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
-  const offices = election.offices.filter((o) => matchesSelection(o, selection));
-  const measures = election.ballots
-    .filter((b) => b.type !== "candidate" && matchesSelection(b, selection))
-    .sort((a, b) => (a.number ?? "").localeCompare(b.number ?? "", undefined, { numeric: true }));
-  const measureGroups = ["state", "county", "city", "district"]
-    .map((level) => ({ level, items: measures.filter((m) => measureLevel(m.metadata) === level) }))
-    .filter((g) => g.items.length > 0);
+  const items = orderForBallot(election.ballots.filter((b) => matchesSelection(b, selection)));
+  const sections = groupSections(items);
+  const printed = hasPrintedLayout(items);
+  const source = items[0] ? layoutOf(items[0])?.source : undefined;
   const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
   const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
   const guideHref = `/guide/new?electionId=${electionId}${districtQuery ? `&${districtQuery}` : ""}`;
-  const electionDate = formatElectionDate(election.electionDate);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8 max-w-5xl">
-        {/* Election header */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <p className="text-sm text-gray-500 mb-1">{election.jurisdiction.name}</p>
-              <h1 className="text-2xl font-bold text-gray-900">{election.title}</h1>
-              <p className="text-gray-600 mt-1">
-                <span className="font-medium">Election Day:</span> {electionDate}
-              </p>
-              {election.officialUrl && (
-                <a
-                  href={election.officialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:underline mt-1 inline-block"
-                >
-                  Official election website ↗
-                </a>
-              )}
-            </div>
-            <div className="flex flex-col gap-2 flex-shrink-0">
+    <>
+      <div className="container mx-auto max-w-6xl space-y-4 px-4 py-8">
+        <BallotHeader
+          electionId={electionId}
+          date={formatElectionDate(election.electionDate)}
+          title={election.title}
+          place={election.jurisdiction.name}
+          aside={
+            <>
               {election.status !== "completed" && (
-                <Link
-                  href={guideHref}
-                  className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors text-center"
-                >
-                  📝 Build my guide
-                  <p className="text-xs font-normal opacity-80 mt-0.5">
-                    Record your picks and notes · share it
-                  </p>
+                <Link href={guideHref} className={accentButton}>
+                  Build my guide
                 </Link>
               )}
               {hasQuiz && (
-                <Link
-                  href={quizHref}
-                  className="flex-shrink-0 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-center"
-                >
-                  🗳️ Take the Quiz
-                  <p className="text-xs font-normal opacity-80 mt-0.5">
-                    {election.quiz?.questions.length} questions · see who matches you
-                  </p>
+                <Link href={quizHref} className={outlineButton}>
+                  Take the quiz ({election.quiz?.questions.length} questions)
                 </Link>
               )}
-            </div>
+            </>
+          }
+        >
+          {election.description && <p className="mt-2 max-w-3xl text-sm">{election.description}</p>}
+          {election.officialUrl && (
+            <a
+              href={election.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-block text-sm text-blue-700 underline-offset-2 hover:underline"
+            >
+              Official election website ↗
+            </a>
+          )}
+        </BallotHeader>
+
+        <div className="grid gap-4 font-sans lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <DistrictPicker options={pickerOptions} selection={selection} lookupUrl={election.districtLookupUrl} />
           </div>
-          {election.description && (
-            <p className="text-gray-600 mt-4 text-sm">{election.description}</p>
+          {quizIssues.length > 0 && (
+            <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-4">
+              <h2 className="mb-1 text-sm font-semibold">Where candidates stand</h2>
+              <p className="mb-3 text-xs text-gray-600">
+                Each topic shows candidates&apos; stated positions, quoted from their sources.
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {quizIssues.map((issue) => (
+                  <Link
+                    key={issue.slug}
+                    href={`/issues/${issue.slug}`}
+                    className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
+                  >
+                    {issue.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           )}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Offices / Candidate Races */}
-          <div className="lg:col-span-2 space-y-4">
-            <h2 className="text-lg font-semibold text-gray-800">Candidate Races</h2>
-            {offices.length === 0 ? (
-              <p className="text-sm text-gray-500 italic">No offices loaded yet.</p>
-            ) : (
-              offices.map((office) => (
-                <div
-                  key={office.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
-                >
-                  <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold text-gray-800">
-                        {office.title}
-                        {office.districtType && office.district && !selection[office.districtType as keyof typeof selection] && (
-                          <span className="ml-2 align-middle text-xs font-normal bg-gray-100 text-gray-600 rounded px-1.5 py-0.5">
-                            {office.district} only
-                          </span>
-                        )}
-                      </h3>
-                      {office.description && (
-                        <p className="text-xs text-gray-500 mt-0.5">{office.description}</p>
-                      )}
-                    </div>
-                    <Link
-                      href={`/elections/${electionId}/offices/${office.id}`}
-                      className="text-xs text-blue-600 hover:underline whitespace-nowrap"
-                    >
-                      Compare all →
-                    </Link>
-                  </div>
-                  <ul className="divide-y divide-gray-50">
-                    {office.candidates.map((c) => (
-                      <li key={c.id} className="px-5 py-3 flex items-center gap-3">
-                        <div className="flex-1 min-w-0">
-                          <Link
-                            href={`/candidates/${c.id}`}
-                            className="font-medium text-gray-800 hover:text-blue-600 hover:underline"
-                          >
-                            {c.name}
-                          </Link>
-                          {c.party && (
-                            <span className="ml-2 text-xs text-gray-400">{c.party}</span>
-                          )}
-                          {c.incumbent && (
-                            <span className="ml-1 text-xs bg-yellow-100 text-yellow-700 border border-yellow-200 rounded px-1.5 py-0.5">
-                              Incumbent
-                            </span>
-                          )}
-                          {c.shortBio && (
-                            <p className="text-xs text-gray-500 mt-0.5 truncate">{c.shortBio}</p>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))
-            )}
+        <Extra className="text-sm">
+          <strong>Preview of your ballot.</strong>{" "}
+          {printed ? (
+            <>
+              Contests, order and wording come from the county&apos;s official sample ballot
+              {source && (
+                <>
+                  {" "}
+                  (
+                  <a href={source} target="_blank" rel="noopener noreferrer" className="underline">
+                    source ↗
+                  </a>
+                  )
+                </>
+              )}
+              .
+            </>
+          ) : (
+            <>We couldn&apos;t get this county&apos;s printed ballot, so order and wording may differ from yours.</>
+          )}{" "}
+          Tap ⓘ on a contest for candidates and explainers. To mark your picks, build a guide.
+        </Extra>
 
-            {/* Ballot measures */}
-            {measureGroups.map((group) => (
-              <div key={group.level} className="space-y-4">
-                <h2 className="text-lg font-semibold text-gray-800 mt-6">
-                  {MEASURE_LEVEL_LABELS[group.level] ?? group.level} Ballot Measures
-                </h2>
-                {group.items.map((b) => (
-                  <div key={b.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-                    <div className="flex items-start gap-3">
-                      {b.number && (
-                        <span className="flex-shrink-0 text-xs font-bold bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                          {b.number}
-                        </span>
-                      )}
-                      <div>
-                        <h3 className="font-semibold text-gray-800">{b.title}</h3>
-                        {b.description && (
-                          <p className="text-sm text-gray-600 mt-1">{b.description}</p>
-                        )}
-                        <MeasureExplainer official={measureOfficial(b.metadata)} />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-4">
-            <DistrictPicker
-              options={pickerOptions}
-              selection={selection}
-              lookupUrl={election.districtLookupUrl}
-            />
-            {hasQuiz && (
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-                <h3 className="font-semibold text-blue-800 mb-2">Not sure who to vote for?</h3>
-                <p className="text-sm text-blue-700 mb-4">
-                  Take our {election.quiz?.questions.length}-question quiz to see which candidates
-                  match your views — with a full explanation of every point.
-                </p>
-                <Link
-                  href={quizHref}
-                  className="block text-center px-4 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 text-sm"
-                >
-                  Start the quiz
-                </Link>
-              </div>
-            )}
-
-            {quizIssues.length > 0 && (
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
-                <h3 className="font-semibold text-gray-700 mb-1 text-sm">Where candidates stand</h3>
-                <p className="text-xs text-gray-500 mb-3">
-                  Each topic shows candidates&apos; stated positions, quoted from their sources.
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {quizIssues.map((issue) => (
-                    <Link
-                      key={issue.slug}
-                      href={`/issues/${issue.slug}`}
-                      className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full text-xs transition-colors"
-                    >
-                      {issue.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+        {sections.length === 0 ? (
+          <p className="text-sm italic text-gray-600">No contests loaded yet.</p>
+        ) : (
+          <BallotSheet sections={sections} electionId={electionId} readOnly />
+        )}
       </div>
-    </div>
+    </>
   );
 }

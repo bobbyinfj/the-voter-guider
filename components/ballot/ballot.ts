@@ -185,3 +185,16 @@ export function choiceLabel(selection: string, item?: BallotItem): string {
 export function contestDomId(item: BallotItem): string {
   return `contest-${item.id}`
 }
+
+// Candidates in the order the ballot prints them (the race's printed layout, else its
+// options list); anyone not found keeps their place at the end
+export function inPrintedOrder<T extends { name: string }>(
+  people: T[],
+  race: { metadata?: unknown; options?: unknown } | null | undefined,
+): T[] {
+  if (!race) return people
+  const printed = layoutOf({ id: '', title: '', type: 'candidate', ...race })
+  const names = printed?.candidates?.map((c) => c.name) ?? optionList(race.options)
+  const rank = (p: T) => (names.includes(p.name) ? names.indexOf(p.name) : names.length)
+  return [...people].sort((a, b) => rank(a) - rank(b))
+}

@@ -171,7 +171,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Header */}
         <div className="mb-6">
@@ -188,7 +188,7 @@ export default function QuizPage() {
           {/* Left: question panel */}
           <div className="lg:col-span-3">
             {state.done ? (
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
+              <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-8 text-center">
                 <div className="text-5xl mb-4">🗳️</div>
                 <h2 className="text-xl font-bold text-gray-800 mb-2">
                   {state.answeredIds.size === 0 ? "No questions yet" : "All done!"}
@@ -200,13 +200,13 @@ export default function QuizPage() {
                 </p>
                 <button
                   onClick={goToResults}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="px-6 py-3 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95 transition-colors"
                 >
                   View full results
                 </button>
               </div>
             ) : state.question ? (
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
                 {/* Question number */}
                 <div className="text-xs text-gray-400 mb-3 font-medium">
                   Question {state.answeredIds.size + 1}
@@ -271,7 +271,7 @@ export default function QuizPage() {
                   <button
                     onClick={submitAnswer}
                     disabled={!state.selectedOption || state.submitting}
-                    className="flex-1 py-3 px-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                    className="flex-1 py-3 px-6 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
                     {state.submitting ? "Saving…" : "Next →"}
                   </button>
@@ -290,7 +290,7 @@ export default function QuizPage() {
 
           {/* Right: live results panel */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 sticky top-4">
+            <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-5 sticky top-4">
               <h3 className="text-sm font-semibold text-gray-700 mb-4">Live results</h3>
               {!state.results || state.results.questionsAnswered === 0 ? (
                 <p className="text-sm text-gray-400 italic">

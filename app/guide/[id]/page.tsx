@@ -1,5 +1,6 @@
 'use client'
 
+import { BallotPage, accentButton } from '@/components/ballot/Paper'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
@@ -214,18 +215,17 @@ export default function GuidePage() {
   }`
 
   return (
-    <div className="min-h-screen bg-gray-50">
-
+    <BallotPage electionId={guide.election.id}>
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {error && (
           <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {error}
           </div>
         )}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6 print:hidden">
+        <div className="mb-6 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper p-5 print:hidden">
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
             <div className="flex-1 basis-64 min-w-0">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">{guide.title}</h1>
+              <h1 className="mb-1 font-ballot-heading text-2xl font-bold sm:text-3xl">{guide.title}</h1>
               {guide.author && <p className="text-gray-600 mb-2">By {guide.author}</p>}
               <p className="text-sm text-gray-500">
                 {guide.election.title} · {formatElectionDate(guide.election.electionDate)}
@@ -239,7 +239,7 @@ export default function GuidePage() {
                 <button
                   onClick={handleShare}
                   disabled={updating}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className={accentButton}
                 >
                   {copied ? <CheckCircle2 className="w-5 h-5" /> : <Share2 className="w-5 h-5" />}
                   {copied ? 'Link copied!' : 'Share'}
@@ -256,7 +256,7 @@ export default function GuidePage() {
           </div>
 
           {guide.isOwner && (
-            <div className="border-t pt-4">
+            <div className="border-t pt-4 font-sans">
               <label className="block text-sm font-medium text-gray-700 mb-2">Who can see this guide</label>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -337,13 +337,13 @@ export default function GuidePage() {
             onChoiceClear={handleChoiceClear}
           />
         ) : (
-          <div className="bg-white rounded-lg shadow-md p-6 text-center text-gray-500">
+          <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6 text-center text-gray-500">
             No ballot items available for this election yet.
           </div>
         )}
 
         {(guide.isOwner || guide.notes) && (
-          <div className="bg-white rounded-lg shadow-md p-6 mt-8 print:hidden">
+          <div className="mt-8 border-[1.5px] border-ballot-ink bg-ballot-paper p-5 font-sans print:hidden">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-800">Research &amp; Notes</h2>
               {guide.isOwner && (
@@ -376,6 +376,6 @@ export default function GuidePage() {
         )}
 
       </div>
-    </div>
+    </BallotPage>
   )
 }
