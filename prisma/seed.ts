@@ -165,7 +165,9 @@ async function seedElectionBundle(slug: string) {
   // 1. Upsert jurisdictions
   const stateJurisdiction = await prisma.jurisdiction.upsert({
     where: { fipsCode: electionData.jurisdiction.fipsCode },
-    update: { name: electionData.jurisdiction.name },
+    // The bundle is authoritative: an older row with this FIPS code (e.g. a leftover
+    // "precinct"-typed one) must not keep a type the cleanup script deletes
+    update: { name: electionData.jurisdiction.name, type: electionData.jurisdiction.type },
     create: {
       name: electionData.jurisdiction.name,
       state: electionData.jurisdiction.state,
@@ -178,7 +180,7 @@ async function seedElectionBundle(slug: string) {
   for (const lj of electionData.localJurisdictions ?? []) {
     const jur = await prisma.jurisdiction.upsert({
       where: { fipsCode: lj.fipsCode },
-      update: { name: lj.name },
+      update: { name: lj.name, type: lj.type, countyName: lj.countyName },
       create: {
         name: lj.name,
         state: lj.state,
@@ -299,9 +301,10 @@ async function seedElectionBundle(slug: string) {
       districtType: officeData.districtType ?? null,
       districtCode: officeData.districtCode ?? null,
     };
+    // Keyed by the stable id (not officeId) so a race row that lost its office link is reattached
     await prisma.ballot.upsert({
-      where: { officeId: office.id },
-      update: raceBallot,
+      where: { id: `${office.id}-race` },
+      update: { ...raceBallot, officeId: office.id },
       create: { id: `${office.id}-race`, electionId: election.id, officeId: office.id, ...raceBallot },
     });
 

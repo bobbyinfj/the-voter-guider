@@ -98,6 +98,9 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 
 ## Schema migrations
 Use `prisma migrate dev` (not `db push`) for all schema changes. The Neon DB uses PostgreSQL 17.
+**Neon is migration-tracked as of 2026-10-20** (both migrations resolved, schema verified identical), so
+schema changes there are just `prisma migrate deploy`; the baseline steps below are only for some other
+database that already has tables.
 `prisma/migrations/0_init` is a baseline of the pre-quiz schema (as of main before the quiz work).
 For a database that already has tables (e.g. Neon), first confirm it matches the baseline —
 this must print an empty migration:

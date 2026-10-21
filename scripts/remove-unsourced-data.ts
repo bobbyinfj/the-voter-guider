@@ -31,8 +31,10 @@ async function main() {
     where: { id: { notIn: keep } },
     select: { id: true, title: true, _count: { select: { guides: true, ballots: true, offices: true } } },
   });
+  // Only precinct-level jurisdictions nothing real hangs off: deleting one cascades to its offices
+  const unusedPrecinctJurisdiction = { type: "precinct", offices: { none: {} }, issues: { none: {} } };
   const precinctJurisdictions = await prisma.jurisdiction.findMany({
-    where: { type: "precinct" },
+    where: unusedPrecinctJurisdiction,
     select: { id: true, name: true, _count: { select: { guides: true, precincts: true, elections: true } } },
   });
   const sampleBallots = await prisma.ballot.count({
@@ -68,7 +70,7 @@ async function main() {
   // Elections cascade to their ballots, offices, quizzes and guides
   const deletedElections = await prisma.election.deleteMany({ where: { id: { notIn: keep } } });
   const deletedPrecincts = await prisma.precinct.deleteMany({});
-  const deletedJurisdictions = await prisma.jurisdiction.deleteMany({ where: { type: "precinct" } });
+  const deletedJurisdictions = await prisma.jurisdiction.deleteMany({ where: unusedPrecinctJurisdiction });
   const deletedIssues = await prisma.issue.deleteMany({
     where: { stances: { none: {} }, questionLinks: { none: {} } },
   });
