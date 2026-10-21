@@ -1,7 +1,7 @@
 'use client'
 
 import { CheckCircle2, Circle, MinusCircle } from 'lucide-react'
-import { ABSTAIN, contestDomId, type BallotSection, type ChoiceValue } from './ballot'
+import { ABSTAIN, contestDomId, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
 
 interface BallotNavProps {
   sections: BallotSection[]
@@ -17,9 +17,9 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
       {sections.map((section) => {
         const decided = section.items.filter((i) => choices[i.id]).length
         return (
-          <div key={section.key}>
+          <div key={section.key} className="break-inside-avoid">
             <p className="mb-1 flex justify-between text-xs font-semibold uppercase tracking-wide text-gray-500">
-              <span>{section.label}</span>
+              <span>{section.continued ? section.subsection : section.label}</span>
               <span>
                 {decided}/{section.items.length}
               </span>
@@ -47,10 +47,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                           !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : 'text-green-600'
                         }`}
                       />
-                      <span className="min-w-0 line-clamp-2">
-                        {item.number && <span className="font-semibold">{item.number} </span>}
-                        {item.title}
-                      </span>
+                      <span className="min-w-0 line-clamp-2">{contestLabel(item)}</span>
                     </a>
                   </li>
                 )

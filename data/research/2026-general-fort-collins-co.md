@@ -6,6 +6,11 @@ Sources:
 - [K3] Larimer County 2026 General Election sample ballot: https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf
 - [K4] Census geocoder, 14 Fort Collins addresses: all CD2; State Senate 14 or 23 (neither on 2026 ballot); State House 52 or 53. SD15/HD65 seen only at an unincorporated address (W Vine Dr) — not Fort Collins city.
 
+## Corrections and additions from the sample ballot [K3] (2026-10-20)
+Parsed into `sample-ballots/larimer.json` (contest order, headings, party labels, ballot question text, the Amendment 87 tax table).
+- US Senate has six candidates on the ballot: also Blake Huber (Libertarian) and Adam Withrow (Unity).
+- Added the judicial retention questions on every Larimer ballot: Colorado Supreme Court (William W. Hood, III), Court of Appeals (six judges) and Larimer County Court (three judges).
+
 Fort Collins city elections are odd-year; no city races on this ballot.
 
 ## Statewide [K1,K3] (major + minor parties as listed)

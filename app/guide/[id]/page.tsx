@@ -4,8 +4,15 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import BallotTracker from '@/components/BallotTracker'
+import DistrictPicker from '@/components/DistrictPicker'
+import { orderForBallot, type BallotCandidate } from '@/components/ballot/ballot'
 import { Share2, CheckCircle2, Globe, Lock, Trash2, Save } from 'lucide-react'
-import { matchesSelection, parseDistrictSelection, type DistrictSelection } from '@/lib/districts'
+import {
+  districtOptions,
+  matchesSelection,
+  parseDistrictSelection,
+  type DistrictSelection,
+} from '@/lib/districts'
 import { formatElectionDate } from '@/lib/format'
 
 interface GuideBallot {
@@ -18,7 +25,7 @@ interface GuideBallot {
   metadata: unknown
   districtType: string | null
   districtCode: string | null
-  office: { id: string; candidates: { id: string; name: string; party: string | null; incumbent: boolean }[] } | null
+  office: { id: string; district: string | null; candidates: BallotCandidate[] } | null
 }
 
 interface Guide {
@@ -35,30 +42,10 @@ interface Guide {
     id: string
     title: string
     electionDate: string
+    districtLookupUrl: string | null
     jurisdiction: { name: string }
     ballots: GuideBallot[]
   }
-}
-
-const LEVEL_ORDER: Record<string, number> = { state: 0, county: 1, city: 2, district: 3 }
-
-function meta(ballot: GuideBallot): { level?: string; sortOrder?: number } {
-  return ballot.metadata && typeof ballot.metadata === 'object' ? (ballot.metadata as { level?: string; sortOrder?: number }) : {}
-}
-
-// Races in ballot order, then measures grouped statewide → county → city → district
-function orderBallots(ballots: GuideBallot[]): GuideBallot[] {
-  const races = ballots
-    .filter((b) => b.type === 'candidate')
-    .sort((a, b) => (meta(a).sortOrder ?? 100) - (meta(b).sortOrder ?? 100))
-  const measures = ballots
-    .filter((b) => b.type !== 'candidate')
-    .sort(
-      (a, b) =>
-        (LEVEL_ORDER[meta(a).level ?? 'state'] ?? 9) - (LEVEL_ORDER[meta(b).level ?? 'state'] ?? 9) ||
-        (a.number ?? '').localeCompare(b.number ?? '', undefined, { numeric: true }),
-    )
-  return [...races, ...measures]
 }
 
 function districtsOf(guide: Guide): DistrictSelection {
@@ -106,8 +93,12 @@ export default function GuidePage() {
 
   const districts = useMemo(() => (guide ? districtsOf(guide) : {}), [guide])
   const ballots = useMemo(
-    () => (guide ? orderBallots(guide.election.ballots.filter((b) => matchesSelection(b, districts))) : []),
+    () => (guide ? orderForBallot(guide.election.ballots.filter((b) => matchesSelection(b, districts))) : []),
     [guide, districts],
+  )
+  const pickerOptions = useMemo(
+    () => (guide ? districtOptions(guide.election.ballots.map((b) => ({ ...b, district: b.office?.district }))) : []),
+    [guide],
   )
 
   const patchGuide = async (body: Record<string, unknown>) => {
@@ -157,6 +148,13 @@ export default function GuidePage() {
       if (previous) setChoices((prev) => ({ ...prev, [ballotId]: previous }))
       setError("Couldn't clear that choice. Please try again.")
     }
+  }
+
+  const handleDistrictChange = async (type: string, code: string) => {
+    const next: Record<string, string> = { ...districts }
+    if (code) next[type] = code
+    else delete next[type]
+    if (!(await patchGuide({ districts: next }))) setError("Couldn't save your districts.")
   }
 
   const handleShare = async () => {
@@ -226,7 +224,7 @@ export default function GuidePage() {
         )}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6 print:hidden">
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 basis-64 min-w-0">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">{guide.title}</h1>
               {guide.author && <p className="text-gray-600 mb-2">By {guide.author}</p>}
               <p className="text-sm text-gray-500">
@@ -317,6 +315,24 @@ export default function GuidePage() {
             choices={choices}
             election={guide.election}
             readOnly={!guide.isOwner}
+            setup={
+              guide.isOwner && pickerOptions.length > 0 ? (
+                <div className="print:hidden">
+                  {pickerOptions.some((o) => !districts[o.type]) && (
+                    <p className="mb-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-950">
+                      <strong>Make this match your real ballot:</strong> pick your districts. Until you do, races from
+                      every district are shown, and nobody&apos;s ballot has all of them.
+                    </p>
+                  )}
+                  <DistrictPicker
+                    options={pickerOptions}
+                    selection={districts}
+                    lookupUrl={guide.election.districtLookupUrl}
+                    onChange={handleDistrictChange}
+                  />
+                </div>
+              ) : null
+            }
             onChoiceChange={handleChoiceChange}
             onChoiceClear={handleChoiceClear}
           />

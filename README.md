@@ -16,6 +16,10 @@ Currently covers the **November 3, 2026 general election** for Seattle (WA), For
 - **Quiz** — each question is one statement; candidates are placed on it only when they
   (or a cited source) have said so, with the quote shown. Scores say how many stated
   positions they rest on; candidates with no stated positions are shown as "no data".
+- **Ballot replica** — your guide looks like your actual ballot: same contests, order, headings
+  and wording as the county's official sample ballot, in three columns (or one, for easy reading),
+  with our extra info layered on in blue: a one-line "bite", an expandable "snack", and links to the
+  full "meal" (candidate pages, side-by-side comparisons, official sources).
 - **Voter guides** — record a pick and notes for every contest, download as text, and share
   a read-only link (or keep it private). No account needed: guides are tied to an
   anonymous, httpOnly session cookie.
@@ -60,5 +64,11 @@ DATABASE_URL=postgresql://postgres:localdev@localhost:5433/voter_guider npx pris
 ```bash
 npx tsc --noEmit --skipLibCheck
 npm run lint
+npm test
 npm run build
 ```
+
+## Unofficial!
+
+The Voter Guider isn't a government site and nothing on it is a ballot. Every page says so, with
+help from Molesis, our blind mole wizard.

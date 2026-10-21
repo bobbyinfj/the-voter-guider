@@ -9,6 +9,8 @@ Sources:
 - [C7] LA County RR/CC, Measures Appearing on the Ballot, Nov 3 2026 (rev 8/14/2026): https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf
 - [C6] LAist: Durazo won Supervisor D1 outright, no November runoff: https://laist.com/news/politics/voter-guides/2026-election-california-primary-la-live-results-la-county-supervisor-district-1-and-3
 
+Ballot layout: LA County sample ballots are per-voter (by address, behind the RR/CC lookup), so this bundle has no printed-ballot layout; the guide shows contests in our own order and says so.
+
 No US Senate race in CA in 2026. State Senate District 25 (Monterey Park) is NOT up in 2026 (odd-numbered).
 EXISTING DATA BUG: data/elections/ca-primary-2026-06-02.json lists Gavin Newsom (term-limited) for governor and CA-37 for Monterey Park — both wrong. The June bundle was generated, not researched.
 

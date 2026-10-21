@@ -38,6 +38,7 @@ def write(name, d):
         json.dump(d, f, indent=2, ensure_ascii=False); f.write("\n")
     print(name, len(d["offices"]), "offices", len(ids), "candidates", len(d.get("measures", [])), "measures")
 
+exec(open(os.path.join(os.path.dirname(__file__), 'layout.py')).read())
 exec(open(os.path.join(os.path.dirname(__file__), 'wa.py')).read())
 exec(open(os.path.join(os.path.dirname(__file__), 'ca.py')).read())
 exec(open(os.path.join(os.path.dirname(__file__), 'co.py')).read())

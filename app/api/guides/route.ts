@@ -19,7 +19,10 @@ const guideInclude = {
           office: {
             select: {
               id: true,
-              candidates: { select: { id: true, name: true, party: true, incumbent: true } },
+              district: true,
+              candidates: {
+                select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true },
+              },
             },
           },
         },

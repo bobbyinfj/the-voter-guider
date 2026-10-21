@@ -8,6 +8,16 @@ Sources:
 - [S7] Wikipedia, 2026 King County Council election (district descriptions, incumbents): https://en.wikipedia.org/wiki/2026_King_County_Council_election
 - [S5] King County Elections ballot measures page (Nov list has no Seattle / countywide measures): https://info.kingcounty.gov/kcelections/Vote/contests/ballotmeasures.aspx
 
+- [S8] King County Elections, Nov 3 2026 sample ballot (all races and measures in King County): https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf — parsed into `sample-ballots/king.json` (contest order, headings, printed party labels, ballot question text)
+- [S9] King County Ordinance 19937 / K.C.C. 1.12.050: District Court West electoral district is "all of the area within the boundary of the city of Seattle": https://aqua.kingcounty.gov/Council/Clerk/OldOrdsMotions/Ordinance%2019937.pdf
+
+## Corrections and additions from the sample ballot [S8] (2026-10-20)
+- Court of Appeals Div 1 Dist 1: Position 5 is David S. Mann (unopposed); Position 6 is Bill A. Bowman (unopposed). They are not running against each other.
+- LD46 Rep 2: Rodney 'Star' Thornley's ballot label is "Prefers Independent Party".
+- Unopposed legislators Alvarado, Thomas, Reed, Berry, Scott: "Prefers Democratic Party".
+- Added: Prosecuting Attorney (Leesa Manion), Director of Elections (Julie Wise), Council District 4 (Jorge L. Barón), District Court West Electoral District Positions 1–5 [S9], Seattle Municipal Court Positions 1–7, and City of Seattle Proposition No. 1 (Seattle Transit Measure).
+- Seattle Council District 5 is an unexpired 1-year term; Supreme Court Positions 1 and 5 are unexpired 2-year terms.
+
 No US Senate, Governor or statewide executive races in WA in 2026.
 
 ## State measures [S1,S3]

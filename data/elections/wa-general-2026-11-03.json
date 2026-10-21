@@ -5,7 +5,7 @@
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "Washington's November 3 general election as it appears on Seattle ballots: two U.S. House seats, the state legislature, the state Supreme Court, King County and City of Seattle races, and three statewide initiatives. Washington has no U.S. Senate or statewide executive races in 2026. Party labels are each candidate's stated party preference, as printed on the ballot. Ballots are mailed by October 16. Not yet listed: races with one or two candidates skipped the August primary, and King County has not yet published its November local pamphlet. These include King County Council District 4 (northwest Seattle), Prosecuting Attorney, Director of Elections, Seattle Municipal Court positions other than 5, and King County District Court and Superior Court seats. They will be added once they are confirmed.",
+  "description": "Washington's November 3 general election as it appears on Seattle ballots: two U.S. House seats, the state legislature, the state Supreme Court, King County and City of Seattle races, and three statewide initiatives. Washington has no U.S. Senate or statewide executive races in 2026. Party labels are each candidate's stated party preference, as printed on the ballot. Ballots are mailed by October 16. Contest order, headings and wording follow King County's official sample ballot.",
   "officialUrl": "https://www.sos.wa.gov/elections",
   "districtLookupUrl": "https://voter.votewa.gov/",
   "jurisdiction": {
@@ -59,7 +59,38 @@
           "incumbent": false,
           "website": "https://www.shethforcongress.com"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 400,
+        "section": "Federal",
+        "heading": [
+          "United States Representative",
+          "Congressional District No. 7"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Pramila Jayapal",
+            "label": "Pramila Jayapal",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Nirav Sheth",
+            "label": "Nirav Sheth",
+            "party": "Prefers Republican Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-us-house-9",
@@ -87,7 +118,38 @@
           "incumbent": false,
           "website": "https://dougbasler.com"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 600,
+        "section": "Federal",
+        "heading": [
+          "United States Representative",
+          "Congressional District No. 9"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Adam Smith",
+            "label": "Adam Smith",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Doug Basler",
+            "label": "Doug Basler",
+            "party": "Prefers Republican Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld11-rep1",
@@ -113,7 +175,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1100,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 11",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "David Hackney",
+            "label": "David Hackney",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Ashley Fedan",
+            "label": "Ashley Fedan",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld11-rep2",
@@ -133,7 +226,33 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1200,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 11",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Steve Bergquist",
+            "label": "Steve Bergquist",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld32-sen",
@@ -159,7 +278,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": true
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2100,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 32",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Cindy Ryu",
+            "label": "Cindy Ryu",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Jesse Salomon",
+            "label": "Jesse Salomon",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld32-rep1",
@@ -185,7 +335,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2200,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 32",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Keith Scully",
+            "label": "Keith Scully",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Danica Noble",
+            "label": "Danica Noble",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld32-rep2",
@@ -211,7 +392,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2300,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 32",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Lauren Davis",
+            "label": "Lauren Davis",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Imraan Siddiqi",
+            "label": "Imraan Siddiqi",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld34-sen",
@@ -228,9 +440,36 @@
         {
           "id": "wa26-emily-alvarado",
           "name": "Emily Alvarado",
+          "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2700,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 34",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Emily Alvarado",
+            "label": "Emily Alvarado",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld34-rep1",
@@ -247,9 +486,36 @@
         {
           "id": "wa26-brianna-k-thomas",
           "name": "Brianna K. Thomas",
+          "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2800,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 34",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Brianna K. Thomas",
+            "label": "Brianna K. Thomas",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld34-rep2",
@@ -275,7 +541,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2900,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 34",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Joe Fitzgibbon",
+            "label": "Joe Fitzgibbon",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Mary Anito",
+            "label": "Mary Anito",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld36-sen",
@@ -301,7 +598,38 @@
           "party": "Prefers Republican Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3000,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 36",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Noel C. Frame",
+            "label": "Noel C. Frame",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Jillian England",
+            "label": "Jillian England",
+            "party": "Prefers Republican Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld36-rep1",
@@ -318,9 +646,36 @@
         {
           "id": "wa26-julia-grant-reed",
           "name": "Julia Grant Reed",
+          "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3100,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 36",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Julia Grant Reed",
+            "label": "Julia Grant Reed",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld36-rep2",
@@ -337,9 +692,36 @@
         {
           "id": "wa26-liz-berry",
           "name": "Liz Berry",
+          "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3200,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 36",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Liz Berry",
+            "label": "Liz Berry",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld37-sen",
@@ -365,7 +747,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3300,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 37",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Chipalo Street",
+            "label": "Chipalo Street",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Tatiana Brown",
+            "label": "Tatiana Brown",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld37-rep1",
@@ -380,18 +793,49 @@
       "termYears": 2,
       "candidates": [
         {
-          "id": "wa26-sharon-tomiko-santos",
-          "name": "Sharon Tomiko Santos",
-          "party": "Prefers Democratic Party",
-          "incumbent": false
-        },
-        {
           "id": "wa26-kelabe-tewolde",
           "name": "Kelabe Tewolde",
           "party": "Prefers Democratic Party",
           "incumbent": false
+        },
+        {
+          "id": "wa26-sharon-tomiko-santos",
+          "name": "Sharon Tomiko Santos",
+          "party": "Prefers Democratic Party",
+          "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3400,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 37",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Kelabe Tewolde",
+            "label": "Kelabe Tewolde",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Sharon Tomiko Santos",
+            "label": "Sharon Tomiko Santos",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld37-rep2",
@@ -417,7 +861,38 @@
           "party": "Prefers Independent Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3500,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 37",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Jaelynn Scott",
+            "label": "Jaelynn Scott",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Evon McCorkle",
+            "label": "Evon McCorkle",
+            "party": "Prefers Independent Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld43-sen",
@@ -443,7 +918,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3800,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 43",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Jamie Pedersen",
+            "label": "Jamie Pedersen",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Hannah Sabio-Howell",
+            "label": "Hannah Sabio-Howell",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld43-rep1",
@@ -469,7 +975,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3900,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 43",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Nicole Macri",
+            "label": "Nicole Macri",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Alby Clendennin",
+            "label": "Alby Clendennin",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld43-rep2",
@@ -486,9 +1023,36 @@
         {
           "id": "wa26-shaun-scott",
           "name": "Shaun Scott",
+          "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4000,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 43",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Shaun Scott",
+            "label": "Shaun Scott",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld46-sen",
@@ -514,7 +1078,38 @@
           "party": "Prefers Republican Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4400,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 46",
+          "State Senator"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Javier Valdez",
+            "label": "Javier Valdez",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Sandra Stephens",
+            "label": "Sandra Stephens",
+            "party": "Prefers Republican Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld46-rep1",
@@ -540,7 +1135,38 @@
           "party": "Prefers Democratic Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4500,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 46",
+          "Representative Position No. 1"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Gerry Pollet",
+            "label": "Gerry Pollet",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Will Dreher",
+            "label": "Will Dreher",
+            "party": "Prefers Democratic Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-ld46-rep2",
@@ -563,10 +1189,41 @@
         {
           "id": "wa26-rodney-star-thornley",
           "name": "Rodney 'Star' Thornley",
-          "party": "States No Party Preference",
+          "party": "Prefers Independent Party",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4600,
+        "section": "State",
+        "heading": [
+          "Legislative District No. 46",
+          "Representative Position No. 2"
+        ],
+        "instructions": [
+          "partisan office",
+          "vote for one"
+        ],
+        "notice": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate.",
+        "candidates": [
+          {
+            "name": "Darya Farivar",
+            "label": "Darya Farivar",
+            "party": "Prefers Democratic Party"
+          },
+          {
+            "name": "Rodney 'Star' Thornley",
+            "label": "Rodney 'Star' Thornley",
+            "party": "Prefers Independent Party"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-supreme-1",
@@ -588,7 +1245,35 @@
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6000,
+        "section": "State Supreme Court",
+        "heading": [
+          "Justice Position No. 1"
+        ],
+        "instructions": [
+          "unexpired 2-year term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Colleen Melody",
+            "label": "Colleen Melody"
+          },
+          {
+            "name": "Scott Edwards",
+            "label": "Scott Edwards"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-supreme-3",
@@ -610,7 +1295,34 @@
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6100,
+        "section": "State Supreme Court",
+        "heading": [
+          "Justice Position No. 3"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "David Stevens",
+            "label": "David Stevens"
+          },
+          {
+            "name": "Jaime Michelle Hawk",
+            "label": "Jaime Michelle Hawk"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-supreme-4",
@@ -632,7 +1344,34 @@
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6200,
+        "section": "State Supreme Court",
+        "heading": [
+          "Justice Position No. 4"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Ian Birk",
+            "label": "Ian Birk"
+          },
+          {
+            "name": "Sean O'Donnell",
+            "label": "Sean O'Donnell"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-supreme-5",
@@ -654,7 +1393,35 @@
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6300,
+        "section": "State Supreme Court",
+        "heading": [
+          "Justice Position No. 5"
+        ],
+        "instructions": [
+          "unexpired 2-year term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Theo Angelis",
+            "label": "Theo Angelis"
+          },
+          {
+            "name": "Dave Larson",
+            "label": "Dave Larson"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-supreme-7",
@@ -676,7 +1443,34 @@
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6400,
+        "section": "State Supreme Court",
+        "heading": [
+          "Justice Position No. 7"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Debra L. Stephens",
+            "label": "Debra L. Stephens"
+          },
+          {
+            "name": "Todd A. Bloom",
+            "label": "Todd A. Bloom"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-appeals-1-1-5",
@@ -684,21 +1478,115 @@
       "level": "state",
       "jurisdictionFips": "53",
       "sortOrder": 85,
-      "description": "6-year term. Nonpartisan. District 1 is King County.",
+      "description": "6-year term. Nonpartisan. District 1 is King County. Unopposed.",
       "candidates": [
         {
           "id": "wa26-david-s-mann",
           "name": "David S. Mann",
           "party": "Nonpartisan",
           "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
         },
+        "order": 6500,
+        "section": "Court of Appeals, Division No. 1, District No. 1",
+        "heading": [
+          "Judge Position No. 5"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "David S. Mann",
+            "label": "David S. Mann"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-appeals-1-1-6",
+      "title": "Court of Appeals Judge, Division 1, District 1, Position 6",
+      "level": "state",
+      "jurisdictionFips": "53",
+      "sortOrder": 86,
+      "description": "6-year term. Nonpartisan. District 1 is King County. Unopposed.",
+      "candidates": [
         {
           "id": "wa26-bill-a-bowman",
           "name": "Bill A. Bowman",
           "party": "Nonpartisan",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 6600,
+        "section": "Court of Appeals, Division No. 1, District No. 1",
+        "heading": [
+          "Judge Position No. 6"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Bill A. Bowman",
+            "label": "Bill A. Bowman"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-king-prosecutor",
+      "title": "King County Prosecuting Attorney",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 99,
+      "description": "Countywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-leesa-manion",
+          "name": "Leesa Manion",
+          "incumbent": true
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5300,
+        "section": "County",
+        "heading": [
+          "Prosecuting Attorney"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Leesa Manion",
+            "label": "Leesa Manion"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-king-assessor",
@@ -718,7 +1606,72 @@
           "name": "Dominique M. Scarimbolo",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5400,
+        "section": "County",
+        "heading": [
+          "Assessor"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Rob Foxcurran",
+            "label": "Rob Foxcurran"
+          },
+          {
+            "name": "Dominique M. Scarimbolo",
+            "label": "Dominique M Scarimbolo"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-king-elections-director",
+      "title": "King County Director of Elections",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 100,
+      "description": "Countywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-julie-wise",
+          "name": "Julie Wise",
+          "incumbent": true
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5500,
+        "section": "County",
+        "heading": [
+          "Director of Elections"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Julie Wise",
+            "label": "Julie Wise"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-king-council-2",
@@ -741,7 +1694,78 @@
           "name": "Toshiko Grace Hasegawa",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5600,
+        "section": "County",
+        "heading": [
+          "Metropolitan King County",
+          "Council District No. 2"
+        ],
+        "instructions": [
+          "short and full term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Rebecca Saldaña",
+            "label": "Rebecca Saldaña"
+          },
+          {
+            "name": "Toshiko Grace Hasegawa",
+            "label": "Toshiko Grace Hasegawa"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-king-council-4",
+      "title": "King County Council, District 4",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 102,
+      "description": "Nonpartisan. Northwest Seattle. Unopposed.",
+      "district": "County Council District 4",
+      "districtType": "county-council",
+      "districtCode": "4",
+      "candidates": [
+        {
+          "id": "wa26-jorge-l-bar-n",
+          "name": "Jorge L. Barón",
+          "incumbent": true
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5700,
+        "section": "County",
+        "heading": [
+          "Metropolitan King County",
+          "Council District No. 4"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Jorge L. Barón",
+            "label": "Jorge L. Barón"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-king-council-8",
@@ -764,7 +1788,35 @@
           "name": "Nick Duda",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5900,
+        "section": "County",
+        "heading": [
+          "Metropolitan King County",
+          "Council District No. 8"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Teresa Mosqueda",
+            "label": "Teresa Mosqueda"
+          },
+          {
+            "name": "Nick Duda",
+            "label": "Nick Duda"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-seattle-council-5",
@@ -772,7 +1824,7 @@
       "level": "city",
       "jurisdictionFips": "5363000",
       "sortOrder": 110,
-      "description": "Nonpartisan.",
+      "description": "Nonpartisan. Unexpired 1-year term.",
       "district": "Seattle District 5",
       "districtType": "city-council",
       "districtCode": "5",
@@ -787,14 +1839,396 @@
           "name": "Julie Kang",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 9900,
+        "section": "City",
+        "heading": [
+          "City of Seattle",
+          "Council District No. 5"
+        ],
+        "instructions": [
+          "unexpired 1-year term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Nilu Jenks",
+            "label": "Nilu Jenks"
+          },
+          {
+            "name": "Julie Kang",
+            "label": "Julie Kang"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-kc-district-west-1",
+      "title": "King County District Court Judge, West Electoral District, Position 1",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 104,
+      "description": "Seattle. Nonpartisan.",
+      "candidates": [
+        {
+          "id": "wa26-bardi-martin",
+          "name": "Bardi Martin",
+          "incumbent": false
+        },
+        {
+          "id": "wa26-nyjat-rose-akins",
+          "name": "Nyjat Rose-Akins",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 8700,
+        "section": "West Electoral District",
+        "heading": [
+          "Judge Position No. 1"
+        ],
+        "instructions": [
+          "short and full term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Bardi Martin",
+            "label": "Bardi Martin"
+          },
+          {
+            "name": "Nyjat Rose-Akins",
+            "label": "Nyjat Rose-Akins"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-kc-district-west-2",
+      "title": "King County District Court Judge, West Electoral District, Position 2",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 105,
+      "description": "Seattle. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-kuljinder-k-dhillon",
+          "name": "Kuljinder K. Dhillon",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 8800,
+        "section": "West Electoral District",
+        "heading": [
+          "Judge Position No. 2"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Kuljinder K. Dhillon",
+            "label": "Kuljinder K. Dhillon"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-kc-district-west-3",
+      "title": "King County District Court Judge, West Electoral District, Position 3",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 106,
+      "description": "Seattle. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-rebecca-robertson",
+          "name": "Rebecca Robertson",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 8900,
+        "section": "West Electoral District",
+        "heading": [
+          "Judge Position No. 3"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Rebecca Robertson",
+            "label": "Rebecca Robertson"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-kc-district-west-4",
+      "title": "King County District Court Judge, West Electoral District, Position 4",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 107,
+      "description": "Seattle. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-yvonne-chin",
+          "name": "Yvonne Chin",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 9000,
+        "section": "West Electoral District",
+        "heading": [
+          "Judge Position No. 4"
+        ],
+        "instructions": [
+          "short and full term",
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Yvonne Chin",
+            "label": "Yvonne Chin"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-kc-district-west-5",
+      "title": "King County District Court Judge, West Electoral District, Position 5",
+      "level": "county",
+      "jurisdictionFips": "53033",
+      "sortOrder": 108,
+      "description": "Seattle. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-kristin-shotwell",
+          "name": "Kristin Shotwell",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 9100,
+        "section": "West Electoral District",
+        "heading": [
+          "Judge Position No. 5"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Kristin Shotwell",
+            "label": "Kristin Shotwell"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-1",
+      "title": "Seattle Municipal Court Judge, Position 1",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 111,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-cat-mcdowall",
+          "name": "Cat McDowall",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10000,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 1"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Cat McDowall",
+            "label": "Cat McDowall"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-2",
+      "title": "Seattle Municipal Court Judge, Position 2",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 112,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-katharine-edwards",
+          "name": "Katharine Edwards",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10100,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 2"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Katharine Edwards",
+            "label": "Katharine Edwards"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-3",
+      "title": "Seattle Municipal Court Judge, Position 3",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 113,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-pooja-vaddadi",
+          "name": "Pooja Vaddadi",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10200,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 3"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Pooja Vaddadi",
+            "label": "Pooja Vaddadi"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-4",
+      "title": "Seattle Municipal Court Judge, Position 4",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 114,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-anita-crawford-willis",
+          "name": "Anita Crawford-Willis",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10300,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 4"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Anita Crawford-Willis",
+            "label": "Anita Crawford-Willis"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "wa26-seattle-muni-5",
       "title": "Seattle Municipal Court Judge, Position 5",
       "level": "city",
       "jurisdictionFips": "5363000",
-      "sortOrder": 111,
+      "sortOrder": 115,
       "description": "Citywide. Nonpartisan.",
       "candidates": [
         {
@@ -807,7 +2241,110 @@
           "name": "Garmon Newsom",
           "incumbent": false
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10400,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 5"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Gabe Rothstein",
+            "label": "Gabe Rothstein"
+          },
+          {
+            "name": "Garmon Newsom",
+            "label": "Garmon Newsom"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-6",
+      "title": "Seattle Municipal Court Judge, Position 6",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 116,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-shantrice-anderson",
+          "name": "Shantrice Anderson",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10500,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 6"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Shantrice Anderson",
+            "label": "Shantrice Anderson"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "wa26-seattle-muni-7",
+      "title": "Seattle Municipal Court Judge, Position 7",
+      "level": "city",
+      "jurisdictionFips": "5363000",
+      "sortOrder": 117,
+      "description": "Citywide. Nonpartisan. Unopposed.",
+      "candidates": [
+        {
+          "id": "wa26-damon-shadid",
+          "name": "Damon Shadid",
+          "incumbent": false
+        }
+      ],
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10600,
+        "section": "Seattle Municipal Court",
+        "heading": [
+          "Judge Position No. 7"
+        ],
+        "instructions": [
+          "nonpartisan office",
+          "vote for one"
+        ],
+        "candidates": [
+          {
+            "name": "Damon Shadid",
+            "label": "Damon Shadid"
+          }
+        ],
+        "writeIn": true
+      }
     }
   ],
   "measures": [
@@ -818,7 +2355,26 @@
       "level": "state",
       "type": "initiative",
       "description": "Would repeal the 9.9% tax on annual individual income over $1,000,000, prohibit taxes measured by or on individual income, and define \"income.\" The state's fiscal statement says it would decrease funding for K-12 and higher education and human services (primarily healthcare).",
-      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 0,
+        "section": "State",
+        "heading": [
+          "Initiative Measure No. IP26-645"
+        ],
+        "instructions": [],
+        "subsection": "Initiative to the People",
+        "question": "Initiative Measure No. IP26-645 concerns state and local taxes. This measure would repeal a 9.9% tax on annual individual income over $1,000,000; prohibit taxes measured by individual income and taxes on individual income or the receipt of individual income; and define “income.” This measure would decrease funding for public K-12 education, higher education (including universities and community colleges), and human services (primarily healthcare). Should this measure be enacted into law?",
+        "responses": [
+          "Yes",
+          "No"
+        ]
+      }
     },
     {
       "id": "wa26-m-il26-001",
@@ -827,7 +2383,54 @@
       "level": "state",
       "type": "initiative",
       "description": "Would restore the parents' rights law (RCW 28A.605.005) as the Legislature passed it in 2024 and repeal the 2025 amendments. It lists rights of parents and guardians of public-school children, such as reviewing school records, receiving notifications, and opting their child out of certain activities.",
-      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 100,
+        "section": "State",
+        "heading": [
+          "Initiative Measure No. IL26-001"
+        ],
+        "instructions": [],
+        "subsection": "Initiatives to the Legislature",
+        "question": "Initiative Measure No. IL26-001 concerns parental rights relating to their children in public school. This measure would repeal amendments to a statute listing certain rights of parents and guardians of public-school children and re-enact the law as it was originally enacted by Initiative to the Legislature 2081. Should this measure be enacted into law?",
+        "responses": [
+          "Yes",
+          "No"
+        ]
+      }
+    },
+    {
+      "id": "wa26-m-seattle-prop-1",
+      "number": "Seattle Prop 1",
+      "title": "Seattle Transit Measure",
+      "level": "city",
+      "type": "proposition",
+      "sourceUrl": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 10700,
+        "section": "City",
+        "heading": [
+          "City of Seattle",
+          "Proposition No. 1",
+          "Seattle Transit Measure"
+        ],
+        "instructions": [],
+        "question": "The City of Seattle adopted Ordinance No. 127474 concerning funding for transit service and related transportation needs in Seattle. The City of Seattle’s Proposition 1 would dedicate funding to transit services benefiting Seattle residents, including more frequent service; affordable fare programs for qualifying individuals; reliability, access, and climate projects; enhanced service on RapidRide and routes serving regional centers and high equity priority areas; facilitation of Sound Transit expansion; and others as provided in Ordinance 127474. It authorizes a 0.3% sales and use tax for up to ten years to replace the current voter-approved 0.15% sales tax expiring March 31, 2027. Should this Proposition be approved?",
+        "responses": [
+          "Yes",
+          "No"
+        ]
+      }
     },
     {
       "id": "wa26-m-il26-638",
@@ -836,7 +2439,26 @@
       "level": "state",
       "type": "initiative",
       "description": "Would prohibit students it defines as \"biologically male\" from competing in certain school athletic activities intended for female students only, with biological sex verified by students' healthcare providers.",
-      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+      "sourceUrl": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+      "ballot": {
+        "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 200,
+        "section": "State",
+        "heading": [
+          "Initiative Measure No. IL26-638"
+        ],
+        "instructions": [],
+        "subsection": "Initiatives to the Legislature",
+        "question": "Initiative Measure No. IL26-638 concerns participation in athletics at K-12 schools. This measure would prohibit students it defines as “biologically male” from competing in certain school athletic activities intended for female students only. It would require verification of biological sex by students’ healthcare providers. Should this measure be enacted into law?",
+        "responses": [
+          "Yes",
+          "No"
+        ]
+      }
     }
   ]
 }

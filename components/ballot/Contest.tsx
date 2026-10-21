@@ -2,71 +2,75 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { CheckCircle2, Circle, ExternalLink } from 'lucide-react'
-import { measureOfficial } from '@/components/MeasureExplainer'
+import { CheckCircle2, ChevronDown, ExternalLink, Info } from 'lucide-react'
+import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 import {
   ABSTAIN,
+  MEASURE_VALUES,
   WRITE_IN,
   choiceLabel,
   contestDomId,
   isMeasure,
+  layoutOf,
   optionList,
   type BallotItem,
   type ChoiceValue,
 } from './ballot'
 
+export type Density = 'ballot' | 'easy'
+
 interface ContestProps {
-  item: BallotItem
+  // One contest, or several questions printed under one heading (judicial retention)
+  run: BallotItem[]
   electionId: string
-  choice?: ChoiceValue
+  choices: Record<string, ChoiceValue>
   readOnly: boolean
-  onChange: (selection: string, notes?: string) => void
-  onClear: () => void
+  density: Density
+  onChange: (itemId: string, selection: string, notes?: string) => void
+  onClear: (itemId: string) => void
 }
 
-// The oval a voter fills in; the real radio input is visually hidden but keeps keyboard
+// The oval a voter fills in; the radio input is visually hidden but keeps keyboard
 // (arrow keys within a contest) and screen reader behaviour
-function OvalRow({
+function Oval({
   name,
   value,
   checked,
   disabled,
   onSelect,
+  label,
   children,
-  aside,
 }: {
   name: string
   value: string
   checked: boolean
   disabled: boolean
   onSelect: () => void
+  label: string
   children: React.ReactNode
-  aside?: React.ReactNode
 }) {
   return (
-    <div
-      className={`flex items-center gap-3 border-t border-gray-300 pr-3 transition-colors ${
-        checked ? 'bg-blue-50' : disabled ? '' : 'hover:bg-gray-50'
+    <label
+      className={`flex min-w-0 flex-1 items-start gap-2.5 px-2 py-1.5 ${disabled ? '' : 'cursor-pointer hover:bg-gray-50'} ${
+        checked ? 'bg-blue-50 print:bg-white' : ''
       }`}
     >
-      <label className={`flex flex-1 min-w-0 items-center gap-4 px-4 py-3 ${disabled ? '' : 'cursor-pointer'}`}>
-        <input
-          type="radio"
-          name={name}
-          value={value}
-          checked={checked}
-          disabled={disabled}
-          onChange={onSelect}
-          className="peer sr-only"
-        />
-        <span
-          aria-hidden
-          className="h-5 w-9 shrink-0 rounded-[50%] border-2 border-gray-900 bg-white peer-checked:bg-gray-900 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-2"
-        />
-        <span className="min-w-0">{children}</span>
-      </label>
-      {aside}
-    </div>
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled}
+        onChange={onSelect}
+        aria-label={label}
+        className="peer sr-only"
+      />
+      <span
+        aria-hidden
+        className="mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-gray-900 bg-white peer-checked:bg-gray-900 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1"
+      />
+      <span className="min-w-0 flex-1">{children}</span>
+    </label>
   )
 }
 
@@ -74,202 +78,356 @@ function NotesField({ initial, onSave }: { initial: string; onSave: (notes: stri
   const [value, setValue] = useState(initial)
   return (
     <textarea
-      aria-label="Notes about this choice"
-      placeholder="Why this choice? Notes for yourself (or whoever you share with)…"
+      aria-label="Your notes on this contest"
+      placeholder="Why this pick? Notes for you (and anyone you share with)…"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       onBlur={() => value !== initial && onSave(value)}
-      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 print:placeholder-shown:hidden"
+      className="w-full rounded border border-sky-200 bg-white px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
       rows={2}
       maxLength={5000}
     />
   )
 }
 
-export default function Contest({ item, electionId, choice, readOnly, onChange, onClear }: ContestProps) {
+// Everything that isn't printed on the ballot is drawn in this sky-blue "Voter Guider extra" style
+function Extra({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`border-l-2 border-sky-400 bg-sky-50 px-2 py-1.5 text-sky-950 print:hidden ${className}`}>{children}</div>
+  )
+}
+
+function RaceChoices({
+  item,
+  choice,
+  readOnly,
+  onChange,
+}: {
+  item: BallotItem
+  choice?: ChoiceValue
+  readOnly: boolean
+  onChange: ContestProps['onChange']
+}) {
+  const printed = layoutOf(item)
   const selection = choice?.selection
-  const measure = isMeasure(item)
   const isWriteIn = selection?.startsWith(WRITE_IN) ?? false
   const [writeIn, setWriteIn] = useState(isWriteIn ? selection!.slice(WRITE_IN.length) : '')
-  const candidates = new Map((item.office?.candidates ?? []).map((c) => [c.name, c]))
-  const official = measure ? measureOfficial(item.metadata) : {}
-
+  const people = new Map((item.office?.candidates ?? []).map((c) => [c.name, c]))
+  const rows =
+    printed?.candidates ??
+    optionList(item.options).map((name) => ({ name, label: name, party: people.get(name)?.party ?? undefined }))
+  const partyRight = printed?.style.party === 'right'
   const saveWriteIn = () => {
     const name = writeIn.trim()
-    if (name && selection !== `${WRITE_IN}${name}`) onChange(`${WRITE_IN}${name}`, choice?.notes)
+    if (name && selection !== `${WRITE_IN}${name}`) onChange(item.id, `${WRITE_IN}${name}`, choice?.notes)
+  }
+  return (
+    <div className="divide-y divide-gray-200">
+      {rows.map((row) => (
+        <Oval
+          key={row.name}
+          name={item.id}
+          value={row.name}
+          label={row.label}
+          checked={selection === row.name}
+          disabled={readOnly}
+          onSelect={() => onChange(item.id, row.name, choice?.notes)}
+        >
+          <span className={partyRight ? 'flex items-baseline justify-between gap-2' : 'block'}>
+            <span className="block text-[13px] font-semibold leading-snug text-gray-900">{row.label}</span>
+            {row.party && (
+              <span className={`text-[11px] leading-snug text-gray-700 ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
+                {partyRight || !printed ? row.party : `(${row.party})`}
+              </span>
+            )}
+          </span>
+        </Oval>
+      ))}
+      {(printed ? printed.writeIn : true) && (!readOnly || isWriteIn) && (
+        <Oval
+          name={item.id}
+          value={WRITE_IN}
+          label={`Write-in for ${item.title}`}
+          checked={isWriteIn}
+          disabled={readOnly}
+          onSelect={saveWriteIn}
+        >
+          {readOnly ? (
+            <span className="block border-b border-gray-500 text-[13px] font-semibold uppercase">{writeIn}</span>
+          ) : (
+            <input
+              type="text"
+              aria-label={`Write-in name for ${item.title}`}
+              value={writeIn}
+              maxLength={100}
+              onChange={(e) => setWriteIn(e.target.value)}
+              onBlur={saveWriteIn}
+              onKeyDown={(e) => e.key === 'Enter' && saveWriteIn()}
+              className="block w-full border-0 border-b border-gray-500 bg-transparent px-0 py-0 text-[13px] uppercase focus:border-blue-600 focus:outline-none focus:ring-0"
+            />
+          )}
+          <span className="block text-[11px] text-gray-600">Write-in</span>
+        </Oval>
+      )}
+    </div>
+  )
+}
+
+function MeasureChoices({
+  item,
+  choice,
+  readOnly,
+  onChange,
+}: {
+  item: BallotItem
+  choice?: ChoiceValue
+  readOnly: boolean
+  onChange: ContestProps['onChange']
+}) {
+  const printed = layoutOf(item)
+  const labels = printed?.responses?.length === 2 ? printed.responses : ['Yes', 'No']
+  return (
+    <div className={printed?.style.responses === 'inline' ? 'flex' : 'divide-y divide-gray-200'}>
+      {MEASURE_VALUES.map((value, i) => (
+        <Oval
+          key={value}
+          name={item.id}
+          value={value}
+          label={labels[i]}
+          checked={choice?.selection === value}
+          disabled={readOnly}
+          onSelect={() => onChange(item.id, value, choice?.notes)}
+        >
+          <span className="text-[13px] font-semibold text-gray-900">{labels[i]}</span>
+        </Oval>
+      ))}
+    </div>
+  )
+}
+
+function PrintedQuestion({ item }: { item: BallotItem }) {
+  const printed = layoutOf(item)
+  if (!printed?.question) return null
+  return (
+    <div className="space-y-2 px-2 py-2 text-[12.5px] leading-snug text-gray-900">
+      <p>{printed.question}</p>
+      {printed.table && (
+        <table className="w-full border-collapse text-[11px]">
+          {printed.table.caption && <caption className="pb-1 text-left font-bold">{printed.table.caption}</caption>}
+          <thead>
+            <tr>
+              {printed.table.columns.map((c) => (
+                <th key={c} className="border border-gray-400 px-1 py-0.5 text-left align-bottom font-bold">
+                  {c}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {printed.table.rows.map((row) => (
+              <tr key={row[0]}>
+                {row.map((cell, i) => (
+                  <td key={i} className="border border-gray-400 px-1 py-0.5">
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {printed.note && <p className="text-[11px]">{printed.note}</p>}
+    </div>
+  )
+}
+
+// Bite: one line, inline (easy-read view). Snack: the expandable panel. Meal: links out.
+function Enhancements({
+  item,
+  electionId,
+  choice,
+  readOnly,
+  density,
+  open,
+  onChange,
+  onClear,
+}: {
+  item: BallotItem
+  electionId: string
+  choice?: ChoiceValue
+  readOnly: boolean
+  density: Density
+  open: boolean
+  onChange: ContestProps['onChange']
+  onClear: ContestProps['onClear']
+}) {
+  const measure = isMeasure(item)
+  const official = measure ? measureOfficial(item.metadata) : {}
+  const source = official.sourceUrl ?? layoutOf(item)?.source
+  const selection = choice?.selection
+  const people = item.office?.candidates ?? []
+  const incumbents = people.filter((c) => c.incumbent).map((c) => c.name)
+  const bite = measure
+    ? item.description
+    : incumbents.length
+      ? `Incumbent: ${incumbents.join(', ')}`
+      : people.length === 1
+        ? 'Unopposed'
+        : null
+
+  if (!open) {
+    if (density !== 'easy' || !(bite || choice?.notes)) return null
+    return (
+      <Extra className="text-xs">
+        {bite && <p className="line-clamp-2">{bite}</p>}
+        {choice?.notes && <p className="mt-1 whitespace-pre-line italic">“{choice.notes}”</p>}
+      </Extra>
+    )
   }
 
   return (
-    <fieldset id={contestDomId(item)} className="scroll-mt-48 border-2 border-gray-900 bg-white min-w-0">
-      <legend className="sr-only">{item.number ? `${item.number}: ${item.title}` : item.title}</legend>
-
-      <div className="bg-gray-100 px-4 py-3">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-bold uppercase tracking-wide text-gray-900">
-            {item.number && <span className="mr-2 text-blue-700">{item.number}</span>}
-            {item.title}
-          </h3>
-          {selection ? (
-            <span className="flex shrink-0 items-center gap-1 text-xs font-semibold text-green-700">
-              <CheckCircle2 className="h-4 w-4" /> Decided
-            </span>
-          ) : (
-            <span className="flex shrink-0 items-center gap-1 text-xs font-semibold text-amber-700">
-              <Circle className="h-4 w-4" /> Undecided
-            </span>
-          )}
-        </div>
-        <p className="mt-1 text-xs font-semibold uppercase text-gray-700">
-          {measure ? 'Vote Yes or No' : 'Vote for one'}
-        </p>
-        {item.description && <p className="mt-1 text-sm text-gray-600">{item.description}</p>}
-      </div>
-
+    <Extra className="space-y-3 text-sm">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
       {measure ? (
-        (['YES', 'NO'] as const).map((value) => {
-          const meaning = value === 'YES' ? official.yesMeans : official.noMeans
-          return (
-            <OvalRow
-              key={value}
-              name={item.id}
-              value={value}
-              checked={selection === value}
-              disabled={readOnly}
-              onSelect={() => onChange(value, choice?.notes)}
-            >
-              <span className="block font-bold text-gray-900">{value === 'YES' ? 'Yes' : 'No'}</span>
-              {meaning && <span className="block text-sm text-gray-600">{meaning}</span>}
-            </OvalRow>
-          )
-        })
+        <>
+          {item.description && <p>{item.description}</p>}
+          <MeasureExplainer official={{ ...official, sourceUrl: null }} />
+        </>
       ) : (
         <>
-          {optionList(item.options).map((name) => {
-            const candidate = candidates.get(name)
-            return (
-              <OvalRow
-                key={name}
-                name={item.id}
-                value={name}
-                checked={selection === name}
-                disabled={readOnly}
-                onSelect={() => onChange(name, choice?.notes)}
-                aside={
-                  candidate && (
-                    <Link
-                      href={`/candidates/${candidate.id}`}
-                      className="shrink-0 text-xs text-blue-600 hover:underline print:hidden"
-                    >
-                      Profile
-                    </Link>
-                  )
-                }
-              >
-                <span className="block font-semibold uppercase text-gray-900">
-                  {name}
-                  {candidate?.incumbent && (
-                    <span className="ml-2 rounded bg-gray-200 px-1.5 py-0.5 align-middle text-[10px] font-semibold normal-case text-gray-700">
-                      Incumbent
-                    </span>
-                  )}
-                </span>
-                {candidate?.party && <span className="block text-sm text-gray-600">{candidate.party}</span>}
-              </OvalRow>
-            )
-          })}
-          {(!readOnly || isWriteIn) && (
-            <OvalRow
-              name={item.id}
-              value={WRITE_IN}
-              checked={isWriteIn}
-              disabled={readOnly}
-              onSelect={saveWriteIn}
+          <ul className="space-y-1.5">
+            {people.map((c) => (
+              <li key={c.id}>
+                <Link href={`/candidates/${c.id}`} className="font-semibold text-blue-700 hover:underline">
+                  {c.name}
+                </Link>
+                {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[10px] font-semibold">incumbent</span>}
+                {c.shortBio && <span className="block text-xs text-sky-900">{c.shortBio}</span>}
+                {c.website && (
+                  <a
+                    href={c.website}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    className="inline-flex items-center gap-1 text-xs text-blue-700 hover:underline"
+                  >
+                    Campaign site <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+          {item.office && (
+            <Link
+              href={`/elections/${electionId}/offices/${item.office.id}`}
+              className="inline-block text-xs font-semibold text-blue-700 hover:underline"
             >
-              {readOnly ? (
-                <span className="block font-semibold uppercase text-gray-900">{writeIn}</span>
-              ) : (
-                <input
-                  type="text"
-                  aria-label={`Write-in for ${item.title}`}
-                  placeholder="Name"
-                  value={writeIn}
-                  maxLength={100}
-                  onChange={(e) => setWriteIn(e.target.value)}
-                  onBlur={saveWriteIn}
-                  onKeyDown={(e) => e.key === 'Enter' && saveWriteIn()}
-                  className="w-full max-w-xs border-0 border-b border-gray-500 bg-transparent px-0 py-0.5 text-sm uppercase focus:border-blue-600 focus:outline-none focus:ring-0"
-                />
-              )}
-              <span className="block text-xs text-gray-500">Write-in</span>
-            </OvalRow>
+              Compare candidates side by side →
+            </Link>
           )}
         </>
       )}
-
-      {measure && (official.fiscalImpact || official.placedBy || official.passes || official.sourceUrl) && (
-        <div className="border-t border-gray-300 px-4 py-2 text-xs text-gray-600 space-y-1">
-          {official.fiscalImpact && (
-            <p>
-              <span className="font-semibold text-gray-700">Fiscal impact: </span>
-              {official.fiscalImpact}
-            </p>
+      {source && (
+        <a href={source} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-blue-700 hover:underline">
+          Official source <ExternalLink className="h-3 w-3" />
+        </a>
+      )}
+      {readOnly ? (
+        choice?.notes && <p className="whitespace-pre-line italic">“{choice.notes}”</p>
+      ) : (
+        <div className="space-y-1.5">
+          {selection && selection !== ABSTAIN && (
+            <NotesField initial={choice?.notes ?? ''} onSave={(notes) => onChange(item.id, selection, notes)} />
           )}
-          {(official.placedBy || official.passes) && <p>{[official.placedBy, official.passes].filter(Boolean).join(' · ')}</p>}
-          {official.sourceUrl && (
-            <a
-              href={official.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue-600 hover:underline print:hidden"
-            >
-              Official text <ExternalLink className="h-3 w-3" />
-            </a>
-          )}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+            {selection === ABSTAIN ? (
+              <span>Leaving this one blank on purpose</span>
+            ) : (
+              <button type="button" onClick={() => onChange(item.id, ABSTAIN)} className="hover:underline">
+                Leave blank on purpose
+              </button>
+            )}
+            {selection && (
+              <button type="button" onClick={() => onClear(item.id)} className="hover:text-red-700 hover:underline">
+                Clear{selection === ABSTAIN ? '' : ` (${choiceLabel(selection, item)})`}
+              </button>
+            )}
+          </div>
         </div>
       )}
+    </Extra>
+  )
+}
 
-      {/* Enhancements a paper ballot can't do: notes, research links, blank-on-purpose */}
-      <div className="border-t-2 border-gray-900 bg-gray-50 px-4 py-2 text-sm print:bg-white">
-        {readOnly ? (
-          <>
-            {selection === ABSTAIN && <p className="text-gray-600">Left blank on purpose</p>}
-            {choice?.notes && <p className="whitespace-pre-line text-gray-700">{choice.notes}</p>}
-            {!selection && <p className="text-gray-500">No choice recorded</p>}
-          </>
-        ) : (
-          <div className="space-y-2">
-            {selection && selection !== ABSTAIN && (
-              <NotesField initial={choice?.notes ?? ''} onSave={(notes) => onChange(selection, notes)} />
-            )}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs print:hidden">
-              {item.office && (
-                <Link href={`/elections/${electionId}/offices/${item.office.id}`} className="text-blue-600 hover:underline">
-                  Compare candidates →
-                </Link>
-              )}
-              {selection === ABSTAIN ? (
-                <span className="text-gray-600">Leaving this one blank on purpose</span>
-              ) : (
-                <button type="button" onClick={() => onChange(ABSTAIN)} className="text-gray-600 hover:text-gray-900 hover:underline">
-                  Leave blank on purpose
-                </button>
-              )}
-              {selection && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setWriteIn('')
-                    onClear()
-                  }}
-                  className="text-gray-600 hover:text-red-700 hover:underline"
-                >
-                  Clear {selection === ABSTAIN ? '' : `(${choiceLabel(selection)})`}
-                </button>
-              )}
-            </div>
-          </div>
-        )}
+export default function Contest({ run, electionId, choices, readOnly, density, onChange, onClear }: ContestProps) {
+  const [open, setOpen] = useState(false)
+  const first = run[0]
+  const printed = layoutOf(first)
+  const heading = printed?.heading ?? [first.number ? `${first.number} ${first.title}` : first.title]
+  const instructions = printed?.instructions ?? (isMeasure(first) ? [] : ['Vote for one'])
+  const decided = run.every((i) => choices[i.id])
+  const blank = run.every((i) => choices[i.id]?.selection === ABSTAIN)
+
+  return (
+    <fieldset
+      id={contestDomId(first)}
+      className="mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-gray-900 bg-white"
+    >
+      <legend className="sr-only">{heading.join(' ')}</legend>
+      <div className="flex items-start gap-2 bg-gray-200 px-2 py-1.5 print:bg-gray-100">
+        <div className="min-w-0 flex-1">
+          {heading.map((line) => (
+            <p key={line} className="text-[13px] font-bold leading-snug text-gray-900">
+              {line}
+            </p>
+          ))}
+          {instructions.map((line) => (
+            <p key={line} className="text-[12px] leading-snug text-gray-800">
+              {line}
+            </p>
+          ))}
+        </div>
+        <div className="flex shrink-0 items-center gap-1 print:hidden">
+          {decided && (
+            <CheckCircle2
+              aria-label={blank ? 'Left blank on purpose' : 'Decided'}
+              className={`h-4 w-4 ${blank ? 'text-gray-500' : 'text-green-700'}`}
+            />
+          )}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={`${open ? 'Hide' : 'Show'} Voter Guider info for ${heading.join(' ')}`}
+            className="flex items-center gap-0.5 rounded bg-sky-100 px-1.5 py-0.5 text-[11px] font-semibold text-sky-800 hover:bg-sky-200"
+          >
+            <Info className="h-3.5 w-3.5" />
+            {density === 'easy' && 'More'}
+            <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
       </div>
+      {run.map((item, i) => (
+        <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} className="scroll-mt-48 border-t border-gray-400">
+          {isMeasure(item) ? (
+            <>
+              <PrintedQuestion item={item} />
+              <MeasureChoices item={item} choice={choices[item.id]} readOnly={readOnly} onChange={onChange} />
+            </>
+          ) : (
+            <RaceChoices item={item} choice={choices[item.id]} readOnly={readOnly} onChange={onChange} />
+          )}
+          <Enhancements
+            item={item}
+            electionId={electionId}
+            choice={choices[item.id]}
+            readOnly={readOnly}
+            density={density}
+            open={open}
+            onChange={onChange}
+            onClear={onClear}
+          />
+        </div>
+      ))}
     </fieldset>
   )
 }

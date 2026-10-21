@@ -7,9 +7,11 @@ interface Props {
   options: DistrictOption[];
   selection: DistrictSelection;
   lookupUrl?: string | null;
+  // Save somewhere other than the URL (e.g. on a guide)
+  onChange?: (type: string, code: string) => void;
 }
 
-export default function DistrictPicker({ options, selection, lookupUrl }: Props) {
+export default function DistrictPicker({ options, selection, lookupUrl, onChange }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -17,6 +19,7 @@ export default function DistrictPicker({ options, selection, lookupUrl }: Props)
   if (options.length === 0) return null;
 
   const setDistrict = (type: string, code: string) => {
+    if (onChange) return onChange(type, code);
     const params = new URLSearchParams(searchParams.toString());
     if (code) params.set(type, code);
     else params.delete(type);

@@ -29,20 +29,17 @@ export default function GuideList() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchGuides()
+    ;(async () => {
+      try {
+        const response = await fetch('/api/guides')
+        setGuides(await response.json())
+      } catch (error) {
+        console.error('Error fetching guides:', error)
+      } finally {
+        setLoading(false)
+      }
+    })()
   }, [])
-
-  const fetchGuides = async () => {
-    try {
-      const response = await fetch('/api/guides')
-      const data = await response.json()
-      setGuides(data)
-    } catch (error) {
-      console.error('Error fetching guides:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   if (loading) {
     return (

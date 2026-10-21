@@ -4,7 +4,7 @@
 - **Framework**: Next.js 16 App Router (React 19, TypeScript 5)
 - **Database**: PostgreSQL (Neon) via Prisma 7 (driver adapter `@prisma/adapter-pg`)
 - **Styling**: Tailwind CSS v4 (`@import "tailwindcss"` — no `tailwind.config.js`)
-- **Auth**: None. Anonymous sessions via httpOnly cookie `voter-guide-session` (UUID). See `lib/session.ts`.
+- **Auth**: None. Anonymous sessions via httpOnly cookie `voter-guide-session` (UUID), issued by `proxy.ts` on a visitor's first request (so concurrent first requests can't mint two sessions). See `lib/session.ts`.
 
 ## Key conventions
 - Prisma client: named export `{ prisma }` from `lib/prisma.ts` — NOT a default export.
@@ -37,6 +37,7 @@ data/
   stances/      # <slug>.json — optional; candidateId × issueId → position + sources
   quizzes/      # <slug>.json — optional; questions, options, issue links
   research/     # sourced fact sheets the election bundles were built from
+    sample-ballots/  # official county sample ballots parsed to JSON (parse.py; needs pymupdf)
 ```
 `seedElectionBundles()` in `prisma/seed.ts` seeds every `data/elections/*.json`, plus the
 stances/quiz files with the same slug when they exist. To add a location, add a bundle and re-seed.
@@ -48,6 +49,16 @@ each question is one statement, and a candidate's position on it is included onl
 verbatim supporting quote (the builder checks the quote against the downloaded source).
 Leave a stance out rather than infer it. `npm run data:cleanup` (dry run by default)
 removes anything in a database that isn't backed by a bundle.
+
+### Ballot replica
+Guides render like the voter's real ballot. `data/research/sample-ballots/parse.py` turns a county's
+official sample-ballot PDF into `<county>.json` (section headings, contest headings, instruction
+lines, candidates in printed order with printed party labels, measure question text, response
+labels, tables). `bundle-builders/layout.py` attaches that to each office/measure as `ballot`
+(seeded into `Ballot.metadata.ballot`) and fails the build if names or candidate lists differ.
+`npm test` re-checks every bundle against the parsed sample ballot. Elections without a sample
+ballot (Monterey Park: LA County's are per-voter) fall back to our own order with a notice.
+Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra".
 
 ### Districts
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`).
@@ -97,11 +108,19 @@ Merging is not deploying: the Vercel build only runs `prisma generate && next bu
 Never run `launch.sh` against a shared DB — it does `prisma db push --accept-data-loss`.
 After schema changes, run `npx prisma generate` to regenerate the client.
 
-## Linting / type-check
+## Linting / type-check / tests
 ```bash
 npx tsc --noEmit --skipLibCheck   # type-check
 npm run lint                       # eslint
+npm test                           # node:test via tsx (tests/*.test.ts), incl. bundle ↔ sample-ballot checks
 ```
+Browser checks: Playwright with its bundled Chromium, installed outside the repo, against a local
+Postgres (see README), never the shared Neon DB.
+
+## Deploying
+Updates ship to production by default. Neon is shared by Preview and Production, so apply
+migrations and `npm run seed` to Neon *before* merging code that depends on them; take a
+`pg_dump` first. Then merge to `main` (Vercel deploys it) and smoke-test the live site.
 
 ## Security
 

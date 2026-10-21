@@ -2,9 +2,11 @@ P = "co26"
 D, R, L = "Democratic", "Republican", "Libertarian"
 BLUE = "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
 SAMPLE = "https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf"
+LARIMER = load_sample("larimer")
 offices = [
   office(P, "us-senate", "U.S. Senator", "federal", "08", 1,
-         [("John Hickenlooper", D, True), ("Mark Baisley", R, False), ("Bob Chew", "Forward", False), ("Christopher Baum", "Approval Voting", False)], desc="6-year term.", term=6),
+         [("John Hickenlooper", D, True), ("Mark Baisley", R, False), ("Bob Chew", "Forward", False), ("Christopher Baum", "Approval Voting", False),
+          ("Blake Huber", L, False), ("Adam Withrow", "Unity", False)], desc="6-year term.", term=6),
   office(P, "us-house-2", "U.S. Representative, District 2", "federal", "08", 10,
          [("Joe Neguse", D, True), ("Kelley Anne Dennison", R, False), ("Gaylon Kent", L, False)],
          desc="2-year term. All of Fort Collins is in District 2.", term=2),
@@ -79,6 +81,52 @@ measures += [
   measure(P, "frprd-7a", "7A", "Front Range Passenger Rail District tax and debt", "district",
           "Would create a 0.333% sales and use tax ($295 million a year) and authorize $580 million of debt (up to $785 million repayment) to build and run Colorado Connector (CoCo) passenger rail from Pueblo to Fort Collins. Fort Collins is inside the district.", SAMPLE),
 ]
+# Judicial retention questions, as printed on the Larimer County sample ballot
+RETENTION = [("Colorado Supreme Court Justice", "state"), ("Colorado Court of Appeals Judge", "state"), ("County Court Judge - Larimer", "county")]
+retention = []
+for heading, level in RETENTION:
+    for i, q in retention_questions(LARIMER, heading):
+        who = re.match(r"Shall (Justice|Judge) (.+?) of the", q)
+        m = measure(P, f"retain-{who.group(2)}", None, f"Retain {who.group(1)} {who.group(2)}?", level, None, SAMPLE, "retention")
+        attach_measure(LARIMER, m, heading, i)
+        retention.append(m)
+measures = retention + measures
+
+# Printed ballot layout, from Larimer County's sample ballot
+c = lambda oid: next(o for o in offices if o["id"] == f"{P}-{oid}")
+for oid, key in [
+    ("us-senate", "United States Senator"),
+    ("us-house-2", "Representative to the 120th United States Congress - District 2"),
+    ("governor", "Governor / Lieutenant Governor"),
+    ("secretary-of-state", "Secretary of State"),
+    ("treasurer", "State Treasurer"),
+    ("attorney-general", "Attorney General"),
+    ("cu-regent-2", "Regent of the University of Colorado - Congressional District 2"),
+    ("senate-15", "State Senator - District 15"),
+    ("house-52", "State Representative - District 52"),
+    ("house-53", "State Representative - District 53"),
+    ("house-65", "State Representative - District 65"),
+    ("larimer-commissioner-1", "County Commissioner - District 1"),
+    ("larimer-clerk", "County Clerk and Recorder"),
+    ("larimer-treasurer", "County Treasurer"),
+    ("larimer-assessor", "County Assessor"),
+    ("larimer-sheriff", "County Sheriff"),
+    ("larimer-surveyor", "County Surveyor"),
+    ("larimer-coroner", "County Coroner"),
+]:
+    attach_race(LARIMER, c(oid), key)
+QUESTIONS_NOTICE = LARIMER["notices"][0]["text"]
+for m in measures:
+    if m["type"] == "retention":
+        continue
+    n = m["number"]
+    key = (f"Ballot Issue {n}" if n in ("1A", "7A") else
+           n.replace("Amdt", "Amendment") + " (CONSTITUTIONAL)" if n.startswith("Amdt") else
+           n.replace("Prop", "Proposition") + " (STATUTORY)")
+    attach_measure(LARIMER, m, key)
+    m["ballot"]["notice"] = QUESTIONS_NOTICE
+report_unmapped(LARIMER, offices + measures, {"Federal Offices", "State Offices", "County Offices", "Judicial Retention Questions", "State of Colorado", "Larimer County"})
+
 write("co-general-2026-11-03", {
   "slug": "co-general-2026-11-03",
   "electionId": "co-general-2026",
@@ -86,7 +134,7 @@ write("co-general-2026-11-03", {
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "Colorado's November 3 general election as it appears on Fort Collins ballots: U.S. Senate, U.S. House District 2, Governor and the other statewide offices, CU Regent, State House Districts 52 and 53 (plus Senate District 15 and House District 65 for unincorporated areas with Fort Collins addresses), Larimer County offices, 14 statewide measures and two local tax measures. Fort Collins city elections are held in odd years, so there are no city races. Candidates are from the Secretary of State's list certified Sept 4, 2026.",
+  "description": "Colorado's November 3 general election as it appears on Fort Collins ballots: U.S. Senate, U.S. House District 2, Governor and the other statewide offices, CU Regent, State House Districts 52 and 53 (plus Senate District 15 and House District 65 for unincorporated areas with Fort Collins addresses), Larimer County offices, 14 statewide measures and two local tax measures. Fort Collins city elections are held in odd years, so there are no city races. Candidates are from the Secretary of State's list certified Sept 4, 2026; contest order, headings and wording follow Larimer County's official sample ballot, which also lists six U.S. Senate candidates and ten judicial retention questions.",
   "officialUrl": "https://www.coloradosos.gov/pubs/elections/main.html",
   "districtLookupUrl": "https://www.coloradosos.gov/voter/pages/pub/olvr/findVoterReg.xhtml",
   "jurisdiction": {"name": "Colorado", "state": "CO", "type": "state", "fipsCode": "08"},

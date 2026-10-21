@@ -2,15 +2,30 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
-import { ArrowDownToLine, Download, Eye, ListChecks, Printer, SkipForward, Vote } from 'lucide-react'
-import Contest from '@/components/ballot/Contest'
+import {
+  ArrowDownToLine,
+  Columns3,
+  Download,
+  ExternalLink,
+  Eye,
+  ListChecks,
+  Printer,
+  Rows3,
+  SkipForward,
+  Vote,
+} from 'lucide-react'
+import Contest, { type Density } from '@/components/ballot/Contest'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
+import { NotABallotStamp, PrintWatermark } from '@/components/Molesis'
 import {
   choiceLabel,
   contestDomId,
   contestLabel,
+  groupRuns,
   groupSections,
+  hasPrintedLayout,
+  layoutOf,
   type BallotItem,
   type ChoiceValue,
 } from '@/components/ballot/ballot'
@@ -19,38 +34,60 @@ import { formatElectionDate } from '@/lib/format'
 export type { BallotItem } from '@/components/ballot/ballot'
 
 interface BallotTrackerProps {
+  // In ballot order (see orderForBallot)
   ballots: BallotItem[]
   guideTitle: string
   election: { id: string; title: string; electionDate: string; jurisdiction: { name: string } }
   choices: Record<string, ChoiceValue>
   readOnly?: boolean
+  // Shown above the ballot, e.g. the district picker
+  setup?: React.ReactNode
   onChoiceChange?: (ballotId: string, selection: string, notes?: string) => void
   onChoiceClear?: (ballotId: string) => void
 }
 
 type Mode = 'ballot' | 'review'
+const DENSITY_KEY = 'voter-guider:ballot-density'
 
-// A guide laid out like a sample ballot (ovals, section bars, "vote for one"), plus what
-// paper can't do: a contest navigator, jump-to-undecided, a review sheet, notes and links
+// A guide laid out like the voter's own ballot (same contests, order and wording as the
+// county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
 export default function BallotTracker({
   ballots,
   guideTitle,
   election,
   choices,
   readOnly = false,
+  setup,
   onChoiceChange,
   onChoiceClear,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
+  const [density, setDensity] = useState<Density>('ballot')
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
   // vanish the moment you mark it
   const [hiddenIds, setHiddenIds] = useState<Set<string> | null>(null)
+  const jumpMenuRef = useRef<HTMLDetailsElement>(null)
+
+  // Per-viewer preference; storage can be unavailable (private mode), which is fine
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(DENSITY_KEY)
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
+      if (saved === 'easy' || saved === 'ballot') setDensity(saved)
+    } catch {}
+  }, [])
+  const chooseDensity = (value: Density) => {
+    setDensity(value)
+    try {
+      localStorage.setItem(DENSITY_KEY, value)
+    } catch {}
+  }
 
   const sections = useMemo(() => groupSections(ballots), [ballots])
-  // Contests in the order they appear on the page (sections regroup by level)
+  const printed = hasPrintedLayout(ballots)
+  const source = ballots[0] ? layoutOf(ballots[0])?.source : undefined
   const pageOrder = useMemo(() => sections.flatMap((s) => s.items), [sections])
-  const mobileNavRef = useRef<HTMLDetailsElement>(null)
   const answered = ballots.filter((b) => choices[b.id]).length
   const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
   const visibleSections = useMemo(
@@ -70,8 +107,7 @@ export default function BallotTracker({
       setMode('ballot')
       setActiveId(itemId)
     })
-    // The mobile contest list lives in the sticky toolbar; close it so it doesn't cover the contest
-    if (mobileNavRef.current) mobileNavRef.current.open = false
+    if (jumpMenuRef.current) jumpMenuRef.current.open = false
     const item = ballots.find((b) => b.id === itemId)
     const el = item && document.getElementById(contestDomId(item))
     if (!el) return
@@ -94,7 +130,7 @@ export default function BallotTracker({
       if (el) observer.observe(el)
     }
     return () => observer.disconnect()
-  }, [mode, ballots, visibleSections])
+  }, [mode, ballots, visibleSections, density])
 
   const nextUndecided = () => {
     const start = pageOrder.findIndex((b) => b.id === activeId)
@@ -105,12 +141,13 @@ export default function BallotTracker({
   }
 
   const handleExport = () => {
-    const lines = [guideTitle, `${election.title} · ${formatElectionDate(election.electionDate)}`, '']
+    const lines = [guideTitle, `${election.title} · ${formatElectionDate(election.electionDate)}`]
+    lines.push('Practice copy from the Voter Guider (unofficial). Not a ballot.', '')
     for (const section of sections) {
       lines.push(section.label.toUpperCase())
       for (const ballot of section.items) {
         const choice = choices[ballot.id]
-        lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection) : '(no choice)'}`)
+        lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}`)
         if (choice?.notes) lines.push(`    Notes: ${choice.notes}`)
       }
       lines.push('')
@@ -124,25 +161,35 @@ export default function BallotTracker({
     URL.revokeObjectURL(url)
   }
 
-  const toolButton = 'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
+  const toolButton =
+    'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
+  const segment = (active: boolean) =>
+    `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
   const nav = <BallotNav sections={sections} choices={choices} activeId={activeId} onJump={jumpTo} />
+  const showSidebar = density === 'easy' && mode === 'ballot'
 
   return (
-    <div className="lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8">
-      <aside className="hidden lg:block print:hidden">
-        <div className="sticky top-4 max-h-[calc(100vh-2rem)] overflow-y-auto pr-1">{nav}</div>
-      </aside>
+    <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8' : ''}>
+      <PrintWatermark />
+      {showSidebar && (
+        <aside className="hidden lg:block print:hidden">
+          <div className="sticky top-4 max-h-[calc(100vh-2rem)] overflow-y-auto pr-1">{nav}</div>
+        </aside>
+      )}
 
-      <div className="min-w-0 space-y-6">
+      <div className="min-w-0 space-y-4">
         <div className="sticky top-0 z-20 -mx-4 border-b border-gray-200 bg-gray-50/95 px-4 py-3 backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
-              {answered} of {ballots.length} contests decided
+              {answered} of {ballots.length} decided
             </span>
             <span className="text-gray-500">{completionPercentage}%</span>
           </div>
           <div className="mb-3 h-2 w-full rounded-full bg-gray-200">
-            <div className="h-2 rounded-full bg-blue-600 transition-all duration-300" style={{ width: `${completionPercentage}%` }} />
+            <div
+              className="h-2 rounded-full bg-blue-600 transition-all duration-300"
+              style={{ width: `${completionPercentage}%` }}
+            />
           </div>
           <div className="flex flex-wrap gap-2">
             <div role="tablist" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
@@ -159,14 +206,30 @@ export default function BallotTracker({
                     const top = document.getElementById('ballot-top')
                     if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
                   }}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm ${
-                    mode === value ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
-                  }`}
+                  className={segment(mode === value)}
                 >
                   <Icon className="h-4 w-4" /> {label}
                 </button>
               ))}
             </div>
+            {mode === 'ballot' && (
+              <div role="group" aria-label="Layout" className="hidden overflow-hidden rounded-md border border-gray-300 md:flex">
+                <button
+                  onClick={() => chooseDensity('ballot')}
+                  aria-pressed={density === 'ballot'}
+                  className={segment(density === 'ballot')}
+                >
+                  <Columns3 className="h-4 w-4" /> Like my ballot
+                </button>
+                <button
+                  onClick={() => chooseDensity('easy')}
+                  aria-pressed={density === 'easy'}
+                  className={segment(density === 'easy')}
+                >
+                  <Rows3 className="h-4 w-4" /> Easy read
+                </button>
+              </div>
+            )}
             {!readOnly && (
               <button onClick={nextUndecided} disabled={answered === ballots.length} className={toolButton}>
                 <SkipForward className="h-4 w-4" /> Next undecided
@@ -190,29 +253,50 @@ export default function BallotTracker({
               <Printer className="h-4 w-4" /> Print
             </button>
           </div>
-          <details ref={mobileNavRef} className="mt-3 lg:hidden">
+          <details ref={jumpMenuRef} className={`mt-3 ${showSidebar ? 'lg:hidden' : ''}`}>
             <summary className="flex cursor-pointer items-center gap-1.5 text-sm font-medium text-blue-700">
               <ArrowDownToLine className="h-4 w-4" /> Jump to a contest
             </summary>
-            <div className="mt-2 max-h-[50vh] overflow-y-auto">{nav}</div>
+            <div className="mt-2 max-h-[50vh] overflow-y-auto sm:columns-2 lg:columns-3">{nav}</div>
           </details>
         </div>
 
-        <div id="ballot-top" className="scroll-mt-48 border-2 border-gray-900 bg-white">
-          <div className="flex flex-wrap justify-between gap-x-4 bg-gray-900 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white">
-            <span>Sample ballot · personal voter guide</span>
-            <span>Not an official ballot</span>
-          </div>
-          <div className="px-4 py-5 text-center">
+        {setup}
+
+        <div id="ballot-top" className="scroll-mt-48 border-[1.5px] border-gray-900 bg-white">
+          <NotABallotStamp readOnly={readOnly} />
+          <div className="px-4 py-4 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-600">{election.jurisdiction.name}</p>
-            <h2 className="mt-1 text-xl font-bold uppercase text-gray-900 sm:text-2xl">{election.title}</h2>
-            <p className="mt-1 text-sm text-gray-700">{formatElectionDate(election.electionDate)}</p>
+            <h2 className="mt-1 text-lg font-bold text-gray-900 sm:text-xl">{election.title}</h2>
+            <p className="text-sm text-gray-700">{formatElectionDate(election.electionDate)}</p>
           </div>
-          <div className="border-t-2 border-gray-900 bg-gray-50 px-4 py-3 text-sm text-gray-700">
-            <span className="font-bold uppercase">Instructions: </span>
-            {readOnly
-              ? 'These are the choices recorded in this guide. Filled ovals show each pick.'
-              : 'Fill in the oval next to your choice. Picks save as you go. Use this to plan — then mark the official ballot from your elections office.'}
+          <div className="border-t border-gray-300 bg-sky-50 px-4 py-2 text-xs text-sky-950 print:bg-white">
+            {printed ? (
+              <>
+                Contests, order and wording are copied from the county&apos;s official sample ballot
+                {source && (
+                  <>
+                    {' '}
+                    (
+                    <a
+                      href={source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-0.5 underline"
+                    >
+                      source <ExternalLink className="h-3 w-3" />
+                    </a>
+                    )
+                  </>
+                )}
+                . Page and column breaks on your real ballot will differ. Blue boxes are our extras, not ballot text.
+              </>
+            ) : (
+              <>
+                We couldn&apos;t get this county&apos;s printed ballot layout, so contest order and wording here may
+                differ from your real ballot. Blue boxes are our extras, not ballot text.
+              </>
+            )}
           </div>
         </div>
 
@@ -227,24 +311,42 @@ export default function BallotTracker({
             or switch to Review.
           </div>
         ) : (
-          visibleSections.map((section) => (
-            <section key={section.key} aria-label={section.label} className="space-y-4">
-              <h3 className="bg-gray-900 px-4 py-1.5 text-sm font-bold uppercase tracking-wider text-white">
-                {section.label}
-              </h3>
-              {section.items.map((item) => (
-                <Contest
-                  key={item.id}
-                  item={item}
-                  electionId={election.id}
-                  choice={choices[item.id]}
-                  readOnly={readOnly}
-                  onChange={(selection, notes) => onChoiceChange?.(item.id, selection, notes)}
-                  onClear={() => onChoiceClear?.(item.id)}
-                />
-              ))}
-            </section>
-          ))
+          <div className={density === 'ballot' ? 'gap-2 md:columns-2 xl:columns-3 print:columns-3' : 'mx-auto max-w-2xl'}>
+            {visibleSections.map((section) => (
+              <section key={section.key} aria-label={section.label} className="contents">
+                {section.notice && (
+                  <p className="mb-2 break-inside-avoid border-[1.5px] border-gray-900 bg-white px-2 py-1.5 text-[12px] font-bold leading-snug text-gray-900">
+                    {section.notice}
+                  </p>
+                )}
+                {section.continued ? (
+                  <h3 className="sr-only">{section.label}</h3>
+                ) : (
+                  <h3 className="break-inside-avoid break-after-avoid bg-gray-900 px-2 py-1 text-[13px] font-bold text-white print:bg-black">
+                    {section.label}
+                  </h3>
+                )}
+                {section.subsection && (
+                  <p className="break-inside-avoid break-after-avoid border-x-[1.5px] border-t-[1.5px] border-gray-900 bg-gray-300 px-2 py-1 text-[13px] font-bold">
+                    {section.subsection}
+                  </p>
+                )}
+                {groupRuns(section.items).map((run) => (
+                  <Contest
+                    key={run[0].id}
+                    run={run}
+                    electionId={election.id}
+                    choices={choices}
+                    readOnly={readOnly}
+                    density={density}
+                    onChange={(id, selection, notes) => onChoiceChange?.(id, selection, notes)}
+                    onClear={(id) => onChoiceClear?.(id)}
+                  />
+                ))}
+                <div aria-hidden className="h-3" />
+              </section>
+            ))}
+          </div>
         )}
       </div>
     </div>

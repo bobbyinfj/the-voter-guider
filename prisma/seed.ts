@@ -1,7 +1,7 @@
 // Seed script: loads the curated, source-backed election bundles in data/.
 // Nothing here invents data — every election, office, candidate and measure comes
 // from a bundle file whose facts are documented in data/research/.
-import { PrismaClient } from "../generated/prisma/client";
+import { PrismaClient, Prisma } from "../generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
 import { readFileSync, readdirSync } from "fs";
@@ -50,6 +50,10 @@ interface CandidateData {
   phone?: string;
 }
 
+// Printed layout from the county's official sample ballot (data/research/sample-ballots);
+// stored as-is in Ballot.metadata.ballot for the guide's ballot replica
+type BallotLayout = Record<string, unknown>;
+
 interface OfficeData {
   id: string;
   title: string;
@@ -62,6 +66,7 @@ interface OfficeData {
   sortOrder?: number;
   description?: string;
   candidates: CandidateData[];
+  ballot?: BallotLayout;
 }
 
 interface MeasureData {
@@ -81,6 +86,7 @@ interface MeasureData {
   fiscalImpact?: string;
   placedBy?: string;
   passes?: string;
+  ballot?: BallotLayout;
 }
 
 interface ElectionFile {
@@ -285,7 +291,11 @@ async function seedElectionBundle(slug: string) {
       description: officeData.description ?? null,
       type: "candidate",
       options: officeData.candidates.map((c) => c.name),
-      metadata: { level: officeData.level, sortOrder: officeData.sortOrder ?? 100 },
+      metadata: {
+        level: officeData.level,
+        sortOrder: officeData.sortOrder ?? 100,
+        ...(officeData.ballot ? { ballot: officeData.ballot } : {}),
+      } as Prisma.InputJsonObject,
       districtType: officeData.districtType ?? null,
       districtCode: officeData.districtCode ?? null,
     };
@@ -299,6 +309,7 @@ async function seedElectionBundle(slug: string) {
       const candidate = await prisma.candidate.upsert({
         where: { id: cd.id },
         update: {
+          officeId: office.id,
           name: cd.name,
           party: cd.party,
           incumbent: cd.incumbent ?? false,
@@ -355,7 +366,8 @@ async function seedElectionBundle(slug: string) {
         fiscalImpact: m.fiscalImpact ?? null,
         placedBy: m.placedBy ?? null,
         passes: m.passes ?? null,
-      },
+        ...(m.ballot ? { ballot: m.ballot } : {}),
+      } as Prisma.InputJsonObject,
       districtType: m.districtType ?? null,
       districtCode: m.districtCode ?? null,
     };
