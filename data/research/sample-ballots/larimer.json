@@ -1,0 +1,1049 @@
+{
+ "county": "larimer",
+ "source": "https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf",
+ "style": {
+  "party": "right",
+  "responses": "inline"
+ },
+ "sections": [
+  "Federal Offices",
+  "State Offices",
+  "County Offices",
+  "Judicial Retention Questions",
+  "State of Colorado",
+  "Larimer County",
+  "Town of Wellington",
+  "Town of Berthoud",
+  "Weld County School District RE-5J",
+  "Larimer County Stanley Heights Public Improvement District No. 81",
+  "Larimer County Colland Center Public Improvement District No. 82",
+  "Larimer County Terry Point Estates Public Improvement District No. 85",
+  "Estes Valley Fire Protection District",
+  "Thompson Crossing Metropolitan District No. 2",
+  "Front Range Passenger Rail District",
+  "Allenspark Fire Protection District",
+  "Poudre Valley Fire Protection District",
+  "Windsor-Severance Fire Protection District"
+ ],
+ "notices": [
+  {
+   "section": "State of Colorado",
+   "text": "Ballot questions referred by the general assembly or any political subdivision are listed by letter, and ballot questions initiated by the people are listed numerically. A ballot question listed as an \"amendment\" proposes a change to the Colorado constitution, and a ballot question listed as a \"proposition\" proposes a change to the Colorado Revised Statutes. A \"yes/for\" vote on any ballot question is a vote in favor of changing current law or existing circumstances, and a \"no/against\" vote on any ballot question is a vote against changing current law or existing circumstances."
+  }
+ ],
+ "contests": [
+  {
+   "section": "Federal Offices",
+   "title": "United States Senator",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Mark Baisley",
+     "party": "Republican"
+    },
+    {
+     "name": "John Hickenlooper",
+     "party": "Democratic"
+    },
+    {
+     "name": "Bob Chew",
+     "party": "Forward"
+    },
+    {
+     "name": "Christopher Baum",
+     "party": "Approval Voting"
+    },
+    {
+     "name": "Blake Huber",
+     "party": "Libertarian"
+    },
+    {
+     "name": "Adam Withrow",
+     "party": "Unity"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Federal Offices",
+   "title": "Representative to the 120th United States Congress - District 2",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Joe Neguse",
+     "party": "Democratic"
+    },
+    {
+     "name": "Kelley Anne Dennison",
+     "party": "Republican"
+    },
+    {
+     "name": "Gaylon Kent",
+     "party": "Libertarian"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "Federal Offices",
+   "title": "Representative to the 120th United States Congress - District 4",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Lauren Boebert",
+     "party": "Republican"
+    },
+    {
+     "name": "Eileen Laubacher",
+     "party": "Democratic"
+    },
+    {
+     "name": "Douglas Mangeris",
+     "party": "Libertarian"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Federal Offices",
+   "title": "Representative to the 120th United States Congress - District 8",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Gabe Evans",
+     "party": "Republican"
+    },
+    {
+     "name": "Manny Rutinel",
+     "party": "Democratic"
+    },
+    {
+     "name": "Dave Wood",
+     "party": "Libertarian"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "Governor / Lieutenant Governor",
+   "instructions": [
+    "(Vote for One Pair)"
+   ],
+   "candidates": [
+    {
+     "name": "Victor Marx / George Washington Markert",
+     "party": "Republican"
+    },
+    {
+     "name": "Phil Weiser / Lesley Dahlkemper",
+     "party": "Democratic"
+    },
+    {
+     "name": "Stephen T. Hamilton / James K Treibert",
+     "party": "American Constitution"
+    },
+    {
+     "name": "Eric Mulder / Wayne Harlos",
+     "party": "Libertarian"
+    },
+    {
+     "name": "Jeff Peckman / T.J. Cole",
+     "party": "Unity"
+    },
+    {
+     "name": "Erik Underwood / Frank Atwood",
+     "party": "Approval Voting"
+    },
+    {
+     "name": "Greg Lopez / Taralyn Romero",
+     "party": "Unaffiliated"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "Secretary of State",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Amanda Gonzalez",
+     "party": "Democratic"
+    },
+    {
+     "name": "James Wiley",
+     "party": "Republican"
+    },
+    {
+     "name": "Sean Vadney",
+     "party": "Libertarian"
+    },
+    {
+     "name": "Amanda Campbell",
+     "party": "American Constitution"
+    },
+    {
+     "name": "Celeste Landry",
+     "party": "Forward"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Treasurer",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Jeff Bridges",
+     "party": "Democratic"
+    },
+    {
+     "name": "Kevin Grantham",
+     "party": "Republican"
+    },
+    {
+     "name": "Jodie Barr",
+     "party": "Libertarian"
+    },
+    {
+     "name": "Marilee Langner Sturgis",
+     "party": "Approval Voting"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "Attorney General",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Michael J. Allen",
+     "party": "Republican"
+    },
+    {
+     "name": "Jena Griswold",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "Regent of the University of Colorado - Congressional District 2",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Marty Neilson",
+     "party": "Republican"
+    },
+    {
+     "name": "Edie Hooton",
+     "party": "Democratic"
+    },
+    {
+     "name": "Richard Friend",
+     "party": "Libertarian"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Senator - District 15",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Rob Woodward",
+     "party": "Republican"
+    },
+    {
+     "name": "Janice Marchman",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 49",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Michael Sheperek",
+     "party": "Republican"
+    },
+    {
+     "name": "Lesley Smith",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 51",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Amy Parks",
+     "party": "Republican"
+    },
+    {
+     "name": "Jacki Marsh",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 52",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Yara Zokaie",
+     "party": "Democratic"
+    },
+    {
+     "name": "Steve Yurash",
+     "party": "Center"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 53",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Daniel Frick",
+     "party": "Republican"
+    },
+    {
+     "name": "Andy Boesenecker",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 64",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Maureen (Mo) Dower",
+     "party": "Democratic"
+    },
+    {
+     "name": "Scott L. Slaugh",
+     "party": "Republican"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "State Offices",
+   "title": "State Representative - District 65",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Lori Garcia Sander",
+     "party": "Republican"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Commissioner - District 1",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Shane Atkinson",
+     "party": "Democratic"
+    },
+    {
+     "name": "Marc Roberson",
+     "party": "Republican"
+    },
+    {
+     "name": "Stephen Fowler",
+     "party": "Center"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Clerk and Recorder",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Tina Harris",
+     "party": "Republican"
+    },
+    {
+     "name": "Kenneth Forsythe",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Treasurer",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Joann Ginal",
+     "party": "Democratic"
+    },
+    {
+     "name": "Steve Olson",
+     "party": "Republican"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Assessor",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Patrick Edwards",
+     "party": "Republican"
+    },
+    {
+     "name": "Bob Overbeck",
+     "party": "Democratic"
+    },
+    {
+     "name": "Sam Bradley",
+     "party": "Forward"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Sheriff",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "John J. Feyen",
+     "party": "Republican"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Surveyor",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Tom Donnelly",
+     "party": "Republican"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "County Offices",
+   "title": "County Coroner",
+   "instructions": [
+    "(Vote for One)"
+   ],
+   "candidates": [
+    {
+     "name": "Stephen Hanks",
+     "party": "Democratic"
+    }
+   ],
+   "writeIn": false
+  },
+  {
+   "section": "Judicial Retention Questions",
+   "title": "Colorado Supreme Court Justice",
+   "instructions": [
+    "(Vote YES or NO)"
+   ],
+   "questions": [
+    {
+     "text": "Shall Justice William W. Hood, III of the Colorado Supreme Court be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Judicial Retention Questions",
+   "title": "Colorado Court of Appeals Judge",
+   "instructions": [
+    "(Vote YES or NO)"
+   ],
+   "questions": [
+    {
+     "text": "Shall Judge Rebecca Rankin Freyre of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Elizabeth L. Harris of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Katharine E. Lum of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Pax Moultrie of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Karl L. Schock of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Grant Sullivan of the Colorado Court of Appeals be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Judicial Retention Questions",
+   "title": "County Court Judge - Larimer",
+   "instructions": [
+    "(Vote YES or NO)"
+   ],
+   "questions": [
+    {
+     "text": "Shall Judge Katharine \"Jenny\" Ellison of the Larimer County Court be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Thomas L. Lynch of the Larimer County Court be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    },
+    {
+     "text": "Shall Judge Matthew R. Zehe of the Larimer County Court be retained in office?",
+     "responses": [
+      "YES",
+      "NO"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 81 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution requiring law enforcement to notify the department of homeland security when a person is charged with either a violent crime or any crime if the person has a prior felony conviction if law enforcement cannot determine that the person is lawfully present in the United States?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 82 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution creating new law granting the right for consumers to purchase natural gas for cooking or heating in homes or businesses and for distributors and utilities to sell natural gas to consumers?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 83 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution creating a constitutional right to hunt, fish, and harvest fish and wildlife by traditional methods, including all species of fish and wildlife managed by the state except non-game species, endangered species, or any species that is illegal to hunt under federal law, and, in connection therewith, establishing hunting and fishing as the preferred means of managing fish and wildlife populations; and preserving the right of the state to regulate hunting, fishing, and wildlife management if necessary for sound scientific wildlife conservation and management, public safety, or to preserve the future of hunting and fishing opportunities for all species?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 84 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution requiring a voter to sign and include the last four digits of their social security number or their Colorado driver’s license or identification card number on the outside of their mail ballot for any federal or state election, and, in connection therewith, allowing the voter to correct missing or incorrect information, including with alternative forms of identification; and prohibiting a county clerk and recorder from counting the mail ballot unless the problem is fixed?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 85 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution concerning ballot question language, and, in connection therewith, requiring all state and local ballot questions to be written in plain language and at no more than an 8th grade reading level and prohibiting a state statute from requiring language that conflicts with these requirements in ballot questions for citizen-initiated measures?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 86 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be an amendment to the Colorado Constitution concerning congressional redistricting, and, in connection therewith, reenacting the current process for congressional redistricting in the Colorado Constitution and prohibiting modifications to a final map unless at least three public meetings are held, the modifications do not have the effect of dividing communities of interest or purposefully favoring one political party, and are approved by the congressional redistricting commission and the Colorado Supreme Court?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Amendment 87 (CONSTITUTIONAL)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL STATE TAXES BE INCREASED $2.7 BILLION ANNUALLY, IN ORDER TO INCREASE OR IMPROVE LEVELS OF PUBLIC SERVICES, INCLUDING K-12 PUBLIC SCHOOL EDUCATION, HEALTH CARE, AND EARLY CHILD CARE AND EDUCATION SERVICES, BY AN AMENDMENT TO THE COLORADO CONSTITUTION AND A CHANGE TO THE COLORADO REVISED STATUTES REPEALING EXISTING LAW AND CREATING NEW LAW TO REPLACE THE UNIFORM STATE INCOME TAX RATE WITH A GRADUATED INCOME TAX STRUCTURE, AND, IN CONNECTION THEREWITH, AMENDING THE TAXPAYER’S BILL OF RIGHTS TO ELIMINATE THE CONSTITUTIONAL REQUIREMENT FOR ALL TAXABLE NET INCOME TO BE TAXED AT ONE RATE WITH NO ADDED TAX ON INCOME; ESTABLISHING VARIOUS INCOME TAX RATES BASED ON THE AMOUNT OF TAXABLE INCOME EARNED BY INDIVIDUALS, ESTATES, TRUSTS, AND CORPORATIONS, WHILE MAINTAINING THE CURRENT 4.4% TAX ON INCOME FROM THE SALE OF A PRINCIPAL RESIDENCE, WHICH WILL RESULT IN THE ESTIMATED CHANGE IN INCOME TAXES OWED BY INDIVIDUALS AS IDENTIFIED IN THE FOLLOWING TABLE; AND AUTHORIZING THE STATE TO RETAIN AND SPEND ANY INCREASED REVENUE FROM THE NEW TAX STRUCTURE, AS A VOTER-APPROVED REVENUE CHANGE, TO SUPPLEMENT CURRENT LEVELS OF FUNDING FOR K-12 PUBLIC SCHOOL EDUCATION, HEALTH CARE, AND EARLY CHILD CARE AND EDUCATION PROGRAMS?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ],
+     "note": "Income categories use adjusted gross income reported to the federal Internal Revenue Service."
+    }
+   ],
+   "table": {
+    "caption": "Change in Income Taxes Owed by Income Category",
+    "columns": [
+     "Income Categories",
+     "Current Average Income Tax Owed",
+     "Proposed Average Income Tax Owed",
+     "Proposed Change in Average Income Tax Owed if Passed + or -"
+    ],
+    "rows": [
+     [
+      "$25,000 or less",
+      "$59",
+      "$50",
+      "-$9"
+     ],
+     [
+      "$25,001 - $50,000",
+      "$751",
+      "$632",
+      "-$119"
+     ],
+     [
+      "$50,001 - $100,000",
+      "$1,877",
+      "$1,666",
+      "-$210"
+     ],
+     [
+      "$100,001 - $200,000",
+      "$4,126",
+      "$3,828",
+      "-$298"
+     ],
+     [
+      "$200,001 - $500,000",
+      "$9,344",
+      "$9,019",
+      "-$325"
+     ],
+     [
+      "$500,001 - $1,000,000",
+      "$19,288",
+      "$18,963",
+      "-$325"
+     ],
+     [
+      "$1,000,001 - $2,000,000",
+      "$29,432",
+      "$34,196",
+      "+$4,764"
+     ],
+     [
+      "$2,000,001 - $5,000,000",
+      "$41,196",
+      "$55,110",
+      "+$13,914"
+     ]
+    ]
+   }
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition NN (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall state investment in K-12 public education increase two percent each year for the next ten years, with investments used to increase teacher pay, improve teacher retention, lower class sizes, and increase access to career and technical courses, without raising taxes but instead funded by raising the annual limit on state fiscal year spending only by the amount spent on public K-12 education as a voter-approved revenue change, and requiring an annual publicly released, independent audit to show how the new investments are spent?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 132 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes concerning criminal penalties for fentanyl and certain synthetic opioids, and, in connection therewith, increasing the felony classifications of drug-related crimes for distribution, manufacturing, dispensing, sale, or possession of fentanyl and certain synthetic opioids; creating mandated treatment for certain drug felony violations based on possession amount; and changing sentencing provisions to narrow or eliminate exemptions for crimes related to fentanyl and certain synthetic opioids and drug-related deaths?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 133 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes modifying existing law concerning human trafficking of a minor for sexual servitude, and, in connection therewith, creating new law expanding human trafficking of a minor for sexual servitude to include knowingly trading anything of monetary value to buy or sell sexual activity with a minor and increasing the penalty to be life in prison without parole or release?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 134 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes creating new law restricting participation in all K-12 and collegiate school sports based on the participant’s sex as determined by certain aspects of their biological reproductive system, and, in connection therewith, requiring a school, institution of higher education, or athletic association to designate each school or intramural athletic team or sport as male, female, or coeducational; only allowing participants to compete on the team or sport of their designated sex or to compete on a coeducational team; creating an exception to allow a female to participate on a male-designated team or sport if there is no female team available; prohibiting a government entity, licensing or accrediting organization, or athletic association from entertaining a complaint, opening an investigation, or taking other adverse action against a school for maintaining separate teams or sports for females; and providing the commissioner of education with the authority to enforce the proposed initiative for K-12 school districts?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 135 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes modifying existing law by prohibiting surgery on a minor for the purpose of altering the minor’s biological sex characteristics, and, in connection therewith, prohibiting any health-care professional or other person from knowingly performing, prescribing, administering, or providing any surgery to a minor for the purpose of altering the minor’s biological sex characteristics and prohibiting the use of state or federal funds, Medicaid reimbursement, or insurance coverage to pay for this type of surgery?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 136 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes capping the state income tax rate at 4.4% of federal taxable income for individuals and corporations?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State of Colorado",
+   "title": "Proposition 137 (STATUTORY)",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Shall there be a change to the Colorado Revised Statutes creating new law to increase water and land conservation funding without raising taxes, and, in connection therewith, through a voter-approved revenue change, allowing the state to keep and spend a portion of revenue from the state sales tax on sporting goods and equipment to conserve and protect Colorado’s water, land, and forests, prevent wildfires, support outdoor recreation training and activities, and reduce revenue spent on these conservation purposes if necessary to preserve funding for certain tax credits?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Larimer County",
+   "title": "Ballot Issue 1A",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL LARIMER COUNTY TAXES BE INCREASED BY UP TO $34 1/2 MILLION ANNUALLY (ESTIMATED FIRST YEAR INCREASE STARTING JANUARY 1, 2027), AND BY ANY ADDITIONAL AMOUNT GENERATED EACH YEAR THEREAFTER, TO FUND COUNTY PURPOSES INCLUDING: WILDFIRE, DRINKING WATER SOURCE AREAS, AND NATURAL HAZARD RESILIENCE, INCLUDING PREVENTION, MITIGATION, PREPAREDNESS, RESPONSE, RECOVERY, WATERSHED PROTECTION, FOREST HEALTH, AND OTHER PROJECTS THAT REDUCE THE RISKS OR IMPACTS OF DISASTER; MAINTAIN, IMPROVE, AND CONSTRUCT COUNTY BRIDGES, ROADS, PARKS, TRAILS, OPEN SPACES AND OTHER RECREATIONAL LANDS TO IMPROVE SAFETY, ACCESS AND QUALITY OF LIFE; AND COMMUNITY RESILIENCE AND PUBLIC SAFETY, INCLUDING EMERGENCY SERVICES, WILDFIRE SUPPRESSION, ADMINISTRATION AND FUNDING OF PUBLIC BENEFITS, JUSTICE CENTER AND OTHER FACILITY IMPROVEMENTS, AND OTHER COUNTY PRIORITIES AND EMERGING COMMUNITY NEEDS; BY ESTABLISHING A 0.3% (30 CENTS ON $100 PURCHASE) COUNTYWIDE SALES AND USE TAX, EXCLUDING SALES OF FOOD FOR HOME CONSUMPTION, GASOLINE, DIAPERS, PRESCRIPTION DRUGS AND CERTAIN OTHER ITEMS EXEMPT BY LAW; WITH ALL REVENUE SUBJECT TO AN ANNUAL INDEPENDENT AUDIT; AND SHALL THE COUNTY BE AUTHORIZED TO COLLECT, RETAIN AND SPEND ALL REVENUES FROM THIS TAX WITHOUT LIMITATION BY ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION (TABOR), ALL AS PROVIDED IN THE RESOLUTION REFERRING THIS BALLOT ISSUE?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Town of Wellington",
+   "title": "Ballot Issue 2A",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL TOWN OF WELLINGTON TAXES BE INCREASED BY $995,000 ANNUALLY IN THE FISCAL YEAR BEGINNING JANUARY 1, 2027, AND BY SUCH ADDITIONAL AMOUNTS AS MAY BE GENERATED ANNUALLY THEREAFTER, BY AN ADDITIONAL ONE-HALF PERCENT (0.50%) SALES AND USE TAX (WHICH WOULD COST 50 CENTS ON A $100 PURCHASE), TO FUND LAW ENFORCEMENT AND RELATED PUBLIC SAFETY SERVICES; AND TO THE EXTENT REVENUES EXCEED AMOUNTS BUDGETED FOR SUCH PURPOSES, OTHER LAWFUL MUNICIPAL OPERATING PURPOSES; AND SHALL THE TOWN BE AUTHORIZED TO COLLECT, RETAIN, AND SPEND THE PROCEEDS OF THE REVENUE FROM SUCH TAX AND ANY EARNINGS THEREON AS A VOTER-APPROVED REVENUE CHANGE AND AN EXCEPTION TO THE LIMITS ON REVENUE AND SPENDING UNDER ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION OR ANY OTHER LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Town of Berthoud",
+   "title": "Ballot Issue 3G",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL THE TOWN OF BERTHOUD DEBT BE INCREASED $28,000,000, WITH A MAXIMUM REPAYMENT COST OF UP TO $60,000,000, SUCH DEBT TO CONSIST OF SALES AND USE TAX REVENUE BONDS TO BE PAYABLE FROM ALL OR A PORTION OF THE TOWN'S SALES AND USE TAX (WITHOUT INCREASING TAXES) AND ISSUED SOLELY FOR PARKS AND RECREATION PURPOSES, INCLUDING BUT NOT LIMITED TO THE DESIGN, CONSTRUCTION, AND EQUIPMENT OF A COMMUNITY PARK SITE KNOWN AS MOUNTAIN VISTA PARK AND CONSISTING OF A COMBINATION OF BALLFIELDS, AQUATIC RECREATION FEATURES, AND RELATED IMPROVEMENTS; SUCH BONDS TO BE ISSUED, DATED AND SOLD AT SUCH TIMES, AND AT SUCH PRICES (AT, ABOVE OR BELOW PAR) AND CONTAINING SUCH TERMS, NOT INCONSISTENT HEREWITH, AS THE BOARD OF TRUSTEES MAY DETERMINE; AND SHALL THE EARNINGS ON THE INVESTMENT OF THE PROCEEDS OF SUCH BONDS (REGARDLESS OF AMOUNT) AND THE FUNDS USED FOR THE PAYMENT OF THE BONDS CONSTITUTE A VOTER-APPROVED REVENUE CHANGE AND AN EXCEPTION TO THE REVENUE AND SPENDING LIMITS OF ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION OR ANY OTHER LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Weld County School District RE-5J",
+   "title": "Ballot Issue 5A",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "WITHOUT IMPOSING A NEW TAX, SHALL WELD COUNTY SCHOOL DISTRICT NO. RE-5J (JOHNSTOWN MILLIKEN) BE AUTHORIZED TO EXTEND THE TAX APPROVED BY THE DISTRICT'S VOTERS IN 2020 ($4 MILLION ANNUALLY), WHICH IS SET TO EXPIRE ON DECEMBER 31, 2030, TO BE USED FOR GENERAL FUND PURPOSES OF THE DISTRICT INCLUDING BUT NOT LIMITED TO: RETAIN AND ATTRACT HIGH QUALITY TEACHERS AND STAFF; PROVIDE ADDITIONAL SAFETY, SECURITY, AND MENTAL HEALTH PERSONNEL; EXPAND AUTHENTIC CAREER EXPLORATION AND PREPARATION PROGRAMS; MAINTAIN EARLY CHILDHOOD PROGRAMMING; SUCH REVENUES TO BE DEPOSITED IN THE GENERAL FUND AND USED FOR EDUCATIONAL PURPOSES PURSUANT TO SECTION 22-54-108, C.R.S.; AND SHALL THE REVENUES FROM SUCH TAXES AND ANY EARNINGS FROM THE INVESTMENT OF SUCH REVENUES BE COLLECTED AND SPENT AS A VOTER APPROVED REVENUE CHANGE UNDER ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION AND ANY OTHER LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Larimer County Stanley Heights Public Improvement District No. 81",
+   "title": "Ballot Issue 6A",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL TAXES BE INCREASED $48,000.00 ANNUALLY (IN THE FIRST YEAR) OR SUCH GREATER AMOUNT AS IS RAISED IN SUBSEQUENT YEARS WITHIN THE BOUNDARIES OF THE PROPOSED STANLEY HEIGHTS PUBLIC IMPROVEMENT DISTRICT NO. 81 BY THE IMPOSITION OF AD VALOREM PROPERTY TAXES AT A MILL LEVY RATE NOT TO EXCEED 13.791 MILLS, THE REVENUES OF WHICH WILL BE COLLECTED BEGINNING JANUARY 1, 2027 AND EACH YEAR THEREAFTER, SUCH REVENUES TO BE USED FOR THE IMPROVEMENT AND MAINTENANCE OF ROADS AS REQUESTED IN THE PETITION FOR CREATION OF THE DISTRICT AND FOR THE GENERAL OPERATING EXPENSES; SHALL STANLEY HEIGHTS PUBLIC IMPROVEMENT DISTRICT NO. 81 BE CREATED; AND SHALL THE PROCEEDS OF SUCH TAXES, THE SPECIFIC OWNERSHIP TAXES RECEIVED BY THE DISTRICT AND INVESTMENT EARNING ON BOTH CONSTITUTE VOTER APPROVED REVENUE AND/OR SPENDING CHANGES AND BE COLLECTED AND SPENT BY THE DISTRICT WITHOUT REGARD TO ANY SPENDING, REVENUE RAISING OR OTHER LIMITATION CONTAINED WITHIN ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION; AND SHALL THE DISTRICT BE AUTHORIZED TO COLLECT AND EXPEND FROM ITS MILL LEVY ANY SUCH AMOUNT WHICH IS MORE THAN THE AMOUNT WHICH WOULD OTHERWISE BE PERMITTED UNDER THE 5.5% LIMIT IMPOSED BY SECTION 29-1-301, COLORADO REVISED STATUTES IN 2027 AND EACH YEAR THEREAFTER?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Larimer County Colland Center Public Improvement District No. 82",
+   "title": "Ballot Issue 6B",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL TAXES BE INCREASED $182,000.00 ANNUALLY (IN THE FIRST YEAR) OR SUCH GREATER AMOUNT AS IS RAISED IN SUBSEQUENT YEARS WITHIN THE BOUNDARIES OF THE PROPOSED COLLAND CENTER PUBLIC IMPROVEMENT DISTRICT NO. 82 BY THE IMPOSITION OF AD VALOREM PROPERTY TAXES AT A MILL LEVY RATE NOT TO EXCEED 22.942 MILLS, THE REVENUES OF WHICH WILL BE COLLECTED BEGINNING JANUARY 1, 2027, AND EACH YEAR THEREAFTER, SUCH REVENUES TO BE USED FOR THE IMPROVEMENT AND MAINTENANCE OF ROADS AS REQUESTED IN THE PETITION FOR CREATION OF THE DISTRICT AND FOR THE GENERAL OPERATING EXPENSES; SHALL COLLAND CENTER PUBLIC IMPROVEMENT DISTRICT NO. 82 BE CREATED; AND SHALL THE PROCEEDS OF SUCH TAXES, THE SPECIFIC OWNERSHIP TAXES RECEIVED BY THE DISTRICT AND INVESTMENT EARNING ON BOTH CONSTITUTE VOTER APPROVED REVENUE AND/OR SPENDING CHANGES AND BE COLLECTED AND SPENT BY THE DISTRICT WITHOUT REGARD TO ANY SPENDING, REVENUE RAISING OR OTHER LIMITATION CONTAINED WITHIN ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION; AND SHALL THE DISTRICT BE AUTHORIZED TO COLLECT AND EXPEND FROM ITS MILL LEVY ANY SUCH AMOUNT WHICH IS MORE THAN THE AMOUNT WHICH WOULD OTHERWISE BE PERMITTED UNDER THE 5.5% LIMIT IMPOSED BY SECTION 29-1-301, COLORADO REVISED STATUTES IN 2027 AND EACH YEAR THEREAFTER?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Larimer County Terry Point Estates Public Improvement District No. 85",
+   "title": "Ballot Issue 6C",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL TAXES BE INCREASED $139,000.00 ANNUALLY (IN THE FIRST YEAR) OR SUCH GREATER AMOUNT AS IS RAISED IN SUBSEQUENT YEARS WITHIN THE BOUNDARIES OF THE PROPOSED TERRY POINT ESTATES PUBLIC IMPROVEMENT DISTRICT NO. 85 BY THE IMPOSITION OF AD VALOREM PROPERTY TAXES AT A MILL LEVY RATE NOT TO EXCEED 26.970 MILLS, THE REVENUES OF WHICH WILL BE COLLECTED BEGINNING JANUARY 1, 2027 AND EACH YEAR THEREAFTER, SUCH REVENUES TO BE USED FOR THE IMPROVEMENT AND MAINTENANCE OF ROADS AS REQUESTED IN THE PETITION FOR CREATION OF THE DISTRICT AND FOR THE GENERAL OPERATING EXPENSES; SHALL TERRY POINT ESTATES PUBLIC IMPROVEMENT DISTRICT NO. 85 BE CREATED; AND SHALL THE PROCEEDS OF SUCH TAXES, THE SPECIFIC OWNERSHIP TAXES RECEIVED BY THE DISTRICT AND INVESTMENT EARNING ON BOTH CONSTITUTE VOTER APPROVED REVENUE AND/OR SPENDING CHANGES AND BE COLLECTED AND SPENT BY THE DISTRICT WITHOUT REGARD TO ANY SPENDING, REVENUE RAISING OR OTHER LIMITATION CONTAINED WITHIN ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION; AND SHALL THE DISTRICT BE AUTHORIZED TO COLLECT AND EXPEND FROM ITS MILL LEVY ANY SUCH AMOUNT WHICH IS MORE THAN THE AMOUNT WHICH WOULD OTHERWISE BE PERMITTED UNDER THE 5.5% LIMIT IMPOSED BY SECTION 29-1-301, COLORADO REVISED STATUTES IN 2027 AND EACH YEAR THEREAFTER?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Estes Valley Fire Protection District",
+   "title": "Ballot Issue 6D",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL ESTES VALLEY FIRE PROTECTION DISTRICT TAXES BE INCREASED THREE MILLION FIVE HUNDRED THOUSAND ($3,500,000.00) DOLLARS ANNUALLY IN THE FIRST FULL FISCAL YEAR, AND BY SUCH AMOUNTS AS ARE RAISED ANNUALLY THEREAFTER BY THE IMPOSITION OF A SALES TAX BEGINNING JANUARY 1, 2027 NOT TO EXCEED 0.5% (50 CENTS ON EACH $100 DOLLARS), UPON EVERY TRANSACTION IN THE DISTRICT WHICH THE STATE IMPOSES A SALES TAX (EXCLUDING GROCERIES AND OTHER EXEMPT ITEMS); FUNDING FROM THE SALES TAX WILL BE USED FOR ANY LAWFUL PURPOSE INCLUDING, BUT NOT LIMITED TO: MAINTAINING WILDLAND FIREFIGHTING CAPABILITIES TO INCLUDE SPECIALIZED AND/OR UPGRADED EQUIPMENT AND FIREFIGHTER TRAINING; MAINTAINING FIRE APPARATUS AND EQUIPMENT TO EXTEND ITS USEFUL LIFE AND REPLACING AND/OR UPGRADING FIREFIGHTING VEHICLES, COMMUNICATION METHODS, SAFETY GEAR AND OTHER EQUIPMENT AND APPARATUS; FUNDING VOLUNTEER FIREFIGHTING GENERAL AND SPECIALIZED TRAINING PROGRAMS, OPPORTUNITIES, AND OVERALL PROGRAM SUPPORT. AND SHALL ALL DISTRICT SALES TAX REVENUES AND THE EARNINGS FROM THE INVESTMENT OF SUCH REVENUES BE COLLECTED, RETAINED, AND SPENT AS A VOTER APPROVED REVENUE CHANGE NOTWITHSTANDING ANY REVENUE LIMITS PROVIDED BY LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Thompson Crossing Metropolitan District No. 2",
+   "title": "Ballot Issue 6E",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "WITHOUT INCREASING THE DISTRICT'S AVERAGE PROPERTY TAX MILL LEVY FOR THE LAST 10 YEARS, SHALL THOMPSON CROSSING METROPOLITAN DISTRICT NO. 2 DEBT BE INCREASED UP TO $16 MILLION, WITH A MAXIMUM REPAYMENT COST OF UP TO $36 MILLION, FOR THE PURPOSE OF FINANCING PUBLIC IMPROVEMENTS, INCLUDING: A NEW MULTI-USE 10' PAVED TRAIL ALONG THE SOUTHERN BOUNDARY OF THE DISTRICT LOWERING THE INTEREST RATES ON OBLIGATIONS FOR IMPROVEMENTS RELATED TO STREETS, WATER, SANITARY SEWER, STORM DRAINAGE, LANDSCAPING, PARKS AND RECREATION, SAFETY PROTECTION, TRANSPORTATION, AND SECURITY; SUCH DEBT TO CONSIST OF GENERAL OBLIGATION BONDS, WHICH BONDS SHALL BEAR INTEREST AT A MAXIMUM NET EFFECTIVE INTEREST RATE NOT TO EXCEED 5.25% PER ANNUM; SUCH BONDS TO BE PAYABLE FROM PROPERTY TAXES PREVIOUSLY APPROVED AT THE DISTRICT'S 2001 ELECTION; AND SHALL ALL SUCH REVENUES AND ANY EARNINGS FROM THE INVESTMENT OF SUCH REVENUES AND THE PROCEEDS OF THE BONDS CONSTITUTE A VOTER-APPROVED REVENUE CHANGE UNDER ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Front Range Passenger Rail District",
+   "title": "Ballot Issue 7A",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL FRONT RANGE PASSENGER RAIL DISTRICT TAXES BE INCREASED $295,000,000 ANNUALLY AND BY WHATEVER AMOUNTS ARE RAISED ANNUALLY THEREAFTER, AND SHALL FRONT RANGE PASSENGER RAIL DISTRICT DEBT BE INCREASED $580,000,000, WITH A REPAYMENT COST OF $785,000,000; TO CONSTRUCT, OPERATE, AND MAINTAIN COLORADO CONNECTOR (COCO) PASSENGER RAIL SERVICE ON COLORADO'S FRONT RANGE AND CONNECT COMMUNITIES, INCLUDING PUEBLO, COLORADO SPRINGS, STERLING RANCH, LITTLETON, DENVER, WESTMINSTER, BROOMFIELD, LOUISVILLE, BOULDER, LONGMONT, LOVELAND, AND FORT COLLINS; IN ORDER TO: REMOVE VEHICLES FROM HIGHWAYS AND INCREASE TRAVEL CAPACITY; CONNECT TRAVELERS TO EMPLOYMENT CENTERS, COLLEGES, SPORTS ARENAS, AND ENTERTAINMENT HUBS ALONG THE FRONT RANGE; AND INVEST IN STATION AREA IMPROVEMENTS AND LOCAL CONNECTIONS TO RAIL STATIONS; BY ESTABLISHING A 0.333% SALES AND USE TAX (EQUAL TO ONE THIRD OF A PENNY ON A $1 PURCHASE), WITH EXEMPTIONS PROVIDED UNDER COLORADO LAW, INCLUDING THOSE FOR GASOLINE, FOOD, RESIDENTIAL ELECTRICITY AND GAS, PRESCRIPTION DRUGS, AND MEDICAL SUPPLIES; AND TO RETAIN ALL SUCH REVENUES, PUBLIC AND PRIVATE CONTRIBUTIONS, AND ANY INVESTMENT INCOME ON REVENUES AND DEBT PROCEEDS, AS A VOTER-APPROVED REVENUE CHANGE UNDER SECTION 20 OF ARTICLE X OF THE COLORADO CONSTITUTION; AND REQUIRING THAT ALL SUCH DEDICATED REVENUES BE REVIEWED ANNUALLY BY AN INDEPENDENT AUDITOR AND A ROTATING GROUP OF CITIZEN TAXPAYERS WHO LIVE IN THE DISTRICT?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Allenspark Fire Protection District",
+   "title": "Ballot Issue 7C",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL ALLENSPARK FIRE PROTECTION DISTRICT TAXES BE INCREASED BY UP TO $331,000 IN THE FIRST FISCAL YEAR (2027) AND BY SUCH AMOUNT AS MAY BE RAISED ANNUALLY THEREAFTER, BY INCREASING THE DISTRICT'S PROPERTY TAX RATE BY AN ADDITIONAL 5.3 MILLS, FOR THE PURPOSES OF PROVIDING FIRE PROTECTION AND EMERGENCY RESPONSE SERVICES, INCLUDING BUT NOT LIMITED TO: REBUILDING DEPLETED RESERVES IN ORDER TO PRESERVE THE CURRENT LEVEL OF SERVICES FOR THE COMMUNITY, ADDRESS DEFERRED MAINTENANCE FOR OUR BUILDINGS AND GROUNDS, AND UPDATE AND REPLACE CRITICAL FIREFIGHTING AND MEDICAL EQUIPMENT (THE LAST MILL LEVY INCREASE WAS IN 2003). EXPAND STAFFING TO IMPROVE BOTH FIRE AND MEDICAL OUTCOMES THROUGH FIRE MITIGATION, COMMUNITY OUTREACH AND EDUCATION. IMPROVING FIREFIGHTING CAPABILITIES BY EXPANDING WATER RESOURCES TO INCREASE THE NUMBER OF DRY HYDRANTS AND INSTALLING WATER STORAGE TANKS AT KEY LOCATIONS THROUGHOUT THE DISTRICT. AND SHALL ALL REVENUE AND ANY EARNINGS ON THIS TAX CONSTITUTE A PERMANENT VOTER-APPROVED REVENUE CHANGE WITHIN THE MEANING OF ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION AND AN EXCEPTION TO THE LIMITATIONS SET FORTH IN TITLE 29 OF THE COLORADO REVISED STATUTES, AND ANY OTHER LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Poudre Valley Fire Protection District",
+   "title": "Ballot Issue 7E",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL THE POUDRE VALLEY FIRE PROTECTION DISTRICT WAIVE THE 5.25% PROPERTY TAX LIMIT FOR ALL FUTURE PROPERTY TAX YEARS, WITHOUT INCREASING TAXES, TO ALLOW FOR THE DISTRICT TO RETAIN PROPERTY TAX REVENUE FOR THE PURPOSES OF MAINTAINING ADEQUATE STAFFING, PROCURING AND MAINTAINING FIRE FIGHTING AND OTHER LIFE SAVING EQUIPMENT AND APPARATUS, AND FOR OTHER OPERATIONAL AND CAPITAL NEEDS AND SHALL ALL DISTRICT REVENUES BE COLLECTED, RETAINED, AND SPENT NOTWITHSTANDING ANY REVENUE LIMITS PROVIDED BY LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Windsor-Severance Fire Protection District",
+   "title": "Ballot Issue 7F",
+   "instructions": [],
+   "questions": [
+    {
+     "text": "SHALL WINDSOR-SEVERANCE FIRE PROTECTION DISTRICT TAXES BE INCREASED BY UP TO $44,336,787 BY TAX YEAR 2034, AFTER ALL PHASED-IN INCREASES, AND IN EACH YEAR THEREAFTER BY WHATEVER ADDITIONAL AMOUNTS ARE RAISED FROM A PHASED-IN OPERATING MILL LEVY IMPOSED AT A RATE OF UP TO 1.5 MILLS IN 2027, AN ADDITIONAL 1.5 MILLS IN 2031 AND AN ADDITIONAL 1 MILLS IN 2034 (THE TOTAL OF WHICH IS 4 MILLS AND IS IN ADDITION TO THE MILL LEVY CURRENTLY IMPOSED BY THE DISTRICT), AND CONTINUING THEREAFTER AS PROVIDED BY LAW, WITH SUCH TAX PROCEEDS TO BE USED FOR THE FOLLOWING DISTRICT OPERATIONAL AND CAPITAL EXPENSES: HIRING NECESSARY FIRE AND EMERGENCY RESPONSE PERSONNEL TO MEET GROWING NEEDS AND NATIONAL MINIMUM STAFFING STANDARDS; PURCHASING NECESSARY FIRE AND EMERGENCY RESPONSE APPARATUS AND EQUIPMENT; MAINTAINING AND IMPROVING CURRENT LEVELS OF FIRE PROTECTION AND EMERGENCY SERVICES; BUILDING AN ADDITIONAL FIRE STATION AND REMODELING EXISTING FACILITIES; AND SHALL ALL REVENUE AND ANY EARNINGS ON THIS TAX CONSTITUTE A PERMANENT VOTER-APPROVED REVENUE CHANGE WITHIN THE MEANING OF ARTICLE X, SECTION 20 OF THE COLORADO CONSTITUTION AND A WAIVER OF THE LIMITATIONS SET FORTH IN TITLE 29 OF THE COLORADO REVISED STATUTES, AND ANY OTHER LAW?",
+     "responses": [
+      "YES/FOR",
+      "NO/AGAINST"
+     ]
+    }
+   ]
+  }
+ ]
+}

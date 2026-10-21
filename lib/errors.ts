@@ -18,9 +18,12 @@ export function handleApiError(error: unknown): { message: string; statusCode: n
     }
   }
 
+  // Unexpected errors (e.g. database failures) can carry internals — log them, but
+  // only show the details to developers
   if (error instanceof Error) {
+    console.error(error)
     return {
-      message: error.message || 'An unexpected error occurred',
+      message: isDevelopment() && error.message ? error.message : 'An unexpected error occurred',
       statusCode: 500,
     }
   }

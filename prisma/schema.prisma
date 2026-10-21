@@ -20,13 +20,15 @@ model Jurisdiction {
   state      String
   countyName String?
   fipsCode   String?  @unique
-  type       String   @default("county") // county, state, city
+  type       String   @default("county") // county, state, city, precinct
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
   elections Election[]
   guides    Guide[]
   precincts Precinct[]
+  offices   Office[]
+  issues    Issue[]
 
   @@index([state, countyName])
   @@map("jurisdictions")
@@ -67,20 +69,24 @@ model Precinct {
 
 // Elections (upcoming or past)
 model Election {
-  id             String   @id @default(cuid())
-  jurisdictionId String
-  title          String
-  description    String?
-  electionDate   DateTime
-  type           String // primary, general, special, etc.
-  status         String   @default("upcoming") // upcoming, active, completed
-  officialUrl    String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id                String   @id @default(cuid())
+  jurisdictionId    String
+  title             String
+  description       String?
+  electionDate      DateTime
+  type              String // primary, general, special, etc.
+  status            String   @default("upcoming") // upcoming, active, completed
+  officialUrl       String?
+  // Official "which district am I in?" lookup, shown next to the district picker
+  districtLookupUrl String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 
   jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   ballots      Ballot[]
   guides       Guide[]
+  offices      Office[]
+  quiz         Quiz?
 
   @@index([jurisdictionId, electionDate])
   @@index([status, electionDate])
@@ -89,18 +95,23 @@ model Election {
 
 // Ballot Measures/Candidates
 model Ballot {
-  id          String   @id @default(cuid())
-  electionId  String
-  number      String? // e.g., "Prop 50", "Measure 1"
-  title       String
-  description String?
-  type        String // proposition, measure, candidate, referendum, etc.
-  options     Json? // For measures: YES/NO, For candidates: array of candidates
-  metadata    Json? // Additional data (tax rates, funding amounts, etc.)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  electionId   String
+  officeId     String?  @unique // links to Office for candidate races
+  number       String? // e.g., "Prop 50", "Measure 1"
+  title        String
+  description  String?
+  type         String // proposition, measure, candidate, referendum, etc.
+  options      Json? // For measures: YES/NO, For candidates: array of candidates
+  metadata     Json? // Additional data (tax rates, funding amounts, etc.)
+  // Same district scoping as Office; null = on every ballot in the election
+  districtType String?
+  districtCode String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   election Election @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  office   Office?  @relation(fields: [officeId], references: [id], onDelete: SetNull)
   choices  Choice[]
 
   @@index([electionId])
@@ -149,6 +160,7 @@ model Guide {
   jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   precinct     Precinct?    @relation(fields: [precinctId], references: [id], onDelete: SetNull)
   choices      Choice[]
+  answers      UserAnswer[]
 
   @@index([electionId])
   @@index([precinctId])
@@ -170,4 +182,187 @@ model GuideAnalytics {
 
   @@index([guideId, createdAt])
   @@map("guide_analytics")
+}
+
+// ────────────────────────────────────────────────────────────
+// Quiz / Decision-Support Layer
+// ────────────────────────────────────────────────────────────
+
+// An elected position on a specific ballot for a specific election
+model Office {
+  id             String  @id @default(cuid())
+  jurisdictionId String
+  electionId     String
+  title          String // "Governor", "US Senator", "Mayor", "City Council District 1"
+  district       String? // "District 1", "Seat A"
+  // District scoping for the district picker; null = on every ballot in the election.
+  // districtType is a key from lib/districts.ts ("congressional", "state-house", ...)
+  districtType   String?
+  districtCode   String? // "7", "43", "D5"
+  // federal | state | county | city | school | special
+  level          String
+  description    String?
+  termYears      Int?
+  sortOrder      Int     @default(100)
+
+  jurisdiction Jurisdiction @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  election     Election     @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  candidates   Candidate[]
+  ballot       Ballot?
+
+  @@index([electionId])
+  @@index([jurisdictionId])
+  @@map("offices")
+}
+
+// A person running for an Office in a given election
+model Candidate {
+  id        String  @id @default(cuid())
+  officeId  String
+  name      String
+  party     String?
+  incumbent Boolean @default(false)
+  shortBio  String?
+  longBio   String? @db.Text
+  photoUrl  String?
+  website   String?
+  email     String?
+  phone     String?
+
+  office  Office            @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  stances CandidateStance[]
+
+  @@index([officeId])
+  @@map("candidates")
+}
+
+// A policy topic (reusable across elections; local ones scoped to a jurisdiction)
+model Issue {
+  id             String  @id @default(cuid())
+  slug           String  @unique // "housing", "climate", "public-safety"
+  name           String
+  summary        String
+  description    String? @db.Text
+  jurisdictionId String? // null = global; set for jurisdiction-specific issues
+  // national | state | local
+  level          String  @default("state")
+
+  jurisdiction  Jurisdiction?     @relation(fields: [jurisdictionId], references: [id], onDelete: SetNull)
+  stances       CandidateStance[]
+  questionLinks QuestionIssue[]
+
+  @@index([slug])
+  @@index([jurisdictionId])
+  @@map("issues")
+}
+
+// A candidate's position on a specific issue
+model CandidateStance {
+  id          String  @id @default(cuid())
+  candidateId String
+  issueId     String
+  // -2 strongly opposes … 0 neutral/unclear … +2 strongly supports
+  position    Int
+  summary     String // 1-sentence stance description
+  rationale   String? @db.Text
+
+  candidate Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  issue     Issue     @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  sources   Source[]
+
+  @@unique([candidateId, issueId])
+  @@index([candidateId])
+  @@index([issueId])
+  @@map("candidate_stances")
+}
+
+// Citation for a candidate stance
+model Source {
+  id          String    @id @default(cuid())
+  stanceId    String
+  url         String
+  title       String?
+  quote       String?   @db.Text
+  publishedAt DateTime?
+
+  stance CandidateStance @relation(fields: [stanceId], references: [id], onDelete: Cascade)
+
+  @@index([stanceId])
+  @@map("sources")
+}
+
+// One quiz per election — covers all offices in that election
+model Quiz {
+  id         String @id @default(cuid())
+  electionId String @unique
+  title      String
+
+  election  Election   @relation(fields: [electionId], references: [id], onDelete: Cascade)
+  questions Question[]
+
+  @@map("quizzes")
+}
+
+// A single quiz question
+model Question {
+  id       String  @id @default(cuid())
+  quizId   String
+  prompt   String
+  helpText String?
+  order    Int
+
+  quiz    Quiz             @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  options QuestionOption[]
+  issues  QuestionIssue[]
+  answers UserAnswer[]
+
+  @@index([quizId])
+  @@map("questions")
+}
+
+// Join table: which issues a question informs and how strongly
+model QuestionIssue {
+  questionId String
+  issueId    String
+  weight     Float  @default(1.0) // multiplier for scoring
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  issue    Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, issueId])
+  @@map("question_issues")
+}
+
+// An answer option for a question
+model QuestionOption {
+  id          String @id @default(cuid())
+  questionId  String
+  label       String
+  // user's implied stance on linked issues if they pick this: -2..+2
+  stanceValue Int
+  order       Int
+
+  question Question     @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  answers  UserAnswer[]
+
+  @@index([questionId])
+  @@map("question_options")
+}
+
+// A user's answer to a quiz question, stored on their guide
+model UserAnswer {
+  id         String @id @default(cuid())
+  guideId    String
+  questionId String
+  optionId   String
+  // 0 = doesn't matter, 1 = somewhat, 2 = important, 3 = very important
+  importance Int    @default(1)
+
+  guide    Guide          @relation(fields: [guideId], references: [id], onDelete: Cascade)
+  question Question       @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  option   QuestionOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+
+  @@unique([guideId, questionId])
+  @@index([guideId])
+  @@map("user_answers")
 }

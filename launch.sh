@@ -51,11 +51,8 @@ echo "   Connecting to: $(echo $DATABASE_URL | sed 's/:[^:]*@/:***@/')"
 echo "   (This may take 10-30 seconds on first connection...)"
 export DATABASE_URL
 
-# Neon PostgreSQL works directly with Prisma migrations
-# No special connection string modifications needed
-
-# Run prisma db push (Prisma has its own timeout handling)
-npx prisma db push --skip-generate --accept-data-loss
+# Apply committed migrations (never `db push --accept-data-loss`: it can drop data)
+npx prisma migrate deploy
 
 # Start server
 echo ""

@@ -1,0 +1,2316 @@
+{
+ "county": "king",
+ "source": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+ "style": {
+  "party": "below",
+  "responses": "stacked"
+ },
+ "sections": [
+  "State",
+  "Federal",
+  "State",
+  "County",
+  "State Supreme Court",
+  "Court of Appeals, Division No. 1, District No. 1",
+  "Northeast Electoral District",
+  "Shoreline Electoral District",
+  "Southeast Electoral District",
+  "Southwest Electoral District",
+  "West Electoral District",
+  "City",
+  "Seattle Municipal Court",
+  "City",
+  "School",
+  "Special Purpose District"
+ ],
+ "notices": [
+  {
+   "section": "State",
+   "text": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate."
+  },
+  {
+   "section": "State",
+   "text": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate."
+  },
+  {
+   "section": "State",
+   "text": "READ: Each candidate for partisan office may state a political party that the candidate prefers. A candidate's preference does not imply that the candidate is nominated or endorsed by the party, or that the party approves of or associates with that candidate."
+  },
+  {
+   "section": "School",
+   "text": "The Shoreline City Council adopted Resolution No. 562 concerning the creation of a metropolitan park district in Shoreline. This proposition would create the Shoreline Metropolitan Park District to finance and refinance the acquisition, construction, operation, maintenance, programming, renovation, and expansion of a pool facility and future recreational facilities. The District, with the same boundaries as Shoreline, governed by a Board composed of City Councilmembers, would exercise powers in state law, provide ongoing funding, levy regular property taxes not to exceed $0.75/$1,000 assessed valuation (anticipated initial rate $0.55/$1,000, or as necessary to generate approximately $8.8 million annually). Should the Shoreline Metropolitan Park District be formed?"
+  }
+ ],
+ "contests": [
+  {
+   "section": "State",
+   "subsection": "Initiative to the People",
+   "title": [
+    "Initiative Measure No. IP26-645"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Initiative Measure No. IP26-645 concerns state and local taxes. This measure would repeal a 9.9% tax on annual individual income over $1,000,000; prohibit taxes measured by individual income and taxes on individual income or the receipt of individual income; and define “income.” This measure would decrease funding for public K-12 education, higher education (including universities and community colleges), and human services (primarily healthcare). Should this measure be enacted into law?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State",
+   "subsection": "Initiatives to the Legislature",
+   "title": [
+    "Initiative Measure No. IL26-001"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Initiative Measure No. IL26-001 concerns parental rights relating to their children in public school. This measure would repeal amendments to a statute listing certain rights of parents and guardians of public-school children and re-enact the law as it was originally enacted by Initiative to the Legislature 2081. Should this measure be enacted into law?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "State",
+   "subsection": "Initiatives to the Legislature",
+   "title": [
+    "Initiative Measure No. IL26-638"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Initiative Measure No. IL26-638 concerns participation in athletics at K-12 schools. This measure would prohibit students it defines as “biologically male” from competing in certain school athletic activities intended for female students only. It would require verification of biological sex by students’ healthcare providers. Should this measure be enacted into law?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Federal",
+   "title": [
+    "United States Representative",
+    "Congressional District No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Suzan DelBene",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Mary Silva",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Federal",
+   "title": [
+    "United States Representative",
+    "Congressional District No. 7"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Pramila Jayapal",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Nirav Sheth",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Federal",
+   "title": [
+    "United States Representative",
+    "Congressional District No. 8"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kim Schrier",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Spencer Meline",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Federal",
+   "title": [
+    "United States Representative",
+    "Congressional District No. 9"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Adam Smith",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Doug Basler",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 1",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Davina Duerr",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Maggie Wang",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 1",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Shelley Kloba",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Cliff Moon",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 5",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "short and full term",
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Zach Hall",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Michelle Bennett",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 5",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Lisa Callan",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Patrick Peacock",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 11",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "David Hackney",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Ashley Fedan",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 11",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Steve Bergquist",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 12",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Brian Burnett",
+     "party": "Prefers Republican Party"
+    },
+    {
+     "name": "Stacy Willoughby",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 12",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Mike Steele",
+     "party": "Prefers Republican Party"
+    },
+    {
+     "name": "Maggie Adams",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 30",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Claire Wilson",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Michael Rutland",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 30",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jamila E. Taylor",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Tiffany Bowyer",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 30",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kristine Reeves",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Paul McDaniel",
+     "party": "Prefers Independent Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 31",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Phil Fortunato",
+     "party": "Prefers Republican Party"
+    },
+    {
+     "name": "Tamara Stramel",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 31",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Drew Stokesbary",
+     "party": "Prefers Republican Party"
+    },
+    {
+     "name": "Stephen Szczurko-Walton",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 31",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Joshua Penner",
+     "party": "Prefers Republican Party"
+    },
+    {
+     "name": "John Bielka",
+     "party": "Prefers Democrat Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 32",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Cindy Ryu",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Jesse Salomon",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 32",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Keith Scully",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Danica Noble",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 32",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Lauren Davis",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Imraan Siddiqi",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 33",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Tina L. Orwall",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 33",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Edwin Obras",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Chris Martinez",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 33",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Mia Su-Ling Gregerson",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Yuri Marinchik",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 34",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Emily Alvarado",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 34",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Brianna K. Thomas",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 34",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Joe Fitzgibbon",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Mary Anito",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 36",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Noel C. Frame",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Jillian England",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 36",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Julia Grant Reed",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 36",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Liz Berry",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 37",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Chipalo Street",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Tatiana Brown",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 37",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kelabe Tewolde",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Sharon Tomiko Santos",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 37",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jaelynn Scott",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Evon McCorkle",
+     "party": "Prefers Independent Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 41",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Janice Zahn",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Elle Nguyen",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 41",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "My-Linh T Thai",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Michael Rosen",
+     "party": "Prefers Independent Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 43",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jamie Pedersen",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Hannah Sabio-Howell",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 43",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Nicole Macri",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Alby Clendennin",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 43",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Shaun Scott",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 45",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Manka Dhingra",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 45",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Roger Goodman",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "JoAnn Tolentino",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 45",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Vanessa Kritzer",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "John P Gibbons",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 46",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Javier Valdez",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Sandra Stephens",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 46",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Gerry Pollet",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Will Dreher",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 46",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Darya Farivar",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Rodney 'Star' Thornley",
+     "party": "Prefers Independent Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 47",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Claudia Kauffman",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Kristina Soltys",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 47",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Debra Jean Entenman",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Cobi Clark",
+     "party": "Prefers Libertarian Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 47",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Chris Stearns",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Ted Cooke",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 48",
+    "State Senator"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Vandana Slatter",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 48",
+    "Representative Position No. 1"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Osman Salahuddin",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Jeffery Poppe",
+     "party": "Prefers Republican Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State",
+   "title": [
+    "Legislative District No. 48",
+    "Representative Position No. 2"
+   ],
+   "instructions": [
+    "partisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jessica Forsythe",
+     "party": "Prefers Democratic Party"
+    },
+    {
+     "name": "Amy Walen",
+     "party": "Prefers Democratic Party"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Prosecuting Attorney"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Leesa Manion"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Assessor"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Rob Foxcurran"
+    },
+    {
+     "name": "Dominique M Scarimbolo"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Director of Elections"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Julie Wise"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Metropolitan King County",
+    "Council District No. 2"
+   ],
+   "instructions": [
+    "short and full term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Rebecca Saldaña"
+    },
+    {
+     "name": "Toshiko Grace Hasegawa"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Metropolitan King County",
+    "Council District No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jorge L. Barón"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Metropolitan King County",
+    "Council District No. 6"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Claudia Balducci"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "County",
+   "title": [
+    "Metropolitan King County",
+    "Council District No. 8"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Teresa Mosqueda"
+    },
+    {
+     "name": "Nick Duda"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State Supreme Court",
+   "title": [
+    "Justice Position No. 1"
+   ],
+   "instructions": [
+    "unexpired 2-year term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Colleen Melody"
+    },
+    {
+     "name": "Scott Edwards"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State Supreme Court",
+   "title": [
+    "Justice Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "David Stevens"
+    },
+    {
+     "name": "Jaime Michelle Hawk"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State Supreme Court",
+   "title": [
+    "Justice Position No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Ian Birk"
+    },
+    {
+     "name": "Sean O'Donnell"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State Supreme Court",
+   "title": [
+    "Justice Position No. 5"
+   ],
+   "instructions": [
+    "unexpired 2-year term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Theo Angelis"
+    },
+    {
+     "name": "Dave Larson"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "State Supreme Court",
+   "title": [
+    "Justice Position No. 7"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Debra L. Stephens"
+    },
+    {
+     "name": "Todd A. Bloom"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Court of Appeals, Division No. 1, District No. 1",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "David S. Mann"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Court of Appeals, Division No. 1, District No. 1",
+   "title": [
+    "Judge Position No. 6"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Bill A. Bowman"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jan Trasen"
+    },
+    {
+     "name": "Bianca Tse"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Michelle Gehlsen"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Lisa O'Toole"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kevin Peck"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Jill Klinge"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 6"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Denice Gagner"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Northeast Electoral District",
+   "title": [
+    "Judge Position No. 7"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Peter Peaquin"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Shoreline Electoral District",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Raul Martinez"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Shoreline Electoral District",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Karama H. Hawkins"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Leah Taguba"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Matthew York"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Tricia Grove Johnson"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Corinna Harn"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Joshua C. Harris"
+    },
+    {
+     "name": "Heather M. Barker"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southeast Electoral District",
+   "title": [
+    "Judge Position No. 6"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Rhonda Laumann"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southwest Electoral District",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Brian Todd"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southwest Electoral District",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Andrea Samonica Jarmon"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southwest Electoral District",
+   "title": [
+    "Judge Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Mitch Greene"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southwest Electoral District",
+   "title": [
+    "Judge Position No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Fa'amomoi Masaniai, Jr."
+    },
+    {
+     "name": "Harry Steinmetz"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Southwest Electoral District",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "short and full term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Noel Merfeld"
+    },
+    {
+     "name": "Renee Walls"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "West Electoral District",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "short and full term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Bardi Martin"
+    },
+    {
+     "name": "Nyjat Rose-Akins"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "West Electoral District",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kuljinder K. Dhillon"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "West Electoral District",
+   "title": [
+    "Judge Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Rebecca Robertson"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "West Electoral District",
+   "title": [
+    "Judge Position No. 4"
+   ],
+   "instructions": [
+    "short and full term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Yvonne Chin"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "West Electoral District",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Kristin Shotwell"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Bothell",
+    "Proposition No. 1",
+    "Annexation Into Shoreline Fire",
+    "Department Regional Fire",
+    "Authority"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Bothell City Council adopted Resolution No. 1784, approving annexation into the Shoreline Fire Department Regional Fire Authority and related plan amendment. To maintain current fire and emergency medical service levels and provide long-term financial and operational sustainability for such services within Bothell, should Bothell be annexed into and become a part of the Shoreline Fire Department Regional Fire Authority, effective March 1, 2027, pursuant to the plan amendment, as provided in Resolution No. 1784?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Clyde Hill",
+    "Proposition No. 1",
+    "Levy to Continue Providing Public",
+    "Safety and Land Use Services in Clyde",
+    "Hill"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "To fund public safety and land use services, and to remain an independent city, the Clyde Hill City Council passed Resolution No. 725 proposing an increase to its regular property tax levy from approximately $0.30 to $0.50 per $1,000 of assessed valuation for 2027 with 3% annual increases to the annual limit factor for 2028-2036. Exemptions apply to seniors, veterans, and disabled persons who qualify under RCW 84.36.381. Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Issaquah",
+    "Proposition No. 1",
+    "Parks and Open Space Bonds"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Issaquah City Council adopted Ordinance No. 3142, concerning bonds for parks, trails, and recreation projects. If approved, this proposition would authorize the City to: complete various projects, including sports fields and courts, new trails, trailhead improvements, restoration of Confluence Park’s Ek House, playground improvements, a new dog park, and related capital improvements; issue no more than $18,000,000 of general obligation bonds maturing within 20 years; and levy annual excess property taxes to pay and retire such bonds, all as provided in Ordinance No. 3142. Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Kenmore",
+    "Proposition No. 1",
+    "Climate & Environmental",
+    "Stewardship, Affordable Housing,",
+    "and Human Services Levy"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "Kenmore City Council passed Ordinance 26-0644 regarding funding for programing and services. To fund Climate & Environmental Stewardship, Affordable Housing, and Human Services, this proposition increases Kenmore’s maximum regular property tax levy rate to $1.25/$1,000 for collection in 2027; sets the limit factor for Kenmore’s regular property tax levy increases in 2028-2032 to 6%; authorizes the 2032 levy amount as the basis to calculate subsequent levies (RCW 84.55); and exempts qualifying seniors, veterans, and others (RCW 84.36). Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Lake Forest Park",
+    "Proposition No. 1",
+    "Public Safety Services Levy Lid Lift"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The City Council of the City of Lake Forest Park adopted Resolution No. 26-2084 to fund Public Safety Services. This proposition would fund Public Safety Services per the Resolution including police services, safety equipment, 911 dispatch, emergency management services, jail services, and mental health crisis response by temporarily setting the maximum total regular levy rate at $0.88920/$1,000 for collection in 2027, with annual increases for five years based on inflation (Seattle region CPI-U). Qualifying low-income seniors, disabled veterans, and other disabled persons are exempt under RCW 84.36.381. Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Milton",
+    "Proposition No. 1",
+    "Additional Sales and Use Tax for Police",
+    "and Public Safety"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Milton City Council adopted Resolution 26-2005 concerning a proposition to maintain funding for police services and public safety. If approved, this proposition would increase the sales and use tax rate by one-tenth of one percent (0.001) to provide ongoing funding for public safety purposes permitted under RCW 82.14.450, such as providing adequate law enforcement staffing levels. This increase would become effective in 2027. Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of SeaTac",
+    "Proposition No. 1",
+    "Fire Prevention and Criminal",
+    "Justice Sales and Use Tax"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The City Council of the City of SeaTac passed Ordinance No. 26-1017 concerning funding for public safety and other City services. If approved, this proposition would increase the City’s sales and use tax rate by 1/10th of 1% (0.1%) to provide funding for public safety services, including but not limited to, fire protection, fire prevention and emergency medical response; law enforcement support and staffing and retention; criminal justice purposes; public safety operations, maintenance and capital; and other public safety operations and services authorized under RCW 82.14.450. Should this proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Seattle",
+    "Council District No. 5"
+   ],
+   "instructions": [
+    "unexpired 1-year term",
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Nilu Jenks"
+    },
+    {
+     "name": "Julie Kang"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 1"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Cat McDowall"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 2"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Katharine Edwards"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 3"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Pooja Vaddadi"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 4"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Anita Crawford-Willis"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 5"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Gabe Rothstein"
+    },
+    {
+     "name": "Garmon Newsom"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 6"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Shantrice Anderson"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "Seattle Municipal Court",
+   "title": [
+    "Judge Position No. 7"
+   ],
+   "instructions": [
+    "nonpartisan office",
+    "vote for one"
+   ],
+   "candidates": [
+    {
+     "name": "Damon Shadid"
+    }
+   ],
+   "writeIn": true
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Seattle",
+    "Proposition No. 1",
+    "Seattle Transit Measure"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The City of Seattle adopted Ordinance No. 127474 concerning funding for transit service and related transportation needs in Seattle. The City of Seattle’s Proposition 1 would dedicate funding to transit services benefiting Seattle residents, including more frequent service; affordable fare programs for qualifying individuals; reliability, access, and climate projects; enhanced service on RapidRide and routes serving regional centers and high equity priority areas; facilitation of Sound Transit expansion; and others as provided in Ordinance 127474. It authorizes a 0.3% sales and use tax for up to ten years to replace the current voter-approved 0.15% sales tax expiring March 31, 2027. Should this Proposition be approved?",
+     "responses": [
+      "Yes",
+      "No"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "City",
+   "title": [
+    "City of Shoreline",
+    "Proposition No. 1",
+    "Formation of the Shoreline",
+    "Metropolitan Park District"
+   ],
+   "instructions": []
+  },
+  {
+   "section": "City",
+   "title": [
+    "For the formation of a Shoreline",
+    "Metropolitan Park District to be",
+    "governed by Shoreline City",
+    "Councilmembers.",
+    "Against the formation of a",
+    "Shoreline Metropolitan Park",
+    "District."
+   ],
+   "instructions": []
+  },
+  {
+   "section": "School",
+   "title": [
+    "Auburn School District No. 408",
+    "Proposition No. 1",
+    "School Construction and Replacement",
+    "Bonds"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Board of Directors of Auburn School District No. 408 has approved Resolution No. 1426, concerning a proposition to finance construction of new and replacement schools. This proposition would authorize the District to provide funds to construct a new Middle School and replace Cascade Middle School and Alpac Elementary, to increase capacity and reduce class sizes, modernize technology and learning environments, improve safety and security, and renovate playfields for student and community use, by issuing up to $491,000,000 of general obligation bonds maturing within 20 years, and levying annual excess property taxes to repay the bonds, as the resolution provides. Should this proposition be:",
+     "responses": [
+      "Approved",
+      "Rejected"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "School",
+   "title": [
+    "Highline School District No. 401",
+    "Proposition No. 1",
+    "Bonds to Replace and Rebuild",
+    "Deteriorating Schools and Improve",
+    "Safety"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Board of Directors of Highline School District No. 401 adopted Resolution No. 11- 26, concerning neighborhood school improvements and safety upgrades. This proposition would authorize the District to: replace or rebuild four deteriorating schools (Cascade, Chinook, Sylvester, CHOICE Academy), including new career/technical learning spaces, secure entrances, security camera upgrades; make critical districtwide core building system upgrades, including heating, roofing, electrical, plumbing; implement districtwide health, security, fire system and earthquake safety upgrades; issue $595,400,000 of general obligation bonds maturing within 21 years; and levy annual excess property taxes to repay the bonds, all as provided in Resolution No. 11-26. Should this proposition be:",
+     "responses": [
+      "Approved",
+      "Rejected"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "School",
+   "title": [
+    "Highline School District No. 401",
+    "Proposition No. 2",
+    "Educational Technology and",
+    "Capital Improvements Levy"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Board of Directors of Highline School District No. 401 adopted Resolution No. 12-26, concerning educational technology and capital improvements to maintain student learning. This proposition would fund districtwide technology, programs and staff and other capital improvements not funded by the State, including cybersecurity protections, reliable internet, technology operations and infrastructure, and student/staff technology access, and authorize the District to levy the following excess taxes on all taxable property within the District:",
+     "responses": [
+      "Yes",
+      "No"
+     ],
+     "note": "all as provided in Resolution No. 12-26. Should this proposition be approved?"
+    }
+   ],
+   "table": {
+    "caption": null,
+    "columns": [
+     "Estimated Levy Collection Rate/$1,000 Year Assessed Value",
+     "Levy Amount"
+    ],
+    "rows": [
+     [
+      "2027 $0.36",
+      "$12,000,000"
+     ],
+     [
+      "2028 $0.35",
+      "$12,000,000"
+     ],
+     [
+      "2029 $0.34",
+      "$12,000,000"
+     ],
+     [
+      "2030 $0.32",
+      "$12,000,000"
+     ]
+    ]
+   }
+  },
+  {
+   "section": "School",
+   "title": [
+    "Kent School District No. 415",
+    "Proposition No. 1",
+    "Replacement of Expiring Educational",
+    "Programs and Operations Levy"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Board of Directors of Kent School District No. 415 adopted Resolution No. 1718 concerning a proposition to support educational programs and operations expenses. If approved, this proposition would authorize the District to levy the following excess taxes, replacing an expiring levy, on all taxable property within the District, to support educational programs and operations not funded by the State’s statutory program of basic education.",
+     "responses": [
+      "Yes",
+      "No"
+     ],
+     "note": "Should this proposition be approved?"
+    }
+   ],
+   "table": {
+    "caption": null,
+    "columns": [
+     "Approximate Levy Rate /$1,000 Collection Assessed Year Value",
+     "Levy Amount"
+    ],
+    "rows": [
+     [
+      "2028 $1.95",
+      "$104,700,000"
+     ],
+     [
+      "2029 $1.93",
+      "$111,100,000"
+     ],
+     [
+      "2030 $1.88",
+      "$115,700,000"
+     ],
+     [
+      "2031 $1.84",
+      "$121,400,000"
+     ]
+    ]
+   }
+  },
+  {
+   "section": "Special Purpose District",
+   "title": [
+    "King County Fire Protection District",
+    "No. 20",
+    "Proposition No. 1",
+    "Bonds to Improve Fire and Emergency",
+    "Response Facilities"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "The Board of Fire Commissioners of King County Fire Protection District No. 20 adopted Resolution No. 2026-002, concerning emergency response facilities to protect public health, life and property. This proposition would authorize the District to: improve emergency response support facilities and infrastructure on two sites owned by the District; renovate and modernize the existing fire station; acquire firefighting and emergency response apparatus; issue no more than $16,000,000 of general obligation bonds maturing within 20 years; and levy annual excess property taxes to repay the bonds, all as provided in Resolution No. 2026-002. Should this proposition be:",
+     "responses": [
+      "Approved",
+      "Rejected"
+     ]
+    }
+   ]
+  },
+  {
+   "section": "Special Purpose District",
+   "title": [
+    "King County Cemetery District",
+    "No. 1",
+    "Proposition No. 1",
+    "Levy for Retention and",
+    "Improvement of Vashon Cemetery",
+    "Services"
+   ],
+   "instructions": [],
+   "questions": [
+    {
+     "text": "To support operational expenses, modernize and maintain burial records, acquire essential equipment, advance the development of green burial practices, and facilitate the acquisition of additional property, the Board of King County Cemetery District No. 1 adopted Resolution No. 295 proposing a permanent increase in its regular property tax levy from approximately $.03 ($.02816) to $.05 per $1000 of assessed valuation beginning in 2027. Should this proposition be:",
+     "responses": [
+      "Approved",
+      "Rejected"
+     ]
+    }
+   ]
+  }
+ ]
+}

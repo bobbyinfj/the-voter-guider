@@ -1,0 +1,109 @@
+{
+  "electionSlug": "wa-general-2026-11-03",
+  "stances": [
+    {
+      "candidateId": "wa26-pramila-jayapal",
+      "issueId": "us-limit-ice-tactics",
+      "position": 2,
+      "summary": "Says she has been holding the administration accountable for \"lawless ICE and CBP actions.\"",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I’ve been on the frontlines of holding Trump accountable, including around the lawless ICE and CBP actions that have kidnapped and disappeared our neighbors."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-pramila-jayapal",
+      "issueId": "us-medicare-for-all",
+      "position": 2,
+      "summary": "Is leading the fight for the Medicare for All Act.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I’m leading the fight for the Medicare for All Act to ensure that universal healthcare is a right, not a privilege."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-adam-smith",
+      "issueId": "us-medicare-for-all",
+      "position": 1,
+      "summary": "Says the health system should be restructured to create a path to single-payer like Medicare for All.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "Our healthcare system needs to be restructured to create a path to a single-payer plan like Medicare for All."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-pramila-jayapal",
+      "issueId": "us-ultra-millionaire-wealth-tax",
+      "position": 2,
+      "summary": "Leads legislation to establish an ultra-millionaire wealth tax.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I also lead landmark legislation to make higher education tuitionfree, guarantee housing as a human right, expand workers’ rights, raise the federal minimum wage, implement humane immigration reform, and establish an ultra-millionaire wealth tax."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-pramila-jayapal",
+      "issueId": "congress-stock-trading-ban",
+      "position": 2,
+      "summary": "Leads bipartisan bills to ban stock trading by members of Congress.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I lead bipartisan bills that ban stock trading for Members of Congress and protect Americans from government spying."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-doug-basler",
+      "issueId": "wa-climate-commitment-act",
+      "position": -2,
+      "summary": "Says the Climate Commitment Act is driving up energy costs while doing little for the environment.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "The Climate Commitment Act may sound good, but in practice it is driving up the cost of energy while doing little to directly improve the environment."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-chipalo-street",
+      "issueId": "wa-keep-millionaires-tax",
+      "position": 2,
+      "summary": "Championed the millionaires tax in the Legislature.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I earned positions in Democratic leadership and on tax and budget committees to champion the millionaires tax, which funds education, expands healthcare access, and cuts taxes for working families."
+        }
+      ]
+    },
+    {
+      "candidateId": "wa26-chipalo-street",
+      "issueId": "wa-rent-stabilization",
+      "position": 2,
+      "summary": "Fought to pass tenant protections including rent stabilization.",
+      "sources": [
+        {
+          "url": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf",
+          "title": "Washington State Voters' Pamphlet 2026 (candidate statement)",
+          "quote": "I battled the landlord lobby to pass tenant protections like rent stabilization and reformed zoning laws to increase home building."
+        }
+      ]
+    }
+  ]
+}

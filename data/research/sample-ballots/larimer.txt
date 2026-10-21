@@ -1,0 +1,1117 @@
+
+=== page 1 column 1
+*W 11.0 Federal Offices
+*  10.0 United States Senator
+   10.0 (Vote for One)
+    9.0 Mark Baisley
+    7.5 Republican
+    9.0 John Hickenlooper
+    7.5 Democratic
+    9.0 Bob Chew
+    7.5 Forward
+    9.0 Christopher Baum
+    7.5 Approval Voting
+    9.0 Blake Huber
+    7.5 Libertarian
+    9.0 Adam Withrow
+    7.5 Unity
+    8.0 Write-in
+*  10.0 Representative to the 120th United States
+*  10.0 Congress - District 2
+   10.0 (Vote for One)
+    9.0 Joe Neguse
+    7.5 Democratic
+    9.0 Kelley Anne Dennison
+    7.5 Republican
+    9.0 Gaylon Kent
+    7.5 Libertarian
+*  10.0 Representative to the 120th United States
+*  10.0 Congress - District 4
+   10.0 (Vote for One)
+    9.0 Lauren Boebert
+    7.5 Republican
+    9.0 Eileen Laubacher
+    7.5 Democratic
+    9.0 Douglas Mangeris
+    7.5 Libertarian
+    8.0 Write-in
+
+=== page 1 column 2
+*W 11.0 Federal Offices
+*  10.0 Representative to the 120th United States
+*  10.0 Congress - District 8
+   10.0 (Vote for One)
+    9.0 Gabe Evans
+    7.5 Republican
+    9.0 Manny Rutinel
+    7.5 Democratic
+    9.0 Dave Wood
+    7.5 Libertarian
+*W 11.0 State Offices
+*  10.0 Governor / Lieutenant Governor
+   10.0 (Vote for One Pair)
+    9.0 Victor Marx / George
+    7.5 Republican
+    9.0 Washington Markert
+    9.0 Phil Weiser / Lesley
+    7.5 Democratic
+    9.0 Dahlkemper
+    9.0 Stephen T. Hamilton /
+    7.5 American Constitution
+    9.0 James K Treibert
+    9.0 Eric Mulder / Wayne
+    7.5 Libertarian
+    9.0 Harlos
+    9.0 Jeff Peckman / T.J.
+    7.5 Unity
+    9.0 Cole
+    9.0 Erik Underwood /
+    7.5 Approval Voting
+    9.0 Frank Atwood
+    9.0 Greg Lopez / Taralyn
+    7.5 Unaffiliated
+    9.0 Romero
+*  10.0 Secretary of State
+   10.0 (Vote for One)
+    9.0 Amanda Gonzalez
+    7.5 Democratic
+    9.0 James Wiley
+    7.5 Republican
+    9.0 Sean Vadney
+    7.5 Libertarian
+    9.0 Amanda Campbell
+    7.5 American Constitution
+    9.0 Celeste Landry
+    7.5 Forward
+
+=== page 1 column 3
+*W 11.0 State Offices
+*  10.0 State Treasurer
+   10.0 (Vote for One)
+    9.0 Jeff Bridges
+    7.5 Democratic
+    9.0 Kevin Grantham
+    7.5 Republican
+    9.0 Jodie Barr
+    7.5 Libertarian
+    9.0 Marilee Langner Sturgis
+    7.5 Approval Voting
+*  10.0 Attorney General
+   10.0 (Vote for One)
+    9.0 Michael J. Allen
+    7.5 Republican
+    9.0 Jena Griswold
+    7.5 Democratic
+*  10.0 Regent of the University of Colorado -
+*  10.0 Congressional District 2
+   10.0 (Vote for One)
+    9.0 Marty Neilson
+    7.5 Republican
+    9.0 Edie Hooton
+    7.5 Democratic
+    9.0 Richard Friend
+    7.5 Libertarian
+*  10.0 State Senator - District 15
+   10.0 (Vote for One)
+    9.0 Rob Woodward
+    7.5 Republican
+    9.0 Janice Marchman
+    7.5 Democratic
+*  10.0 State Representative - District 49
+   10.0 (Vote for One)
+    9.0 Michael Sheperek
+    7.5 Republican
+    9.0 Lesley Smith
+    7.5 Democratic
+*  10.0 State Representative - District 51
+   10.0 (Vote for One)
+    9.0 Amy Parks
+    7.5 Republican
+    9.0 Jacki Marsh
+    7.5 Democratic
+*  10.0 State Representative - District 52
+   10.0 (Vote for One)
+    9.0 Yara Zokaie
+    7.5 Democratic
+    9.0 Steve Yurash
+    7.5 Center
+*  14.0 Mark both sides of the ballot
+
+=== page 2 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 State Offices
+*  10.0 State Representative - District 53
+   10.0 (Vote for One)
+    9.0 Daniel Frick
+    7.5 Republican
+    9.0 Andy Boesenecker
+    7.5 Democratic
+*  10.0 State Representative - District 64
+   10.0 (Vote for One)
+    9.0 Maureen (Mo) Dower
+    7.5 Democratic
+    9.0 Scott L. Slaugh
+    7.5 Republican
+*  10.0 State Representative - District 65
+   10.0 (Vote for One)
+    9.0 Lori Garcia Sander
+    7.5 Republican
+*W 11.0 County Offices
+*  10.0 County Commissioner - District 1
+   10.0 (Vote for One)
+    9.0 Shane Atkinson
+    7.5 Democratic
+    9.0 Marc Roberson
+    7.5 Republican
+    9.0 Stephen Fowler
+    7.5 Center
+*  10.0 County Clerk and Recorder
+   10.0 (Vote for One)
+    9.0 Tina Harris
+    7.5 Republican
+    9.0 Kenneth Forsythe
+    7.5 Democratic
+*  10.0 County Treasurer
+   10.0 (Vote for One)
+    9.0 Joann Ginal
+    7.5 Democratic
+    9.0 Steve Olson
+    7.5 Republican
+*  10.0 County Assessor
+   10.0 (Vote for One)
+    9.0 Patrick Edwards
+    7.5 Republican
+    9.0 Bob Overbeck
+    7.5 Democratic
+    9.0 Sam Bradley
+    7.5 Forward
+*  10.0 County Sheriff
+   10.0 (Vote for One)
+    9.0 John J. Feyen
+    7.5 Republican
+*  10.0 County Surveyor
+   10.0 (Vote for One)
+    9.0 Tom Donnelly
+    7.5 Republican
+*  10.0 County Coroner
+   10.0 (Vote for One)
+    9.0 Stephen Hanks
+    7.5 Democratic
+*W 11.0 Judicial Retention Questions
+*  10.0 Colorado Supreme Court Justice
+   10.0 (Vote YES or NO)
+    9.0 Shall Justice William W. Hood, III of the Colorado
+    9.0 Supreme Court be retained in office?
+    9.0 YES
+    9.0 NO
+
+=== page 2 column 2
+*W 11.0 Judicial Retention Questions
+*  10.0 Colorado Court of Appeals Judge
+   10.0 (Vote YES or NO)
+    9.0 Shall Judge Rebecca Rankin Freyre of the
+    9.0 Colorado Court of Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Elizabeth L. Harris of the Colorado
+    9.0 Court of Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Katharine E. Lum of the Colorado
+    9.0 Court of Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Pax Moultrie of the Colorado Court of
+    9.0 Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Karl L. Schock of the Colorado Court
+    9.0 of Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Grant Sullivan of the Colorado Court
+    9.0 of Appeals be retained in office?
+    9.0 YES
+    9.0 NO
+*  10.0 County Court Judge - Larimer
+   10.0 (Vote YES or NO)
+    9.0 Shall Judge Katharine "Jenny" Ellison of the
+    9.0 Larimer County Court be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Thomas L. Lynch of the Larimer
+    9.0 County Court be retained in office?
+    9.0 YES
+    9.0 NO
+    9.0 Shall Judge Matthew R. Zehe of the Larimer
+    9.0 County Court be retained in office?
+    9.0 YES
+    9.0 NO
+
+=== page 2 column 3
+    9.0 Ballot questions referred by the general assembly
+    9.0 or any political subdivision are listed by letter, and
+    9.0 ballot questions initiated by the people are listed
+    9.0 numerically.  A ballot question listed as an
+    9.0 "amendment" proposes a change to the Colorado
+    9.0 constitution, and a ballot question listed as a
+    9.0 "proposition" proposes a change to the Colorado
+    9.0 Revised Statutes.  A "yes/for" vote on any ballot
+    9.0 question is a vote in favor of changing current law
+    9.0 or existing circumstances, and a "no/against" vote
+    9.0 on any ballot question is a vote against changing
+    9.0 current law or existing circumstances.
+*W 11.0 State of Colorado
+*  10.0 Amendment 81 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution requiring law enforcement to notify
+    9.0 the department of homeland security when a
+    9.0 person is charged with either a violent crime or
+    9.0 any crime if the person has a prior felony
+    9.0 conviction if law enforcement cannot determine
+    9.0 that the person is lawfully present in the United
+    9.0 States?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Amendment 82 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution creating new law granting the right for
+    9.0 consumers to purchase natural gas for cooking or
+    9.0 heating in homes or businesses and for
+    9.0 distributors and utilities to sell natural gas to
+    9.0 consumers?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Amendment 83 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution creating a constitutional right to hunt,
+    9.0 fish, and harvest fish and wildlife by traditional
+    9.0 methods, including all species of fish and wildlife
+    9.0 managed by the state except non-game species,
+    9.0 endangered species, or any species that is illegal
+    9.0 to hunt under federal law, and, in connection
+    9.0 therewith, establishing hunting and fishing as the
+    9.0 preferred means of managing fish and wildlife
+    9.0 populations; and preserving the right of the state
+    9.0 to regulate hunting, fishing, and wildlife
+    9.0 management if necessary for sound scientific
+    9.0 wildlife conservation and management, public
+    9.0 safety, or to preserve the future of hunting and
+    9.0 fishing opportunities for all species?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Amendment 84 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution requiring a voter to sign and include
+    9.0 the last four digits of their social security number
+    9.0 or their Colorado driver’s license or identification
+    9.0 card number on the outside of their mail ballot for
+    9.0 any federal or state election, and, in connection
+    9.0 therewith, allowing the voter to correct missing or
+    9.0 incorrect information, including with alternative
+    9.0 forms of identification; and prohibiting a county
+    9.0 clerk and recorder from counting the mail ballot
+    9.0 unless the problem is fixed?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  14.0 Mark both sides of the ballot
+
+=== page 3 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 State of Colorado
+*  10.0 Amendment 85 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution concerning ballot question language,
+    9.0 and, in connection therewith, requiring all state
+    9.0 and local ballot questions to be written in plain
+    9.0 language and at no more than an 8th grade
+    9.0 reading level and prohibiting a state statute from
+    9.0 requiring language that conflicts with these
+    9.0 requirements in ballot questions for citizen-initiated
+    9.0 measures?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Amendment 86 (CONSTITUTIONAL)
+    9.0 Shall there be an amendment to the Colorado
+    9.0 Constitution concerning congressional
+    9.0 redistricting, and, in connection therewith,
+    9.0 reenacting the current process for congressional
+    9.0 redistricting in the Colorado Constitution and
+    9.0 prohibiting modifications to a final map unless at
+    9.0 least three public meetings are held, the
+    9.0 modifications do not have the effect of dividing
+    9.0 communities of interest or purposefully favoring
+    9.0 one political party, and are approved by the
+    9.0 congressional redistricting commission and the
+    9.0 Colorado Supreme Court?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 3 column 2
+*W 11.0 State of Colorado
+*  10.0 Amendment 87 (CONSTITUTIONAL)
+    9.0 SHALL STATE TAXES BE INCREASED $2.7
+    9.0 BILLION ANNUALLY, IN ORDER TO INCREASE
+    9.0 OR IMPROVE LEVELS OF PUBLIC SERVICES,
+    9.0 INCLUDING K-12 PUBLIC SCHOOL
+    9.0 EDUCATION, HEALTH CARE, AND EARLY
+    9.0 CHILD CARE AND EDUCATION SERVICES, BY
+    9.0 AN AMENDMENT TO THE COLORADO
+    9.0 CONSTITUTION AND A CHANGE TO THE
+    9.0 COLORADO REVISED STATUTES REPEALING
+    9.0 EXISTING LAW AND CREATING NEW LAW TO
+    9.0 REPLACE THE UNIFORM STATE INCOME TAX
+    9.0 RATE WITH A GRADUATED INCOME TAX
+    9.0 STRUCTURE, AND, IN CONNECTION
+    9.0 THEREWITH, AMENDING THE TAXPAYER’S
+    9.0 BILL OF RIGHTS TO ELIMINATE THE
+    9.0 CONSTITUTIONAL REQUIREMENT FOR ALL
+    9.0 TAXABLE NET INCOME TO BE TAXED AT ONE
+    9.0 RATE WITH NO ADDED TAX ON INCOME;
+    9.0 ESTABLISHING VARIOUS INCOME TAX RATES
+    9.0 BASED ON THE AMOUNT OF TAXABLE
+    9.0 INCOME EARNED BY INDIVIDUALS, ESTATES,
+    9.0 TRUSTS, AND CORPORATIONS, WHILE
+    9.0 MAINTAINING THE CURRENT 4.4% TAX ON
+    9.0 INCOME FROM THE SALE OF A PRINCIPAL
+    9.0 RESIDENCE, WHICH WILL RESULT IN THE
+    9.0 ESTIMATED CHANGE IN INCOME TAXES
+    9.0 OWED BY INDIVIDUALS AS IDENTIFIED IN
+    9.0 THE FOLLOWING TABLE; AND AUTHORIZING
+    9.0 THE STATE TO RETAIN AND SPEND ANY
+    9.0 INCREASED REVENUE FROM THE NEW TAX
+    9.0 STRUCTURE, AS A VOTER-APPROVED
+    9.0 REVENUE CHANGE, TO SUPPLEMENT
+    9.0 CURRENT LEVELS OF FUNDING FOR K-12
+    9.0 PUBLIC SCHOOL EDUCATION, HEALTH CARE,
+    9.0 AND EARLY CHILD CARE AND EDUCATION
+    9.0 PROGRAMS?
+*   8.0 Change in Income Taxes Owed by Income Category
+*   7.0 Proposed
+*   7.0 Current
+*   7.0 Proposed
+*   7.0 Change in
+*   7.0 Income
+*   7.0 Average
+*   7.0 Average
+*   7.0 Average Income
+*   7.0 Categories
+*   7.0 Income
+*   7.0 Income
+*   7.0 Tax Owed if
+*   7.0 Tax Owed
+*   7.0 Tax Owed
+*   7.0 Passed + or -
+*   7.0 $25,000 or less
+    7.0 $59
+    7.0 $50
+    7.0 -$9
+*   7.0 $25,001 -
+    7.0 $751
+    7.0 $632
+    7.0 -$119
+*   7.0 $50,000
+*   7.0 $50,001 -
+    7.0 $1,877
+    7.0 $1,666
+    7.0 -$210
+*   7.0 $100,000
+*   7.0 $100,001 -
+    7.0 $4,126
+    7.0 $3,828
+    7.0 -$298
+*   7.0 $200,000
+*   7.0 $200,001 -
+    7.0 $9,344
+    7.0 $9,019
+    7.0 -$325
+*   7.0 $500,000
+*   7.0 $500,001 -
+    7.0 $19,288
+    7.0 $18,963
+    7.0 -$325
+*   7.0 $1,000,000
+*   7.0 $1,000,001 -
+    7.0 $29,432
+    7.0 $34,196
+    7.0 +$4,764
+*   7.0 $2,000,000
+*   7.0 $2,000,001 -
+    7.0 $41,196
+    7.0 $55,110
+    7.0 +$13,914
+*   7.0 $5,000,000
+    9.0 Income categories use adjusted gross income
+    9.0 reported to the federal Internal Revenue Service.
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Proposition NN (STATUTORY)
+    9.0 Shall state investment in K-12 public education
+    9.0 increase two percent each year for the next ten
+    9.0 years, with investments used to increase teacher
+    9.0 pay, improve teacher retention, lower class sizes,
+    9.0 and increase access to career and technical
+    9.0 courses, without raising taxes but instead funded
+    9.0 by raising the annual limit on state fiscal year
+    9.0 spending only by the amount spent on public K-12
+    9.0 education as a voter-approved revenue change,
+    9.0 and requiring an annual publicly released,
+    9.0 independent audit to show how the new
+    9.0 investments are spent?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 3 column 3
+*W 11.0 State of Colorado
+*  10.0 Proposition 132 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes concerning criminal penalties for fentanyl
+    9.0 and certain synthetic opioids, and, in connection
+    9.0 therewith, increasing the felony classifications of
+    9.0 drug-related crimes for distribution, manufacturing,
+    9.0 dispensing, sale, or possession of fentanyl and
+    9.0 certain synthetic opioids; creating mandated
+    9.0 treatment for certain drug felony violations based
+    9.0 on possession amount; and changing sentencing
+    9.0 provisions to narrow or eliminate exemptions for
+    9.0 crimes related to fentanyl and certain synthetic
+    9.0 opioids and drug-related deaths?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Proposition 133 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes modifying existing law concerning human
+    9.0 trafficking of a minor for sexual servitude, and, in
+    9.0 connection therewith, creating new law expanding
+    9.0 human trafficking of a minor for sexual servitude to
+    9.0 include knowingly trading anything of monetary
+    9.0 value to buy or sell sexual activity with a minor and
+    9.0 increasing the penalty to be life in prison without
+    9.0 parole or release?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Proposition 134 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes creating new law restricting participation
+    9.0 in all K-12 and collegiate school sports based on
+    9.0 the participant’s sex as determined by certain
+    9.0 aspects of their biological reproductive system,
+    9.0 and, in connection therewith, requiring a school,
+    9.0 institution of higher education, or athletic
+    9.0 association to designate each school or intramural
+    9.0 athletic team or sport as male, female, or
+    9.0 coeducational; only allowing participants to
+    9.0 compete on the team or sport of their designated
+    9.0 sex or to compete on a coeducational team;
+    9.0 creating an exception to allow a female to
+    9.0 participate on a male-designated team or sport if
+    9.0 there is no female team available; prohibiting a
+    9.0 government entity, licensing or accrediting
+    9.0 organization, or athletic association from
+    9.0 entertaining a complaint, opening an investigation,
+    9.0 or taking other adverse action against a school for
+    9.0 maintaining separate teams or sports for females;
+    9.0 and providing the commissioner of education with
+    9.0 the authority to enforce the proposed initiative for
+    9.0 K-12 school districts?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Proposition 135 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes modifying existing law by prohibiting
+    9.0 surgery on a minor for the purpose of altering the
+    9.0 minor’s biological sex characteristics, and, in
+    9.0 connection therewith, prohibiting any health-care
+    9.0 professional or other person from knowingly
+    9.0 performing, prescribing, administering, or
+    9.0 providing any surgery to a minor for the purpose of
+    9.0 altering the minor’s biological sex characteristics
+    9.0 and prohibiting the use of state or federal funds,
+    9.0 Medicaid reimbursement, or insurance coverage
+    9.0 to pay for this type of surgery?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  14.0 Mark both sides of the ballot
+
+=== page 4 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 State of Colorado
+*  10.0 Proposition 136 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes capping the state income tax rate at 4.4%
+    9.0 of federal taxable income for individuals and
+    9.0 corporations?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  10.0 Proposition 137 (STATUTORY)
+    9.0 Shall there be a change to the Colorado Revised
+    9.0 Statutes creating new law to increase water and
+    9.0 land conservation funding without raising taxes,
+    9.0 and, in connection therewith, through a
+    9.0 voter-approved revenue change, allowing the state
+    9.0 to keep and spend a portion of revenue from the
+    9.0 state sales tax on sporting goods and equipment
+    9.0 to conserve and protect Colorado’s water, land,
+    9.0 and forests, prevent wildfires, support outdoor
+    9.0 recreation training and activities, and reduce
+    9.0 revenue spent on these conservation purposes if
+    9.0 necessary to preserve funding for certain tax
+    9.0 credits?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*W 11.0 Larimer County
+*  10.0 Ballot Issue 1A
+    9.0 SHALL LARIMER COUNTY TAXES BE
+    9.0 INCREASED BY UP TO $34 1/2 MILLION
+    9.0 ANNUALLY (ESTIMATED FIRST YEAR
+    9.0 INCREASE STARTING JANUARY 1, 2027), AND
+    9.0 BY ANY ADDITIONAL AMOUNT GENERATED
+    9.0 EACH YEAR THEREAFTER, TO FUND COUNTY
+    9.0 PURPOSES INCLUDING:
+    9.0 WILDFIRE, DRINKING WATER SOURCE
+    9.0 ·
+    9.0 AREAS, AND NATURAL HAZARD
+    9.0 RESILIENCE, INCLUDING PREVENTION,
+    9.0 MITIGATION, PREPAREDNESS,
+    9.0 RESPONSE, RECOVERY, WATERSHED
+    9.0 PROTECTION, FOREST HEALTH, AND
+    9.0 OTHER PROJECTS THAT REDUCE THE
+    9.0 RISKS OR IMPACTS OF DISASTER;
+    9.0 MAINTAIN, IMPROVE, AND CONSTRUCT
+    9.0 ·
+    9.0 COUNTY BRIDGES, ROADS, PARKS,
+    9.0 TRAILS, OPEN SPACES AND OTHER
+    9.0 RECREATIONAL LANDS TO IMPROVE
+    9.0 SAFETY, ACCESS AND QUALITY OF LIFE;
+    9.0 AND
+    9.0 COMMUNITY RESILIENCE AND PUBLIC
+    9.0 ·
+    9.0 SAFETY, INCLUDING EMERGENCY
+    9.0 SERVICES, WILDFIRE SUPPRESSION,
+    9.0 ADMINISTRATION AND FUNDING OF
+    9.0 PUBLIC BENEFITS, JUSTICE CENTER
+    9.0 AND OTHER FACILITY IMPROVEMENTS,
+    9.0 AND OTHER COUNTY PRIORITIES AND
+    9.0 EMERGING COMMUNITY NEEDS;
+    9.0 BY ESTABLISHING A 0.3% (30 CENTS ON $100
+    9.0 PURCHASE) COUNTYWIDE SALES AND USE
+    9.0 TAX, EXCLUDING SALES OF FOOD FOR HOME
+    9.0 CONSUMPTION, GASOLINE, DIAPERS,
+    9.0 PRESCRIPTION DRUGS AND CERTAIN OTHER
+    9.0 ITEMS EXEMPT BY LAW; WITH ALL REVENUE
+    9.0 SUBJECT TO AN ANNUAL INDEPENDENT
+    9.0 AUDIT; AND SHALL THE COUNTY BE
+    9.0 AUTHORIZED TO COLLECT, RETAIN AND
+    9.0 SPEND ALL REVENUES FROM THIS TAX
+    9.0 WITHOUT LIMITATION BY ARTICLE X,
+    9.0 SECTION 20 OF THE COLORADO
+    9.0 CONSTITUTION (TABOR), ALL AS PROVIDED
+    9.0 IN THE RESOLUTION REFERRING THIS
+    9.0 BALLOT ISSUE?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 4 column 2
+*W 11.0 Town of Wellington
+*  10.0 Ballot Issue 2A
+    9.0 SHALL TOWN OF WELLINGTON TAXES BE
+    9.0 INCREASED BY $995,000 ANNUALLY IN THE
+    9.0 FISCAL YEAR BEGINNING JANUARY 1, 2027,
+    9.0 AND BY SUCH ADDITIONAL AMOUNTS AS MAY
+    9.0 BE GENERATED ANNUALLY THEREAFTER, BY
+    9.0 AN ADDITIONAL ONE-HALF PERCENT (0.50%)
+    9.0 SALES AND USE TAX (WHICH WOULD COST
+    9.0 50 CENTS ON A $100 PURCHASE), TO FUND
+    9.0 LAW ENFORCEMENT AND RELATED PUBLIC
+    9.0 SAFETY SERVICES; AND TO THE EXTENT
+    9.0 REVENUES EXCEED AMOUNTS BUDGETED
+    9.0 FOR SUCH PURPOSES, OTHER LAWFUL
+    9.0 MUNICIPAL OPERATING PURPOSES; AND
+    9.0 SHALL THE TOWN BE AUTHORIZED TO
+    9.0 COLLECT, RETAIN, AND SPEND THE
+    9.0 PROCEEDS OF THE REVENUE FROM SUCH
+    9.0 TAX AND ANY EARNINGS THEREON AS A
+    9.0 VOTER-APPROVED REVENUE CHANGE AND
+    9.0 AN EXCEPTION TO THE LIMITS ON REVENUE
+    9.0 AND SPENDING UNDER ARTICLE X, SECTION
+    9.0 20 OF THE COLORADO CONSTITUTION OR
+    9.0 ANY OTHER LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*W 11.0 Town of Berthoud
+*  10.0 Ballot Issue 3G
+    9.0 SHALL THE TOWN OF BERTHOUD DEBT BE
+    9.0 INCREASED $28,000,000, WITH A MAXIMUM
+    9.0 REPAYMENT COST OF UP TO $60,000,000,
+    9.0 SUCH DEBT TO CONSIST OF SALES AND USE
+    9.0 TAX REVENUE BONDS TO BE PAYABLE FROM
+    9.0 ALL OR A PORTION OF THE TOWN'S SALES
+    9.0 AND USE TAX (WITHOUT INCREASING TAXES)
+    9.0 AND ISSUED SOLELY FOR PARKS AND
+    9.0 RECREATION PURPOSES, INCLUDING BUT
+    9.0 NOT LIMITED TO THE DESIGN,
+    9.0 CONSTRUCTION, AND EQUIPMENT OF A
+    9.0 COMMUNITY PARK SITE KNOWN AS
+    9.0 MOUNTAIN VISTA PARK AND CONSISTING OF
+    9.0 A COMBINATION OF BALLFIELDS, AQUATIC
+    9.0 RECREATION FEATURES, AND RELATED
+    9.0 IMPROVEMENTS; SUCH BONDS TO BE
+    9.0 ISSUED, DATED AND SOLD AT SUCH TIMES,
+    9.0 AND AT SUCH PRICES (AT, ABOVE OR BELOW
+    9.0 PAR) AND CONTAINING SUCH TERMS, NOT
+    9.0 INCONSISTENT HEREWITH, AS THE BOARD
+    9.0 OF TRUSTEES MAY DETERMINE; AND SHALL
+    9.0 THE EARNINGS ON THE INVESTMENT OF THE
+    9.0 PROCEEDS OF SUCH BONDS (REGARDLESS
+    9.0 OF AMOUNT) AND THE FUNDS USED FOR THE
+    9.0 PAYMENT OF THE BONDS CONSTITUTE A
+    9.0 VOTER-APPROVED REVENUE CHANGE AND
+    9.0 AN EXCEPTION TO THE REVENUE AND
+    9.0 SPENDING LIMITS OF ARTICLE X, SECTION 20
+    9.0 OF THE COLORADO CONSTITUTION OR ANY
+    9.0 OTHER LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 4 column 3
+*W 11.0 Weld County School District RE-5J
+*  10.0 Ballot Issue 5A
+    9.0 WITHOUT IMPOSING A NEW TAX, SHALL
+    9.0 WELD COUNTY SCHOOL DISTRICT NO. RE-5J
+    9.0 (JOHNSTOWN MILLIKEN) BE AUTHORIZED TO
+    9.0 EXTEND THE TAX APPROVED BY THE
+    9.0 DISTRICT'S VOTERS IN 2020 ($4 MILLION
+    9.0 ANNUALLY), WHICH IS SET TO EXPIRE ON
+    9.0 DECEMBER 31, 2030, TO BE USED FOR
+    9.0 GENERAL FUND PURPOSES OF THE
+    9.0 DISTRICT INCLUDING BUT NOT LIMITED TO:
+    9.0 RETAIN AND ATTRACT HIGH QUALITY
+    9.0 ·
+    9.0 TEACHERS AND STAFF;
+    9.0 PROVIDE ADDITIONAL SAFETY,
+    9.0 ·
+    9.0 SECURITY, AND MENTAL HEALTH
+    9.0 PERSONNEL;
+    9.0 EXPAND AUTHENTIC CAREER
+    9.0 ·
+    9.0 EXPLORATION AND PREPARATION
+    9.0 PROGRAMS;
+    9.0 MAINTAIN EARLY CHILDHOOD
+    9.0 ·
+    9.0 PROGRAMMING;
+    9.0 SUCH REVENUES TO BE DEPOSITED IN THE
+    9.0 GENERAL FUND AND USED FOR
+    9.0 EDUCATIONAL PURPOSES PURSUANT TO
+    9.0 SECTION 22-54-108, C.R.S.; AND SHALL THE
+    9.0 REVENUES FROM SUCH TAXES AND ANY
+    9.0 EARNINGS FROM THE INVESTMENT OF SUCH
+    9.0 REVENUES BE COLLECTED AND SPENT AS A
+    9.0 VOTER APPROVED REVENUE CHANGE
+    9.0 UNDER ARTICLE X, SECTION 20 OF THE
+    9.0 COLORADO CONSTITUTION AND ANY OTHER
+    9.0 LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  14.0 Mark both sides of the ballot
+
+=== page 5 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 Larimer County Stanley Heights
+*W 11.0 Public Improvement District No. 81
+*  10.0 Ballot Issue 6A
+    9.0 SHALL TAXES BE INCREASED $48,000.00
+    9.0 ANNUALLY (IN THE FIRST YEAR) OR SUCH
+    9.0 GREATER AMOUNT AS IS RAISED IN
+    9.0 SUBSEQUENT YEARS WITHIN THE
+    9.0 BOUNDARIES OF THE PROPOSED STANLEY
+    9.0 HEIGHTS PUBLIC IMPROVEMENT DISTRICT
+    9.0 NO. 81 BY THE IMPOSITION OF AD VALOREM
+    9.0 PROPERTY TAXES AT A MILL LEVY RATE NOT
+    9.0 TO EXCEED 13.791 MILLS, THE REVENUES OF
+    9.0 WHICH WILL BE COLLECTED BEGINNING
+    9.0 JANUARY 1, 2027 AND EACH YEAR
+    9.0 THEREAFTER, SUCH REVENUES TO BE USED
+    9.0 FOR THE IMPROVEMENT AND MAINTENANCE
+    9.0 OF ROADS AS REQUESTED IN THE PETITION
+    9.0 FOR CREATION OF THE DISTRICT AND FOR
+    9.0 THE GENERAL OPERATING EXPENSES;
+    9.0 SHALL STANLEY HEIGHTS PUBLIC
+    9.0 IMPROVEMENT DISTRICT NO. 81 BE
+    9.0 CREATED; AND SHALL THE PROCEEDS OF
+    9.0 SUCH TAXES, THE SPECIFIC OWNERSHIP
+    9.0 TAXES RECEIVED BY THE DISTRICT AND
+    9.0 INVESTMENT EARNING ON BOTH
+    9.0 CONSTITUTE VOTER APPROVED REVENUE
+    9.0 AND/OR SPENDING CHANGES AND BE
+    9.0 COLLECTED AND SPENT BY THE DISTRICT
+    9.0 WITHOUT REGARD TO ANY SPENDING,
+    9.0 REVENUE RAISING OR OTHER LIMITATION
+    9.0 CONTAINED WITHIN ARTICLE X, SECTION 20
+    9.0 OF THE COLORADO CONSTITUTION; AND
+    9.0 SHALL THE DISTRICT BE AUTHORIZED TO
+    9.0 COLLECT AND EXPEND FROM ITS MILL LEVY
+    9.0 ANY SUCH AMOUNT WHICH IS MORE THAN
+    9.0 THE AMOUNT WHICH WOULD OTHERWISE BE
+    9.0 PERMITTED UNDER THE 5.5% LIMIT IMPOSED
+    9.0 BY SECTION 29-1-301, COLORADO REVISED
+    9.0 STATUTES IN 2027 AND EACH YEAR
+    9.0 THEREAFTER?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 5 column 2
+*W 11.0 Larimer County Colland Center Public
+*W 11.0 Improvement District No. 82
+*  10.0 Ballot Issue 6B
+    9.0 SHALL TAXES BE INCREASED $182,000.00
+    9.0 ANNUALLY (IN THE FIRST YEAR) OR SUCH
+    9.0 GREATER AMOUNT AS IS RAISED IN
+    9.0 SUBSEQUENT YEARS WITHIN THE
+    9.0 BOUNDARIES OF THE PROPOSED COLLAND
+    9.0 CENTER PUBLIC IMPROVEMENT DISTRICT
+    9.0 NO. 82 BY THE IMPOSITION OF AD VALOREM
+    9.0 PROPERTY TAXES AT A MILL LEVY RATE NOT
+    9.0 TO EXCEED 22.942 MILLS, THE REVENUES OF
+    9.0 WHICH WILL BE COLLECTED BEGINNING
+    9.0 JANUARY 1, 2027, AND EACH YEAR
+    9.0 THEREAFTER, SUCH REVENUES TO BE USED
+    9.0 FOR THE IMPROVEMENT AND MAINTENANCE
+    9.0 OF ROADS AS REQUESTED IN THE PETITION
+    9.0 FOR CREATION OF THE DISTRICT AND FOR
+    9.0 THE GENERAL OPERATING EXPENSES;
+    9.0 SHALL COLLAND CENTER PUBLIC
+    9.0 IMPROVEMENT DISTRICT NO. 82 BE
+    9.0 CREATED; AND SHALL THE PROCEEDS OF
+    9.0 SUCH TAXES, THE SPECIFIC OWNERSHIP
+    9.0 TAXES RECEIVED BY THE DISTRICT AND
+    9.0 INVESTMENT EARNING ON BOTH
+    9.0 CONSTITUTE VOTER APPROVED REVENUE
+    9.0 AND/OR SPENDING CHANGES AND BE
+    9.0 COLLECTED AND SPENT BY THE DISTRICT
+    9.0 WITHOUT REGARD TO ANY SPENDING,
+    9.0 REVENUE RAISING OR OTHER LIMITATION
+    9.0 CONTAINED WITHIN ARTICLE X, SECTION 20
+    9.0 OF THE COLORADO CONSTITUTION; AND
+    9.0 SHALL THE DISTRICT BE AUTHORIZED TO
+    9.0 COLLECT AND EXPEND FROM ITS MILL LEVY
+    9.0 ANY SUCH AMOUNT WHICH IS MORE THAN
+    9.0 THE AMOUNT WHICH WOULD OTHERWISE BE
+    9.0 PERMITTED UNDER THE 5.5% LIMIT IMPOSED
+    9.0 BY SECTION 29-1-301, COLORADO REVISED
+    9.0 STATUTES IN 2027 AND EACH YEAR
+    9.0 THEREAFTER?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 5 column 3
+*W 11.0 Larimer County Terry Point Estates
+*W 11.0 Public Improvement District No. 85
+*  10.0 Ballot Issue 6C
+    9.0 SHALL TAXES BE INCREASED $139,000.00
+    9.0 ANNUALLY (IN THE FIRST YEAR) OR SUCH
+    9.0 GREATER AMOUNT AS IS RAISED IN
+    9.0 SUBSEQUENT YEARS WITHIN THE
+    9.0 BOUNDARIES OF THE PROPOSED TERRY
+    9.0 POINT ESTATES PUBLIC IMPROVEMENT
+    9.0 DISTRICT NO. 85 BY THE IMPOSITION OF AD
+    9.0 VALOREM PROPERTY TAXES AT A MILL LEVY
+    9.0 RATE NOT TO EXCEED 26.970 MILLS, THE
+    9.0 REVENUES OF WHICH WILL BE COLLECTED
+    9.0 BEGINNING JANUARY 1, 2027 AND EACH
+    9.0 YEAR THEREAFTER, SUCH REVENUES TO BE
+    9.0 USED FOR THE IMPROVEMENT AND
+    9.0 MAINTENANCE OF ROADS AS REQUESTED IN
+    9.0 THE PETITION FOR CREATION OF THE
+    9.0 DISTRICT AND FOR THE GENERAL
+    9.0 OPERATING EXPENSES; SHALL TERRY POINT
+    9.0 ESTATES PUBLIC IMPROVEMENT DISTRICT
+    9.0 NO. 85 BE CREATED; AND SHALL THE
+    9.0 PROCEEDS OF SUCH TAXES, THE SPECIFIC
+    9.0 OWNERSHIP TAXES RECEIVED BY THE
+    9.0 DISTRICT AND INVESTMENT EARNING ON
+    9.0 BOTH CONSTITUTE VOTER APPROVED
+    9.0 REVENUE AND/OR SPENDING CHANGES AND
+    9.0 BE COLLECTED AND SPENT BY THE DISTRICT
+    9.0 WITHOUT REGARD TO ANY SPENDING,
+    9.0 REVENUE RAISING OR OTHER LIMITATION
+    9.0 CONTAINED WITHIN ARTICLE X, SECTION 20
+    9.0 OF THE COLORADO CONSTITUTION; AND
+    9.0 SHALL THE DISTRICT BE AUTHORIZED TO
+    9.0 COLLECT AND EXPEND FROM ITS MILL LEVY
+    9.0 ANY SUCH AMOUNT WHICH IS MORE THAN
+    9.0 THE AMOUNT WHICH WOULD OTHERWISE BE
+    9.0 PERMITTED UNDER THE 5.5% LIMIT IMPOSED
+    9.0 BY SECTION 29-1-301, COLORADO REVISED
+    9.0 STATUTES IN 2027 AND EACH YEAR
+    9.0 THEREAFTER?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*  14.0 Mark both sides of the ballot
+
+=== page 6 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 Estes Valley Fire Protection District
+*  10.0 Ballot Issue 6D
+    9.0 SHALL ESTES VALLEY FIRE PROTECTION
+    9.0 DISTRICT TAXES BE INCREASED THREE
+    9.0 MILLION FIVE HUNDRED THOUSAND
+    9.0 ($3,500,000.00) DOLLARS ANNUALLY IN THE
+    9.0 FIRST FULL FISCAL YEAR, AND BY SUCH
+    9.0 AMOUNTS AS ARE RAISED ANNUALLY
+    9.0 THEREAFTER BY THE IMPOSITION OF A
+    9.0 SALES TAX BEGINNING JANUARY 1, 2027 NOT
+    9.0 TO EXCEED 0.5% (50 CENTS ON EACH $100
+    9.0 DOLLARS), UPON EVERY TRANSACTION IN
+    9.0 THE DISTRICT WHICH THE STATE IMPOSES A
+    9.0 SALES TAX (EXCLUDING GROCERIES AND
+    9.0 OTHER EXEMPT ITEMS); FUNDING FROM THE
+    9.0 SALES TAX WILL BE USED FOR ANY LAWFUL
+    9.0 PURPOSE INCLUDING, BUT NOT LIMITED TO:
+    9.0 MAINTAINING WILDLAND FIREFIGHTING
+    9.0 ·
+    9.0 CAPABILITIES TO INCLUDE SPECIALIZED
+    9.0 AND/OR UPGRADED EQUIPMENT AND
+    9.0 FIREFIGHTER TRAINING;
+    9.0 MAINTAINING FIRE APPARATUS AND
+    9.0 ·
+    9.0 EQUIPMENT TO EXTEND ITS USEFUL
+    9.0 LIFE AND REPLACING AND/OR
+    9.0 UPGRADING FIREFIGHTING VEHICLES,
+    9.0 COMMUNICATION METHODS, SAFETY
+    9.0 GEAR AND OTHER EQUIPMENT AND
+    9.0 APPARATUS;
+    9.0 FUNDING VOLUNTEER FIREFIGHTING
+    9.0 ·
+    9.0 GENERAL AND SPECIALIZED TRAINING
+    9.0 PROGRAMS, OPPORTUNITIES, AND
+    9.0 OVERALL PROGRAM SUPPORT.
+    9.0 AND SHALL ALL DISTRICT SALES TAX
+    9.0 REVENUES AND THE EARNINGS FROM THE
+    9.0 INVESTMENT OF SUCH REVENUES BE
+    9.0 COLLECTED, RETAINED, AND SPENT AS A
+    9.0 VOTER APPROVED REVENUE CHANGE
+    9.0 NOTWITHSTANDING ANY REVENUE LIMITS
+    9.0 PROVIDED BY LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 6 column 2
+*W 11.0 Thompson Crossing Metropolitan
+*W 11.0 District No. 2
+*  10.0 Ballot Issue 6E
+    9.0 WITHOUT INCREASING THE DISTRICT'S
+    9.0 AVERAGE PROPERTY TAX MILL LEVY FOR
+    9.0 THE LAST 10 YEARS, SHALL THOMPSON
+    9.0 CROSSING METROPOLITAN DISTRICT NO. 2
+    9.0 DEBT BE INCREASED UP TO $16 MILLION,
+    9.0 WITH A MAXIMUM REPAYMENT COST OF UP
+    9.0 TO $36 MILLION, FOR THE PURPOSE OF
+    9.0 FINANCING PUBLIC IMPROVEMENTS,
+    9.0 INCLUDING:
+    9.0 A NEW MULTI-USE 10' PAVED TRAIL
+    9.0 ·
+    9.0 ALONG THE SOUTHERN BOUNDARY OF
+    9.0 THE DISTRICT
+    9.0 LOWERING THE INTEREST RATES ON
+    9.0 ·
+    9.0 OBLIGATIONS FOR IMPROVEMENTS
+    9.0 RELATED TO STREETS, WATER,
+    9.0 SANITARY SEWER, STORM DRAINAGE,
+    9.0 LANDSCAPING, PARKS AND
+    9.0 RECREATION, SAFETY PROTECTION,
+    9.0 TRANSPORTATION, AND SECURITY;
+    9.0 SUCH DEBT TO CONSIST OF GENERAL
+    9.0 OBLIGATION BONDS, WHICH BONDS SHALL
+    9.0 BEAR INTEREST AT A MAXIMUM NET
+    9.0 EFFECTIVE INTEREST RATE NOT TO EXCEED
+    9.0 5.25% PER ANNUM; SUCH BONDS TO BE
+    9.0 PAYABLE FROM PROPERTY TAXES
+    9.0 PREVIOUSLY APPROVED AT THE DISTRICT'S
+    9.0 2001 ELECTION; AND SHALL ALL SUCH
+    9.0 REVENUES AND ANY EARNINGS FROM THE
+    9.0 INVESTMENT OF SUCH REVENUES AND THE
+    9.0 PROCEEDS OF THE BONDS CONSTITUTE A
+    9.0 VOTER-APPROVED REVENUE CHANGE
+    9.0 UNDER ARTICLE X, SECTION 20 OF THE
+    9.0 COLORADO CONSTITUTION?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 6 column 3
+*  14.0 Mark both sides of the ballot
+
+=== page 7 column 1
+*  24.0 SAMPLE BALLOT
+*W 11.0 Front Range Passenger Rail District
+*  10.0 Ballot Issue 7A
+    9.0 SHALL FRONT RANGE PASSENGER RAIL
+    9.0 DISTRICT TAXES BE INCREASED $295,000,000
+    9.0 ANNUALLY AND BY WHATEVER AMOUNTS
+    9.0 ARE RAISED ANNUALLY THEREAFTER, AND
+    9.0 SHALL FRONT RANGE PASSENGER RAIL
+    9.0 DISTRICT DEBT BE INCREASED $580,000,000,
+    9.0 WITH A REPAYMENT COST OF $785,000,000;
+    9.0 TO CONSTRUCT, OPERATE, AND MAINTAIN
+    9.0 COLORADO CONNECTOR (COCO)
+    9.0 PASSENGER RAIL SERVICE ON COLORADO'S
+    9.0 FRONT RANGE AND CONNECT
+    9.0 COMMUNITIES, INCLUDING PUEBLO,
+    9.0 COLORADO SPRINGS, STERLING RANCH,
+    9.0 LITTLETON, DENVER, WESTMINSTER,
+    9.0 BROOMFIELD, LOUISVILLE, BOULDER,
+    9.0 LONGMONT, LOVELAND, AND FORT COLLINS;
+    9.0 IN ORDER TO:
+    9.0 REMOVE VEHICLES FROM HIGHWAYS
+    9.0 ·
+    9.0 AND INCREASE TRAVEL CAPACITY;
+    9.0 CONNECT TRAVELERS TO
+    9.0 ·
+    9.0 EMPLOYMENT CENTERS, COLLEGES,
+    9.0 SPORTS ARENAS, AND ENTERTAINMENT
+    9.0 HUBS ALONG THE FRONT RANGE; AND
+    9.0 INVEST IN STATION AREA
+    9.0 ·
+    9.0 IMPROVEMENTS AND LOCAL
+    9.0 CONNECTIONS TO RAIL STATIONS;
+    9.0 BY ESTABLISHING A 0.333% SALES AND USE
+    9.0 TAX (EQUAL TO ONE THIRD OF A PENNY ON A
+    9.0 $1 PURCHASE), WITH EXEMPTIONS
+    9.0 PROVIDED UNDER COLORADO LAW,
+    9.0 INCLUDING THOSE FOR GASOLINE, FOOD,
+    9.0 RESIDENTIAL ELECTRICITY AND GAS,
+    9.0 PRESCRIPTION DRUGS, AND MEDICAL
+    9.0 SUPPLIES;
+    9.0 AND TO RETAIN ALL SUCH REVENUES,
+    9.0 PUBLIC AND PRIVATE CONTRIBUTIONS, AND
+    9.0 ANY INVESTMENT INCOME ON REVENUES
+    9.0 AND DEBT PROCEEDS, AS A
+    9.0 VOTER-APPROVED REVENUE CHANGE
+    9.0 UNDER SECTION 20 OF ARTICLE X OF THE
+    9.0 COLORADO CONSTITUTION;
+    9.0 AND REQUIRING THAT ALL SUCH DEDICATED
+    9.0 REVENUES BE REVIEWED ANNUALLY BY AN
+    9.0 INDEPENDENT AUDITOR AND A ROTATING
+    9.0 GROUP OF CITIZEN TAXPAYERS WHO LIVE IN
+    9.0 THE DISTRICT?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 7 column 2
+*W 11.0 Allenspark Fire Protection District
+*  10.0 Ballot Issue 7C
+    9.0 SHALL ALLENSPARK FIRE PROTECTION
+    9.0 DISTRICT TAXES BE INCREASED BY UP TO
+    9.0 $331,000 IN THE FIRST FISCAL YEAR (2027)
+    9.0 AND BY SUCH AMOUNT AS MAY BE RAISED
+    9.0 ANNUALLY THEREAFTER, BY INCREASING
+    9.0 THE DISTRICT'S PROPERTY TAX RATE BY AN
+    9.0 ADDITIONAL 5.3 MILLS, FOR THE PURPOSES
+    9.0 OF PROVIDING FIRE PROTECTION AND
+    9.0 EMERGENCY RESPONSE SERVICES,
+    9.0 INCLUDING BUT NOT LIMITED TO:
+    9.0 REBUILDING DEPLETED RESERVES IN
+    9.0 ·
+    9.0 ORDER TO PRESERVE THE CURRENT
+    9.0 LEVEL OF SERVICES FOR THE
+    9.0 COMMUNITY, ADDRESS DEFERRED
+    9.0 MAINTENANCE FOR OUR BUILDINGS
+    9.0 AND GROUNDS, AND UPDATE AND
+    9.0 REPLACE CRITICAL FIREFIGHTING AND
+    9.0 MEDICAL EQUIPMENT (THE LAST MILL
+    9.0 LEVY INCREASE WAS IN 2003).
+    9.0 EXPAND STAFFING TO IMPROVE BOTH
+    9.0 ·
+    9.0 FIRE AND MEDICAL OUTCOMES
+    9.0 THROUGH FIRE MITIGATION,
+    9.0 COMMUNITY OUTREACH AND
+    9.0 EDUCATION.
+    9.0 IMPROVING FIREFIGHTING
+    9.0 ·
+    9.0 CAPABILITIES BY EXPANDING WATER
+    9.0 RESOURCES TO INCREASE THE
+    9.0 NUMBER OF DRY HYDRANTS AND
+    9.0 INSTALLING WATER STORAGE TANKS
+    9.0 AT KEY LOCATIONS THROUGHOUT THE
+    9.0 DISTRICT.
+    9.0 AND SHALL ALL REVENUE AND ANY
+    9.0 EARNINGS ON THIS TAX CONSTITUTE A
+    9.0 PERMANENT VOTER-APPROVED REVENUE
+    9.0 CHANGE WITHIN THE MEANING OF ARTICLE
+    9.0 X, SECTION 20 OF THE COLORADO
+    9.0 CONSTITUTION AND AN EXCEPTION TO THE
+    9.0 LIMITATIONS SET FORTH IN TITLE 29 OF THE
+    9.0 COLORADO REVISED STATUTES, AND ANY
+    9.0 OTHER LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+*W 11.0 Poudre Valley Fire Protection District
+*  10.0 Ballot Issue 7E
+    9.0 SHALL THE POUDRE VALLEY FIRE
+    9.0 PROTECTION DISTRICT WAIVE THE 5.25%
+    9.0 PROPERTY TAX LIMIT FOR ALL FUTURE
+    9.0 PROPERTY TAX YEARS, WITHOUT
+    9.0 INCREASING TAXES, TO ALLOW FOR THE
+    9.0 DISTRICT TO RETAIN PROPERTY TAX
+    9.0 REVENUE FOR THE PURPOSES OF
+    9.0 MAINTAINING ADEQUATE STAFFING,
+    9.0 PROCURING AND MAINTAINING FIRE
+    9.0 FIGHTING AND OTHER LIFE SAVING
+    9.0 EQUIPMENT AND APPARATUS, AND FOR
+    9.0 OTHER OPERATIONAL AND CAPITAL NEEDS
+    9.0 AND SHALL ALL DISTRICT REVENUES BE
+    9.0 COLLECTED, RETAINED, AND SPENT
+    9.0 NOTWITHSTANDING ANY REVENUE LIMITS
+    9.0 PROVIDED BY LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST
+
+=== page 7 column 3
+*W 11.0 Windsor-Severance Fire Protection
+*W 11.0 District
+*  10.0 Ballot Issue 7F
+    9.0 SHALL WINDSOR-SEVERANCE FIRE
+    9.0 PROTECTION DISTRICT TAXES BE
+    9.0 INCREASED BY UP TO $44,336,787 BY TAX
+    9.0 YEAR 2034, AFTER ALL PHASED-IN
+    9.0 INCREASES, AND IN EACH YEAR
+    9.0 THEREAFTER BY WHATEVER ADDITIONAL
+    9.0 AMOUNTS ARE RAISED FROM A PHASED-IN
+    9.0 OPERATING MILL LEVY IMPOSED AT A RATE
+    9.0 OF UP TO 1.5 MILLS IN 2027, AN ADDITIONAL
+    9.0 1.5 MILLS IN 2031 AND AN ADDITIONAL 1
+    9.0 MILLS IN 2034 (THE TOTAL OF WHICH IS 4
+    9.0 MILLS AND IS IN ADDITION TO THE MILL LEVY
+    9.0 CURRENTLY IMPOSED BY THE DISTRICT),
+    9.0 AND CONTINUING THEREAFTER AS
+    9.0 PROVIDED BY LAW, WITH SUCH TAX
+    9.0 PROCEEDS TO BE USED FOR THE
+    9.0 FOLLOWING DISTRICT OPERATIONAL AND
+    9.0 CAPITAL EXPENSES:
+    9.0 HIRING NECESSARY FIRE AND
+    9.0 ·
+    9.0 EMERGENCY RESPONSE PERSONNEL
+    9.0 TO MEET GROWING NEEDS AND
+    9.0 NATIONAL MINIMUM STAFFING
+    9.0 STANDARDS;
+    9.0 PURCHASING NECESSARY FIRE AND
+    9.0 ·
+    9.0 EMERGENCY RESPONSE APPARATUS
+    9.0 AND EQUIPMENT;
+    9.0 MAINTAINING AND IMPROVING
+    9.0 ·
+    9.0 CURRENT LEVELS OF FIRE PROTECTION
+    9.0 AND EMERGENCY SERVICES;
+    9.0 BUILDING AN ADDITIONAL FIRE STATION
+    9.0 ·
+    9.0 AND REMODELING EXISTING FACILITIES;
+    9.0 AND SHALL ALL REVENUE AND ANY
+    9.0 EARNINGS ON THIS TAX CONSTITUTE A
+    9.0 PERMANENT VOTER-APPROVED REVENUE
+    9.0 CHANGE WITHIN THE MEANING OF ARTICLE
+    9.0 X, SECTION 20 OF THE COLORADO
+    9.0 CONSTITUTION AND A WAIVER OF THE
+    9.0 LIMITATIONS SET FORTH IN TITLE 29 OF THE
+    9.0 COLORADO REVISED STATUTES, AND ANY
+    9.0 OTHER LAW?
+    9.0 YES/FOR
+    9.0 NO/AGAINST

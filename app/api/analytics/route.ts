@@ -1,29 +1,29 @@
 // API Route: Share guide analytics
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { handleApiError } from '@/lib/errors'
 
+const EVENT_TYPES = new Set(['share', 'copy', 'view'])
+
+// Counts share events only — no IP addresses or other identifying data are stored
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const headers = request.headers
+    if (typeof body.guideId !== 'string') {
+      return NextResponse.json({ error: 'guideId required' }, { status: 400 })
+    }
+    const guide = await prisma.guide.findUnique({ where: { id: body.guideId }, select: { id: true } })
+    if (!guide) return NextResponse.json({ error: 'Guide not found' }, { status: 404 })
 
     await prisma.guideAnalytics.create({
       data: {
-        guideId: body.guideId,
-        eventType: body.eventType || 'share',
-        ipAddress: headers.get('x-forwarded-for') || headers.get('x-real-ip') || undefined,
-        userAgent: headers.get('user-agent') || undefined,
-        referrer: body.referrer || undefined,
+        guideId: guide.id,
+        eventType: EVENT_TYPES.has(body.eventType) ? body.eventType : 'share',
       },
     })
-
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error tracking analytics:', error)
-    return NextResponse.json(
-      { error: 'Failed to track analytics' },
-      { status: 500 }
-    )
+    const { message, statusCode } = handleApiError(error)
+    return NextResponse.json({ error: message }, { status: statusCode })
   }
 }
-

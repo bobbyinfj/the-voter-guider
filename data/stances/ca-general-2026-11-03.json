@@ -1,0 +1,317 @@
+{
+  "electionSlug": "ca-general-2026-11-03",
+  "stances": [
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-top-earner-income-tax",
+      "position": 2,
+      "summary": "Supports a progressive income tax and extending the higher tax rate on high earners to pay for schools.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Becerra supports a progressive income tax system and the proposal to extend a higher tax rate on high earners to pay for schools."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-top-earner-income-tax",
+      "position": -2,
+      "summary": "Would eliminate state income tax on the first $150,000 of earnings and make the income tax a flat rate above that.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Hilton wants to eliminate state income tax on the first $150,000 of Californians’ earnings, and make the income tax a flat rate above that."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-clean-energy-mandates",
+      "position": 1,
+      "summary": "Supports the state's clean energy goals but is open to revising them if they make gas and energy unaffordable.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Becerra says he supports the state’s clean energy transition goals but is open to revising them if they make gas and energy unaffordable, particularly Gov. Gavin Newsom’s ban on selling new gas cars by 2035."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-clean-energy-mandates",
+      "position": -2,
+      "summary": "Would roll back climate rules mandating clean energy and emissions cuts, and end requirements to buy solar and wind power.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Hilton wants to roll back California’s climate rules that mandate a transition to clean energy and a reduction in greenhouse gas emissions in favor of more consumer-friendly policies."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-state-housing-mandates",
+      "position": 2,
+      "summary": "Would push cities to zone for apartments, duplexes and condos and crack down on cities that make building harder.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He would push cities to zone more residential land to build apartments, duplexes and condos and crack down on cities that make it harder to build new housing."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-rob-bonta",
+      "issueId": "ca-state-housing-mandates",
+      "position": 2,
+      "summary": "As attorney general, enforced laws compelling reluctant cities to build new housing.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/attorney-general/",
+          "title": "CalMatters 2026 Voter Guide: Attorney General",
+          "quote": "As attorney general, Bonta spent much of his first term enforcing housing and criminal justice laws passed in the early 2020s, including laws compelling recalcitrant cities to build new housing."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-michael-e-gates",
+      "issueId": "ca-state-housing-mandates",
+      "position": -2,
+      "summary": "As Huntington Beach city attorney, fought state housing laws that would have compelled the city to build more affordable housing.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/attorney-general/",
+          "title": "CalMatters 2026 Voter Guide: Attorney General",
+          "quote": "He also fought elements of the new housing laws that would have compelled Huntington Beach to build more affordable housing."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-clear-encampments",
+      "position": 2,
+      "summary": "Considers street camping categorically illegal and says police should help clear all encampments.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Hilton believes that camping on the street, which some cities have banned, is categorically illegal and says police should be involved in clearing all encampments."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-clear-encampments",
+      "position": 1,
+      "summary": "Says people shouldn't be allowed to stay on the street when offered shelter, but stopped short of saying they should face arrest.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He says people should not be allowed to voluntarily stay on the street when offered shelter, but stopped short of saying they should face arrest."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-sanctuary-law",
+      "position": 2,
+      "summary": "Supports the sanctuary law and defended it in court as attorney general.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He supports California’s sanctuary law and defended it in court during the first Trump administration."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-sanctuary-law",
+      "position": -2,
+      "summary": "Wants to overturn the sanctuary law that limits police cooperation with ICE.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He wants to overturn California’s sanctuary law that limits police cooperation with Immigration and Customs Enforcement."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-medi-cal-undocumented",
+      "position": -2,
+      "summary": "His main health policy is to end state Medi-Cal coverage for undocumented immigrants and redirect the money.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Hilton’s primary healthcare policy is to end California’s state-provided MediCal coverage for undocumented immigrants and redirect that money to lower healthcare costs for legal residents."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-challenge-federal-government",
+      "position": 2,
+      "summary": "Makes fighting President Trump a central part of his platform and would keep suing as governor.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He says he would adopt a similar stance with Trump as governor on such issues as immigration and environmental policy."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-challenge-federal-government",
+      "position": -2,
+      "summary": "Expects a positive, cooperative relationship with President Trump, who endorsed him.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "He has said he expects to have a positive, cooperative relationship with the president and believes that relationship will help California secure more federal help."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-rob-bonta",
+      "issueId": "ca-challenge-federal-government",
+      "position": 2,
+      "summary": "Has filed or joined more than 50 lawsuits against the second Trump administration.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/attorney-general/",
+          "title": "CalMatters 2026 Voter Guide: Attorney General",
+          "quote": "Since the reelection of Donald Trump, Bonta has filed or joined more than 50 lawsuits against his administration."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-tech-regulation",
+      "position": 2,
+      "summary": "Supports banning social media for children under 16 and requiring AI developers to be transparent about employment uses.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Becerra says he supports the state banning children under 16 from being on social media."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-tech-regulation",
+      "position": -2,
+      "summary": "Has declined to back regulations or bans and wants fewer rules to keep the AI industry growing.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "But he has declined to back any regulations or bans, and wants to reduce regulations to keep the AI industry growing in California."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steve-hilton",
+      "issueId": "ca-tougher-sentencing",
+      "position": 2,
+      "summary": "Would reopen closed prisons and reduce early release for good conduct.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "Hilton would reopen closed state prisons, reduce the practice of early release based on prisoners’ good conduct and boost rehabilitation programs in prisons."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-xavier-becerra",
+      "issueId": "ca-tougher-sentencing",
+      "position": 0,
+      "summary": "Voted for Prop 36 and would fully fund it, but hasn't backed longer sentences generally, leaving that to judges.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/governor/",
+          "title": "CalMatters 2026 Voter Guide: Governor",
+          "quote": "But he has not backed longer or stricter criminal sentences in general, saying that decision should be left to judges."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-jane-kim",
+      "issueId": "ca-public-disaster-insurance",
+      "position": 2,
+      "summary": "Wants \"natural disaster insurance for all,\" a state-run authority guaranteeing wildfire and flood coverage.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/",
+          "title": "CalMatters 2026 Voter Guide: Insurance Commissioner",
+          "quote": "Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-jane-kim",
+      "issueId": "ca-low-cost-auto-insurance",
+      "position": 2,
+      "summary": "Wants to expand the low-cost auto insurance program to every California driver.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/",
+          "title": "CalMatters 2026 Voter Guide: Insurance Commissioner",
+          "quote": "Kim wants to expand a state program that allows low-income drivers to get low-cost insurance to every California driver."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-ben-allen",
+      "issueId": "ca-low-cost-auto-insurance",
+      "position": -1,
+      "summary": "Says opening the program to everyone could hurt the low-income drivers who really need it.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/",
+          "title": "CalMatters 2026 Voter Guide: Insurance Commissioner",
+          "quote": "Allen said expanding eligibility for a low-cost insurance program to everyone could hurt the low-income drivers who really need it."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-donald-p-don-wagner",
+      "issueId": "ca-voter-id",
+      "position": 2,
+      "summary": "Supports requiring voter ID at the polls.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/secretary-of-state/",
+          "title": "CalMatters 2026 Voter Guide: Secretary of State",
+          "quote": "He supports requiring voter ID at the polls and criticizes Weber for the state’s slow ballot-counting process."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-sonja-shaw",
+      "issueId": "ca-transgender-student-protections",
+      "position": -2,
+      "summary": "An outspoken opponent of protections for transgender students.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/",
+          "title": "CalMatters 2026 Voter Guide: Superintendent",
+          "quote": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students."
+        }
+      ]
+    }
+  ]
+}

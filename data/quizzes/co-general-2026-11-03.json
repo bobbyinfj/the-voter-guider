@@ -1,0 +1,474 @@
+{
+  "electionSlug": "co-general-2026-11-03",
+  "title": "Colorado 2026 General Election Quiz",
+  "questions": [
+    {
+      "id": "co-general-2026-11-03-q01",
+      "prompt": "Colorado's leaders should fight the Trump administration in court rather than focus on building a working relationship with it.",
+      "helpText": "Colorado's attorney general has filed or joined dozens of lawsuits against the administration. Supporters say the suits protect state law and funding; critics say they're political and cost Colorado federal goodwill.",
+      "order": 1,
+      "issues": [
+        {
+          "issueId": "co-challenge-federal-government",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q02",
+      "prompt": "Federal immigration enforcement (ICE) has gone too far and needs new limits on its tactics.",
+      "helpText": "Recent enforcement operations, including officers wearing masks and not identifying themselves, have drawn criticism. Supporters of the current approach say agents are enforcing the law against people who are here illegally.",
+      "order": 2,
+      "issues": [
+        {
+          "issueId": "us-limit-ice-tactics",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q03",
+      "prompt": "State and local police should be required to cooperate with federal immigration authorities.",
+      "helpText": "Amendment 81 on this ballot also deals with law enforcement communication with federal immigration authorities. Supporters say cooperation removes dangerous offenders; opponents say it makes immigrant communities afraid to report crimes.",
+      "order": 3,
+      "issues": [
+        {
+          "issueId": "co-require-ice-cooperation",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q04",
+      "prompt": "Congress should create a pathway to citizenship for undocumented immigrants such as Dreamers.",
+      "helpText": "Dreamers are people brought to the U.S. as children. Supporters say a pathway recognizes people rooted here; opponents say it rewards breaking immigration law.",
+      "order": 4,
+      "issues": [
+        {
+          "issueId": "co-pathway-to-citizenship",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q05",
+      "prompt": "Colorado should keep TABOR's limits that refund surplus revenue to taxpayers instead of letting the state keep more.",
+      "helpText": "The Taxpayer's Bill of Rights caps how much revenue the state can keep and refunds the rest. Proposition NN on this ballot would let the state keep some of it. Supporters of the limits say they restrain government growth; critics say they starve schools and services.",
+      "order": 5,
+      "issues": [
+        {
+          "issueId": "co-keep-tabor-limits",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q06",
+      "prompt": "Cutting regulations and permitting costs is the best way to make housing more affordable.",
+      "helpText": "Supporters say fees, permitting delays and zoning rules drive up building costs; others say the market alone won't produce affordable homes without public investment and tenant protections.",
+      "order": 6,
+      "issues": [
+        {
+          "issueId": "co-cut-housing-regulation",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q07",
+      "prompt": "Colorado should expand oil and gas production to lower energy bills.",
+      "helpText": "Supporters say more production lowers prices and funds the state; opponents point to climate and air-quality impacts.",
+      "order": 7,
+      "issues": [
+        {
+          "issueId": "co-expand-energy-production",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q08",
+      "prompt": "The Trump administration's tariffs are raising costs for Coloradans and should be rolled back.",
+      "helpText": "Supporters of the tariffs say they protect American industry and jobs; critics say consumers end up paying them through higher prices.",
+      "order": 8,
+      "issues": [
+        {
+          "issueId": "co-tariffs-hurting",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q09",
+      "prompt": "The U.S. Senate should eliminate or weaken the filibuster.",
+      "helpText": "The filibuster lets 41 senators block most bills. Supporters say it forces compromise; critics say it blocks bills a majority supports.",
+      "order": 9,
+      "issues": [
+        {
+          "issueId": "us-senate-filibuster",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q10",
+      "prompt": "Americans should have to show proof of citizenship, like a passport or birth certificate, to register to vote.",
+      "helpText": "President Trump has called for this requirement. Supporters say it ensures only citizens vote; opponents say most eligible voters would have to re-register and many lack those documents on hand.",
+      "order": 10,
+      "issues": [
+        {
+          "issueId": "co-proof-of-citizenship-to-register",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q11",
+      "prompt": "Colorado should keep its system of mailing every voter a ballot.",
+      "helpText": "Colorado mails a ballot to every registered voter. Supporters cite high turnout and convenience; critics say in-person voting is more secure.",
+      "order": 11,
+      "issues": [
+        {
+          "issueId": "co-keep-mail-voting",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "co-general-2026-11-03-q12",
+      "prompt": "Members of Congress should be banned from trading individual stocks.",
+      "helpText": "Supporters say lawmakers shouldn't profit from information they get on the job; opponents say disclosure rules are enough.",
+      "order": 12,
+      "issues": [
+        {
+          "issueId": "congress-stock-trading-ban",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    }
+  ]
+}
