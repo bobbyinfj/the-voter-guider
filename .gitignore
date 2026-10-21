@@ -47,3 +47,5 @@ next-env.d.ts
 data/research/quiz-builders/*.html
 data/research/quiz-builders/*.txt
 __pycache__/
+# Downloaded pages for the enrichment builders (copyrighted; not committed)
+data/research/enrichment-builders/cache/

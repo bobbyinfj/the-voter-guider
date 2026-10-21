@@ -5,6 +5,10 @@ import StanceBadge from "@/components/quiz/StanceBadge";
 import { BallotHeader, accentButton } from "@/components/ballot/Paper";
 import { formatElectionDate } from "@/lib/format";
 import { inPrintedOrder } from "@/components/ballot/ballot";
+import PamphletSummary from "@/components/candidate/PamphletSummary";
+import VideoFacade from "@/components/candidate/VideoFacade";
+import { EndorserStrip } from "@/components/candidate/Endorsements";
+import { asProfile, snippet } from "@/lib/profile";
 
 interface Props {
   params: Promise<{ electionId: string; officeId: string }>;
@@ -75,23 +79,52 @@ export default async function OfficePage({ params }: Props) {
           </BallotHeader>
         </div>
 
-        {/* Candidate comparison table */}
-        {issues.length === 0 ? (
-          <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
-            <h2 className="text-base font-semibold text-gray-700 mb-4">Candidates</h2>
-            <ul className="space-y-3">
-              {candidates.map((c) => (
-                <li key={c.id} className="flex items-center gap-3">
-                  <Link href={`/candidates/${c.id}`} className="font-medium text-blue-600 hover:underline">
-                    {c.name}
+        {/* Side-by-side: each candidate's own words, a video, endorsements */}
+        <div className="mb-8 grid gap-4 font-sans sm:grid-cols-2 lg:grid-cols-3">
+          {candidates.map((c) => {
+            const profile = asProfile(c.profile);
+            const snip = snippet(c.profile, 8);
+            return (
+              <article key={c.id} className="flex flex-col border-[1.5px] border-ballot-ink bg-ballot-paper">
+                <header className="bg-ballot-head px-4 py-2 font-ballot">
+                  <h2 className="text-base font-bold">
+                    <Link href={`/candidates/${c.id}`} className="hover:underline">
+                      {c.name}
+                    </Link>
+                  </h2>
+                  {c.party && <p className="text-xs">{c.party}</p>}
+                </header>
+                <div className="flex flex-1 flex-col gap-3 p-4">
+                  {profile?.summary ? (
+                    <PamphletSummary summary={{ ...profile.summary, statement: null }} />
+                  ) : (
+                    c.shortBio && <p className="text-sm">{c.shortBio}</p>
+                  )}
+                  {snip?.video && <VideoFacade video={snip.video} />}
+                  {snip && snip.endorserTotal > 0 && (
+                    <div className="space-y-1">
+                      <p className="text-xs font-semibold text-gray-700">
+                        Endorsements ({snip.endorserTotal.toLocaleString()})
+                      </p>
+                      <EndorserStrip endorsers={snip.endorsers} total={snip.endorserTotal} size="md" />
+                    </div>
+                  )}
+                  <Link href={`/candidates/${c.id}`} className="mt-auto text-sm font-semibold text-blue-700 hover:underline">
+                    Full profile →
                   </Link>
-                  {c.party && <span className="text-xs text-gray-400">{c.party}</span>}
-                  {c.incumbent && <span className="text-xs bg-yellow-100 text-yellow-700 border border-yellow-200 rounded px-1.5 py-0.5">Incumbent</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        {candidates.some((c) => asProfile(c.profile)?.endorsements) && (
+          <p className="-mt-6 mb-8 font-sans text-xs text-gray-600">
+            Endorsements are as listed on each campaign&apos;s own website; some campaigns don&apos;t publish a list we can read.
+          </p>
+        )}
+
+        {/* Candidate comparison table */}
+        {issues.length > 0 && (
           <div className="overflow-x-auto border-[1.5px] border-ballot-ink bg-ballot-paper">
             <table className="w-full text-sm">
               <thead>
@@ -139,27 +172,6 @@ export default async function OfficePage({ params }: Props) {
           </div>
         )}
 
-        {/* Individual candidate cards */}
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {candidates.map((c) => (
-            <Link
-              key={c.id}
-              href={`/candidates/${c.id}`}
-              className="border-[1.5px] border-ballot-ink bg-ballot-paper p-5 hover:border-blue-300 hover:shadow-md transition-all block"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-lg flex-shrink-0">
-                  {c.name.charAt(0)}
-                </div>
-                <div className="min-w-0">
-                  <p className="font-semibold text-gray-800">{c.name}</p>
-                  {c.party && <p className="text-xs text-gray-500">{c.party}</p>}
-                  {c.shortBio && <p className="text-xs text-gray-500 mt-1 line-clamp-2">{c.shortBio}</p>}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
       </div>
     </>
   );

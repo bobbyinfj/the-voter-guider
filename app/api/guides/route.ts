@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma'
 import { getSessionId } from '@/lib/session'
 import { handleApiError } from '@/lib/errors'
 import { parseDistrictSelection } from '@/lib/districts'
+import { snippetCandidates } from '@/lib/profile'
 
 const VISIBILITIES = new Set(['private', 'friends', 'public'])
 
@@ -21,7 +22,7 @@ const guideInclude = {
               id: true,
               district: true,
               candidates: {
-                select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true },
+                select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true },
               },
             },
           },
@@ -39,7 +40,17 @@ type GuideWithRelations = Prisma.GuideGetPayload<{ include: typeof guideInclude 
 function toResponse(guide: GuideWithRelations, sessionId: string) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { sessionId: owner, userId, ...rest } = guide
-  return { ...rest, isOwner: owner === sessionId }
+  return {
+    ...rest,
+    election: {
+      ...rest.election,
+      ballots: rest.election.ballots.map((b) => ({
+        ...b,
+        office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) },
+      })),
+    },
+    isOwner: owner === sessionId,
+  }
 }
 
 function text(value: unknown, max: number): string | null {

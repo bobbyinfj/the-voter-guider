@@ -254,6 +254,14 @@ async function seedElectionBundle(slug: string) {
 
   // 4. Upsert offices + candidates
   const candidateLocalId: Record<string, string> = {}; // data-file id → db id
+  // Candidate extras (data/enrichment/<slug>.json, built by data/research/enrichment-builders)
+  let enrichment: Record<string, { website?: string } & Record<string, unknown>> = {};
+  try {
+    enrichment = JSON.parse(readFileSync(resolve(dataRoot, "enrichment", `${slug}.json`), "utf-8")).candidates;
+    console.log(`   ✅ Enrichment for ${Object.keys(enrichment).length} candidates`);
+  } catch {
+    console.log("   ℹ️  No enrichment file — candidate profiles cleared.");
+  }
 
   for (const officeData of electionData.offices) {
     const jurisdictionId =
@@ -309,6 +317,8 @@ async function seedElectionBundle(slug: string) {
     });
 
     for (const cd of officeData.candidates) {
+      const profile = enrichment[cd.id];
+      const website = cd.website ?? profile?.website ?? null;
       const candidate = await prisma.candidate.upsert({
         where: { id: cd.id },
         update: {
@@ -317,7 +327,8 @@ async function seedElectionBundle(slug: string) {
           party: cd.party,
           incumbent: cd.incumbent ?? false,
           shortBio: cd.shortBio,
-          website: cd.website ?? null,
+          website,
+          profile: profile ? (profile as Prisma.InputJsonObject) : Prisma.DbNull,
         },
         create: {
           id: cd.id,
@@ -328,7 +339,8 @@ async function seedElectionBundle(slug: string) {
           shortBio: cd.shortBio,
           longBio: cd.longBio,
           photoUrl: cd.photoUrl,
-          website: cd.website ?? null,
+          website,
+          profile: profile ? (profile as Prisma.InputJsonObject) : Prisma.DbNull,
           email: cd.email,
           phone: cd.phone,
         },

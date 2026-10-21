@@ -228,6 +228,9 @@ model Candidate {
   website   String?
   email     String?
   phone     String?
+  // Voter Guider extras from data/enrichment (pamphlet summary, videos, endorsements); see
+  // data/research/enrichment-builders. Shown as extras, never as ballot text.
+  profile   Json?
 
   office  Office            @relation(fields: [officeId], references: [id], onDelete: Cascade)
   stances CandidateStance[]

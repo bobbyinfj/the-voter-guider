@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { CheckCircle2, ChevronDown, ExternalLink, Info } from 'lucide-react'
+import { CheckCircle2, ChevronDown, ExternalLink, Info, PlayCircle } from 'lucide-react'
 import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
+import VideoFacade from '@/components/candidate/VideoFacade'
+import { EndorserStrip } from '@/components/candidate/Endorsements'
+import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl } from '@/lib/profile'
 import {
   ABSTAIN,
   MEASURE_VALUES,
@@ -13,6 +16,7 @@ import {
   isMeasure,
   layoutOf,
   optionList,
+  type BallotCandidate,
   type BallotItem,
   type ChoiceValue,
 } from './ballot'
@@ -235,6 +239,57 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
   )
 }
 
+// One candidate in the snack panel: their own words (one line), endorsement circles, a video
+function CandidateSnack({ candidate: c }: { candidate: BallotCandidate }) {
+  const [watching, setWatching] = useState(false)
+  const p = c.profile
+  const video = p?.video
+  return (
+    <li className="space-y-1">
+      <div>
+        <Link href={`/candidates/${c.id}`} className="font-semibold text-blue-700 hover:underline">
+          {c.name}
+        </Link>
+        {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[10px] font-semibold">incumbent</span>}
+      </div>
+      {p?.headline ? (
+        <p className="line-clamp-2 text-xs text-sky-900">
+          <span className="font-semibold">{p.headline.label}:</span> {p.headline.text}
+          {p.summarySource && <span className="text-sky-700"> (voters&apos; pamphlet)</span>}
+        </p>
+      ) : (
+        c.shortBio && <p className="text-xs text-sky-900">{c.shortBio}</p>
+      )}
+      {p && p.endorserTotal > 0 && (
+        <Link href={`/candidates/${c.id}#endorsements`} className="flex items-center gap-2 text-xs text-sky-900 hover:underline">
+          <EndorserStrip endorsers={p.endorsers.slice(0, 6)} total={Math.min(6, p.endorsers.length)} />
+          <span>{p.endorserTotal.toLocaleString()} endorsements</span>
+        </Link>
+      )}
+      <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs">
+        {video && (
+          <button
+            type="button"
+            onClick={() => setWatching((w) => !w)}
+            aria-expanded={watching}
+            className="inline-flex items-center gap-1 font-semibold text-blue-700 hover:underline"
+          >
+            <PlayCircle className="h-3.5 w-3.5" />
+            {watching ? 'Hide video' : `Watch ${VIDEO_KIND_LABELS[video.kind].toLowerCase()}`}
+            {!watching && formatDuration(video.durationSec) && ` (${formatDuration(video.durationSec)})`}
+          </button>
+        )}
+        {isHttpUrl(c.website) && (
+          <a href={c.website} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1 text-blue-700 hover:underline">
+            Campaign site <ExternalLink className="h-3 w-3" />
+          </a>
+        )}
+      </div>
+      {watching && video && <VideoFacade video={video} compact />}
+    </li>
+  )
+}
+
 // Bite: one line, inline (easy-read view). Snack: the expandable panel. Meal: links out.
 function Enhancements({
   item,
@@ -289,27 +344,16 @@ function Enhancements({
         </>
       ) : (
         <>
-          <ul className="space-y-1.5">
+          <ul className="space-y-3">
             {people.map((c) => (
-              <li key={c.id}>
-                <Link href={`/candidates/${c.id}`} className="font-semibold text-blue-700 hover:underline">
-                  {c.name}
-                </Link>
-                {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[10px] font-semibold">incumbent</span>}
-                {c.shortBio && <span className="block text-xs text-sky-900">{c.shortBio}</span>}
-                {c.website && (
-                  <a
-                    href={c.website}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="inline-flex items-center gap-1 text-xs text-blue-700 hover:underline"
-                  >
-                    Campaign site <ExternalLink className="h-3 w-3" />
-                  </a>
-                )}
-              </li>
+              <CandidateSnack key={c.id} candidate={c} />
             ))}
           </ul>
+          {people.some((c) => c.profile?.endorserTotal) && (
+            <p className="text-[11px] text-sky-800">
+              Endorsements as listed on each campaign&apos;s website; some campaigns don&apos;t publish a list we can read.
+            </p>
+          )}
           {item.office && (
             <Link
               href={`/elections/${electionId}/offices/${item.office.id}`}

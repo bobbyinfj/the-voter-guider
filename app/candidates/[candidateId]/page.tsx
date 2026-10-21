@@ -3,6 +3,10 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import StanceBadge from "@/components/quiz/StanceBadge";
 import { BallotPage, accentButton, outlineButton } from "@/components/ballot/Paper";
+import PamphletSummary from "@/components/candidate/PamphletSummary";
+import VideoFacade from "@/components/candidate/VideoFacade";
+import { EndorsementList } from "@/components/candidate/Endorsements";
+import { asProfile, isHttpUrl } from "@/lib/profile";
 
 interface Props {
   params: Promise<{ candidateId: string }>;
@@ -33,6 +37,8 @@ export default async function CandidatePage({ params }: Props) {
 
   const { office } = candidate;
   const { election } = office;
+  const profile = asProfile(candidate.profile);
+  const section = "mb-6 border-[1.5px] border-ballot-ink bg-ballot-paper p-5 font-sans";
 
   return (
     <BallotPage electionId={election.id}>
@@ -87,10 +93,10 @@ export default async function CandidatePage({ params }: Props) {
               )}
               {/* Links */}
               <div className="flex flex-wrap gap-3 mt-3">
-                {candidate.website && (
-                  <a href={candidate.website} target="_blank" rel="noopener noreferrer"
+                {isHttpUrl(candidate.website) && (
+                  <a href={candidate.website} target="_blank" rel="noopener noreferrer nofollow"
                     className="text-sm text-blue-600 hover:underline">
-                    Website ↗
+                    Campaign website ↗
                   </a>
                 )}
                 {candidate.email && (
@@ -102,6 +108,43 @@ export default async function CandidatePage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {profile?.summary && (
+          <section className={section} aria-labelledby="own-words">
+            <h2 id="own-words" className="mb-3 font-ballot-heading text-lg font-bold">In their own words</h2>
+            <PamphletSummary summary={profile.summary} pamphletEndorsements={profile.pamphletEndorsements} full />
+          </section>
+        )}
+
+        {profile?.videos?.length ? (
+          <section className={section} aria-labelledby="watch">
+            <h2 id="watch" className="mb-3 font-ballot-heading text-lg font-bold">Watch</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {profile.videos.map((v) => (
+                <VideoFacade key={v.youtubeId} video={v} />
+              ))}
+            </div>
+            <p className="mt-3 text-xs text-gray-600">
+              From nonpartisan series (League of Women Voters, TVW, Seattle Channel, public radio) and news debates.
+            </p>
+          </section>
+        ) : null}
+
+        {profile?.endorsements && (
+          <section className={section} aria-labelledby="endorsements">
+            <h2 id="endorsements" className="mb-3 font-ballot-heading text-lg font-bold">
+              Endorsements{" "}
+              <span className="text-sm font-normal text-gray-600">
+                ({(profile.endorsements.list.length + (profile.endorsements.individuals ?? 0)).toLocaleString()})
+              </span>
+            </h2>
+            <EndorsementList
+              list={profile.endorsements.list}
+              individuals={profile.endorsements.individuals}
+              source={profile.endorsements.source}
+            />
+          </section>
+        )}
 
         {/* Stances */}
         {candidate.stances.length > 0 && (
