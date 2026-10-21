@@ -1,0 +1,86 @@
+{
+ "candidates": {
+  "co26-michael-j-allen": [
+   {
+    "youtubeId": "6zJfdMZFRUQ",
+    "kind": "debate",
+    "title": "The Colorado Sun: The Attorney General Candidate Debate",
+    "channel": "The Colorado Sun",
+    "published": "2026-10-15",
+    "durationSec": 3885
+   }
+  ],
+  "co26-jena-griswold": [
+   {
+    "youtubeId": "6zJfdMZFRUQ",
+    "kind": "debate",
+    "title": "The Colorado Sun: The Attorney General Candidate Debate",
+    "channel": "The Colorado Sun",
+    "published": "2026-10-15",
+    "durationSec": 3885
+   }
+  ]
+ },
+ "races": {
+  "co26-secretary-of-state": [
+   {
+    "youtubeId": "DMB4Nljvx7Y",
+    "kind": "debate",
+    "title": "2026 Colorado Secretary of State Debate",
+    "channel": "Gazette Visuals",
+    "published": "2026-10-11",
+    "durationSec": 4385
+   }
+  ],
+  "co26-governor": [
+   {
+    "youtubeId": "-zgbzltwzmw",
+    "kind": "debate",
+    "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
+    "channel": "KOAA 5",
+    "published": "2026-08-28",
+    "durationSec": 3556
+   }
+  ],
+  "co26-larimer-commissioner-1": [
+   {
+    "youtubeId": "MzQjjlUiVD8",
+    "kind": "forum",
+    "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-08",
+    "durationSec": 5192
+   }
+  ],
+  "co26-larimer-clerk": [
+   {
+    "youtubeId": "MzQjjlUiVD8",
+    "kind": "forum",
+    "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-08",
+    "durationSec": 5192
+   }
+  ],
+  "co26-larimer-treasurer": [
+   {
+    "youtubeId": "MzQjjlUiVD8",
+    "kind": "forum",
+    "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-08",
+    "durationSec": 5192
+   }
+  ],
+  "co26-larimer-assessor": [
+   {
+    "youtubeId": "MzQjjlUiVD8",
+    "kind": "forum",
+    "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-08",
+    "durationSec": 5192
+   }
+  ]
+ }
+}

@@ -10,7 +10,7 @@ export interface Endorser {
 
 export interface CandidateVideo {
   youtubeId: string
-  kind: 'interview' | 'statement' | 'debate'
+  kind: 'interview' | 'statement' | 'debate' | 'forum'
   title: string
   channel: string
   published: string
@@ -66,7 +66,11 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
   if (!p) return null
   const ordered = endorsersByKind(p.endorsements?.list ?? []).flatMap((g) => g.items)
   return {
-    headline: p.summary?.fields[0] ?? null,
+    headline:
+      p.summary?.fields[0] ??
+      (p.summary?.statement && p.summary.statement !== 'No candidate statement.'
+        ? { label: 'In their statement', text: p.summary.statement }
+        : null),
     summarySource: p.summary?.source ?? null,
     video: p.videos?.find((v) => v.kind === 'interview') ?? p.videos?.[0] ?? null,
     endorsers: ordered.slice(0, maxEndorsers),
@@ -79,6 +83,19 @@ export const VIDEO_KIND_LABELS: Record<CandidateVideo['kind'], string> = {
   interview: 'Interview',
   statement: "Video voters' guide statement",
   debate: 'Debate',
+  forum: 'Candidate forum',
+}
+
+// Extras for a whole race (debates and forums with several candidates, links), kept in the
+// race ballot's metadata.extras by the seed
+export interface RaceExtras {
+  videos?: CandidateVideo[]
+  links?: { label: string; url: string }[]
+}
+
+export function raceExtrasOf(metadata: unknown): RaceExtras | null {
+  const extras = metadata && typeof metadata === 'object' ? (metadata as { extras?: unknown }).extras : null
+  return extras && typeof extras === 'object' ? (extras as RaceExtras) : null
 }
 
 export function formatDuration(sec?: number): string | null {

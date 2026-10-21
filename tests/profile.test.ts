@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
-import { initials, isHttpUrl, snippet, type CandidateProfile } from '../lib/profile'
+import { initials, isHttpUrl, snippet, type CandidateProfile, type RaceExtras } from '../lib/profile'
 
 test('initials', () => {
   const i = (name: string, kind: 'org' | 'official' | 'media' | 'person') => initials({ name, kind })
@@ -49,7 +49,7 @@ test('snippet puts news outlets and organizations first and counts individuals',
 // carries its source (the builder checks the text itself against the saved sources)
 test('enrichment files are well-formed and sourced', () => {
   for (const file of readdirSync('data/enrichment')) {
-    const { slug, candidates } = JSON.parse(readFileSync(`data/enrichment/${file}`, 'utf8'))
+    const { slug, candidates, races = {} } = JSON.parse(readFileSync(`data/enrichment/${file}`, 'utf8'))
     const bundle = JSON.parse(readFileSync(`data/elections/${slug}.json`, 'utf8'))
     const ids = new Set(bundle.offices.flatMap((o: { candidates: { id: string }[] }) => o.candidates.map((c) => c.id)))
     for (const [id, p] of Object.entries(candidates) as [string, CandidateProfile][]) {
@@ -65,6 +65,12 @@ test('enrichment files are well-formed and sourced', () => {
         assert.match(p.endorsements.source.retrieved, /^\d{4}-\d{2}-\d{2}$/)
         for (const e of p.endorsements.list) assert.ok(['org', 'official', 'media', 'person'].includes(e.kind))
       }
+    }
+    const offices = new Set(bundle.offices.map((o: { id: string }) => o.id))
+    for (const [id, r] of Object.entries(races) as [string, RaceExtras][]) {
+      assert.ok(offices.has(id), `${file}: race ${id} not in ${slug}`)
+      for (const v of r.videos ?? []) assert.match(v.youtubeId, /^[\w-]{11}$/)
+      for (const l of r.links ?? []) assert.ok(isHttpUrl(l.url) && l.label, `${id}: link`)
     }
   }
 })

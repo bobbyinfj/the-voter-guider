@@ -1,0 +1,219 @@
+{
+ "slug": "co-general-2026-11-03",
+ "candidates": {
+  "co26-michael-j-allen": {
+   "videos": [
+    {
+     "youtubeId": "6zJfdMZFRUQ",
+     "kind": "debate",
+     "title": "The Colorado Sun: The Attorney General Candidate Debate",
+     "channel": "The Colorado Sun",
+     "published": "2026-10-15",
+     "durationSec": 3885
+    }
+   ]
+  },
+  "co26-jena-griswold": {
+   "videos": [
+    {
+     "youtubeId": "6zJfdMZFRUQ",
+     "kind": "debate",
+     "title": "The Colorado Sun: The Attorney General Candidate Debate",
+     "channel": "The Colorado Sun",
+     "published": "2026-10-15",
+     "durationSec": 3885
+    }
+   ]
+  }
+ },
+ "races": {
+  "co26-secretary-of-state": {
+   "videos": [
+    {
+     "youtubeId": "DMB4Nljvx7Y",
+     "kind": "debate",
+     "title": "2026 Colorado Secretary of State Debate",
+     "channel": "Gazette Visuals",
+     "published": "2026-10-11",
+     "durationSec": 4385
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699042"
+    }
+   ]
+  },
+  "co26-governor": {
+   "videos": [
+    {
+     "youtubeId": "-zgbzltwzmw",
+     "kind": "debate",
+     "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
+     "channel": "KOAA 5",
+     "published": "2026-08-28",
+     "durationSec": 3556
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3697674"
+    }
+   ]
+  },
+  "co26-larimer-commissioner-1": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=68458411"
+    }
+   ]
+  },
+  "co26-larimer-clerk": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3634561"
+    }
+   ]
+  },
+  "co26-larimer-treasurer": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3659861"
+    }
+   ]
+  },
+  "co26-larimer-assessor": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3659866"
+    }
+   ]
+  },
+  "co26-us-senate": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=27100700"
+    }
+   ]
+  },
+  "co26-us-house-2": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=27102702"
+    }
+   ]
+  },
+  "co26-treasurer": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699104"
+    }
+   ]
+  },
+  "co26-attorney-general": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699140"
+    }
+   ]
+  },
+  "co26-house-52": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=68343384"
+    }
+   ]
+  },
+  "co26-house-53": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=72573301"
+    }
+   ]
+  },
+  "co26-senate-15": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=73455580"
+    }
+   ]
+  },
+  "co26-larimer-surveyor": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3659874"
+    }
+   ]
+  },
+  "co26-larimer-coroner": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3659876"
+    }
+   ]
+  },
+  "co26-larimer-sheriff": {
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3659870"
+    }
+   ]
+  }
+ }
+}
