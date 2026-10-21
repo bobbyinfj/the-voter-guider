@@ -35,6 +35,7 @@ data/
   issues/       # one JSON per issue (slug, name, summary, description, level) — keep state-neutral
   elections/    # <slug>.json — offices + candidates + measures (e.g. wa-general-2026-11-03.json)
   stances/      # <slug>.json — optional; candidateId × issueId → position + sources
+  enrichment/   # <slug>.json — optional; candidate summaries, videos, endorsements (built, sourced)
   quizzes/      # <slug>.json — optional; questions, options, issue links
   research/     # sourced fact sheets the election bundles were built from
     sample-ballots/  # official county sample ballots parsed to JSON (parse.py; needs pymupdf)
@@ -59,6 +60,19 @@ labels, tables). `bundle-builders/layout.py` attaches that to each office/measur
 `npm test` re-checks every bundle against the parsed sample ballot. Elections without a sample
 ballot (Monterey Park: LA County's are per-voter) fall back to our own order with a notice.
 Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra".
+
+### Candidate extras (enrichment)
+`data/enrichment/<slug>.json` (built by `data/research/enrichment-builders/build.py`) is seeded
+into `Candidate.profile`: pamphlet statement fields verbatim, videos from nonpartisan series
+(oEmbed-checked), and endorsements copied line-by-line from each campaign's own page (the build
+refuses any name not on the saved page). Same method for every candidate in a race; never show
+"no endorsements". Ballot views get a trimmed `snippet()` (lib/profile.ts), not full lists.
+UI: `components/candidate/` (circle badges, click-to-load YouTube facade on youtube-nocookie).
+
+### Ballot look (design system)
+Each election's pages take its county ballot's fonts and colors (`lib/ballot-theme.ts`, tokens
+in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Building blocks in
+`components/ballot/Paper.tsx`. Layout grammar only: no seals, signatures or "official" wording.
 
 ### Districts
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`).

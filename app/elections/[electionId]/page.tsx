@@ -3,6 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import DistrictPicker from "@/components/DistrictPicker";
 import { formatElectionDate } from "@/lib/format";
+import { snippetCandidates } from "@/lib/profile";
 import BallotSheet from "@/components/ballot/BallotSheet";
 import { BallotHeader, Extra, accentButton, outlineButton } from "@/components/ballot/Paper";
 import { groupSections, hasPrintedLayout, layoutOf, orderForBallot } from "@/components/ballot/ballot";
@@ -39,7 +40,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
             select: {
               id: true,
               district: true,
-              candidates: { select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true } },
+              candidates: { select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true } },
             },
           },
         },
@@ -59,7 +60,11 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     orderBy: { name: "asc" },
   });
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
-  const items = orderForBallot(election.ballots.filter((b) => matchesSelection(b, selection)));
+  const items = orderForBallot(
+    election.ballots
+      .filter((b) => matchesSelection(b, selection))
+      .map((b) => ({ ...b, office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) } })),
+  );
   const sections = groupSections(items);
   const printed = hasPrintedLayout(items);
   const source = items[0] ? layoutOf(items[0])?.source : undefined;

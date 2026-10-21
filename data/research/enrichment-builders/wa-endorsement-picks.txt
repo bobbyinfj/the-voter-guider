@@ -1,0 +1,44 @@
+wa26-pramila-jayapal | org:23-107
+wa26-adam-smith | media:25 ; org:26-53 ; official:56-62,64-83,85-87,89-90,92-135
+wa26-david-hackney | official:13,17,22-30 ; org:32-33 ; media:34 ; org:35-42
+wa26-ashley-fedan | official:17-23
+wa26-cindy-ryu | official:17,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,69,112,120-130,132 ; org:179 ; person:134
+wa26-jesse-salomon | media:25 ; org:27-31 ; media:33 ; org:35-77 ; official:99-125,137-159
+wa26-keith-scully | media:13-15 ; org:17-29,33-77 ; official:79-161 ; person:163-165
+wa26-lauren-davis | org:14-68 ; official:73-115
+wa26-imraan-siddiqi | org:12 ; media:13 ; org:14-16 ; media:17 ; org:18-30 ; official:32-33,37,39-46,48-49,53,55-65,67-73 ; person:66
+wa26-jillian-england | org:23
+wa26-liz-berry | official:15-20
+wa26-chipalo-street | media:37-38 ; org:39-61
+wa26-tatiana-brown | official:17,29,65,129,177 ; org:33,41,45,73,77,81 ; media:37,69 ; person:21,25,49,53,57,61,85,91,95,99,105,109,113,117,121,125,133,137,141,145,149,153,157,161,165,169,173
+wa26-kelabe-tewolde | official:16-24 ; org:26-44 ; person:46-51
+wa26-jaelynn-scott | official:15,19,23,27,31,35,39,43,47,51,55,59,63,67,71,75,79,83,87,91,95,99,103,107,111,115,119,123,127,131,135 ; person:141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213,217,221,225,229,233,237,241,245,249,253
+wa26-jamie-pedersen | official:198-253
+wa26-hannah-sabio-howell | official:14,16,18,20,22,86 ; person:24,25,27,29,31,88 ; org:33,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,74,76,80,82,84,90,92 ; media:70,72,78
+wa26-javier-valdez | org:12-43 ; media:44 ; org:45-54 ; media:55
+wa26-gerry-pollet | official:23-67,73-101 ; person:103-107,198-238 ; org:111-167 ; media:169 ; org:171-187 ; people:45
+wa26-will-dreher | media:51 ; org:53-59 ; official:61,63,67,69,77,81,83 ; person:65,71,73,75,79
+wa26-darya-farivar | official:20,22,26,30,34,38,42,46,50,54,58,62,66,70,74,78,82,86,90,94
+wa26-colleen-melody | official:15-39,43-57,61-175,179-183,187-293,297-313 ; people:68 ; org:455-463,467-563 ; media:565 ; org:567-593
+wa26-david-stevens | official:14-22,27-29,56-58,62-66 ; person:31-35,60,68 ; org:40-52
+wa26-jaime-michelle-hawk | media:601-603 ; org:71-151,154-221 ; official:223-224,226-231,233-245,247-267,269-271,273-277,279-287 ; official/(Chief|Judge):291-570
+wa26-ian-birk | official:22,28,31,33,35,37,49-173,175-229 ; media:24 ; org:41,43 ; people:215
+wa26-sean-o-donnell | media=The Seattle Times Editorial Board: ; official:21-22,73-555,575-785,789-799 ; person:559-571,801-807 ; people:809-1135,1139-1511
+wa26-theo-angelis | src:static ; org:21 ; org=1st LD Dems: ; org=LD30 Democrats: ; official:24-90,92-112,114-145
+wa26-debra-l-stephens | src:static ; official:20-27,29-33,36-188,190-252 ; people:254-301
+wa26-leesa-manion | src:static ; org:19-33,35-39,41-42 ; official:44-102,104-108,111-116,118-119 ; person:120-129,132-137,139,141-142 ; people:131-131,138-138,140-140
+wa26-rob-foxcurran | src:static ; media:29-31 ; org:33-49 ; official:50-58,60-63 ; person:59,64
+wa26-rebecca-salda-a | src:static ; official:29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,90,93,96,99,102,105,108,111,114,117,120,123,126,129,132,135,138,141,144,147,150,153,156,159,162,165,168,171,174,177,180,183 ; people:87
+wa26-toshiko-grace-hasegawa | src:static ; official:45,53,55,57,59,61,63,65,67,69,71,73,75,77,79,81,83,85,87,89,91,93,95,97,99,101,103,105,107,109,111,113,115,117,119,121,123,125,127, ; people:47 ; org:220-228
+wa26-jorge-l-bar-n | src:static ; official:48,51,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,
+wa26-teresa-mosqueda | src:static ; org:26-30,32-57,59-73,75-85 ; media:86 ; org:87-89 ; media:91 ; org:92-94 ; media:95 ; org:96-97,99-103 ; official:105-109,111-161,164,166-191,193-253 ; people:256-393
+wa26-bardi-martin | src:static ; media:24 ; org:28-31 ; official:34-53,59-99
+wa26-nilu-jenks | src:static ; org:18 ; media:19-21 ; org:22 ; official:24,27-39,42-48,51-52,74-75,77-81,83-94 ; people:55-72 ; org:97-116,119-145,147-150
+wa26-julie-kang | src:static ; official:29,31,33,35,37,39,41,43-67 ; people:69-77 ; org:79-133 ; org=NWPC: ; org=LiUNA: ; org=32nd District Dems: ; org=Moms Demand: ; media=Seattle Times:
+wa26-nyjat-rose-akins | org:80-87
+wa26-cat-mcdowall | official:27-77
+wa26-gabe-rothstein | official:142-222,262-268,276-288 ; person:270-274,290-312,324-346 ; people:314-322 ; org:350-374 ; media:376
+wa26-shantrice-anderson | src:static ; official:19,21,23,25,27,29,31,33,35,37,39,41,43 ; person:46
+wa26-garmon-newsom | official:14,16,18,21 ; official/.*?\b(Judge .+)$:22-54 ; official=Manka Dhingra: ; official=Cindy Ryu: ; official=Dawn Mason: ; official=Stephanie Mora: ; official=Jimmy Matta: ; official=Markus Wilson: ; official=Ed Prince: ; official=Greg Taylor: ; official=John Tymczyszyn: ; people:23
+wa26-mary-anito | url:https://www.maryforwa.com/ ; media=Seattle Times: ; org=Moms demand action:
+wa26-nick-duda | url:https://www.nickduda.com/ ; media=The Seattle Times:

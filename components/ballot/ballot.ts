@@ -1,4 +1,5 @@
 // Shared types and helpers for the ballot-replica guide view
+import type { ProfileSnippet } from '@/lib/profile'
 
 export interface BallotCandidate {
   id: string
@@ -7,6 +8,7 @@ export interface BallotCandidate {
   incumbent: boolean
   shortBio?: string | null
   website?: string | null
+  profile?: ProfileSnippet | null
 }
 
 export interface BallotItem {

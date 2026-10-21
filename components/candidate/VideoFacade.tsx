@@ -1,0 +1,63 @@
+'use client'
+
+import { useState } from 'react'
+import { Play } from 'lucide-react'
+import { VIDEO_KIND_LABELS, formatDuration, type CandidateVideo } from '@/lib/profile'
+
+// Thumbnail first; the YouTube player (privacy-enhanced domain) loads only when clicked
+export default function VideoFacade({ video, compact = false }: { video: CandidateVideo; compact?: boolean }) {
+  const [playing, setPlaying] = useState(false)
+  const duration = formatDuration(video.durationSec)
+  const label = `${VIDEO_KIND_LABELS[video.kind]} · ${video.channel}${duration ? ` · ${duration}` : ''}`
+
+  return (
+    <figure className={compact ? 'max-w-xs' : ''}>
+      <div className="relative aspect-video w-full overflow-hidden rounded bg-black">
+        {playing ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+            title={video.title}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label={`Play: ${video.title} (${label})`}
+            className="group absolute inset-0 h-full w-full"
+          >
+            {/* Plain img: a fixed YouTube thumbnail URL, no need for next/image's optimizer */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              className="h-full w-full object-cover opacity-90 group-hover:opacity-100"
+            />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg group-hover:scale-105">
+                <Play className="ml-0.5 h-6 w-6" fill="currentColor" />
+              </span>
+            </span>
+          </button>
+        )}
+      </div>
+      <figcaption className="mt-1 text-xs leading-snug">
+        <span className="font-semibold">{label}</span>
+        <span className="block text-gray-600">
+          “{video.title}” ·{' '}
+          <a
+            href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            YouTube
+          </a>
+        </span>
+      </figcaption>
+    </figure>
+  )
+}
