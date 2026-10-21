@@ -18,6 +18,7 @@ interface GuideBallot {
   metadata: unknown
   districtType: string | null
   districtCode: string | null
+  office: { id: string; candidates: { id: string; name: string; party: string | null; incumbent: boolean }[] } | null
 }
 
 interface Guide {
@@ -140,6 +141,24 @@ export default function GuidePage() {
     }
   }
 
+  const handleChoiceClear = async (ballotId: string) => {
+    if (!guide?.isOwner) return
+    const previous = choices[ballotId]
+    setChoices((prev) => {
+      const next = { ...prev }
+      delete next[ballotId]
+      return next
+    })
+    const res = await fetch(
+      `/api/choices?guideId=${encodeURIComponent(guide.id)}&ballotId=${encodeURIComponent(ballotId)}`,
+      { method: 'DELETE' },
+    )
+    if (!res.ok) {
+      if (previous) setChoices((prev) => ({ ...prev, [ballotId]: previous }))
+      setError("Couldn't clear that choice. Please try again.")
+    }
+  }
+
   const handleShare = async () => {
     if (!guide) return
     // A private guide can't be opened by others, so sharing makes it link-viewable
@@ -199,13 +218,13 @@ export default function GuidePage() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
         {error && (
           <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {error}
           </div>
         )}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6 print:hidden">
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
             <div className="flex-1 min-w-0">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">{guide.title}</h1>
@@ -291,8 +310,24 @@ export default function GuidePage() {
           )}
         </div>
 
+        {ballots.length > 0 ? (
+          <BallotTracker
+            ballots={ballots}
+            guideTitle={guide.title}
+            choices={choices}
+            election={guide.election}
+            readOnly={!guide.isOwner}
+            onChoiceChange={handleChoiceChange}
+            onChoiceClear={handleChoiceClear}
+          />
+        ) : (
+          <div className="bg-white rounded-lg shadow-md p-6 text-center text-gray-500">
+            No ballot items available for this election yet.
+          </div>
+        )}
+
         {(guide.isOwner || guide.notes) && (
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="bg-white rounded-lg shadow-md p-6 mt-8 print:hidden">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-800">Research &amp; Notes</h2>
               {guide.isOwner && (
@@ -324,19 +359,6 @@ export default function GuidePage() {
           </div>
         )}
 
-        {ballots.length > 0 ? (
-          <BallotTracker
-            ballots={ballots}
-            guideTitle={guide.title}
-            choices={choices}
-            readOnly={!guide.isOwner}
-            onChoiceChange={handleChoiceChange}
-          />
-        ) : (
-          <div className="bg-white rounded-lg shadow-md p-6 text-center text-gray-500">
-            No ballot items available for this election yet.
-          </div>
-        )}
       </div>
     </div>
   )

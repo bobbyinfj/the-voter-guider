@@ -12,7 +12,18 @@ const guideInclude = {
   choices: true,
   election: {
     include: {
-      ballots: { orderBy: { number: Prisma.SortOrder.asc } },
+      ballots: {
+        orderBy: { number: Prisma.SortOrder.asc },
+        // Party and incumbency for the ballot view; races link to their office page
+        include: {
+          office: {
+            select: {
+              id: true,
+              candidates: { select: { id: true, name: true, party: true, incumbent: true } },
+            },
+          },
+        },
+      },
       jurisdiction: true,
     },
   },
