@@ -90,3 +90,12 @@ test('choiceLabel shows what the ballot prints for a stored selection', () => {
   assert.equal(choiceLabel('WRITE-IN:Jane Doe', race), 'Write-in: Jane Doe')
   assert.equal(choiceLabel('ABSTAIN', race), 'Left blank')
 })
+
+test('inPrintedOrder follows the printed layout, then options', async () => {
+  const { inPrintedOrder } = await import('../components/ballot/ballot')
+  const people = [{ name: 'B' }, { name: 'A' }, { name: 'C' }]
+  const layout = { ballot: { order: 1, candidates: [{ name: 'C' }, { name: 'A' }, { name: 'B' }] } }
+  assert.deepEqual(inPrintedOrder(people, { metadata: layout }).map((p) => p.name), ['C', 'A', 'B'])
+  assert.deepEqual(inPrintedOrder(people, { options: ['A', 'B'] }).map((p) => p.name), ['A', 'B', 'C'])
+  assert.deepEqual(inPrintedOrder(people, null).map((p) => p.name), ['B', 'A', 'C'])
+})

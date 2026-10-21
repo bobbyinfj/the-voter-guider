@@ -30,7 +30,7 @@ export default function DistrictPicker({ options, selection, lookupUrl, onChange
   const chosenCount = options.filter((o) => selection[o.type]).length;
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+    <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-4 font-sans">
       <h3 className="font-semibold text-gray-800 text-sm">Your districts</h3>
       <p className="text-xs text-gray-500 mt-1 mb-3">
         {chosenCount === options.length

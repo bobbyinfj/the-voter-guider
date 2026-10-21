@@ -14,7 +14,8 @@ import {
   SkipForward,
   Vote,
 } from 'lucide-react'
-import Contest, { type Density } from '@/components/ballot/Contest'
+import { type Density } from '@/components/ballot/Contest'
+import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import { NotABallotStamp, PrintWatermark } from '@/components/Molesis'
@@ -22,7 +23,6 @@ import {
   choiceLabel,
   contestDomId,
   contestLabel,
-  groupRuns,
   groupSections,
   hasPrintedLayout,
   layoutOf,
@@ -164,7 +164,7 @@ export default function BallotTracker({
   const toolButton =
     'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
   const segment = (active: boolean) =>
-    `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
+    `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
   const nav = <BallotNav sections={sections} choices={choices} activeId={activeId} onJump={jumpTo} />
   const showSidebar = density === 'easy' && mode === 'ballot'
 
@@ -178,7 +178,7 @@ export default function BallotTracker({
       )}
 
       <div className="min-w-0 space-y-4">
-        <div className="sticky top-0 z-20 -mx-4 border-b border-gray-200 bg-gray-50/95 px-4 py-3 backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
+        <div className="sticky top-0 z-20 -mx-4 border-b border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
               {answered} of {ballots.length} decided
@@ -187,7 +187,7 @@ export default function BallotTracker({
           </div>
           <div className="mb-3 h-2 w-full rounded-full bg-gray-200">
             <div
-              className="h-2 rounded-full bg-blue-600 transition-all duration-300"
+              className="h-2 rounded-full bg-ballot-accent transition-all duration-300"
               style={{ width: `${completionPercentage}%` }}
             />
           </div>
@@ -263,11 +263,11 @@ export default function BallotTracker({
 
         {setup}
 
-        <div id="ballot-top" className="scroll-mt-48 border-[1.5px] border-gray-900 bg-white">
+        <div id="ballot-top" className="scroll-mt-48 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper">
           <NotABallotStamp readOnly={readOnly} />
           <div className="px-4 py-4 text-center">
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-600">{election.jurisdiction.name}</p>
-            <h2 className="mt-1 text-lg font-bold text-gray-900 sm:text-xl">{election.title}</h2>
+            <h2 className="mt-1 font-ballot-heading text-lg font-bold sm:text-xl">{election.title}</h2>
             <p className="text-sm text-gray-700">{formatElectionDate(election.electionDate)}</p>
           </div>
           <div className="border-t border-gray-300 bg-sky-50 px-4 py-2 text-xs text-sky-950 print:bg-white">
@@ -311,42 +311,15 @@ export default function BallotTracker({
             or switch to Review.
           </div>
         ) : (
-          <div className={density === 'ballot' ? 'gap-2 md:columns-2 xl:columns-3 print:columns-3' : 'mx-auto max-w-2xl'}>
-            {visibleSections.map((section) => (
-              <section key={section.key} aria-label={section.label} className="contents">
-                {section.notice && (
-                  <p className="mb-2 break-inside-avoid border-[1.5px] border-gray-900 bg-white px-2 py-1.5 text-[12px] font-bold leading-snug text-gray-900">
-                    {section.notice}
-                  </p>
-                )}
-                {section.continued ? (
-                  <h3 className="sr-only">{section.label}</h3>
-                ) : (
-                  <h3 className="break-inside-avoid break-after-avoid bg-gray-900 px-2 py-1 text-[13px] font-bold text-white print:bg-black">
-                    {section.label}
-                  </h3>
-                )}
-                {section.subsection && (
-                  <p className="break-inside-avoid break-after-avoid border-x-[1.5px] border-t-[1.5px] border-gray-900 bg-gray-300 px-2 py-1 text-[13px] font-bold">
-                    {section.subsection}
-                  </p>
-                )}
-                {groupRuns(section.items).map((run) => (
-                  <Contest
-                    key={run[0].id}
-                    run={run}
-                    electionId={election.id}
-                    choices={choices}
-                    readOnly={readOnly}
-                    density={density}
-                    onChange={(id, selection, notes) => onChoiceChange?.(id, selection, notes)}
-                    onClear={(id) => onChoiceClear?.(id)}
-                  />
-                ))}
-                <div aria-hidden className="h-3" />
-              </section>
-            ))}
-          </div>
+          <BallotSheet
+            sections={visibleSections}
+            electionId={election.id}
+            choices={choices}
+            readOnly={readOnly}
+            density={density}
+            onChange={onChoiceChange}
+            onClear={onChoiceClear}
+          />
         )}
       </div>
     </div>
