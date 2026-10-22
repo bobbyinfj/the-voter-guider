@@ -11,6 +11,7 @@ import NewsGuide from '@/components/candidate/NewsGuide'
 import CompareStrip from '@/components/compare/CompareStrip'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import type { CompareView } from '@/components/compare/compare'
+import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { VIDEO_KIND_LABELS, formatDuration, guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
   ABSTAIN,
@@ -48,6 +49,8 @@ interface ContestProps {
   onClear: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   onCandidateNote?: (itemId: string, name: string, text: string) => void
+  // What your quiz answers matched in each race, by ballot id
+  quiz?: Record<string, QuizOnBallot> | null
   compare?: CompareView | null
   // Other contests printed under the same jurisdiction line, for "copy a link to all of them"
   linkGroup?: { id: string; label: string; count: number }
@@ -419,6 +422,49 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
 }
 
 // One candidate in the snack panel: their own words (one line), endorsement circles, a video
+// What your quiz answers matched in this race. With a clear match and nothing marked yet, one
+// click puts it on the ballot as a ? pick: a suggestion you still have to confirm.
+function QuizStrip({
+  quiz,
+  item,
+  choice,
+  readOnly,
+  onChange,
+}: {
+  quiz: QuizOnBallot
+  item: BallotItem
+  choice?: ChoiceValue
+  readOnly: boolean
+  onChange: ContestProps['onChange']
+}) {
+  const open = !choice || choice.selection === NOTES_ONLY
+  return (
+    <div className="border-l-2 border-violet-400 bg-violet-50 px-2 py-1.5 font-sans text-xs text-violet-950 print:hidden">
+      <p>
+        <span className="font-semibold">Your quiz: {quiz.headline}.</span> {quiz.detail}{' '}
+        <a href={quiz.href} className="text-blue-700 underline">
+          See why
+        </a>
+      </p>
+      {quiz.top &&
+        (choice?.selection === quiz.top ? (
+          <p className="mt-0.5 text-violet-800">That&apos;s your pick here.</p>
+        ) : (
+          !readOnly &&
+          open && (
+            <button
+              type="button"
+              onClick={() => onChange(item.id, quiz.top!, choice?.notes, 'unsure')}
+              className="mt-1 rounded border border-violet-300 bg-white px-2 py-0.5 font-semibold text-violet-900 hover:bg-violet-100"
+            >
+              Mark {choiceLabel(quiz.top, item)} as ? (not sure yet)
+            </button>
+          )
+        ))}
+    </div>
+  )
+}
+
 // Your own note on one candidate: a button until you start one
 function CandidateNote({ name, note }: { name: string; note: { text?: string; onSave?: (text: string) => void } }) {
   const [open, setOpen] = useState(false)
@@ -711,6 +757,7 @@ export default function Contest({
   compare,
   linkGroup,
   onCandidateNote,
+  quiz,
 }: ContestProps) {
   // Expanded view opens every contest's extras; a contest you open or close yourself stays that
   // way until you switch views
@@ -785,7 +832,14 @@ export default function Contest({
         const status = !readOnly && onStatus && choice && isPick(choice.selection) && (
           <StatusPill status={choice.status ?? 'decided'} onStatus={(value) => onStatus(item.id, value)} />
         )
-        const strip = compare && <CompareStrip item={item} view={compare} mine={choice} />
+        const strip = (
+          <>
+            {quiz?.[item.id] && (
+              <QuizStrip quiz={quiz[item.id]} item={item} choice={choice} readOnly={readOnly} onChange={onChange} />
+            )}
+            {compare && <CompareStrip item={item} view={compare} mine={choice} />}
+          </>
+        )
         const extras = (
           <Enhancements
             item={item}

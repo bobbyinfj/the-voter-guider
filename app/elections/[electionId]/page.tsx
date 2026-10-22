@@ -1,3 +1,5 @@
+import { computeResults } from "@/lib/quiz/db";
+import { quizOnBallot } from "@/lib/quiz/ballot";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
@@ -85,6 +87,10 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     }),
   ]);
   const initialGuide: EditableGuide | null = defaultGuide && { ...defaultGuide, isDefault: true, isOwner: true };
+  // What your quiz answers matched in each race, shown on the ballot
+  const answered = defaultGuide && hasQuiz ? await prisma.userAnswer.count({ where: { guideId: defaultGuide.id } }) : 0;
+  const quiz =
+    defaultGuide && answered > 0 ? quizOnBallot(await computeResults(defaultGuide.id, electionId), electionId, defaultGuide.id) : null;
 
   return (
     <>
@@ -174,6 +180,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           otherGuides={otherGuides}
           urlDistricts={selection}
           readOnly={election.status === "completed"}
+          quiz={quiz}
         />
       </div>
     </>

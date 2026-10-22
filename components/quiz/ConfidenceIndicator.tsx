@@ -1,5 +1,6 @@
 "use client";
 
+import { verdictText } from "@/lib/quiz/verdict";
 import type { QuizResults } from "@/lib/quiz/types";
 
 interface Props {
@@ -49,9 +50,8 @@ export default function ConfidenceIndicator({ results, onStop }: Props) {
       {/* Per-office mini confidence */}
       <div className="space-y-1">
         {results.officeResults.map((o) => {
-          const known = o.comparable ? o.rankedCandidates.filter((r) => r.maxPossible > 0) : [];
-          const top = known[0];
-          const second = known[1];
+          const top = o.verdict === "match" ? o.rankedCandidates[0] : undefined;
+          const second = top ? o.rankedCandidates[1] : undefined;
           return (
             <div key={o.officeId} className="flex items-center gap-2 text-xs">
               <span className="text-gray-500 truncate max-w-[120px]" title={o.officeTitle}>
@@ -63,8 +63,8 @@ export default function ConfidenceIndicator({ results, onStop }: Props) {
                   style={{ width: `${Math.round(o.confidence * 100)}%` }}
                 />
               </div>
-              <span className="font-medium text-gray-700 truncate max-w-[80px]" title={top?.candidate.name}>
-                {top ? top.candidate.name.split(" ").slice(-1)[0] : "—"}
+              <span className="font-medium text-gray-700 truncate max-w-[80px]" title={verdictText(o).headline}>
+                {top ? top.candidate.name.split(" ").slice(-1)[0] : o.verdict === "too-close" ? "tie" : "not enough info"}
               </span>
               {top && second && (
                 <span className="text-gray-400">

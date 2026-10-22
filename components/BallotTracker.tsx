@@ -21,6 +21,7 @@ import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import ComparePicker from '@/components/compare/ComparePicker'
+import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { CompareView } from '@/components/compare/compare'
 import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
@@ -33,6 +34,7 @@ import {
   isPick,
   isSettled,
   isUnsure,
+  NOTES_ONLY,
   layoutOf,
   layoutSourceName,
   type BallotItem,
@@ -60,6 +62,8 @@ interface BallotTrackerProps {
   onChoiceClear?: (ballotId: string) => void
   onStatusChange?: (ballotId: string, status: ChoiceStatus) => void
   onCandidateNote?: (ballotId: string, name: string, text: string) => void
+  // What your quiz answers matched in each race, by ballot id
+  quiz?: Record<string, QuizOnBallot> | null
 }
 
 type Mode = 'ballot' | 'review'
@@ -81,6 +85,7 @@ export default function BallotTracker({
   onChoiceClear,
   onStatusChange,
   onCandidateNote,
+  quiz,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
   const [density, setDensity] = useState<Density>('basic')
@@ -117,6 +122,9 @@ export default function BallotTracker({
   const answered = ballots.filter((b) => done(b.id)).length
   const leaning = ballots.filter((b) => isPick(choices[b.id]?.selection) && choices[b.id].status === 'tentative').length
   const unsure = ballots.filter((b) => isUnsure(choices[b.id])).length
+  // Races where your quiz found a clear match and you haven't marked anything yet
+  const quizPending = readOnly || !onChoiceChange ? [] : ballots.filter((b) => quiz?.[b.id]?.top && (!choices[b.id] || choices[b.id].selection === NOTES_ONLY))
+  const quizMatched = Object.values(quiz ?? {}).filter((q) => q.top).length
   const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
   const visibleSections = useMemo(
     () =>
@@ -380,6 +388,25 @@ export default function BallotTracker({
         </div>
 
         {notice}
+        {quiz && (
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-l-4 border-violet-400 bg-violet-50 px-3 py-2 font-sans text-sm text-violet-950 print:hidden">
+            <span>
+              Your quiz found a clear match in {quizMatched} race{quizMatched === 1 ? '' : 's'}; races without enough
+              sourced positions say so instead of guessing.
+              {quizPending.length > 0 &&
+                (quizPending.length === 1 ? ' One of them isn’t marked yet.' : ` ${quizPending.length} of them aren’t marked yet.`)}
+            </span>
+            {quizPending.length > 0 && (
+              <button
+                type="button"
+                onClick={() => quizPending.forEach((b) => onChoiceChange!(b.id, quiz[b.id].top!, choices[b.id]?.notes, 'unsure'))}
+                className="rounded border border-violet-300 bg-white px-2 py-1 font-semibold hover:bg-violet-100"
+              >
+                Mark {quizPending.length === 1 ? 'it' : `all ${quizPending.length}`} as ? (not sure yet)
+              </button>
+            )}
+          </div>
+        )}
         {setup}
 
         <div id="ballot-top" className="scroll-mt-48 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper">
@@ -440,6 +467,7 @@ export default function BallotTracker({
             onClear={onChoiceClear}
             onStatus={onStatusChange}
             onCandidateNote={onCandidateNote}
+            quiz={quiz}
             compare={compare}
           />
         )}

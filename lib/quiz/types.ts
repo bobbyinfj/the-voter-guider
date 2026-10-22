@@ -39,13 +39,16 @@ export interface ContributionItem {
   importance: number;
   agreement: number; // 0..4
   contribution: number;
+  // False when not every candidate in the race has a sourced position on this question: shown, not scored
+  counted: boolean;
 }
 
 export interface RankedCandidate {
   candidate: ScoringCandidate;
   score: number;
   maxPossible: number;
-  normalized: number; // 0..1
+  normalized: number; // 0..1, over the questions every candidate in the race has a position on
+  known: number; // answered questions this candidate has a sourced position on
   breakdown: ContributionItem[];
 }
 
@@ -57,6 +60,10 @@ export interface OfficeResult {
   // False when fewer than two candidates have a stated position on the answered
   // questions — then there is no fair ranking, only individual agreement
   comparable: boolean;
+  // match: a clear closest candidate; too-close: within CLOSE_GAP; not-enough: fewer than
+  // MIN_SHARED_QUESTIONS answered questions with a sourced position from every candidate
+  verdict: "match" | "too-close" | "not-enough";
+  sharedQuestions: number;
 }
 
 export interface QuizResults {

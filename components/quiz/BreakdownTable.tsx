@@ -43,9 +43,15 @@ export default function BreakdownTable({ breakdown, maxPossible }: Props) {
                 {["—", "low", "med", "high"][item.importance] ?? item.importance}
               </td>
               <td className="px-3 py-2 text-right font-mono font-medium text-xs">
-                <span className={item.contribution > 0 ? "text-blue-700" : "text-gray-400"}>
-                  +{item.contribution.toFixed(1)}
-                </span>
+                {item.counted ? (
+                  <span className={item.contribution > 0 ? "text-blue-700" : "text-gray-400"}>
+                    +{item.contribution.toFixed(1)}
+                  </span>
+                ) : (
+                  <span className="font-sans font-normal text-gray-500" title="Not every candidate in this race has a sourced position on this question, so it isn't scored">
+                    not scored
+                  </span>
+                )}
               </td>
             </tr>
           ))}
