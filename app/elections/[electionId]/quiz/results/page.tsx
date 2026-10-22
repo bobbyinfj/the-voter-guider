@@ -1,5 +1,6 @@
 "use client";
 
+import { verdictText } from "@/lib/quiz/verdict";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -75,53 +76,53 @@ export default function QuizResultsPage() {
                 )}
               </p>
             </div>
-            <Link
-              href={`/elections/${electionId}/quiz?guideId=${guideId}`}
-              className="px-4 py-2 bg-ballot-accent text-ballot-accent-ink text-sm font-bold hover:brightness-95"
-            >
-              Continue quiz
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              {/* A full page load, so the ballot shows these results */}
+              <a
+                href={`/elections/${electionId}`}
+                className="px-4 py-2 bg-ballot-accent text-ballot-accent-ink text-sm font-bold hover:brightness-95"
+              >
+                See my matches on my ballot
+              </a>
+              <Link
+                href={`/elections/${electionId}/quiz?guideId=${guideId}`}
+                className="px-4 py-2 border-[1.5px] border-ballot-ink text-sm font-semibold hover:bg-ballot-head"
+              >
+                Continue quiz
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Per-office results */}
         <div className="space-y-8">
           {results.officeResults.map((officeResult) => (
-            <div key={officeResult.officeId} className="border-[1.5px] border-ballot-ink bg-ballot-paper overflow-hidden">
+            <div key={officeResult.officeId} id={`office-${officeResult.officeId}`} className="scroll-mt-4 border-[1.5px] border-ballot-ink bg-ballot-paper overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-800">{officeResult.officeTitle}</h2>
-                {!officeResult.comparable ? (
-                  <span className="text-xs text-gray-500">Not enough stated positions to compare</span>
-                ) : (
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <div className="bg-gray-100 rounded-full h-2 w-20 overflow-hidden">
-                    <div
-                      className="h-full bg-green-400 rounded-full"
-                      style={{ width: `${Math.round(officeResult.confidence * 100)}%` }}
-                    />
-                  </div>
-                  <span>{Math.round(officeResult.confidence * 100)}% confident</span>
-                </div>
-                )}
+                <span
+                  className={`text-sm font-semibold ${
+                    officeResult.verdict === "match" ? "text-green-800" : officeResult.verdict === "too-close" ? "text-amber-800" : "text-gray-600"
+                  }`}
+                >
+                  {verdictText(officeResult).headline}
+                </span>
               </div>
-              {!officeResult.comparable && (
-                <p className="px-6 pt-3 text-xs text-gray-500">
-                  {officeResult.rankedCandidates.filter((r) => r.maxPossible > 0).map((r) => r.candidate.name).join(", ") ||
-                    "No candidate"}{" "}
-                  has stated positions on the questions you answered; the others haven&apos;t, so this
-                  isn&apos;t a ranking — just how much you agree with what was said.
-                </p>
-              )}
+              <p className="px-6 pt-3 text-xs text-gray-600">
+                {verdictText(officeResult).detail}
+                {officeResult.verdict === "not-enough" &&
+                  " Below is what each candidate has said on the questions you answered, where we have a source."}
+              </p>
 
               <div className="divide-y divide-gray-50">
                 {officeResult.rankedCandidates.map((rc: RankedCandidate, idx) => {
                   const key = `${officeResult.officeId}-${rc.candidate.id}`;
-                  const isTop = idx === 0 && officeResult.comparable;
+                  const isTop = idx === 0 && officeResult.verdict === "match";
                   return (
                     <div key={rc.candidate.id} className={`px-6 py-4 ${isTop ? "bg-blue-50" : ""}`}>
                       <div className="flex items-center gap-4 flex-wrap">
                         <span className={`text-lg font-bold w-8 text-center ${isTop ? "text-blue-600" : "text-gray-400"}`}>
-                          {officeResult.comparable ? idx + 1 : "·"}
+                          {officeResult.verdict === "match" ? idx + 1 : "·"}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -143,12 +144,23 @@ export default function QuizResultsPage() {
                             )}
                           </div>
                           <div className="mt-1.5">
+                            {rc.maxPossible === 0 && rc.known > 0 ? (
+                              <p className="text-xs text-gray-600">
+                                Has a sourced position on {rc.known} of your answers (not scored, since the other
+                                candidates don&apos;t). See &ldquo;Why?&rdquo;
+                              </p>
+                            ) : (
                             <ScoreBar
                               normalized={rc.normalized}
                               topScore={isTop && rc.maxPossible > 0}
                               hasData={rc.maxPossible > 0}
-                              label={`based on ${rc.breakdown.length} stated position${rc.breakdown.length === 1 ? "" : "s"}`}
+                              label={
+                                rc.maxPossible > 0
+                                  ? `agreement on ${officeResult.sharedQuestions} shared question${officeResult.sharedQuestions === 1 ? "" : "s"}`
+                                  : `sourced position on ${rc.known} of your answers`
+                              }
                             />
+                            )}
                           </div>
                         </div>
                         <button

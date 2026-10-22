@@ -1,5 +1,6 @@
 'use client'
 
+import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -26,6 +27,8 @@ interface Props {
   urlDistricts: DistrictSelection
   // Past elections: show the ballot, no marking
   readOnly?: boolean
+  // What your quiz answers matched in each race, by ballot id
+  quiz?: Record<string, QuizOnBallot> | null
 }
 
 function savedDistricts(guide: EditableGuide | null): DistrictSelection {
@@ -35,7 +38,16 @@ function savedDistricts(guide: EditableGuide | null): DistrictSelection {
 }
 
 // The election's ballot, and your guide: whatever you mark here saves as you go
-export default function ElectionGuide({ election, ballots, pickerOptions, initialGuide, otherGuides, urlDistricts, readOnly = false }: Props) {
+export default function ElectionGuide({
+  election,
+  ballots,
+  pickerOptions,
+  initialGuide,
+  otherGuides,
+  urlDistricts,
+  readOnly = false,
+  quiz,
+}: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const account = useAccount()
@@ -119,6 +131,7 @@ export default function ElectionGuide({ election, ballots, pickerOptions, initia
           election={election}
           choices={choices}
           readOnly={readOnly}
+          quiz={quiz}
           status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
           notice={<KeepGuidePrompt show={answered > 0} />}
           setup={

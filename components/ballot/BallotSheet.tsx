@@ -3,6 +3,7 @@
 import { Fragment } from 'react'
 import Contest, { type Density } from './Contest'
 import type { CompareView } from '@/components/compare/compare'
+import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { contestGroups, groupRuns, type BallotSection, type ChoiceStatus, type ChoiceValue } from './ballot'
 
 // The contests themselves, in printed sections and columns. Used by the guide (BallotTracker)
@@ -17,6 +18,7 @@ export default function BallotSheet({
   onClear,
   onStatus,
   onCandidateNote,
+  quiz,
   compare,
 }: {
   sections: BallotSection[]
@@ -28,6 +30,7 @@ export default function BallotSheet({
   onClear?: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   onCandidateNote?: (itemId: string, name: string, text: string) => void
+  quiz?: Record<string, QuizOnBallot> | null
   compare?: CompareView | null
 }) {
   // A link target before the first contest of each group (#los-angeles-community-college-district)
@@ -70,6 +73,7 @@ export default function BallotSheet({
               onClear={(id) => onClear?.(id)}
               onStatus={onStatus}
               onCandidateNote={onCandidateNote}
+              quiz={quiz}
               compare={compare}
               linkGroup={groupOf.get(run[0].id)}
             />

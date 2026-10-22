@@ -26,6 +26,12 @@ The schema has two layers:
 
 ## Quiz scoring
 Pure function in `lib/quiz/score.ts`. Never writes to DB — always recomputed from answers.
+Per race, candidates are only compared on answered questions where *every* candidate has a sourced
+stance; each race gets one verdict (`match`, `too-close`, `not-enough` below
+`MIN_SHARED_QUESTIONS`). We say "not enough sourced positions" rather than infer a match.
+`lib/quiz/verdict.ts` words it for the quiz panel, results page and ballot alike. The election page
+shows each race's verdict under the contest (`lib/quiz/ballot.ts`); a clear match can be put on
+the ballot as a `?` (unsure) pick by the voter, never automatically.
 Adaptive question ordering in `lib/quiz/nextQuestion.ts` (maximises stance variance in uncertain races).
 Shared DB helpers in `lib/quiz/db.ts`.
 
