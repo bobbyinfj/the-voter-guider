@@ -19,10 +19,16 @@ import type { BallotCandidate, BallotItem } from './ballot'
 // The Expanded view's scorecard beside each candidate's oval: a video to watch them speak, then
 // three columns worked out the same way for everyone in the race (rules at /how-we-score).
 
-function Cell({ title, children }: { title: React.ReactNode; children: React.ReactNode }) {
+// Each column's title links to its rules on /how-we-score
+function Cell({ title, how, children }: { title: React.ReactNode; how: string; children: React.ReactNode }) {
   return (
     <div className="min-w-0 rounded border border-sky-200 bg-white px-2 py-1.5">
-      <p className="mb-0.5 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">{title}</p>
+      <p className="mb-0.5 flex items-center justify-between gap-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">
+        <span>{title}</span>
+        <Link href={`/how-we-score#${how}`} className="font-semibold normal-case tracking-normal text-blue-700 hover:underline" title="How this column is worked out">
+          how?
+        </Link>
+      </p>
       {children}
     </div>
   )
@@ -84,11 +90,11 @@ function VideoCell({ candidate, race }: { candidate: BallotCandidate; race: Ball
 function FlagCell({ candidate }: { candidate: BallotCandidate }) {
   const { checked, flags } = flagsFor(candidate.profile)
   return (
-    <Cell title={<><FlagIcon className="mr-0.5 inline h-3 w-3 align-[-1px]" />Flags</>}>
+    <Cell how="flags" title={<><FlagIcon className="mr-0.5 inline h-3 w-3 align-[-1px]" />Flags</>}>
       {flags.length ? (
         <ul className="space-y-1 text-xs leading-snug">
-          {flags.map((f) => (
-            <li key={f.rule} className="flex gap-1">
+          {flags.map((f, i) => (
+            <li key={`${f.rule}-${i}`} className="flex gap-1">
               <span aria-label={f.level === 'red' ? 'Red flag' : 'Yellow flag'} className={`mt-1 h-2 w-2 shrink-0 rounded-full ${f.level === 'red' ? 'bg-red-600' : 'bg-amber-400'}`} />
               <span>
                 {f.text} <span className="text-gray-600">(<Src href={f.source.url}>{f.source.label}</Src>)</span>
@@ -101,10 +107,72 @@ function FlagCell({ candidate }: { candidate: BallotCandidate }) {
           <span className="font-semibold text-green-800">None found</span>{' '}
           <span className="text-gray-600">Checked: {checked.map((r) => FLAG_RULES[r].check).join('; ')}</span>
         </p>
-      ) : (
+      ) : null}
+      {checked.length > 0 && <CheckedDetail candidate={candidate} />}
+      {!flags.length && !checked.length && (
         <p className="text-xs leading-snug text-gray-500">No checks for this race yet</p>
       )}
     </Cell>
+  )
+}
+
+// What each check looked at, with its source, so "none found" can be checked too
+function CheckedDetail({ candidate }: { candidate: BallotCandidate }) {
+  const bar = candidate.profile?.bar
+  const ethics = candidate.profile?.ethics
+  return (
+    <details className="mt-1 text-[0.6875rem] leading-snug text-gray-700">
+      <summary className="cursor-pointer text-blue-700 hover:underline">What we checked</summary>
+      <ul className="mt-0.5 space-y-0.5">
+        {bar && (
+          <li>
+            {bar.unmatched ? (
+              <>State Bar: several lawyers share this name, so we couldn&apos;t tell which record is theirs</>
+            ) : (
+              <>
+                <Src href={bar.url}>State Bar</Src>: {bar.status}
+                {bar.admitted && `, admitted ${bar.admitted}`}, {bar.discipline?.length ? 'public discipline listed' : 'no public discipline listed'}
+              </>
+            )}
+          </li>
+        )}
+        {ethics && (
+          <li>
+            FPPC: {ethics.releases} monthly enforcement releases searched ({ethics.from} to {ethics.to}),{' '}
+            {ethics.fines.length ? `${ethics.fines.length} fine${ethics.fines.length > 1 ? 's' : ''}` : 'no fines under this name'}
+          </li>
+        )}
+        {candidate.profile?.guide && (candidate.profile.guide.answers?.length || /did not respond/i.test(candidate.profile.guide.note ?? '')) && (
+          <li>
+            <Src href={candidate.profile.guide.source.url}>LAist</Src> survey: {candidate.profile.guide.answers?.length ? 'answered' : 'didn\u2019t answer'}
+          </li>
+        )}
+      </ul>
+    </details>
+  )
+}
+
+// Claims a news fact-check examined, its verdict in its own words
+function Claims({ candidate }: { candidate: BallotCandidate }) {
+  const claims = candidate.profile?.claims ?? []
+  if (!claims.length) return null
+  return (
+    <details className="mt-1 text-[0.6875rem] leading-snug">
+      <summary className="cursor-pointer text-blue-700 hover:underline">
+        {claims.length} claim{claims.length > 1 ? 's' : ''} fact-checked by {[...new Set(claims.map((c) => c.publisher))].join(', ')}
+      </summary>
+      <ul className="mt-1 space-y-1.5">
+        {claims.map((c) => (
+          <li key={c.claim}>
+            <p className="italic">“{c.claim}”</p>
+            <p>
+              <span className="font-semibold">Verdict:</span> {c.verdict} (<Src href={c.url}>{c.publisher}</Src>)
+            </p>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-1 text-gray-600">In the outlet&apos;s words; not counted in the 💩 %.</p>
+    </details>
   )
 }
 
@@ -119,13 +187,16 @@ function FactCheckCell({ candidate, comparable }: { candidate: BallotCandidate; 
   const fc = candidate.profile?.factCheck
   const score = factCheckScore(fc)
   return (
-    <Cell title={<>💩 meter</>}>
+    <Cell how="meter" title={<>💩 meter</>}>
       {fc && score.pct !== null && comparable ? (
         <div className="text-xs leading-snug">
           <p className="text-xl font-black leading-none">{score.pct}%</p>
           <p className="mt-0.5">
             {score.falseish} of {score.total} claims <Src href={fc.url}>PolitiFact</Src> checked were rated Mostly False or worse
             {fc.latestYear && <span className="text-gray-600"> (newest ruling {fc.latestYear})</span>}
+          </p>
+          <p className="mt-0.5 font-mono text-[0.625rem] text-gray-600" title="The formula, with this candidate's numbers">
+            ({fc.counts['mostly-false']} MF + {fc.counts.false} F + {fc.counts['pants-fire']} PoF) ÷ {score.total} = {score.pct}%
           </p>
         </div>
       ) : fc && score.total > 0 ? (
@@ -142,6 +213,7 @@ function FactCheckCell({ candidate, comparable }: { candidate: BallotCandidate; 
           <p className="mt-0.5 text-gray-500">No PolitiFact rulings on them</p>
         </div>
       )}
+      <Claims candidate={candidate} />
     </Cell>
   )
 }
@@ -181,7 +253,7 @@ function BadgeCell({ candidate, badges }: { candidate: BallotCandidate; badges: 
   ]
   const named = g?.keyEndorsements ?? []
   return (
-    <Cell title="🏅 Badges">
+    <Cell how="badges" title="🏅 Badges">
       <div className="space-y-1 text-xs leading-snug">
         {candidate.incumbent && <span className="mr-1 inline-block rounded-full bg-sky-200 px-1.5 py-px text-[0.6875rem] font-semibold">Incumbent</span>}
         {all.length > 0 && (
@@ -247,7 +319,7 @@ export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; 
   return (
     <div className="grid grid-cols-2 gap-1.5 font-sans">
       {([[labels[0], yes], [labels[1], no]] as const).map(([label, list]) => (
-        <Cell key={label} title={`🏅 Say ${label}`}>
+        <Cell key={label} how="badges" title={`🏅 Say ${label}`}>
           {list.length ? (
             <div className="flex flex-wrap gap-1">
               {list.map((b) => (

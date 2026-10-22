@@ -23,7 +23,7 @@ export default function HowWeScorePage() {
         instead of guessing.
       </p>
 
-      <section className="space-y-2">
+      <section id="video" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">🎥 Video</h2>
         <p>
           An interview with the candidate from a nonpartisan series (in California, KCRA 3&apos;s California Politics
@@ -33,7 +33,7 @@ export default function HowWeScorePage() {
         </p>
       </section>
 
-      <section className="space-y-2">
+      <section id="flags" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">🚩 Flags</h2>
         <p>
           A flag is a fact from a source, found by a written rule, never our own reading of someone. Red flags are
@@ -57,7 +57,7 @@ export default function HowWeScorePage() {
         </p>
       </section>
 
-      <section className="space-y-2">
+      <section id="meter" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">💩 The 💩 meter</h2>
         <p>
           How full of it a candidate has been, by the fact-checkers&apos; count: the share of the candidate&apos;s
@@ -85,7 +85,7 @@ export default function HowWeScorePage() {
         </ul>
       </section>
 
-      <section className="space-y-2">
+      <section id="badges" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">🏅 Badges</h2>
         <p>
           Who recommends the candidate (or Yes or No on a measure): party slates, newspaper editorial boards and the

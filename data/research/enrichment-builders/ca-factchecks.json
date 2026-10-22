@@ -1,0 +1,43 @@
+{
+ "_about": "Claims a news fact-check examined, with its verdict, both copied verbatim from the article (build.py checks every quote against the saved page). Only fact-checks that cover every candidate in a race. Verdicts are the outlet's own words: we never turn them into a rating.",
+ "articles": [
+  {
+   "publisher": "CapRadio",
+   "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+   "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+   "office": "ca26-governor",
+   "claims": [
+    {
+     "candidate": "ca26-steve-hilton",
+     "claim": "You dismantled the vetting that should have made sure that they were with a safe, protective family or sponsor",
+     "verdict": "Hilton stands on solid ground when he says Becerra's agency weakened vetting and lost track of thousands of children. He overstates it when he describes hundreds of thousands of missing kids and child sex trafficking."
+    },
+    {
+     "candidate": "ca26-steve-hilton",
+     "claim": "Right now, because of your policies, we have the highest poverty rate and the highest unemployment rate in America,",
+     "verdict": "When it comes to the rates, Hilton is nearly spot on."
+    },
+    {
+     "candidate": "ca26-steve-hilton",
+     "claim": "It makes absolutely no sense right now to do what we're doing, importing oil halfway around the world from the Middle East and from South America when we have abundant oil reserves here,",
+     "verdict": "UC Berkeley energy expert Andrew Campbell said increasing California oil production would not be enough to lower prices that much."
+    },
+    {
+     "candidate": "ca26-xavier-becerra",
+     "claim": "You said that every farm worker in California should be deported.",
+     "verdict": "But he did not specifically say that every farm worker in California should be deported."
+    },
+    {
+     "candidate": "ca26-xavier-becerra",
+     "claim": "You said Trump's ICE immigration policies and his raids were - your words - perfect,",
+     "verdict": "Hilton has expressed support for broader federal immigration enforcement and said Trump's deportation campaign was going \"perfect\" during a Fox News interview early last year."
+    },
+    {
+     "candidate": "ca26-xavier-becerra",
+     "claim": "he said the national average was about $2 a gallon higher than when Trump started the war in Iran.",
+     "verdict": "But Becerra's claim that ending the war would bring prices down by a specific amount is harder to establish."
+    }
+   ]
+  }
+ ]
+}

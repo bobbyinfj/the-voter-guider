@@ -44,6 +44,40 @@ export function factCheckScore(fc: FactCheckRecord | null | undefined): FactChec
   return { total, falseish, pct: total >= FACTCHECK_MIN ? Math.round((falseish / total) * 100) : null }
 }
 
+// A claim a news fact-check examined, and its verdict, both verbatim from the article
+// (enrichment-builders/<state>-factchecks.json). Never turned into a rating or counted in the 💩 share.
+export interface FactCheckClaim {
+  publisher: string
+  title: string
+  url: string
+  retrieved: string
+  claim: string
+  verdict: string
+}
+
+// The State Bar of California's public record for a candidate who is a lawyer
+// (enrichment-builders/calbar.py). `unmatched`: covered by the check, but no single profile matched.
+export interface BarRecord {
+  publisher: 'State Bar of California'
+  unmatched?: boolean
+  url?: string
+  retrieved?: string
+  status?: string
+  admitted?: string
+  discipline?: string[]
+  shownName?: string
+}
+
+// Fines from the Fair Political Practices Commission's monthly enforcement releases
+// (enrichment-builders/fppc.py): everyone on the ballot was searched over the same releases
+export interface EthicsRecord {
+  publisher: 'Fair Political Practices Commission'
+  from: string
+  to: string
+  releases: number
+  fines: { respondent: string; case: string; fine: number | null; summary: string | null; shared: boolean; url: string; month: string; retrieved: string }[]
+}
+
 // A share is only shown in a race when every candidate in it has enough rulings: one
 // candidate's 💩 % next to another's blank would read as a comparison it isn't
 export function raceHasFactChecks(people: { profile?: ProfileSnippet | null }[]): boolean {
@@ -60,9 +94,21 @@ export interface Flag {
   source: { label: string; url: string; retrieved?: string }
 }
 
-export type FlagRule = 'bar-not-qualified' | 'skipped-news-survey'
+export type FlagRule = 'bar-discipline' | 'bar-not-qualified' | 'ethics-fine' | 'skipped-news-survey'
 // `check`: how the card names the check when it found nothing
 export const FLAG_RULES: Record<FlagRule, { level: Flag['level']; name: string; check: string; covers: string }> = {
+  'bar-discipline': {
+    level: 'red',
+    name: 'Public discipline on their State Bar record',
+    check: 'State Bar record',
+    covers: 'candidates who are lawyers: everyone running for judge or Attorney General, and anyone whose ballot designation says they practice law (California)',
+  },
+  'ethics-fine': {
+    level: 'yellow',
+    name: "Fined by the state's ethics and campaign-finance commission",
+    check: 'state ethics fines',
+    covers: "every candidate, searched by name in the Fair Political Practices Commission's monthly enforcement releases since January 2021 (California)",
+  },
   'bar-not-qualified': {
     level: 'red',
     name: 'Rated "Not Qualified" by the county bar association',
@@ -86,6 +132,28 @@ export function flagsFor(p: ProfileSnippet | null | undefined): { checked: FlagR
   const checked: FlagRule[] = []
   const flags: Flag[] = []
   const g = p?.guide
+  const bar = p?.bar
+  if (bar) {
+    checked.push('bar-discipline')
+    if (bar.discipline?.length && bar.url)
+      flags.push({
+        level: 'red',
+        rule: 'bar-discipline',
+        text: `State Bar record: ${bar.discipline.join('; ')}`,
+        source: { label: bar.publisher, url: bar.url, retrieved: bar.retrieved },
+      })
+  }
+  const ethics = p?.ethics
+  if (ethics) {
+    checked.push('ethics-fine')
+    for (const f of ethics.fines)
+      flags.push({
+        level: 'yellow',
+        rule: 'ethics-fine',
+        text: `Ethics fine${f.fine ? ` of $${f.fine.toLocaleString('en-US')}` : ''}${f.shared ? ' (one fine for everyone named in the case)' : ''}, FPPC case ${f.case}${f.summary ? `: “${f.summary}”` : ''}`,
+        source: { label: `FPPC, ${f.month}`, url: f.url, retrieved: f.retrieved },
+      })
+  }
   if (g?.rating) {
     checked.push('bar-not-qualified')
     if (/^not qualified$/i.test(g.rating.value))

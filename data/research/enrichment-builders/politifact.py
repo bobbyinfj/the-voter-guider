@@ -6,7 +6,9 @@
 # robots.txt allows Claude's agents on politifact.com (checked again on every fetch) and asks
 # for a 10-second crawl delay, which we keep.
 #
-# A page is only used when it's the same person: its bio line ("X is California's attorney
+# Who has a page: every PolitiFact page carries its "Any Speaker" menu, the full list of people
+# PolitiFact has rated; a candidate is looked up there by first and last name (or nickname and
+# last name). A page is only used when it's the same person: its bio line ("X is California's attorney
 # general…") must name the state, or the candidate is listed in SAME_PERSON after a manual
 # check. Pages that don't exist are skipped; nothing is inferred. Also recorded: the bio line
 # and the year of the newest ruling (the page lists rulings newest first), so voters can see how
@@ -14,6 +16,7 @@
 #
 # Usage: python3 politifact.py ca   (pages cached in ../comparison-builders/cache/)
 import hashlib
+import html
 import importlib.util
 import json
 import re
@@ -47,15 +50,27 @@ LABELS = {
 SAME_PERSON = {}
 
 
-def slugs(name):
-    """'Donald P. (Don) Wagner' → ['donald-wagner', 'don-wagner', 'donald-p-wagner']"""
+# Any PolitiFact page works as the source of the speaker menu
+SPEAKER_MENU = BASE + 'xavier-becerra/'
+
+
+def speakers():
+    """PolitiFact's list of everyone it has rated: lowercased name → page slug"""
+    raw, _ = get(SPEAKER_MENU)
+    page = raw.decode('utf-8', 'replace')
+    menu = page[page.find('Any Speaker'):]
+    return {html.unescape(n).strip().lower(): v for v, n in re.findall(r'<option[^>]*value="([a-z0-9-]+)"[^>]*>([^<]+)</option>', menu)}
+
+
+def slugs(name, menu):
+    """'Donald P. (Don) Wagner' → slugs of speakers named 'donald wagner', 'don wagner' or 'donald p. wagner'"""
     nicks = re.findall(r'\(([^)]*)\)', name)
-    words = [w for w in re.findall(r"[A-Za-z][A-Za-z'-]*", re.sub(r'\(.*?\)', ' ', name))
-             if len(w) > 1 and w.lower() not in ('jr', 'sr', 'ii', 'iii')]
-    if not words:
+    plain = re.sub(r'\(.*?\)', ' ', name)
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z'.-]*", plain) if w.lower().strip('.') not in ('jr', 'sr', 'ii', 'iii')]
+    if len(words) < 2:
         return []
-    out = [f'{words[0]}-{words[-1]}'] + [f'{n}-{words[-1]}' for n in nicks] + ['-'.join(words)]
-    return list(dict.fromkeys(s.lower().replace("'", '') for s in out))
+    tries = [f'{words[0]} {words[-1]}'] + [f'{n} {words[-1]}' for n in nicks] + [' '.join(words)]
+    return list(dict.fromkeys(menu[t.lower()] for t in tries if t.lower() in menu))
 
 
 def get(url):
@@ -83,8 +98,11 @@ def parse(raw, name):
         if key:
             counts[key] = int(n)
     text = cb.norm(cb.page_text(raw))
-    m = re.search(re.escape(name) + r' (' + re.escape(name.split()[0]) + r'[^.]*? is [^.]*\.(?: [^.]*\.)?)', text)
-    bio = m.group(1).strip() if m else ''
+    # "Judy Chu Congresswoman Judy Chu is a Democrat and represents …": the line after the heading
+    # (between the heading and "<name> Website Scorecard"), cut to two sentences
+    m = re.search(r'Join Now! ' + re.escape(name) + r' (.+?) (?:' + re.escape(name) + r' )?(?:Website )?Scorecard', text)
+    # (a period after a single capital, as in "U.S.", doesn't end a sentence)
+    bio = ' '.join(x.strip() for x in re.findall(r'.+?(?<!\b[A-Z])\.(?=\s+[A-Z]|$)', m.group(1))[:2]) if m and len(m.group(1)) < 1500 else ''
     years = [int(y) for y in re.findall(r' stated on [A-Z][a-z]+ \d{1,2}, (\d{4})', text.split('Latest Fact-Checks About')[0])]
     return counts, bio, years
 
@@ -92,10 +110,12 @@ def parse(raw, name):
 def build(state):
     slug, state_name = STATES[state]
     bundle = json.loads((ROOT / f'data/elections/{slug}.json').read_text())
+    menu = speakers()
+    assert len(menu) > 1000, 'speaker menu not found (page layout changed?)'
     out, review = {}, []
     for office in bundle['offices']:
         for c in office['candidates']:
-            tries = [SAME_PERSON[c['id']]] if c['id'] in SAME_PERSON else slugs(c['name'])
+            tries = [SAME_PERSON[c['id']]] if c['id'] in SAME_PERSON else slugs(c['name'], menu)
             for s in tries:
                 if s is None:
                     break

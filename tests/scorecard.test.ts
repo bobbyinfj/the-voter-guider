@@ -18,6 +18,9 @@ const snip = (extra: Partial<ProfileSnippet>): ProfileSnippet => ({
   endorsementsUrl: null,
   guide: null,
   factCheck: null,
+  claims: [],
+  bar: null,
+  ethics: null,
   videos: [],
   ...extra,
 })
@@ -74,4 +77,23 @@ test('badges come from published guides, with their source', () => {
   assert.deepEqual(Object.keys(map.b1), ['A'])
   assert.equal(map.b1.A[0].url, 'https://cadem.org/p')
   assert.equal(map.b1.A[0].lean, 'left')
+})
+
+test('State Bar discipline is a red flag; a clean or unmatched record only says it was checked', () => {
+  const bar = (discipline: string[], extra = {}) => snip({ bar: { publisher: 'State Bar of California', url: 'https://apps.calbar.ca.gov/x', status: 'Active', discipline, ...extra } })
+  assert.deepEqual(flagsFor(bar([])), { checked: ['bar-discipline'], flags: [] })
+  assert.equal(flagsFor(bar(['1/1/2020 · Public Reproval'])).flags[0].level, 'red')
+  assert.deepEqual(flagsFor(snip({ bar: { publisher: 'State Bar of California', unmatched: true } })).flags, [])
+})
+
+test('every FPPC fine is a yellow flag citing its release', () => {
+  const ethics = (fines: NonNullable<ProfileSnippet['ethics']>['fines']) =>
+    snip({ ethics: { publisher: 'Fair Political Practices Commission', from: '2021-01', to: '2026-10', releases: 70, fines } })
+  assert.deepEqual(flagsFor(ethics([])), { checked: ['ethics-fine'], flags: [] })
+  const f = { respondent: 'A', case: '21/1', fine: 200, summary: 'A failed to file.', shared: false, url: 'https://www.fppc.ca.gov/r', month: '2024-09', retrieved: '2026-10-22' }
+  const { flags } = flagsFor(ethics([f, { ...f, case: '22/2' }]))
+  assert.equal(flags.length, 2)
+  assert.equal(flags[0].level, 'yellow')
+  assert.equal(flags[0].source.url, 'https://www.fppc.ca.gov/r')
+  assert.match(flags[0].text, /\$200/)
 })

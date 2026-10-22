@@ -1,0 +1,130 @@
+{
+ "covered": [
+  "ca26-xavier-becerra",
+  "ca26-rob-bonta",
+  "ca26-michael-e-gates",
+  "ca26-jane-kim",
+  "ca26-long-david-liu",
+  "ca26-amy-lee",
+  "ca26-maria-ghobadi",
+  "ca26-rhonda-a-haymon",
+  "ca26-anna-slotky-reitano",
+  "ca26-justin-allen-clayton",
+  "ca26-anthony-a-j-bayne",
+  "ca26-david-dejute",
+  "ca26-donna-tryfman",
+  "ca26-david-ross"
+ ],
+ "candidates": {
+  "ca26-xavier-becerra": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/118517",
+   "retrieved": "2026-10-22",
+   "matched": "the only State Bar match for the name",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/14/1985",
+   "shownName": "Xavier Becerra"
+  },
+  "ca26-rob-bonta": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
+   "retrieved": "2026-10-22",
+   "matched": "the only State Bar match for the name",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "10/31/1999",
+   "shownName": "Robert Andres Bonta"
+  },
+  "ca26-michael-e-gates": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/258446",
+   "retrieved": "2026-10-22",
+   "matched": "the only State Bar match for the name",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "12/1/2008",
+   "shownName": "Michael E Gates"
+  },
+  "ca26-maria-ghobadi": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/242945",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/1/2006",
+   "shownName": "Maria Lisa Ghobadi"
+  },
+  "ca26-rhonda-a-haymon": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/212814",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "4/30/2001",
+   "shownName": "Rhonda A Haymon"
+  },
+  "ca26-anna-slotky-reitano": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/263383",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/4/2009",
+   "shownName": "Anna RS Reitano (aka Anna Slotky)"
+  },
+  "ca26-justin-allen-clayton": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/283282",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/6/2012",
+   "shownName": "Justin Allen Clayton"
+  },
+  "ca26-anthony-a-j-bayne": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/172129",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "12/1/1994",
+   "shownName": "Anthony Jeremiah Bayne"
+  },
+  "ca26-david-dejute": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/153527",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/21/1991",
+   "shownName": "David Anthony DeJute"
+  },
+  "ca26-donna-tryfman": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/176744",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "6/12/1995",
+   "shownName": "Donna Tryfman"
+  },
+  "ca26-david-ross": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/174591",
+   "retrieved": "2026-10-22",
+   "matched": "linked from the LAist voter guide",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "12/12/1994",
+   "shownName": "David Arthur Ross"
+  }
+ }
+}

@@ -205,6 +205,21 @@
       "kind": "org"
      }
     ]
+   },
+   "factCheck": {
+    "publisher": "PolitiFact",
+    "url": "https://www.politifact.com/personalities/pramila-jayapal/",
+    "retrieved": "2026-10-22",
+    "counts": {
+     "true": 0,
+     "mostly-true": 2,
+     "half-true": 0,
+     "mostly-false": 0,
+     "false": 0,
+     "pants-fire": 0
+    },
+    "bio": "Congresswoman Pramila Jayapal serves in Congress representing Washington's 7th District.",
+    "latestYear": 2023
    }
   },
   "wa26-nirav-sheth": {
@@ -683,6 +698,21 @@
       "kind": "official"
      }
     ]
+   },
+   "factCheck": {
+    "publisher": "PolitiFact",
+    "url": "https://www.politifact.com/personalities/adam-smith/",
+    "retrieved": "2026-10-22",
+    "counts": {
+     "true": 0,
+     "mostly-true": 0,
+     "half-true": 0,
+     "mostly-false": 0,
+     "false": 1,
+     "pants-fire": 0
+    },
+    "bio": "U.S. Rep. Adam Smith is a Democrat representing Washington's 9th District.",
+    "latestYear": 2019
    }
   },
   "wa26-doug-basler": {

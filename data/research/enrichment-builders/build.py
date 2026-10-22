@@ -12,6 +12,7 @@
 #
 # Usage: python3 build.py wa|co|ca [--offline]   (--offline skips the oEmbed check)
 # The cache/ folder (pamphlet PDFs, saved campaign pages) is not committed; see README.md.
+import importlib.util
 import json
 import re
 import sys
@@ -22,6 +23,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+# Saved, robots-checked copies of sources (comparison-builders/build.py)
+_spec = importlib.util.spec_from_file_location('cb', HERE.parent / 'comparison-builders' / 'build.py')
+cb = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(cb)
 sys.path.insert(0, str(HERE))
 
 from pamphlet import endorsement_text, parse_ca, parse_wa  # noqa: E402
@@ -120,7 +125,21 @@ def build(state, offline=False):
     videos = load(f'{state}-videos.json', {'candidates': {}, 'races': {}})
     # PolitiFact Truth-O-Meter counts (politifact.py builds <state>-politifact.json)
     factchecks = load(f'{state}-politifact.json', {'candidates': {}})
-    for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']) | set(factchecks['candidates']):
+    # State Bar records for candidates who are lawyers (calbar.py), and FPPC fines (fppc.py)
+    bar = load(f'{state}-calbar.json', {'covered': [], 'candidates': {}})
+    fines = load(f'{state}-fppc.json', None)
+    # News fact-checks' claims and verdicts, verbatim (<state>-factchecks.json, curated by hand)
+    claims = {}
+    for art in load(f'{state}-factchecks.json', {'articles': []})['articles']:
+        raw, fetched = cb.fetch(art['url'])
+        page = cb.norm(cb.page_text(raw))
+        for c in art['claims']:
+            for k in ('claim', 'verdict'):
+                if cb.norm(c[k]) not in page:
+                    errors.append(f"{c['candidate']}: {k} not on {art['url']}: {c[k][:60]}")
+            claims.setdefault(c['candidate'], []).append(
+                {'publisher': art['publisher'], 'title': art['title'], 'url': art['url'], 'retrieved': fetched, 'claim': c['claim'], 'verdict': c['verdict']})
+    for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']) | set(factchecks['candidates']) | set(bar['candidates']) | set(bar['covered']) | set((fines or {}).get('candidates', {})):
         if cid not in ids:
             errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
 
@@ -169,6 +188,18 @@ def build(state, offline=False):
         fc = factchecks['candidates'].get(cid)
         if fc:
             entry['factCheck'] = fc
+        if cid in claims:
+            entry['claims'] = claims[cid]
+        if cid in bar['candidates']:
+            entry['bar'] = bar['candidates'][cid]
+        elif cid in bar['covered']:
+            # A lawyer we couldn't match to exactly one State Bar profile: checked, nothing shown
+            entry['bar'] = {'publisher': 'State Bar of California', 'unmatched': True}
+        if fines is not None:
+            # Everyone was searched; an empty list means no fines in the releases searched
+            s = fines['searched']
+            entry['ethics'] = {'publisher': 'Fair Political Practices Commission', 'from': s['from'], 'to': s['to'],
+                               'releases': s['releases'], 'fines': fines['candidates'].get(cid, [])}
 
         vids = videos['candidates'].get(cid, [])
         check_videos(cid, vids)

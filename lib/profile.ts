@@ -1,6 +1,6 @@
 // Candidate extras (Candidate.profile), built by data/research/enrichment-builders. Every
 // piece is copied from a named source; the UI shows it as a Voter Guider extra.
-import type { FactCheckRecord } from './scorecard'
+import type { BarRecord, EthicsRecord, FactCheckClaim, FactCheckRecord } from './scorecard'
 
 export type EndorserKind = 'org' | 'official' | 'media' | 'person'
 
@@ -50,6 +50,9 @@ export interface CandidateProfile {
   }
   guide?: NewsGuide
   factCheck?: FactCheckRecord
+  claims?: FactCheckClaim[]
+  bar?: BarRecord
+  ethics?: EthicsRecord
 }
 
 // What ballot views get: enough for a "snack" without shipping every endorser to the browser
@@ -62,6 +65,9 @@ export interface ProfileSnippet {
   endorsementsUrl: string | null
   guide: NewsGuide | null
   factCheck: FactCheckRecord | null
+  claims: FactCheckClaim[]
+  bar: BarRecord | null
+  ethics: EthicsRecord | null
   // Every video of them, for the scorecard's video column (`video` is the one to lead with)
   videos: CandidateVideo[]
 }
@@ -101,6 +107,9 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
     endorsementsUrl: p.endorsements?.source.url ?? null,
     guide: p.guide ?? null,
     factCheck: p.factCheck ?? null,
+    claims: p.claims ?? [],
+    bar: p.bar ?? null,
+    ethics: p.ethics ?? null,
     videos: p.videos ?? [],
   }
 }

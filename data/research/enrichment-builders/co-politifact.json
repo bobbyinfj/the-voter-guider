@@ -1,0 +1,19 @@
+{
+ "candidates": {
+  "co26-john-hickenlooper": {
+   "publisher": "PolitiFact",
+   "url": "https://www.politifact.com/personalities/john-hickenlooper/",
+   "retrieved": "2026-10-22",
+   "counts": {
+    "true": 1,
+    "mostly-true": 1,
+    "half-true": 1,
+    "mostly-false": 0,
+    "false": 0,
+    "pants-fire": 0
+   },
+   "bio": "John Hickenlooper is a former governor of Colorado. Hickenlooper served as a governor from 2011 to 2019.",
+   "latestYear": 2019
+  }
+ }
+}

@@ -1,6 +1,39 @@
 {
  "slug": "ca-general-2026-11-03",
  "candidates": {
+  "ca26-april-a-verlato": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-judy-chu": {
+   "factCheck": {
+    "publisher": "PolitiFact",
+    "url": "https://www.politifact.com/personalities/judy-chu/",
+    "retrieved": "2026-10-22",
+    "counts": {
+     "true": 0,
+     "mostly-true": 0,
+     "half-true": 0,
+     "mostly-false": 1,
+     "false": 0,
+     "pants-fire": 0
+    },
+    "bio": "Congresswoman Judy Chu is a Democrat and represents the 27th District of California, including large portions of the Western San Gabriel Valley in Los Angeles County.",
+    "latestYear": 2017
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
   "ca26-steve-hilton": {
    "summary": {
     "source": {
@@ -27,6 +60,39 @@
     ]
    },
    "website": "https://stevehiltonforgovernor.com/",
+   "claims": [
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "You dismantled the vetting that should have made sure that they were with a safe, protective family or sponsor",
+     "verdict": "Hilton stands on solid ground when he says Becerra's agency weakened vetting and lost track of thousands of children. He overstates it when he describes hundreds of thousands of missing kids and child sex trafficking."
+    },
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "Right now, because of your policies, we have the highest poverty rate and the highest unemployment rate in America,",
+     "verdict": "When it comes to the rates, Hilton is nearly spot on."
+    },
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "It makes absolutely no sense right now to do what we're doing, importing oil halfway around the world from the Middle East and from South America when we have abundant oil reserves here,",
+     "verdict": "UC Berkeley energy expert Andrew Campbell said increasing California oil production would not be enough to lower prices that much."
+    }
+   ],
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "fGdu7sDtPNM",
@@ -73,6 +139,64 @@
     ]
    },
    "website": "https://www.xavierbecerra2026.com/",
+   "factCheck": {
+    "publisher": "PolitiFact",
+    "url": "https://www.politifact.com/personalities/xavier-becerra/",
+    "retrieved": "2026-10-22",
+    "counts": {
+     "true": 1,
+     "mostly-true": 2,
+     "half-true": 1,
+     "mostly-false": 0,
+     "false": 1,
+     "pants-fire": 0
+    },
+    "bio": "Xavier Becerra is California's attorney general and a Democrat. Previously, he was member of the U.S. House of Representatives.",
+    "latestYear": 2021
+   },
+   "claims": [
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "You said that every farm worker in California should be deported.",
+     "verdict": "But he did not specifically say that every farm worker in California should be deported."
+    },
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "You said Trump's ICE immigration policies and his raids were - your words - perfect,",
+     "verdict": "Hilton has expressed support for broader federal immigration enforcement and said Trump's deportation campaign was going \"perfect\" during a Fox News interview early last year."
+    },
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "he said the national average was about $2 a gallon higher than when Trump started the war in Iran.",
+     "verdict": "But Becerra's claim that ending the war would bring prices down by a specific amount is harder to establish."
+    }
+   ],
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/118517",
+    "retrieved": "2026-10-22",
+    "matched": "the only State Bar match for the name",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/14/1985",
+    "shownName": "Xavier Becerra"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "oySceWN-ckU",
@@ -117,6 +241,13 @@
      "Reform California"
     ]
    },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "-ndCw-V2L3E",
@@ -156,6 +287,24 @@
     ]
    },
    "website": "https://fionama.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Fiona Ma for State Treasurer 2018, Fiona Ma, and James Santos",
+      "case": "22/195",
+      "fine": 11500,
+      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-january-2024/",
+      "month": "2024-01",
+      "retrieved": "2026-10-22",
+      "summary": "The Committee, Ma, and Santos failed to timely disclose and itemize subvendor payments, in violation of Government Code Sections 84303 and 84211 (1 count).",
+      "shared": true
+     }
+    ]
+   },
    "videos": [
     {
      "youtubeId": "7ZGPwIb4FIA",
@@ -193,6 +342,13 @@
      "Reform California",
      "California Republican Assembly"
     ]
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    },
    "videos": [
     {
@@ -232,6 +388,13 @@
      "SEIU California"
     ]
    },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "H313gyH8EfU",
@@ -269,6 +432,13 @@
      "California Labor Federation",
      "Equality California"
     ]
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    },
    "videos": [
     {
@@ -308,6 +478,13 @@
      "Unity Party of California"
     ]
    },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "p5HQG-wzb1Y",
@@ -344,6 +521,13 @@
      "California Republican Assembly",
      "Reform California"
     ]
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-eleni-kounalakis": {
@@ -372,6 +556,13 @@
      "Teamsters California",
      "National Union of Healthcare Workers"
     ]
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-rob-bonta": {
@@ -401,6 +592,34 @@
     ]
    },
    "website": "https://robbonta.com/",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
+    "retrieved": "2026-10-22",
+    "matched": "the only State Bar match for the name",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "10/31/1999",
+    "shownName": "Robert Andres Bonta"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Rob Bonta",
+      "case": "21/738",
+      "fine": 200,
+      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
+      "month": "2024-09",
+      "retrieved": "2026-10-22",
+      "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
+      "shared": false
+     }
+    ]
+   },
    "videos": [
     {
      "youtubeId": "eCxqIq-4xPc",
@@ -437,6 +656,34 @@
      "California Republican Party",
      "California Parents Union",
      "California Rifle & Pistol Association"
+    ]
+   },
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/258446",
+    "retrieved": "2026-10-22",
+    "matched": "the only State Bar match for the name",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "12/1/2008",
+    "shownName": "Michael E Gates"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Michael Gates",
+      "case": "26/208",
+      "fine": 600,
+      "url": "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-may-2026/",
+      "month": "2026-05",
+      "retrieved": "2026-10-22",
+      "summary": "Michael Gates, City Attorney for Huntington Beach, failed to timely report a gift on a 2023 Annual Statement of Economic Interests, in violation of Government Code Section 87203 (1 Count).",
+      "shared": false
+     }
     ]
    },
    "videos": [
@@ -478,6 +725,17 @@
      "California Labor Federation"
     ]
    },
+   "bar": {
+    "publisher": "State Bar of California",
+    "unmatched": true
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "EY7vzRao1KY",
@@ -518,6 +776,13 @@
      "San Francisco Chronicle"
     ]
    },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "E5WV5QmcOvc",
@@ -550,6 +815,13 @@
     "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
     "website": "https://shawforca.com/",
     "endorsementsUrl": "https://shawforca.com/#endorsements"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    },
    "videos": [
     {
@@ -598,6 +870,13 @@
      "California Charter School Advocates"
     ]
    },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
    "videos": [
     {
      "youtubeId": "9aLD6IlUiZY",
@@ -638,6 +917,24 @@
     },
     "website": "https://www.mikegipson.net/",
     "endorsementsUrl": "https://www.mikegipson.net/endorsements"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Mike Gipson",
+      "case": "24/544",
+      "fine": 1800,
+      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-august-2024/",
+      "month": "2024-08",
+      "retrieved": "2026-10-22",
+      "summary": "Mike Gipson, current State Assemblymember representing District 65, failed to timely file nine behested payment reports, in violation of Government Code Section 84224 (9 counts).",
+      "shared": false
+     }
+    ]
    }
   },
   "ca26-samuel-p-sukaton": {
@@ -660,7 +957,14 @@
     "website": "https://www.samsukaton.com/",
     "endorsementsUrl": "https://bluevoterguide.org/CA/candidate_Samuel_Sukaton/747541"
    },
-   "website": "https://www.samsukaton.com/"
+   "website": "https://www.samsukaton.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-long-david-liu": {
    "guide": {
@@ -673,7 +977,18 @@
     "website": "https://www.liuforassembly.com/",
     "endorsementsUrl": "https://www.liuforassembly.com/endorsements"
    },
-   "website": "https://www.liuforassembly.com/"
+   "website": "https://www.liuforassembly.com/",
+   "bar": {
+    "publisher": "State Bar of California",
+    "unmatched": true
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-mike-fong": {
    "guide": {
@@ -685,7 +1000,14 @@
     },
     "website": "http://www.mikefong.org"
    },
-   "website": "http://www.mikefong.org"
+   "website": "http://www.mikefong.org",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-alex-villanueva": {
    "guide": {
@@ -699,7 +1021,25 @@
     "website": "https://alexvillanueva2026.com/",
     "endorsementsUrl": "https://alexvillanueva2026.com/endorsements/"
    },
-   "website": "https://alexvillanueva2026.com/"
+   "website": "https://alexvillanueva2026.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Alex Villanueva, Villanueva for Los Angeles Sheriff 2018, Cine D. Ivery, and Manuel Gomez",
+      "case": "18/1097",
+      "fine": 57500,
+      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-january-2024/",
+      "month": "2024-01",
+      "retrieved": "2026-10-22",
+      "summary": "The Committee, Villanueva, and Ivery failed to report required occupation and employer information for a contribution received from Gomez, in violation of Government Code Section 84211, subdivision (f) (1 count).",
+      "shared": true
+     }
+    ]
+   }
   },
   "ca26-robert-luna": {
    "guide": {
@@ -713,7 +1053,63 @@
     "website": "https://www.lunaforsheriff.com/",
     "endorsementsUrl": "https://www.lunaforsheriff.com/2026endorsements"
    },
-   "website": "https://www.lunaforsheriff.com/"
+   "website": "https://www.lunaforsheriff.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-thomas-wong": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-steven-kung": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-vinh-t-ngo": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-dora-leung": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-amy-lee": {
+   "bar": {
+    "publisher": "State Bar of California",
+    "unmatched": true
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-adriana-cabrera": {
    "guide": {
@@ -741,7 +1137,14 @@
      }
     ]
    },
-   "website": "https://adrianaforlaccd.com/"
+   "website": "https://adrianaforlaccd.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-roy-payan": {
    "guide": {
@@ -752,6 +1155,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Roy Payan did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-robert-payne": {
@@ -763,6 +1173,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Robert Payne did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-kristina-irwin": {
@@ -790,7 +1207,14 @@
      }
     ]
    },
-   "website": "https://kristinairwin.com/"
+   "website": "https://kristinairwin.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-steven-f-veres": {
    "guide": {
@@ -818,7 +1242,14 @@
      }
     ]
    },
-   "website": "https://steveveres.com/"
+   "website": "https://steveveres.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-darryn-harris": {
    "guide": {
@@ -829,6 +1260,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Darryn Harris did not respond to LAist's request to respond to a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-nancy-pearlman": {
@@ -857,7 +1295,14 @@
      }
     ]
    },
-   "website": "https://nancypearlman.net/"
+   "website": "https://nancypearlman.net/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-elaine-alaniz": {
    "guide": {
@@ -884,7 +1329,14 @@
      }
     ]
    },
-   "website": "https://elainereadytoserve.com/"
+   "website": "https://elainereadytoserve.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-isidro-j-armenta": {
    "guide": {
@@ -895,6 +1347,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Isidro Armenta did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-jason-r-aula": {
@@ -906,6 +1365,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Jason Aula did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-adam-bruno": {
@@ -931,6 +1397,13 @@
       "a": "“AI should be a boon to humanity, but I strongly believe it is being misused. Ethical use of AI includes ethical use of the information AI gathers, and not disenfranchising the humans it replaces."
      }
     ]
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-priscilla-umana": {
@@ -942,6 +1415,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Priscilla Umana did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-randall-winston": {
@@ -970,7 +1450,14 @@
      }
     ]
    },
-   "website": "https://www.randalljwinston.com/"
+   "website": "https://www.randalljwinston.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-tonia-arey": {
    "guide": {
@@ -999,7 +1486,14 @@
      }
     ]
    },
-   "website": "https://toniaarey.com/"
+   "website": "https://toniaarey.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-roberto-david-lacarra": {
    "guide": {
@@ -1010,6 +1504,13 @@
      "retrieved": "2026-10-22"
     },
     "note": "Roberto David Lacarra did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
    }
   },
   "ca26-gabriel-buelna": {
@@ -1038,7 +1539,14 @@
      }
     ]
    },
-   "website": "https://www.buelna4laccd.com/"
+   "website": "https://www.buelna4laccd.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-maria-ghobadi": {
    "guide": {
@@ -1061,7 +1569,24 @@
      }
     }
    },
-   "website": "https://mariaghobadi4judge.com"
+   "website": "https://mariaghobadi4judge.com",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/242945",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/1/2006",
+    "shownName": "Maria Lisa Ghobadi"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-rhonda-a-haymon": {
    "guide": {
@@ -1084,7 +1609,24 @@
      }
     }
    },
-   "website": "https://www.rhondahaymon4judge.com/"
+   "website": "https://www.rhondahaymon4judge.com/",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/212814",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "4/30/2001",
+    "shownName": "Rhonda A Haymon"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-anna-slotky-reitano": {
    "guide": {
@@ -1107,7 +1649,24 @@
      }
     }
    },
-   "website": "http://www.reitanoforjudge.com"
+   "website": "http://www.reitanoforjudge.com",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/263383",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/4/2009",
+    "shownName": "Anna RS Reitano (aka Anna Slotky)"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-justin-allen-clayton": {
    "guide": {
@@ -1130,7 +1689,24 @@
      }
     }
    },
-   "website": "https://claytonforjudge2026.com/"
+   "website": "https://claytonforjudge2026.com/",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/283282",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/6/2012",
+    "shownName": "Justin Allen Clayton"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-anthony-a-j-bayne": {
    "guide": {
@@ -1153,7 +1729,24 @@
      }
     }
    },
-   "website": "https://electbayneforjudge.com/"
+   "website": "https://electbayneforjudge.com/",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/172129",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "12/1/1994",
+    "shownName": "Anthony Jeremiah Bayne"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-david-dejute": {
    "guide": {
@@ -1176,7 +1769,24 @@
      }
     }
    },
-   "website": "http://www.dejuteforjudge.com"
+   "website": "http://www.dejuteforjudge.com",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/153527",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/21/1991",
+    "shownName": "David Anthony DeJute"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-donna-tryfman": {
    "guide": {
@@ -1199,7 +1809,24 @@
      }
     }
    },
-   "website": "http://tryfmanforjudge2026.com"
+   "website": "http://tryfmanforjudge2026.com",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/176744",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "6/12/1995",
+    "shownName": "Donna Tryfman"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   },
   "ca26-david-ross": {
    "guide": {
@@ -1222,7 +1849,24 @@
      }
     }
    },
-   "website": "http://davidrossforjudge2026.com"
+   "website": "http://davidrossforjudge2026.com",
+   "bar": {
+    "publisher": "State Bar of California",
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/174591",
+    "retrieved": "2026-10-22",
+    "matched": "linked from the LAist voter guide",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "12/12/1994",
+    "shownName": "David Arthur Ross"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   }
  },
  "races": {
