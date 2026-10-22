@@ -1,7 +1,7 @@
 'use client'
 
-import { CheckCircle2, Circle, MinusCircle } from 'lucide-react'
-import { ABSTAIN, contestDomId, navLabel, type BallotSection, type ChoiceValue } from './ballot'
+import { CheckCircle2, Circle, CircleHelp, MinusCircle } from 'lucide-react'
+import { ABSTAIN, UNSURE, contestDomId, navLabel, type BallotSection, type ChoiceValue } from './ballot'
 
 interface BallotNavProps {
   sections: BallotSection[]
@@ -15,7 +15,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
   return (
     <nav aria-label="Contests on this ballot" className="space-y-4 text-sm">
       {sections.map((section) => {
-        const decided = section.items.filter((i) => choices[i.id]).length
+        const decided = section.items.filter((i) => choices[i.id] && choices[i.id].selection !== UNSURE).length
         return (
           <div key={section.key} className="break-inside-avoid">
             <p className="mb-1 flex justify-between text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -28,7 +28,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
               {section.items.map((item) => {
                 const selection = choices[item.id]?.selection
                 const leaning = choices[item.id]?.status === 'tentative'
-                const Icon = !selection ? Circle : selection === ABSTAIN ? MinusCircle : CheckCircle2
+                const Icon = !selection ? Circle : selection === ABSTAIN ? MinusCircle : selection === UNSURE ? CircleHelp : CheckCircle2
                 return (
                   <li key={item.id}>
                     <a
@@ -43,9 +43,9 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                       }`}
                     >
                       <Icon
-                        aria-label={!selection ? 'Undecided' : selection === ABSTAIN ? 'Left blank' : leaning ? 'Leaning' : 'Decided'}
+                        aria-label={!selection ? 'Undecided' : selection === ABSTAIN ? 'Left blank' : selection === UNSURE ? 'No clue yet' : leaning ? 'Leaning' : 'Decided'}
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : leaning ? 'text-amber-600' : 'text-green-600'
+                          !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : selection === UNSURE ? 'text-purple-600' : leaning ? 'text-amber-600' : 'text-green-600'
                         }`}
                       />
                       <span className="min-w-0 line-clamp-2">{navLabel(item)}</span>

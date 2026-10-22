@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-// Molesis, the blind mole wizard: our mascot, and the face of every "this isn't official" notice
+// Moleses, the blind mole wizard: our mascot, and the face of every "this isn't official" notice
 
-export function MolesisAvatar({ size = 40, className = '' }: { size?: number; className?: string }) {
+export function MolesesAvatar({ size = 40, className = '' }: { size?: number; className?: string }) {
   return (
     <Image
       src="/moleses-2.png"
-      alt="Molesis, the Voter Guider's blind mole wizard mascot"
+      alt="Moleses, the Voter Guider's blind mole wizard mascot"
       width={size}
       height={size}
       className={`shrink-0 rounded-full bg-white object-cover ${className}`}
@@ -20,7 +20,7 @@ export function UnofficialBar() {
   return (
     <div className="border-b border-amber-300 bg-amber-50 text-amber-950 print:hidden">
       <div className="container mx-auto flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm">
-        <MolesisAvatar size={24} />
+        <MolesesAvatar size={24} />
         <p className="min-w-0">
           <strong>Unofficial!</strong> Not a government website, and not your ballot. We&apos;re just the Voter Guider
           people.{' '}
@@ -38,10 +38,10 @@ export function UnofficialFooter() {
   return (
     <footer id="unofficial" className="mt-16 border-t border-gray-200 bg-white print:hidden">
       <div className="container mx-auto flex flex-col gap-4 px-4 py-8 sm:flex-row sm:items-start">
-        <MolesisAvatar size={88} className="border border-gray-200" />
+        <MolesesAvatar size={88} className="border border-gray-200" />
         <div className="max-w-3xl space-y-2 text-sm text-gray-700">
           <p className="font-semibold text-gray-900">
-            Molesis is a blind mole wizard, not an election official. Neither are we.
+            Moleses is a blind mole wizard, not an election official. Neither are we.
           </p>
           <p>
             The Voter Guider is an independent, unofficial voter guide. It isn&apos;t run by, affiliated with or
@@ -63,13 +63,13 @@ export function UnofficialFooter() {
 export function NotABallotStamp({ readOnly }: { readOnly: boolean }) {
   return (
     <div className="flex items-center gap-3 border-b-2 border-dashed border-red-700 bg-red-50 px-4 py-3 text-red-900">
-      <MolesisAvatar size={48} className="border border-red-200" />
+      <MolesesAvatar size={48} className="border border-red-200" />
       <div className="min-w-0 text-sm">
         <p className="font-black uppercase tracking-wider">Not a ballot. Don&apos;t mail this.</p>
         <p className="text-xs sm:text-sm">
           {readOnly
-            ? 'Someone’s practice copy, made with the Voter Guider. Molesis can’t count it, and neither can anyone else.'
-            : 'Your practice copy from the Voter Guider, an unofficial site. Molesis can’t count it. Copy your picks onto the real ballot from your county.'}
+            ? 'Someone’s practice copy, made with the Voter Guider. Moleses can’t count it, and neither can anyone else.'
+            : 'Your practice copy from the Voter Guider, an unofficial site. Moleses can’t count it. Copy your picks onto the real ballot from your county.'}
         </p>
       </div>
     </div>

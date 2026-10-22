@@ -22,13 +22,13 @@ export default function BallotSheet({
   choices?: Record<string, ChoiceValue>
   readOnly?: boolean
   density?: Density
-  onChange?: (itemId: string, selection: string, notes?: string) => void
+  onChange?: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
   onClear?: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   compare?: CompareView | null
 }) {
   return (
-    <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-3xl'}>
+    <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-6xl'}>
       {sections.map((section) => (
         <section key={section.key} aria-label={section.label} className="contents">
           {section.notice && (
@@ -56,7 +56,7 @@ export default function BallotSheet({
               choices={choices}
               readOnly={readOnly}
               density={density}
-              onChange={(id, selection, notes) => onChange?.(id, selection, notes)}
+              onChange={(id, selection, notes, status) => onChange?.(id, selection, notes, status)}
               onClear={(id) => onClear?.(id)}
               onStatus={onStatus}
               compare={compare}

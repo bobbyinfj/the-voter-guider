@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
 import SignInForm from '@/components/SignInForm'
-import { MolesisAvatar } from '@/components/Molesis'
+import { MolesesAvatar } from '@/components/Moleses'
 import { useAccount } from './useAccount'
 
 const DISMISS_KEY = 'voter-guider:keep-prompt-dismissed'
@@ -31,7 +31,7 @@ export default function KeepGuidePrompt({ show }: { show: boolean }) {
   }
   return (
     <div className="relative flex gap-3 rounded-lg border border-sky-200 bg-sky-50 p-3 font-sans text-sm text-sky-950 print:hidden">
-      <MolesisAvatar size={36} />
+      <MolesesAvatar size={36} />
       <div className="min-w-0 flex-1 space-y-2">
         <p>
           <strong>Your picks are saved on this device.</strong> Want them on your phone or another computer too? Get a

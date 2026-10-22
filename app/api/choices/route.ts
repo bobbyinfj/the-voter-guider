@@ -4,7 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { getViewer, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
 
-const MEASURE_SELECTIONS = new Set(['YES', 'NO', 'ABSTAIN'])
+const SPECIAL = ['ABSTAIN', 'UNSURE']
+const MEASURE_SELECTIONS = new Set(['YES', 'NO', ...SPECIAL])
 const STATUSES = new Set(['tentative', 'decided'])
 
 // POST - Create or update a choice on a guide the caller owns
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
     const options = Array.isArray(ballot.options) ? ballot.options.filter((o) => typeof o === 'string') : []
     const valid =
       ballot.type === 'candidate'
-        ? options.includes(selection) || selection === 'ABSTAIN' || selection.startsWith('WRITE-IN:')
+        ? options.includes(selection) || SPECIAL.includes(selection) || selection.startsWith('WRITE-IN:')
         : MEASURE_SELECTIONS.has(selection)
     if (!valid || selection.length > 200) {
       return NextResponse.json({ error: 'Invalid selection' }, { status: 400 })

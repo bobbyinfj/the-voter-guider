@@ -70,6 +70,10 @@ export interface PrintedLayout {
 // Selection values the choices API accepts besides a candidate name / YES / NO
 export const WRITE_IN = 'WRITE-IN:'
 export const ABSTAIN = 'ABSTAIN'
+// "No clue yet": you've looked at the contest and don't know. Still counts as to go.
+export const UNSURE = 'UNSURE'
+// A real pick (a candidate, a write-in, YES/NO), not blank or no-clue
+export const isPick = (selection?: string) => !!selection && selection !== ABSTAIN && selection !== UNSURE
 // A measure's printed responses map, in order, to these stored values
 export const MEASURE_VALUES = ['YES', 'NO'] as const
 
@@ -206,6 +210,7 @@ export function navLabel(item: BallotItem): string {
 // Printed text for a stored selection: "YES/FOR", the ticket "A / B", "Write-in: X"
 export function choiceLabel(selection: string, item?: BallotItem): string {
   if (selection === ABSTAIN) return 'Left blank'
+  if (selection === UNSURE) return 'No clue yet'
   if (selection.startsWith(WRITE_IN)) return `Write-in: ${selection.slice(WRITE_IN.length)}`
   const printed = item ? layoutOf(item) : null
   const i = MEASURE_VALUES.indexOf(selection as (typeof MEASURE_VALUES)[number])
