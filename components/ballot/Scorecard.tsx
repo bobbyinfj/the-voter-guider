@@ -135,7 +135,11 @@ function CheckedDetail({ candidate }: { candidate: BallotCandidate }) {
         {bar && (
           <li>
             {bar.unmatched ? (
-              <>State Bar: several lawyers share this name, so we couldn&apos;t tell which record is theirs</>
+              bar.unmatched === 'none' ? (
+                <>State Bar: no record found under this name (they may be licensed under another name, or elsewhere)</>
+              ) : (
+                <>State Bar: several lawyers share this name, so we couldn&apos;t tell which record is theirs</>
+              )
             ) : (
               <>
                 <Src href={bar.url}>State Bar</Src>: {bar.status}
