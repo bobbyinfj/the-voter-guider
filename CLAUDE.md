@@ -4,13 +4,13 @@
 - **Framework**: Next.js 16 App Router (React 19, TypeScript 5)
 - **Database**: PostgreSQL (Neon) via Prisma 7 (driver adapter `@prisma/adapter-pg`)
 - **Styling**: Tailwind CSS v4 (`@import "tailwindcss"` — no `tailwind.config.js`)
-- **Auth**: None. Anonymous sessions via httpOnly cookie `voter-guide-session` (UUID), issued by `proxy.ts` on a visitor's first request (so concurrent first requests can't mint two sessions). See `lib/session.ts`.
+- **Auth**: Optional. Everyone gets an anonymous httpOnly session cookie `voter-guide-session` (UUID), issued by `proxy.ts` on a visitor's first request (so concurrent first requests can't mint two sessions; see `lib/session.ts`). Signing in by emailed magic link (`lib/auth.ts`, nodemailer in `lib/mail.ts`) adds a `voter-guide-auth` cookie and moves that browser's guides to the account.
 
 ## Key conventions
 - Prisma client: named export `{ prisma }` from `lib/prisma.ts` — NOT a default export.
 - Server components for all data-fetching pages. Client components only when state/interactivity is needed (`"use client"` at top).
 - API routes in `app/api/*/route.ts`. Use `handleApiError` from `lib/errors.ts` for consistent error responses.
-- No auth yet — use `getSessionId()` to scope data to the current anonymous session.
+- Guide ownership: always `getViewer()` + `ownedBy(viewer)` / `isOwner()` from `lib/owner.ts` (pure parts in `lib/ownership.ts`). Never filter guides by `sessionId` alone or by `{ userId: null }`.
 
 ## Data model overview
 The schema has two layers:
@@ -61,14 +61,37 @@ verbatim supporting quote (the builder checks the quote against the downloaded s
 Leave a stance out rather than infer it. `npm run data:cleanup` (dry run by default)
 removes anything in a database that isn't backed by a bundle.
 
+### Guide flow
+The election page's ballot *is* your guide: the first box you check creates your default guide
+for that election (`Guide.defaultKey` = `<owner>:<electionId>`, unique, via `getOrCreateDefaultGuide`),
+and every change autosaves (`components/guide/useGuideEditor.ts`); there are no save buttons. Each
+pick is `tentative` (leaning, hatched oval) or `decided` (`Choice.status`). The quiz writes to the
+same default guide. Extra guides for an election live at `/guide/[id]`. After the first pick a
+skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
+**Basic** (3-column replica, the default every visit) and **Expanded** (one column, every contest's
+sourced extras open), toggled at the top of the ballot with a ? explainer.
+
+### Comparison guides and the community tally
+`data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds
+published guides — party slates, newspaper editorial boards, League of Women Voters, advocacy
+guides — seeded as public template guides (`Guide.isTemplate`, id `cmp-…`). Every pick stores its
+source URL and a verbatim quote; the build checks the quote against the saved page and skips any
+source whose robots.txt disallows Claude's user agents (never work around a block). Party and
+advocacy guides are only published as left/right pairs (`comparisonProblems` in
+`lib/comparisons.ts`; seed and `npm test` enforce it). `/api/compare` also returns the community
+tally: anonymous totals from guides whose owner ticked "Count my picks", shown per contest only
+once 5+ people shared (write-ins counted together, never named).
+
 ### Ballot replica
 Guides render like the voter's real ballot. `data/research/sample-ballots/parse.py` turns a county's
 official sample-ballot PDF into `<county>.json` (section headings, contest headings, instruction
 lines, candidates in printed order with printed party labels, measure question text, response
 labels, tables). `bundle-builders/layout.py` attaches that to each office/measure as `ballot`
 (seeded into `Ballot.metadata.ballot`) and fails the build if names or candidate lists differ.
-`npm test` re-checks every bundle against the parsed sample ballot. Elections without a sample
-ballot (Monterey Park: LA County's are per-voter) fall back to our own order with a notice.
+`npm test` re-checks every bundle against the parsed sample ballot. LA County's sample ballots are
+per voter, so `sample-ballots/lavote_isb.py` reads the county's Interactive Sample Ballot data
+(isb.lavote.gov) for Monterey Park's ballot styles into `la.json` instead. Elections without
+either fall back to our own order with a notice.
 Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra".
 
 ### Candidate extras (enrichment)
@@ -109,8 +132,9 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 | `/elections/[id]/offices/[officeId]` | Side-by-side candidate comparison |
 | `/candidates/[id]` | Candidate profile + all stances with sources |
 | `/issues/[slug]` | Issue explainer + all candidates' stances |
-| `/guide/new` | Original guide creation flow |
-| `/guide/[id]` | View/edit a guide (BallotTracker) |
+| `/guide/new` | Redirects to the election page (its ballot is your guide) |
+| `/guide/[id]` | A guide's own page: name, notes, sharing, community opt-in |
+| `/signin`, `/signin/verify` | Magic-link sign-in (the link page signs in on a button press) |
 
 ## API routes
 | Route | Method | Purpose |
@@ -119,6 +143,9 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 | `/api/quiz/answer` | POST | Submit answer → returns updated results + next question |
 | `/api/quiz/results?guideId=` | GET | Full quiz results for a guide |
 | `/api/quiz/next?guideId=` | GET | Next recommended question |
+| `/api/guides/default` | POST | Get or create your default guide for an election |
+| `/api/compare?electionId=` | GET | Comparison guides + community tally |
+| `/api/auth/request` · `/verify` · `/me` · `/signout` | POST/GET | Magic-link sign-in |
 
 ## Schema migrations
 Use `prisma migrate dev` (not `db push`) for all schema changes. The Neon DB uses PostgreSQL 17.

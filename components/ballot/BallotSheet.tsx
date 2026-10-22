@@ -1,7 +1,8 @@
 'use client'
 
 import Contest, { type Density } from './Contest'
-import { groupRuns, type BallotSection, type ChoiceValue } from './ballot'
+import type { CompareView } from '@/components/compare/compare'
+import { groupRuns, type BallotSection, type ChoiceStatus, type ChoiceValue } from './ballot'
 
 // The contests themselves, in printed sections and columns. Used by the guide (BallotTracker)
 // and, read-only, as the ballot preview on the election page.
@@ -10,9 +11,11 @@ export default function BallotSheet({
   electionId,
   choices = {},
   readOnly = false,
-  density = 'ballot',
+  density = 'basic',
   onChange,
   onClear,
+  onStatus,
+  compare,
 }: {
   sections: BallotSection[]
   electionId: string
@@ -21,9 +24,11 @@ export default function BallotSheet({
   density?: Density
   onChange?: (itemId: string, selection: string, notes?: string) => void
   onClear?: (itemId: string) => void
+  onStatus?: (itemId: string, status: ChoiceStatus) => void
+  compare?: CompareView | null
 }) {
   return (
-    <div className={density === 'ballot' ? 'gap-2 md:columns-2 xl:columns-3 print:columns-3' : 'mx-auto max-w-2xl'}>
+    <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-3xl'}>
       {sections.map((section) => (
         <section key={section.key} aria-label={section.label} className="contents">
           {section.notice && (
@@ -53,6 +58,8 @@ export default function BallotSheet({
               density={density}
               onChange={(id, selection, notes) => onChange?.(id, selection, notes)}
               onClear={(id) => onClear?.(id)}
+              onStatus={onStatus}
+              compare={compare}
             />
           ))}
           <div aria-hidden className="h-3" />

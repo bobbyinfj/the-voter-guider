@@ -124,7 +124,11 @@ model Choice {
   guideId   String
   ballotId  String
   selection String // YES, NO, candidate name, abstain, etc.
+  // "tentative" (leaning) or "decided"
+  status    String   @default("decided")
   notes     String?
+  // Seeded comparison guides: where this pick was published (shown next to it)
+  sourceUrl String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -150,7 +154,12 @@ model Guide {
   visibility     String   @default("private") // "public", "private", "friends"
   isTemplate     Boolean  @default(false) // For pre-made guides
   sessionId      String? // For anonymous users
-  userId         String? // For registered users (future)
+  userId         String? // Set once the owner signs in (magic link); see lib/owner.ts
+  // "<owner>:<electionId>" on the guide your checks on the election page go to (one per owner
+  // per election; unique so two fast first clicks can't make two). Null on other guides.
+  defaultKey     String?  @unique
+  // Owner chose to count this guide's picks in the anonymous community tally
+  shareCommunity Boolean  @default(false)
   metadata       Json? // Additional guide data (address, etc.)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -166,8 +175,60 @@ model Guide {
   @@index([precinctId])
   @@index([shareToken])
   @@index([sessionId])
+  @@index([userId])
   @@index([visibility])
+  @@index([isTemplate, electionId])
   @@map("guides")
+}
+
+// ────────────────────────────────────────────────────────────
+// Accounts (optional): email magic-link sign-in so a guide follows you across devices
+// ────────────────────────────────────────────────────────────
+
+model User {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  createdAt   DateTime  @default(now())
+  lastLoginAt DateTime?
+
+  sessions AuthSession[]
+
+  @@map("users")
+}
+
+// One emailed sign-in link. Only the sha256 of the token is stored; single use, short-lived.
+model LoginToken {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  email     String
+  // The anonymous session that asked for the link: its guides move to the account on sign-in
+  sessionId String?
+  // sha256 of the requester's IP, for rate limiting only
+  ipHash    String?
+  // Same-site path to return to after signing in
+  next      String?
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([email, createdAt])
+  @@index([ipHash, createdAt])
+  @@index([createdAt])
+  @@map("login_tokens")
+}
+
+// A signed-in browser. The httpOnly cookie holds the token; only its sha256 is stored.
+model AuthSession {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("auth_sessions")
 }
 
 // Analytics (for tracking guide views/shares)

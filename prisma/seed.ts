@@ -6,6 +6,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
 import { readFileSync, readdirSync } from "fs";
 import { resolve } from "path";
+import { comparisonProblems, type ComparisonFile } from "../lib/comparisons";
 
 // Load environment variables from .env.local (an explicit DATABASE_URL wins)
 config({ path: resolve(process.cwd(), ".env.local") });
@@ -16,6 +17,7 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
   console.log("🌱 Seeding curated election bundles...");
   await seedElectionBundles();
+  await seedComparisons();
   console.log("");
   console.log("🎉 Seeding complete!");
   console.log(`   - Elections: ${await prisma.election.count()}`);
@@ -48,6 +50,7 @@ interface CandidateData {
   website?: string | null;
   email?: string;
   phone?: string;
+  countyStatement?: { title: string; text: string; source: string };
 }
 
 // Printed layout from the county's official sample ballot (data/research/sample-ballots);
@@ -87,6 +90,8 @@ interface MeasureData {
   placedBy?: string;
   passes?: string;
   ballot?: BallotLayout;
+  // Official documents from the county's sample ballot: { title, text, source }
+  documents?: { title: string; text: string; source: string }[];
 }
 
 interface ElectionFile {
@@ -308,6 +313,10 @@ async function seedElectionBundle(slug: string) {
         level: officeData.level,
         sortOrder: officeData.sortOrder ?? 100,
         ...(officeData.ballot ? { ballot: officeData.ballot } : {}),
+        // Candidate statements printed in the county's sample ballot, by candidate name
+        ...(officeData.candidates.some((c) => c.countyStatement)
+          ? { statements: Object.fromEntries(officeData.candidates.filter((c) => c.countyStatement).map((c) => [c.name, c.countyStatement!])) }
+          : {}),
         ...(raceExtras[officeData.id] ? { extras: raceExtras[officeData.id] } : {}),
       } as Prisma.InputJsonObject,
       districtType: officeData.districtType ?? null,
@@ -386,6 +395,7 @@ async function seedElectionBundle(slug: string) {
         placedBy: m.placedBy ?? null,
         passes: m.passes ?? null,
         ...(m.ballot ? { ballot: m.ballot } : {}),
+        ...(m.documents?.length ? { documents: m.documents } : {}),
       } as Prisma.InputJsonObject,
       districtType: m.districtType ?? null,
       districtCode: m.districtCode ?? null,
@@ -508,6 +518,71 @@ async function seedElectionBundle(slug: string) {
     }
   }
   console.log(`   ✅ Quiz with ${quizFile.questions.length} questions upserted`);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Published guides to compare with (data/comparisons, built by
+// data/research/comparison-builders). Seeded as read-only public template guides with a
+// stable id and share link; each pick keeps its source URL.
+// ────────────────────────────────────────────────────────────────────────────
+
+async function seedComparisons() {
+  const dir = resolve(process.cwd(), "data", "comparisons");
+  let files: string[];
+  try {
+    files = readdirSync(dir).filter((f) => f.endsWith(".json")).sort();
+  } catch {
+    return;
+  }
+  for (const file of files) {
+    const data: ComparisonFile = JSON.parse(readFileSync(resolve(dir, file), "utf-8"));
+    const bundle = JSON.parse(readFileSync(resolve(process.cwd(), "data", "elections", `${data.electionSlug}.json`), "utf-8"));
+    const election = await prisma.election.findUniqueOrThrow({ where: { id: bundle.electionId } });
+    const ballots = await prisma.ballot.findMany({ where: { electionId: election.id }, select: { id: true, type: true, options: true } });
+    const ballotMap = new Map(
+      ballots.map((b) => [b.id, { type: b.type, options: Array.isArray(b.options) ? b.options.filter((o): o is string => typeof o === "string") : [] }]),
+    );
+    const problems = comparisonProblems(data, ballotMap);
+    if (problems.length) throw new Error(`Comparison guides for ${data.electionSlug}:\n  ${problems.join("\n  ")}`);
+
+    console.log(`\n📰 Comparison guides: ${data.electionSlug}`);
+    const keep: string[] = [];
+    for (const g of data.guides) {
+      const id = `cmp-${g.id}`;
+      keep.push(id);
+      const fields = {
+        title: g.name,
+        author: g.name,
+        description: g.about,
+        visibility: "public",
+        isTemplate: true,
+        sessionId: null,
+        userId: null,
+        defaultKey: null,
+        shareCommunity: false,
+        metadata: { comparison: { kind: g.kind, lean: g.lean ?? null, url: g.url, retrieved: g.retrieved, about: g.about } },
+      };
+      await prisma.guide.upsert({
+        where: { id },
+        update: fields,
+        create: { id, shareToken: id, electionId: election.id, jurisdictionId: election.jurisdictionId, ...fields },
+      });
+      await prisma.choice.deleteMany({ where: { guideId: id, ballotId: { notIn: g.picks.map((p) => p.ballot) } } });
+      for (const p of g.picks) {
+        const choice = { selection: p.pick, status: "decided", notes: p.quote, sourceUrl: p.source };
+        await prisma.choice.upsert({
+          where: { guideId_ballotId: { guideId: id, ballotId: p.ballot } },
+          update: choice,
+          create: { guideId: id, ballotId: p.ballot, ...choice },
+        });
+      }
+      console.log(`   ✅ ${g.name}: ${g.picks.length} picks`);
+    }
+    const pruned = await prisma.guide.deleteMany({
+      where: { electionId: election.id, isTemplate: true, id: { startsWith: "cmp-", notIn: keep } },
+    });
+    if (pruned.count) console.log(`   🧹 Pruned ${pruned.count} comparison guides no longer in the file`);
+  }
 }
 
 main()

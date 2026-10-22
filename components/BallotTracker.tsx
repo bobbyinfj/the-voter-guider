@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import {
   ArrowDownToLine,
+  CircleHelp,
   Columns3,
   Download,
   ExternalLink,
@@ -13,11 +14,14 @@ import {
   Rows3,
   SkipForward,
   Vote,
+  X,
 } from 'lucide-react'
 import { type Density } from '@/components/ballot/Contest'
 import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
+import ComparePicker from '@/components/compare/ComparePicker'
+import type { CompareView } from '@/components/compare/compare'
 import { NotABallotStamp, PrintWatermark } from '@/components/Molesis'
 import {
   choiceLabel,
@@ -28,6 +32,7 @@ import {
   layoutOf,
   layoutSourceName,
   type BallotItem,
+  type ChoiceStatus,
   type ChoiceValue,
 } from '@/components/ballot/ballot'
 import { formatElectionDate } from '@/lib/format'
@@ -43,12 +48,18 @@ interface BallotTrackerProps {
   readOnly?: boolean
   // Shown above the ballot, e.g. the district picker
   setup?: React.ReactNode
+  // Right side of the view row, e.g. "Saved on this device"
+  status?: React.ReactNode
+  // Under the toolbar, e.g. the "keep your guide" prompt
+  notice?: React.ReactNode
   onChoiceChange?: (ballotId: string, selection: string, notes?: string) => void
   onChoiceClear?: (ballotId: string) => void
+  onStatusChange?: (ballotId: string, status: ChoiceStatus) => void
 }
 
 type Mode = 'ballot' | 'review'
-const DENSITY_KEY = 'voter-guider:ballot-density'
+// Remembered for this browser tab only: every visit starts on the 3-column ballot
+const DENSITY_KEY = 'voter-guider:view'
 
 // A guide laid out like the voter's own ballot (same contests, order and wording as the
 // county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
@@ -59,29 +70,34 @@ export default function BallotTracker({
   choices,
   readOnly = false,
   setup,
+  status,
+  notice,
   onChoiceChange,
   onChoiceClear,
+  onStatusChange,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
-  const [density, setDensity] = useState<Density>('ballot')
+  const [density, setDensity] = useState<Density>('basic')
+  const [showViewHelp, setShowViewHelp] = useState(false)
+  const [compare, setCompare] = useState<CompareView | null>(null)
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
   // vanish the moment you mark it
   const [hiddenIds, setHiddenIds] = useState<Set<string> | null>(null)
   const jumpMenuRef = useRef<HTMLDetailsElement>(null)
 
-  // Per-viewer preference; storage can be unavailable (private mode), which is fine
+  // Per-tab preference; storage can be unavailable (private mode), which is fine
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(DENSITY_KEY)
+      const saved = sessionStorage.getItem(DENSITY_KEY)
       // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
-      if (saved === 'easy' || saved === 'ballot') setDensity(saved)
+      if (saved === 'expanded' || saved === 'basic') setDensity(saved)
     } catch {}
   }, [])
   const chooseDensity = (value: Density) => {
     setDensity(value)
     try {
-      localStorage.setItem(DENSITY_KEY, value)
+      sessionStorage.setItem(DENSITY_KEY, value)
     } catch {}
   }
 
@@ -90,6 +106,7 @@ export default function BallotTracker({
   const source = ballots[0] ? layoutOf(ballots[0])?.source : undefined
   const pageOrder = useMemo(() => sections.flatMap((s) => s.items), [sections])
   const answered = ballots.filter((b) => choices[b.id]).length
+  const leaning = ballots.filter((b) => choices[b.id]?.status === 'tentative').length
   const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
   const visibleSections = useMemo(
     () =>
@@ -167,7 +184,7 @@ export default function BallotTracker({
   const segment = (active: boolean) =>
     `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
   const nav = <BallotNav sections={sections} choices={choices} activeId={activeId} onJump={jumpTo} />
-  const showSidebar = density === 'easy' && mode === 'ballot'
+  const showSidebar = density === 'expanded' && mode === 'ballot'
 
   return (
     <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8' : ''}>
@@ -179,10 +196,65 @@ export default function BallotTracker({
       )}
 
       <div className="min-w-0 space-y-4">
-        <div className="sticky top-0 z-20 -mx-4 border-b border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
+        <div className="z-20 -mx-4 border-b sm:sticky sm:top-0 border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-1.5">
+              <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
+                <button onClick={() => chooseDensity('basic')} aria-pressed={density === 'basic'} className={segment(density === 'basic')}>
+                  <Columns3 className="h-4 w-4" /> Basic
+                </button>
+                <button
+                  onClick={() => chooseDensity('expanded')}
+                  aria-pressed={density === 'expanded'}
+                  className={segment(density === 'expanded')}
+                >
+                  <Rows3 className="h-4 w-4" /> Expanded
+                </button>
+              </div>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowViewHelp((v) => !v)}
+                  aria-expanded={showViewHelp}
+                  aria-controls="view-help"
+                  aria-label="What do the views mean?"
+                  className="rounded-full p-1 text-gray-500 hover:bg-gray-200 hover:text-gray-800"
+                >
+                  <CircleHelp className="h-5 w-5" />
+                </button>
+                {showViewHelp && (
+                  <div
+                    id="view-help"
+                    role="dialog"
+                    aria-label="About the views"
+                    className="absolute left-0 top-full z-30 mt-1 w-72 rounded-lg border border-gray-200 bg-white p-3 text-sm shadow-lg sm:w-80"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setShowViewHelp(false)}
+                      aria-label="Close"
+                      className="absolute right-2 top-2 text-gray-400 hover:text-gray-700"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                    <p className="mb-2 pr-5">
+                      <strong>Basic</strong> looks like your paper ballot: same contests, order and wording, in columns
+                      (one column on a phone). Tap ⓘ on any contest for more.
+                    </p>
+                    <p>
+                      <strong>Expanded</strong> is one easy-to-read column with everything we know about each race and
+                      measure opened up: candidate statements, videos, endorsements, official explanations, each with its
+                      source.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+            {status}
+          </div>
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
-              {answered} of {ballots.length} decided
+              {answered - leaning} decided{leaning > 0 && <>, {leaning} leaning</>} · {ballots.length - answered} to go
             </span>
             <span className="text-gray-500">{completionPercentage}%</span>
           </div>
@@ -213,24 +285,6 @@ export default function BallotTracker({
                 </button>
               ))}
             </div>
-            {mode === 'ballot' && (
-              <div role="group" aria-label="Layout" className="hidden overflow-hidden rounded-md border border-gray-300 md:flex">
-                <button
-                  onClick={() => chooseDensity('ballot')}
-                  aria-pressed={density === 'ballot'}
-                  className={segment(density === 'ballot')}
-                >
-                  <Columns3 className="h-4 w-4" /> Like my ballot
-                </button>
-                <button
-                  onClick={() => chooseDensity('easy')}
-                  aria-pressed={density === 'easy'}
-                  className={segment(density === 'easy')}
-                >
-                  <Rows3 className="h-4 w-4" /> Easy read
-                </button>
-              </div>
-            )}
             {!readOnly && (
               <button onClick={nextUndecided} disabled={answered === ballots.length} className={toolButton}>
                 <SkipForward className="h-4 w-4" /> Next undecided
@@ -254,6 +308,7 @@ export default function BallotTracker({
               <Printer className="h-4 w-4" /> Print
             </button>
           </div>
+          <ComparePicker electionId={election.id} ballots={ballots} choices={choices} view={compare} onView={setCompare} />
           <details ref={jumpMenuRef} className={`mt-3 ${showSidebar ? 'lg:hidden' : ''}`}>
             <summary className="flex cursor-pointer items-center gap-1.5 text-sm font-medium text-blue-700">
               <ArrowDownToLine className="h-4 w-4" /> Jump to a contest
@@ -262,6 +317,7 @@ export default function BallotTracker({
           </details>
         </div>
 
+        {notice}
         {setup}
 
         <div id="ballot-top" className="scroll-mt-48 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper">
@@ -320,6 +376,8 @@ export default function BallotTracker({
             density={density}
             onChange={onChoiceChange}
             onClear={onChoiceClear}
+            onStatus={onStatusChange}
+            compare={compare}
           />
         )}
       </div>

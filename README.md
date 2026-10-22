@@ -20,9 +20,13 @@ Currently covers the **November 3, 2026 general election** for Seattle (WA), For
   and wording as the county's official sample ballot, in three columns (or one, for easy reading),
   with our extra info layered on in blue: a one-line "bite", an expandable "snack", and links to the
   full "meal" (candidate pages, side-by-side comparisons, official sources).
-- **Voter guides** — record a pick and notes for every contest, download as text, and share
-  a read-only link (or keep it private). No account needed: guides are tied to an
-  anonymous, httpOnly session cookie.
+- **Your ballot is your guide** — check boxes right on the ballot and they save as you go
+  (mark each pick *leaning* or *decided*), add notes, download as text, share a read-only link,
+  or start more guides. No account needed; an optional emailed sign-in link keeps your guides
+  on every device.
+- **Compare** your picks with published guides (party slates in left/right pairs, the League of
+  Women Voters, editorial boards) — every pick with its source and a verbatim quote — or with
+  the anonymous tally of Voter Guider users who chose to share.
 
 ## No made-up data
 

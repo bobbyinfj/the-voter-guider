@@ -8,6 +8,9 @@ import { formatElectionDate } from '@/lib/format'
 interface Guide {
   id: string
   title: string
+  // The guide an election's ballot page saves to; it opens on that page
+  isDefault?: boolean
+  electionId: string
   author?: string
   createdAt: string
   updatedAt: string
@@ -66,14 +69,14 @@ export default function GuideList() {
         <div className="text-center py-12 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
           <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
           <p className="text-gray-600 mb-2">No voter guides yet</p>
-          <p className="text-sm text-gray-500">Create your first guide to start tracking your voting choices</p>
+          <p className="text-sm text-gray-500">Open your election&apos;s ballot and mark your picks; they save as your guide.</p>
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((guide) => (
             <Link
               key={guide.id}
-              href={`/guide/${guide.id}`}
+              href={guide.isDefault ? `/elections/${guide.electionId}` : `/guide/${guide.id}`}
               className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow"
             >
               <h3 className="text-lg font-semibold text-gray-800 mb-2">{guide.title}</h3>

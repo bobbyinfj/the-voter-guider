@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getSessionId } from "@/lib/session";
+import { getViewer, ownedBy } from "@/lib/owner";
 import { handleApiError } from "@/lib/errors";
 import { computeResults } from "@/lib/quiz/db";
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionId = await getSessionId();
+    const viewer = await getViewer();
     const body = await req.json();
     const { guideId, questionId, optionId, importance = 1 } = body;
 
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     // Verify the guide belongs to this session
     const guide = await prisma.guide.findFirst({
-      where: { id: guideId, sessionId },
+      where: { AND: [{ id: guideId }, ownedBy(viewer)] },
     });
     if (!guide) {
       return NextResponse.json({ error: "Guide not found or unauthorized" }, { status: 403 });
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   try {
-    const sessionId = await getSessionId();
+    const viewer = await getViewer();
     const { searchParams } = new URL(req.url);
     const guideId = searchParams.get("guideId");
     const questionId = searchParams.get("questionId");
@@ -67,7 +67,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: "guideId and questionId required" }, { status: 400 });
     }
 
-    const guide = await prisma.guide.findFirst({ where: { id: guideId, sessionId } });
+    const guide = await prisma.guide.findFirst({ where: { AND: [{ id: guideId }, ownedBy(viewer)] } });
     if (!guide) {
       return NextResponse.json({ error: "Guide not found or unauthorized" }, { status: 403 });
     }

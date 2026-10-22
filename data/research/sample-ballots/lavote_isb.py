@@ -80,6 +80,27 @@ def english_only(o):
     return o
 
 
+def document(statement):
+    """An official document from the county's sample ballot (impartial analysis, argument in
+    favor, full text, candidate statement) as {title, text}: plain text with paragraph breaks,
+    never HTML."""
+    raw = en(statement.get("FullHTML")) or ""
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", raw, re.S)
+    body = raw[m.end():] if m else raw
+    body = re.sub(r"</(p|h\d|li|div|tr)>", "\n\n", body)
+    text = re.sub(r"\n{3,}", "\n\n", text_of(body))
+    title = text_of(m.group(1)) if m else ""
+    if not title:  # e.g. Measure A's ordinance starts with its title as a paragraph
+        title, _, text = text.partition("\n")
+    return {"order": statement.get("SequenceOrder", 0), "title": title.strip(), "text": text.strip()}
+
+
+def text_of(s):
+    s = re.sub(r"<br\s*/?>", "\n", s or "")
+    s = html.unescape(re.sub(r"<[^>]+>", "", s))
+    return "\n".join(re.sub(r"[ \t\xa0]+", " ", line).strip() for line in s.split("\n")).strip()
+
+
 def heading_lines(name):
     """'CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION City Clerk' prints as two lines: the
     upper-case jurisdiction, then the office. Measures print 'JURISDICTION - MEASURE X'."""
@@ -100,17 +121,26 @@ def contest(cid, style_order):
     }
     people = sorted(d["candidates"], key=lambda x: style_order.get(x["id"], x.get("order", 0)))
     if d["contest_class"] == "candidate_class":
-        c["candidates"] = [
-            {"name": en(p["name"]), "designation": text(en(p.get("occupation")))}
-            for p in people
-            if not p.get("isWriteIn")
-        ]
-        for p in c["candidates"]:
-            if not p["designation"]:
-                del p["designation"]
+        c["candidates"] = []
+        for p in people:
+            if p.get("isWriteIn"):
+                continue
+            row = {"name": en(p["name"]), "designation": text(en(p.get("occupation")))}
+            if not row["designation"]:
+                del row["designation"]
+            if p.get("statements"):
+                row["statement"] = document(p["statements"][0])
+            c["candidates"].append(row)
         c["writeIn"] = d["number_of_writeins"] > 0
     else:
         c["questions"] = [{"text": text(en(d["long_description"])), "responses": [en(p["name"]) for p in people]}]
+        # Impartial analysis, fiscal impact, full text, and the arguments filed for/against
+        docs = [document(x) for x in d.get("statements") or []]
+        docs += [document(x) for p in people for x in p.get("statements") or []]
+        if docs:
+            # Reading order: what it does, what it costs, the arguments, then the full text
+            rank = lambda x: next((i for i, k in enumerate(["IMPARTIAL", "FISCAL", "ARGUMENT IN FAVOR", "ARGUMENT AGAINST", "REBUTTAL"]) if k in x["title"].upper()), 9)
+            c["documents"] = [{"title": x["title"], "text": x["text"]} for x in sorted(docs, key=lambda x: (rank(x), x["order"]))]
     return c
 
 
