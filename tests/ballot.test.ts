@@ -1,7 +1,11 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
+  candidateDomId,
   choiceLabel,
+  contestDomId,
+  openingSentence,
+  resolveAnchor,
   groupRuns,
   groupSections,
   hasPrintedLayout,
@@ -125,4 +129,58 @@ test('isSettled / isUnsure: a ? on the contest or on an option is still to go', 
   assert.equal(isUnsure({ selection: 'Jane Doe', status: 'unsure' }), true)
   assert.equal(isUnsure({ selection: 'UNSURE' }), true)
   assert.equal(isUnsure({ selection: 'NOTES', status: 'unsure' }), false)
+})
+
+test('anchors: readable contest/candidate ids, legacy #contest- links, groups', () => {
+  const seat = (n: number): BallotItem =>
+    ({
+      id: `ca26-laccd-${n}-race`,
+      type: 'candidate',
+      title: `Trustee, Seat ${n}`,
+      office: { id: `ca26-laccd-${n}`, candidates: [{ id: `c${n}`, name: 'ROY PAYAN' }] },
+      metadata: {
+        ballot: {
+          source: 'x',
+          style: { party: 'below', responses: 'stacked' },
+          order: n,
+          section: '',
+          heading: ['LOS ANGELES COMMUNITY COLLEGE DISTRICT', `Member of the Board of Trustees, Seat ${n}`],
+          instructions: [],
+          candidates: [{ name: 'ROY PAYAN', label: 'ROY PAYAN' }],
+          writeIn: true,
+        },
+      },
+    }) as unknown as BallotItem
+  const prop = { id: 'ca26-m-prop-45', type: 'measure', title: 'Prop 45' } as unknown as BallotItem
+  const items = [seat(2), seat(4), seat(6), prop]
+  assert.equal(contestDomId(items[0]), 'laccd-2')
+  assert.equal(contestDomId(prop), 'prop-45')
+  assert.equal(candidateDomId(items[0], 'ROY PAYAN'), 'laccd-2--roy-payan')
+  assert.deepEqual(resolveAnchor('#laccd-4', items), { elementId: 'laccd-4', itemIds: ['ca26-laccd-4-race'] })
+  assert.deepEqual(resolveAnchor('#contest-ca26-m-prop-45', items), { elementId: 'prop-45', itemIds: ['ca26-m-prop-45'] })
+  assert.deepEqual(resolveAnchor('#laccd-2--roy-payan', items), { elementId: 'laccd-2--roy-payan', itemIds: ['ca26-laccd-2-race'] })
+  assert.deepEqual(resolveAnchor('#los-angeles-community-college-district', items)?.itemIds, [
+    'ca26-laccd-2-race',
+    'ca26-laccd-4-race',
+    'ca26-laccd-6-race',
+  ])
+  assert.equal(resolveAnchor('#nope', items), null)
+  assert.equal(resolveAnchor('', items), null)
+})
+
+test('openingSentence skips the county statement header lines', () => {
+  const text =
+    'PARTY PREFERENCE: DEMOCRATIC\n\nMEMBER OF THE STATE ASSEMBLY, 49th DISTRICT\n\nMike Fong is a community leader and former Community College Trustee who represents the San Gabriel Valley in the State Assembly.\n\nAs our State Assemblymember, Mike has secured new funding.'
+  assert.equal(
+    openingSentence(text),
+    'Mike Fong is a community leader and former Community College Trustee who represents the San Gabriel Valley in the State Assembly.',
+  )
+  assert.equal(
+    openingSentence(
+      'CANDIDATE FOR MEMBER OF THE CITY COUNCIL,5th District\n\nCITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION\n\nAge: 52\n\nOccupation: Monterey Park Councilmember\n\nMonterey Park gave my immigrant family the opportunity to prosper, and I\'ve spent my life giving back. I grew up here.',
+    ),
+    "Monterey Park gave my immigrant family the opportunity to prosper, and I've spent my life giving back.",
+  )
+  assert.equal(openingSentence('I hold a Ph.D. in Political Science from Claremont. Next.'), 'I hold a Ph.D. in Political Science from Claremont.')
+  assert.equal(openingSentence('NO STATEMENT'), null)
 })
