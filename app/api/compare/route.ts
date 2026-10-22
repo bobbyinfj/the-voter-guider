@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     const [rows, sharers] = await Promise.all([
       prisma.choice.groupBy({
         by: ['ballotId', 'selection'],
-        where: { guide: { is: shared }, selection: { not: 'ABSTAIN' } },
+        where: { guide: { is: shared }, selection: { notIn: ['ABSTAIN', 'UNSURE'] } },
         _count: { _all: true },
       }),
       prisma.guide.count({ where: shared }),

@@ -65,11 +65,14 @@ removes anything in a database that isn't backed by a bundle.
 The election page's ballot *is* your guide: the first box you check creates your default guide
 for that election (`Guide.defaultKey` = `<owner>:<electionId>`, unique, via `getOrCreateDefaultGuide`),
 and every change autosaves (`components/guide/useGuideEditor.ts`); there are no save buttons. Each
-pick is `tentative` (leaning, hatched oval) or `decided` (`Choice.status`). The quiz writes to the
+pick is `tentative` (leaning, hatched oval) or `decided` (`Choice.status`); clicking an oval steps it
+empty → leaning → decided → empty (`stepPick` in `components/ballot/Contest.tsx`). The ? on a contest
+stores the special selection `UNSURE` ("no clue yet"), which still counts as to go and, like
+`ABSTAIN`, is never counted in the community tally. The quiz writes to the
 same default guide. Extra guides for an election live at `/guide/[id]`. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
-**Basic** (3-column replica, the default every visit) and **Expanded** (one column, every contest's
-sourced extras open), toggled at the top of the ballot with a ? explainer.
+**Basic** (3-column replica, the default every visit) and **Expanded** (ballot on the left third, each
+candidate's / measure's sourced extras beside it on the right two-thirds; stacked on a phone), toggled at the top of the ballot with a ? explainer.
 
 ### Comparison guides and the community tally
 `data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds

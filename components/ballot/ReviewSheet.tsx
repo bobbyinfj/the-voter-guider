@@ -1,6 +1,6 @@
 'use client'
 
-import { ABSTAIN, choiceLabel, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
+import { ABSTAIN, UNSURE, choiceLabel, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
 
 interface ReviewSheetProps {
   sections: BallotSection[]
@@ -26,7 +26,7 @@ export default function ReviewSheet({ sections, choices, readOnly, onEdit }: Rev
                   <span className="min-w-0 flex-1 basis-56 text-sm text-gray-700">{contestLabel(item)}</span>
                   <span
                     className={`flex-1 basis-40 font-semibold ${
-                      !choice ? 'text-amber-700' : choice.selection === ABSTAIN ? 'text-gray-500' : 'text-gray-900'
+                      !choice || choice.selection === UNSURE ? 'text-amber-700' : choice.selection === ABSTAIN ? 'text-gray-500' : 'text-gray-900'
                     }`}
                   >
                     {choice ? choiceLabel(choice.selection, item) : 'No choice yet'}

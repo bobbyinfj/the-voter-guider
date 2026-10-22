@@ -5,6 +5,7 @@ import {
   groupRuns,
   groupSections,
   hasPrintedLayout,
+  isPick,
   orderForBallot,
   type BallotItem,
   type PrintedLayout,
@@ -89,6 +90,7 @@ test('choiceLabel shows what the ballot prints for a stored selection', () => {
   assert.equal(choiceLabel('Phil Weiser', race), 'Phil Weiser / Lesley Dahlkemper')
   assert.equal(choiceLabel('WRITE-IN:Jane Doe', race), 'Write-in: Jane Doe')
   assert.equal(choiceLabel('ABSTAIN', race), 'Left blank')
+  assert.equal(choiceLabel('UNSURE', race), 'No clue yet')
 })
 
 test('inPrintedOrder follows the printed layout, then options', async () => {
@@ -98,4 +100,13 @@ test('inPrintedOrder follows the printed layout, then options', async () => {
   assert.deepEqual(inPrintedOrder(people, { metadata: layout }).map((p) => p.name), ['C', 'A', 'B'])
   assert.deepEqual(inPrintedOrder(people, { options: ['A', 'B'] }).map((p) => p.name), ['A', 'B', 'C'])
   assert.deepEqual(inPrintedOrder(people, null).map((p) => p.name), ['B', 'A', 'C'])
+})
+
+test('isPick: only real picks, not blank or no-clue', () => {
+  assert.equal(isPick('Jane Doe'), true)
+  assert.equal(isPick('WRITE-IN:Someone'), true)
+  assert.equal(isPick('YES'), true)
+  assert.equal(isPick('ABSTAIN'), false)
+  assert.equal(isPick('UNSURE'), false)
+  assert.equal(isPick(undefined), false)
 })

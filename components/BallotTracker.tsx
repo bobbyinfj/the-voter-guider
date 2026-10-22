@@ -22,15 +22,17 @@ import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import ComparePicker from '@/components/compare/ComparePicker'
 import type { CompareView } from '@/components/compare/compare'
-import { NotABallotStamp, PrintWatermark } from '@/components/Molesis'
+import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
   choiceLabel,
   contestDomId,
   contestLabel,
   groupSections,
   hasPrintedLayout,
+  isPick,
   layoutOf,
   layoutSourceName,
+  UNSURE,
   type BallotItem,
   type ChoiceStatus,
   type ChoiceValue,
@@ -52,7 +54,7 @@ interface BallotTrackerProps {
   status?: React.ReactNode
   // Under the toolbar, e.g. the "keep your guide" prompt
   notice?: React.ReactNode
-  onChoiceChange?: (ballotId: string, selection: string, notes?: string) => void
+  onChoiceChange?: (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
   onChoiceClear?: (ballotId: string) => void
   onStatusChange?: (ballotId: string, status: ChoiceStatus) => void
 }
@@ -105,8 +107,11 @@ export default function BallotTracker({
   const printed = hasPrintedLayout(ballots)
   const source = ballots[0] ? layoutOf(ballots[0])?.source : undefined
   const pageOrder = useMemo(() => sections.flatMap((s) => s.items), [sections])
-  const answered = ballots.filter((b) => choices[b.id]).length
-  const leaning = ballots.filter((b) => choices[b.id]?.status === 'tentative').length
+  // A contest is done once it has a pick or is left blank on purpose; "no clue yet" is still to go
+  const done = (id: string) => !!choices[id] && choices[id].selection !== UNSURE
+  const answered = ballots.filter((b) => done(b.id)).length
+  const leaning = ballots.filter((b) => isPick(choices[b.id]?.selection) && choices[b.id].status === 'tentative').length
+  const unsure = ballots.filter((b) => choices[b.id]?.selection === UNSURE).length
   const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
   const visibleSections = useMemo(
     () =>
@@ -154,7 +159,7 @@ export default function BallotTracker({
     const start = pageOrder.findIndex((b) => b.id === activeId)
     for (let step = 1; step <= pageOrder.length; step++) {
       const item = pageOrder[(start + step) % pageOrder.length]
-      if (!choices[item.id]) return jumpTo(item.id)
+      if (!done(item.id)) return jumpTo(item.id)
     }
   }
 
@@ -241,10 +246,15 @@ export default function BallotTracker({
                       <strong>Basic</strong> looks like your paper ballot: same contests, order and wording, in columns
                       (one column on a phone). Tap ⓘ on any contest for more.
                     </p>
+                    <p className="mb-2">
+                      <strong>Expanded</strong> puts the ballot on the left and everything we know beside it: each
+                      candidate&apos;s statement, videos and endorsements next to their name, and each measure&apos;s
+                      official explanations next to its question, each with its source.
+                    </p>
                     <p>
-                      <strong>Expanded</strong> is one easy-to-read column with everything we know about each race and
-                      measure opened up: candidate statements, videos, endorsements, official explanations, each with its
-                      source.
+                      Click an oval once for <strong>leaning</strong> (striped), again for <strong>decided</strong>{' '}
+                      (filled), and once more to clear it. Tap <CircleHelp className="inline h-4 w-4 align-text-bottom" />{' '}
+                      on a contest if you have no clue yet. Everything saves as you go.
                     </p>
                   </div>
                 )}
@@ -255,6 +265,7 @@ export default function BallotTracker({
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
               {answered - leaning} decided{leaning > 0 && <>, {leaning} leaning</>} · {ballots.length - answered} to go
+              {unsure > 0 && <> ({unsure} no clue yet)</>}
             </span>
             <span className="text-gray-500">{completionPercentage}%</span>
           </div>
@@ -293,7 +304,7 @@ export default function BallotTracker({
             {mode === 'ballot' && (
               <button
                 onClick={() =>
-                  setHiddenIds((prev) => (prev ? null : new Set(ballots.filter((b) => choices[b.id]).map((b) => b.id))))
+                  setHiddenIds((prev) => (prev ? null : new Set(ballots.filter((b) => done(b.id)).map((b) => b.id))))
                 }
                 aria-pressed={hiddenIds !== null}
                 className={`${toolButton} ${hiddenIds ? 'border-blue-400 bg-blue-50 text-blue-900' : ''}`}
