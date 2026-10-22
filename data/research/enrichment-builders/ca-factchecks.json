@@ -1,5 +1,5 @@
 {
- "_about": "Claims a news fact-check examined, with its verdict, both copied verbatim from the article (build.py checks every quote against the saved page). Only fact-checks that cover every candidate in a race. Verdicts are the outlet's own words: we never turn them into a rating.",
+ "_about": "Claims a news fact-check examined, with its verdict, both copied verbatim from the article (build.py checks every quote against the saved page). Only fact-checks that cover every candidate in a race. Verdicts are the outlet's own words: we never turn them into a rating. A verdict in several sentences is written with ' … ' between them; each part is checked.",
  "articles": [
   {
    "publisher": "CapRadio",
@@ -15,12 +15,7 @@
     {
      "candidate": "ca26-steve-hilton",
      "claim": "Right now, because of your policies, we have the highest poverty rate and the highest unemployment rate in America,",
-     "verdict": "When it comes to the rates, Hilton is nearly spot on."
-    },
-    {
-     "candidate": "ca26-steve-hilton",
-     "claim": "It makes absolutely no sense right now to do what we're doing, importing oil halfway around the world from the Middle East and from South America when we have abundant oil reserves here,",
-     "verdict": "UC Berkeley energy expert Andrew Campbell said increasing California oil production would not be enough to lower prices that much."
+     "verdict": "When it comes to the rates, Hilton is nearly spot on. … But pinning the blame entirely on Becerra's \"policies\" is a stretch, as larger global economic forces affect employment and poverty, and not just one political party's decisions."
     },
     {
      "candidate": "ca26-xavier-becerra",
@@ -31,11 +26,6 @@
      "candidate": "ca26-xavier-becerra",
      "claim": "You said Trump's ICE immigration policies and his raids were - your words - perfect,",
      "verdict": "Hilton has expressed support for broader federal immigration enforcement and said Trump's deportation campaign was going \"perfect\" during a Fox News interview early last year."
-    },
-    {
-     "candidate": "ca26-xavier-becerra",
-     "claim": "he said the national average was about $2 a gallon higher than when Trump started the war in Iran.",
-     "verdict": "But Becerra's claim that ending the war would bring prices down by a specific amount is harder to establish."
     }
    ]
   }

@@ -97,7 +97,7 @@ def parse(raw):
 def build():
     bundle = json.loads((ROOT / f'data/elections/{SLUG}.json').read_text())
     laist = json.loads((HERE / 'ca-laist.json').read_text())['candidates']
-    out, review, covered = {}, [], []
+    out, review, covered, unmatched = {}, [], [], {}
     for office in bundle['offices']:
         printed = {c['name']: c for c in office.get('ballot', {}).get('candidates', [])}
         for c in office['candidates']:
@@ -112,6 +112,8 @@ def build():
             if not url:
                 hits = search(c['name'])
                 if len(hits) != 1:
+                    # Why there's no record: no lawyer by that name, or several
+                    unmatched[c['id']] = 'none' if not hits else 'several'
                     review.append(f"{c['id']} ({designation}): {len(hits)} matches {hits[:6]}")
                     continue
                 url, how = DETAIL.format(hits[0][0]), 'the only State Bar match for the name'
@@ -125,7 +127,7 @@ def build():
                             **({'admitted': rec['admitted']} if rec['admitted'] else {}),
                             **({'shownName': rec['shownName']} if rec['shownName'] else {})}
     dest = HERE / 'ca-calbar.json'
-    dest.write_text(json.dumps({'covered': covered, 'candidates': out}, indent=1, ensure_ascii=False) + '\n')
+    dest.write_text(json.dumps({'covered': covered, 'unmatched': unmatched, 'candidates': out}, indent=1, ensure_ascii=False) + '\n')
     print(f'{dest.name}: {len(covered)} candidates covered, {len(out)} profiles read')
     for cid, v in out.items():
         print(f"  {cid}: {v.get('shownName')} · {v['status']} · admitted {v.get('admitted')} · discipline {v['discipline'] or 'none'} ({v['matched']})")

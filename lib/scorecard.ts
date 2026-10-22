@@ -59,7 +59,8 @@ export interface FactCheckClaim {
 // (enrichment-builders/calbar.py). `unmatched`: covered by the check, but no single profile matched.
 export interface BarRecord {
   publisher: 'State Bar of California'
-  unmatched?: boolean
+  // 'none': no State Bar record under that name; 'several': more than one, and we won't guess
+  unmatched?: 'none' | 'several'
   url?: string
   retrieved?: string
   status?: string
@@ -135,7 +136,8 @@ export function flagsFor(p: ProfileSnippet | null | undefined): { checked: FlagR
   const flags: Flag[] = []
   const g = p?.guide
   const bar = p?.bar
-  if (bar) {
+  // An unmatched record was looked for but not read, so it doesn't back a "none found"
+  if (bar && !bar.unmatched) {
     checked.push('bar-discipline')
     if (bar.discipline?.length && bar.url)
       flags.push({

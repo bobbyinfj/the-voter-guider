@@ -135,8 +135,9 @@ def build(state, offline=False):
         page = cb.norm(cb.page_text(raw))
         for c in art['claims']:
             for k in ('claim', 'verdict'):
-                if cb.norm(c[k]) not in page:
-                    errors.append(f"{c['candidate']}: {k} not on {art['url']}: {c[k][:60]}")
+                for part in c[k].split(' … '):
+                    if cb.norm(part) not in page:
+                        errors.append(f"{c['candidate']}: {k} not on {art['url']}: {part[:60]}")
             claims.setdefault(c['candidate'], []).append(
                 {'publisher': art['publisher'], 'title': art['title'], 'url': art['url'], 'retrieved': fetched, 'claim': c['claim'], 'verdict': c['verdict']})
     for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']) | set(factchecks['candidates']) | set(bar['candidates']) | set(bar['covered']) | set((fines or {}).get('candidates', {})):
@@ -194,7 +195,7 @@ def build(state, offline=False):
             entry['bar'] = bar['candidates'][cid]
         elif cid in bar['covered']:
             # A lawyer we couldn't match to exactly one State Bar profile: checked, nothing shown
-            entry['bar'] = {'publisher': 'State Bar of California', 'unmatched': True}
+            entry['bar'] = {'publisher': 'State Bar of California', 'unmatched': bar.get('unmatched', {}).get(cid, 'several')}
         if fines is not None:
             # Everyone was searched; an empty list means no fines in the releases searched
             s = fines['searched']

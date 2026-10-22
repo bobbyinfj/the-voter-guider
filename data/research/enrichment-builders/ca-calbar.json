@@ -15,6 +15,11 @@
   "ca26-donna-tryfman",
   "ca26-david-ross"
  ],
+ "unmatched": {
+  "ca26-jane-kim": "several",
+  "ca26-long-david-liu": "none",
+  "ca26-amy-lee": "several"
+ },
  "candidates": {
   "ca26-xavier-becerra": {
    "publisher": "State Bar of California",

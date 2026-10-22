@@ -83,7 +83,7 @@ test('State Bar discipline is a red flag; a clean or unmatched record only says 
   const bar = (discipline: string[], extra = {}) => snip({ bar: { publisher: 'State Bar of California', url: 'https://apps.calbar.ca.gov/x', status: 'Active', discipline, ...extra } })
   assert.deepEqual(flagsFor(bar([])), { checked: ['bar-discipline'], flags: [] })
   assert.equal(flagsFor(bar(['1/1/2020 · Public Reproval'])).flags[0].level, 'red')
-  assert.deepEqual(flagsFor(snip({ bar: { publisher: 'State Bar of California', unmatched: true } })).flags, [])
+  assert.deepEqual(flagsFor(snip({ bar: { publisher: 'State Bar of California', unmatched: 'several' } })), { checked: [], flags: [] })
 })
 
 test('every FPPC fine is a yellow flag citing its release', () => {
