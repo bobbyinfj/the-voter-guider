@@ -51,7 +51,7 @@ export function BallotHeader({
         {aside && <div className="flex shrink-0 flex-col gap-2">{aside}</div>}
       </div>
       {styledAfter && (
-        <p className="border-t border-gray-300 px-4 py-1 text-[11px] text-gray-600">
+        <p className="border-t border-gray-300 px-4 py-1 text-[0.6875rem] text-gray-600">
           Styled after {styledAfter}&apos;s sample ballot so it looks familiar. This page is not a ballot.
         </p>
       )}
@@ -62,7 +62,7 @@ export function BallotHeader({
 // Black heading bar ("Federal", "State Offices", ...)
 export function SectionBar({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <h2 className={`bg-ballot-bar px-2 py-1 font-ballot-heading text-[13px] font-bold text-white print:bg-black ${className}`}>
+    <h2 className={`bg-ballot-bar px-2 py-1 font-ballot-heading text-[0.8125rem] font-bold text-white print:bg-black ${className}`}>
       {children}
     </h2>
   )
@@ -89,12 +89,12 @@ export function ContestHead({
     <div className={`flex items-start gap-2 bg-ballot-head px-2 py-1.5 print:bg-gray-100 ${className}`}>
       <div className="min-w-0 flex-1">
         {heading.map((line, i) => (
-          <p key={i} className="text-[13px] font-bold leading-snug">
+          <p key={i} className="text-[0.8125rem] font-bold leading-snug">
             {line}
           </p>
         ))}
         {instructions.map((line) => (
-          <p key={line} className="text-[12px] leading-snug">
+          <p key={line} className="text-[0.75rem] leading-snug">
             {line}
           </p>
         ))}

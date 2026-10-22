@@ -81,7 +81,7 @@ function CopyLink({ targets, label }: { targets: { id: string; label: string }[]
         {copied ? <Check className="h-4 w-4 text-green-700" /> : <Link2 className="h-4 w-4" />}
       </button>
       {copied && (
-        <span role="status" className="absolute right-0 top-full z-30 mt-1 whitespace-nowrap rounded bg-gray-900 px-2 py-0.5 font-sans text-[11px] text-white">
+        <span role="status" className="absolute right-0 top-full z-30 mt-1 whitespace-nowrap rounded bg-gray-900 px-2 py-0.5 font-sans text-[0.6875rem] text-white">
           Link copied
         </span>
       )}
@@ -105,7 +105,7 @@ function CandidateLine({ race, name }: { race: BallotItem; name: string }) {
   const line = candidateLine(race, name)
   if (!line) return null
   return (
-    <span className="mt-1 block border-l-2 border-sky-400 bg-sky-50 px-1.5 py-0.5 font-sans text-[11px] leading-snug text-sky-950 print:hidden">
+    <span className="mt-1 block border-l-2 border-sky-400 bg-sky-50 px-1.5 py-0.5 font-sans text-[0.6875rem] leading-snug text-sky-950 print:hidden">
       <span className="line-clamp-2">“{line.text}”</span>
       <span className="text-sky-700">From their {line.source}</span>
     </span>
@@ -165,7 +165,7 @@ function Oval({
       />
       <span
         aria-hidden
-        className={`mt-0.5 flex h-3.5 w-6 shrink-0 items-center justify-center rounded-[50%] border-[1.5px] border-ballot-ink bg-white text-[10px] font-bold leading-none text-purple-700 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
+        className={`mt-0.5 flex h-3.5 w-6 shrink-0 items-center justify-center rounded-[50%] border-[1.5px] border-ballot-ink bg-white text-[0.625rem] font-bold leading-none text-purple-700 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
           status === 'unsure'
             ? ''
             : status === 'tentative'
@@ -295,14 +295,14 @@ function RaceChoices({
           onSelect={() => onPick(row.name)}
         >
           <span className={partyRight ? 'flex items-baseline justify-between gap-2' : 'block'}>
-            <span className="block text-[13px] font-semibold leading-snug">{row.label}</span>
+            <span className="block text-[0.8125rem] font-semibold leading-snug">{row.label}</span>
             {row.party && (
-              <span className={`text-[11px] leading-snug ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
+              <span className={`text-[0.6875rem] leading-snug ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
                 {partyRight || !printed || row.party.includes(':') ? row.party : `(${row.party})`}
               </span>
             )}
           </span>
-          {'designation' in row && row.designation && <span className="block text-[11px] leading-snug">{row.designation}</span>}
+          {'designation' in row && row.designation && <span className="block text-[0.6875rem] leading-snug">{row.designation}</span>}
           {!aside && <CandidateLine race={item} name={row.name} />}
         </Oval>
         </BesideRow>
@@ -319,7 +319,7 @@ function RaceChoices({
           onSelect={() => (isWriteIn ? onPick(selection!) : saveWriteIn())}
         >
           {readOnly ? (
-            <span className="block min-h-[1.25rem] border-b border-gray-500 text-[13px] font-semibold uppercase">{writeIn}</span>
+            <span className="block min-h-[1.25rem] border-b border-gray-500 text-[0.8125rem] font-semibold uppercase">{writeIn}</span>
           ) : (
             <input
               type="text"
@@ -329,10 +329,10 @@ function RaceChoices({
               onChange={(e) => setWriteIn(e.target.value)}
               onBlur={saveWriteIn}
               onKeyDown={(e) => e.key === 'Enter' && saveWriteIn()}
-              className="block w-full border-0 border-b border-gray-500 bg-transparent px-0 py-0 text-[13px] uppercase focus:border-blue-600 focus:outline-none focus:ring-0"
+              className="block w-full border-0 border-b border-gray-500 bg-transparent px-0 py-0 text-[0.8125rem] uppercase focus:border-blue-600 focus:outline-none focus:ring-0"
             />
           )}
-          <span className="block text-[11px] text-gray-600">Write-in</span>
+          <span className="block text-[0.6875rem] text-gray-600">Write-in</span>
         </Oval>
         </BesideRow>
       )}
@@ -366,7 +366,7 @@ function MeasureChoices({
           disabled={readOnly}
           onSelect={() => onPick(value)}
         >
-          <span className="text-[13px] font-semibold">{labels[i]}</span>
+          <span className="text-[0.8125rem] font-semibold">{labels[i]}</span>
         </Oval>
       ))}
     </div>
@@ -377,10 +377,10 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
   const printed = layoutOf(item)
   if (!printed?.question) return null
   return (
-    <div className="space-y-2 px-2 py-2 text-[12.5px] leading-snug">
+    <div className="space-y-2 px-2 py-2 text-[0.78125rem] leading-snug">
       <p className="whitespace-pre-line">{printed.question}</p>
       {printed.table && (
-        <table className="w-full border-collapse text-[11px]">
+        <table className="w-full border-collapse text-[0.6875rem]">
           {printed.table.caption && <caption className="pb-1 text-left font-bold">{printed.table.caption}</caption>}
           <thead>
             <tr>
@@ -404,7 +404,7 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
           </tbody>
         </table>
       )}
-      {printed.note && <p className="text-[11px]">{printed.note}</p>}
+      {printed.note && <p className="text-[0.6875rem]">{printed.note}</p>}
     </div>
   )
 }
@@ -420,7 +420,7 @@ function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCan
         <Link href={`/candidates/${c.id}`} className="font-semibold text-blue-700 hover:underline">
           {c.name}
         </Link>
-        {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[10px] font-semibold">incumbent</span>}
+        {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[0.625rem] font-semibold">incumbent</span>}
         {anchorId && (
           <span className="ml-1 inline-block align-middle">
             <CopyLink targets={[{ id: anchorId, label: c.name }]} label={`Copy a link to ${c.name}`} />
@@ -478,7 +478,7 @@ function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCan
 function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (status: ChoiceStatus) => void }) {
   return (
     <div role="radiogroup" aria-label="How sure are you?" className="flex justify-end px-2 pb-1.5 font-sans print:hidden">
-      <div className="inline-flex overflow-hidden rounded-full border border-gray-300 text-[11px]">
+      <div className="inline-flex overflow-hidden rounded-full border border-gray-300 text-[0.6875rem]">
         {(['unsure', 'tentative', 'decided'] as const).map((value) => (
           <button
             key={value}
@@ -553,7 +553,7 @@ function Enhancements({
 
   return (
     <Extra className="space-y-3 text-sm">
-      <p className="text-[10px] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
+      <p className="text-[0.625rem] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
       {measure ? (
         <>
           {item.description && <p>{item.description}</p>}
@@ -573,7 +573,7 @@ function Enhancements({
           )}
           {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}
           {people.some((c) => c.profile?.endorserTotal) && (
-            <p className="text-[11px] text-sky-800">
+            <p className="text-[0.6875rem] text-sky-800">
               Endorsements as listed on each campaign&apos;s website; some campaigns don&apos;t publish a list we can read.
             </p>
           )}
@@ -717,7 +717,7 @@ export default function Contest({
             onClick={() => setOverride({ density, open: !open })}
             aria-expanded={open}
             aria-label={`${open ? 'Hide' : 'Show'} Voter Guider info for ${heading.join(' ')}`}
-            className="flex items-center gap-0.5 rounded bg-sky-100 px-1.5 py-0.5 text-[11px] font-semibold text-sky-800 hover:bg-sky-200"
+            className="flex items-center gap-0.5 rounded bg-sky-100 px-1.5 py-0.5 text-[0.6875rem] font-semibold text-sky-800 hover:bg-sky-200"
           >
             <Info className="h-3.5 w-3.5" />
             {density === 'expanded' && (open ? 'Less' : 'More')}

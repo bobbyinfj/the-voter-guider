@@ -31,7 +31,7 @@ export default function OfficialDocs({ docs, label }: { docs: OfficialDoc[]; lab
   if (!docs.length) return null
   return (
     <div className="space-y-1">
-      {label && <p className="text-[11px] font-semibold uppercase tracking-wide text-sky-800">{label}</p>}
+      {label && <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-sky-800">{label}</p>}
       {docs.map((d) => (
         <details key={d.title} className="rounded border border-sky-200 bg-white">
           <summary className="cursor-pointer px-2 py-1 text-xs font-semibold">{d.title}</summary>
@@ -41,7 +41,7 @@ export default function OfficialDocs({ docs, label }: { docs: OfficialDoc[]; lab
               href={d.source}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[11px] text-blue-700 underline"
+              className="mt-1 inline-flex items-center gap-1 text-[0.6875rem] text-blue-700 underline"
             >
               Source: Los Angeles County sample ballot data <ExternalLink className="h-3 w-3" />
             </a>

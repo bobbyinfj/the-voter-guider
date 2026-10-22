@@ -13,7 +13,7 @@ const KIND_STYLE: Record<EndorserKind, string> = {
 
 export function EndorserCircle({ endorser, size = 'md' }: { endorser: Endorser; size?: 'sm' | 'md' }) {
   const text = initials(endorser)
-  const dim = size === 'sm' ? 'h-7 w-7 text-[9px]' : 'h-9 w-9 text-[10px]'
+  const dim = size === 'sm' ? 'h-7 w-7 text-[0.5625rem]' : 'h-9 w-9 text-[0.625rem]'
   return (
     <span
       title={endorser.name}

@@ -115,7 +115,8 @@ UI: `components/candidate/` (circle badges, click-to-load YouTube facade on yout
 ### Ballot look (design system)
 Each election's pages take its county ballot's fonts and colors (`lib/ballot-theme.ts`, tokens
 in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Building blocks in
-`components/ballot/Paper.tsx`. Layout grammar only: no seals, signatures or "official" wording.
+`components/ballot/Paper.tsx`. Text sizes are rem only (no `text-[Npx]`), so the root size in
+`globals.css` (112.5% on screen, 100% in print) scales the whole site in one place. Layout grammar only: no seals, signatures or "official" wording.
 
 ### Districts
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`).
