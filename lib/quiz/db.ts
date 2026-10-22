@@ -4,6 +4,7 @@ import { scoreQuiz } from "./score";
 import { pickNextQuestion } from "./nextQuestion";
 import { matchesSelection, parseDistrictSelection } from "@/lib/districts";
 import type { QuizResults } from "./types";
+import { moduleCounts, questionModules, questionsFor, type QuizModule } from "./modules";
 
 export async function loadQuizContext(electionId: string, guideMetadata?: unknown) {
   const quiz = await prisma.quiz.findUnique({
@@ -49,10 +50,18 @@ export async function loadQuizContext(electionId: string, guideMetadata?: unknow
   return { quiz, offices, issueNames, officeInfo };
 }
 
+// `modules`: the parts of the quiz the voter chose (null: all). Scoring always uses every answer;
+// only which question comes next is limited to the chosen modules.
 export async function computeResults(
   guideId: string,
   electionId: string,
-): Promise<QuizResults & { nextQuestionId: string | null }> {
+  modules: QuizModule[] | null = null,
+): Promise<
+  QuizResults & {
+    nextQuestionId: string | null;
+    modules: { module: QuizModule; label: string; count: number }[];
+  }
+> {
   const guide = await prisma.guide.findUnique({ where: { id: guideId }, select: { metadata: true } });
   const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(
     electionId,
@@ -99,12 +108,13 @@ export async function computeResults(
     totalQuestions: quiz?.questions.length ?? 0,
   });
 
+  const byQuestion = questionModules(scoringQuestions, offices);
   const answeredIds = new Set<string>(answers.map((a) => a.questionId));
   const nextQuestion = pickNextQuestion({
-    questions: scoringQuestions,
+    questions: questionsFor(scoringQuestions, byQuestion, modules),
     answeredQuestionIds: answeredIds,
     officeResults: results.officeResults,
   });
 
-  return { ...results, nextQuestionId: nextQuestion.questionId };
+  return { ...results, nextQuestionId: nextQuestion.questionId, modules: moduleCounts(byQuestion) };
 }
