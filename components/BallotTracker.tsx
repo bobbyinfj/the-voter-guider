@@ -30,9 +30,10 @@ import {
   groupSections,
   hasPrintedLayout,
   isPick,
+  isSettled,
+  isUnsure,
   layoutOf,
   layoutSourceName,
-  UNSURE,
   type BallotItem,
   type ChoiceStatus,
   type ChoiceValue,
@@ -108,10 +109,10 @@ export default function BallotTracker({
   const source = ballots[0] ? layoutOf(ballots[0])?.source : undefined
   const pageOrder = useMemo(() => sections.flatMap((s) => s.items), [sections])
   // A contest is done once it has a pick or is left blank on purpose; "no clue yet" is still to go
-  const done = (id: string) => !!choices[id] && choices[id].selection !== UNSURE
+  const done = (id: string) => isSettled(choices[id])
   const answered = ballots.filter((b) => done(b.id)).length
   const leaning = ballots.filter((b) => isPick(choices[b.id]?.selection) && choices[b.id].status === 'tentative').length
-  const unsure = ballots.filter((b) => choices[b.id]?.selection === UNSURE).length
+  const unsure = ballots.filter((b) => isUnsure(choices[b.id])).length
   const completionPercentage = ballots.length > 0 ? Math.round((answered / ballots.length) * 100) : 0
   const visibleSections = useMemo(
     () =>
@@ -170,7 +171,8 @@ export default function BallotTracker({
       lines.push(section.label.toUpperCase())
       for (const ballot of section.items) {
         const choice = choices[ballot.id]
-        lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}`)
+        const how = isPick(choice?.selection) && choice!.status !== 'decided' ? ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})` : ''
+        lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}${how}`)
         if (choice?.notes) lines.push(`    Notes: ${choice.notes}`)
       }
       lines.push('')
@@ -252,8 +254,8 @@ export default function BallotTracker({
                       official explanations next to its question, each with its source.
                     </p>
                     <p>
-                      Click an oval once for <strong>leaning</strong> (striped), again for <strong>decided</strong>{' '}
-                      (filled), and once more to clear it. Tap <CircleHelp className="inline h-4 w-4 align-text-bottom" />{' '}
+                      Click an oval once for <strong>not sure</strong> (?), again for <strong>leaning</strong>{' '}
+                      (striped), again for <strong>decided</strong> (filled), and once more to clear it. Tap <CircleHelp className="inline h-4 w-4 align-text-bottom" />{' '}
                       on a contest if you have no clue yet. Everything saves as you go.
                     </p>
                   </div>
@@ -265,7 +267,7 @@ export default function BallotTracker({
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
               {answered - leaning} decided{leaning > 0 && <>, {leaning} leaning</>} · {ballots.length - answered} to go
-              {unsure > 0 && <> ({unsure} no clue yet)</>}
+              {unsure > 0 && <> ({unsure} not sure yet)</>}
             </span>
             <span className="text-gray-500">{completionPercentage}%</span>
           </div>

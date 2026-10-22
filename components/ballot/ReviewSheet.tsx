@@ -1,6 +1,6 @@
 'use client'
 
-import { ABSTAIN, UNSURE, choiceLabel, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
+import { ABSTAIN, choiceLabel, isPick, isSettled, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
 
 interface ReviewSheetProps {
   sections: BallotSection[]
@@ -26,10 +26,11 @@ export default function ReviewSheet({ sections, choices, readOnly, onEdit }: Rev
                   <span className="min-w-0 flex-1 basis-56 text-sm text-gray-700">{contestLabel(item)}</span>
                   <span
                     className={`flex-1 basis-40 font-semibold ${
-                      !choice || choice.selection === UNSURE ? 'text-amber-700' : choice.selection === ABSTAIN ? 'text-gray-500' : 'text-gray-900'
+                      !isSettled(choice) ? 'text-amber-700' : choice!.selection === ABSTAIN ? 'text-gray-500' : 'text-gray-900'
                     }`}
                   >
                     {choice ? choiceLabel(choice.selection, item) : 'No choice yet'}
+                    {isPick(choice?.selection) && choice!.status !== 'decided' && ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})`}
                     {choice?.notes && <span className="block text-xs font-normal text-gray-600 whitespace-pre-line">{choice.notes}</span>}
                   </span>
                   <button
@@ -37,7 +38,7 @@ export default function ReviewSheet({ sections, choices, readOnly, onEdit }: Rev
                     onClick={() => onEdit(item.id)}
                     className="text-xs text-blue-600 hover:underline print:hidden"
                   >
-                    {readOnly ? 'View on ballot' : choice ? 'Change' : 'Decide'}
+                    {readOnly ? 'View on ballot' : isSettled(choice) ? 'Change' : 'Decide'}
                   </button>
                 </li>
               )

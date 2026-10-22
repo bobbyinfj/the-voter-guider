@@ -4,9 +4,9 @@ import { prisma } from '@/lib/prisma'
 import { getViewer, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
 
-const SPECIAL = ['ABSTAIN', 'UNSURE']
+const SPECIAL = ['ABSTAIN', 'UNSURE', 'NOTES']
 const MEASURE_SELECTIONS = new Set(['YES', 'NO', ...SPECIAL])
-const STATUSES = new Set(['tentative', 'decided'])
+const STATUSES = new Set(['unsure', 'tentative', 'decided'])
 
 // POST - Create or update a choice on a guide the caller owns
 export async function POST(request: NextRequest) {

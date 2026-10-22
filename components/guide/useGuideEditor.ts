@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useRef, useState } from 'react'
-import type { ChoiceStatus, ChoiceValue } from '@/components/ballot/ballot'
+import { toStatus, type ChoiceStatus, type ChoiceValue } from '@/components/ballot/ballot'
 
 export interface EditableGuide {
   id: string
@@ -22,7 +22,7 @@ export function choiceMap(guide: EditableGuide | null): Record<string, ChoiceVal
   return Object.fromEntries(
     (guide?.choices ?? []).map((c) => [
       c.ballotId,
-      { selection: c.selection, notes: c.notes ?? undefined, status: c.status === 'tentative' ? 'tentative' : 'decided' },
+      { selection: c.selection, notes: c.notes ?? undefined, status: toStatus(c.status) },
     ]),
   )
 }

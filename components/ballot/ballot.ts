@@ -22,8 +22,9 @@ export interface BallotItem {
   office?: { id: string; district?: string | null; candidates: BallotCandidate[] } | null
 }
 
-// Leaning toward a pick, or settled on it
-export type ChoiceStatus = 'tentative' | 'decided'
+// Unsure about this option (a ? in the oval), leaning toward it, or settled on it
+export type ChoiceStatus = 'unsure' | 'tentative' | 'decided'
+export const toStatus = (s?: string | null): ChoiceStatus => (s === 'unsure' || s === 'tentative' ? s : 'decided')
 
 export interface ChoiceValue {
   selection: string
@@ -72,8 +73,17 @@ export const WRITE_IN = 'WRITE-IN:'
 export const ABSTAIN = 'ABSTAIN'
 // "No clue yet": you've looked at the contest and don't know. Still counts as to go.
 export const UNSURE = 'UNSURE'
+// No pick, but you wrote notes on the contest (kept when a pick is cleared)
+export const NOTES_ONLY = 'NOTES'
 // A real pick (a candidate, a write-in, YES/NO), not blank or no-clue
-export const isPick = (selection?: string) => !!selection && selection !== ABSTAIN && selection !== UNSURE
+export const isPick = (selection?: string) =>
+  !!selection && selection !== ABSTAIN && selection !== UNSURE && selection !== NOTES_ONLY
+// Done with this contest: leaning toward or decided on a pick, or left blank on purpose. A ? on
+// the contest or on an option is still to go.
+export const isSettled = (c?: ChoiceValue) =>
+  !!c && c.selection !== UNSURE && c.selection !== NOTES_ONLY && c.status !== 'unsure'
+// A ? on the contest ("no clue yet") or on one option
+export const isUnsure = (c?: ChoiceValue) => !!c && (c.selection === UNSURE || (isPick(c.selection) && c.status === 'unsure'))
 // A measure's printed responses map, in order, to these stored values
 export const MEASURE_VALUES = ['YES', 'NO'] as const
 
@@ -211,6 +221,7 @@ export function navLabel(item: BallotItem): string {
 export function choiceLabel(selection: string, item?: BallotItem): string {
   if (selection === ABSTAIN) return 'Left blank'
   if (selection === UNSURE) return 'No clue yet'
+  if (selection === NOTES_ONLY) return 'No choice yet'
   if (selection.startsWith(WRITE_IN)) return `Write-in: ${selection.slice(WRITE_IN.length)}`
   const printed = item ? layoutOf(item) : null
   const i = MEASURE_VALUES.indexOf(selection as (typeof MEASURE_VALUES)[number])

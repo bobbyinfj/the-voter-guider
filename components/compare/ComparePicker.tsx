@@ -1,7 +1,7 @@
 'use client'
 
 import { ExternalLink, GitCompare } from 'lucide-react'
-import { isPick, type BallotItem, type ChoiceValue } from '@/components/ballot/ballot'
+import { isPick, isSettled, type BallotItem, type ChoiceValue } from '@/components/ballot/ballot'
 import { compareOptions, compareView, useCompareData, type CompareView } from './compare'
 
 // "Compare with…" in the guide toolbar, plus a one-line summary of where you agree
@@ -24,7 +24,7 @@ export default function ComparePicker({
 
   // Where you and each compared guide both picked, how often you match
   const agreement = view?.guides.map((g) => {
-    const both = ballots.filter((b) => g.picks[b.id] && isPick(choices[b.id]?.selection))
+    const both = ballots.filter((b) => g.picks[b.id] && isPick(choices[b.id]?.selection) && isSettled(choices[b.id]))
     return { g, both: both.length, same: both.filter((b) => g.picks[b.id].selection === choices[b.id].selection).length }
   })
 

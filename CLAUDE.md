@@ -65,10 +65,11 @@ removes anything in a database that isn't backed by a bundle.
 The election page's ballot *is* your guide: the first box you check creates your default guide
 for that election (`Guide.defaultKey` = `<owner>:<electionId>`, unique, via `getOrCreateDefaultGuide`),
 and every change autosaves (`components/guide/useGuideEditor.ts`); there are no save buttons. Each
-pick is `tentative` (leaning, hatched oval) or `decided` (`Choice.status`); clicking an oval steps it
-empty → leaning → decided → empty (`stepPick` in `components/ballot/Contest.tsx`). The ? on a contest
-stores the special selection `UNSURE` ("no clue yet"), which still counts as to go and, like
-`ABSTAIN`, is never counted in the community tally. The quiz writes to the
+pick is `unsure` (? in the oval), `tentative` (leaning, hatched) or `decided` (`Choice.status`); clicking
+an oval steps it empty → ? → leaning → decided → empty (`stepPick` in `components/ballot/Contest.tsx`).
+The ? on a contest stores the special selection `UNSURE` ("no clue yet"); clearing a pick that has
+notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` in `ballot.ts` say
+what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the
 same default guide. Extra guides for an election live at `/guide/[id]`. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
 **Basic** (3-column replica, the default every visit) and **Expanded** (ballot on the left third, each
