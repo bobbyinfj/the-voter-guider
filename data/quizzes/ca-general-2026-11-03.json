@@ -508,6 +508,201 @@
           "order": 5
         }
       ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q14",
+      "prompt": "The L.A. Community College District should build affordable housing for its students.",
+      "helpText": "LAist asked every candidate how the district should improve housing security; this is about building housing, not referrals or emergency aid. Supporters say students can't finish school without stable housing; skeptics worry about costs and taking money from classrooms.",
+      "order": 14,
+      "issues": [
+        {
+          "issueId": "laccd-student-housing",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q15",
+      "prompt": "Sheriff's deputies should help clear homeless encampments and move people into shelter.",
+      "helpText": "The Sheriff's Department's Homeless Outreach Services Teams work encampments in the areas it patrols. Supporters say it gets people indoors; critics say policing homelessness doesn't solve it.",
+      "order": 15,
+      "issues": [
+        {
+          "issueId": "la-sheriff-clear-encampments",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q16",
+      "prompt": "The sheriff should ban deputy gangs (cliques of deputies with matching tattoos) inside the department.",
+      "helpText": "A 2021 Loyola Law School report found 18 deputy gangs had operated in the department over 50 years. Some say they drive misconduct; others call the problem exaggerated.",
+      "order": 16,
+      "issues": [
+        {
+          "issueId": "la-sheriff-deputy-gangs",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q17",
+      "prompt": "Monterey Park should keep its voter-approved ban on data centers.",
+      "helpText": "Monterey Park voters approved Measure NDC, a permanent ban on data centers. Supporters cite noise, power use and neighborhood impact; opponents cite lost tax revenue and jobs.",
+      "order": 17,
+      "issues": [
+        {
+          "issueId": "monterey-park-data-center-ban",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "ca-general-2026-11-03-q18",
+      "prompt": "Monterey Park should build more housing.",
+      "helpText": "Supporters say more homes ease rents; opponents worry about traffic and neighborhood character. Measure HOM on this ballot is about housing overlays; neither candidate's statement mentions it.",
+      "order": 18,
+      "issues": [
+        {
+          "issueId": "monterey-park-more-housing",
+          "weight": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Strongly agree",
+          "stanceValue": 2,
+          "order": 1
+        },
+        {
+          "label": "Somewhat agree",
+          "stanceValue": 1,
+          "order": 2
+        },
+        {
+          "label": "Neutral / unsure",
+          "stanceValue": 0,
+          "order": 3
+        },
+        {
+          "label": "Somewhat disagree",
+          "stanceValue": -1,
+          "order": 4
+        },
+        {
+          "label": "Strongly disagree",
+          "stanceValue": -2,
+          "order": 5
+        }
+      ]
     }
   ]
 }

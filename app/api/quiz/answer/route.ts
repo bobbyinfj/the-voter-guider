@@ -3,12 +3,13 @@ import { prisma } from "@/lib/prisma";
 import { getViewer, ownedBy } from "@/lib/owner";
 import { handleApiError } from "@/lib/errors";
 import { computeResults } from "@/lib/quiz/db";
+import { parseModules } from "@/lib/quiz/modules";
 
 export async function POST(req: NextRequest) {
   try {
     const viewer = await getViewer();
     const body = await req.json();
-    const { guideId, questionId, optionId, importance = 1 } = body;
+    const { guideId, questionId, optionId, importance = 1, modules } = body;
 
     if (!guideId || !questionId || !optionId) {
       return NextResponse.json({ error: "guideId, questionId, optionId required" }, { status: 400 });
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
 
     // Recompute results and next question
     const electionId = question.quiz.electionId;
-    const results = await computeResults(guideId, electionId);
+    const results = await computeResults(guideId, electionId, parseModules(typeof modules === "string" ? modules : null));
 
     return NextResponse.json(results);
   } catch (error) {

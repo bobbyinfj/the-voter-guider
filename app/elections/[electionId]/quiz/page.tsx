@@ -1,11 +1,18 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ConfidenceIndicator from "@/components/quiz/ConfidenceIndicator";
 import type { QuizResults } from "@/lib/quiz/types";
 import { parseDistrictSelection } from "@/lib/districts";
+import { MODULES, parseModules, type QuizModule } from "@/lib/quiz/modules";
+
+interface ModuleInfo {
+  module: QuizModule;
+  label: string;
+  count: number;
+}
 
 interface QuestionOption {
   id: string;
@@ -38,7 +45,13 @@ export default function QuizPage() {
   const { electionId } = useParams<{ electionId: string }>();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const districtKey = searchParams.toString();
+  // Districts pick the races; ?modules= picks which parts of the quiz to ask (all when absent)
+  const districtParams = new URLSearchParams(searchParams.toString());
+  districtParams.delete("modules");
+  const districtKey = districtParams.toString();
+  const chosen = parseModules(searchParams.get("modules"));
+  const modulesKey = chosen?.join(",") ?? "";
+  const [modules, setModules] = useState<ModuleInfo[]>([]);
 
   const [state, setState] = useState<QuizState>({
     guideId: "",
@@ -71,9 +84,10 @@ export default function QuizPage() {
         const guideId = guide.id;
 
         // Get first question
-        const nextRes = await fetch(`/api/quiz/next?guideId=${guideId}`);
+        const nextRes = await fetch(`/api/quiz/next?guideId=${guideId}${modulesKey ? `&modules=${modulesKey}` : ""}`);
         if (!nextRes.ok) throw new Error("Could not load quiz");
         const nextData = await nextRes.json();
+        setModules(nextData.modules ?? []);
 
         setState((prev) => ({
           ...prev,
@@ -90,9 +104,19 @@ export default function QuizPage() {
       }
     }
     init();
-  }, [electionId, districtKey]);
+  }, [electionId, districtKey, modulesKey]);
 
-  const submitAnswer = useCallback(async () => {
+  // Turn a part of the quiz on or off (at least one stays on)
+  const toggleModule = (m: QuizModule) => {
+    const on = chosen ?? modules.map((x) => x.module);
+    const next = on.includes(m) ? on.filter((x) => x !== m) : [...on, m];
+    if (!next.length) return;
+    const params = new URLSearchParams(districtKey);
+    if (next.length < modules.length) params.set("modules", MODULES.filter((x) => next.includes(x)).join(","));
+    router.replace(`/elections/${electionId}/quiz${params.toString() ? `?${params}` : ""}`);
+  };
+
+  const submitAnswer = async () => {
     if (!state.selectedOption || !state.question || !state.guideId || state.submitting) return;
 
     setState((prev) => ({ ...prev, submitting: true }));
@@ -106,6 +130,7 @@ export default function QuizPage() {
           questionId: state.question.id,
           optionId: state.selectedOption,
           importance: state.importance,
+          modules: modulesKey || undefined,
         }),
       });
       if (!res.ok) throw new Error("Failed to save answer");
@@ -117,7 +142,7 @@ export default function QuizPage() {
       // Load next question details if there is one
       let nextQuestion: Question | null = null;
       if (data.nextQuestionId) {
-        const nextRes = await fetch(`/api/quiz/next?guideId=${state.guideId}`);
+        const nextRes = await fetch(`/api/quiz/next?guideId=${state.guideId}${modulesKey ? `&modules=${modulesKey}` : ""}`);
         if (nextRes.ok) {
           const nextData = await nextRes.json();
           nextQuestion = nextData.question;
@@ -138,7 +163,7 @@ export default function QuizPage() {
       setError(e instanceof Error ? e.message : "Failed to save answer");
       setState((prev) => ({ ...prev, submitting: false }));
     }
-  }, [state]);
+  };
 
   const goToResults = () => {
     router.push(`/elections/${electionId}/quiz/results?guideId=${state.guideId}`);
@@ -177,6 +202,31 @@ export default function QuizPage() {
           <p className="text-gray-600 text-sm">
             Answer as many questions as you like. Your results update live as you go.
           </p>
+          {modules.length > 1 && (
+            <div className="mt-3 font-sans">
+              <p className="mb-1.5 text-sm font-medium text-gray-700">Which parts of your ballot?</p>
+              <div role="group" aria-label="Quiz parts" className="flex flex-wrap gap-1.5">
+                {modules.map((m) => {
+                  const on = !chosen || chosen.includes(m.module);
+                  return (
+                    <button
+                      key={m.module}
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => toggleModule(m.module)}
+                      className={`rounded-full border px-3 py-1 text-sm ${on ? "border-ballot-ink bg-ballot-bar text-white" : "border-gray-300 bg-white text-gray-600 hover:bg-gray-50"}`}
+                    >
+                      {m.label} · {m.count}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="mt-1.5 text-xs text-gray-500">
+                Questions come from candidates&apos; sourced positions, so some races have few or none. Judges aren&apos;t in
+                the quiz: judicial candidates can&apos;t campaign on issues, so see their bar ratings on the ballot instead.
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6">
@@ -191,7 +241,9 @@ export default function QuizPage() {
                 <p className="text-gray-600 mb-6">
                   {state.answeredIds.size === 0
                     ? "Something went wrong loading the quiz."
-                    : `You answered ${state.answeredIds.size} question${state.answeredIds.size !== 1 ? "s" : ""}.`}
+                    : `You answered ${state.answeredIds.size} question${state.answeredIds.size !== 1 ? "s" : ""}.${
+                        chosen && chosen.length < modules.length ? " Turn on more parts above for more questions." : ""
+                      }`}
                 </p>
                 <button
                   onClick={goToResults}

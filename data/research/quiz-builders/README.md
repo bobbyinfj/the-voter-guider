@@ -36,5 +36,13 @@ Sources used for November 2026:
 - California: CalMatters 2026 Voter Guide race pages; CalMatters' October 2026 insurance commissioner
   story; Voice of OC (Huntington Beach sanctuary-law suit); Times of San Diego (superintendent
   primary); the Gates and Romero campaign sites. EdSource is skipped (robots.txt unreadable).
+- California local races (their own quiz modules): LAist's LACCD candidate survey (student housing:
+  only answers that commit to building count; "connect students to resources" is left out), the
+  sheriff candidates' campaign sites (Villanueva's via his site's own `wp-json` page API, since the
+  pages render in JavaScript), and the county sample ballot's candidate statements for Monterey Park
+  Council District 5 (`isb.lavote.gov`, saved from the bundle's `countyStatement`). Not usable:
+  Mike Fong's site and leginfo.legislature.ca.gov block Claude, and an opponent's description of a
+  candidate's votes is never used as that candidate's position. LAist's sheriff and Assembly guides
+  state no positions.
 - Colorado: CPR News 2026 voter guide candidate pages
 - Washington: Washington State Voters' Pamphlet 2026 (candidate statements)

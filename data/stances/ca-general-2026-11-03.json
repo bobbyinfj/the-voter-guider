@@ -390,6 +390,149 @@
           "quote": "Barrera, a senior policy adviser at the state Department of Education, disagreed with Shaw's position during an April EdSource forum, saying the laws protect LGBTQ+ students."
         }
       ]
+    },
+    {
+      "candidateId": "ca26-steven-f-veres",
+      "issueId": "laccd-student-housing",
+      "position": 2,
+      "summary": "Will push LACCD to use district-owned land and partnerships to create affordable student housing near its colleges.",
+      "sources": [
+        {
+          "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+          "title": "LAist: LACCD Board of Trustees voter guide (candidate survey)",
+          "quote": "I will continue pushing LACCD to use district-owned land, public-private partnerships and state and local resources to create affordable student housing near our colleges."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-gabriel-buelna",
+      "issueId": "laccd-student-housing",
+      "position": 2,
+      "summary": "Helped dedicate $500 million from Measure LA to student housing and will push to speed up construction.",
+      "sources": [
+        {
+          "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+          "title": "LAist: LACCD Board of Trustees voter guide (candidate survey)",
+          "quote": "I will push to accelerate construction across LACCD"
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-randall-winston",
+      "issueId": "laccd-student-housing",
+      "position": 2,
+      "summary": "Says the district should compete hard for state student-housing grants and build on its land.",
+      "sources": [
+        {
+          "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+          "title": "LAist: LACCD Board of Trustees voter guide (candidate survey)",
+          "quote": "This district should be competing hard for that money and building."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-tonia-arey",
+      "issueId": "laccd-student-housing",
+      "position": 1,
+      "summary": "Would consider student housing proposals, but only with a clear funding plan that protects classroom resources.",
+      "sources": [
+        {
+          "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+          "title": "LAist: LACCD Board of Trustees voter guide (candidate survey)",
+          "quote": "I would also consider student housing proposals, but only with a clear funding plan that protects classroom resources."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-nancy-pearlman",
+      "issueId": "laccd-student-housing",
+      "position": 1,
+      "summary": "Says she has worked for decades to provide student housing.",
+      "sources": [
+        {
+          "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+          "title": "LAist: LACCD Board of Trustees voter guide (candidate survey)",
+          "quote": "I have worked for decades to provide student housing"
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-alex-villanueva",
+      "issueId": "la-sheriff-clear-encampments",
+      "position": 2,
+      "summary": "Points to clearing encampments across the county as sheriff, saying enforcement and compassion go hand in hand.",
+      "sources": [
+        {
+          "url": "https://alexvillanueva2026.com/meet-alex",
+          "title": "Alex Villanueva for Sheriff 2026: Meet Alex",
+          "quote": "His approach got people off the streets and into shelters, proving that enforcement and compassion can go hand in hand."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-robert-luna",
+      "issueId": "la-sheriff-clear-encampments",
+      "position": 1,
+      "summary": "A strong supporter of the department's homeless outreach teams, which he says resolved more than 300 encampments; also backed Measure A and Prop 1.",
+      "sources": [
+        {
+          "url": "https://www.lunaforsheriff.com/priorities",
+          "title": "Robert Luna for Sheriff: My Priorities",
+          "quote": "I am a strong supporter of the extraordinary work of the LASD Homeless Outreach Services Team (HOST) Teams, which have resolved more than 300 encampments"
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-robert-luna",
+      "issueId": "la-sheriff-deputy-gangs",
+      "position": 2,
+      "summary": "Established a policy banning law enforcement gangs in the department.",
+      "sources": [
+        {
+          "url": "https://www.lunaforsheriff.com/priorities",
+          "title": "Robert Luna for Sheriff: My Priorities",
+          "quote": "I created the Office of Constitutional Policing and established a new policy banning law enforcement gangs."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steven-kung",
+      "issueId": "monterey-park-data-center-ban",
+      "position": 2,
+      "summary": "Co-founded No Data Center Monterey Park and helped lead the campaign for the ban.",
+      "sources": [
+        {
+          "url": "https://isb.lavote.gov/parsed/4348/contests/cc10491.json",
+          "title": "L.A. County sample ballot: Statement of Steven Kung",
+          "quote": "I was one of the leaders of this movement, and I'm extremely proud of what we accomplished."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-vinh-t-ngo",
+      "issueId": "monterey-park-data-center-ban",
+      "position": 2,
+      "summary": "Brought the emergency moratorium to the Council and started the process that became the ban.",
+      "sources": [
+        {
+          "url": "https://isb.lavote.gov/parsed/4348/contests/cc10491.json",
+          "title": "L.A. County sample ballot: Statement of Vinh T. Ngo",
+          "quote": "I brought the emergency moratorium to the Council and launched the legislative process that became Measure NDC"
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-steven-kung",
+      "issueId": "monterey-park-more-housing",
+      "position": 1,
+      "summary": "Lists building more housing among the things he'd like to accomplish.",
+      "sources": [
+        {
+          "url": "https://isb.lavote.gov/parsed/4348/contests/cc10491.json",
+          "title": "L.A. County sample ballot: Statement of Steven Kung",
+          "quote": "enhance the walkability of the city, build more housing, revitalize our downtown"
+        }
+      ]
     }
   ]
 }

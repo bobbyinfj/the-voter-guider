@@ -10,7 +10,17 @@ TOSD = ("https://timesofsandiego.com/education/2026/06/03/san-diego-barrera-seco
 INS2 = ("https://calmatters.org/economy/2026/10/insurance-commissioner-california-nov-election/", "CalMatters: CA to elect insurance commissioner at crucial time", "calm-insurance-oct.txt")
 GATES = ("https://www.gates4ag.com/issues", "Michael Gates for Attorney General: Issues", "site-gates.txt")
 ROMERO = ("https://www.gloriaromero4ltgov.com/", "Gloria Romero for Lt. Governor (campaign site)", "site-romero.txt")
-S = {"gov": GOV, "ins": INS, "ag": AG, "sos": SOS, "spi": SPI, "voc": VOC, "tosd": TOSD, "ins2": INS2, "gates": GATES, "romero": ROMERO}
+# Local races: LAist's LACCD candidate survey, the sheriff candidates' campaign sites (Villanueva's
+# through his site's own WordPress page API, same domain), and the county's sample-ballot
+# candidate statements (isb.lavote.gov, the same text as the bundle's countyStatement)
+LACCD = ("https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees", "LAist: LACCD Board of Trustees voter guide (candidate survey)", "laist-laccd.txt")
+LUNA = ("https://www.lunaforsheriff.com/priorities", "Robert Luna for Sheriff: My Priorities", "site-luna.txt")
+VILL = ("https://alexvillanueva2026.com/meet-alex", "Alex Villanueva for Sheriff 2026: Meet Alex", "site-villanueva.txt")
+ISB = "https://isb.lavote.gov/parsed/4348/contests/cc10491.json"
+KUNG = (ISB, "L.A. County sample ballot: Statement of Steven Kung", "mp-kung.txt")
+NGO = (ISB, "L.A. County sample ballot: Statement of Vinh T. Ngo", "mp-ngo.txt")
+S = {"gov": GOV, "ins": INS, "ag": AG, "sos": SOS, "spi": SPI, "voc": VOC, "tosd": TOSD, "ins2": INS2, "gates": GATES, "romero": ROMERO,
+     "laccd": LACCD, "luna": LUNA, "vill": VILL, "kung": KUNG, "ngo": NGO}
 B, H = "ca26-xavier-becerra", "ca26-steve-hilton"
 axes = [
   dict(slug="ca-top-earner-income-tax", name="Income taxes on top earners", level="state",
@@ -137,6 +147,54 @@ axes = [
           "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students."),
          ("ca26-richard-barrera", 2, "Disagreed with Shaw at a candidate forum, saying the state's laws protect LGBTQ+ students.", "tosd",
           "Barrera, a senior policy adviser at the state Department of Education, disagreed with Shaw's position during an April EdSource forum, saying the laws protect LGBTQ+ students."),
+       ]),
+  # ---- Local races (Office.level county / school / city: their own quiz modules) ----
+  dict(slug="laccd-student-housing", name="Student housing at community colleges", level="local",
+       statement="The L.A. Community College District should build affordable housing for its students.",
+       help="LAist asked every candidate how the district should improve housing security; this is about building housing, not referrals or emergency aid. Supporters say students can't finish school without stable housing; skeptics worry about costs and taking money from classrooms.",
+       stances=[
+         ("ca26-steven-f-veres", 2, "Will push LACCD to use district-owned land and partnerships to create affordable student housing near its colleges.", "laccd",
+          "I will continue pushing LACCD to use district-owned land, public-private partnerships and state and local resources to create affordable student housing near our colleges."),
+         ("ca26-gabriel-buelna", 2, "Helped dedicate $500 million from Measure LA to student housing and will push to speed up construction.", "laccd",
+          "I will push to accelerate construction across LACCD"),
+         ("ca26-randall-winston", 2, "Says the district should compete hard for state student-housing grants and build on its land.", "laccd",
+          "This district should be competing hard for that money and building."),
+         ("ca26-tonia-arey", 1, "Would consider student housing proposals, but only with a clear funding plan that protects classroom resources.", "laccd",
+          "I would also consider student housing proposals, but only with a clear funding plan that protects classroom resources."),
+         ("ca26-nancy-pearlman", 1, "Says she has worked for decades to provide student housing.", "laccd",
+          "I have worked for decades to provide student housing"),
+       ]),
+  dict(slug="la-sheriff-clear-encampments", name="Sheriff's deputies clearing encampments", level="local",
+       statement="Sheriff's deputies should help clear homeless encampments and move people into shelter.",
+       help="The Sheriff's Department's Homeless Outreach Services Teams work encampments in the areas it patrols. Supporters say it gets people indoors; critics say policing homelessness doesn't solve it.",
+       stances=[
+         ("ca26-alex-villanueva", 2, "Points to clearing encampments across the county as sheriff, saying enforcement and compassion go hand in hand.", "vill",
+          "His approach got people off the streets and into shelters, proving that enforcement and compassion can go hand in hand."),
+         ("ca26-robert-luna", 1, "A strong supporter of the department's homeless outreach teams, which he says resolved more than 300 encampments; also backed Measure A and Prop 1.", "luna",
+          "I am a strong supporter of the extraordinary work of the LASD Homeless Outreach Services Team (HOST) Teams, which have resolved more than 300 encampments"),
+       ]),
+  dict(slug="la-sheriff-deputy-gangs", name="Deputy gangs", level="local",
+       statement="The sheriff should ban deputy gangs (cliques of deputies with matching tattoos) inside the department.",
+       help="A 2021 Loyola Law School report found 18 deputy gangs had operated in the department over 50 years. Some say they drive misconduct; others call the problem exaggerated.",
+       stances=[
+         ("ca26-robert-luna", 2, "Established a policy banning law enforcement gangs in the department.", "luna",
+          "I created the Office of Constitutional Policing and established a new policy banning law enforcement gangs."),
+       ]),
+  dict(slug="monterey-park-data-center-ban", name="Monterey Park's data center ban", level="local",
+       statement="Monterey Park should keep its voter-approved ban on data centers.",
+       help="Monterey Park voters approved Measure NDC, a permanent ban on data centers. Supporters cite noise, power use and neighborhood impact; opponents cite lost tax revenue and jobs.",
+       stances=[
+         ("ca26-steven-kung", 2, "Co-founded No Data Center Monterey Park and helped lead the campaign for the ban.", "kung",
+          "I was one of the leaders of this movement, and I'm extremely proud of what we accomplished."),
+         ("ca26-vinh-t-ngo", 2, "Brought the emergency moratorium to the Council and started the process that became the ban.", "ngo",
+          "I brought the emergency moratorium to the Council and launched the legislative process that became Measure NDC"),
+       ]),
+  dict(slug="monterey-park-more-housing", name="More housing in Monterey Park", level="local",
+       statement="Monterey Park should build more housing.",
+       help="Supporters say more homes ease rents; opponents worry about traffic and neighborhood character. Measure HOM on this ballot is about housing overlays; neither candidate's statement mentions it.",
+       stances=[
+         ("ca26-steven-kung", 1, "Lists building more housing among the things he'd like to accomplish.", "kung",
+          "enhance the walkability of the city, build more housing, revitalize our downtown"),
        ]),
 ]
 build("ca-general-2026-11-03", "California 2026 General Election Quiz", axes, S)

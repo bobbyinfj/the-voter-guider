@@ -17,6 +17,8 @@ const stopLabels = {
 export default function ConfidenceIndicator({ results, onStop }: Props) {
   const pct = Math.round(results.questionsAnswered / Math.max(results.totalQuestions, 1) * 100);
   const { stopSuggestion } = results;
+  // How many races can suggest a match at all; the banner never claims a lean that no race has
+  const matched = results.officeResults.filter((o) => o.verdict === "match").length;
 
   return (
     <div className="space-y-3">
@@ -80,9 +82,13 @@ export default function ConfidenceIndicator({ results, onStop }: Props) {
       {stopSuggestion && onStop && (
         <div className={`flex items-center justify-between border rounded-lg px-3 py-2 ${stopLabels[stopSuggestion].color}`}>
           <span className="text-sm font-medium">
-            {stopSuggestion === "confident" && "Your picks are stable — you can stop here."}
-            {stopSuggestion === "thorough" && "You've covered everything — results are thorough."}
-            {stopSuggestion === "quick" && "You have a rough lean — keep going or stop."}
+            {matched === 0
+              ? "No race has enough sourced positions for a match yet. See where candidates stand, or keep going."
+              : stopSuggestion === "thorough"
+                ? `You've covered everything. ${matched} race${matched === 1 ? "" : "s"} can suggest a match.`
+                : stopSuggestion === "confident"
+                  ? `Your matches in ${matched} race${matched === 1 ? "" : "s"} are stable; you can stop here.`
+                  : `A rough lean in ${matched} race${matched === 1 ? "" : "s"}; keep going or stop.`}
           </span>
           <button
             onClick={onStop}

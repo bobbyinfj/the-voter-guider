@@ -32,6 +32,11 @@ stance; each race gets one verdict (`match`, `too-close`, `not-enough` below
 `lib/quiz/verdict.ts` words it for the quiz panel, results page and ballot alike. The election page
 shows each race's verdict under the contest (`lib/quiz/ballot.ts`); a clear match can be put on
 the ballot as a `?` (unsure) pick by the voter, never automatically.
+Quiz modules (`lib/quiz/modules.ts`): a question belongs to the levels (`Office.level`: federal, state,
+county, city, school) of the races on the voter's ballot where some candidate has a stance on it, worked
+out at runtime, never tagged by hand. The quiz page shows a chip per module (all on); `?modules=county,city`
+limits which questions are asked (scoring still uses every answer), and questions no race on the ballot
+has a stance on are never asked. Judges get no questions (judicial candidates can't campaign on issues).
 Adaptive question ordering in `lib/quiz/nextQuestion.ts` (maximises stance variance in uncertain races).
 Shared DB helpers in `lib/quiz/db.ts`.
 
