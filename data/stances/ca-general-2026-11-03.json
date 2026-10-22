@@ -132,6 +132,32 @@
       ]
     },
     {
+      "candidateId": "ca26-rob-bonta",
+      "issueId": "ca-sanctuary-law",
+      "position": 2,
+      "summary": "His office said it is prepared to vigorously defend the sanctuary law against Huntington Beach's lawsuit.",
+      "sources": [
+        {
+          "url": "https://voiceofoc.org/?p=3207961",
+          "title": "Voice of OC: Huntington Beach Sues California Over Sanctuary Laws",
+          "quote": "Our office successfully fought back against a challenge to SB 54 by the first Trump administration, and we are prepared to vigorously defend SB 54 again."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-michael-e-gates",
+      "issueId": "ca-sanctuary-law",
+      "position": -2,
+      "summary": "As Huntington Beach city attorney, sued to overturn the sanctuary law, arguing the city doesn't have to comply.",
+      "sources": [
+        {
+          "url": "https://voiceofoc.org/?p=3207961",
+          "title": "Voice of OC: Huntington Beach Sues California Over Sanctuary Laws",
+          "quote": "In the suit, Gates argues that as a charter city, Huntington Beach leaders don't have to comply with sanctuary laws."
+        }
+      ]
+    },
+    {
       "candidateId": "ca26-steve-hilton",
       "issueId": "ca-sanctuary-law",
       "position": -2,
@@ -249,6 +275,19 @@
       ]
     },
     {
+      "candidateId": "ca26-michael-e-gates",
+      "issueId": "ca-tougher-sentencing",
+      "position": 2,
+      "summary": "Says fully carrying out Prop 36, which raised penalties for some crimes, would be his highest priority.",
+      "sources": [
+        {
+          "url": "https://www.gates4ag.com/issues",
+          "title": "Michael Gates for Attorney General: Issues",
+          "quote": "Michael will make full implementation of Prop 36 across the State his highest priority after taking office."
+        }
+      ]
+    },
+    {
       "candidateId": "ca26-jane-kim",
       "issueId": "ca-public-disaster-insurance",
       "position": 2,
@@ -258,6 +297,19 @@
           "url": "https://calmatters.org/california-voter-guide-2026/insurance-commissioner/",
           "title": "CalMatters 2026 Voter Guide: Insurance Commissioner",
           "quote": "Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-ben-allen",
+      "issueId": "ca-public-disaster-insurance",
+      "position": -1,
+      "summary": "Called Kim's plans, led by public disaster insurance, \"totally unprecedented and unmoored\"; wants to reduce wildfire risk so private insurers keep covering homes.",
+      "sources": [
+        {
+          "url": "https://calmatters.org/economy/2026/10/insurance-commissioner-california-nov-election/",
+          "title": "CalMatters: CA to elect insurance commissioner at crucial time",
+          "quote": "Allen referred to Kim's plans as \"totally unprecedented and unmoored.\""
         }
       ]
     },
@@ -301,6 +353,19 @@
       ]
     },
     {
+      "candidateId": "ca26-gloria-romero",
+      "issueId": "ca-voter-id",
+      "position": 2,
+      "summary": "Her campaign site asks visitors to sign a voter ID petition.",
+      "sources": [
+        {
+          "url": "https://www.gloriaromero4ltgov.com/",
+          "title": "Gloria Romero for Lt. Governor (campaign site)",
+          "quote": "SIGN THE VOTER ID PETITION"
+        }
+      ]
+    },
+    {
       "candidateId": "ca26-sonja-shaw",
       "issueId": "ca-transgender-student-protections",
       "position": -2,
@@ -310,6 +375,19 @@
           "url": "https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/",
           "title": "CalMatters 2026 Voter Guide: Superintendent",
           "quote": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students."
+        }
+      ]
+    },
+    {
+      "candidateId": "ca26-richard-barrera",
+      "issueId": "ca-transgender-student-protections",
+      "position": 2,
+      "summary": "Disagreed with Shaw at a candidate forum, saying the state's laws protect LGBTQ+ students.",
+      "sources": [
+        {
+          "url": "https://timesofsandiego.com/education/2026/06/03/san-diego-barrera-second-race-superintendent-public-instruction/",
+          "title": "Times of San Diego: San Diego's Barrera second in race for superintendent of public instruction",
+          "quote": "Barrera, a senior policy adviser at the state Department of Education, disagreed with Shaw's position during an April EdSource forum, saying the laws protect LGBTQ+ students."
         }
       ]
     }
