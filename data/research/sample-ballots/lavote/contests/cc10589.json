@@ -1,0 +1,196 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10589.json",
+ "data": {
+  "id": "cc10589",
+  "long_description": {},
+  "name": {
+   "EN": "LOS ANGELES COMMUNITY COLLEGE DISTRICT Member of the Board of Trustees, Seat 4"
+  },
+  "short_name": {
+   "EN": "LOS ANGELES COMM-BOT 4"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "33C",
+    "name": [
+     {
+      "EN": "DARRYN HARRIS"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DARRYN HARRIS"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Community College Educator"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33D",
+    "name": [
+     {
+      "EN": "NANCY PEARLMAN"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NANCY PEARLMAN"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Environmentalist/Anthropologist/Educator"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33E",
+    "name": [
+     {
+      "EN": "ELAINE ALANIZ"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ELAINE ALANIZ"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Healthcare Workforce Specialist"
+     }
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33F",
+    "name": [
+     {
+      "EN": "ISIDRO J. ARMENTA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ISIDRO J ARMENTA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Fire Department Employee"
+     }
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33G",
+    "name": [
+     {
+      "EN": "JASON R. AULA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "JASON R AULA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Business Owner/Journalist"
+     }
+    ],
+    "statements": [],
+    "order": 4,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33H",
+    "name": [
+     {
+      "EN": "ADAM BRUNO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ADAM BRUNO"
+     }
+    ],
+    "occupation": [
+     {}
+    ],
+    "statements": [],
+    "order": 5,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33J",
+    "name": [
+     {
+      "EN": "PRISCILLA UMANA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "PRISCILLA UMANA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "ASL Educational Interpreter"
+     }
+    ],
+    "statements": [],
+    "order": 6,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3RW",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 8,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

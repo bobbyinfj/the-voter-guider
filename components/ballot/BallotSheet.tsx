@@ -31,7 +31,7 @@ export default function BallotSheet({
               {section.notice}
             </p>
           )}
-          {section.continued ? (
+          {section.continued || section.noBar ? (
             <h3 className="sr-only">{section.label}</h3>
           ) : (
             <h3 className="break-inside-avoid break-after-avoid bg-ballot-bar px-2 py-1 font-ballot-heading text-[13px] font-bold text-white print:bg-black">

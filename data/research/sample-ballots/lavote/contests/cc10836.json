@@ -1,0 +1,88 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10836.json",
+ "data": {
+  "id": "cc10836",
+  "long_description": {},
+  "name": {
+   "EN": "SUPERINTENDENT OF PUBLIC INSTRUCTION"
+  },
+  "short_name": {
+   "EN": "SUPERINTENDENT PUBLIC INST"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3FK",
+    "name": [
+     {
+      "EN": "SONJA SHAW"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "SONJA SHAW"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "School District President"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3FL",
+    "name": [
+     {
+      "EN": "RICHARD BARRERA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RICHARD BARRERA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "State Superintendent Advisor"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "5UC",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10827.json",
+ "data": {
+  "id": "cc10827",
+  "long_description": {},
+  "name": {
+   "EN": "JUDGE OF THE SUPERIOR COURT Office No. 131"
+  },
+  "short_name": {
+   "EN": "JUDGE-SUPERIOR COURT #131"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D63",
+  "candidates": [
+   {
+    "id": "3EV",
+    "name": [
+     {
+      "EN": "DAVID ROSS"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DAVID ROSS"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy Alternate Public Defender, County of Los Angeles"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3EW",
+    "name": [
+     {
+      "EN": "DONNA TRYFMAN"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DONNA TRYFMAN"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy Public Defender, County of Los Angeles"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3U7",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

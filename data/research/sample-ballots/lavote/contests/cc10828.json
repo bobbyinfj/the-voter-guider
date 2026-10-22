@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10828.json",
+ "data": {
+  "id": "cc10828",
+  "long_description": {},
+  "name": {
+   "EN": "GOVERNOR"
+  },
+  "short_name": {
+   "EN": "GOVERNOR"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3F3",
+    "name": [
+     {
+      "EN": "STEVE HILTON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "STEVE HILTON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Small Business Owner"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VRP",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3F4",
+    "name": [
+     {
+      "EN": "XAVIER BECERRA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "XAVIER BECERRA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Voting Rights Attorney"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

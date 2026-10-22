@@ -5,7 +5,7 @@
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "California's November 3 general election as it appears on Monterey Park ballots: Governor and the other statewide offices, U.S. House District 28, Assembly District 49, the Los Angeles County Sheriff runoff, Monterey Park city races, 14 statewide propositions, two county charter amendments and two city measures. School and special-district measures are not included. California has no U.S. Senate race in 2026. Candidates and ballot designations are from the Secretary of State's certified list (Aug 27, 2026).",
+  "description": "California's November 3 general election as it appears on Monterey Park ballots: Monterey Park city races and measures, Los Angeles Community College District trustees, Assembly District 49, U.S. House District 28, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park addresses. A few edge precincts also vote on a Water Replenishment District seat, a Montebello Unified trustee area or City of Los Angeles Measure SC; those aren't included. California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
   "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
   "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
   "jurisdiction": {
@@ -43,20 +43,52 @@
       "termYears": 2,
       "candidates": [
         {
-          "id": "ca26-judy-chu",
-          "name": "Judy Chu",
-          "party": "Democratic",
-          "incumbent": true,
-          "shortBio": "United States Representative"
-        },
-        {
           "id": "ca26-april-a-verlato",
           "name": "April A. Verlato",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Small Business Owner"
+        },
+        {
+          "id": "ca26-judy-chu",
+          "name": "Judy Chu",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "United States Representative"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 800,
+        "section": "",
+        "heading": [
+          "UNITED STATES REPRESENTATIVE, 28th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10808.json",
+        "candidates": [
+          {
+            "name": "April A. Verlato",
+            "label": "APRIL A. VERLATO",
+            "party": "Party Preference: Republican",
+            "designation": "Small Business Owner"
+          },
+          {
+            "name": "Judy Chu",
+            "label": "JUDY CHU",
+            "party": "Party Preference: Democratic",
+            "designation": "United States Representative"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-governor",
@@ -67,20 +99,52 @@
       "description": "Chief executive of California. 4-year term; Gavin Newsom is term-limited.",
       "candidates": [
         {
-          "id": "ca26-xavier-becerra",
-          "name": "Xavier Becerra",
-          "party": "Democratic",
-          "incumbent": false,
-          "shortBio": "Voting Rights Attorney"
-        },
-        {
           "id": "ca26-steve-hilton",
           "name": "Steve Hilton",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Small Business Owner"
+        },
+        {
+          "id": "ca26-xavier-becerra",
+          "name": "Xavier Becerra",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Voting Rights Attorney"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1800,
+        "section": "",
+        "heading": [
+          "GOVERNOR"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10828.json",
+        "candidates": [
+          {
+            "name": "Steve Hilton",
+            "label": "STEVE HILTON",
+            "party": "Party Preference: Republican",
+            "designation": "Small Business Owner"
+          },
+          {
+            "name": "Xavier Becerra",
+            "label": "XAVIER BECERRA",
+            "party": "Party Preference: Democratic",
+            "designation": "Voting Rights Attorney"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-lt-governor",
@@ -91,20 +155,52 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-fiona-ma",
-          "name": "Fiona Ma",
-          "party": "Democratic",
-          "incumbent": false,
-          "shortBio": "State Treasurer/CPA"
-        },
-        {
           "id": "ca26-gloria-romero",
           "name": "Gloria Romero",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Educator/Businesswoman"
+        },
+        {
+          "id": "ca26-fiona-ma",
+          "name": "Fiona Ma",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "State Treasurer/CPA"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1900,
+        "section": "",
+        "heading": [
+          "LIEUTENANT GOVERNOR"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10829.json",
+        "candidates": [
+          {
+            "name": "Gloria Romero",
+            "label": "GLORIA ROMERO",
+            "party": "Party Preference: Republican",
+            "designation": "Educator/Businesswoman"
+          },
+          {
+            "name": "Fiona Ma",
+            "label": "FIONA MA",
+            "party": "Party Preference: Democratic",
+            "designation": "State Treasurer/CPA"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-secretary-of-state",
@@ -115,20 +211,52 @@
       "description": "Chief elections officer. 4-year term.",
       "candidates": [
         {
-          "id": "ca26-shirley-n-weber",
-          "name": "Shirley N. Weber",
-          "party": "Democratic",
-          "incumbent": true,
-          "shortBio": "California Secretary of State"
-        },
-        {
           "id": "ca26-donald-p-don-wagner",
           "name": "Donald P. (Don) Wagner",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Orange County Supervisor"
+        },
+        {
+          "id": "ca26-shirley-n-weber",
+          "name": "Shirley N. Weber",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California Secretary of State"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2000,
+        "section": "",
+        "heading": [
+          "SECRETARY OF STATE"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10830.json",
+        "candidates": [
+          {
+            "name": "Donald P. (Don) Wagner",
+            "label": "DONALD P. (DON) WAGNER",
+            "party": "Party Preference: Republican",
+            "designation": "Orange County Supervisor"
+          },
+          {
+            "name": "Shirley N. Weber",
+            "label": "SHIRLEY N. WEBER",
+            "party": "Party Preference: Democratic",
+            "designation": "California Secretary of State"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-controller",
@@ -152,7 +280,39 @@
           "incumbent": false,
           "shortBio": "Chief Investment Officer"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2100,
+        "section": "",
+        "heading": [
+          "CONTROLLER"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10831.json",
+        "candidates": [
+          {
+            "name": "Malia M. Cohen",
+            "label": "MALIA M. COHEN",
+            "party": "Party Preference: Democratic",
+            "designation": "State Controller/Mother"
+          },
+          {
+            "name": "Herb W Morgan",
+            "label": "HERB W MORGAN",
+            "party": "Party Preference: Republican",
+            "designation": "Chief Investment Officer"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-treasurer",
@@ -163,20 +323,52 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-eleni-kounalakis",
-          "name": "Eleni Kounalakis",
-          "party": "Democratic",
-          "incumbent": false,
-          "shortBio": "Lieutenant Governor of California"
-        },
-        {
           "id": "ca26-jennifer-hawks",
           "name": "Jennifer Hawks",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Retired Business Executive"
+        },
+        {
+          "id": "ca26-eleni-kounalakis",
+          "name": "Eleni Kounalakis",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Lieutenant Governor of California"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2200,
+        "section": "",
+        "heading": [
+          "TREASURER"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10832.json",
+        "candidates": [
+          {
+            "name": "Jennifer Hawks",
+            "label": "JENNIFER HAWKS",
+            "party": "Party Preference: Republican",
+            "designation": "Retired Business Executive"
+          },
+          {
+            "name": "Eleni Kounalakis",
+            "label": "ELENI KOUNALAKIS",
+            "party": "Party Preference: Democratic",
+            "designation": "Lieutenant Governor of California"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-attorney-general",
@@ -200,7 +392,39 @@
           "incumbent": false,
           "shortBio": "Deputy United States Attorney"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2300,
+        "section": "",
+        "heading": [
+          "ATTORNEY GENERAL"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10833.json",
+        "candidates": [
+          {
+            "name": "Rob Bonta",
+            "label": "ROB BONTA",
+            "party": "Party Preference: Democratic",
+            "designation": "California Attorney General"
+          },
+          {
+            "name": "Michael E. Gates",
+            "label": "MICHAEL E. GATES",
+            "party": "Party Preference: Republican",
+            "designation": "Deputy United States Attorney"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-insurance-commissioner",
@@ -211,20 +435,52 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-ben-allen",
-          "name": "Ben Allen",
-          "party": "Democratic",
-          "incumbent": false,
-          "shortBio": "California State Senator"
-        },
-        {
           "id": "ca26-jane-kim",
           "name": "Jane Kim",
           "party": "Democratic",
           "incumbent": false,
           "shortBio": "Attorney/Consumer Advocate"
+        },
+        {
+          "id": "ca26-ben-allen",
+          "name": "Ben Allen",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "California State Senator"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2400,
+        "section": "",
+        "heading": [
+          "INSURANCE COMMISSIONER"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10834.json",
+        "candidates": [
+          {
+            "name": "Jane Kim",
+            "label": "JANE KIM",
+            "party": "Party Preference: Democratic",
+            "designation": "Attorney/Consumer Advocate"
+          },
+          {
+            "name": "Ben Allen",
+            "label": "BEN ALLEN",
+            "party": "Party Preference: Democratic",
+            "designation": "California State Senator"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-superintendent",
@@ -235,20 +491,50 @@
       "description": "Nonpartisan. 4-year term.",
       "candidates": [
         {
-          "id": "ca26-richard-barrera",
-          "name": "Richard Barrera",
-          "party": "Nonpartisan",
-          "incumbent": false,
-          "shortBio": "State Superintendent Advisor"
-        },
-        {
           "id": "ca26-sonja-shaw",
           "name": "Sonja Shaw",
           "party": "Nonpartisan",
           "incumbent": false,
           "shortBio": "School District President"
+        },
+        {
+          "id": "ca26-richard-barrera",
+          "name": "Richard Barrera",
+          "party": "Nonpartisan",
+          "incumbent": false,
+          "shortBio": "State Superintendent Advisor"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2600,
+        "section": "",
+        "heading": [
+          "SUPERINTENDENT OF PUBLIC INSTRUCTION"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10836.json",
+        "candidates": [
+          {
+            "name": "Sonja Shaw",
+            "label": "SONJA SHAW",
+            "designation": "School District President"
+          },
+          {
+            "name": "Richard Barrera",
+            "label": "RICHARD BARRERA",
+            "designation": "State Superintendent Advisor"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "ca26-boe-3",
@@ -272,7 +558,39 @@
           "incumbent": false,
           "shortBio": "Labor Union Organizer"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2500,
+        "section": "",
+        "heading": [
+          "MEMBER STATE BOARD OF EQUALIZATION 3rd District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10835.json",
+        "candidates": [
+          {
+            "name": "Mike Gipson",
+            "label": "MIKE GIPSON",
+            "party": "Party Preference: Democratic",
+            "designation": "State Assemblymember/Father"
+          },
+          {
+            "name": "Samuel P. Sukaton",
+            "label": "SAMUEL P. SUKATON",
+            "party": "Party Preference: Democratic",
+            "designation": "Labor Union Organizer"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-assembly-49",
@@ -284,20 +602,52 @@
       "termYears": 2,
       "candidates": [
         {
-          "id": "ca26-mike-fong",
-          "name": "Mike Fong",
-          "party": "Democratic",
-          "incumbent": true,
-          "shortBio": "California State Assemblymember"
-        },
-        {
           "id": "ca26-long-david-liu",
           "name": "Long David Liu",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Attorney/Father"
+        },
+        {
+          "id": "ca26-mike-fong",
+          "name": "Mike Fong",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California State Assemblymember"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 700,
+        "section": "",
+        "heading": [
+          "MEMBER OF THE STATE ASSEMBLY, 49th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10790.json",
+        "candidates": [
+          {
+            "name": "Long David Liu",
+            "label": "LONG DAVID LIU",
+            "party": "Party Preference: Republican",
+            "designation": "Attorney/Father"
+          },
+          {
+            "name": "Mike Fong",
+            "label": "MIKE FONG",
+            "party": "Party Preference: Democratic",
+            "designation": "California State Assemblymember"
+          }
+        ],
+        "writeIn": false
+      }
     },
     {
       "id": "ca26-la-sheriff",
@@ -308,16 +658,46 @@
       "description": "Nonpartisan runoff; no candidate won a majority in the June 2 primary. A rematch of 2022.",
       "candidates": [
         {
-          "id": "ca26-robert-luna",
-          "name": "Robert Luna",
-          "incumbent": true
-        },
-        {
           "id": "ca26-alex-villanueva",
           "name": "Alex Villanueva",
           "incumbent": false
+        },
+        {
+          "id": "ca26-robert-luna",
+          "name": "Robert Luna",
+          "incumbent": true
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1100,
+        "section": "",
+        "heading": [
+          "SHERIFF"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10823.json",
+        "candidates": [
+          {
+            "name": "Alex Villanueva",
+            "label": "ALEX VILLANUEVA",
+            "designation": "Retired Peace Officer"
+          },
+          {
+            "name": "Robert Luna",
+            "label": "ROBERT G. LUNA",
+            "designation": "Sheriff of Los Angeles County"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "ca26-mp-council-1",
@@ -337,7 +717,33 @@
           "incumbent": false,
           "shortBio": "Monterey Park City Councilmember"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 0,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "Member of the City Council, 1st District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10490.json",
+        "candidates": [
+          {
+            "name": "Thomas Wong",
+            "label": "THOMAS WONG",
+            "designation": "Monterey Park City Councilmember"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "ca26-mp-council-5",
@@ -363,7 +769,38 @@
           "incumbent": false,
           "shortBio": "Monterey Park City Councilmember"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 100,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "Member of the City Council, 5th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10491.json",
+        "candidates": [
+          {
+            "name": "Steven Kung",
+            "label": "STEVEN KUNG",
+            "designation": "Filmmaker/Community Organizer"
+          },
+          {
+            "name": "Vinh T. Ngo",
+            "label": "VINH T. NGO",
+            "designation": "Monterey Park City Councilmember"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "ca26-mp-clerk",
@@ -380,7 +817,33 @@
           "incumbent": false,
           "shortBio": "Mother/Realtor/Entrepreneur"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 500,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "City Clerk"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10493.json",
+        "candidates": [
+          {
+            "name": "Dora Leung",
+            "label": "DORA LEUNG",
+            "designation": "Mother/Realtor/Entrepreneur"
+          }
+        ],
+        "writeIn": true
+      }
     },
     {
       "id": "ca26-mp-treasurer",
@@ -397,7 +860,519 @@
           "incumbent": false,
           "shortBio": "City Treasurer/Attorney"
         }
-      ]
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 600,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "City Treasurer"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10492.json",
+        "candidates": [
+          {
+            "name": "Amy Lee",
+            "label": "AMY LEE",
+            "designation": "City Treasurer/Attorney"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-laccd-2",
+      "title": "Los Angeles Community College District Trustee, Seat 2",
+      "level": "school",
+      "jurisdictionFips": "06037",
+      "sortOrder": 74,
+      "description": "At-large across the Los Angeles Community College District, which includes Monterey Park. Nonpartisan.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-adriana-cabrera",
+          "name": "ADRIANA CABRERA",
+          "incumbent": false,
+          "shortBio": "Educator"
+        },
+        {
+          "id": "ca26-roy-payan",
+          "name": "ROY PAYAN",
+          "incumbent": false,
+          "shortBio": "Disabled Student Advocate"
+        },
+        {
+          "id": "ca26-robert-payne",
+          "name": "ROBERT PAYNE",
+          "incumbent": false,
+          "shortBio": "Researcher/Writer/Environmentalist"
+        },
+        {
+          "id": "ca26-kristina-irwin",
+          "name": "KRISTINA IRWIN",
+          "incumbent": false,
+          "shortBio": "Parent/Business Owner"
+        },
+        {
+          "id": "ca26-steven-f-veres",
+          "name": "STEVEN F. VERES",
+          "incumbent": true,
+          "shortBio": "Los Angeles Community College District, Member of the Board of Trustees"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 200,
+        "section": "",
+        "heading": [
+          "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
+          "Member of the Board of Trustees, Seat 2"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10588.json",
+        "candidates": [
+          {
+            "name": "ADRIANA CABRERA",
+            "label": "ADRIANA CABRERA",
+            "designation": "Educator"
+          },
+          {
+            "name": "ROY PAYAN",
+            "label": "ROY PAYAN",
+            "designation": "Disabled Student Advocate"
+          },
+          {
+            "name": "ROBERT PAYNE",
+            "label": "ROBERT PAYNE",
+            "designation": "Researcher/Writer/Environmentalist"
+          },
+          {
+            "name": "KRISTINA IRWIN",
+            "label": "KRISTINA IRWIN",
+            "designation": "Parent/Business Owner"
+          },
+          {
+            "name": "STEVEN F. VERES",
+            "label": "STEVEN F. VERES",
+            "designation": "Los Angeles Community College District, Member of the Board of Trustees"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-laccd-4",
+      "title": "Los Angeles Community College District Trustee, Seat 4",
+      "level": "school",
+      "jurisdictionFips": "06037",
+      "sortOrder": 75,
+      "description": "At-large across the Los Angeles Community College District, which includes Monterey Park. Nonpartisan.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-darryn-harris",
+          "name": "DARRYN HARRIS",
+          "incumbent": false,
+          "shortBio": "Community College Educator"
+        },
+        {
+          "id": "ca26-nancy-pearlman",
+          "name": "NANCY PEARLMAN",
+          "incumbent": false,
+          "shortBio": "Environmentalist/Anthropologist/Educator"
+        },
+        {
+          "id": "ca26-elaine-alaniz",
+          "name": "ELAINE ALANIZ",
+          "incumbent": false,
+          "shortBio": "Healthcare Workforce Specialist"
+        },
+        {
+          "id": "ca26-isidro-j-armenta",
+          "name": "ISIDRO J. ARMENTA",
+          "incumbent": false,
+          "shortBio": "Fire Department Employee"
+        },
+        {
+          "id": "ca26-jason-r-aula",
+          "name": "JASON R. AULA",
+          "incumbent": false,
+          "shortBio": "Business Owner/Journalist"
+        },
+        {
+          "id": "ca26-adam-bruno",
+          "name": "ADAM BRUNO",
+          "incumbent": false
+        },
+        {
+          "id": "ca26-priscilla-umana",
+          "name": "PRISCILLA UMANA",
+          "incumbent": false,
+          "shortBio": "ASL Educational Interpreter"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 300,
+        "section": "",
+        "heading": [
+          "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
+          "Member of the Board of Trustees, Seat 4"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10589.json",
+        "candidates": [
+          {
+            "name": "DARRYN HARRIS",
+            "label": "DARRYN HARRIS",
+            "designation": "Community College Educator"
+          },
+          {
+            "name": "NANCY PEARLMAN",
+            "label": "NANCY PEARLMAN",
+            "designation": "Environmentalist/Anthropologist/Educator"
+          },
+          {
+            "name": "ELAINE ALANIZ",
+            "label": "ELAINE ALANIZ",
+            "designation": "Healthcare Workforce Specialist"
+          },
+          {
+            "name": "ISIDRO J. ARMENTA",
+            "label": "ISIDRO J. ARMENTA",
+            "designation": "Fire Department Employee"
+          },
+          {
+            "name": "JASON R. AULA",
+            "label": "JASON R. AULA",
+            "designation": "Business Owner/Journalist"
+          },
+          {
+            "name": "ADAM BRUNO",
+            "label": "ADAM BRUNO"
+          },
+          {
+            "name": "PRISCILLA UMANA",
+            "label": "PRISCILLA UMANA",
+            "designation": "ASL Educational Interpreter"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-laccd-6",
+      "title": "Los Angeles Community College District Trustee, Seat 6",
+      "level": "school",
+      "jurisdictionFips": "06037",
+      "sortOrder": 76,
+      "description": "At-large across the Los Angeles Community College District, which includes Monterey Park. Nonpartisan.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-randall-winston",
+          "name": "RANDALL WINSTON",
+          "incumbent": false,
+          "shortBio": "Architect"
+        },
+        {
+          "id": "ca26-tonia-arey",
+          "name": "TONIA AREY",
+          "incumbent": false,
+          "shortBio": "Realtor"
+        },
+        {
+          "id": "ca26-roberto-david-lacarra",
+          "name": "ROBERTO DAVID LACARRA",
+          "incumbent": false,
+          "shortBio": "Community College Professor"
+        },
+        {
+          "id": "ca26-gabriel-buelna",
+          "name": "GABRIEL BUELNA",
+          "incumbent": true,
+          "shortBio": "Member of the Board of Trustees, Los Angeles Community College District, Seat 6"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 400,
+        "section": "",
+        "heading": [
+          "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
+          "Member of the Board of Trustees, Seat 6"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10590.json",
+        "candidates": [
+          {
+            "name": "RANDALL WINSTON",
+            "label": "RANDALL WINSTON",
+            "designation": "Architect"
+          },
+          {
+            "name": "TONIA AREY",
+            "label": "TONIA AREY",
+            "designation": "Realtor"
+          },
+          {
+            "name": "ROBERTO DAVID LACARRA",
+            "label": "ROBERTO DAVID LACARRA",
+            "designation": "Community College Professor"
+          },
+          {
+            "name": "GABRIEL BUELNA",
+            "label": "GABRIEL BUELNA",
+            "designation": "Member of the Board of Trustees, Los Angeles Community College District, Seat 6"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-la-superior-64",
+      "title": "Judge of the Superior Court, Office No. 64",
+      "level": "county",
+      "jurisdictionFips": "06037",
+      "sortOrder": 80,
+      "description": "Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "ca26-maria-ghobadi",
+          "name": "MARIA GHOBADI",
+          "incumbent": false,
+          "shortBio": "Deputy District Attorney, County of Los Angeles"
+        },
+        {
+          "id": "ca26-rhonda-a-haymon",
+          "name": "RHONDA A. HAYMON",
+          "incumbent": false,
+          "shortBio": "Deputy Public Defender, County of Los Angeles"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1200,
+        "section": "",
+        "heading": [
+          "JUDGE OF THE SUPERIOR COURT",
+          "Office No. 64"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10824.json",
+        "candidates": [
+          {
+            "name": "MARIA GHOBADI",
+            "label": "MARIA GHOBADI",
+            "designation": "Deputy District Attorney, County of Los Angeles"
+          },
+          {
+            "name": "RHONDA A. HAYMON",
+            "label": "RHONDA A. HAYMON",
+            "designation": "Deputy Public Defender, County of Los Angeles"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-la-superior-65",
+      "title": "Judge of the Superior Court, Office No. 65",
+      "level": "county",
+      "jurisdictionFips": "06037",
+      "sortOrder": 81,
+      "description": "Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "ca26-anna-slotky-reitano",
+          "name": "ANNA SLOTKY REITANO",
+          "incumbent": false,
+          "shortBio": "Deputy County Counsel, County of Los Angeles"
+        },
+        {
+          "id": "ca26-justin-allen-clayton",
+          "name": "JUSTIN ALLEN CLAYTON",
+          "incumbent": false,
+          "shortBio": "Deputy Public Defender, County of Los Angeles"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1300,
+        "section": "",
+        "heading": [
+          "JUDGE OF THE SUPERIOR COURT",
+          "Office No. 65"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10825.json",
+        "candidates": [
+          {
+            "name": "ANNA SLOTKY REITANO",
+            "label": "ANNA SLOTKY REITANO",
+            "designation": "Deputy County Counsel, County of Los Angeles"
+          },
+          {
+            "name": "JUSTIN ALLEN CLAYTON",
+            "label": "JUSTIN ALLEN CLAYTON",
+            "designation": "Deputy Public Defender, County of Los Angeles"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-la-superior-87",
+      "title": "Judge of the Superior Court, Office No. 87",
+      "level": "county",
+      "jurisdictionFips": "06037",
+      "sortOrder": 82,
+      "description": "Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "ca26-anthony-a-j-bayne",
+          "name": "ANTHONY (A.J.) BAYNE",
+          "incumbent": false,
+          "shortBio": "Deputy Public Defender, County of Los Angeles"
+        },
+        {
+          "id": "ca26-david-dejute",
+          "name": "DAVID DEJUTE",
+          "incumbent": false,
+          "shortBio": "Law Professor/Attorney"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1400,
+        "section": "",
+        "heading": [
+          "JUDGE OF THE SUPERIOR COURT",
+          "Office No. 87"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10826.json",
+        "candidates": [
+          {
+            "name": "ANTHONY (A.J.) BAYNE",
+            "label": "ANTHONY (A.J.) BAYNE",
+            "designation": "Deputy Public Defender, County of Los Angeles"
+          },
+          {
+            "name": "DAVID DEJUTE",
+            "label": "DAVID DEJUTE",
+            "designation": "Law Professor/Attorney"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-la-superior-131",
+      "title": "Judge of the Superior Court, Office No. 131",
+      "level": "county",
+      "jurisdictionFips": "06037",
+      "sortOrder": 83,
+      "description": "Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.",
+      "termYears": 6,
+      "candidates": [
+        {
+          "id": "ca26-donna-tryfman",
+          "name": "DONNA TRYFMAN",
+          "incumbent": false,
+          "shortBio": "Deputy Public Defender, County of Los Angeles"
+        },
+        {
+          "id": "ca26-david-ross",
+          "name": "DAVID ROSS",
+          "incumbent": false,
+          "shortBio": "Deputy Alternate Public Defender, County of Los Angeles"
+        }
+      ],
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1500,
+        "section": "",
+        "heading": [
+          "JUDGE OF THE SUPERIOR COURT",
+          "Office No. 131"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10827.json",
+        "candidates": [
+          {
+            "name": "DONNA TRYFMAN",
+            "label": "DONNA TRYFMAN",
+            "designation": "Deputy Public Defender, County of Los Angeles"
+          },
+          {
+            "name": "DAVID ROSS",
+            "label": "DAVID ROSS",
+            "designation": "Deputy Alternate Public Defender, County of Los Angeles"
+          }
+        ],
+        "writeIn": true
+      }
     }
   ],
   "measures": [
@@ -412,7 +1387,29 @@
       "yesMeans": "The state could borrow $11.25 billion to support veterans and affordable housing.",
       "noMeans": "The state could not borrow $11.25 billion to support veterans and affordable housing.",
       "fiscalImpact": "Increased state cost of $500 million to $600 million annually for about 25 years to repay the housing bond.",
-      "placedBy": "Put on the ballot by the Legislature"
+      "placedBy": "Put on the ballot by the Legislature",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2700,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 1"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10853.json",
+        "question": "AUTHORIZES BONDS FOR HOUSING AFFORDABILITY PROGRAMS. LEGISLATIVE STATUTE. Authorizes $11.25 billion in state general obligation bonds for housing affordability programs, including multifamily rental housing, mortgages for veterans, supportive housing, preservation of existing affordable housing, and downpayment assistance. Fiscal Impact: Increased state cost of $500 million to $600 million annually for about 25 years to repay the housing bond. Supporters: US Vets; CA Federation of Teachers; Self-Help for the Elderly; Habitat for Humanity CA; CA Alliance of Child & Family Services Opponents: None submitted.",
+        "responses": [
+          "YES on Measure 1",
+          "NO on Measure 1"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-2",
@@ -425,7 +1422,29 @@
       "yesMeans": "Rules for building state budget reserves and paying down extra state debts would change. As a result, state budget reserves would be higher. The state also would be required to make extra debt payments for longer.",
       "noMeans": "Rules for building state budget reserves and paying down extra state debts would not change.",
       "fiscalImpact": "State budget reserves would be higher.",
-      "placedBy": "Put on the ballot by the Legislature"
+      "placedBy": "Put on the ballot by the Legislature",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2800,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 2"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10854.json",
+        "question": "INCREASES STATE'S RAINY DAY FUND. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Increases California's Rainy Day Fund, approved by voters in 2014, to provide funding for education, health care, public safety, and other essential services during economic downturns. Fiscal Impact: State budget reserves would be higher. Supporters: CA Professional Firefighters; LA Chamber of Commerce; Gavin Newsom; Xavier Becerra; Assemblymember Jesse Gabriel Opponents: None submitted.",
+        "responses": [
+          "YES on Measure 2",
+          "NO on Measure 2"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-3",
@@ -438,7 +1457,29 @@
       "yesMeans": "An income tax increase on high-income earners in place since 2012 would become permanent instead of expiring in 2031.",
       "noMeans": "An income tax increase on high-income earners in place since 2012 would expire in 2031.",
       "fiscalImpact": "Maintains $5 billion to $15 billion of annual state income tax revenue by making a temporary tax increase on high-income earners permanent instead of letting it expire in 2031.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 2900,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 3"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10855.json",
+        "question": "PROVIDES PERMANENT FUNDING FOR SCHOOLS AND HEALTH CARE BY EXTENDING EXISTING TAX ON HIGH INCOMES. INITIATIVE CONSTITUTIONAL AMENDMENT. Makes permanent existing voter-approved tax rates for individuals earning over $371,000 (adjusted annually for inflation). Allocates tax revenues to public education. Fiscal Impact: Maintains $5 billion to $15 billion of annual state income tax revenue by making a temporary tax increase on high-income earners permanent instead of letting it expire in 2031. Supporters: California Teachers Association; CA School Nurses Organization; California State PTA; Planned Parenthood Affiliates of CA Opponents: California Taxpayers Association; Family Business Association of California; California Hispanic Chambers of Commerce",
+        "responses": [
+          "YES on Measure 3",
+          "NO on Measure 3"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-4",
@@ -451,7 +1492,29 @@
       "yesMeans": "State and local governments could create public campaign financing programs for public office candidates, subject to limits on which public funds could be used, how the public funds could be used, and who could receive them.",
       "noMeans": "State and most local governments would remain unable to create public campaign finance programs for public office candidates.",
       "fiscalImpact": "Ongoing costs to the state of a few hundred thousand dollars each year for the Fair Political Practices Commission to answer questions from state and local governments about public campaign finance programs.",
-      "placedBy": "Put on the ballot by the Legislature"
+      "placedBy": "Put on the ballot by the Legislature",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3000,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 4"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10856.json",
+        "question": "REPEALS PROHIBITION AGAINST PUBLIC FUNDING OF ELECTION CAMPAIGNS. LEGISLATIVE STATUTE. Repeals prohibition on state and local governments offering public funding of candidate election campaigns. Public funding programs may not use funds earmarked for education, transportation, or public safety. Fiscal Impact: Ongoing costs to the state of a few hundred thousand dollars each year for the Fair Political Practices Commission to answer questions from state and local governments about public campaign finance programs. Supporters: League of Women Voters of CA; California Nurses Association; Mental Health Advocacy; Social Security Works; Consumer Watchdog Opponents: California Taxpayers Assn; Howard Jarvis Taxpayers Assn; Family Business Assn of California; United Latinos Action",
+        "responses": [
+          "YES on Measure 4",
+          "NO on Measure 4"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-5",
@@ -464,7 +1527,29 @@
       "yesMeans": "Recall elections would no longer include a question about who should fill the vacancy. Instead, vacancies typically would be filled through special elections or appointments, depending on the office and timing.",
       "noMeans": "Voters would continue to be asked who should fill the vacancy as part of recall elections.",
       "fiscalImpact": "Net fiscal effect unknown. In the event of a recall, savings or costs of millions of dollars to administer the election depending on the office recalled.",
-      "placedBy": "Put on the ballot by the Legislature"
+      "placedBy": "Put on the ballot by the Legislature",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3100,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 5"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10857.json",
+        "question": "CHANGES RECALL ELECTION PROCESS FOR STATEWIDE OFFICERS. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Under current law, voters elect replacement candidates at the same time as the recall election. This measure instead fills recall vacancies by subsequent special election or appointment. Fiscal Impact: Net fiscal effect unknown. In the event of a recall, savings or costs of millions of dollars to administer the election depending on the office recalled. Supporters: None submitted Opponents: None submitted.",
+        "responses": [
+          "YES on Measure 5",
+          "NO on Measure 5"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-37",
@@ -477,7 +1562,29 @@
       "yesMeans": "The state would create a new homebuying assistance program. The state could sell up to $25 billion in revenue bonds to fund the program. Bonds would be paid back by homeowners’ payments on their home loans.",
       "noMeans": "The state would not be required to create a new homebuying assistance program.",
       "fiscalImpact": "No direct state or local costs.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3200,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 37"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10858.json",
+        "question": "CREATES LOAN PROGRAM FOR MIDDLE-INCOME BUYERS OF QUALIFIED NEW HOMES. INITIATIVE STATUTE. Authorizes $25 billion in bonds to offer eligible buyers fixed-rate mortgages for up to 17% of purchase price of a newly constructed home priced below about $1.5 million. Borrowers must be California residents, occupy the home, meet income limits, and pay at least 3% down. Bonds repaid by mortgage payments, not State. Fiscal Impact: No direct state or local costs. Supporters: United Nurses Associations of California; California Conference of Carpenters; California State Treasurer Fiona Ma Opponents: None submitted.",
+        "responses": [
+          "YES on Measure 37",
+          "NO on Measure 37"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-38",
@@ -490,7 +1597,29 @@
       "yesMeans": "The state could borrow $8.4 billion to support medical research in immunology and immunotherapy conducted by California research institutes and universities.",
       "noMeans": "The state could not borrow $8.4 billion to support medical research in immunology and immunotherapy conducted by California research institutes and universities.",
       "fiscalImpact": "Increased state cost of $500 million to $600 million annually for about 20 years to repay the research bond, with some or all of the cost offset if the funded research generates revenue.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3300,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 38"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10859.json",
+        "question": "AUTHORIZES BONDS FOR IMMUNOLOGY MEDICAL RESEARCH. INITIATIVE STATUTE. Authorizes $8.4 billion in general obligation bonds for immunology and immunotherapy research, half to a single University of California-affiliated nonprofit medical research institute, half to research grants. Fiscal Impact: Increased state cost of $500 million to $600 million annually for about 20 years to repay the research bond, with some or all of the cost offset if the funded research generates revenue. Supporters: Michael J. Fox Foundation; Alzheimer's Los Angeles; Kidney Cancer Assoc; American Nurses Assoc/CA Opponents: Robert M Kaplan Ph.D.",
+        "responses": [
+          "YES on Measure 38",
+          "NO on Measure 38"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-39",
@@ -503,7 +1632,29 @@
       "yesMeans": "Voters would be required to present additional identifying information to elections officials each time they vote.",
       "noMeans": "A voter’s identity would continue to be established with the voter’s signature.",
       "fiscalImpact": "Costs of between tens of millions of dollars and low hundreds of millions of dollars each year to implement new voting requirements.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3400,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 39"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10860.json",
+        "question": "PROHIBITS CITIZENS FROM VOTING UNLESS THEY PRESENT GOVERNMENT-ISSUED IDENTIFICATION. INITIATIVE CONSTITUTIONAL AMENDMENT. Invalidates mail ballots that do not have last four digits of designated government-issued identification number written on envelope. Prohibits in-person voting without presenting government-issued identification. Fiscal Impact: Costs of between tens of millions of dollars and low hundreds of millions of dollars each year to implement new voting requirements. Supporters: The Transparency Foundation; Latino American Political Assn; Howard Jarvis Taxpayers Assn; CA Women's Leadership Assn Opponents: ACLU California Action; Common Cause; League of Women Voters of California",
+        "responses": [
+          "YES on Measure 39",
+          "NO on Measure 39"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-40",
@@ -516,7 +1667,29 @@
       "yesMeans": "The state would collect a one-time tax from billionaires equal to 5 percent of their wealth.",
       "noMeans": "The state would not collect a one-time tax from billionaires equal to 5 percent of their wealth.",
       "fiscalImpact": "Temporary revenue increase of tens of billions of dollars spread over several years from wealth tax on billionaires. Possible ongoing decrease of less than $1 billion per year in income tax revenue from billionaires.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3500,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 40"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10861.json",
+        "question": "IMPOSES ONE-TIME TAX ON CERTAIN TAXPAYERS. INITIATIVE CONSTITUTIONAL AMENDMENT AND STATUTE. Imposes 5% tax on certain taxpayers with assets over $1 billion; revenue primarily for health care. Exempts revenues from constitutional requirements for school funding and spending limit. Fiscal Impact: Temporary revenue increase of tens of billions of dollars spread over several years from wealth tax on billionaires. Possible ongoing decrease of less than $1 billion per year in income tax revenue from billionaires. Supporters: US Senator Bernie Sanders; SEIU United Healthcare Workers West Opponents: California Primary Care Association; California School Boards Association; California Taxpayers Association",
+        "responses": [
+          "YES on Measure 40",
+          "NO on Measure 40"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-41",
@@ -529,7 +1702,29 @@
       "yesMeans": "When special taxes are proposed by voter initiatives, the California State Auditor would review programs funded by the tax before the initiative appears on the ballot. The California State Auditor also would regularly review programs funded by special taxes approved by voters or the Legislature. In addition, the state might not be able to exclude any new special tax spending from its spending limit.",
       "noMeans": "The California State Auditor’s responsibility to review government programs would not change. The state spending limit requirements would not change.",
       "fiscalImpact": "The net fiscal effect is unknown as it depends on future decisions by voters, the Legislature, and other policymakers.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3600,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 41"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10862.json",
+        "question": "PROHIBITS NEW STATE TAXES THAT EXCLUDE REVENUES FROM STATE SPENDING LIMIT. REQUIRES AUDITS FOR NEW STATE SPECIAL TAXES. INITIATIVE CONSTITUTIONAL AMENDMENT. Nullifies state taxes enacted after January 1, 2026 that exempt their revenues from voter-approved state spending limit. Requires pre-election and recurring audits of programs funded by new special taxes. Fiscal Impact: The net fiscal effect is unknown as it depends on future decisions by voters, the Legislature, and other policymakers. Supporters: CA Society of Certified Public Accountants (CalCPAs); CalAsian Chamber of Commerce; California Taxpayers Association (CalTax) Opponents: US Senator Bernie Sanders; SEIU United Healthcare Workers West",
+        "responses": [
+          "YES on Measure 41",
+          "NO on Measure 41"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-42",
@@ -542,7 +1737,29 @@
       "yesMeans": "The state could not establish new taxes on the ownership of financial assets or other personal property.",
       "noMeans": "The state would continue to have the option to establish new taxes on the ownership of financial assets or other personal property.",
       "fiscalImpact": "Possibility that tax revenues will not go up as much in the future.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3700,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 42"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10863.json",
+        "question": "PROHIBITS NEW STATE PERSONAL PROPERTY TAXES AND CERTAIN RETROACTIVE STATE TAXES. INITIATIVE CONSTITUTIONAL AMENDMENT. Prohibits any new state tax (1) imposed on the ownership of personal property (all things people own other than real estate), or (2) that applies retroactively based on taxpayer's past activities. Nullifies taxes enacted after January 1, 2026 that conflict with this measure. Fiscal Impact: Possibility that tax revenues will not go up as much in the future. Supporters: CA Professional Firefighters; State Building & Construction Trades Council of CA; AMVETS Department of CA Opponents: US Senator Bernie Sanders; SEIU United Healthcare Workers West",
+        "responses": [
+          "YES on Measure 42",
+          "NO on Measure 42"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-43",
@@ -555,7 +1772,29 @@
       "yesMeans": "Certain local government taxes would require two-thirds approval by voters.",
       "noMeans": "Certain local government taxes could continue to be approved by voters with a majority vote.",
       "fiscalImpact": "Possibility that local government tax revenues will not go up as much in the future due to a higher vote threshold for certain taxes.",
-      "placedBy": "Put on the ballot by the Legislature"
+      "placedBy": "Put on the ballot by the Legislature",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3800,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 43"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10864.json",
+        "question": "LIMITS VOTERS' ABILITY TO RAISE REVENUES FOR LOCAL GOVERNMENT SERVICES. LEGISLATIVE CONSTITUTIONAL AMENDMENT. Limits voters' ability to pass voter-proposed local special taxes by increasing percentage of votes needed to approve such ballot measures from a majority (over 50%) to two-thirds, beginning January 1, 2027. Fiscal Impact: Possibility that local government tax revenues will not go up as much in the future due to a higher vote threshold for certain taxes. Supporters: California Taxpayers Association; Family Business Association of California; California Hispanic Chambers of Commerce Opponents: California Professional Firefighters; California Federation of Teachers; Nurse Alliance of SEIU CA",
+        "responses": [
+          "YES on Measure 43",
+          "NO on Measure 43"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-44",
@@ -568,7 +1807,29 @@
       "yesMeans": "Certain private nonprofit health care clinics would have to spend at least 90 percent of their revenue each year on providing health care services.",
       "noMeans": "The new requirement on health care clinic spending would not go into effect.",
       "fiscalImpact": "Increased state costs in the low tens of millions of dollars per year, covered by fees.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 3900,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 44"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10865.json",
+        "question": "REQUIRES COMMUNITY HEALTH CLINICS SPEND 90% OF REVENUE ON PROGRAM SERVICES. INITIATIVE STATUTE. Imposes penalties on nonprofit Federally Qualified Health Centers (community clinics providing primary care to medically underserved areas and populations) that spend less than 90% of revenue on \"program services\" advancing their charitable purpose, including but not limited to patient services. Fiscal Impact: Increased state costs in the low tens of millions of dollars per year, covered by fees. Supporters: None submitted Opponents: American Academy of Pediatrics CA; CA School Nurses Org; CA Academy of Family Physicians; CA Medical Assoc",
+        "responses": [
+          "YES on Measure 44",
+          "NO on Measure 44"
+        ]
+      }
     },
     {
       "id": "ca26-m-prop-45",
@@ -581,7 +1842,29 @@
       "yesMeans": "Certain public and private projects would be eligible for new project review and court challenge procedures. For example, new procedures would tighten time limits for environmental review and reduce the scope of what courts can consider when reviewing legal challenges.",
       "noMeans": "Public and private projects would continue to use existing project review and court challenge procedures.",
       "fiscalImpact": "Initial costs for state and local governments, likely in the high tens of millions of dollars—potentially exceeding $100 million—annually, partly covered by fees. Uncertain, potentially more significant positive or negative longer-term fiscal effects.",
-      "placedBy": "Put on the ballot by petition signatures"
+      "placedBy": "Put on the ballot by petition signatures",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4000,
+        "section": "",
+        "heading": [
+          "STATE MEASURE 45"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10866.json",
+        "question": "MODIFIES ENVIRONMENTAL REVIEW FOR CERTAIN PROJECTS. INITIATIVE STATUTE. Amends California Environmental Quality Act (CEQA) to expedite environmental review for certain projects (including most housing, transportation, water, and health projects) by setting deadlines to complete environmental review and resolve lawsuits challenging project approvals. Fiscal Impact: Initial costs for state and local governments, likely in the high tens of millions of dollars-potentially exceeding $100 million-annually, partly covered by fees. Uncertain, potentially more significant positive or negative longer-term fiscal effects. Supporters: California Children's Hospital Association; California Water Association; California Council for Affordable Housing Opponents: Coalition for Clean Air; CA Environmental Voters; Physicians for Social Responsibility, LA; National Wildlife Federation",
+        "responses": [
+          "YES on Measure 45",
+          "NO on Measure 45"
+        ]
+      }
     },
     {
       "id": "ca26-m-la-a",
@@ -590,7 +1873,29 @@
       "level": "county",
       "type": "measure",
       "description": "Would amend the County Charter to prohibit strikes by district attorney investigators, medical examiners, lifeguards, their supervisors, and non-administrative civilian employees of the Fire, Sheriff's and Medical Examiner departments; restate existing good-faith negotiation obligations; and set up impartial binding arbitration for labor disputes with certified public safety employee organizations. Majority vote.",
-      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf"
+      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1600,
+        "section": "",
+        "heading": [
+          "COUNTY MEASURE A"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10534.json",
+        "question": "LOS ANGELES COUNTY CHARTER AMENDMENT REITERATING GOOD FAITH NEGOTIATION OBLIGATIONS AND ESTABLISHING IMPARTIAL BINDING ARBITRATION FOR CERTIFIED PUBLIC SAFETY EMPLOYEE DISPUTES Shall the measure amending the Los Angeles County Charter to prohibit strikes by district attorney investigators, medical examiners, and lifeguards; their supervisors; and nonadministrative civilian employees working in the Fire Department, Sheriff's Department, and the Department of Medical Examiner, reiterate existing legal obligations for good faith negotiations, and establish an impartial binding arbitration process for resolving labor disputes with certified public safety employee organizations representing County employees including firefighters, sheriffs, and the abovementioned employees, as specified in the charter amendment ordinance, be adopted? Supporters: LA County Firefighters Local #1014; Association of LA Deputy Sheriffs; LA/OC Building Trades Council Opponents: None submitted.",
+        "responses": [
+          "YES on Measure A",
+          "NO on Measure A"
+        ]
+      }
     },
     {
       "id": "ca26-m-la-e",
@@ -599,7 +1904,29 @@
       "level": "county",
       "type": "measure",
       "description": "Would amend the County Charter to give the county Ethics Commission, Office of Ethics Compliance and Ethics Compliance Officer more independence and structure (appointments, qualifications, terms, duties), and continue the county's commitment to community investment and alternatives to incarceration. Majority vote.",
-      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf"
+      "sourceUrl": "https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1700,
+        "section": "",
+        "heading": [
+          "COUNTY MEASURE E"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10959.json",
+        "question": "PROPOSED COUNTY CHARTER AMENDMENT. COUNTY OF LOS ANGELES ETHICS COMMISSION AND COMMUNITY INVESTMENT BUDGET ALLOCATION CHARTER AMENDMENT. Shall the measure amending the Los Angeles County Charter to provide greater independence and structure for the County of Los Angeles Ethics Commission, Office of Ethics Compliance, and Ethics Compliance Officer, including appointment processes, qualifications, term, duties and responsibilities, and to continue uninterrupted the County's commitment to community investment and alternatives to incarceration, as specified in the charter amendment ordinance, be adopted? Supporters: League of Women Voters of LA County; CA Clean Money; Supervisor Lindsey Horvath; CA Common Cause; AAPI Equity Alliance Opponents: None submitted.",
+        "responses": [
+          "YES on Measure E",
+          "NO on Measure E"
+        ]
+      }
     },
     {
       "id": "ca26-m-mp-hom",
@@ -608,7 +1935,30 @@
       "level": "city",
       "type": "measure",
       "description": "Would amend the city's Land Use Element to create a Housing Overlay Mixed Environments (HOME) designation allowing housing (multifamily, townhomes, condos, mixed use) in identified commercial and industrial areas. It would not approve any project by itself, would not apply in R-1 or R-2 zones, and keeps the city's ban on data centers.",
-      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information"
+      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 900,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "MEASURE HOM"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10960.json",
+        "question": "Proposition to Create HOME Housing Overlays in Monterey Park Shall a measure amending the Monterey Park Land Use Element to keep residential neighborhoods intact through maintaining voter-approved land use restrictions and Monterey Park's local control over the state for housing decisions, continue prohibiting data centers, provide housing for residents, prevent crime/homeless encampments, attract businesses, and improve the local economy by allowing limited residential uses in underutilized industrial, commercial/office areas, requiring public input, ensuring environmental protections, protecting public safety, parks/open space, be adopted? Supporters: Henry Lo, Mayor; Jose Sanchez, Pro Tem; Thomas Wong, Councilmember; Vinh Ngo, Councilmember; Elizabeth Yang, Councilmember Opponents: None submitted.",
+        "responses": [
+          "YES on Measure HOM",
+          "NO on Measure HOM"
+        ]
+      }
     },
     {
       "id": "ca26-m-mp-aaa",
@@ -617,7 +1967,642 @@
       "level": "city",
       "type": "measure",
       "description": "Would raise the hotel/motel guest tax from 13% to 14% and set a 16% rate for short-term rental guests, raising about $600,000 a year for city services until ended by voters.",
-      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information"
+      "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1000,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
+          "MEASURE AAA"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/bmc10909.json",
+        "question": "Shall the ordinance maintaining City of Monterey Park's services like fire, police, 911 response; keeping public areas safe/clean; helping prevent property crimes/human trafficking in Monterey Park; repairing streets/potholes; for other city services; by increasing the transient occupancy tax paid only by hotel/motel guests from 13% to 14%, and short-term rental guests, from 13% to 16%, providing approximately $600,000 annually until ended by voters; requiring audits, spending disclosure, local control over all funds, be adopted? Supporters: Henry Lo, Mayor; Jose Sanchez, Pro Tem; Thomas Wong, Councilmember; Vinh Ngo, Councilmember; Elizabeth Yang, Councilmember Opponents: None submitted.",
+        "responses": [
+          "YES on Measure AAA",
+          "NO on Measure AAA"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-joshua-groban",
+      "number": null,
+      "title": "Retain JOSHUA GROBAN? (Supreme Court)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10888.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4100,
+        "section": "",
+        "heading": [
+          "For Associate Justice of the Supreme Court"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10888.json",
+        "question": "Shall Associate Justice of the Supreme Court JOSHUA GROBAN be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice of the Supreme Court"
+      }
+    },
+    {
+      "id": "ca26-m-retain-kelli-m-evans",
+      "number": null,
+      "title": "Retain KELLI M. EVANS? (Supreme Court)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10889.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4101,
+        "section": "",
+        "heading": [
+          "For Associate Justice of the Supreme Court"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10889.json",
+        "question": "Shall Associate Justice of the Supreme Court KELLI M. EVANS be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice of the Supreme Court"
+      }
+    },
+    {
+      "id": "ca26-m-retain-rashida-a-adams",
+      "number": null,
+      "title": "Retain RASHIDA A. ADAMS? (Court of Appeal, Second District, Division Three)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10896.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4200,
+        "section": "",
+        "heading": [
+          "For Presiding Justice, Court of Appeal, Second District, Division Three"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10896.json",
+        "question": "Shall Presiding Justice RASHIDA A. ADAMS be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-helen-zukin",
+      "number": null,
+      "title": "Retain HELEN ZUKIN? (Court of Appeal, Second District, Division Four)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10897.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4300,
+        "section": "",
+        "heading": [
+          "For Presiding Justice, Court of Appeal, Second District, Division Four"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10897.json",
+        "question": "Shall Presiding Justice HELEN ZUKIN be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-brian-m-hoffstadt",
+      "number": null,
+      "title": "Retain BRIAN M. HOFFSTADT? (Court of Appeal, Second District, Division Five)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10900.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4400,
+        "section": "",
+        "heading": [
+          "For Presiding Justice, Court of Appeal, Second District, Division Five"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10900.json",
+        "question": "Shall Presiding Justice BRIAN M. HOFFSTADT be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-tari-l-cody",
+      "number": null,
+      "title": "Retain TARI L. CODY? (Court of Appeal, Second District, Division Six)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10963.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4500,
+        "section": "",
+        "heading": [
+          "For Presiding Justice, Court of Appeal, Second District, Division Six"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10963.json",
+        "question": "Shall Presiding Justice TARI L. CODY be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-gonzalo-c-martinez",
+      "number": null,
+      "title": "Retain GONZALO C. MARTINEZ? (Court of Appeal, Second District, Division Seven)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10903.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4600,
+        "section": "",
+        "heading": [
+          "For Presiding Justice, Court of Appeal, Second District, Division Seven"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10903.json",
+        "question": "Shall Presiding Justice GONZALO C. MARTINEZ be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-michelle-c-kim",
+      "number": null,
+      "title": "Retain MICHELLE C. KIM? (Court of Appeal, Second District, Division One)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10890.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4700,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division One"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10890.json",
+        "question": "Shall Associate Justice MICHELLE C. KIM be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division One"
+      }
+    },
+    {
+      "id": "ca26-m-retain-gregory-j-weingart",
+      "number": null,
+      "title": "Retain GREGORY J. WEINGART? (Court of Appeal, Second District, Division One)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10891.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4701,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division One"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10891.json",
+        "question": "Shall Associate Justice GREGORY J. WEINGART be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division One"
+      }
+    },
+    {
+      "id": "ca26-m-retain-anne-richardson",
+      "number": null,
+      "title": "Retain ANNE RICHARDSON? (Court of Appeal, Second District, Division Two)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10892.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4800,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Two"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10892.json",
+        "question": "Shall Associate Justice ANNE RICHARDSON be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Two"
+      }
+    },
+    {
+      "id": "ca26-m-retain-steve-goorvitch",
+      "number": null,
+      "title": "Retain STEVE GOORVITCH? (Court of Appeal, Second District, Division Two)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10893.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4801,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Two"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10893.json",
+        "question": "Shall Associate Justice STEVE GOORVITCH be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Two"
+      }
+    },
+    {
+      "id": "ca26-m-retain-mark-hanasono",
+      "number": null,
+      "title": "Retain MARK HANASONO? (Court of Appeal, Second District, Division Three)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10894.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 4900,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Three"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10894.json",
+        "question": "Shall Associate Justice MARK HANASONO be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-nicholas-daum",
+      "number": null,
+      "title": "Retain NICHOLAS DAUM? (Court of Appeal, Second District, Division Four)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10898.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5000,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Four"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10898.json",
+        "question": "Shall Associate Justice NICHOLAS DAUM be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Four"
+      }
+    },
+    {
+      "id": "ca26-m-retain-audra-m-mori",
+      "number": null,
+      "title": "Retain AUDRA M. MORI? (Court of Appeal, Second District, Division Four)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10899.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5001,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Four"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10899.json",
+        "question": "Shall Associate Justice AUDRA M. MORI be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Four"
+      }
+    },
+    {
+      "id": "ca26-m-retain-armen-tamzarian",
+      "number": null,
+      "title": "Retain ARMEN TAMZARIAN? (Court of Appeal, Second District, Division Four)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10962.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5002,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Four"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10962.json",
+        "question": "Shall Associate Justice ARMEN TAMZARIAN be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Four"
+      }
+    },
+    {
+      "id": "ca26-m-retain-kenneth-r-yegan",
+      "number": null,
+      "title": "Retain KENNETH R. YEGAN? (Court of Appeal, Second District, Division Six)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10901.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5100,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Six"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10901.json",
+        "question": "Shall Associate Justice KENNETH R. YEGAN be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-natalie-stone",
+      "number": null,
+      "title": "Retain NATALIE STONE? (Court of Appeal, Second District, Division Seven)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10902.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5200,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Seven"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10902.json",
+        "question": "Shall Associate Justice NATALIE STONE be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ]
+      }
+    },
+    {
+      "id": "ca26-m-retain-john-wiley",
+      "number": null,
+      "title": "Retain JOHN WILEY? (Court of Appeal, Second District, Division Eight)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10904.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5300,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Eight"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10904.json",
+        "question": "Shall Associate Justice JOHN WILEY be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Eight"
+      }
+    },
+    {
+      "id": "ca26-m-retain-matthew-a-scherb",
+      "number": null,
+      "title": "Retain MATTHEW A. SCHERB? (Court of Appeal, Second District, Division Eight)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10905.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5301,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Eight"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10905.json",
+        "question": "Shall Associate Justice MATTHEW A. SCHERB be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Eight"
+      }
+    },
+    {
+      "id": "ca26-m-retain-victor-g-viramontes",
+      "number": null,
+      "title": "Retain VICTOR G. VIRAMONTES? (Court of Appeal, Second District, Division Eight)",
+      "level": "state",
+      "type": "retention",
+      "sourceUrl": "https://isb.lavote.gov/parsed/4348/contests/rc10906.json",
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 5302,
+        "section": "",
+        "heading": [
+          "For Associate Justice, Court of Appeal, Second District, Division Eight"
+        ],
+        "instructions": [
+          "Vote YES or NO"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/rc10906.json",
+        "question": "Shall Associate Justice VICTOR G. VIRAMONTES be elected to the office for the term provided by law?",
+        "responses": [
+          "YES",
+          "NO"
+        ],
+        "group": "For Associate Justice, Court of Appeal, Second District, Division Eight"
+      }
     }
   ]
 }

@@ -43,26 +43,39 @@ def _base(sample, c, notice):
     }
     if c.get("subsection"):
         b["subsection"] = c["subsection"]
+    if sample.get("sourceName"):
+        b["sourceName"] = sample["sourceName"]
+    if c.get("source"):
+        b["contestSource"] = c["source"]  # this contest's own file in the source (LA's ISB data)
     if notice:
         b["notice"] = notice
     return b
 
 
-def attach_race(sample, office_, key, notice=None):
+def attach_race(sample, office_, key, notice=None, aliases=None, party_label=None):
+    """aliases: {printed name: bundle name} where the ballot prints a fuller name (a middle
+    initial) than the source the bundle came from. party_label: format for a party the ballot
+    prints but the sample data doesn't carry (LA's ISB data), e.g. "Party Preference: {}"."""
     c = _contest(sample, key)
+    aliases = {_norm(k): v for k, v in (aliases or {}).items()}
     printed = c.get("candidates")
     assert printed, f"{key!r} has no candidates on the sample ballot"
     by_norm = {_norm(cd["name"]): cd for cd in office_["candidates"]}
     ordered, labels = [], []
     for p in printed:
         # Ticket races print "Governor / Lt. Governor"; the bundle keys on the first name
-        cd = by_norm.get(_norm(p["name"])) or by_norm.get(_norm(p["name"].split(" / ")[0]))
+        cd = (by_norm.get(_norm(p["name"])) or by_norm.get(_norm(p["name"].split(" / ")[0]))
+              or by_norm.get(_norm(aliases.get(_norm(p["name"]), ""))))
         assert cd, f"{office_['id']}: {p['name']!r} is on the ballot but not in the bundle"
         ordered.append(cd)
         label = {"name": cd["name"], "label": p["name"]}
         if p.get("party"):
             label["party"] = p["party"]
             cd["party"] = p["party"]
+        elif party_label and cd.get("party"):
+            label["party"] = party_label.format(cd["party"])
+        if p.get("designation"):
+            label["designation"] = p["designation"]
         labels.append(label)
     extra = [cd["name"] for cd in office_["candidates"] if cd not in ordered]
     assert not extra, f"{office_['id']}: {extra} are in the bundle but not on the ballot"
@@ -81,6 +94,8 @@ def attach_measure(sample, measure_, key, question=0):
     q = qs[question]
     b = _base(sample, c, None)
     b["order"] += question
+    if c.get("sources"):
+        b["contestSource"] = c["sources"][question]
     b["question"] = q["text"]
     b["responses"] = q["responses"]
     if q.get("note"):

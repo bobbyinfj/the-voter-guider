@@ -9,7 +9,15 @@ Sources:
 - [C7] LA County RR/CC, Measures Appearing on the Ballot, Nov 3 2026 (rev 8/14/2026): https://content.lavote.gov/docs/rrcc/documents/measures-appearing-on-the-ballot---november-3-2026-rev-8-14-2026-v-4.pdf
 - [C6] LAist: Durazo won Supervisor D1 outright, no November runoff: https://laist.com/news/politics/voter-guides/2026-election-california-primary-la-live-results-la-county-supervisor-district-1-and-3
 
-Ballot layout: LA County sample ballots are per-voter (by address, behind the RR/CC lookup), so this bundle has no printed-ballot layout; the guide shows contests in our own order and says so.
+Ballot layout: LA County sample ballots are per-voter, so the layout comes from the data behind the county's Interactive Sample Ballot (https://isb.lavote.gov/parsed/4348/, election 4348 = Nov 3 2026). `sample-ballots/lavote_isb.py` reads the ballot styles for Monterey Park addresses (2GL22 no council race, e.g. City Hall 320 W Newmark Ave; 2GF22 Council District 1; 2GJ22 Council District 5) and copies each contest's heading, "Vote For" line, candidate names and ballot designations, and measure question text verbatim. English-only copies of every file used are in `sample-ballots/lavote/`.
+- [C8] LA County Interactive Sample Ballot data: https://isb.lavote.gov/parsed/4348/ballots/2GF22.json (+ contests/<id>.json)
+
+Contests that were missing from this bundle until 2026-10-21 and come only from [C8] (names as printed, upper case):
+- LA Community College District Trustee, Seats 2, 4, 6
+- Judge of the Superior Court, Offices 64, 65, 87, 131
+- 20 judicial retention questions (Supreme Court ×2; Court of Appeal, Second District)
+Edge precincts only (not in the bundle): Water Replenishment District Div. 4, Montebello USD Trustee Area 2, City of LA Measure SC.
+"Party Preference: X" for voter-nominated offices is how LA's ISB prints party (checked on the Governor contest); the party itself is from [C1].
 
 No US Senate race in CA in 2026. State Senate District 25 (Monterey Park) is NOT up in 2026 (odd-numbered).
 EXISTING DATA BUG: data/elections/ca-primary-2026-06-02.json lists Gavin Newsom (term-limited) for governor and CA-37 for Monterey Park — both wrong. The June bundle was generated, not researched.

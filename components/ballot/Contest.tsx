@@ -136,10 +136,11 @@ function RaceChoices({
             <span className="block text-[13px] font-semibold leading-snug">{row.label}</span>
             {row.party && (
               <span className={`text-[11px] leading-snug ${partyRight ? 'shrink-0 text-right' : 'block'}`}>
-                {partyRight || !printed ? row.party : `(${row.party})`}
+                {partyRight || !printed || row.party.includes(':') ? row.party : `(${row.party})`}
               </span>
             )}
           </span>
+          {'designation' in row && row.designation && <span className="block text-[11px] leading-snug">{row.designation}</span>}
         </Oval>
       ))}
       {(printed ? printed.writeIn : true) && (
@@ -209,7 +210,7 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
   if (!printed?.question) return null
   return (
     <div className="space-y-2 px-2 py-2 text-[12.5px] leading-snug">
-      <p>{printed.question}</p>
+      <p className="whitespace-pre-line">{printed.question}</p>
       {printed.table && (
         <table className="w-full border-collapse text-[11px]">
           {printed.table.caption && <caption className="pb-1 text-left font-bold">{printed.table.caption}</caption>}
@@ -313,7 +314,7 @@ function Enhancements({
 }) {
   const measure = isMeasure(item)
   const official = measure ? measureOfficial(item.metadata) : {}
-  const source = official.sourceUrl ?? layoutOf(item)?.source
+  const source = official.sourceUrl ?? layoutOf(item)?.contestSource ?? layoutOf(item)?.source
   const selection = choice?.selection
   const people = item.office?.candidates ?? []
   const incumbents = people.filter((c) => c.incumbent).map((c) => c.name)

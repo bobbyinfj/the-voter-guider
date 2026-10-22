@@ -26,6 +26,7 @@ import {
   groupSections,
   hasPrintedLayout,
   layoutOf,
+  layoutSourceName,
   type BallotItem,
   type ChoiceValue,
 } from '@/components/ballot/ballot'
@@ -273,7 +274,7 @@ export default function BallotTracker({
           <div className="border-t border-gray-300 bg-sky-50 px-4 py-2 text-xs text-sky-950 print:bg-white">
             {printed ? (
               <>
-                Contests, order and wording are copied from the county&apos;s official sample ballot
+                Contests, order and wording are copied from {layoutSourceName(ballots)}
                 {source && (
                   <>
                     {' '}

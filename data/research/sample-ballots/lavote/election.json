@@ -1,0 +1,213 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/election.json",
+ "data": {
+  "languages": [
+   {
+    "key": "EN",
+    "name": "English",
+    "displayOrder": 0
+   },
+   {
+    "key": "ES",
+    "name": "Spanish",
+    "displayOrder": 1
+   },
+   {
+    "key": "HY",
+    "name": "Armenian",
+    "displayOrder": 2
+   },
+   {
+    "key": "BN",
+    "name": "Bengali",
+    "displayOrder": 3
+   },
+   {
+    "key": "MY",
+    "name": "Burmese",
+    "displayOrder": 4
+   },
+   {
+    "key": "CC",
+    "name": "Cantonese",
+    "displayOrder": 5
+   },
+   {
+    "key": "ZH",
+    "name": "Chinese",
+    "displayOrder": 6
+   },
+   {
+    "key": "FA",
+    "name": "Farsi",
+    "displayOrder": 7
+   },
+   {
+    "key": "GU",
+    "name": "Gujarati",
+    "displayOrder": 8
+   },
+   {
+    "key": "HI",
+    "name": "Hindi",
+    "displayOrder": 9
+   },
+   {
+    "key": "ID",
+    "name": "Indonesian",
+    "displayOrder": 10
+   },
+   {
+    "key": "JA",
+    "name": "Japanese",
+    "displayOrder": 11
+   },
+   {
+    "key": "KM",
+    "name": "Khmer",
+    "displayOrder": 12
+   },
+   {
+    "key": "KO",
+    "name": "Korean",
+    "displayOrder": 13
+   },
+   {
+    "key": "MN",
+    "name": "Mongolian",
+    "displayOrder": 14
+   },
+   {
+    "key": "RU",
+    "name": "Russian",
+    "displayOrder": 15
+   },
+   {
+    "key": "TL",
+    "name": "Tagalog",
+    "displayOrder": 16
+   },
+   {
+    "key": "TE",
+    "name": "Telugu",
+    "displayOrder": 17
+   },
+   {
+    "key": "TH",
+    "name": "Thai",
+    "displayOrder": 18
+   },
+   {
+    "key": "VI",
+    "name": "Vietnamese",
+    "displayOrder": 19
+   }
+  ],
+  "id": "4348",
+  "bdffilename": "4348_BDF.json",
+  "abdffilename": "4348_ABDF.json",
+  "bdfversion": "GE26.12.28",
+  "jurisdictionId": "06037",
+  "title": {
+   "EN": "GENERAL ELECTION, November 03, 2026 • County of Los Angeles"
+  },
+  "short_title": {
+   "EN": "GENERAL ELECTION"
+  },
+  "isPartisan": false,
+  "electionDate": "2026-11-03T00:00:00Z",
+  "crossover": [],
+  "parties": [
+   {
+    "id": "VNC",
+    "display_name": {
+     "EN": "Voter Nominated"
+    },
+    "name": {
+     "EN": "Voter Nominated"
+    }
+   },
+   {
+    "id": "NP",
+    "display_name": {
+     "EN": "Non Partisan"
+    },
+    "name": {
+     "EN": "Non Partisan"
+    }
+   },
+   {
+    "id": "DEM",
+    "display_name": {
+     "EN": "Democratic"
+    },
+    "name": {
+     "EN": "Democratic"
+    }
+   },
+   {
+    "id": "VDM",
+    "display_name": {
+     "EN": "Party Preference: Democratic"
+    },
+    "name": {
+     "EN": "Party Preference: Democratic"
+    }
+   },
+   {
+    "id": "REP",
+    "display_name": {
+     "EN": "Republican"
+    },
+    "name": {
+     "EN": "Republican"
+    }
+   },
+   {
+    "id": "VRP",
+    "display_name": {
+     "EN": "Party Preference: Republican"
+    },
+    "name": {
+     "EN": "Party Preference: Republican"
+    }
+   },
+   {
+    "id": "AI",
+    "display_name": {
+     "EN": "American Independent"
+    },
+    "name": {
+     "EN": "American Independent"
+    }
+   },
+   {
+    "id": "GRN",
+    "display_name": {
+     "EN": "Green"
+    },
+    "name": {
+     "EN": "Green"
+    }
+   },
+   {
+    "id": "LIB",
+    "display_name": {
+     "EN": "Libertarian"
+    },
+    "name": {
+     "EN": "Libertarian"
+    }
+   },
+   {
+    "id": "PF",
+    "display_name": {
+     "EN": "Peace and Freedom"
+    },
+    "name": {
+     "EN": "Peace and Freedom"
+    }
+   }
+  ]
+ }
+}

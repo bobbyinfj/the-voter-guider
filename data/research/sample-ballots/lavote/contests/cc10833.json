@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10833.json",
+ "data": {
+  "id": "cc10833",
+  "long_description": {},
+  "name": {
+   "EN": "ATTORNEY GENERAL"
+  },
+  "short_name": {
+   "EN": "ATTORNEY GENERAL"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3FD",
+    "name": [
+     {
+      "EN": "ROB BONTA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ROB BONTA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "California Attorney General"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3FE",
+    "name": [
+     {
+      "EN": "MICHAEL E. GATES"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "MICHAEL E GATES"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy United States Attorney"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VRP",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}
