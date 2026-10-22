@@ -28,10 +28,10 @@ export default async function HomePage() {
         <div className="text-center mb-12">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
             <Image
-              src="/moleses-1.png"
-              alt="Moleses"
-              width={200}
-              height={133}
+              src="/moleses-2.png"
+              alt="Moleses, our nearly blind mole wizard, squinting through thick glasses"
+              width={160}
+              height={160}
               className="object-contain"
               priority
             />

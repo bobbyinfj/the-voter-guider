@@ -75,4 +75,4 @@ npm run build
 ## Unofficial!
 
 The Voter Guider isn't a government site and nothing on it is a ballot. Every page says so, with
-help from Moleses, our blind mole wizard.
+help from Moleses, our nearly blind mole wizard.

@@ -324,6 +324,7 @@ function GuideView({ initial }: { initial: Guide }) {
             onChoiceChange={editor.setChoice}
             onChoiceClear={editor.clearChoice}
             onStatusChange={editor.setStatus}
+          onCandidateNote={editor.setCandidateNote}
           />
         ) : (
           <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6 text-center text-gray-500">

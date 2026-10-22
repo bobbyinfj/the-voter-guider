@@ -16,6 +16,7 @@ export default function BallotSheet({
   onChange,
   onClear,
   onStatus,
+  onCandidateNote,
   compare,
 }: {
   sections: BallotSection[]
@@ -26,6 +27,7 @@ export default function BallotSheet({
   onChange?: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
   onClear?: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
+  onCandidateNote?: (itemId: string, name: string, text: string) => void
   compare?: CompareView | null
 }) {
   // A link target before the first contest of each group (#los-angeles-community-college-district)
@@ -67,6 +69,7 @@ export default function BallotSheet({
               onChange={(id, selection, notes, status) => onChange?.(id, selection, notes, status)}
               onClear={(id) => onClear?.(id)}
               onStatus={onStatus}
+              onCandidateNote={onCandidateNote}
               compare={compare}
               linkGroup={groupOf.get(run[0].id)}
             />

@@ -1,0 +1,852 @@
+{
+ "candidates": {
+  "ca26-steve-hilton": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Hilton, who is British American, was senior adviser for former conservative Prime Minister David Cameron from 2010 to 2012 before moving to California, where he co-founded a political crowdfunding platform in Silicon Valley. He has written books on decentralizing power in large, bureaucratic institutions from government to the food and health care systems.",
+   "website": "https://stevehiltonforgovernor.com/",
+   "keyEndorsements": [
+    "President Donald Trump",
+    "Nisei Farmers League",
+    "Israeli-American Civic Action Network"
+   ]
+  },
+  "ca26-xavier-becerra": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Becerra represented Los Angeles in Congress for more than two decades before being appointed California’s attorney general in 2017. He led the state’s numerous lawsuits against the first Trump administration and Republican states.",
+   "website": "https://www.xavierbecerra2026.com/",
+   "endorsementsUrl": "https://www.xavierbecerra2026.com/endorsements/",
+   "keyEndorsements": [
+    "California Faculty Association",
+    "Equality California",
+    "Planned Parenthood California"
+   ]
+  },
+  "ca26-gloria-romero": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Romero, a former longtime Democratic lawmaker who served nearly 12 years in the state Legislature, became a registered Republican in 2024 after years of expressing discontent with the Democratic Party. She differs with Democrats on school choice, COVID-19 policies and gender identity.",
+   "website": "https://www.gloriaromero4ltgov.com/",
+   "keyEndorsements": [
+    "California Republican Party",
+    "Reform California"
+   ]
+  },
+  "ca26-fiona-ma": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Ma is a longtime state official, having served in top elected roles at various executive agencies. Since 2019, she has been state treasurer, the state’s top asset manager and financier, where she oversees the world’s fourth-largest economy.",
+   "website": "https://fionama.com/",
+   "endorsementsUrl": "https://fionama.com/endorsements/",
+   "keyEndorsements": [
+    "California Labor Federation",
+    "State Building and Construction Trades Council",
+    "AFSCME"
+   ]
+  },
+  "ca26-donald-p-don-wagner": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Wagner, an Orange County supervisor, former mayor of Irvine and ex-state assemblymember, is running on a platform of election integrity. As supervisor, he criticized the state’s COVID-19 response, questioned the county’s investment in diversity, equity and inclusion programs and pushed for the release of sensitive voter information to President Donald Trump’s Department of Justice over claims of voting irregularities.",
+   "website": "https://wagnerforcalifornia.com/",
+   "endorsementsUrl": "https://wagnerforcalifornia.com/?page_id=296",
+   "keyEndorsements": [
+    "California Republican Party",
+    "Reform California",
+    "California Republican Assembly"
+   ]
+  },
+  "ca26-shirley-n-weber": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Weber, the daughter of Arkansas sharecroppers who fled the Jim Crow south, became the first Black secretary of state in California history by appointment in 2021, after serving eight years in the Assembly. She then easily won a full four-year term in 2022.",
+   "website": "https://drshirleyweber.com/",
+   "endorsementsUrl": "https://drshirleyweber.com/endorsements/",
+   "keyEndorsements": [
+    "California Democratic Party",
+    "California Federation of Teachers",
+    "SEIU California"
+   ]
+  },
+  "ca26-malia-m-cohen": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Cohen has served as California’s controller since 2023 and is running for re-election. She’s campaigning on a promise to govern the state’s finances with “transparency, efficiency and fairness.”",
+   "website": "https://www.maliacohenforca.com/",
+   "endorsementsUrl": "https://www.maliacohenforca.com/endorsements",
+   "keyEndorsements": [
+    "California Democratic Party",
+    "California Labor Federation",
+    "Equality California"
+   ]
+  },
+  "ca26-herb-w-morgan": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Morgan is running on the promise of exposing fraud in government at a time when the Trump administration also is leveling fraud accusations against California. Morgan founded an investment firm in San Diego that was later acquired by Cantor Fitzgerald Investment Advisors.",
+   "website": "https://www.herbmorgan.com/",
+   "endorsementsUrl": "https://www.herbmorgan.com/endorsements",
+   "keyEndorsements": [
+    "California Republican Party",
+    "California Republican Assembly",
+    "Unity Party of California"
+   ]
+  },
+  "ca26-jennifer-hawks": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Hawks doesn’t have experience in elected office, a fact she touts proudly. The Silicon Valley retiree most recently served on the executive team at Sacred Heart Schools, an Atherton Catholic school favored by the Bay Area’s venture capitalist elite.",
+   "website": "https://hawksforus.com/",
+   "keyEndorsements": [
+    "California Republican Party",
+    "California Republican Assembly",
+    "Reform California"
+   ]
+  },
+  "ca26-eleni-kounalakis": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
+    "retrieved": "2026-10-22"
+   },
+   "about": "With two terms as lieutenant governor under her belt, Kounalakis has plenty of experience on state boards — a big feature of the treasurer post. On both the UC Board of Regents and the Board of Trustees for the California State University system, she has regularly voted against proposed tuition increases.",
+   "website": "https://eleniforca.com/",
+   "endorsementsUrl": "https://eleniforca.com/endorsements/",
+   "keyEndorsements": [
+    "California Labor Federation",
+    "Teamsters California",
+    "National Union of Healthcare Workers"
+   ]
+  },
+  "ca26-rob-bonta": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Bonta was appointed attorney general in 2021 and was elected to a four-year term in 2022. Before that, he was an assemblymember representing parts of the East Bay.",
+   "website": "https://robbonta.com/",
+   "endorsementsUrl": "https://robbonta.com/endorsements/",
+   "keyEndorsements": [
+    "California Democratic Party",
+    "California Teachers Association",
+    "California Environmental Voters"
+   ]
+  },
+  "ca26-michael-e-gates": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Gates, a former trial attorney, served as Huntington Beach city attorney for a decade. In that role, he challenged what he viewed as lenient criminal justice policy emanating from the state capital.",
+   "website": "https://www.gates4ag.com/",
+   "endorsementsUrl": "https://www.gates4ag.com/endorsements",
+   "keyEndorsements": [
+    "California Republican Party",
+    "California Parents Union",
+    "California Rifle & Pistol Association"
+   ]
+  },
+  "ca26-jane-kim": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
+    "retrieved": "2026-10-22"
+   },
+   "about": "The former San Francisco supervisor succeeded in securing free community college for city residents, the state’s first $15 minimum wage ordinance and a tenant-protection ordinance to avoid unjust evictions. Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods.",
+   "website": "https://www.janekim.org/",
+   "endorsementsUrl": "https://www.janekim.org/endorsements",
+   "keyEndorsements": [
+    "SEIU California",
+    "California Teachers Association",
+    "California Faculty Association",
+    "California Labor Federation"
+   ]
+  },
+  "ca26-ben-allen": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Allen was elected in 2014 and has a strong record on environmental issues, authoring the law that largely restricts plastic straws and single-use plastics in the state. Since his district was hit by the Palisades Fire in January 2025, he has authored legislation to give the insurance department more enforcement power and to establish a loan program for wildfire resilience.",
+   "website": "https://www.benallenca.com/",
+   "endorsementsUrl": "https://www.benallenca.com/endorsements",
+   "keyEndorsements": [
+    "California Environmental Voters",
+    "California Professional Firefighters",
+    "Sierra Club California",
+    "Democratic Party",
+    "San Francisco Chronicle"
+   ]
+  },
+  "ca26-sonja-shaw": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+    "retrieved": "2026-10-22"
+   },
+   "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
+   "website": "https://shawforca.com/",
+   "endorsementsUrl": "https://shawforca.com/#endorsements"
+  },
+  "ca26-richard-barrera": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Barrera, president of the San Diego Unified school board, was little known outside San Diego until he won the endorsement of the powerful California Teachers Association union. As a Sacramento outsider, he says he can bring a fresh perspective to the job, focusing on boosting school funding, early childhood education and easing the path to becoming a teacher.",
+   "website": "https://www.barreraforedu.com/",
+   "endorsementsUrl": "https://www.barreraforedu.com/endorsements",
+   "keyEndorsements": [
+    "California Teachers Association",
+    "United Domestic Workers",
+    "California Charter School Advocates"
+   ]
+  },
+  "ca26-mike-gipson": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-board-of-equalization-district-3",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.mikegipson.net/",
+   "endorsementsUrl": "https://www.mikegipson.net/endorsements"
+  },
+  "ca26-samuel-p-sukaton": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-board-of-equalization-district-3",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.samsukaton.com/",
+   "endorsementsUrl": "https://bluevoterguide.org/CA/candidate_Samuel_Sukaton/747541"
+  },
+  "ca26-long-david-liu": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.liuforassembly.com/",
+   "endorsementsUrl": "https://www.liuforassembly.com/endorsements"
+  },
+  "ca26-mike-fong": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://www.mikefong.org"
+  },
+  "ca26-alex-villanueva": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-sheriff",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Alex Villanueva was L.A. County sheriff from 2018 to 2022, when Luna defeated him. Before that, he’d been a sheriff’s deputy for more than 30 years, rising to the rank of lieutenant.",
+   "website": "https://alexvillanueva2026.com/",
+   "endorsementsUrl": "https://alexvillanueva2026.com/endorsements/"
+  },
+  "ca26-robert-luna": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-sheriff",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Robert Luna was elected in 2022 after serving as chief of police in Long Beach for seven years. He grew up in East Los Angeles and holds a master’s degree in public administration from Cal State Long Beach.",
+   "website": "https://www.lunaforsheriff.com/",
+   "endorsementsUrl": "https://www.lunaforsheriff.com/2026endorsements"
+  },
+  "ca26-maria-ghobadi": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://mariaghobadi4judge.com",
+   "endorsementsUrl": "http://mariaghobadi4judge.com/#endorsements",
+   "stateBarUrl": "http://apps.calbar.ca.gov/attorney/Licensee/Detail/242945",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Well Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-rhonda-a-haymon": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.rhondahaymon4judge.com/",
+   "endorsementsUrl": "https://www.rhondahaymon4judge.com/endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/212814",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-anna-slotky-reitano": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://www.reitanoforjudge.com",
+   "endorsementsUrl": "https://www.reitanoforjudge.com/copy-of-home",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/263383",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-justin-allen-clayton": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://claytonforjudge2026.com/",
+   "endorsementsUrl": "https://claytonforjudge2026.com/endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/283282",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-anthony-a-j-bayne": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://electbayneforjudge.com/",
+   "endorsementsUrl": "https://electbayneforjudge.com/endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/172129",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Well Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-david-dejute": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://www.dejuteforjudge.com",
+   "endorsementsUrl": "https://www.dejuteforjudge.com/endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/153527",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-donna-tryfman": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://tryfmanforjudge2026.com",
+   "endorsementsUrl": "https://www.tryfmanforjudge2026.com/#Endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/176744",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-david-ross": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://davidrossforjudge2026.com",
+   "endorsementsUrl": "https://davidrossforjudge2026.com/#endorsements",
+   "stateBarUrl": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/174591",
+   "rating": {
+    "by": "Los Angeles County Bar Association",
+    "value": "Qualified",
+    "source": {
+     "title": "General Election Judicial Candidate Ratings for LA County",
+     "url": "https://lacba.org/docDownload/3141411",
+     "retrieved": "2026-10-22"
+    }
+   }
+  },
+  "ca26-adriana-cabrera": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Adriana Cabrera describes herself as an educator, community organizer and first-generation college graduate raised in South Central Los Angeles. She said her career has focused on making knowledge and opportunity easier to access.",
+   "website": "https://adrianaforlaccd.com/",
+   "endorsementsLine": "Latino Coalition of Los Angeles",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Basic student needs and access. “Students cannot focus on learning or complete their degrees when they are hungry, housing insecure, or struggling with child care."
+    },
+    {
+     "q": "How can LACCD improve housing security?",
+     "a": "“Housing insecurity cannot be separated from student success. My plan is to strengthen housing navigation and build partnerships across the 36 cities LACCD serves so students can connect more quickly to local housing resources, emergency assistance and tenant protections."
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“LACCD should take a student-centered and responsible approach to AI. I support using AI when it improves accessibility, especially for students with disabilities, strengthens learning support, or helps students navigate college resources."
+    }
+   ]
+  },
+  "ca26-roy-payan": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Roy Payan did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-robert-payne": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Robert Payne did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-kristina-irwin": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Kristina Irwin describes herself as a wife, a working mother of three, an immigrant and “a community advocate who stepped into the political arena with grassroots determination.” She said she served on a school board for one of her children's high schools, has a child enrolled in a community college and is a former community college student herself.",
+   "website": "https://kristinairwin.com/",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Student success . “Every student who enters one of our nine colleges should have a clear path toward earning a degree or certificate, transferring to a four-year university, or entering the workforce with skills that lead to a good-paying job."
+    },
+    {
+     "q": "How should the district improve housing security?",
+     "a": "“As a trustee, I will support a coordinated student-housing strategy that connects students with emergency aid, rental assistance, food and basic-needs resources, legal services, mental-health support and reliable referrals to local housing providers. I will also support using data to identify unmet needs, measure which programs help students stay enrolled and direct funding toward solutions.”"
+    },
+    {
+     "q": "How should LACCD handle AI?",
+     "a": "“LACCD should develop an AI strategy designed specifically for community college students — one that gives them the skills to compete, transfer and succeed in an increasingly AI-driven economy. We need clear standards protecting student privacy and academic integrity and ensuring students understand both the capabilities and limitations of these technologies."
+    }
+   ]
+  },
+  "ca26-steven-f-veres": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Steven Veres has been an LACCD trustee since 2011. He has also been a city council member in San Fernando, as well as a college faculty member.",
+   "website": "https://steveveres.com/",
+   "endorsementsLine": "California Treasurer Fiona Ma, Los Angeles Mayor Karen Bass",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Student pathways. “I will expand paid internships, apprenticeships, workforce partnerships and career pathways while making college more affordable and addressing barriers such as housing, food, and transportation."
+    },
+    {
+     "q": "How should LACCD improve housing security?",
+     "a": "“We cannot expect students to succeed in the classroom if they do not know where they will sleep. I will continue pushing LACCD to use district-owned land, public-private partnerships and state and local resources to create affordable student housing near our colleges."
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“AI will transform education and the workplace, and LACCD students must be prepared for that future. I view AI as a tool to support people — not replace faculty, staff or the human relationships essential to education."
+    }
+   ]
+  },
+  "ca26-darryn-harris": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Darryn Harris did not respond to LAist's request to respond to a candidate survey before our publication deadline."
+  },
+  "ca26-nancy-pearlman": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Nancy Pearlman describes herself as an educator teaching anthropology, social studies and broadcasting at different levels, including middle school and community college. Pearlman is also a Trustee Emeritus of the Los Angeles Community College District.",
+   "website": "https://nancypearlman.net/",
+   "endorsementsLine": "Los Angeles League of Conservation Voters, Democrats for Israel Los Angeles",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Student concerns. “Resources must be made available to help students achieve their goals."
+    },
+    {
+     "q": "How can LACCD improve housing security?",
+     "a": "“I have worked for decades to provide student housing and to also make facilities (showers, bathrooms, etc.) available 24/7.”"
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“This is a critical issue that must be examined as to pros and cons.”"
+    }
+   ]
+  },
+  "ca26-elaine-alaniz": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Elaine Alaniz describes herself as a community college graduate whose career has crossed healthcare, workforce development, disaster recovery, public administration, communications and film production. She credits her sister for encouraging her to go back to school: “Through college, I gained technical, academic and transferable skills that opened new career opportunities and helped me build greater long-term stability.",
+   "website": "https://elainereadytoserve.com/",
+   "answers": [
+    {
+     "q": "What is your top priority?",
+     "a": "“My top priority would be a degree and skills through stackable education , where academically and professionally appropriate courses should build toward marketable skills, those skills toward certificates or industry-recognized credentials, and those accomplishments toward degrees and transferable pathways to four-year universities. Students should not have to choose between being academically educated and workforce-ready.”"
+    },
+    {
+     "q": "How should LACCD improve housing security?",
+     "a": "“Housing insecurity requires both immediate support and long-term solutions. I understand this personally because, while attending community college, I used financial aid in part to help cover rent, and I am still carrying some of that college debt today."
+    },
+    {
+     "q": "How should LACCD handle AI?",
+     "a": "“LACCD should recognize that AI is already changing how people work and learn, and our strategy has to evolve with it. I would focus on three things: teaching students how to use AI effectively, protecting academic integrity and personal data, and continuously reviewing how AI is changing specific industries so programs do not fall behind."
+    }
+   ]
+  },
+  "ca26-isidro-j-armenta": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Isidro Armenta did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-jason-r-aula": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Jason Aula did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-adam-bruno": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Adam Bruno is a licensed marriage and family therapist in California and Nevada and has worked in the mental health space since 2006.",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Accessibility for education. “Enrollment is down, and people are struggling to make ends meet."
+    },
+    {
+     "q": "How can LACCD improve housing security?",
+     "a": "“I'm looking into the feasibility of affordable housing for college students, or possibly grants, a stipend, or other support. It all depends on budget and logistics, but I'm going to work at it from multiple angles.”"
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“AI should be a boon to humanity, but I strongly believe it is being misused. Ethical use of AI includes ethical use of the information AI gathers, and not disenfranchising the humans it replaces."
+    }
+   ]
+  },
+  "ca26-priscilla-umana": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Priscilla Umana did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-randall-winston": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Randall Winston is Los Angeles’ deputy mayor for infrastructure and climate resilience. He’s also a lawyer, an architect and a judge advocate in the California Army National Guard.",
+   "website": "https://www.randalljwinston.com/",
+   "endorsementsLine": "Los Angeles Mayor Karen Bass, Los Angeles County Supervisor Hilda Solis, Los Angeles County Sheriff Robert Luna, Los Angeles County Federation of Labor",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Measure LA bond spending oversight. “LACCD's construction history includes real failures, and the district is now spending more than it ever has."
+    },
+    {
+     "q": "What should LACCD do to improve housing security?",
+     "a": "“This is the closest thing on this ballot to my own professional expertise. At the California Strategic Growth Council I directed more than $1.3 billion into affordable housing, much of it near transit."
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“Start with students, not with a vendor. I'd be cautious about signing a large systemwide contract before deciding what we actually want it to do."
+    }
+   ]
+  },
+  "ca26-tonia-arey": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Tonia Arey describes herself as a longtime Los Angeles County resident who began her higher-education journey at a California community college. “As a trustee, I would bring practical, independent leadership focused on student success, career readiness, campus safety, cybersecurity, respect for employees and responsible oversight of taxpayer dollars.”",
+   "website": "https://toniaarey.com/",
+   "endorsementsUrl": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-sheriff",
+   "endorsementsLine": "Alex Villanueva, former L.A. County sheriff",
+   "answers": [
+    {
+     "q": "What is your top priority?",
+     "a": "Making sure LACCD’s resources help students succeed. “I will scrutinize the budget, ask whether programs are delivering results, and direct attention to the support students need to complete a degree, transfer or prepare for a career."
+    },
+    {
+     "q": "How should LACCD improve housing security?",
+     "a": "“I would expand access to emergency grants, housing navigation and referrals to existing community resources, while building partnerships with local housing providers. I would also consider student housing proposals, but only with a clear funding plan that protects classroom resources.”"
+    },
+    {
+     "q": "How should LACCD handle AI?",
+     "a": "“First, to be clear, there is no stopping AI. That being said, LACCD should teach students to use AI responsibly."
+    }
+   ]
+  },
+  "ca26-roberto-david-lacarra": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "note": "Roberto David Lacarra did not respond to LAist's request to fill out a candidate survey before our publication deadline."
+  },
+  "ca26-gabriel-buelna": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+    "retrieved": "2026-10-22"
+   },
+   "about": "Gabriel Buelna describes himself as an educator, attorney, former social worker, husband, father and LACCD trustee. He grew up in South L.A. “as the son of Mexican immigrants and was raised to believe deeply in education and service.”",
+   "website": "https://www.buelna4laccd.com/",
+   "endorsementsLine": "Civil rights activist/labor leader Dolores Huerta, former L.A. Mayor Eric Garcetti",
+   "answers": [
+    {
+     "q": "If elected, what are your priorities?",
+     "a": "Affordable housing for students. “Too many students are struggling with housing insecurity while trying to complete their education."
+    },
+    {
+     "q": "How should LACCD improve housing security?",
+     "a": "“Housing insecurity is one of the greatest barriers to student success. I helped lead the effort to dedicate $500 million from Measure LA to student housing, and now we must turn that investment into housing students can afford. … I will push to accelerate construction across LACCD, expand partnerships with universities and affordable-housing providers, and connect housing-insecure students with emergency assistance and basic-needs services."
+    },
+    {
+     "q": "How should the district handle AI?",
+     "a": "“LACCD should cautiously embrace AI, but thoughtfully and with faculty at the center. AI literacy will be essential for our students as they transfer to universities and enter a changing workforce."
+    }
+   ]
+  }
+ },
+ "races": {
+  "ca26-governor": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-lt-governor": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-secretary-of-state": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-controller": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-treasurer": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-attorney-general": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-insurance-commissioner": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-superintendent": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-boe-3": {
+   "label": "CalMatters via LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-board-of-equalization-district-3",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-assembly-49": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-la-sheriff": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-sheriff",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-la-superior-64": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-la-superior-65": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-la-superior-87": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-la-superior-131": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-laccd-2": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-laccd-4": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-laccd-6": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-general-election-laccd-board-of-trustees",
+   "retrieved": "2026-10-22"
+  }
+ }
+}

@@ -30,6 +30,8 @@ export interface ChoiceValue {
   selection: string
   notes?: string
   status?: ChoiceStatus
+  // Your notes on each candidate, by name
+  candidateNotes?: Record<string, string>
 }
 
 export interface BallotSection {

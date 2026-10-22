@@ -7,10 +7,11 @@ import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
+import NewsGuide from '@/components/candidate/NewsGuide'
 import CompareStrip from '@/components/compare/CompareStrip'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import type { CompareView } from '@/components/compare/compare'
-import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, raceExtrasOf } from '@/lib/profile'
+import { VIDEO_KIND_LABELS, formatDuration, guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
   ABSTAIN,
   MEASURE_VALUES,
@@ -46,6 +47,7 @@ interface ContestProps {
   onChange: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
   onClear: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
+  onCandidateNote?: (itemId: string, name: string, text: string) => void
   compare?: CompareView | null
   // Other contests printed under the same jurisdiction line, for "copy a link to all of them"
   linkGroup?: { id: string; label: string; count: number }
@@ -98,29 +100,36 @@ function CopyLink({ targets, label }: { targets: { id: string; label: string }[]
   )
 }
 
-// One sentence about a candidate, shown under their name: the first sentence of their own
-// statement (state voter guide, else the county's sample ballot booklet), labeled with where
-// it's from. Nothing when they filed no statement; we never write one ourselves.
+// One line about a candidate, shown under their name, always labeled with where it's from:
+// the first sentence of their own statement (state voter guide, else the county's sample ballot
+// booklet); for a judge, the bar association's rating; else the first sentence of a news voter
+// guide's description. Nothing when none of those exist; we never write one ourselves.
 function CandidateLine({ race, name }: { race: BallotItem; name: string }) {
   const line = candidateLine(race, name)
   if (!line) return null
   return (
     <span className="mt-1 block border-l-2 border-sky-400 bg-sky-50 px-1.5 py-0.5 font-sans text-[0.6875rem] leading-snug text-sky-950 print:hidden">
-      <span className="line-clamp-2">“{line.text}”</span>
-      <span className="text-sky-700">From their {line.source}</span>
+      <span className="line-clamp-2">{line.quote ? `“${line.text}”` : line.text}</span>
+      <span className="text-sky-700">{line.source}</span>
     </span>
   )
 }
 
-function candidateLine(race: BallotItem, name: string): { text: string; source: string } | null {
-  const headline = race.office?.candidates.find((c) => c.name === name)?.profile?.headline
+function candidateLine(race: BallotItem, name: string): { text: string; source: string; quote: boolean } | null {
+  const profile = race.office?.candidates.find((c) => c.name === name)?.profile
+  const headline = profile?.headline
   if (headline && !/^no candidate statement/i.test(headline.text)) {
     const first = openingSentence(headline.text) ?? headline.text
-    return { text: first, source: "state voter guide statement" }
+    return { text: first, source: 'From their state voter guide statement', quote: true }
   }
   const doc = statementOf(race.metadata, name)
   const first = doc && openingSentence(doc.text)
-  return first ? { text: first, source: 'county ballot booklet statement' } : null
+  if (first) return { text: first, source: 'From their county ballot booklet statement', quote: true }
+  const guide = profile?.guide
+  if (guide?.rating) return { text: `Rated ${guide.rating.value}`, source: `By the ${guide.rating.by}`, quote: false }
+  const about = guide?.about && openingSentence(guide.about)
+  if (guide && about) return { text: about, source: `From ${guideCredit(guide)}'s voter guide`, quote: true }
+  return null
 }
 
 // The oval a voter fills in; the radio input is visually hidden but keeps keyboard
@@ -410,7 +419,37 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
 }
 
 // One candidate in the snack panel: their own words (one line), endorsement circles, a video
-function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCandidate; race: BallotItem; anchorId?: string }) {
+// Your own note on one candidate: a button until you start one
+function CandidateNote({ name, note }: { name: string; note: { text?: string; onSave?: (text: string) => void } }) {
+  const [open, setOpen] = useState(false)
+  if (!note.onSave) return note.text ? <p className="whitespace-pre-line text-xs italic">Note: “{note.text}”</p> : null
+  if (!note.text && !open)
+    return (
+      <button type="button" onClick={() => setOpen(true)} className="text-xs font-semibold text-blue-700 hover:underline">
+        + Add a note on {name}
+      </button>
+    )
+  return (
+    <NotesField
+      initial={note.text ?? ''}
+      onSave={note.onSave}
+      label={`Your notes on ${name}`}
+      placeholder={`Your notes on ${name}: what you like, what to look up… (for you, and anyone you share with)`}
+    />
+  )
+}
+
+function CandidateSnack({
+  candidate: c,
+  race,
+  anchorId,
+  note,
+}: {
+  candidate: BallotCandidate
+  race: BallotItem
+  anchorId?: string
+  note?: { text?: string; onSave?: (text: string) => void }
+}) {
   const [watching, setWatching] = useState(false)
   const p = c.profile
   const video = p?.video
@@ -435,13 +474,17 @@ function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCan
       ) : (
         <>
           {c.shortBio && <p className="text-xs text-sky-900">{c.shortBio}</p>}
-          {candidateLine(race, c.name) && (
+          {statementOf(race.metadata, c.name) && candidateLine(race, c.name) && (
             <p className="line-clamp-2 text-xs text-sky-900">
-              “{candidateLine(race, c.name)!.text}”{' '}
-              <span className="text-sky-700">({candidateLine(race, c.name)!.source})</span>
+              “{candidateLine(race, c.name)!.text}” <span className="text-sky-700">(county ballot booklet statement)</span>
             </p>
           )}
         </>
+      )}
+      {p?.guide && (
+        <div className="border-t border-sky-200 pt-1">
+          <NewsGuide guide={p.guide} compact />
+        </div>
       )}
       {p && p.endorserTotal > 0 && (
         <Link href={`/candidates/${c.id}#endorsements`} className="flex items-center gap-2 text-xs text-sky-900 hover:underline">
@@ -470,6 +513,7 @@ function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCan
       </div>
       {watching && video && <VideoFacade video={video} compact />}
       {statementOf(race.metadata, c.name) && <OfficialDocs docs={[statementOf(race.metadata, c.name)!]} />}
+      {note && <CandidateNote name={c.name} note={note} />}
     </div>
   )
 }
@@ -514,6 +558,7 @@ function Enhancements({
   open,
   onChange,
   onClear,
+  onCandidateNote,
   candidatesBeside = false,
 }: {
   item: BallotItem
@@ -524,6 +569,7 @@ function Enhancements({
   open: boolean
   onChange: ContestProps['onChange']
   onClear: ContestProps['onClear']
+  onCandidateNote?: ContestProps['onCandidateNote']
   // Expanded view shows each candidate beside their oval, so not again here
   candidatesBeside?: boolean
 }) {
@@ -566,7 +612,14 @@ function Enhancements({
           <ul className="space-y-3">
             {people.map((c) => (
               <li key={c.id}>
-                <CandidateSnack candidate={c} race={item} />
+                <CandidateSnack
+                  candidate={c}
+                  race={item}
+                  note={{
+                    text: choice?.candidateNotes?.[c.name],
+                    onSave: readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
+                  }}
+                />
               </li>
             ))}
           </ul>
@@ -642,7 +695,7 @@ function stepPick(
 }
 
 function clearPick(itemId: string, choice: ChoiceValue | undefined, onChange: ContestProps['onChange'], onClear: ContestProps['onClear']) {
-  if (choice?.notes) onChange(itemId, NOTES_ONLY, choice.notes)
+  if (choice?.notes || Object.keys(choice?.candidateNotes ?? {}).length) onChange(itemId, NOTES_ONLY, choice?.notes)
   else onClear(itemId)
 }
 
@@ -657,6 +710,7 @@ export default function Contest({
   onStatus,
   compare,
   linkGroup,
+  onCandidateNote,
 }: ContestProps) {
   // Expanded view opens every contest's extras; a contest you open or close yourself stays that
   // way until you switch views
@@ -742,6 +796,7 @@ export default function Contest({
             open={open}
             onChange={onChange}
             onClear={onClear}
+            onCandidateNote={onCandidateNote}
             candidatesBeside={wide}
           />
         )
@@ -769,7 +824,16 @@ export default function Contest({
                         const c = open && item.office?.candidates.find((p) => p.name === name)
                         return c ? (
                           <Extra className="h-full">
-                            <CandidateSnack candidate={c} race={item} anchorId={candidateDomId(item, c.name)} />
+                            <CandidateSnack
+                              candidate={c}
+                              race={item}
+                              anchorId={candidateDomId(item, c.name)}
+                              note={{
+                                text: choice?.candidateNotes?.[c.name],
+                                onSave:
+                                  readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
+                              }}
+                            />
                           </Extra>
                         ) : null
                       }}

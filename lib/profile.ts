@@ -17,6 +17,22 @@ export interface CandidateVideo {
   durationSec?: number
 }
 
+// What a news organization's voter guide says about a candidate (data/research/enrichment-builders/
+// laist.py): copied from the guide, with the bar association's rating for judges
+export interface NewsGuide {
+  source: { publisher: string; byline: string; url: string; retrieved: string }
+  about?: string
+  // e.g. "didn't respond to the survey"
+  note?: string
+  keyEndorsements?: string[]
+  endorsementsLine?: string
+  website?: string
+  endorsementsUrl?: string
+  stateBarUrl?: string
+  rating?: { by: string; value: string; source: { title: string; url: string; retrieved: string } }
+  answers?: { q: string; a: string }[]
+}
+
 export interface CandidateProfile {
   summary?: {
     source: { title: string; url: string; page?: number }
@@ -31,6 +47,7 @@ export interface CandidateProfile {
     list: Endorser[]
     individuals?: number
   }
+  guide?: NewsGuide
 }
 
 // What ballot views get: enough for a "snack" without shipping every endorser to the browser
@@ -41,6 +58,7 @@ export interface ProfileSnippet {
   endorsers: Endorser[]
   endorserTotal: number
   endorsementsUrl: string | null
+  guide: NewsGuide | null
 }
 
 export const ENDORSER_KIND_LABELS: Record<EndorserKind, string> = {
@@ -76,6 +94,7 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
     endorsers: ordered.slice(0, maxEndorsers),
     endorserTotal: ordered.length + (p.endorsements?.individuals ?? 0),
     endorsementsUrl: p.endorsements?.source.url ?? null,
+    guide: p.guide ?? null,
   }
 }
 
@@ -144,4 +163,9 @@ export function initials(e: Endorser): string {
     .map((w) => w[0])
     .join('')
     .toUpperCase()
+}
+
+// "LAist" or "CalMatters, republished by LAist": who wrote the guide and where it ran
+export function guideCredit(g: NewsGuide): string {
+  return g.source.byline && g.source.byline !== g.source.publisher ? `${g.source.byline} via ${g.source.publisher}` : g.source.publisher
 }

@@ -74,7 +74,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
   const viewer = await getViewer();
   const guideSelect = {
     id: true, title: true, visibility: true, shareToken: true, shareCommunity: true, notes: true, metadata: true,
-    choices: { select: { ballotId: true, selection: true, notes: true, status: true } },
+    choices: { select: { ballotId: true, selection: true, notes: true, status: true, candidateNotes: true } },
   } as const;
   const [defaultGuide, otherGuides] = await Promise.all([
     prisma.guide.findUnique({ where: { defaultKey: defaultKeyFor(viewer, electionId) }, select: guideSelect }),

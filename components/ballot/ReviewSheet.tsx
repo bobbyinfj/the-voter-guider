@@ -32,6 +32,11 @@ export default function ReviewSheet({ sections, choices, readOnly, onEdit }: Rev
                     {choice ? choiceLabel(choice.selection, item) : 'No choice yet'}
                     {isPick(choice?.selection) && choice!.status !== 'decided' && ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})`}
                     {choice?.notes && <span className="block text-xs font-normal text-gray-600 whitespace-pre-line">{choice.notes}</span>}
+                    {Object.entries(choice?.candidateNotes ?? {}).map(([name, note]) => (
+                      <span key={name} className="block text-xs font-normal text-gray-600 whitespace-pre-line">
+                        On {name}: {note}
+                      </span>
+                    ))}
                   </span>
                   <button
                     type="button"

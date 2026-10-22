@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-// Moleses, the blind mole wizard: our mascot, and the face of every "this isn't official" notice
+// Moleses, the nearly blind mole wizard (glasses, permanent squint; like most moles, not fully blind): our mascot, and the face of every "this isn't official" notice
 
 export function MolesesAvatar({ size = 40, className = '' }: { size?: number; className?: string }) {
   return (
     <Image
       src="/moleses-2.png"
-      alt="Moleses, the Voter Guider's blind mole wizard mascot"
+      alt="Moleses, the Voter Guider's nearly blind mole wizard mascot, squinting through thick glasses"
       width={size}
       height={size}
       className={`shrink-0 rounded-full bg-white object-cover ${className}`}
@@ -41,7 +41,7 @@ export function UnofficialFooter() {
         <MolesesAvatar size={88} className="border border-gray-200" />
         <div className="max-w-3xl space-y-2 text-sm text-gray-700">
           <p className="font-semibold text-gray-900">
-            Moleses is a blind mole wizard, not an election official. Neither are we.
+            Moleses is a nearly blind mole wizard (hence the glasses and the squint), not an election official. Neither are we.
           </p>
           <p>
             The Voter Guider is an independent, unofficial voter guide. It isn&apos;t run by, affiliated with or
