@@ -1,0 +1,34 @@
+{
+ "candidates": {
+  "ca26-judy-chu": {
+   "publisher": "PolitiFact",
+   "url": "https://www.politifact.com/personalities/judy-chu/",
+   "retrieved": "2026-10-22",
+   "counts": {
+    "true": 0,
+    "mostly-true": 0,
+    "half-true": 0,
+    "mostly-false": 1,
+    "false": 0,
+    "pants-fire": 0
+   },
+   "bio": "Congresswoman Judy Chu is a Democrat and represents the 27th District of California, including large portions of the Western San Gabriel Valley in Los Angeles County.",
+   "latestYear": 2017
+  },
+  "ca26-xavier-becerra": {
+   "publisher": "PolitiFact",
+   "url": "https://www.politifact.com/personalities/xavier-becerra/",
+   "retrieved": "2026-10-22",
+   "counts": {
+    "true": 1,
+    "mostly-true": 2,
+    "half-true": 1,
+    "mostly-false": 0,
+    "false": 1,
+    "pants-fire": 0
+   },
+   "bio": "Xavier Becerra is California's attorney general and a Democrat. Previously, he was member of the U.S. House of Representatives.",
+   "latestYear": 2021
+  }
+ }
+}

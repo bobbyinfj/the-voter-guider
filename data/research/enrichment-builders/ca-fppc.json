@@ -1,0 +1,141 @@
+{
+ "searched": {
+  "from": "2021-01",
+  "to": "2026-10",
+  "releases": 70,
+  "urls": [
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-january-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-february-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-march-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-april-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-may-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-june-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-july-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-august-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-september-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-october-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-november-2021/",
+   "https://www.fppc.ca.gov/news-releases/2021/fppc-enforcement-decisions-december-2021/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-january-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-february-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-march-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-april-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-may-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-june-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-july-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-august-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-september-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-october-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-november-2022/",
+   "https://www.fppc.ca.gov/news-releases/2022/fppc-enforcement-decisions-december-2022/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-january-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-february-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-march-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-april-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-may-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-june-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-july-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-august-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-september-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-october-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-november-2023/",
+   "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-december-2023/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-january-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-february-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-march-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-april-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-may-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-june-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-july-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-august-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-october-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-november-2024/",
+   "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-december-2024/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-january-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-february-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-march-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-april-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-may-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-june-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-july-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-august-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-september-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-october-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-november-2025/",
+   "https://www.fppc.ca.gov/news-releases/2025/fppc-enforcement-decisions-december-2025/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-january-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-february-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-march-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-april-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-may-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-june-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-july-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-august-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-september-2026/",
+   "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-october-2026/"
+  ]
+ },
+ "candidates": {
+  "ca26-fiona-ma": [
+   {
+    "respondent": "Fiona Ma for State Treasurer 2018, Fiona Ma, and James Santos",
+    "case": "22/195",
+    "fine": 11500,
+    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-january-2024/",
+    "month": "2024-01",
+    "retrieved": "2026-10-22",
+    "summary": "The Committee, Ma, and Santos failed to timely disclose and itemize subvendor payments, in violation of Government Code Sections 84303 and 84211 (1 count).",
+    "shared": true
+   }
+  ],
+  "ca26-rob-bonta": [
+   {
+    "respondent": "Rob Bonta",
+    "case": "21/738",
+    "fine": 200,
+    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
+    "month": "2024-09",
+    "retrieved": "2026-10-22",
+    "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
+    "shared": false
+   }
+  ],
+  "ca26-michael-e-gates": [
+   {
+    "respondent": "Michael Gates",
+    "case": "26/208",
+    "fine": 600,
+    "url": "https://www.fppc.ca.gov/news-releases/2026/fppc-enforcement-decisions-may-2026/",
+    "month": "2026-05",
+    "retrieved": "2026-10-22",
+    "summary": "Michael Gates, City Attorney for Huntington Beach, failed to timely report a gift on a 2023 Annual Statement of Economic Interests, in violation of Government Code Section 87203 (1 Count).",
+    "shared": false
+   }
+  ],
+  "ca26-mike-gipson": [
+   {
+    "respondent": "Mike Gipson",
+    "case": "24/544",
+    "fine": 1800,
+    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-august-2024/",
+    "month": "2024-08",
+    "retrieved": "2026-10-22",
+    "summary": "Mike Gipson, current State Assemblymember representing District 65, failed to timely file nine behested payment reports, in violation of Government Code Section 84224 (9 counts).",
+    "shared": false
+   }
+  ],
+  "ca26-alex-villanueva": [
+   {
+    "respondent": "Alex Villanueva, Villanueva for Los Angeles Sheriff 2018, Cine D. Ivery, and Manuel Gomez",
+    "case": "18/1097",
+    "fine": 57500,
+    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-january-2024/",
+    "month": "2024-01",
+    "retrieved": "2026-10-22",
+    "summary": "The Committee, Villanueva, and Ivery failed to report required occupation and employer information for a contribution received from Gomez, in violation of Government Code Section 84211, subdivision (f) (1 count).",
+    "shared": true
+   }
+  ]
+ }
+}

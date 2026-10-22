@@ -48,6 +48,11 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   every rating LAist reports must match it. Every text field is checked against the saved page.
   Coverage (2026-10-22): 46 of 53 candidates. Not covered by LAist: U.S. House 28, Monterey Park
   city races. The 7 LACCD candidates who didn't answer LAist's survey show LAist's note saying so.
+- **Fact-check records:** `politifact.py <state>` → `<state>-politifact.json`, merged as `factCheck`.
+  Each candidate's Truth-O-Meter counts from their PolitiFact page (`/personalities/<slug>/`), its bio
+  line and the year of the newest ruling. A page is used only when its bio names the state (or the
+  candidate is in `SAME_PERSON` after a manual check); missing pages are skipped. robots.txt allows
+  Claude; its 10-second crawl delay is kept. Feeds the Expanded view's 💩 meter (`lib/scorecard.ts`).
 - Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)
