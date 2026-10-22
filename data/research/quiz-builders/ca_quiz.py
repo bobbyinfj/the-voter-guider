@@ -4,7 +4,13 @@ INS = ("https://calmatters.org/california-voter-guide-2026/insurance-commissione
 AG = ("https://calmatters.org/california-voter-guide-2026/attorney-general/", "CalMatters 2026 Voter Guide: Attorney General", "calm-attorney-general.txt")
 SOS = ("https://calmatters.org/california-voter-guide-2026/secretary-of-state/", "CalMatters 2026 Voter Guide: Secretary of State", "calm-secretary-of-state.txt")
 SPI = ("https://calmatters.org/california-voter-guide-2026/superintendent-of-public-instruction/", "CalMatters 2026 Voter Guide: Superintendent", "calm-superintendent-of-public-instruction.txt")
-S = {"gov": GOV, "ins": INS, "ag": AG, "sos": SOS, "spi": SPI}
+# News reports and campaign sites (robots.txt checked; fetched with comparison-builders/build.py fetch())
+VOC = ("https://voiceofoc.org/?p=3207961", "Voice of OC: Huntington Beach Sues California Over Sanctuary Laws", "voc-hb-sanctuary.txt")
+TOSD = ("https://timesofsandiego.com/education/2026/06/03/san-diego-barrera-second-race-superintendent-public-instruction/", "Times of San Diego: San Diego's Barrera second in race for superintendent of public instruction", "tosd-barrera.txt")
+INS2 = ("https://calmatters.org/economy/2026/10/insurance-commissioner-california-nov-election/", "CalMatters: CA to elect insurance commissioner at crucial time", "calm-insurance-oct.txt")
+GATES = ("https://www.gates4ag.com/issues", "Michael Gates for Attorney General: Issues", "site-gates.txt")
+ROMERO = ("https://www.gloriaromero4ltgov.com/", "Gloria Romero for Lt. Governor (campaign site)", "site-romero.txt")
+S = {"gov": GOV, "ins": INS, "ag": AG, "sos": SOS, "spi": SPI, "voc": VOC, "tosd": TOSD, "ins2": INS2, "gates": GATES, "romero": ROMERO}
 B, H = "ca26-xavier-becerra", "ca26-steve-hilton"
 axes = [
   dict(slug="ca-top-earner-income-tax", name="Income taxes on top earners", level="state",
@@ -51,6 +57,10 @@ axes = [
        stances=[
          (B, 2, "Supports the sanctuary law and defended it in court as attorney general.", "gov",
           "He supports California’s sanctuary law and defended it in court during the first Trump administration."),
+         ("ca26-rob-bonta", 2, "His office said it is prepared to vigorously defend the sanctuary law against Huntington Beach's lawsuit.", "voc",
+          "Our office successfully fought back against a challenge to SB 54 by the first Trump administration, and we are prepared to vigorously defend SB 54 again."),
+         ("ca26-michael-e-gates", -2, "As Huntington Beach city attorney, sued to overturn the sanctuary law, arguing the city doesn't have to comply.", "voc",
+          "In the suit, Gates argues that as a charter city, Huntington Beach leaders don't have to comply with sanctuary laws."),
          (H, -2, "Wants to overturn the sanctuary law that limits police cooperation with ICE.", "gov",
           "He wants to overturn California’s sanctuary law that limits police cooperation with Immigration and Customs Enforcement."),
        ]),
@@ -89,6 +99,8 @@ axes = [
           "Hilton would reopen closed state prisons, reduce the practice of early release based on prisoners’ good conduct and boost rehabilitation programs in prisons."),
          (B, 0, "Voted for Prop 36 and would fully fund it, but hasn't backed longer sentences generally, leaving that to judges.", "gov",
           "But he has not backed longer or stricter criminal sentences in general, saying that decision should be left to judges."),
+         ("ca26-michael-e-gates", 2, "Says fully carrying out Prop 36, which raised penalties for some crimes, would be his highest priority.", "gates",
+          "Michael will make full implementation of Prop 36 across the State his highest priority after taking office."),
        ]),
   dict(slug="ca-public-disaster-insurance", name="State disaster insurance", level="state",
        statement="California should create a state-run program that guarantees wildfire and flood insurance coverage.",
@@ -96,6 +108,8 @@ axes = [
        stances=[
          ("ca26-jane-kim", 2, "Wants \"natural disaster insurance for all,\" a state-run authority guaranteeing wildfire and flood coverage.", "ins",
           "Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods."),
+         ("ca26-ben-allen", -1, "Called Kim's plans, led by public disaster insurance, \"totally unprecedented and unmoored\"; wants to reduce wildfire risk so private insurers keep covering homes.", "ins2",
+          "Allen referred to Kim's plans as \"totally unprecedented and unmoored.\""),
        ]),
   dict(slug="ca-low-cost-auto-insurance", name="Low-cost auto insurance for all", level="state",
        statement="California's low-cost auto insurance program should be open to every driver, not just low-income drivers.",
@@ -112,6 +126,8 @@ axes = [
        stances=[
          ("ca26-donald-p-don-wagner", 2, "Supports requiring voter ID at the polls.", "sos",
           "He supports requiring voter ID at the polls and criticizes Weber for the state’s slow ballot-counting process."),
+         ("ca26-gloria-romero", 2, "Her campaign site asks visitors to sign a voter ID petition.", "romero",
+          "SIGN THE VOTER ID PETITION"),
        ]),
   dict(slug="ca-transgender-student-protections", name="Transgender student protections", level="state",
        statement="Schools should keep California's protections for transgender students.",
@@ -119,6 +135,8 @@ axes = [
        stances=[
          ("ca26-sonja-shaw", -2, "An outspoken opponent of protections for transgender students.", "spi",
           "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students."),
+         ("ca26-richard-barrera", 2, "Disagreed with Shaw at a candidate forum, saying the state's laws protect LGBTQ+ students.", "tosd",
+          "Barrera, a senior policy adviser at the state Department of Education, disagreed with Shaw's position during an April EdSource forum, saying the laws protect LGBTQ+ students."),
        ]),
 ]
 build("ca-general-2026-11-03", "California 2026 General Election Quiz", axes, S)
