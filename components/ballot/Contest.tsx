@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { CheckCircle2, ChevronDown, CircleHelp, ExternalLink, Info, PlayCircle } from 'lucide-react'
+import { Check, CheckCircle2, ChevronDown, CircleHelp, ExternalLink, Info, Link2, PlayCircle } from 'lucide-react'
 import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
@@ -18,7 +18,9 @@ import {
   UNSURE,
   WRITE_IN,
   choiceLabel,
+  candidateDomId,
   contestDomId,
+  openingSentence,
   isMeasure,
   isPick,
   isSettled,
@@ -45,6 +47,80 @@ interface ContestProps {
   onClear: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   compare?: CompareView | null
+  // Other contests printed under the same jurisdiction line, for "copy a link to all of them"
+  linkGroup?: { id: string; label: string; count: number }
+}
+
+// Copy a link to this part of the ballot (also puts it in the address bar). With more than one
+// target (this contest, or every contest in its group) it asks which.
+function CopyLink({ targets, label }: { targets: { id: string; label: string }[]; label: string }) {
+  const [copied, setCopied] = useState<string | null>(null)
+  const [choosing, setChoosing] = useState(false)
+  const copy = async (id: string) => {
+    setChoosing(false)
+    const url = `${window.location.origin}${window.location.pathname}${window.location.search}#${id}`
+    history.replaceState(null, '', `#${id}`)
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopied(id)
+      window.setTimeout(() => setCopied(null), 2000)
+    } catch {
+      window.prompt('Copy this link:', url)
+    }
+  }
+  return (
+    <span className="relative">
+      <button
+        type="button"
+        onClick={() => (targets.length > 1 ? setChoosing((v) => !v) : copy(targets[0].id))}
+        aria-expanded={targets.length > 1 ? choosing : undefined}
+        aria-label={label}
+        title={copied ? 'Link copied' : label}
+        className="rounded p-0.5 text-gray-400 hover:bg-gray-100 hover:text-blue-700"
+      >
+        {copied ? <Check className="h-4 w-4 text-green-700" /> : <Link2 className="h-4 w-4" />}
+      </button>
+      {copied && (
+        <span role="status" className="absolute right-0 top-full z-30 mt-1 whitespace-nowrap rounded bg-gray-900 px-2 py-0.5 font-sans text-[11px] text-white">
+          Link copied
+        </span>
+      )}
+      {choosing && (
+        <span className="absolute right-0 top-full z-30 mt-1 w-56 rounded-md border border-gray-200 bg-white p-1 font-sans text-xs shadow-lg">
+          {targets.map((t) => (
+            <button key={t.id} type="button" onClick={() => copy(t.id)} className="block w-full rounded px-2 py-1 text-left hover:bg-gray-100">
+              {t.label}
+            </button>
+          ))}
+        </span>
+      )}
+    </span>
+  )
+}
+
+// One sentence about a candidate, shown under their name: the first sentence of their own
+// statement (state voter guide, else the county's sample ballot booklet), labeled with where
+// it's from. Nothing when they filed no statement; we never write one ourselves.
+function CandidateLine({ race, name }: { race: BallotItem; name: string }) {
+  const line = candidateLine(race, name)
+  if (!line) return null
+  return (
+    <span className="mt-1 block border-l-2 border-sky-400 bg-sky-50 px-1.5 py-0.5 font-sans text-[11px] leading-snug text-sky-950 print:hidden">
+      <span className="line-clamp-2">“{line.text}”</span>
+      <span className="text-sky-700">From their {line.source}</span>
+    </span>
+  )
+}
+
+function candidateLine(race: BallotItem, name: string): { text: string; source: string } | null {
+  const headline = race.office?.candidates.find((c) => c.name === name)?.profile?.headline
+  if (headline && !/^no candidate statement/i.test(headline.text)) {
+    const first = openingSentence(headline.text) ?? headline.text
+    return { text: first, source: "state voter guide statement" }
+  }
+  const doc = statementOf(race.metadata, name)
+  const first = doc && openingSentence(doc.text)
+  return first ? { text: first, source: 'county ballot booklet statement' } : null
 }
 
 // The oval a voter fills in; the radio input is visually hidden but keeps keyboard
@@ -106,25 +182,67 @@ function Oval({
 
 // Expanded view: a ballot row on the left third and our extras for it on the right two-thirds
 // (stacked on a phone)
-function BesideRow({ wide, aside, children }: { wide: boolean; aside?: React.ReactNode; children: React.ReactNode }) {
-  if (!wide) return <>{children}</>
+function BesideRow({
+  id,
+  wide,
+  aside,
+  children,
+}: {
+  id?: string
+  wide: boolean
+  aside?: React.ReactNode
+  children: React.ReactNode
+}) {
+  if (!wide) return <div id={id}>{children}</div>
   return (
-    <div className="sm:grid sm:grid-cols-3">
+    <div id={id} className="sm:grid sm:grid-cols-3">
       <div className="flex min-w-0 sm:border-r sm:border-gray-300">{children}</div>
       <div className="min-w-0 sm:col-span-2">{aside}</div>
     </div>
   )
 }
 
-function NotesField({ initial, onSave }: { initial: string; onSave: (notes: string) => void }) {
+// Saves itself a moment after you stop typing, and when you leave the box
+function NotesField({
+  initial,
+  onSave,
+  label = 'Your notes on this contest',
+  placeholder = 'Notes on this contest: why this pick, what to look up… (for you, and anyone you share with)',
+}: {
+  initial: string
+  onSave: (notes: string) => void
+  label?: string
+  placeholder?: string
+}) {
   const [value, setValue] = useState(initial)
+  const saved = useRef(initial)
+  const timer = useRef<number | null>(null)
+  const latest = useRef(onSave)
+  useEffect(() => {
+    latest.current = onSave
+  })
+  const flush = (text: string) => {
+    if (timer.current) window.clearTimeout(timer.current)
+    timer.current = null
+    if (text === saved.current) return
+    saved.current = text
+    latest.current(text)
+  }
+  useEffect(() => () => {
+    if (timer.current) window.clearTimeout(timer.current)
+  }, [])
   return (
     <textarea
-      aria-label="Your notes on this contest"
-      placeholder="Why this pick? Notes for you (and anyone you share with)…"
+      aria-label={label}
+      placeholder={placeholder}
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      onBlur={() => value !== initial && onSave(value)}
+      onChange={(e) => {
+        const text = e.target.value
+        setValue(text)
+        if (timer.current) window.clearTimeout(timer.current)
+        timer.current = window.setTimeout(() => flush(text), 800)
+      }}
+      onBlur={() => flush(value)}
       className="w-full rounded border border-sky-200 bg-white px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
       rows={2}
       maxLength={5000}
@@ -166,7 +284,7 @@ function RaceChoices({
   return (
     <div className="divide-y divide-gray-200">
       {rows.map((row) => (
-        <BesideRow key={row.name} wide={!!aside} aside={aside?.(row.name)}>
+        <BesideRow key={row.name} id={candidateDomId(item, row.name)} wide={!!aside} aside={aside?.(row.name)}>
         <Oval
           name={item.id}
           value={row.name}
@@ -185,6 +303,7 @@ function RaceChoices({
             )}
           </span>
           {'designation' in row && row.designation && <span className="block text-[11px] leading-snug">{row.designation}</span>}
+          {!aside && <CandidateLine race={item} name={row.name} />}
         </Oval>
         </BesideRow>
       ))}
@@ -291,7 +410,7 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
 }
 
 // One candidate in the snack panel: their own words (one line), endorsement circles, a video
-function CandidateSnack({ candidate: c, race }: { candidate: BallotCandidate; race: BallotItem }) {
+function CandidateSnack({ candidate: c, race, anchorId }: { candidate: BallotCandidate; race: BallotItem; anchorId?: string }) {
   const [watching, setWatching] = useState(false)
   const p = c.profile
   const video = p?.video
@@ -302,6 +421,11 @@ function CandidateSnack({ candidate: c, race }: { candidate: BallotCandidate; ra
           {c.name}
         </Link>
         {c.incumbent && <span className="ml-1.5 rounded bg-sky-200 px-1 text-[10px] font-semibold">incumbent</span>}
+        {anchorId && (
+          <span className="ml-1 inline-block align-middle">
+            <CopyLink targets={[{ id: anchorId, label: c.name }]} label={`Copy a link to ${c.name}`} />
+          </span>
+        )}
       </div>
       {p?.headline ? (
         <p className="line-clamp-2 text-xs text-sky-900">
@@ -309,7 +433,15 @@ function CandidateSnack({ candidate: c, race }: { candidate: BallotCandidate; ra
           {p.summarySource && <span className="text-sky-700"> (voters&apos; pamphlet)</span>}
         </p>
       ) : (
-        c.shortBio && <p className="text-xs text-sky-900">{c.shortBio}</p>
+        <>
+          {c.shortBio && <p className="text-xs text-sky-900">{c.shortBio}</p>}
+          {candidateLine(race, c.name) && (
+            <p className="line-clamp-2 text-xs text-sky-900">
+              “{candidateLine(race, c.name)!.text}”{' '}
+              <span className="text-sky-700">({candidateLine(race, c.name)!.source})</span>
+            </p>
+          )}
+        </>
       )}
       {p && p.endorserTotal > 0 && (
         <Link href={`/candidates/${c.id}#endorsements`} className="flex items-center gap-2 text-xs text-sky-900 hover:underline">
@@ -464,9 +596,15 @@ function Enhancements({
         choice?.notes && <p className="whitespace-pre-line italic">“{choice.notes}”</p>
       ) : (
         <div className="space-y-1.5">
-          {selection && selection !== ABSTAIN && (
-            <NotesField initial={choice?.notes ?? ''} onSave={(notes) => onChange(item.id, selection, notes)} />
-          )}
+          <NotesField
+            initial={choice?.notes ?? ''}
+            onSave={(notes) => {
+              // Notes work with or without a pick; with none they're kept on their own
+              if (selection && selection !== NOTES_ONLY) onChange(item.id, selection, notes)
+              else if (notes.trim()) onChange(item.id, NOTES_ONLY, notes)
+              else if (selection === NOTES_ONLY) onClear(item.id)
+            }}
+          />
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
             {selection === ABSTAIN ? (
               <span>Leaving this one blank on purpose</span>
@@ -508,7 +646,18 @@ function clearPick(itemId: string, choice: ChoiceValue | undefined, onChange: Co
   else onClear(itemId)
 }
 
-export default function Contest({ run, electionId, choices, readOnly, density, onChange, onClear, onStatus, compare }: ContestProps) {
+export default function Contest({
+  run,
+  electionId,
+  choices,
+  readOnly,
+  density,
+  onChange,
+  onClear,
+  onStatus,
+  compare,
+  linkGroup,
+}: ContestProps) {
   // Expanded view opens every contest's extras; a contest you open or close yourself stays that
   // way until you switch views
   const [override, setOverride] = useState<{ density: Density; open: boolean } | null>(null)
@@ -529,6 +678,7 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
   return (
     <fieldset
       id={contestDomId(first)}
+      data-item-id={first.id}
       className="mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper"
     >
       <legend className="sr-only">{heading.join(' ')}</legend>
@@ -540,6 +690,13 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
               className={`h-4 w-4 ${blank ? 'text-gray-500' : leaning ? 'text-amber-600' : 'text-green-700'}`}
             />
           )}
+          <CopyLink
+            label={`Copy a link to ${heading.join(' ')}`}
+            targets={[
+              { id: contestDomId(first), label: 'Link to this contest' },
+              ...(linkGroup ? [{ id: linkGroup.id, label: `Link to all ${linkGroup.count} ${linkGroup.label} contests` }] : []),
+            ]}
+          />
           {(!readOnly || unsure) && (
             <button
               type="button"
@@ -589,7 +746,7 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
           />
         )
         return (
-          <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} className="scroll-mt-48 border-t border-gray-400">
+          <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} data-item-id={i > 0 ? item.id : undefined} className="scroll-mt-48 border-t border-gray-400">
             {wide ? (
               <>
                 {isMeasure(item) ? (
@@ -612,7 +769,7 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
                         const c = open && item.office?.candidates.find((p) => p.name === name)
                         return c ? (
                           <Extra className="h-full">
-                            <CandidateSnack candidate={c} race={item} />
+                            <CandidateSnack candidate={c} race={item} anchorId={candidateDomId(item, c.name)} />
                           </Extra>
                         ) : null
                       }}

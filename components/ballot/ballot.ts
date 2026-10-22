@@ -229,8 +229,78 @@ export function choiceLabel(selection: string, item?: BallotItem): string {
   return printed?.candidates?.find((c) => c.name === selection)?.label ?? selection
 }
 
+// Links to part of the ballot (/elections/<id>#laccd-2). Readable ids: the ballot id without the
+// election prefix ("ca26-laccd-2-race" → "laccd-2", "ca26-m-prop-45" → "prop-45").
+// "#contest-<ballot id>" links from before still work (resolveAnchor).
+export const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+
 export function contestDomId(item: BallotItem): string {
-  return `contest-${item.id}`
+  return item.id.replace(/^[a-z]{2}\d{2}-/, '').replace(/^m-/, '').replace(/-race$/, '')
+}
+
+// One candidate's row: "#laccd-2--roy-payan"
+export function candidateDomId(item: BallotItem, name: string): string {
+  return `${contestDomId(item)}--${slugify(name)}`
+}
+
+// Contests printed under the same jurisdiction line, like LA County's three "LOS ANGELES COMMUNITY
+// COLLEGE DISTRICT" trustee seats: one link for all of them ("#los-angeles-community-college-district")
+export function contestGroups(items: BallotItem[]): Map<string, { label: string; items: BallotItem[] }> {
+  const groups = new Map<string, { label: string; items: BallotItem[] }>()
+  for (const run of groupRuns(items)) {
+    const printed = layoutOf(run[0])
+    if (!printed || printed.group || printed.heading.length < 2) continue
+    const key = slugify(printed.heading[0])
+    const g = groups.get(key) ?? { label: printed.heading[0], items: [] }
+    g.items.push(...run)
+    groups.set(key, g)
+  }
+  for (const [key, g] of groups) if (g.items.length < 2) groups.delete(key)
+  return groups
+}
+
+// What a #hash points at: the element to scroll to and the contests to show and highlight
+export function resolveAnchor(hash: string, items: BallotItem[]): { elementId: string; itemIds: string[] } | null {
+  let id = hash.replace(/^#/, '')
+  try {
+    id = decodeURIComponent(id)
+  } catch {}
+  if (!id) return null
+  const legacy = id.startsWith('contest-') && items.find((i) => `contest-${i.id}` === id)
+  if (legacy) return { elementId: contestDomId(legacy), itemIds: [legacy.id] }
+  const [contest, candidate] = id.split('--')
+  const item = items.find((i) => contestDomId(i) === contest)
+  if (item) {
+    const name = candidate && (item.office?.candidates.find((c) => slugify(c.name) === candidate)?.name ?? layoutOf(item)?.candidates?.find((c) => slugify(c.name) === candidate)?.name)
+    return { elementId: name ? candidateDomId(item, name) : contestDomId(item), itemIds: [item.id] }
+  }
+  const group = contestGroups(items).get(id)
+  if (group) return { elementId: id, itemIds: group.items.map((i) => i.id) }
+  return null
+}
+
+// First sentence of a candidate statement, skipping the header lines the county prints above it
+// ("PARTY PREFERENCE: DEMOCRATIC", "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,5th District",
+// "Age: 49", "Occupation: …"): the statement starts at the first paragraph that reads like prose
+export function openingSentence(text: string): string | null {
+  const paragraphs = text
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean)
+  const start = paragraphs.findIndex(
+    (p) => !/^[^.!?]{0,40}:\s/.test(p) && (/[.!?]["”’']?$/.test(p) || p.length > 100),
+  )
+  if (start < 0) return null
+  const body = paragraphs.slice(start).join(' ')
+  // A sentence ends at . ! or ? before a capital letter or the end, but not after an initial
+  // ("U.S.", "Ph.D.")
+  const m = body.match(/^.+?(?<!\b[A-Z])[.!?]["”’']?(?=\s+["“]?[A-Z]|$)/)
+  const sentence = (m ? m[0] : body).trim()
+  return sentence.length >= 20 ? sentence : null
 }
 
 // Candidates in the order the ballot prints them (the race's printed layout, else its

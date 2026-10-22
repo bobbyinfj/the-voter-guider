@@ -26,6 +26,7 @@ import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
   choiceLabel,
   contestDomId,
+  resolveAnchor,
   contestLabel,
   groupSections,
   hasPrintedLayout,
@@ -88,6 +89,7 @@ export default function BallotTracker({
   // vanish the moment you mark it
   const [hiddenIds, setHiddenIds] = useState<Set<string> | null>(null)
   const jumpMenuRef = useRef<HTMLDetailsElement>(null)
+  const toolbarRef = useRef<HTMLDivElement>(null)
 
   // Per-tab preference; storage can be unavailable (private mode), which is fine
   useEffect(() => {
@@ -124,7 +126,15 @@ export default function BallotTracker({
     [sections, hiddenIds],
   )
 
-  // Render the ballot view (and un-hide the contest) synchronously so it can be scrolled to
+  // Scroll so the element's top sits just under the toolbar (sticky from the sm breakpoint up)
+  const scrollToElement = (el: HTMLElement, behavior: ScrollBehavior) => {
+    const bar = toolbarRef.current
+    const covered = bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight : 0
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - covered - 8, behavior })
+  }
+
+  // Render the ballot view (and un-hide the contest) synchronously so it can be scrolled to.
+  // The address bar follows, so you can copy a link to where you are.
   const jumpTo = (itemId: string) => {
     flushSync(() => {
       if (hiddenIds?.has(itemId)) setHiddenIds(null)
@@ -135,9 +145,44 @@ export default function BallotTracker({
     const item = ballots.find((b) => b.id === itemId)
     const el = item && document.getElementById(contestDomId(item))
     if (!el) return
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    history.replaceState(null, '', `#${contestDomId(item)}`)
+    scrollToElement(el, 'smooth')
     el.querySelector<HTMLInputElement>('input:not([disabled])')?.focus({ preventScroll: true })
   }
+
+  // Arriving on a link to part of the ballot (#laccd-2, #laccd-2--roy-payan, or a group of
+  // contests): show the ballot with nothing filtered out, scroll there once the layout has
+  // settled (the saved view can switch to Expanded just after load), and highlight it briefly
+  useEffect(() => {
+    const timers: number[] = []
+    const go = () => {
+      const target = resolveAnchor(window.location.hash, ballots)
+      if (!target) return
+      flushSync(() => {
+        setHiddenIds(null)
+        setMode('ballot')
+        setActiveId(target.itemIds[0])
+      })
+      const settle = (behavior: ScrollBehavior) => {
+        const el = document.getElementById(target.elementId)
+        if (el) scrollToElement(el, behavior)
+      }
+      settle('auto')
+      timers.push(window.setTimeout(() => settle('auto'), 400))
+      const lit = target.itemIds
+        .map((id) => document.querySelector<HTMLElement>(`[data-item-id="${CSS.escape(id)}"]`))
+        .concat(target.elementId.includes('--') ? [document.getElementById(target.elementId)] : [])
+        .filter((el): el is HTMLElement => !!el)
+      lit.forEach((el) => el.classList.add('anchor-flash'))
+      timers.push(window.setTimeout(() => lit.forEach((el) => el.classList.remove('anchor-flash')), 2500))
+    }
+    timers.push(window.setTimeout(go, 60))
+    window.addEventListener('hashchange', go)
+    return () => {
+      timers.forEach(clearTimeout)
+      window.removeEventListener('hashchange', go)
+    }
+  }, [ballots])
 
   // Highlight the contest currently in view in the navigator
   useEffect(() => {
@@ -145,7 +190,8 @@ export default function BallotTracker({
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting)
-        if (visible.length) setActiveId(visible[0].target.id.replace(/^contest-/, ''))
+        const id = visible[0]?.target.getAttribute('data-item-id')
+        if (id) setActiveId(id)
       },
       { rootMargin: '-25% 0px -65% 0px' },
     )
@@ -203,7 +249,7 @@ export default function BallotTracker({
       )}
 
       <div className="min-w-0 space-y-4">
-        <div className="z-20 -mx-4 border-b sm:sticky sm:top-0 border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
+        <div ref={toolbarRef} className="z-20 -mx-4 border-b sm:sticky sm:top-0 border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">

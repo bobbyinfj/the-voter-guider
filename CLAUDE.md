@@ -74,6 +74,12 @@ same default guide. Extra guides for an election live at `/guide/[id]`. After th
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
 **Basic** (3-column replica, the default every visit) and **Expanded** (ballot on the left third, each
 candidate's / measure's sourced extras beside it on the right two-thirds; stacked on a phone), toggled at the top of the ballot with a ? explainer.
+Every part of the ballot is linkable: `#laccd-2` (contest: ballot id minus the election prefix),
+`#laccd-2--roy-payan` (candidate row), `#los-angeles-community-college-district` (every contest under
+one printed jurisdiction line), old `#contest-<ballot id>` links too (`resolveAnchor` in `ballot.ts`).
+The link icon on a contest heading copies one; landing on one clears filters and highlights it.
+Under each candidate the Basic view shows one sentence from their own statement (state voter guide,
+else county booklet), labeled with its source, or nothing (`openingSentence`).
 
 ### Comparison guides and the community tally
 `data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds

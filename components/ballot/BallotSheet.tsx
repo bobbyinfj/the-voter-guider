@@ -1,8 +1,9 @@
 'use client'
 
+import { Fragment } from 'react'
 import Contest, { type Density } from './Contest'
 import type { CompareView } from '@/components/compare/compare'
-import { groupRuns, type BallotSection, type ChoiceStatus, type ChoiceValue } from './ballot'
+import { contestGroups, groupRuns, type BallotSection, type ChoiceStatus, type ChoiceValue } from './ballot'
 
 // The contests themselves, in printed sections and columns. Used by the guide (BallotTracker)
 // and, read-only, as the ballot preview on the election page.
@@ -27,6 +28,12 @@ export default function BallotSheet({
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   compare?: CompareView | null
 }) {
+  // A link target before the first contest of each group (#los-angeles-community-college-district)
+  const groups = [...contestGroups(sections.flatMap((s) => s.items))]
+  const groupStarts = new Map(groups.map(([key, g]) => [g.items[0].id, key]))
+  const groupOf = new Map(
+    groups.flatMap(([key, g]) => g.items.map((i) => [i.id, { id: key, label: g.label, count: g.items.length }] as const)),
+  )
   return (
     <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-6xl'}>
       {sections.map((section) => (
@@ -49,8 +56,9 @@ export default function BallotSheet({
             </p>
           )}
           {groupRuns(section.items).map((run) => (
+            <Fragment key={run[0].id}>
+            {groupStarts.has(run[0].id) && <span id={groupStarts.get(run[0].id)} aria-hidden className="block h-0" />}
             <Contest
-              key={run[0].id}
               run={run}
               electionId={electionId}
               choices={choices}
@@ -60,7 +68,9 @@ export default function BallotSheet({
               onClear={(id) => onClear?.(id)}
               onStatus={onStatus}
               compare={compare}
+              linkGroup={groupOf.get(run[0].id)}
             />
+            </Fragment>
           ))}
           <div aria-hidden className="h-3" />
         </section>
