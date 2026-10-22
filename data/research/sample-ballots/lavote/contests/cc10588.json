@@ -1,0 +1,154 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10588.json",
+ "data": {
+  "id": "cc10588",
+  "long_description": {},
+  "name": {
+   "EN": "LOS ANGELES COMMUNITY COLLEGE DISTRICT Member of the Board of Trustees, Seat 2"
+  },
+  "short_name": {
+   "EN": "LOS ANGELES COMM-BOT 2"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "337",
+    "name": [
+     {
+      "EN": "ADRIANA CABRERA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ADRIANA CABRERA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Educator"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "338",
+    "name": [
+     {
+      "EN": "ROY PAYAN"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ROY PAYAN"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Disabled Student Advocate"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "339",
+    "name": [
+     {
+      "EN": "ROBERT PAYNE"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ROBERT PAYNE"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Researcher/Writer/Environmentalist"
+     }
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33A",
+    "name": [
+     {
+      "EN": "KRISTINA IRWIN"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "KRISTINA IRWIN"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Parent/Business Owner"
+     }
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33B",
+    "name": [
+     {
+      "EN": "STEVEN F. VERES"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "STEVEN F VERES"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Los Angeles Community College District, Member of the Board of Trustees"
+     }
+    ],
+    "statements": [],
+    "order": 4,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3RV",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 6,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

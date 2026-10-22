@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10829.json",
+ "data": {
+  "id": "cc10829",
+  "long_description": {},
+  "name": {
+   "EN": "LIEUTENANT GOVERNOR"
+  },
+  "short_name": {
+   "EN": "LIEUTENANT GOVERNOR"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3F5",
+    "name": [
+     {
+      "EN": "GLORIA ROMERO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "GLORIA ROMERO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Educator/Businesswoman"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VRP",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3F6",
+    "name": [
+     {
+      "EN": "FIONA MA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "FIONA MA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "State Treasurer/CPA"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

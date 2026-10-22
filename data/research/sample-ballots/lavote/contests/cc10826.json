@@ -1,0 +1,88 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10826.json",
+ "data": {
+  "id": "cc10826",
+  "long_description": {},
+  "name": {
+   "EN": "JUDGE OF THE SUPERIOR COURT Office No. 87"
+  },
+  "short_name": {
+   "EN": "JUDGE-SUPERIOR COURT #87"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D63",
+  "candidates": [
+   {
+    "id": "3ET",
+    "name": [
+     {
+      "EN": "DAVID DEJUTE"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DAVID DEJUTE"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Law Professor/Attorney"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3EU",
+    "name": [
+     {
+      "EN": "ANTHONY (A.J.) BAYNE"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ANTHONY BAYNE"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy Public Defender, County of Los Angeles"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3U6",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

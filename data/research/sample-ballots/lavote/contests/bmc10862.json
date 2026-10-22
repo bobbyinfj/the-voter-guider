@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10862.json",
+ "data": {
+  "id": "bmc10862",
+  "long_description": {
+   "EN": "<b>PROHIBITS NEW STATE TAXES THAT EXCLUDE REVENUES FROM STATE SPENDING LIMIT. REQUIRES AUDITS FOR NEW STATE SPECIAL TAXES. INITIATIVE CONSTITUTIONAL AMENDMENT.</b> Nullifies state taxes enacted after January 1, 2026 that exempt their revenues from voter-approved state spending limit. Requires pre-election and recurring audits of programs funded by new special taxes. <b>Fiscal Impact:</b> The net fiscal effect is unknown as it depends on future decisions by voters, the Legislature, and other policymakers. <b>Supporters:</b> CA Society of Certified Public Accountants (CalCPAs); CalAsian Chamber of Commerce; California Taxpayers Association (CalTax) <b>Opponents:</b> US Senator Bernie Sanders; SEIU United Healthcare Workers West"
+  },
+  "name": {
+   "EN": "STATE MEASURE 41"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 41"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3G7",
+    "name": [
+     {
+      "EN": "YES on Measure 41"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3G8",
+    "name": [
+     {
+      "EN": "NO on Measure 41"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

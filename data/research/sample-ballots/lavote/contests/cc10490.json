@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10490.json",
+ "data": {
+  "id": "cc10490",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION Member of the City Council, 1st District"
+  },
+  "short_name": {
+   "EN": "MONTEREY PARK CITY-CNC 1"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PU",
+    "name": [
+     {
+      "EN": "THOMAS WONG"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "THOMAS WONG"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Monterey Park City Councilmember"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LF",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

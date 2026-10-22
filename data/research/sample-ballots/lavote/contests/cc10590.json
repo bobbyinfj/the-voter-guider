@@ -1,0 +1,141 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10590.json",
+ "data": {
+  "id": "cc10590",
+  "long_description": {},
+  "name": {
+   "EN": "LOS ANGELES COMMUNITY COLLEGE DISTRICT Member of the Board of Trustees, Seat 6"
+  },
+  "short_name": {
+   "EN": "LOS ANGELES COMM-BOT 6"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "33K",
+    "name": [
+     {
+      "EN": "RANDALL WINSTON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RANDALL WINSTON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Architect"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33L",
+    "name": [
+     {
+      "EN": "TONIA AREY"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "TONIA AREY"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Realtor"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33M",
+    "name": [
+     {
+      "EN": "ROBERTO DAVID LACARRA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ROBERTO D LACARRA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Community College Professor"
+     }
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "33N",
+    "name": [
+     {
+      "EN": "GABRIEL BUELNA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "GABRIEL BUELNA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Member of the Board of Trustees, Los Angeles Community College District, Seat 6"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002570705E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF GABRIEL BUELNA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER, BOARD OF TRUSTEES,<br dir=\"auto\">Seat 6</h2><h3 dir=\"auto\" style=\"text-align: center\">LOS ANGELES COMMUNITY COLLEGE DISTRICT</h3><p dir=\"auto\">Age: 53</p><p dir=\"auto\">Occupation: College Professor</p><p dir=\"auto\">It has been my honor to serve as your Los Angeles Community College District Trustee. I respectfully ask for your vote for re-election so I can continue expanding educational opportunities and strengthening our community colleges.</p><p dir=\"auto\">I hold a Ph.D. in Political Science from Claremont Graduate University, a Master of Social Work from San Diego State University, and a bachelor's degree from CSUN, where I have taught since 1999. As a Children and Family Law attorney and father of three daughters, I have dedicated my career to serving families, students, and our community.</p><p dir=\"auto\">I have worked to remove barriers to student success while ensuring taxpayer dollars are invested wisely. I strengthened campus safety, improved emergency preparedness, increased transparency and accountability, and expanded workforce training, university transfer pathways, and student success.</p><p dir=\"auto\">As your Trustee I:<br dir=\"auto\">- Led the effort to pass a historic construction bond that included a $500 million investment in student housing.<br dir=\"auto\">- Created the Student Basic Needs Task Force to secure permanent funding for food and emergency housing assistance.<br dir=\"auto\">- Launched the 1,000 Meal Challenge to help food-insecure students.<br dir=\"auto\">- Authored legislation allowing colleges to offer credit courses in multiple languages.<br dir=\"auto\">- Expanded financial aid, transfer pathways, and enrollment opportunities for first-generation students.</p><p dir=\"auto\">\"Dr. Gabriel Buelna is committed to improving opportunities for our LA Community College students to get good-paying, skilled jobs. He is a genuine partner to labor, someone who understands that education and workforce training must work hand in hand. That's the kind of leadership that changes lives, and it's why we're proud to endorse his re-election to the Los Angeles Community College Board.\" --Ernesto Medrano, Executive Secretary, LA/OC Building and Construction Trades Council</p><p dir=\"auto\">\"I've served alongside Trustee Gabriel Buelna and seen firsthand his commitment to students. He is smart, honest and a tireless worker on behalf of our students. Gabriel has been an unwavering advocate for basic needs, transfer access, and fiscal responsibility on our board. I've rarely seen a Trustee that focused on removing barriers for student housing, food, safety, and access. I am proud to endorse him for re-election.\" --Nichelle Henderson, Los Angeles Community College District Trustee</p><p dir=\"auto\">I will continue expanding educational opportunity, strengthening workforce development, protecting taxpayer money, and ensuring every student can earn a degree, certificate, or career credential.</p><p dir=\"auto\">I respectfully ask for your vote.</p><p dir=\"auto\">My hobby is BBQing ribs, brisket, and tri-tip for family, friends, and community.</p><p dir=\"auto\">Visit www.buelna4laccd.com</p><p dir=\"auto\">Follow: TikTok, Instagram, YouTube @Buelna4LACCD</p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE GABRIEL BUELNA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO, JUNTA DE SÍNDICOS,<br dir=\"auto\">Escaño&nbsp;6</h2><h3 dir=\"auto\" style=\"text-align: center\">DISTRITO DE COLEGIOS COMUNITARIOS DE LOS ANGELES</h3><p dir=\"auto\">Edad: 53</p><p dir=\"auto\">Ocupación: Profesor de Colegio</p><p dir=\"auto\">Ha sido un honor para mí servir como su Síndico del Distrito de Colegios Comunitarios de Los Angeles. Le pido respetuosamente su voto para la reelección, de modo que pueda seguir ampliando las oportunidades educativas y fortaleciendo nuestros colegios comunitarios.</p><p dir=\"auto\">Tengo un Ph.D. (Doctorado) en Ciencias Políticas de la Claremont Graduate University, tengo una Maestría en Trabajo Social de la Universidad Estatal de San Diego (San Diego State University) y una licenciatura por la CSUN (Universidad Estatal de California, Northridge), donde imparto clases desde 1999. Como abogado especializado en Derecho de Familia e Infancia y padre de tres hijas, he dedicado mi carrera a servir a las familias, los estudiantes y nuestra comunidad.</p><p dir=\"auto\">He trabajado para eliminar los obstáculos al éxito estudiantil, garantizando al mismo tiempo que el dinero de los contribuyentes se invierta sabiamente. Fortalecí la seguridad en el campus, mejoré la preparación para emergencias, aumenté la transparencia y la rendición de cuentas, y amplié la capacitación del personal, las vías de transferencia universitaria y el éxito estudiantil.</p><p dir=\"auto\">Como su Síndico:<br dir=\"auto\">- Lideré la iniciativa para aprobar un bono de construcción histórico que incluía una inversión de $500&nbsp;millones de dólares en residencias estudiantiles.<br dir=\"auto\">- Creé el Grupo de Trabajo sobre Necesidades Básicas Estudiantiles para garantizar el financiamiento permanente de la asistencia alimentaria y de vivienda de emergencia.<br dir=\"auto\">- Puse en marcha el Reto de las 1000&nbsp;Comidas para ayudar a los estudiantes con inseguridad alimentaria.<br dir=\"auto\">- Fui autor de una ley que permite a los colegios ofrecer cursos con créditos en varios idiomas.<br dir=\"auto\">- Mayor ayuda financiera, vías de transferencia y oportunidades de matriculación para estudiantes de primera generación.</p><p dir=\"auto\">\"El Dr. Gabriel Buelna está comprometido con mejorar las oportunidades para que nuestros estudiantes del Colegio Comunitario de LA consigan empleos cualificados y bien remunerados. Es un auténtico aliado de los trabajadores, alguien que entiende que la educación y la formación profesional deben ir de la mano. Ese es el tipo de liderazgo que cambia vidas, y por eso nos enorgullece respaldar su reelección a la Junta del Colegio Comunitario de Los Angeles\". --Ernesto Medrano, Secretario Ejecutivo, Consejo de Oficios de la Construcción de LA/OC (Condado de Orange)</p><p dir=\"auto\">\"He trabajado mano a mano con el Síndico Gabriel Buelna y he visto de primera mano su compromiso con los estudiantes. Es inteligente, honesto y trabaja incansablemente en beneficio de nuestros estudiantes. Gabriel ha sido un defensor inquebrantable de las necesidades básicas, el acceso a las transferencias y la responsabilidad fiscal en nuestra junta. Rara vez he visto a un Síndico que se centre en eliminar las barreras para la vivienda, la alimentación, la seguridad y el acceso de los estudiantes. Me enorgullece respaldar su reelección\". --Nichelle Henderson, Síndica del Distrito de Colegios Comunitarios de Los Angeles</p><p dir=\"auto\">Seguiré ampliando las oportunidades educativas, fortaleciendo el desarrollo de la fuerza laboral, protegiendo el dinero de los contribuyentes y garantizando que todos los estudiantes puedan obtener un título, certificado o credencial profesional.</p><p dir=\"auto\">Les pido respetuosamente su voto.</p><p dir=\"auto\">Mi afición es preparar costillas, falda de ternera y punta de solomillo a la barbacoa para mi familia, amigos y la comunidad.</p><p dir=\"auto\">Visite www.buelna4laccd.com</p><p dir=\"auto\">Sígame: TikTok, Instagram, YouTube @Buelna4LACCD</p>"
+      },
+      "CandidateID": "33N",
+      "SequenceOrder": 466
+     }
+    ],
+    "order": 3,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3RX",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 5,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

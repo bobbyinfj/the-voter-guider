@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10864.json",
+ "data": {
+  "id": "bmc10864",
+  "long_description": {
+   "EN": "<b>LIMITS VOTERS' ABILITY TO RAISE REVENUES FOR LOCAL GOVERNMENT SERVICES. LEGISLATIVE CONSTITUTIONAL AMENDMENT.</b> Limits voters' ability to pass voter-proposed local special taxes by increasing percentage of votes needed to approve such ballot measures from a majority (over 50%) to two-thirds, beginning January 1, 2027. <b>Fiscal Impact:</b> Possibility that local government tax revenues will not go up as much in the future due to a higher vote threshold for certain taxes. <b>Supporters:</b> California Taxpayers Association; Family Business Association of California; California Hispanic Chambers of Commerce <b>Opponents:</b> California Professional Firefighters; California Federation of Teachers; Nurse Alliance of SEIU CA"
+  },
+  "name": {
+   "EN": "STATE MEASURE 43"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 43"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3GB",
+    "name": [
+     {
+      "EN": "YES on Measure 43"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3GC",
+    "name": [
+     {
+      "EN": "NO on Measure 43"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

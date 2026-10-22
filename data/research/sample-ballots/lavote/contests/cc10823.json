@@ -1,0 +1,88 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10823.json",
+ "data": {
+  "id": "cc10823",
+  "long_description": {},
+  "name": {
+   "EN": "SHERIFF"
+  },
+  "short_name": {
+   "EN": "SHERIFF"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D63",
+  "candidates": [
+   {
+    "id": "3EM",
+    "name": [
+     {
+      "EN": "ROBERT G. LUNA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ROBERT G LUNA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Sheriff of Los Angeles County"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3EN",
+    "name": [
+     {
+      "EN": "ALEX VILLANUEVA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ALEX VILLANUEVA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Retired Peace Officer"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3U3",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10863.json",
+ "data": {
+  "id": "bmc10863",
+  "long_description": {
+   "EN": "<b>PROHIBITS NEW STATE PERSONAL PROPERTY TAXES AND CERTAIN RETROACTIVE STATE TAXES. INITIATIVE CONSTITUTIONAL AMENDMENT.</b> Prohibits any new state tax (1) imposed on the ownership of personal property (all things people own other than real estate), or (2) that applies retroactively based on taxpayer's past activities. Nullifies taxes enacted after January 1, 2026 that conflict with this measure. <b>Fiscal Impact:</b> Possibility that tax revenues will not go up as much in the future. <b>Supporters:</b> CA Professional Firefighters; State Building & Construction Trades Council of CA; AMVETS Department of CA <b>Opponents:</b> US Senator Bernie Sanders; SEIU United Healthcare Workers West"
+  },
+  "name": {
+   "EN": "STATE MEASURE 42"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 42"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3G9",
+    "name": [
+     {
+      "EN": "YES on Measure 42"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3GA",
+    "name": [
+     {
+      "EN": "NO on Measure 42"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

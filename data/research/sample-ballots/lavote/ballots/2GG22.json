@@ -1,0 +1,1081 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/ballots/2GG22.json",
+ "data": {
+  "party_id": "NP",
+  "id": "2GG22",
+  "group_number": "NP_0462",
+  "jurisdictionId": "06037",
+  "electionId": "4348",
+  "contests": [
+   {
+    "contest_id": "cc10490",
+    "order": 0,
+    "candidates": [
+     {
+      "candidate_id": "PU",
+      "order": 0
+     },
+     {
+      "candidate_id": "3LF",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10588",
+    "order": 1,
+    "candidates": [
+     {
+      "candidate_id": "337",
+      "order": 0
+     },
+     {
+      "candidate_id": "338",
+      "order": 1
+     },
+     {
+      "candidate_id": "339",
+      "order": 2
+     },
+     {
+      "candidate_id": "33A",
+      "order": 3
+     },
+     {
+      "candidate_id": "33B",
+      "order": 4
+     },
+     {
+      "candidate_id": "3RV",
+      "order": 5
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10589",
+    "order": 2,
+    "candidates": [
+     {
+      "candidate_id": "33C",
+      "order": 0
+     },
+     {
+      "candidate_id": "33D",
+      "order": 1
+     },
+     {
+      "candidate_id": "33E",
+      "order": 2
+     },
+     {
+      "candidate_id": "33F",
+      "order": 3
+     },
+     {
+      "candidate_id": "33G",
+      "order": 4
+     },
+     {
+      "candidate_id": "33H",
+      "order": 5
+     },
+     {
+      "candidate_id": "33J",
+      "order": 6
+     },
+     {
+      "candidate_id": "3RW",
+      "order": 7
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10590",
+    "order": 3,
+    "candidates": [
+     {
+      "candidate_id": "33K",
+      "order": 0
+     },
+     {
+      "candidate_id": "33L",
+      "order": 1
+     },
+     {
+      "candidate_id": "33M",
+      "order": 2
+     },
+     {
+      "candidate_id": "33N",
+      "order": 3
+     },
+     {
+      "candidate_id": "3RX",
+      "order": 4
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10493",
+    "order": 4,
+    "candidates": [
+     {
+      "candidate_id": "34M",
+      "order": 0
+     },
+     {
+      "candidate_id": "3SL",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10492",
+    "order": 5,
+    "candidates": [
+     {
+      "candidate_id": "34N",
+      "order": 0
+     },
+     {
+      "candidate_id": "3SM",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10790",
+    "order": 6,
+    "candidates": [
+     {
+      "candidate_id": "364",
+      "order": 0
+     },
+     {
+      "candidate_id": "365",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10808",
+    "order": 7,
+    "candidates": [
+     {
+      "candidate_id": "379",
+      "order": 0
+     },
+     {
+      "candidate_id": "378",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "bmc10960",
+    "order": 8,
+    "candidates": [
+     {
+      "candidate_id": "39Y",
+      "order": 0
+     },
+     {
+      "candidate_id": "39Z",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "bmc10909",
+    "order": 9,
+    "candidates": [
+     {
+      "candidate_id": "3A2",
+      "order": 0
+     },
+     {
+      "candidate_id": "3A3",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "bmc10928",
+    "order": 10,
+    "candidates": [
+     {
+      "candidate_id": "3BC",
+      "order": 0
+     },
+     {
+      "candidate_id": "3BD",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D61"
+   },
+   {
+    "contest_id": "cc10569",
+    "order": 11,
+    "candidates": [
+     {
+      "candidate_id": "3D2",
+      "order": 0
+     },
+     {
+      "candidate_id": "3D3",
+      "order": 1
+     },
+     {
+      "candidate_id": "3D4",
+      "order": 2
+     },
+     {
+      "candidate_id": "3T8",
+      "order": 3
+     }
+    ],
+    "contest_type_id": "D62"
+   },
+   {
+    "contest_id": "cc10823",
+    "order": 12,
+    "candidates": [
+     {
+      "candidate_id": "3EN",
+      "order": 0
+     },
+     {
+      "candidate_id": "3EM",
+      "order": 1
+     },
+     {
+      "candidate_id": "3U3",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "cc10824",
+    "order": 13,
+    "candidates": [
+     {
+      "candidate_id": "3EQ",
+      "order": 0
+     },
+     {
+      "candidate_id": "3EP",
+      "order": 1
+     },
+     {
+      "candidate_id": "3U4",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "cc10825",
+    "order": 14,
+    "candidates": [
+     {
+      "candidate_id": "3ES",
+      "order": 0
+     },
+     {
+      "candidate_id": "3ER",
+      "order": 1
+     },
+     {
+      "candidate_id": "3U5",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "cc10826",
+    "order": 15,
+    "candidates": [
+     {
+      "candidate_id": "3EU",
+      "order": 0
+     },
+     {
+      "candidate_id": "3ET",
+      "order": 1
+     },
+     {
+      "candidate_id": "3U6",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "cc10827",
+    "order": 16,
+    "candidates": [
+     {
+      "candidate_id": "3EW",
+      "order": 0
+     },
+     {
+      "candidate_id": "3EV",
+      "order": 1
+     },
+     {
+      "candidate_id": "3U7",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "bmc10534",
+    "order": 17,
+    "candidates": [
+     {
+      "candidate_id": "3EX",
+      "order": 0
+     },
+     {
+      "candidate_id": "3EY",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "bmc10959",
+    "order": 18,
+    "candidates": [
+     {
+      "candidate_id": "3EZ",
+      "order": 0
+     },
+     {
+      "candidate_id": "3F2",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D63"
+   },
+   {
+    "contest_id": "cc10828",
+    "order": 19,
+    "candidates": [
+     {
+      "candidate_id": "3F3",
+      "order": 0
+     },
+     {
+      "candidate_id": "3F4",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10829",
+    "order": 20,
+    "candidates": [
+     {
+      "candidate_id": "3F5",
+      "order": 0
+     },
+     {
+      "candidate_id": "3F6",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10830",
+    "order": 21,
+    "candidates": [
+     {
+      "candidate_id": "3F7",
+      "order": 0
+     },
+     {
+      "candidate_id": "3F8",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10831",
+    "order": 22,
+    "candidates": [
+     {
+      "candidate_id": "3F9",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FA",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10832",
+    "order": 23,
+    "candidates": [
+     {
+      "candidate_id": "3FB",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FC",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10833",
+    "order": 24,
+    "candidates": [
+     {
+      "candidate_id": "3FD",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FE",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10834",
+    "order": 25,
+    "candidates": [
+     {
+      "candidate_id": "3FF",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FG",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10835",
+    "order": 26,
+    "candidates": [
+     {
+      "candidate_id": "3FJ",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FH",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "cc10836",
+    "order": 27,
+    "candidates": [
+     {
+      "candidate_id": "3FK",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FL",
+      "order": 1
+     },
+     {
+      "candidate_id": "5UC",
+      "order": 2
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10853",
+    "order": 28,
+    "candidates": [
+     {
+      "candidate_id": "3FM",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FN",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10854",
+    "order": 29,
+    "candidates": [
+     {
+      "candidate_id": "3FP",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FQ",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10855",
+    "order": 30,
+    "candidates": [
+     {
+      "candidate_id": "3FR",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FS",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10856",
+    "order": 31,
+    "candidates": [
+     {
+      "candidate_id": "3FT",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FU",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10857",
+    "order": 32,
+    "candidates": [
+     {
+      "candidate_id": "3FV",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FW",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10858",
+    "order": 33,
+    "candidates": [
+     {
+      "candidate_id": "3FX",
+      "order": 0
+     },
+     {
+      "candidate_id": "3FY",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10859",
+    "order": 34,
+    "candidates": [
+     {
+      "candidate_id": "3FZ",
+      "order": 0
+     },
+     {
+      "candidate_id": "3G2",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10860",
+    "order": 35,
+    "candidates": [
+     {
+      "candidate_id": "3G3",
+      "order": 0
+     },
+     {
+      "candidate_id": "3G4",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10861",
+    "order": 36,
+    "candidates": [
+     {
+      "candidate_id": "3G5",
+      "order": 0
+     },
+     {
+      "candidate_id": "3G6",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10862",
+    "order": 37,
+    "candidates": [
+     {
+      "candidate_id": "3G7",
+      "order": 0
+     },
+     {
+      "candidate_id": "3G8",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10863",
+    "order": 38,
+    "candidates": [
+     {
+      "candidate_id": "3G9",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GA",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10864",
+    "order": 39,
+    "candidates": [
+     {
+      "candidate_id": "3GB",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GC",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10865",
+    "order": 40,
+    "candidates": [
+     {
+      "candidate_id": "3GD",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GE",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "bmc10866",
+    "order": 41,
+    "candidates": [
+     {
+      "candidate_id": "3GF",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GG",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D64"
+   },
+   {
+    "contest_id": "rc10888",
+    "order": 42,
+    "candidates": [
+     {
+      "candidate_id": "3GH",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GJ",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10889",
+    "order": 43,
+    "candidates": [
+     {
+      "candidate_id": "3GK",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GL",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10896",
+    "order": 44,
+    "candidates": [
+     {
+      "candidate_id": "3GM",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GN",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10897",
+    "order": 45,
+    "candidates": [
+     {
+      "candidate_id": "3GP",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GQ",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10900",
+    "order": 46,
+    "candidates": [
+     {
+      "candidate_id": "3GR",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GS",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10963",
+    "order": 47,
+    "candidates": [
+     {
+      "candidate_id": "3GT",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GU",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10903",
+    "order": 48,
+    "candidates": [
+     {
+      "candidate_id": "3GV",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GW",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10890",
+    "order": 49,
+    "candidates": [
+     {
+      "candidate_id": "3GX",
+      "order": 0
+     },
+     {
+      "candidate_id": "3GY",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10891",
+    "order": 50,
+    "candidates": [
+     {
+      "candidate_id": "3GZ",
+      "order": 0
+     },
+     {
+      "candidate_id": "3H2",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10892",
+    "order": 51,
+    "candidates": [
+     {
+      "candidate_id": "3H3",
+      "order": 0
+     },
+     {
+      "candidate_id": "3H4",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10893",
+    "order": 52,
+    "candidates": [
+     {
+      "candidate_id": "3H5",
+      "order": 0
+     },
+     {
+      "candidate_id": "3H6",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10894",
+    "order": 53,
+    "candidates": [
+     {
+      "candidate_id": "3H7",
+      "order": 0
+     },
+     {
+      "candidate_id": "3H8",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10898",
+    "order": 54,
+    "candidates": [
+     {
+      "candidate_id": "3H9",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HA",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10899",
+    "order": 55,
+    "candidates": [
+     {
+      "candidate_id": "3HB",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HC",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10962",
+    "order": 56,
+    "candidates": [
+     {
+      "candidate_id": "3HD",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HE",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10901",
+    "order": 57,
+    "candidates": [
+     {
+      "candidate_id": "3HF",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HG",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10902",
+    "order": 58,
+    "candidates": [
+     {
+      "candidate_id": "3HH",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HJ",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10904",
+    "order": 59,
+    "candidates": [
+     {
+      "candidate_id": "3HK",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HL",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10905",
+    "order": 60,
+    "candidates": [
+     {
+      "candidate_id": "3HM",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HN",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   },
+   {
+    "contest_id": "rc10906",
+    "order": 61,
+    "candidates": [
+     {
+      "candidate_id": "3HP",
+      "order": 0
+     },
+     {
+      "candidate_id": "3HQ",
+      "order": 1
+     }
+    ],
+    "contest_type_id": "D65"
+   }
+  ],
+  "custom_content": [
+   {
+    "id": "10",
+    "name": "BMD Write-In Nonpartisan Office",
+    "type": "CUSTOM CONTENT",
+    "header": {
+     "EN": "<p align='left'><b>Write-In Candidates</b></p>"
+    },
+    "headerAlignment": {
+     "EN": "left"
+    },
+    "body": {
+     "EN": "<p align='left'>A voter is entitled to cast a vote for a qualified write-in candidate for any  nonpartisan office by entering, on the write-in selection of the Ballot Marking Device, the name of the qualified candidate.</p>"
+    },
+    "bodyAlignment": {
+     "EN": "left"
+    },
+    "before": true,
+    "displayOnlyOnce": false,
+    "targets": [
+     "ISB",
+     "BMD"
+    ],
+    "contents": [
+     "7"
+    ],
+    "contentFiltering": {}
+   },
+   {
+    "id": "7",
+    "name": "Voter-Nominated and Nonpartisan Offices - Nov 2024",
+    "type": "BALLOT",
+    "header": {
+     "EN": "<p align='left'><b>Voter-Nominated and Nonpartisan Offices</b></p>"
+    },
+    "headerAlignment": {
+     "EN": "left"
+    },
+    "body": {
+     "EN": "<p align='left'>Candidates display a party preference (or None) for the information of voters. This is not a party endorsement or approval. </p>"
+    },
+    "bodyAlignment": {
+     "EN": "left"
+    },
+    "before": true,
+    "displayOnlyOnce": false,
+    "targets": [
+     "ISB",
+     "BMD",
+     "VBM",
+     "SBB"
+    ],
+    "contentFiltering": {}
+   }
+  ]
+ }
+}

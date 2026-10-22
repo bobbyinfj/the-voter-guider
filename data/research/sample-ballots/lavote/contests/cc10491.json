@@ -1,0 +1,106 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10491.json",
+ "data": {
+  "id": "cc10491",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION Member of the City Council, 5th District"
+  },
+  "short_name": {
+   "EN": "MONTEREY PARK CITY-CNC 5"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PV",
+    "name": [
+     {
+      "EN": "STEVEN KUNG"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "STEVEN KUNG"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Filmmaker/Community Organizer"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002652205E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF STEVEN KUNG</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">5th District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Age: 49</p><p dir=\"auto\">Occupation: Filmmaker/Community Organizer</p><p dir=\"auto\">Monterey Park made history by becoming the first city in the nation to ban data centers by popular vote; I was one of the leaders of this movement, and I'm extremely proud of what we accomplished. Together with neighbors and local organizers, I co-founded No Data Center Monterey Park. At rallies and council meetings, I pushed back against corporate lobbyists, demanded transparency from City Hall, and called out the developer's intimidation tactics. I held those in power accountable while building the coalitions needed to win.</p><p dir=\"auto\">This fight showed me what's possible when a community organizes around shared values such as protecting clean air, quiet neighborhoods, and affordability. Winning by a landslide made me dream of all the things we could accomplish with this momentum: enhance the walkability of the city, build more housing, revitalize our downtown, and develop Saturn Park into the neighborhood hub we want it to be. Our victory presents a unique opportunity to realize that vision on city council. I'm running to represent District 5 because I... you... we all love Monterey Park enough to take responsibility for it.</p><p dir=\"auto\">Questions? Email kung4mpk@gmail.com or visit www.KungforMPK.com</p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE STEVEN KUNG</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">5° Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEREY PARK</h3><p dir=\"auto\">Edad: 49</p><p dir=\"auto\">Ocupación: Cineasta/Organizador Comunitario</p><p dir=\"auto\">Monterey Park hizo historia al convertirse en la primera ciudad del país en prohibir los centros de datos mediante votación popular; fui uno de los líderes de este movimiento y estoy sumamente orgulloso de lo que logramos. Junto con vecinos y organizadores locales, cofundé No Data Center Monterey Park. En mítines y reuniones del concejo, me opuse a los grupos de presión empresariales, exigí transparencia al Ayuntamiento y denuncié las tácticas de intimidación de los promotores inmobiliarios. Exigí responsabilidades a quienes ostentaban el poder mientras construía las coaliciones necesarias para ganar.</p><p dir=\"auto\">Esta lucha me demostró lo que es posible cuando una comunidad se organiza en torno a valores compartidos como la protección del aire limpio, la tranquilidad de los vecindarios y la asequibilidad. Ganar por una amplia mayoría me hizo soñar con todo lo que podríamos lograr con este impulso: mejorar la facilidad para desplazarse a pie por la ciudad, construir más viviendas, revitalizar nuestro centro y convertir el Parque Saturn en el centro neurálgico del vecindario que queremos que sea. Nuestra victoria representa una oportunidad única para hacer realidad esa visión en el concejo de la ciudad. Me postulo para representar al Distrito&nbsp;5 porque yo... usted... todos amamos Monterey Park lo suficiente como para asumir la responsabilidad por él.</p><p dir=\"auto\">¿Tiene Preguntas? Envíe un correo electrónico a kung4mpk@gmail.com o visite www.KungforMPK.com</p>\n"
+      },
+      "CandidateID": "PV",
+      "SequenceOrder": 169
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PW",
+    "name": [
+     {
+      "EN": "VINH T. NGO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "VINH T NGO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Monterey Park City Councilmember"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002652505E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF VINH T. NGO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">5th District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Age: 52</p><p dir=\"auto\">Occupation: Monterey Park Councilmember</p><p dir=\"auto\">Monterey Park gave my immigrant family the opportunity to prosper, and I've spent my life giving back. I grew up here attending: Monterey Vista, Garvey, Mark Keppel, then earned USC Accounting and Finance degrees.</p><p dir=\"auto\">When an industrial data center threatened our neighborhoods, I acted. I brought the emergency moratorium to the Council and launched the legislative process that became Measure NDC - delivering a permanent, 88% voter-approved ban, and making Monterey Park the first city in America to prohibit data centers.</p><p dir=\"auto\">You also elected me to keep our neighborhoods safe and our city strong. We delivered: <br dir=\"auto\">- Stronger police and fire departments<br dir=\"auto\">- Over half our streets resurfaced, plus $25 million in infrastructure, water, and sewer upgrades<br dir=\"auto\">- Funding for the Barnes Park Aquatic Center<br dir=\"auto\">- Streamlined permitting and revitalized business corners<br dir=\"auto\">- Three straight balanced budgets with surpluses</p><p dir=\"auto\">I donate every Council stipend back to our schools, library, police, fire, and local nonprofits.</p><p dir=\"auto\">I'll continue to empower Monterey Park, ensuring it as the best place to Live, Work and Play.</p><p dir=\"auto\">I'm proudly endorsed by Congresswoman Judy Chu, Senator Sasha Renée Pérez, Senator Maria Elena Durazo, Assemblymember Mike Fong, and Supervisor Hilda Solis.</p><p dir=\"auto\">I ask for your vote to re-elect me to City Council.</p><p dir=\"auto\">Learn more: VinhtNgo.com</p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE VINH T. NGO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">5° Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEREY PARK</h3><p dir=\"auto\">Edad: 52</p><p dir=\"auto\">Ocupación: Miembro del Concejo de Monterey Park</p><p dir=\"auto\">Monterey Park le brindó a mi familia inmigrante la oportunidad de prosperar, y he dedicado mi vida a retribuir a la comunidad. Crecí aquí asistiendo a: Monterey Vista, Garvey, Mark Keppel, y posteriormente obtuve títulos en Contabilidad y Finanzas de la USC (Universidad del Sur de California).</p><p dir=\"auto\">Cuando un centro de datos industrial amenazó nuestros vecindarios, actué. Presenté la moratoria de emergencia ante el Concejo e inicié el proceso legislativo que se convirtió en la Medida&nbsp;NDC - la cual logró una prohibición permanente, aprobada por el 88&nbsp;% de los votantes, y convirtió a Monterey Park en la primera ciudad de Estados Unidos en prohibir los centros de datos.</p><p dir=\"auto\">También me eligieron para mantener nuestros vecindarios seguros y nuestra ciudad fuerte. Logramos: <br dir=\"auto\">- Departamentos de policía y bomberos más fuertes<br dir=\"auto\">- Se repavimentaron más de la mitad de nuestras calles, además de una inversión de $25&nbsp;millones en mejoras de infraestructura, agua y alcantarillado<br dir=\"auto\">- Financiamiento para el Centro Acuático de Barnes Park<br dir=\"auto\">- Permisos simplificados y zonas comerciales revitalizadas<br dir=\"auto\">- Tres presupuestos equilibrados consecutivos con superávit</p><p dir=\"auto\">Dono la totalidad de la asignación que recibo del Concejo a nuestras escuelas, biblioteca, policía, bomberos y organizaciones locales sin fines de lucro.</p><p dir=\"auto\">Seguiré impulsando el desarrollo de Monterey Park, garantizando que sea el mejor lugar para Vivir, Trabajar y Divertirse.</p><p dir=\"auto\">Me enorgullece contar con el respaldo de la Congresista Judy Chu, la Senadora Sasha Renée Pérez, la Senadora Maria Elena Durazo, el Miembro de la Asamblea Mike Fong y la Supervisora Hilda Solis.</p><p dir=\"auto\">Le pido su voto para reelegirme para el Concejo de la Ciudad.</p><p dir=\"auto\">Obtenga más información: VinhtNgo.com</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PW",
+      "SequenceOrder": 170
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LG",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

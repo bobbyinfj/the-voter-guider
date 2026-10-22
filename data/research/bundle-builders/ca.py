@@ -3,6 +3,10 @@ D, R, NP = "Democratic", "Republican", "Nonpartisan"
 CERT = "https://elections.cdn.sos.ca.gov/statewide-elections/2026-general/cert-list-candidates.pdf"
 MEAS = "https://www.sos.ca.gov/elections/ballot-measures/qualified-ballot-measures"
 MP = "https://www.montereypark.ca.gov/1738/2026-General-Election-Information"
+# LA County's Interactive Sample Ballot data (sample-ballots/lavote_isb.py): contest order,
+# headings, ballot designations and measure wording exactly as LA County prints them
+LA = load_sample("la")
+ISB = LA["source"]
 # (name, party, incumbent, ballot designation) — designations are verbatim from the certified list
 state_races = [
   ("governor", "Governor", [("Xavier Becerra", D, False, "Voting Rights Attorney"), ("Steve Hilton", R, False, "Small Business Owner")], "Chief executive of California. 4-year term; Gavin Newsom is term-limited."),
@@ -37,6 +41,23 @@ offices += [
   office(P, "mp-clerk", "Monterey Park City Clerk", "city", "0648914", 72, [("Dora Leung", None, False, "Mother/Realtor/Entrepreneur")], desc="At-large. 4-year term. Unopposed.", term=4),
   office(P, "mp-treasurer", "Monterey Park City Treasurer", "city", "0648914", 73, [("Amy Lee", None, False, "City Treasurer/Attorney")], desc="At-large. 4-year term. Unopposed.", term=4),
 ]
+# Races only LA County's ballot data lists for Monterey Park. Names are exactly as the ballot
+# prints them (upper case); we don't re-case names we have no other official source for.
+def printed_race(key):
+    return [(p["name"], None, False, p.get("designation")) for p in next(c for c in LA["contests"] if c["key"] == key)["candidates"]]
+LACCD = "LOS ANGELES COMMUNITY COLLEGE DISTRICT | Member of the Board of Trustees, Seat {}"
+for i, seat in enumerate([2, 4, 6]):
+    offices.append(office(P, f"laccd-{seat}", f"Los Angeles Community College District Trustee, Seat {seat}", "school", "06037", 74 + i,
+                          printed_race(LACCD.format(seat)), desc="At-large across the Los Angeles Community College District, which includes Monterey Park. Nonpartisan.", term=4))
+JUDGE = "JUDGE OF THE SUPERIOR COURT | Office No. {}"
+for i, n in enumerate([64, 65, 87, 131]):
+    offices.append(office(P, f"la-superior-{n}", f"Judge of the Superior Court, Office No. {n}", "county", "06037", 80 + i,
+                          printed_race(JUDGE.format(n)), desc="Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.", term=6))
+for o in offices:
+    for cd in o["candidates"]:
+        # A ballot designation naming the seat itself means the incumbent holds it
+        if cd.get("shortBio", "").startswith(("Los Angeles Community College District, Member of the Board", "Member of the Board of Trustees, Los Angeles Community College District")):
+            cd["incumbent"] = True
 props = [
   ("1", "Authorizes Bonds for Housing Affordability Programs", "Legislative statute."),
   ("2", "Increases State's Rainy Day Fund", "Legislative constitutional amendment."),
@@ -73,6 +94,50 @@ measures += [
   measure(P, "mp-aaa", "Measure AAA", "Transient Occupancy Tax", "city",
           "Would raise the hotel/motel guest tax from 13% to 14% and set a 16% rate for short-term rental guests, raising about $600,000 a year for city services until ended by voters.", MP),
 ]
+# Judicial retention questions, as LA County's ballot prints them
+retention = []
+for c in LA["contests"]:
+    if not c["id"].startswith("rc"):
+        continue
+    for i, q in retention_questions(LA, c["key"]):
+        who = re.match(r"Shall (Associate Justice of the Supreme Court|Presiding Justice|Associate Justice) (.+?) be elected", q)
+        title = "Supreme Court" if "Supreme" in who.group(1) else c["heading"][0].split(", ", 1)[1]
+        m = measure(P, f"retain-{who.group(2)}", None, f"Retain {who.group(2)}? ({title})", "state", None, c["sources"][i], "retention")
+        attach_measure(LA, m, c["key"], i)
+        retention.append(m)
+measures += retention
+
+# Printed ballot layout, from LA County's ballot data
+c = lambda oid: next(o for o in offices if o["id"] == f"{P}-{oid}")
+PREF = "Party Preference: {}"
+for oid, key in [
+    ("mp-council-1", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | Member of the City Council, 1st District"),
+    ("mp-council-5", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | Member of the City Council, 5th District"),
+    ("mp-clerk", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | City Clerk"),
+    ("mp-treasurer", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | City Treasurer"),
+    ("superintendent", "SUPERINTENDENT OF PUBLIC INSTRUCTION"),
+] + [(f"laccd-{n}", LACCD.format(n)) for n in (2, 4, 6)] + [(f"la-superior-{n}", JUDGE.format(n)) for n in (64, 65, 87, 131)]:
+    attach_race(LA, c(oid), key)
+attach_race(LA, c("la-sheriff"), "SHERIFF", aliases={"ROBERT G. LUNA": "Robert Luna"})
+# Voter-nominated offices: California ballots print each candidate's "Party Preference"
+for oid, key in [
+    ("assembly-49", "MEMBER OF THE STATE ASSEMBLY, 49th District"),
+    ("us-house-28", "UNITED STATES REPRESENTATIVE, 28th District"),
+    ("governor", "GOVERNOR"), ("lt-governor", "LIEUTENANT GOVERNOR"), ("secretary-of-state", "SECRETARY OF STATE"),
+    ("controller", "CONTROLLER"), ("treasurer", "TREASURER"), ("attorney-general", "ATTORNEY GENERAL"),
+    ("insurance-commissioner", "INSURANCE COMMISSIONER"), ("boe-3", "MEMBER STATE BOARD OF EQUALIZATION 3rd District"),
+]:
+    attach_race(LA, c(oid), key, party_label=PREF)
+for m in measures:
+    if m["type"] == "retention":
+        continue
+    n = m["number"].split(" ", 1)[1]
+    key = (f"STATE MEASURE {n}" if m["level"] == "state" else
+           f"COUNTY MEASURE {n}" if m["level"] == "county" else
+           f"CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | MEASURE {n}")
+    attach_measure(LA, m, key)
+report_unmapped(LA, offices + measures, {""})
+
 write("ca-general-2026-11-03", {
   "slug": "ca-general-2026-11-03",
   "electionId": "ca-general-2026",
@@ -80,7 +145,7 @@ write("ca-general-2026-11-03", {
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "California's November 3 general election as it appears on Monterey Park ballots: Governor and the other statewide offices, U.S. House District 28, Assembly District 49, the Los Angeles County Sheriff runoff, Monterey Park city races, 14 statewide propositions, two county charter amendments and two city measures. School and special-district measures are not included. California has no U.S. Senate race in 2026. Candidates and ballot designations are from the Secretary of State's certified list (Aug 27, 2026).",
+  "description": "California's November 3 general election as it appears on Monterey Park ballots: Monterey Park city races and measures, Los Angeles Community College District trustees, Assembly District 49, U.S. House District 28, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park addresses. A few edge precincts also vote on a Water Replenishment District seat, a Montebello Unified trustee area or City of Los Angeles Measure SC; those aren't included. California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
   "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
   "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
   "jurisdiction": {"name": "California", "state": "CA", "type": "state", "fipsCode": "06"},

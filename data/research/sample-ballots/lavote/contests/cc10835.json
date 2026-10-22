@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10835.json",
+ "data": {
+  "id": "cc10835",
+  "long_description": {},
+  "name": {
+   "EN": "MEMBER STATE BOARD OF EQUALIZATION 3rd District"
+  },
+  "short_name": {
+   "EN": "STATE BD EQUALIZATION D3"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3FH",
+    "name": [
+     {
+      "EN": "SAMUEL P. SUKATON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "SAMUEL P SUKATON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Labor Union Organizer"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3FJ",
+    "name": [
+     {
+      "EN": "MIKE GIPSON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "MIKE GIPSON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "State Assemblymember/Father"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

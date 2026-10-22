@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/rc10898.json",
+ "data": {
+  "id": "rc10898",
+  "long_description": {
+   "EN": "Shall Associate Justice <b>NICHOLAS DAUM</b> be elected to the office for the term provided by law?"
+  },
+  "name": {
+   "EN": "For Associate Justice, Court of Appeal, Second District, Division Four"
+  },
+  "short_name": {
+   "EN": "For Associate Justice, Court of Appeal, Second District, Division Four (NICHOLAS DAUM)"
+  },
+  "short_description": {},
+  "contest_class": "retention_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D65",
+  "candidates": [
+   {
+    "id": "3H9",
+    "name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3HA",
+    "name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

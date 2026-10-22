@@ -34,12 +34,18 @@ export interface BallotSection {
   notice?: string
   // Same printed heading as the section before it (only the subheading changes)
   continued?: boolean
+  // The ballot prints no section bar here (LA County: the jurisdiction is in each heading)
+  noBar?: boolean
   items: BallotItem[]
 }
 
 // How the county's official sample ballot prints this contest (see data/research/sample-ballots)
 export interface PrintedLayout {
   source: string
+  // Set when the source isn't a printed sample-ballot PDF (LA County's Interactive Sample Ballot)
+  sourceName?: string
+  // This contest's own file in the source, when it has one
+  contestSource?: string
   style: { party: 'below' | 'right'; responses: 'stacked' | 'inline' }
   order: number
   section: string
@@ -47,7 +53,8 @@ export interface PrintedLayout {
   heading: string[]
   instructions: string[]
   notice?: string
-  candidates?: { name: string; label: string; party?: string }[]
+  // designation: the ballot designation printed under the name (California)
+  candidates?: { name: string; label: string; party?: string; designation?: string }[]
   writeIn?: boolean
   question?: string
   responses?: string[]
@@ -114,6 +121,11 @@ export function orderForBallot<T extends BallotItem>(items: T[]): T[] {
   })
 }
 
+// "the county's official sample ballot", or what the layout was actually copied from
+export function layoutSourceName(items: BallotItem[]): string {
+  return (items[0] && layoutOf(items[0])?.sourceName) || "the county's official sample ballot"
+}
+
 export function hasPrintedLayout(items: BallotItem[]): boolean {
   return items.length > 0 && items.every((i) => layoutOf(i))
 }
@@ -136,7 +148,8 @@ export function groupSections(items: BallotItem[]): BallotSection[] {
     const name = LEVEL_LABELS[level] ?? level
     sections.push({
       key: `${key}#${sections.length}`,
-      label: printed ? printed.section : isMeasure(item) ? `${name} measures` : `${name} offices`,
+      label: printed ? printed.section || 'Contests' : isMeasure(item) ? `${name} measures` : `${name} offices`,
+      noBar: printed ? !printed.section : undefined,
       subsection: printed?.subsection,
       continued: !!printed && last?.label === printed.section && !!printed.subsection,
       items: [item],

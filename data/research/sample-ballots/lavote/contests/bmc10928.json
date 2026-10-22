@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10928.json",
+ "data": {
+  "id": "bmc10928",
+  "long_description": {
+   "EN": "<b>CAMPAIGN FINANCE RULES RELATED TO BOARD OF EDUCATION ELECTIONS. CHARTER AMENDMENT SC.</b> Shall the Los Angeles City Charter be amended to clarify the campaign finance rules for Board of Education elections and allow for changes by ordinance? <b>Supporters:</b> Councilmember, Adrin Nazarian; LAUSD Board Member, Nick Melvoin; League of Women Voters of Greater LA; CA Common Cause <b>Opponents:</b> None submitted."
+  },
+  "name": {
+   "EN": "LOS ANGELES CITY GENERAL MUNICIPAL ELECTION - MEASURE SC"
+  },
+  "short_name": {
+   "EN": "LOS ANGELES CITY & USD-SC"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "3BC",
+    "name": [
+     {
+      "EN": "YES on Measure SC"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3BD",
+    "name": [
+     {
+      "EN": "NO on Measure SC"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

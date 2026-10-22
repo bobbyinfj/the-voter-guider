@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10832.json",
+ "data": {
+  "id": "cc10832",
+  "long_description": {},
+  "name": {
+   "EN": "TREASURER"
+  },
+  "short_name": {
+   "EN": "TREASURER"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3FB",
+    "name": [
+     {
+      "EN": "JENNIFER HAWKS"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "JENNIFER HAWKS"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Retired Business Executive"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VRP",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3FC",
+    "name": [
+     {
+      "EN": "ELENI KOUNALAKIS"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ELENI KOUNALAKIS"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Lieutenant Governor of California"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10824.json",
+ "data": {
+  "id": "cc10824",
+  "long_description": {},
+  "name": {
+   "EN": "JUDGE OF THE SUPERIOR COURT Office No. 64"
+  },
+  "short_name": {
+   "EN": "JUDGE-SUPERIOR COURT #64"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D63",
+  "candidates": [
+   {
+    "id": "3EP",
+    "name": [
+     {
+      "EN": "RHONDA A. HAYMON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RHONDA A HAYMON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy Public Defender, County of Los Angeles"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3EQ",
+    "name": [
+     {
+      "EN": "MARIA GHOBADI"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "MARIA GHOBADI"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Deputy District Attorney, County of Los Angeles"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3U4",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

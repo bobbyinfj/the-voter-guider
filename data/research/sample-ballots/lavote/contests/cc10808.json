@@ -1,0 +1,70 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10808.json",
+ "data": {
+  "id": "cc10808",
+  "long_description": {},
+  "name": {
+   "EN": "UNITED STATES REPRESENTATIVE, 28th District"
+  },
+  "short_name": {
+   "EN": "28TH CONGRESS DIST"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "378",
+    "name": [
+     {
+      "EN": "JUDY CHU"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "JUDY CHU"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "United States Representative"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "partyId": "VDM",
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "379",
+    "name": [
+     {
+      "EN": "APRIL A. VERLATO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "APRIL A VERLATO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Small Business Owner"
+     }
+    ],
+    "statements": [],
+    "order": 1,
+    "partyId": "VRP",
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

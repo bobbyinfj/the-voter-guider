@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10865.json",
+ "data": {
+  "id": "bmc10865",
+  "long_description": {
+   "EN": "<b>REQUIRES COMMUNITY HEALTH CLINICS SPEND 90% OF REVENUE ON PROGRAM SERVICES. INITIATIVE STATUTE.</b> Imposes penalties on nonprofit Federally Qualified Health Centers (community clinics providing primary care to medically underserved areas and populations) that spend less than 90% of revenue on \"program services\" advancing their charitable purpose, including but not limited to patient services. <b>Fiscal Impact:</b> Increased state costs in the low tens of millions of dollars per year, covered by fees. <b>Supporters:</b> None submitted <b>Opponents:</b> American Academy of Pediatrics CA; CA School Nurses Org; CA Academy of Family Physicians; CA Medical Assoc"
+  },
+  "name": {
+   "EN": "STATE MEASURE 44"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 44"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3GD",
+    "name": [
+     {
+      "EN": "YES on Measure 44"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3GE",
+    "name": [
+     {
+      "EN": "NO on Measure 44"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -6,7 +6,7 @@ import { formatElectionDate } from "@/lib/format";
 import { snippetCandidates } from "@/lib/profile";
 import BallotSheet from "@/components/ballot/BallotSheet";
 import { BallotHeader, Extra, accentButton, outlineButton } from "@/components/ballot/Paper";
-import { groupSections, hasPrintedLayout, layoutOf, orderForBallot } from "@/components/ballot/ballot";
+import { groupSections, hasPrintedLayout, layoutOf, layoutSourceName, orderForBallot } from "@/components/ballot/ballot";
 import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 
 interface Props {
@@ -137,7 +137,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           <strong>Preview of your ballot.</strong>{" "}
           {printed ? (
             <>
-              Contests, order and wording come from the county&apos;s official sample ballot
+              Contests, order and wording come from {layoutSourceName(items)}
               {source && (
                 <>
                   {" "}

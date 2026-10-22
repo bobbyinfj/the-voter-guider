@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10866.json",
+ "data": {
+  "id": "bmc10866",
+  "long_description": {
+   "EN": "<b>MODIFIES ENVIRONMENTAL REVIEW FOR CERTAIN PROJECTS. INITIATIVE STATUTE.</b> Amends California Environmental Quality Act (CEQA) to expedite environmental review for certain projects (including most housing, transportation, water, and health projects) by setting deadlines to complete environmental review and resolve lawsuits challenging project approvals. <b>Fiscal Impact:</b> Initial costs for state and local governments, likely in the high tens of millions of dollars-potentially exceeding $100 million-annually, partly covered by fees. Uncertain, potentially more significant positive or negative longer-term fiscal effects. <b>Supporters:</b> California Children's Hospital Association; California Water Association; California Council for Affordable Housing <b>Opponents:</b> Coalition for Clean Air; CA Environmental Voters; Physicians for Social Responsibility, LA; National Wildlife Federation"
+  },
+  "name": {
+   "EN": "STATE MEASURE 45"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 45"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3GF",
+    "name": [
+     {
+      "EN": "YES on Measure 45"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3GG",
+    "name": [
+     {
+      "EN": "NO on Measure 45"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

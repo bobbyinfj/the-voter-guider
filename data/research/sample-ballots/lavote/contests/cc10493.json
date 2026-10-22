@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10493.json",
+ "data": {
+  "id": "cc10493",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION City Clerk"
+  },
+  "short_name": {
+   "EN": "MONTEREY PARK CITY-CTY CLK"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "34M",
+    "name": [
+     {
+      "EN": "DORA LEUNG"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DORA LEUNG"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Mother/Realtor/Entrepreneur"
+     }
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3SL",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

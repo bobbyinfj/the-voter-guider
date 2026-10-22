@@ -1,0 +1,128 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10569.json",
+ "data": {
+  "id": "cc10569",
+  "long_description": {},
+  "name": {
+   "EN": "WATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA Member, Board of Directors, Division 4"
+  },
+  "short_name": {
+   "EN": "WATER REPLEN OF SO CAL-D4"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D62",
+  "candidates": [
+   {
+    "id": "3D2",
+    "name": [
+     {
+      "EN": "JORGEL CHAVEZ"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "JORGEL CHAVEZ"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Infrastructure Consultant/Councilmember"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002606905E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF JORGEL CHAVEZ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER, BOARD OF DIRECTORS,<br dir=\"auto\">Division 4</h2><h3 dir=\"auto\" style=\"text-align: center\">WATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA</h3><p dir=\"auto\" >Age: 29</p><p dir=\"auto\" >Occupation: Water Policy Analyst</p><p dir=\"auto\" >As a Water Policy Analyst and Southeast Los Angeles resident, I am running for the Water Replenishment District to bring new, accountable leadership to our communities.</p><p dir=\"auto\" >I am the first in my family to graduate from college. I earned two associate degrees from Long Beach City College before graduating cum laude from the University of Southern California with a bachelor's degree in Political Science, a minor in Communications, Policy, and Law, and a Master of Public Administration.</p><p dir=\"auto\" >As Mayor of Bell Gardens, I led and advanced major infrastructure projects, including the opening of our regional aquatic center.</p><p dir=\"auto\" >Our communities have been represented by the same person for 20 years, since I was 9 years old. I believe it is time for new leadership.</p><p dir=\"auto\" >I will:</p><p dir=\"auto\" >-Protect clean, reliable, and affordable water.</p><p dir=\"auto\" >-Hold data centers accountable so they do not harm our water supply or force families to pay higher costs.</p><p dir=\"auto\" >-Protect groundwater through recycling, conservation, stormwater capture, and replenishment.</p><p dir=\"auto\" >-Work with cities and fire departments to strengthen water infrastructure and ensure water is available during wildfires and emergencies such as the Lineage warehouse fire.</p><p dir=\"auto\" >I respectfully ask for you to vote for me, Jorgel Chavez.</p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE JORGEL CHAVEZ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO, JUNTA DE DIRECTORES,<br dir=\"auto\">División&nbsp;4</h2><h3 dir=\"auto\" style=\"text-align: center\">DISTRITO DE REABASTECIMIENTO DE AGUA DE SOUTHERN CALIFORNIA</h3><p dir=\"auto\">Edad: 29</p><p dir=\"auto\">Ocupación: Analista de Políticas Hídricas</p><p dir=\"auto\">Como Analista de Políticas del Agua y residente del Sureste de Los Angeles, me postulo para el Distrito de Reabastecimiento de Agua con el fin de aportar un liderazgo nuevo y responsable a nuestras comunidades.</p><p dir=\"auto\">Soy el primero de mi familia en graduarme del colegio. Obtuve dos títulos de asociado en el Colegio de la Ciudad de Long Beach antes de graduarme con honores de la Universidad del Sur de California con una licenciatura en Ciencias Políticas, una subespecialización en Comunicación, Políticas Públicas y Derecho, y una Maestría en Administración Pública.</p><p dir=\"auto\">Como Alcalde de Bell Gardens, lideré e impulsé importantes proyectos de infraestructura, incluida la inauguración de nuestro centro acuático regional.</p><p dir=\"auto\">Nuestras comunidades han estado representadas por la misma persona durante 20&nbsp;años, desde que yo tenía 9&nbsp;años. Creo que es hora de un nuevo liderazgo.</p><p dir=\"auto\">Haré lo siguiente:</p><p dir=\"auto\">-Proteger un suministro de agua potable, fiable y asequible.</p><p dir=\"auto\">-Exigir responsabilidades a los centros de datos para que no dañen nuestro suministro de agua ni obliguen a las familias a pagar precios más altos.</p><p dir=\"auto\">-Proteger las aguas subterráneas mediante el reciclaje, la conservación, la captación de aguas pluviales y la recarga de acuíferos.</p><p dir=\"auto\">-Colaborar con las ciudades y los departamentos de bomberos para fortalecer la infraestructura hídrica y garantizar el suministro de agua durante incendios forestales y emergencias como el incendio del almacén de Lineage.</p><p dir=\"auto\">Le pido respetuosamente que vote por mí, Jorgel Chavez.</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "3D2",
+      "SequenceOrder": 635
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3D3",
+    "name": [
+     {
+      "EN": "SERGIO JOSEPH CALDERON"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "SERGIO J CALDERON"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Director, Water Replenishment District of So. Calif."
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002581605E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF SERGIO JOSEPH CALDERON</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER, BOARD OF DIRECTORS,<br dir=\"auto\">Division 4</h2><h3 dir=\"auto\" style=\"text-align: center\">WATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA</h3><p dir=\"auto\">In 2022, the voters honored me by electing me as their public servant and Director of the Water Replenishment District of Southern California, Division 4. Since taking office, I have worked to protect our groundwater by keeping it safe, sustainable, and affordable. Today, groundwater remains the most affordable water supply in SoCal.</p><p dir=\"auto\">As a teacher, healthcare professional, and lifelong resident who lives and works within Division 4, I understand our communities' needs firsthand.</p><p dir=\"auto\">In 2026, I was unanimously appointed Board President, reflecting the Board's confidence in my leadership, integrity, and commitment to public service. This distinction gives the communities I represent a strong voice in shaping the future of our regional water supply.</p><p dir=\"auto\">During my term, I helped secure more than $90 million in federal and state funding to address toxins known as PFAS, or \"forever chemicals,\" improve groundwater quality, and strengthen water infrastructure.</p><p dir=\"auto\">I remain committed to government accountability, fiscal responsibility, and protecting taxpayers while safeguarding our most valuable natural resource.</p><p dir=\"auto\">Proven experience matters. I respectfully ask for your vote to continue providing experienced, honest leadership while working to ensure a safe, reliable, and affordable groundwater supply for today's families and generations to come.</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "3D3",
+      "SequenceOrder": 636
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3D4",
+    "name": [
+     {
+      "EN": "SAMUEL A. PEÑA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "SAMUEL A PENA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Educator"
+     }
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3T8",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 4,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

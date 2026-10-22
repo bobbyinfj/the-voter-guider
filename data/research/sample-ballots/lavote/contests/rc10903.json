@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/rc10903.json",
+ "data": {
+  "id": "rc10903",
+  "long_description": {
+   "EN": "Shall Presiding Justice <b>GONZALO C. MARTINEZ</b> be elected to the office for the term provided by law?"
+  },
+  "name": {
+   "EN": "For Presiding Justice, Court of Appeal, Second District, Division Seven"
+  },
+  "short_name": {
+   "EN": "For Presiding Justice, Court of Appeal, Second District, Division Seven (GONZALO C. MARTINEZ)"
+  },
+  "short_description": {},
+  "contest_class": "retention_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D65",
+  "candidates": [
+   {
+    "id": "3GV",
+    "name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3GW",
+    "name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

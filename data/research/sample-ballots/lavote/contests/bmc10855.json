@@ -1,0 +1,66 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/bmc10855.json",
+ "data": {
+  "id": "bmc10855",
+  "long_description": {
+   "EN": "<b>PROVIDES PERMANENT FUNDING FOR SCHOOLS AND HEALTH CARE BY EXTENDING EXISTING TAX ON HIGH INCOMES. INITIATIVE CONSTITUTIONAL AMENDMENT.</b> Makes permanent existing voter-approved tax rates for individuals earning over $371,000 (adjusted annually for inflation). Allocates tax revenues to public education. <b>Fiscal Impact:</b> Maintains $5 billion to $15 billion of annual state income tax revenue by making a temporary tax increase on high-income earners permanent instead of letting it expire in 2031. <b>Supporters:</b> California Teachers Association; CA School Nurses Organization; California State PTA; Planned Parenthood Affiliates of CA <b>Opponents:</b> California Taxpayers Association; Family Business Association of California; California Hispanic Chambers of Commerce"
+  },
+  "name": {
+   "EN": "STATE MEASURE 3"
+  },
+  "short_name": {
+   "EN": "STATE MEASURE 3"
+  },
+  "short_description": {},
+  "contest_class": "ballot_measure_class",
+  "number_of_writeins": 0,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote <b>YES</b> or <b>NO</b>"
+  },
+  "division": "D64",
+  "candidates": [
+   {
+    "id": "3FR",
+    "name": [
+     {
+      "EN": "YES on Measure 3"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "YES"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3FS",
+    "name": [
+     {
+      "EN": "NO on Measure 3"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "NO"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -7,7 +7,7 @@ import { join } from 'node:path'
 const root = join(__dirname, '..', 'data')
 const read = (p: string) => JSON.parse(readFileSync(join(root, p), 'utf8'))
 const bundles = readdirSync(join(root, 'elections')).filter((f) => f.endsWith('-general-2026-11-03.json'))
-type Contest = { title: string | string[]; section: string; candidates?: { name: string; party?: string }[]; questions?: { text: string; responses: string[] }[] }
+type Contest = { title: string | string[]; section: string; candidates?: { name: string; party?: string; designation?: string }[]; questions?: { text: string; responses: string[] }[] }
 const samples: Record<string, { contests: Contest[] }> = Object.fromEntries(
   readdirSync(join(root, 'research', 'sample-ballots'))
     .filter((f) => f.endsWith('.json'))
@@ -51,7 +51,12 @@ for (const file of bundles) {
         // Same people, same printed order, same printed party labels
         assert.deepEqual(b.candidates.map((c: { label: string }) => c.label), contest.candidates!.map((c) => c.name), item.id)
         assert.deepEqual(item.candidates.map((c: { name: string }) => c.name), b.candidates.map((c: { name: string }) => c.name), item.id)
-        for (const [i, c] of contest.candidates!.entries()) assert.equal(b.candidates[i].party, c.party, item.id)
+        for (const [i, c] of contest.candidates!.entries()) {
+          // LA's ballot data has no party; California's "Party Preference: X" comes from the SOS list
+          const printed = b.candidates[i]
+          if (c.party !== undefined || !printed.party?.startsWith('Party Preference: ')) assert.equal(printed.party, c.party, item.id)
+          assert.equal(printed.designation, c.designation, item.id)
+        }
       } else {
         const q = contest.questions!.find((x) => x.text === b.question)
         assert.ok(q, `${item.id}: question text not on the sample ballot`)
