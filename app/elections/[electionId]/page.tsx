@@ -173,6 +173,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           initialGuide={election.status === "completed" ? null : initialGuide}
           otherGuides={otherGuides}
           urlDistricts={selection}
+          readOnly={election.status === "completed"}
         />
       </div>
     </>

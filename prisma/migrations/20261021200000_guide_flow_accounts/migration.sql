@@ -22,6 +22,7 @@ CREATE TABLE "login_tokens" (
     "tokenHash" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "sessionId" TEXT,
+    "ipHash" TEXT,
     "next" TEXT,
     "expiresAt" TIMESTAMP(3) NOT NULL,
     "usedAt" TIMESTAMP(3),
@@ -49,6 +50,12 @@ CREATE UNIQUE INDEX "login_tokens_tokenHash_key" ON "login_tokens"("tokenHash");
 
 -- CreateIndex
 CREATE INDEX "login_tokens_email_createdAt_idx" ON "login_tokens"("email", "createdAt");
+
+-- CreateIndex
+CREATE INDEX "login_tokens_ipHash_createdAt_idx" ON "login_tokens"("ipHash", "createdAt");
+
+-- CreateIndex
+CREATE INDEX "login_tokens_createdAt_idx" ON "login_tokens"("createdAt");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "auth_sessions_tokenHash_key" ON "auth_sessions"("tokenHash");

@@ -12,7 +12,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email sign-in isn't switched on yet." }, { status: 503 })
     }
     const body = await request.json()
-    const result = await requestSignInLink(body.email, await getSessionId(), body.next)
+    // First hop of x-forwarded-for is the client on Vercel
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || null
+    const result = await requestSignInLink(body.email, await getSessionId(), body.next, ip)
     if (!result.ok) return NextResponse.json({ error: result.error }, { status: 400 })
     return NextResponse.json({ ok: true })
   } catch (error) {

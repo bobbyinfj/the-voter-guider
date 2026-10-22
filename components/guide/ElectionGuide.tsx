@@ -24,6 +24,8 @@ interface Props {
   // Your other guides for this election
   otherGuides: { id: string; title: string }[]
   urlDistricts: DistrictSelection
+  // Past elections: show the ballot, no marking
+  readOnly?: boolean
 }
 
 function savedDistricts(guide: EditableGuide | null): DistrictSelection {
@@ -33,7 +35,7 @@ function savedDistricts(guide: EditableGuide | null): DistrictSelection {
 }
 
 // The election's ballot, and your guide: whatever you mark here saves as you go
-export default function ElectionGuide({ election, ballots, pickerOptions, initialGuide, otherGuides, urlDistricts }: Props) {
+export default function ElectionGuide({ election, ballots, pickerOptions, initialGuide, otherGuides, urlDistricts, readOnly = false }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const account = useAccount()
@@ -83,7 +85,7 @@ export default function ElectionGuide({ election, ballots, pickerOptions, initia
           {editor.error}
         </div>
       )}
-      <div className="flex flex-wrap items-center justify-between gap-2 font-sans text-sm print:hidden">
+      {!readOnly && <div className="flex flex-wrap items-center justify-between gap-2 font-sans text-sm print:hidden">
         <p className="text-gray-700">
           <strong>This is your guide.</strong> Mark your picks right on the ballot; they save as you go.
         </p>
@@ -107,7 +109,7 @@ export default function ElectionGuide({ election, ballots, pickerOptions, initia
             <FilePlus2 className="h-4 w-4" /> New guide
           </button>
         </div>
-      </div>
+      </div>}
       {items.length === 0 ? (
         <p className="text-sm italic text-gray-600">No contests loaded yet.</p>
       ) : (
@@ -116,6 +118,7 @@ export default function ElectionGuide({ election, ballots, pickerOptions, initia
           guideTitle={guide?.title ?? `My ballot: ${election.title}`}
           election={election}
           choices={choices}
+          readOnly={readOnly}
           status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
           notice={<KeepGuidePrompt show={answered > 0} />}
           setup={

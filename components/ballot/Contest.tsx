@@ -8,6 +8,7 @@ import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
 import CompareStrip from '@/components/compare/CompareStrip'
+import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import type { CompareView } from '@/components/compare/compare'
 import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
@@ -258,7 +259,7 @@ function PrintedQuestion({ item }: { item: BallotItem }) {
 }
 
 // One candidate in the snack panel: their own words (one line), endorsement circles, a video
-function CandidateSnack({ candidate: c }: { candidate: BallotCandidate }) {
+function CandidateSnack({ candidate: c, race }: { candidate: BallotCandidate; race: BallotItem }) {
   const [watching, setWatching] = useState(false)
   const p = c.profile
   const video = p?.video
@@ -304,6 +305,7 @@ function CandidateSnack({ candidate: c }: { candidate: BallotCandidate }) {
         )}
       </div>
       {watching && video && <VideoFacade video={video} compact />}
+      {statementOf(race.metadata, c.name) && <OfficialDocs docs={[statementOf(race.metadata, c.name)!]} />}
     </li>
   )
 }
@@ -387,12 +389,13 @@ function Enhancements({
         <>
           {item.description && <p>{item.description}</p>}
           <MeasureExplainer official={{ ...official, sourceUrl: null }} />
+          <OfficialDocs docs={documentsOf(item.metadata)} label="From the county's official voter information" />
         </>
       ) : (
         <>
           <ul className="space-y-3">
             {people.map((c) => (
-              <CandidateSnack key={c.id} candidate={c} />
+              <CandidateSnack key={c.id} candidate={c} race={item} />
             ))}
           </ul>
           {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}

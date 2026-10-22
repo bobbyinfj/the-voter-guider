@@ -203,6 +203,8 @@ model LoginToken {
   email     String
   // The anonymous session that asked for the link: its guides move to the account on sign-in
   sessionId String?
+  // sha256 of the requester's IP, for rate limiting only
+  ipHash    String?
   // Same-site path to return to after signing in
   next      String?
   expiresAt DateTime
@@ -210,6 +212,8 @@ model LoginToken {
   createdAt DateTime  @default(now())
 
   @@index([email, createdAt])
+  @@index([ipHash, createdAt])
+  @@index([createdAt])
   @@map("login_tokens")
 }
 

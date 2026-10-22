@@ -39,20 +39,29 @@ export async function currentUser(): Promise<{ id: string; email: string } | nul
 
 export class RateLimited extends Error {}
 
-export async function requestSignInLink(emailInput: unknown, sessionId: string, nextInput: unknown) {
+// Limits on sign-in emails: per address, per browser, per network address, and overall (so a
+// script can't use the site to spray email from the sending account)
+const LIMITS = { email: 3, browser: 5, ip: 10, windowMinutes: 15, perHour: 200 }
+
+export async function requestSignInLink(emailInput: unknown, sessionId: string, nextInput: unknown, ip: string | null) {
   const email = normalizeEmail(emailInput)
   if (!email) return { ok: false as const, error: 'Please enter a valid email address.' }
-  const since = new Date(Date.now() - 15 * 60_000)
-  const [forEmail, forBrowser] = await Promise.all([
+  const since = new Date(Date.now() - LIMITS.windowMinutes * 60_000)
+  const ipHash = ip ? hash(`ip:${ip}`) : null
+  const [forEmail, forBrowser, forIp, lastHour] = await Promise.all([
     prisma.loginToken.count({ where: { email, createdAt: { gt: since } } }),
     prisma.loginToken.count({ where: { sessionId, createdAt: { gt: since } } }),
+    ipHash ? prisma.loginToken.count({ where: { ipHash, createdAt: { gt: since } } }) : 0,
+    prisma.loginToken.count({ where: { createdAt: { gt: new Date(Date.now() - 3_600_000) } } }),
   ])
-  if (forEmail >= 3 || forBrowser >= 5) throw new RateLimited()
+  if (forEmail >= LIMITS.email || forBrowser >= LIMITS.browser || forIp >= LIMITS.ip || lastHour >= LIMITS.perHour) {
+    throw new RateLimited()
+  }
 
   const token = newToken()
   const next = safeNext(nextInput)
   await prisma.loginToken.create({
-    data: { tokenHash: hash(token), email, sessionId, next, expiresAt: new Date(Date.now() + LINK_MINUTES * 60_000) },
+    data: { tokenHash: hash(token), email, sessionId, ipHash, next, expiresAt: new Date(Date.now() + LINK_MINUTES * 60_000) },
   })
   const link = `${appUrl()}/signin/verify?token=${token}`
   await sendMail(
@@ -71,8 +80,18 @@ export async function requestSignInLink(emailInput: unknown, sessionId: string, 
   return { ok: true as const }
 }
 
+// Who a sign-in link is for (masked), without using it up: shown before the Sign in button so
+// you can tell if someone sent you a link to their account
+export async function previewToken(token: unknown): Promise<string | null> {
+  if (typeof token !== 'string' || token.length < 20 || token.length > 100) return null
+  const login = await prisma.loginToken.findUnique({ where: { tokenHash: hash(token) }, select: { email: true, usedAt: true, expiresAt: true } })
+  if (!login || login.usedAt || login.expiresAt < new Date()) return null
+  const [name, domain] = login.email.split('@')
+  return `${name.slice(0, 2)}${'•'.repeat(Math.max(1, name.length - 2))}@${domain}`
+}
+
 // Use a sign-in link: returns where to go next, or null if the link is bad, used or expired
-export async function signInWithToken(token: unknown, currentSessionId: string): Promise<string | null> {
+export async function signInWithToken(token: unknown): Promise<string | null> {
   if (typeof token !== 'string' || token.length < 20 || token.length > 100) return null
   const tokenHash = hash(token)
   const login = await prisma.loginToken.findUnique({ where: { tokenHash } })
@@ -86,7 +105,9 @@ export async function signInWithToken(token: unknown, currentSessionId: string):
     create: { email: login.email, lastLoginAt: new Date() },
     update: { lastLoginAt: new Date() },
   })
-  await claimGuides(user.id, [login.sessionId, currentSessionId].filter((s): s is string => !!s))
+  // Only the browser that asked for the link hands over its guides. Never the one clicking
+  // it: otherwise anyone could mail you a link to their own account and collect your picks.
+  if (login.sessionId) await claimGuides(user.id, [login.sessionId])
 
   const authToken = newToken()
   await prisma.authSession.create({

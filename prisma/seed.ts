@@ -50,6 +50,7 @@ interface CandidateData {
   website?: string | null;
   email?: string;
   phone?: string;
+  countyStatement?: { title: string; text: string; source: string };
 }
 
 // Printed layout from the county's official sample ballot (data/research/sample-ballots);
@@ -89,6 +90,8 @@ interface MeasureData {
   placedBy?: string;
   passes?: string;
   ballot?: BallotLayout;
+  // Official documents from the county's sample ballot: { title, text, source }
+  documents?: { title: string; text: string; source: string }[];
 }
 
 interface ElectionFile {
@@ -310,6 +313,10 @@ async function seedElectionBundle(slug: string) {
         level: officeData.level,
         sortOrder: officeData.sortOrder ?? 100,
         ...(officeData.ballot ? { ballot: officeData.ballot } : {}),
+        // Candidate statements printed in the county's sample ballot, by candidate name
+        ...(officeData.candidates.some((c) => c.countyStatement)
+          ? { statements: Object.fromEntries(officeData.candidates.filter((c) => c.countyStatement).map((c) => [c.name, c.countyStatement!])) }
+          : {}),
         ...(raceExtras[officeData.id] ? { extras: raceExtras[officeData.id] } : {}),
       } as Prisma.InputJsonObject,
       districtType: officeData.districtType ?? null,
@@ -388,6 +395,7 @@ async function seedElectionBundle(slug: string) {
         placedBy: m.placedBy ?? null,
         passes: m.passes ?? null,
         ...(m.ballot ? { ballot: m.ballot } : {}),
+        ...(m.documents?.length ? { documents: m.documents } : {}),
       } as Prisma.InputJsonObject,
       districtType: m.districtType ?? null,
       districtCode: m.districtCode ?? null,

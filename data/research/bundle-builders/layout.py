@@ -76,6 +76,9 @@ def attach_race(sample, office_, key, notice=None, aliases=None, party_label=Non
             label["party"] = party_label.format(cd["party"])
         if p.get("designation"):
             label["designation"] = p["designation"]
+        if p.get("statement"):
+            # The candidate's statement as printed in the county's sample ballot booklet
+            cd["countyStatement"] = {**p["statement"], "source": c.get("source", sample["source"])}
         labels.append(label)
     extra = [cd["name"] for cd in office_["candidates"] if cd not in ordered]
     assert not extra, f"{office_['id']}: {extra} are in the bundle but not on the ballot"
@@ -104,6 +107,10 @@ def attach_measure(sample, measure_, key, question=0):
         b["group"] = c["key"]  # several questions printed under one heading (judicial retention)
     if c.get("table"):
         b["table"] = c["table"]
+    if c.get("documents") and question == 0:
+        # Official documents from the county's sample ballot (not ballot text): impartial
+        # analysis, fiscal impact, arguments, full text
+        measure_["documents"] = [{**d, "source": c.get("source", sample["source"])} for d in c["documents"]]
     measure_["ballot"] = b
     return measure_
 
