@@ -6,6 +6,8 @@ import {
   groupSections,
   hasPrintedLayout,
   isPick,
+  isSettled,
+  isUnsure,
   orderForBallot,
   type BallotItem,
   type PrintedLayout,
@@ -108,5 +110,19 @@ test('isPick: only real picks, not blank or no-clue', () => {
   assert.equal(isPick('YES'), true)
   assert.equal(isPick('ABSTAIN'), false)
   assert.equal(isPick('UNSURE'), false)
+  assert.equal(isPick('NOTES'), false)
   assert.equal(isPick(undefined), false)
+})
+
+test('isSettled / isUnsure: a ? on the contest or on an option is still to go', () => {
+  assert.equal(isSettled({ selection: 'Jane Doe', status: 'decided' }), true)
+  assert.equal(isSettled({ selection: 'Jane Doe', status: 'tentative' }), true)
+  assert.equal(isSettled({ selection: 'ABSTAIN' }), true)
+  assert.equal(isSettled({ selection: 'Jane Doe', status: 'unsure' }), false)
+  assert.equal(isSettled({ selection: 'UNSURE' }), false)
+  assert.equal(isSettled({ selection: 'NOTES', notes: 'look up' }), false)
+  assert.equal(isSettled(undefined), false)
+  assert.equal(isUnsure({ selection: 'Jane Doe', status: 'unsure' }), true)
+  assert.equal(isUnsure({ selection: 'UNSURE' }), true)
+  assert.equal(isUnsure({ selection: 'NOTES', status: 'unsure' }), false)
 })

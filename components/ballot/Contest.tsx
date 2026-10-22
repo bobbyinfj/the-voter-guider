@@ -14,12 +14,14 @@ import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, raceExtrasOf } from '@/li
 import {
   ABSTAIN,
   MEASURE_VALUES,
+  NOTES_ONLY,
   UNSURE,
   WRITE_IN,
   choiceLabel,
   contestDomId,
   isMeasure,
   isPick,
+  isSettled,
   layoutOf,
   optionList,
   type BallotCandidate,
@@ -52,7 +54,7 @@ function Oval({
   name,
   value,
   checked,
-  tentative = false,
+  status = 'decided',
   disabled,
   onSelect,
   label,
@@ -61,8 +63,8 @@ function Oval({
   name: string
   value: string
   checked: boolean
-  // Leaning, not decided: the oval is hatched instead of filled
-  tentative?: boolean
+  // How sure you are of this pick: ? in the oval (unsure), hatched (leaning) or filled (decided)
+  status?: ChoiceStatus
   disabled: boolean
   onSelect: () => void
   label: string
@@ -82,17 +84,21 @@ function Oval({
         disabled={disabled}
         onChange={() => {}}
         onClick={onSelect}
-        aria-label={checked && tentative ? `${label} (leaning)` : label}
+        aria-label={checked && status !== 'decided' ? `${label} (${status === 'unsure' ? 'not sure' : 'leaning'})` : label}
         className="peer sr-only"
       />
       <span
         aria-hidden
-        className={`mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-ballot-ink bg-white peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
-          tentative
-            ? 'peer-checked:bg-[repeating-linear-gradient(135deg,var(--ballot-ink)_0_2px,transparent_2px_5px)]'
-            : 'peer-checked:bg-ballot-ink'
+        className={`mt-0.5 flex h-3.5 w-6 shrink-0 items-center justify-center rounded-[50%] border-[1.5px] border-ballot-ink bg-white text-[10px] font-bold leading-none text-purple-700 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
+          status === 'unsure'
+            ? ''
+            : status === 'tentative'
+              ? 'peer-checked:bg-[repeating-linear-gradient(135deg,var(--ballot-ink)_0_2px,transparent_2px_5px)]'
+              : 'peer-checked:bg-ballot-ink'
         }`}
-      />
+      >
+        {checked && status === 'unsure' && '?'}
+      </span>
       <span className="min-w-0 flex-1">{children}</span>
     </label>
   )
@@ -166,7 +172,7 @@ function RaceChoices({
           value={row.name}
           label={row.label}
           checked={selection === row.name}
-          tentative={choice?.status === 'tentative'}
+          status={choice?.status}
           disabled={readOnly}
           onSelect={() => onPick(row.name)}
         >
@@ -189,7 +195,7 @@ function RaceChoices({
           value={WRITE_IN}
           label={`Write-in for ${item.title}`}
           checked={isWriteIn}
-          tentative={choice?.status === 'tentative'}
+          status={choice?.status}
           disabled={readOnly}
           onSelect={() => (isWriteIn ? onPick(selection!) : saveWriteIn())}
         >
@@ -237,7 +243,7 @@ function MeasureChoices({
           value={value}
           label={labels[i]}
           checked={choice?.selection === value}
-          tentative={choice?.status === 'tentative'}
+          status={choice?.status}
           disabled={readOnly}
           onSelect={() => onPick(value)}
         >
@@ -336,12 +342,12 @@ function CandidateSnack({ candidate: c, race }: { candidate: BallotCandidate; ra
   )
 }
 
-// Leaning or decided, for a pick you've made (not shown on paper)
+// Not sure, leaning or decided, for a pick you've made (not shown on paper)
 function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (status: ChoiceStatus) => void }) {
   return (
     <div role="radiogroup" aria-label="How sure are you?" className="flex justify-end px-2 pb-1.5 font-sans print:hidden">
       <div className="inline-flex overflow-hidden rounded-full border border-gray-300 text-[11px]">
-        {(['tentative', 'decided'] as const).map((value) => (
+        {(['unsure', 'tentative', 'decided'] as const).map((value) => (
           <button
             key={value}
             type="button"
@@ -352,11 +358,13 @@ function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (sta
               status === value
                 ? value === 'decided'
                   ? 'bg-green-700 font-semibold text-white'
-                  : 'bg-amber-200 font-semibold text-amber-950'
+                  : value === 'tentative'
+                    ? 'bg-amber-200 font-semibold text-amber-950'
+                    : 'bg-purple-100 font-semibold text-purple-800'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            {value === 'decided' ? 'Decided' : 'Leaning'}
+            {value === 'decided' ? 'Decided' : value === 'tentative' ? 'Leaning' : 'Not sure'}
           </button>
         ))}
       </div>
@@ -467,8 +475,8 @@ function Enhancements({
                 Leave blank on purpose
               </button>
             )}
-            {selection && (
-              <button type="button" onClick={() => onClear(item.id)} className="hover:text-red-700 hover:underline">
+            {selection && selection !== NOTES_ONLY && (
+              <button type="button" onClick={() => clearPick(item.id, choice, onChange, onClear)} className="hover:text-red-700 hover:underline">
                 Clear{selection === ABSTAIN ? '' : ` (${choiceLabel(selection, item)})`}
               </button>
             )}
@@ -479,8 +487,9 @@ function Enhancements({
   )
 }
 
-// Each click on an oval steps it along: empty → leaning (hatched) → decided (filled) → empty.
-// Clicking a different oval in the contest moves your pick there, as leaning.
+// Each click on an oval steps it along: empty → ? (not sure) → leaning (hatched) → decided
+// (filled) → empty. Clicking a different oval in the contest moves your pick there, as ?.
+// Clearing a pick keeps any notes you wrote on the contest.
 function stepPick(
   itemId: string,
   selection: string,
@@ -488,8 +497,14 @@ function stepPick(
   onChange: ContestProps['onChange'],
   onClear: ContestProps['onClear'],
 ) {
-  if (choice?.selection !== selection) onChange(itemId, selection, choice?.notes, 'tentative')
+  if (choice?.selection !== selection) onChange(itemId, selection, choice?.notes, 'unsure')
+  else if (choice.status === 'unsure') onChange(itemId, selection, choice.notes, 'tentative')
   else if (choice.status === 'tentative') onChange(itemId, selection, choice.notes, 'decided')
+  else clearPick(itemId, choice, onChange, onClear)
+}
+
+function clearPick(itemId: string, choice: ChoiceValue | undefined, onChange: ContestProps['onChange'], onClear: ContestProps['onClear']) {
+  if (choice?.notes) onChange(itemId, NOTES_ONLY, choice.notes)
   else onClear(itemId)
 }
 
@@ -503,13 +518,13 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
   const printed = layoutOf(first)
   const heading = printed?.heading ?? [first.number ? `${first.number} ${first.title}` : first.title]
   const instructions = printed?.instructions ?? (isMeasure(first) ? [] : ['Vote for one'])
-  const decided = run.every((i) => choices[i.id] && choices[i.id].selection !== UNSURE)
+  const decided = run.every((i) => isSettled(choices[i.id]))
   const blank = run.every((i) => choices[i.id]?.selection === ABSTAIN)
   // "No clue yet" covers the whole contest (every question in a run); pressing it again clears it
   const unsure = run.every((i) => choices[i.id]?.selection === UNSURE)
   const toggleUnsure = () =>
-    run.forEach((i) => (unsure ? onClear(i.id) : onChange(i.id, UNSURE, choices[i.id]?.notes)))
-  const leaning = run.some((i) => choices[i.id]?.status === 'tentative')
+    run.forEach((i) => (unsure ? clearPick(i.id, choices[i.id], onChange, onClear) : onChange(i.id, UNSURE, choices[i.id]?.notes)))
+  const leaning = run.some((i) => isPick(choices[i.id]?.selection) && choices[i.id].status === 'tentative')
 
   return (
     <fieldset

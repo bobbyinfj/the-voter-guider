@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import BallotTracker from '@/components/BallotTracker'
 import DistrictPicker from '@/components/DistrictPicker'
-import { orderForBallot, type BallotCandidate } from '@/components/ballot/ballot'
+import { isSettled, orderForBallot, type BallotCandidate } from '@/components/ballot/ballot'
 import { Share2, CheckCircle2, Globe, Lock, Trash2, Users } from 'lucide-react'
 import {
   districtOptions,
@@ -116,7 +116,7 @@ function GuideView({ initial }: { initial: Guide }) {
     () => districtOptions(election.ballots.map((b) => ({ ...b, district: b.office?.district }))),
     [election.ballots],
   )
-  const answered = ballots.filter((b) => choices[b.id]).length
+  const answered = ballots.filter((b) => isSettled(choices[b.id])).length
 
   // Notes save themselves a moment after you stop typing (and when you leave the box)
   const saveNotes = (value: string) => {
