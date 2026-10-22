@@ -115,8 +115,10 @@ def build(state, offline=False):
 
     statements = cfg['statements'](cache, candidates) if 'statements' in cfg else {}
     endorsements = load(f'{state}-endorsements.json', {})
+    # A news organization's voter guide per race (laist.py builds ca-laist.json)
+    guides = load(f'{state}-laist.json', {'candidates': {}, 'races': {}})
     videos = load(f'{state}-videos.json', {'candidates': {}, 'races': {}})
-    for cid in set(endorsements) | set(videos['candidates']):
+    for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']):
         if cid not in ids:
             errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
 
@@ -156,6 +158,12 @@ def build(state, offline=False):
                 **({'individuals': e['individuals']} if e.get('individuals') else {}),
             }
 
+        g = guides['candidates'].get(cid)
+        if g:
+            entry['guide'] = g
+            if g.get('website') and 'website' not in entry:
+                entry['website'] = g['website']
+
         vids = videos['candidates'].get(cid, [])
         check_videos(cid, vids)
         if vids:
@@ -176,6 +184,11 @@ def build(state, offline=False):
                 errors.append(f'{office_id}: bad race link {url}')
             races.setdefault(office_id, {})['links'] = [{'label': label, 'url': url}]
 
+    for office_id, link in guides['races'].items():
+        if office_id not in office_ids:
+            errors.append(f'{office_id}: not an office in {cfg["slug"]}')
+        races.setdefault(office_id, {}).setdefault('links', []).append({'label': link['label'], 'url': link['url']})
+
     if errors:
         sys.exit('Refusing to write:\n  ' + '\n  '.join(errors))
     dest = ROOT / 'data/enrichment' / f"{cfg['slug']}.json"
@@ -183,7 +196,7 @@ def build(state, offline=False):
     dest.write_text(json.dumps({'slug': cfg['slug'], 'candidates': out, 'races': races}, indent=1, ensure_ascii=False) + '\n')
     count = lambda k: sum(1 for v in out.values() if k in v)
     print(f"{dest.relative_to(ROOT)}: {len(candidates)} candidates; summary {count('summary')}, website {count('website')}, "
-          f"videos {count('videos')}, endorsements {count('endorsements')}; races with extras {len(races)}")
+          f"videos {count('videos')}, endorsements {count('endorsements')}, guide {count('guide')}; races with extras {len(races)}")
 
 
 if __name__ == '__main__':

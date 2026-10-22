@@ -39,6 +39,15 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   has a questionnaire for every candidate, but its terms forbid automated access and copying,
   so we only link to each race's VOTE411 page (`co-vote411-races.json`). Multi-candidate
   debates and the League's Larimer County forum are attached to the race, not to candidates.
+- **California, news voter guides:** `laist.py` → `ca-laist.json`, merged as `guide` on each
+  profile. LAist's 2026 general-election guide for every race on the Monterey Park ballot that it
+  covers (statewide offices are CalMatters' guides, republished by LAist; credited that way):
+  the guide's description (two sentences), key endorsements, campaign site, endorsement-list link,
+  State Bar profile, and the LACCD candidates' survey answers (question + two sentences). Judges'
+  ratings come from the L.A. County Bar Association's own list (`lacba.org/docDownload/3141411`);
+  every rating LAist reports must match it. Every text field is checked against the saved page.
+  Coverage (2026-10-22): 46 of 53 candidates. Not covered by LAist: U.S. House 28, Monterey Park
+  city races. The 7 LACCD candidates who didn't answer LAist's survey show LAist's note saying so.
 - Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)

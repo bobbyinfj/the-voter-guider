@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useRef, useState } from 'react'
-import { toStatus, type ChoiceStatus, type ChoiceValue } from '@/components/ballot/ballot'
+import { NOTES_ONLY, toStatus, type ChoiceStatus, type ChoiceValue } from '@/components/ballot/ballot'
 
 export interface EditableGuide {
   id: string
@@ -13,16 +13,27 @@ export interface EditableGuide {
   shareCommunity: boolean
   notes: string | null
   metadata: unknown
-  choices: { ballotId: string; selection: string; notes: string | null; status?: string }[]
+  choices: { ballotId: string; selection: string; notes: string | null; status?: string; candidateNotes?: unknown }[]
 }
 
 export type SaveState = 'idle' | 'saving' | 'saved' | 'error'
+
+function candidateNotesOf(value: unknown): Record<string, string> | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined
+  const notes = Object.fromEntries(Object.entries(value).filter((e): e is [string, string] => typeof e[1] === 'string'))
+  return Object.keys(notes).length ? notes : undefined
+}
 
 export function choiceMap(guide: EditableGuide | null): Record<string, ChoiceValue> {
   return Object.fromEntries(
     (guide?.choices ?? []).map((c) => [
       c.ballotId,
-      { selection: c.selection, notes: c.notes ?? undefined, status: toStatus(c.status) },
+      {
+        selection: c.selection,
+        notes: c.notes ?? undefined,
+        status: toStatus(c.status),
+        candidateNotes: candidateNotesOf(c.candidateNotes),
+      },
     ]),
   )
 }
@@ -96,19 +107,25 @@ export function useGuideEditor(opts: {
       const res = await fetch('/api/choices', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ guideId: g.id, ballotId, selection: value.selection, notes: value.notes, status: value.status }),
+        body: JSON.stringify({
+          guideId: g.id,
+          ballotId,
+          selection: value.selection,
+          notes: value.notes,
+          status: value.status,
+          candidateNotes: value.candidateNotes ?? {},
+        }),
       })
       if (!res.ok) throw new Error('save failed')
     },
     [ensureGuide],
   )
 
-  const setChoice = useCallback(
-    async (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => {
+  // Show the change right away, save it, and put it back if the save fails
+  const saveChoice = useCallback(
+    async (ballotId: string, next: ChoiceValue) => {
       if (guideRef.current && !guideRef.current.isOwner) return
       const previous = choicesRef.current[ballotId]
-      // Changing your pick keeps whether you were leaning or decided
-      const next: ChoiceValue = { selection, notes, status: status ?? previous?.status ?? 'decided' }
       updateChoices((prev) => ({ ...prev, [ballotId]: next }))
       const ok = await track(() => postChoice(ballotId, next), "Couldn't save that choice. Please try again.")
       if (ok === null)
@@ -120,6 +137,20 @@ export function useGuideEditor(opts: {
         })
     },
     [postChoice, track, updateChoices],
+  )
+
+  const setChoice = useCallback(
+    (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => {
+      const previous = choicesRef.current[ballotId]
+      // Changing your pick keeps whether you were leaning or decided, and your candidate notes
+      return saveChoice(ballotId, {
+        selection,
+        notes,
+        status: status ?? previous?.status ?? 'decided',
+        candidateNotes: previous?.candidateNotes,
+      })
+    },
+    [saveChoice],
   )
 
   const setStatus = useCallback(
@@ -152,6 +183,23 @@ export function useGuideEditor(opts: {
     [track, updateChoices],
   )
 
+  // Your note on one candidate. With no pick in the contest it's kept on its own (NOTES_ONLY);
+  // when the last note on a contest with no pick is emptied, the contest is cleared
+  const setCandidateNote = useCallback(
+    (ballotId: string, name: string, text: string) => {
+      const current = choicesRef.current[ballotId]
+      const notes = { ...current?.candidateNotes }
+      if (text.trim()) notes[name] = text
+      else delete notes[name]
+      const candidateNotes = Object.keys(notes).length ? notes : undefined
+      if (!current && !candidateNotes) return
+      const next: ChoiceValue = current ? { ...current, candidateNotes } : { selection: NOTES_ONLY, candidateNotes }
+      if (next.selection === NOTES_ONLY && !next.notes && !candidateNotes) return clearChoice(ballotId)
+      return saveChoice(ballotId, next)
+    },
+    [clearChoice, saveChoice],
+  )
+
   // PATCH guide fields (title, notes, visibility, shareCommunity, districts); creates the
   // default guide first if needed
   const patchGuide = useCallback(
@@ -172,5 +220,5 @@ export function useGuideEditor(opts: {
     [ensureGuide, setGuide, track],
   )
 
-  return { guide, choices, saveState, error, setError, setChoice, setStatus, clearChoice, patchGuide, ensureGuide }
+  return { guide, choices, saveState, error, setError, setChoice, setStatus, clearChoice, setCandidateNote, patchGuide, ensureGuide }
 }

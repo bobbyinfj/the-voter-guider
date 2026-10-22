@@ -1,5 +1,6 @@
 // API Route: Manage choices (voting selections)
 import { NextRequest, NextResponse } from 'next/server'
+import { Prisma } from '@/generated/prisma/client'
 import { prisma } from '@/lib/prisma'
 import { getViewer, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
@@ -37,11 +38,26 @@ export async function POST(request: NextRequest) {
     const notes = typeof body.notes === 'string' ? body.notes.slice(0, 5000) : undefined
     // Leaning vs. decided; unchanged when not sent
     const status = STATUSES.has(body.status) ? (body.status as string) : undefined
+    // Notes per candidate, keyed by a name on this ballot item; unchanged when not sent
+    let candidateNotes: Prisma.InputJsonObject | typeof Prisma.DbNull | undefined
+    if (body.candidateNotes !== undefined) {
+      if (!body.candidateNotes || typeof body.candidateNotes !== 'object' || Array.isArray(body.candidateNotes)) {
+        return NextResponse.json({ error: 'Invalid candidate notes' }, { status: 400 })
+      }
+      const kept: Record<string, string> = {}
+      for (const [name, text] of Object.entries(body.candidateNotes as Record<string, unknown>)) {
+        if (!options.includes(name) || typeof text !== 'string') {
+          return NextResponse.json({ error: 'Invalid candidate notes' }, { status: 400 })
+        }
+        if (text.trim()) kept[name] = text.slice(0, 5000)
+      }
+      candidateNotes = Object.keys(kept).length ? kept : Prisma.DbNull
+    }
 
     const choice = await prisma.choice.upsert({
       where: { guideId_ballotId: { guideId, ballotId } },
-      update: { selection, notes, status },
-      create: { guideId, ballotId, selection, notes, status },
+      update: { selection, notes, status, candidateNotes },
+      create: { guideId, ballotId, selection, notes, status, candidateNotes },
     })
     await prisma.guide.update({ where: { id: guideId }, data: { lastAccessedAt: new Date() } })
 

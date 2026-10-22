@@ -7,6 +7,7 @@ import PamphletSummary from "@/components/candidate/PamphletSummary";
 import VideoFacade from "@/components/candidate/VideoFacade";
 import { EndorsementList } from "@/components/candidate/Endorsements";
 import { asProfile, isHttpUrl } from "@/lib/profile";
+import NewsGuide from "@/components/candidate/NewsGuide";
 
 interface Props {
   params: Promise<{ candidateId: string }>;
@@ -113,6 +114,15 @@ export default async function CandidatePage({ params }: Props) {
           <section className={section} aria-labelledby="own-words">
             <h2 id="own-words" className="mb-3 font-ballot-heading text-lg font-bold">In their own words</h2>
             <PamphletSummary summary={profile.summary} pamphletEndorsements={profile.pamphletEndorsements} full />
+          </section>
+        )}
+
+        {profile?.guide && (
+          <section className={section} aria-labelledby="news-guide">
+            <h2 id="news-guide" className="mb-3 font-ballot-heading text-lg font-bold">
+              In {profile.guide.source.publisher}&apos;s voter guide
+            </h2>
+            <NewsGuide guide={profile.guide} />
           </section>
         )}
 

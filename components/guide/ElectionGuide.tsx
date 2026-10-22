@@ -136,6 +136,7 @@ export default function ElectionGuide({ election, ballots, pickerOptions, initia
           onChoiceChange={editor.setChoice}
           onChoiceClear={editor.clearChoice}
           onStatusChange={editor.setStatus}
+          onCandidateNote={editor.setCandidateNote}
         />
       )}
     </div>

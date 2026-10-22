@@ -59,6 +59,7 @@ interface BallotTrackerProps {
   onChoiceChange?: (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
   onChoiceClear?: (ballotId: string) => void
   onStatusChange?: (ballotId: string, status: ChoiceStatus) => void
+  onCandidateNote?: (ballotId: string, name: string, text: string) => void
 }
 
 type Mode = 'ballot' | 'review'
@@ -79,6 +80,7 @@ export default function BallotTracker({
   onChoiceChange,
   onChoiceClear,
   onStatusChange,
+  onCandidateNote,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
   const [density, setDensity] = useState<Density>('basic')
@@ -220,6 +222,7 @@ export default function BallotTracker({
         const how = isPick(choice?.selection) && choice!.status !== 'decided' ? ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})` : ''
         lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}${how}`)
         if (choice?.notes) lines.push(`    Notes: ${choice.notes}`)
+        for (const [name, note] of Object.entries(choice?.candidateNotes ?? {})) lines.push(`    On ${name}: ${note}`)
       }
       lines.push('')
     }
@@ -436,6 +439,7 @@ export default function BallotTracker({
             onChange={onChoiceChange}
             onClear={onChoiceClear}
             onStatus={onStatusChange}
+            onCandidateNote={onCandidateNote}
             compare={compare}
           />
         )}

@@ -109,7 +109,10 @@ Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra"
 into `Candidate.profile`: pamphlet statement fields verbatim, videos from nonpartisan series
 (oEmbed-checked), and endorsements copied line-by-line from each campaign's own page (the build
 refuses any name not on the saved page). Same method for every candidate in a race; never show
-"no endorsements". Ballot views get a trimmed `snippet()` (lib/profile.ts), not full lists.
+"no endorsements". California also has `guide` per candidate: what LAist's voter guide for the race
+says (`enrichment-builders/laist.py`; judges' ratings verified against the L.A. County Bar
+Association's own list), shown credited (`components/candidate/NewsGuide.tsx`). Users can keep
+notes per candidate (`Choice.candidateNotes`, validated against the ballot item's options). Ballot views get a trimmed `snippet()` (lib/profile.ts), not full lists.
 UI: `components/candidate/` (circle badges, click-to-load YouTube facade on youtube-nocookie).
 
 ### Ballot look (design system)

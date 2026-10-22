@@ -127,6 +127,8 @@ model Choice {
   // "tentative" (leaning) or "decided"
   status    String   @default("decided")
   notes     String?
+  // Your notes on each candidate: { "<candidate name as on the ballot>": "<note>" }
+  candidateNotes Json?
   // Seeded comparison guides: where this pick was published (shown next to it)
   sourceUrl String?
   createdAt DateTime @default(now())
