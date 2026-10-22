@@ -4,14 +4,23 @@ import { useState } from 'react'
 import { Play } from 'lucide-react'
 import { VIDEO_KIND_LABELS, formatDuration, type CandidateVideo } from '@/lib/profile'
 
-// Thumbnail first; the YouTube player (privacy-enhanced domain) loads only when clicked
-export default function VideoFacade({ video, compact = false }: { video: CandidateVideo; compact?: boolean }) {
+// Thumbnail first; the YouTube player (privacy-enhanced domain) loads only when clicked.
+// `tiny` (scorecard cells): a one-line caption, with the title on hover
+export default function VideoFacade({
+  video,
+  compact = false,
+  tiny = false,
+}: {
+  video: CandidateVideo
+  compact?: boolean
+  tiny?: boolean
+}) {
   const [playing, setPlaying] = useState(false)
   const duration = formatDuration(video.durationSec)
   const label = `${VIDEO_KIND_LABELS[video.kind]} · ${video.channel}${duration ? ` · ${duration}` : ''}`
 
   return (
-    <figure className={compact ? 'max-w-xs' : ''}>
+    <figure className={compact ? 'max-w-xs' : ''} title={tiny ? video.title : undefined}>
       <div className="relative aspect-video w-full overflow-hidden rounded bg-black">
         {playing ? (
           <iframe
@@ -37,13 +46,21 @@ export default function VideoFacade({ video, compact = false }: { video: Candida
               className="h-full w-full object-cover opacity-90 group-hover:opacity-100"
             />
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg group-hover:scale-105">
-                <Play className="ml-0.5 h-6 w-6" fill="currentColor" />
+              <span className={`flex items-center justify-center rounded-full bg-red-600 text-white shadow-lg group-hover:scale-105 ${tiny ? 'h-8 w-8' : 'h-12 w-12'}`}>
+                <Play className={tiny ? 'ml-0.5 h-4 w-4' : 'ml-0.5 h-6 w-6'} fill="currentColor" />
               </span>
             </span>
           </button>
         )}
       </div>
+      {tiny ? (
+        <figcaption className="mt-0.5 truncate text-[0.6875rem] leading-snug text-gray-700">
+          {label} ·{' '}
+          <a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} target="_blank" rel="noopener noreferrer" className="underline">
+            YouTube
+          </a>
+        </figcaption>
+      ) : (
       <figcaption className="mt-1 text-xs leading-snug">
         <span className="font-semibold">{label}</span>
         <span className="block text-gray-600">
@@ -58,6 +75,7 @@ export default function VideoFacade({ video, compact = false }: { video: Candida
           </a>
         </span>
       </figcaption>
+      )}
     </figure>
   )
 }

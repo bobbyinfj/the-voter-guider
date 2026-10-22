@@ -78,8 +78,17 @@ notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` 
 what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the
 same default guide. Extra guides for an election live at `/guide/[id]`. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
-**Basic** (3-column replica, the default every visit) and **Expanded** (ballot on the left third, each
-candidate's / measure's sourced extras beside it on the right two-thirds; stacked on a phone), toggled at the top of the ballot with a ? explainer.
+**Ballot view** (`basic`: 3-column replica, the default every visit; heading link/? icons show on hover) and
+**Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
+stacked on a phone), toggled at the top of the ballot with a ? explainer. A dismissible banner (localStorage)
+and a button in each contest's info panel nudge toward Expanded.
+**Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
+`/how-we-score`): an interview video (debates with everyone in the race show once above, "Watch them
+together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
+ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly
+False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies)
+and 🏅 badges (published guides' picks from the comparison templates via `badgesFrom`, bar ratings, news
+guides' key endorsements, campaign-site endorsements). Measures get "Say Yes / Say No" badges.
 Every part of the ballot is linkable: `#laccd-2` (contest: ballot id minus the election prefix),
 `#laccd-2--roy-payan` (candidate row), `#los-angeles-community-college-district` (every contest under
 one printed jurisdiction line), old `#contest-<ballot id>` links too (`resolveAnchor` in `ballot.ts`).
@@ -115,7 +124,8 @@ Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra"
 into `Candidate.profile`: pamphlet statement fields verbatim, videos from nonpartisan series
 (oEmbed-checked), and endorsements copied line-by-line from each campaign's own page (the build
 refuses any name not on the saved page). Same method for every candidate in a race; never show
-"no endorsements". California also has `guide` per candidate: what LAist's voter guide for the race
+"no endorsements". `factCheck` per candidate comes from `enrichment-builders/politifact.py` (PolitiFact pages, used only
+when the bio names the state; 10-second crawl delay). California also has `guide` per candidate: what LAist's voter guide for the race
 says (`enrichment-builders/laist.py`; judges' ratings verified against the L.A. County Bar
 Association's own list), shown credited (`components/candidate/NewsGuide.tsx`). Users can keep
 notes per candidate (`Choice.candidateNotes`, validated against the ballot item's options). Ballot views get a trimmed `snippet()` (lib/profile.ts), not full lists.

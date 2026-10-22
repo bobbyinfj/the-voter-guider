@@ -22,6 +22,7 @@ import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import ComparePicker from '@/components/compare/ComparePicker'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
+import type { BadgeMap } from '@/lib/scorecard'
 import type { CompareView } from '@/components/compare/compare'
 import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
@@ -64,11 +65,14 @@ interface BallotTrackerProps {
   onCandidateNote?: (ballotId: string, name: string, text: string) => void
   // What your quiz answers matched in each race, by ballot id
   quiz?: Record<string, QuizOnBallot> | null
+  // Published guides' picks, shown as badges in the Expanded view
+  badges?: BadgeMap | null
 }
 
 type Mode = 'ballot' | 'review'
 // Remembered for this browser tab only: every visit starts on the 3-column ballot
 const DENSITY_KEY = 'voter-guider:view'
+const NUDGE_KEY = 'voter-guider:expanded-nudge'
 
 // A guide laid out like the voter's own ballot (same contests, order and wording as the
 // county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
@@ -86,6 +90,7 @@ export default function BallotTracker({
   onStatusChange,
   onCandidateNote,
   quiz,
+  badges,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
   const [density, setDensity] = useState<Density>('basic')
@@ -110,6 +115,29 @@ export default function BallotTracker({
     setDensity(value)
     try {
       sessionStorage.setItem(DENSITY_KEY, value)
+    } catch {}
+  }
+  // From a contest in the Ballot view: switch to Expanded and land on that contest
+  const expandAt = (domId: string) => {
+    flushSync(() => chooseDensity('expanded'))
+    history.replaceState(null, '', `#${domId}`)
+    const el = document.getElementById(domId)
+    if (el) scrollToElement(el, 'auto')
+  }
+  // The nudge toward Expanded above the ballot, until you dismiss it (or try Expanded)
+  const [nudge, setNudge] = useState(false)
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
+      setNudge(localStorage.getItem(NUDGE_KEY) !== 'done')
+    } catch {
+      setNudge(true)
+    }
+  }, [])
+  const endNudge = () => {
+    setNudge(false)
+    try {
+      localStorage.setItem(NUDGE_KEY, 'done')
     } catch {}
   }
 
@@ -265,14 +293,17 @@ export default function BallotTracker({
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
                 <button onClick={() => chooseDensity('basic')} aria-pressed={density === 'basic'} className={segment(density === 'basic')}>
-                  <Columns3 className="h-4 w-4" /> Basic
+                  <Columns3 className="h-4 w-4" /> Ballot view
                 </button>
                 <button
-                  onClick={() => chooseDensity('expanded')}
+                  onClick={() => {
+                    chooseDensity('expanded')
+                    endNudge()
+                  }}
                   aria-pressed={density === 'expanded'}
                   className={segment(density === 'expanded')}
                 >
-                  <Rows3 className="h-4 w-4" /> Expanded
+                  <Rows3 className="h-4 w-4" /> Expanded view
                 </button>
               </div>
               <div className="relative">
@@ -302,13 +333,14 @@ export default function BallotTracker({
                       <X className="h-4 w-4" />
                     </button>
                     <p className="mb-2 pr-5">
-                      <strong>Basic</strong> looks like your paper ballot: same contests, order and wording, in columns
+                      <strong>Ballot view</strong> looks like your paper ballot: same contests, order and wording, in columns
                       (one column on a phone). Tap ⓘ on any contest for more.
                     </p>
                     <p className="mb-2">
-                      <strong>Expanded</strong> puts the ballot on the left and everything we know beside it: each
-                      candidate&apos;s statement, videos and endorsements next to their name, and each measure&apos;s
-                      official explanations next to its question, each with its source.
+                      <strong>Expanded view</strong> puts the ballot on the left and a scorecard beside each name: a
+                      video of them speaking, 🚩 flags, the 💩 meter (their PolitiFact record) and 🏅 badges from voter
+                      guides, each with its source (<a href="/how-we-score" className="text-blue-700 underline">how we score</a>).
+                      Measures get who says Yes and No, and the official explanations.
                     </p>
                     <p>
                       Click an oval once for <strong>not sure</strong> (?), again for <strong>leaning</strong>{' '}
@@ -388,6 +420,27 @@ export default function BallotTracker({
         </div>
 
         {notice}
+        {nudge && density === 'basic' && mode === 'ballot' && (
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-l-4 border-sky-500 bg-sky-50 px-3 py-2 font-sans text-sm text-sky-950 print:hidden">
+            <span className="min-w-0 basis-full sm:basis-0 sm:flex-1">
+              <strong>Compare candidates side by side.</strong> Expanded view puts a scorecard next to every name:
+              video of them speaking · 🚩 flags · 💩 meter · 🏅 badges, each with its source.
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                chooseDensity('expanded')
+                endNudge()
+              }}
+              className="rounded bg-ballot-bar px-3 py-1.5 font-semibold text-white hover:opacity-90"
+            >
+              Try Expanded view
+            </button>
+            <button type="button" onClick={endNudge} aria-label="Dismiss" className="text-sky-700 hover:text-sky-950">
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        )}
         {quiz && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-l-4 border-violet-400 bg-violet-50 px-3 py-2 font-sans text-sm text-violet-950 print:hidden">
             <span>
@@ -468,6 +521,8 @@ export default function BallotTracker({
             onStatus={onStatusChange}
             onCandidateNote={onCandidateNote}
             quiz={quiz}
+            badges={badges}
+            onExpand={expandAt}
             compare={compare}
           />
         )}

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
 import { snippetCandidates } from "@/lib/profile";
-import { BallotHeader, Extra, outlineButton } from "@/components/ballot/Paper";
-import { hasPrintedLayout, layoutOf, layoutSourceName, orderForBallot } from "@/components/ballot/ballot";
+import { badgesFrom } from "@/lib/scorecard";
+import { BallotHeader, outlineButton } from "@/components/ballot/Paper";
+import { orderForBallot } from "@/components/ballot/ballot";
 import { districtOptions, parseDistrictSelection } from "@/lib/districts";
 import ElectionGuide from "@/components/guide/ElectionGuide";
 import type { EditableGuide } from "@/components/guide/useGuideEditor";
@@ -66,8 +67,6 @@ export default async function ElectionPage({ params, searchParams }: Props) {
   const items = orderForBallot(
     election.ballots.map((b) => ({ ...b, office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) } })),
   );
-  const printed = hasPrintedLayout(items);
-  const source = items[0] ? layoutOf(items[0])?.source : undefined;
   const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
   const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
 
@@ -86,6 +85,13 @@ export default async function ElectionPage({ params, searchParams }: Props) {
       orderBy: { updatedAt: "desc" },
     }),
   ]);
+  // Published guides' picks (party slates, editorial boards, the League), as badges
+  const templates = await prisma.guide.findMany({
+    where: { electionId, isTemplate: true, visibility: "public" },
+    select: { title: true, metadata: true, choices: { select: { ballotId: true, selection: true, sourceUrl: true, notes: true } } },
+    orderBy: { title: "asc" },
+  });
+  const badges = badgesFrom(templates);
   const initialGuide: EditableGuide | null = defaultGuide && { ...defaultGuide, isDefault: true, isOwner: true };
   // What your quiz answers matched in each race, shown on the ballot
   const answered = defaultGuide && hasQuiz ? await prisma.userAnswer.count({ where: { guideId: defaultGuide.id } }) : 0;
@@ -143,28 +149,6 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           </div>
         )}
 
-        <Extra className="text-sm">
-          <strong>Your ballot, as a practice copy.</strong>{" "}
-          {printed ? (
-            <>
-              Contests, order and wording come from {layoutSourceName(items)}
-              {source && (
-                <>
-                  {" "}
-                  (
-                  <a href={source} target="_blank" rel="noopener noreferrer" className="underline">
-                    source ↗
-                  </a>
-                  )
-                </>
-              )}
-              .
-            </>
-          ) : (
-            <>We couldn&apos;t get this county&apos;s printed ballot, so order and wording may differ from yours.</>
-          )}{" "}
-          Tap ⓘ on a contest for candidates and explainers, each with its source.
-        </Extra>
 
         <ElectionGuide
           election={{
@@ -181,6 +165,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           urlDistricts={selection}
           readOnly={election.status === "completed"}
           quiz={quiz}
+          badges={badges}
         />
       </div>
     </>

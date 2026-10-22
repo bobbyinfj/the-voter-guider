@@ -34,6 +34,8 @@ import {
   type ChoiceValue,
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
+import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
+import type { BadgeMap } from '@/lib/scorecard'
 
 // basic: the 3-column ballot replica. expanded: one column with every contest's extras open
 export type Density = 'basic' | 'expanded'
@@ -51,6 +53,10 @@ interface ContestProps {
   onCandidateNote?: (itemId: string, name: string, text: string) => void
   // What your quiz answers matched in each race, by ballot id
   quiz?: Record<string, QuizOnBallot> | null
+  // Published guides' picks, as badges in the Expanded view
+  badges?: BadgeMap | null
+  // Basic view: switch to Expanded and show this contest
+  onExpand?: (domId: string) => void
   compare?: CompareView | null
   // Other contests printed under the same jurisdiction line, for "copy a link to all of them"
   linkGroup?: { id: string; label: string; count: number }
@@ -111,27 +117,28 @@ function CandidateLine({ race, name }: { race: BallotItem; name: string }) {
   const line = candidateLine(race, name)
   if (!line) return null
   return (
-    <span className="mt-1 block border-l-2 border-sky-400 bg-sky-50 px-1.5 py-0.5 font-sans text-[0.6875rem] leading-snug text-sky-950 print:hidden">
-      <span className="line-clamp-2">{line.quote ? `“${line.text}”` : line.text}</span>
-      <span className="text-sky-700">{line.source}</span>
+    <span className="mt-0.5 block font-sans text-[0.6875rem] leading-snug text-sky-900 print:hidden" title={line.source}>
+      <span className="line-clamp-2">
+        {line.quote ? `“${line.text}”` : line.text} <span className="text-sky-600">· {line.short}</span>
+      </span>
     </span>
   )
 }
 
-function candidateLine(race: BallotItem, name: string): { text: string; source: string; quote: boolean } | null {
+function candidateLine(race: BallotItem, name: string): { text: string; source: string; short: string; quote: boolean } | null {
   const profile = race.office?.candidates.find((c) => c.name === name)?.profile
   const headline = profile?.headline
   if (headline && !/^no candidate statement/i.test(headline.text)) {
     const first = openingSentence(headline.text) ?? headline.text
-    return { text: first, source: 'From their state voter guide statement', quote: true }
+    return { text: first, source: 'From their state voter guide statement', short: 'their statement', quote: true }
   }
   const doc = statementOf(race.metadata, name)
   const first = doc && openingSentence(doc.text)
-  if (first) return { text: first, source: 'From their county ballot booklet statement', quote: true }
+  if (first) return { text: first, source: 'From their county ballot booklet statement', short: 'their statement', quote: true }
   const guide = profile?.guide
-  if (guide?.rating) return { text: `Rated ${guide.rating.value}`, source: `By the ${guide.rating.by}`, quote: false }
+  if (guide?.rating) return { text: `Rated ${guide.rating.value}`, source: `By the ${guide.rating.by}`, short: 'county bar assn.', quote: false }
   const about = guide?.about && openingSentence(guide.about)
-  if (guide && about) return { text: about, source: `From ${guideCredit(guide)}'s voter guide`, quote: true }
+  if (guide && about) return { text: about, source: `From ${guideCredit(guide)}'s voter guide`, short: guide.source.publisher, quote: true }
   return null
 }
 
@@ -490,15 +497,18 @@ function CandidateSnack({
   race,
   anchorId,
   note,
+  hideVideo = false,
 }: {
   candidate: BallotCandidate
   race: BallotItem
   anchorId?: string
   note?: { text?: string; onSave?: (text: string) => void }
+  // The scorecard already shows it
+  hideVideo?: boolean
 }) {
   const [watching, setWatching] = useState(false)
   const p = c.profile
-  const video = p?.video
+  const video = hideVideo ? null : p?.video
   return (
     <div className="space-y-1">
       <div>
@@ -605,6 +615,7 @@ function Enhancements({
   onChange,
   onClear,
   onCandidateNote,
+  onExpand,
   candidatesBeside = false,
 }: {
   item: BallotItem
@@ -616,6 +627,7 @@ function Enhancements({
   onChange: ContestProps['onChange']
   onClear: ContestProps['onClear']
   onCandidateNote?: ContestProps['onCandidateNote']
+  onExpand?: () => void
   // Expanded view shows each candidate beside their oval, so not again here
   candidatesBeside?: boolean
 }) {
@@ -646,6 +658,18 @@ function Enhancements({
   return (
     <Extra className="space-y-3 text-sm">
       <p className="text-[0.625rem] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
+      {onExpand && (
+        <button
+          type="button"
+          onClick={onExpand}
+          className="flex w-full items-center justify-between gap-2 rounded border border-sky-300 bg-white px-2 py-1.5 text-left text-xs font-semibold text-sky-900 hover:bg-sky-100"
+        >
+          <span>
+            {measure ? 'See who says Yes and No, beside the question' : 'See them side by side: videos, 🚩 flags, 💩 meter, 🏅 badges'}
+          </span>
+          <span aria-hidden>Expanded view →</span>
+        </button>
+      )}
       {measure ? (
         <>
           {item.description && <p>{item.description}</p>}
@@ -670,7 +694,10 @@ function Enhancements({
             ))}
           </ul>
           )}
-          {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}
+          {raceExtrasOf(item.metadata) && (
+            // Beside the candidates, debates are already shown above them
+            <RaceExtras extras={candidatesBeside ? { ...raceExtrasOf(item.metadata)!, videos: [] } : raceExtrasOf(item.metadata)!} compact />
+          )}
           {people.some((c) => c.profile?.endorserTotal) && (
             <p className="text-[0.6875rem] text-sky-800">
               Endorsements as listed on each campaign&apos;s website; some campaigns don&apos;t publish a list we can read.
@@ -758,6 +785,8 @@ export default function Contest({
   linkGroup,
   onCandidateNote,
   quiz,
+  badges,
+  onExpand,
 }: ContestProps) {
   // Expanded view opens every contest's extras; a contest you open or close yourself stays that
   // way until you switch views
@@ -780,7 +809,7 @@ export default function Contest({
     <fieldset
       id={contestDomId(first)}
       data-item-id={first.id}
-      className="mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper"
+      className="group/contest mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper"
     >
       <legend className="sr-only">{heading.join(' ')}</legend>
       <ContestHead heading={heading} instructions={instructions}>
@@ -791,6 +820,7 @@ export default function Contest({
               className={`h-4 w-4 ${blank ? 'text-gray-500' : leaning ? 'text-amber-600' : 'text-green-700'}`}
             />
           )}
+          <span className={`flex items-center gap-1 ${unsure ? '' : 'transition-opacity [@media(hover:hover)]:opacity-0 group-hover/contest:opacity-100 group-focus-within/contest:opacity-100'}`}>
           <CopyLink
             label={`Copy a link to ${heading.join(' ')}`}
             targets={[
@@ -813,6 +843,7 @@ export default function Contest({
               <CircleHelp className="h-4 w-4" />
             </button>
           )}
+          </span>
           <button
             type="button"
             onClick={() => setOverride({ density, open: !open })}
@@ -851,6 +882,7 @@ export default function Contest({
             onChange={onChange}
             onClear={onClear}
             onCandidateNote={onCandidateNote}
+            onExpand={!wide && onExpand ? () => onExpand(contestDomId(first)) : undefined}
             candidatesBeside={wide}
           />
         )
@@ -859,7 +891,24 @@ export default function Contest({
             {wide ? (
               <>
                 {isMeasure(item) ? (
-                  <BesideRow wide aside={<div className="space-y-1">{strip}{extras}</div>}>
+                  <BesideRow
+                    wide
+                    aside={
+                      <div className="space-y-1">
+                        {open && (
+                          <div className="px-2 pt-2">
+                            <MeasureBadges
+                              yes={badges?.[item.id]?.YES ?? []}
+                              no={badges?.[item.id]?.NO ?? []}
+                              labels={(layoutOf(item)?.responses?.length === 2 ? layoutOf(item)!.responses : ['Yes', 'No']) as [string, string]}
+                            />
+                          </div>
+                        )}
+                        {strip}
+                        {extras}
+                      </div>
+                    }
+                  >
                     <div className="min-w-0 flex-1">
                       <PrintedQuestion item={item} />
                       <MeasureChoices item={item} choice={choice} readOnly={readOnly} onPick={pick} />
@@ -868,6 +917,11 @@ export default function Contest({
                   </BesideRow>
                 ) : (
                   <>
+                    {open && sharedVideos(item).length > 0 && (
+                      <BesideRow wide aside={<RaceVideos race={item} />}>
+                        <div className="flex-1" />
+                      </BesideRow>
+                    )}
                     <RaceChoices
                       item={item}
                       choice={choice}
@@ -877,18 +931,30 @@ export default function Contest({
                       aside={(name) => {
                         const c = open && item.office?.candidates.find((p) => p.name === name)
                         return c ? (
-                          <Extra className="h-full">
-                            <CandidateSnack
-                              candidate={c}
-                              race={item}
-                              anchorId={candidateDomId(item, c.name)}
-                              note={{
-                                text: choice?.candidateNotes?.[c.name],
-                                onSave:
-                                  readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
-                              }}
-                            />
-                          </Extra>
+                          <CandidateScorecard candidate={c} race={item} badges={badges?.[item.id]?.[c.name] ?? []}>
+                            <CandidateLine race={item} name={c.name} />
+                            <details className="group/more text-sm">
+                              <summary className="cursor-pointer text-xs font-semibold text-blue-700 hover:underline">
+                                More on {c.name}: news guide, statement, notes
+                              </summary>
+                              <div className="mt-1.5 rounded border border-sky-200 bg-white p-2">
+                                <CandidateSnack
+                                  candidate={c}
+                                  race={item}
+                                  anchorId={candidateDomId(item, c.name)}
+                                  hideVideo
+                                  note={{
+                                    text: choice?.candidateNotes?.[c.name],
+                                    onSave:
+                                      readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
+                                  }}
+                                />
+                              </div>
+                            </details>
+                            {choice?.candidateNotes?.[c.name] && (
+                              <p className="line-clamp-2 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
+                            )}
+                          </CandidateScorecard>
                         ) : null
                       }}
                     />

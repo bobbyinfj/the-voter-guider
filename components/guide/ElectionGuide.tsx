@@ -1,6 +1,7 @@
 'use client'
 
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
+import type { BadgeMap } from '@/lib/scorecard'
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -29,6 +30,8 @@ interface Props {
   readOnly?: boolean
   // What your quiz answers matched in each race, by ballot id
   quiz?: Record<string, QuizOnBallot> | null
+  // Published guides' picks, shown as badges in the Expanded view
+  badges?: BadgeMap | null
 }
 
 function savedDistricts(guide: EditableGuide | null): DistrictSelection {
@@ -47,6 +50,7 @@ export default function ElectionGuide({
   urlDistricts,
   readOnly = false,
   quiz,
+  badges,
 }: Props) {
   const router = useRouter()
   const pathname = usePathname()
@@ -132,6 +136,7 @@ export default function ElectionGuide({
           choices={choices}
           readOnly={readOnly}
           quiz={quiz}
+          badges={badges}
           status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
           notice={<KeepGuidePrompt show={answered > 0} />}
           setup={

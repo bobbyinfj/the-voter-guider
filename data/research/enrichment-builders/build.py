@@ -118,7 +118,9 @@ def build(state, offline=False):
     # A news organization's voter guide per race (laist.py builds ca-laist.json)
     guides = load(f'{state}-laist.json', {'candidates': {}, 'races': {}})
     videos = load(f'{state}-videos.json', {'candidates': {}, 'races': {}})
-    for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']):
+    # PolitiFact Truth-O-Meter counts (politifact.py builds <state>-politifact.json)
+    factchecks = load(f'{state}-politifact.json', {'candidates': {}})
+    for cid in set(endorsements) | set(videos['candidates']) | set(guides['candidates']) | set(factchecks['candidates']):
         if cid not in ids:
             errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
 
@@ -164,6 +166,10 @@ def build(state, offline=False):
             if g.get('website') and 'website' not in entry:
                 entry['website'] = g['website']
 
+        fc = factchecks['candidates'].get(cid)
+        if fc:
+            entry['factCheck'] = fc
+
         vids = videos['candidates'].get(cid, [])
         check_videos(cid, vids)
         if vids:
@@ -196,7 +202,7 @@ def build(state, offline=False):
     dest.write_text(json.dumps({'slug': cfg['slug'], 'candidates': out, 'races': races}, indent=1, ensure_ascii=False) + '\n')
     count = lambda k: sum(1 for v in out.values() if k in v)
     print(f"{dest.relative_to(ROOT)}: {len(candidates)} candidates; summary {count('summary')}, website {count('website')}, "
-          f"videos {count('videos')}, endorsements {count('endorsements')}, guide {count('guide')}; races with extras {len(races)}")
+          f"videos {count('videos')}, endorsements {count('endorsements')}, guide {count('guide')}, factCheck {count('factCheck')}; races with extras {len(races)}")
 
 
 if __name__ == '__main__':
