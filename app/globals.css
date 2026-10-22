@@ -89,6 +89,17 @@
   }
 }
 
+/* Text a bit larger than the browser default on screen. Every size is in rem (ballot text too),
+   so this one value scales the whole site; print keeps the ballot's real size. */
+html {
+  font-size: 112.5%;
+}
+@media print {
+  html {
+    font-size: 100%;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

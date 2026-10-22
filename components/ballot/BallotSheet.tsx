@@ -39,19 +39,19 @@ export default function BallotSheet({
       {sections.map((section) => (
         <section key={section.key} aria-label={section.label} className="contents">
           {section.notice && (
-            <p className="mb-2 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper px-2 py-1.5 text-[12px] font-bold leading-snug">
+            <p className="mb-2 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper px-2 py-1.5 text-[0.75rem] font-bold leading-snug">
               {section.notice}
             </p>
           )}
           {section.continued || section.noBar ? (
             <h3 className="sr-only">{section.label}</h3>
           ) : (
-            <h3 className="break-inside-avoid break-after-avoid bg-ballot-bar px-2 py-1 font-ballot-heading text-[13px] font-bold text-white print:bg-black">
+            <h3 className="break-inside-avoid break-after-avoid bg-ballot-bar px-2 py-1 font-ballot-heading text-[0.8125rem] font-bold text-white print:bg-black">
               {section.label}
             </h3>
           )}
           {section.subsection && (
-            <p className="break-inside-avoid break-after-avoid border-x-[1.5px] border-t-[1.5px] border-ballot-ink bg-ballot-sub px-2 py-1 text-[13px] font-bold">
+            <p className="break-inside-avoid break-after-avoid border-x-[1.5px] border-t-[1.5px] border-ballot-ink bg-ballot-sub px-2 py-1 text-[0.8125rem] font-bold">
               {section.subsection}
             </p>
           )}
