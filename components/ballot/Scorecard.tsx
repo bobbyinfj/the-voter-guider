@@ -37,9 +37,9 @@ function Cell({ title, how, children }: { title: React.ReactNode; how: string; c
 function Src({ href, children }: { href: string | null | undefined; children: React.ReactNode }) {
   if (!isHttpUrl(href)) return <>{children}</>
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 text-blue-700 hover:underline">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
       {children}
-      <ExternalLink className="h-2.5 w-2.5 shrink-0" />
+      <ExternalLink className="ml-0.5 inline h-2.5 w-2.5 align-baseline" />
     </a>
   )
 }
@@ -108,7 +108,6 @@ function FlagCell({ candidate }: { candidate: BallotCandidate }) {
           <span className="text-gray-600">Checked: {checked.map((r) => FLAG_RULES[r].check).join('; ')}</span>
         </p>
       ) : null}
-      {checked.length > 0 && <CheckedDetail candidate={candidate} />}
       {!flags.length && !checked.length && (
         <p className="text-xs leading-snug text-gray-500">No checks for this race yet</p>
       )}
@@ -120,10 +119,19 @@ function FlagCell({ candidate }: { candidate: BallotCandidate }) {
 function CheckedDetail({ candidate }: { candidate: BallotCandidate }) {
   const bar = candidate.profile?.bar
   const ethics = candidate.profile?.ethics
+  const { checked, flags } = flagsFor(candidate.profile)
+  if (!checked.length) return null
   return (
-    <details className="mt-1 text-[0.6875rem] leading-snug text-gray-700">
-      <summary className="cursor-pointer text-blue-700 hover:underline">What we checked</summary>
-      <ul className="mt-0.5 space-y-0.5">
+    <details className="rounded border border-sky-200 bg-white px-2 py-1 text-xs leading-snug text-gray-700">
+      <summary className="cursor-pointer font-semibold text-blue-700 hover:underline">🚩 What we checked{flags.length ? ' and what we found' : ''}</summary>
+      <ul className="mt-1 list-disc space-y-0.5 pl-4">
+        {flags
+          .filter((f) => f.detail)
+          .map((f, i) => (
+            <li key={i}>
+              {f.detail} (<Src href={f.source.url}>{f.source.label}</Src>)
+            </li>
+          ))}
         {bar && (
           <li>
             {bar.unmatched ? (
@@ -157,9 +165,9 @@ function Claims({ candidate }: { candidate: BallotCandidate }) {
   const claims = candidate.profile?.claims ?? []
   if (!claims.length) return null
   return (
-    <details className="mt-1 text-[0.6875rem] leading-snug">
-      <summary className="cursor-pointer text-blue-700 hover:underline">
-        {claims.length} claim{claims.length > 1 ? 's' : ''} fact-checked by {[...new Set(claims.map((c) => c.publisher))].join(', ')}
+    <details className="rounded border border-sky-200 bg-white px-2 py-1 text-xs leading-snug">
+      <summary className="cursor-pointer font-semibold text-blue-700 hover:underline">
+        💩 {claims.length} claim{claims.length > 1 ? 's' : ''} fact-checked by {[...new Set(claims.map((c) => c.publisher))].join(', ')}
       </summary>
       <ul className="mt-1 space-y-1.5">
         {claims.map((c) => (
@@ -213,7 +221,9 @@ function FactCheckCell({ candidate, comparable }: { candidate: BallotCandidate; 
           <p className="mt-0.5 text-gray-500">No PolitiFact rulings on them</p>
         </div>
       )}
-      <Claims candidate={candidate} />
+      {(candidate.profile?.claims.length ?? 0) > 0 && (
+        <p className="mt-0.5 text-[0.6875rem] text-gray-600">+ {candidate.profile!.claims.length} debate claims checked, below</p>
+      )}
     </Cell>
   )
 }
@@ -308,6 +318,8 @@ export function CandidateScorecard({
         <FactCheckCell candidate={candidate} comparable={comparable} />
         <BadgeCell candidate={candidate} badges={badges} />
       </div>
+      <CheckedDetail candidate={candidate} />
+      <Claims candidate={candidate} />
       {children}
     </div>
   )

@@ -90,7 +90,9 @@ export function raceHasFactChecks(people: { profile?: ProfileSnippet | null }[])
 export interface Flag {
   level: 'red' | 'yellow'
   rule: FlagRule
+  // Short, for the card; `detail` is the source's own words, shown under the card
   text: string
+  detail?: string
   source: { label: string; url: string; retrieved?: string }
 }
 
@@ -150,7 +152,8 @@ export function flagsFor(p: ProfileSnippet | null | undefined): { checked: FlagR
       flags.push({
         level: 'yellow',
         rule: 'ethics-fine',
-        text: `Ethics fine${f.fine ? ` of $${f.fine.toLocaleString('en-US')}` : ''}${f.shared ? ' (one fine for everyone named in the case)' : ''}, FPPC case ${f.case}${f.summary ? `: “${f.summary}”` : ''}`,
+        text: `Ethics fine${f.fine ? `: $${f.fine.toLocaleString('en-US')}` : ''}${f.shared ? ', shared with others in the case' : ''}`,
+        detail: `FPPC case ${f.case}, against ${f.respondent}${f.summary ? `: “${f.summary}”` : ''}`,
         source: { label: `FPPC, ${f.month}`, url: f.url, retrieved: f.retrieved },
       })
   }

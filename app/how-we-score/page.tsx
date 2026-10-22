@@ -52,6 +52,12 @@ export default function HowWeScorePage() {
           ))}
         </ul>
         <p className="text-sm text-gray-700">
+          Each card&apos;s &ldquo;What we checked&rdquo; lists every check that covered the candidate and what it found,
+          with links. Lawyers who share their name with several others on the State Bar&apos;s rolls are marked as
+          checked but unmatched: we won&apos;t guess which record is theirs. An ethics fine shared by everyone named in a
+          case (a campaign committee, its treasurer and the candidate) says so.
+        </p>
+        <p className="text-sm text-gray-700">
           We don&apos;t flag a missing candidate statement: in California, candidates pay to print one, so that would
           measure money, not candor.
         </p>
@@ -69,6 +75,14 @@ export default function HowWeScorePage() {
           every PolitiFact ruling on them (not only this campaign). Numbers are copied from the candidate&apos;s
           PolitiFact page on the date shown.
         </p>
+        <p className="rounded border border-gray-300 bg-gray-50 px-3 py-2 font-mono text-sm">
+          💩 % = (Mostly False + False + Pants on Fire) ÷ all PolitiFact rulings × 100, rounded
+        </p>
+        <p className="text-sm text-gray-700">
+          Each card shows the formula with that candidate&apos;s own numbers, the year of their newest ruling, and a
+          link to their PolitiFact page. We find people in PolitiFact&apos;s own list of everyone it has rated, and only
+          use a page when its description names the candidate&apos;s state (so a same-named actor doesn&apos;t count).
+        </p>
         <ul className="list-disc space-y-1 pl-5">
           <li>
             Fact-checkers choose which claims to check, so this is their record of a person, not a measure of everything
@@ -81,6 +95,11 @@ export default function HowWeScorePage() {
           <li>
             A race only shows percentages when every candidate in it has at least {FACTCHECK_MIN} rulings. Otherwise each
             card shows the raw counts, so one candidate&apos;s number never sits next to another&apos;s blank.
+          </li>
+          <li>
+            News fact-checks that don&apos;t use a rating scale (like CapRadio&apos;s check of the governor&apos;s debate) are
+            listed under the meter as &ldquo;claims fact-checked&rdquo;: the claim and the outlet&apos;s verdict, both quoted
+            word for word. We never turn a verdict into a rating, so they don&apos;t count toward the %.
           </li>
         </ul>
       </section>
