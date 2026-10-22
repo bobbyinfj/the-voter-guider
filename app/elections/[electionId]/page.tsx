@@ -1,13 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import DistrictPicker from "@/components/DistrictPicker";
 import { formatElectionDate } from "@/lib/format";
 import { snippetCandidates } from "@/lib/profile";
-import BallotSheet from "@/components/ballot/BallotSheet";
-import { BallotHeader, Extra, accentButton, outlineButton } from "@/components/ballot/Paper";
-import { groupSections, hasPrintedLayout, layoutOf, layoutSourceName, orderForBallot } from "@/components/ballot/ballot";
-import { districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
+import { BallotHeader, Extra, outlineButton } from "@/components/ballot/Paper";
+import { hasPrintedLayout, layoutOf, layoutSourceName, orderForBallot } from "@/components/ballot/ballot";
+import { districtOptions, parseDistrictSelection } from "@/lib/districts";
+import ElectionGuide from "@/components/guide/ElectionGuide";
+import type { EditableGuide } from "@/components/guide/useGuideEditor";
+import { defaultKeyFor, getViewer, ownedBy } from "@/lib/owner";
 
 interface Props {
   params: Promise<{ electionId: string }>;
@@ -61,16 +62,29 @@ export default async function ElectionPage({ params, searchParams }: Props) {
   });
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
   const items = orderForBallot(
-    election.ballots
-      .filter((b) => matchesSelection(b, selection))
-      .map((b) => ({ ...b, office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) } })),
+    election.ballots.map((b) => ({ ...b, office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) } })),
   );
-  const sections = groupSections(items);
   const printed = hasPrintedLayout(items);
   const source = items[0] ? layoutOf(items[0])?.source : undefined;
   const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
   const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
-  const guideHref = `/guide/new?electionId=${electionId}${districtQuery ? `&${districtQuery}` : ""}`;
+
+  // Your guide for this election: the checks on this ballot (if you've made any), and any
+  // other guides you've started for it
+  const viewer = await getViewer();
+  const guideSelect = {
+    id: true, title: true, visibility: true, shareToken: true, shareCommunity: true, notes: true, metadata: true,
+    choices: { select: { ballotId: true, selection: true, notes: true, status: true } },
+  } as const;
+  const [defaultGuide, otherGuides] = await Promise.all([
+    prisma.guide.findUnique({ where: { defaultKey: defaultKeyFor(viewer, electionId) }, select: guideSelect }),
+    prisma.guide.findMany({
+      where: { AND: [ownedBy(viewer), { electionId, defaultKey: null, isTemplate: false }] },
+      select: { id: true, title: true },
+      orderBy: { updatedAt: "desc" },
+    }),
+  ]);
+  const initialGuide: EditableGuide | null = defaultGuide && { ...defaultGuide, isDefault: true, isOwner: true };
 
   return (
     <>
@@ -82,11 +96,6 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           place={election.jurisdiction.name}
           aside={
             <>
-              {election.status !== "completed" && (
-                <Link href={guideHref} className={accentButton}>
-                  Build my guide
-                </Link>
-              )}
               {hasQuiz && (
                 <Link href={quizHref} className={outlineButton}>
                   Take the quiz ({election.quiz?.questions.length} questions)
@@ -108,33 +117,28 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           )}
         </BallotHeader>
 
-        <div className="grid gap-4 font-sans lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <DistrictPicker options={pickerOptions} selection={selection} lookupUrl={election.districtLookupUrl} />
-          </div>
-          {quizIssues.length > 0 && (
-            <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-4">
-              <h2 className="mb-1 text-sm font-semibold">Where candidates stand</h2>
-              <p className="mb-3 text-xs text-gray-600">
-                Each topic shows candidates&apos; stated positions, quoted from their sources.
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {quizIssues.map((issue) => (
-                  <Link
-                    key={issue.slug}
-                    href={`/issues/${issue.slug}`}
-                    className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
-                  >
-                    {issue.name}
-                  </Link>
-                ))}
-              </div>
+        {quizIssues.length > 0 && (
+          <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-4 font-sans">
+            <h2 className="mb-1 text-sm font-semibold">Where candidates stand</h2>
+            <p className="mb-3 text-xs text-gray-600">
+              Each topic shows candidates&apos; stated positions, quoted from their sources.
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {quizIssues.map((issue) => (
+                <Link
+                  key={issue.slug}
+                  href={`/issues/${issue.slug}`}
+                  className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
+                >
+                  {issue.name}
+                </Link>
+              ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         <Extra className="text-sm">
-          <strong>Preview of your ballot.</strong>{" "}
+          <strong>Your ballot, as a practice copy.</strong>{" "}
           {printed ? (
             <>
               Contests, order and wording come from {layoutSourceName(items)}
@@ -153,14 +157,23 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           ) : (
             <>We couldn&apos;t get this county&apos;s printed ballot, so order and wording may differ from yours.</>
           )}{" "}
-          Tap ⓘ on a contest for candidates and explainers. To mark your picks, build a guide.
+          Tap ⓘ on a contest for candidates and explainers, each with its source.
         </Extra>
 
-        {sections.length === 0 ? (
-          <p className="text-sm italic text-gray-600">No contests loaded yet.</p>
-        ) : (
-          <BallotSheet sections={sections} electionId={electionId} readOnly />
-        )}
+        <ElectionGuide
+          election={{
+            id: election.id,
+            title: election.title,
+            electionDate: election.electionDate.toISOString(),
+            districtLookupUrl: election.districtLookupUrl,
+            jurisdiction: { name: election.jurisdiction.name },
+          }}
+          ballots={items}
+          pickerOptions={pickerOptions}
+          initialGuide={election.status === "completed" ? null : initialGuide}
+          otherGuides={otherGuides}
+          urlDistricts={selection}
+        />
       </div>
     </>
   );

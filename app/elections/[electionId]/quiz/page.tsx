@@ -57,20 +57,13 @@ export default function QuizPage() {
   useEffect(() => {
     async function init() {
       try {
-        // Look up election to get its jurisdictionId
-        const electionRes = await fetch(`/api/elections?id=${electionId}`);
-        if (!electionRes.ok) throw new Error("Election not found");
-        const election = await electionRes.json();
-
-        // Create a guide for this quiz session
-        const guideRes = await fetch("/api/guides", {
+        // Quiz answers go on the same guide as your ballot picks for this election
+        const guideRes = await fetch("/api/guides/default", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             electionId,
-            title: "My Quiz Guide",
-            jurisdictionId: election.jurisdictionId,
-            metadata: { districts: parseDistrictSelection(new URLSearchParams(districtKey)) },
+            districts: parseDistrictSelection(new URLSearchParams(districtKey)),
           }),
         });
         if (!guideRes.ok) throw new Error("Could not create guide");
@@ -85,6 +78,8 @@ export default function QuizPage() {
         setState((prev) => ({
           ...prev,
           guideId,
+          // Resuming: answers already on your guide count toward progress
+          answeredIds: new Set((guide.answers ?? []).map((a: { questionId: string }) => a.questionId)),
           question: nextData.question,
           loading: false,
           done: !nextData.question,

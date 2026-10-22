@@ -7,6 +7,8 @@ import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
+import CompareStrip from '@/components/compare/CompareStrip'
+import type { CompareView } from '@/components/compare/compare'
 import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
   ABSTAIN,
@@ -19,11 +21,13 @@ import {
   optionList,
   type BallotCandidate,
   type BallotItem,
+  type ChoiceStatus,
   type ChoiceValue,
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
 
-export type Density = 'ballot' | 'easy'
+// basic: the 3-column ballot replica. expanded: one column with every contest's extras open
+export type Density = 'basic' | 'expanded'
 
 interface ContestProps {
   // One contest, or several questions printed under one heading (judicial retention)
@@ -34,6 +38,8 @@ interface ContestProps {
   density: Density
   onChange: (itemId: string, selection: string, notes?: string) => void
   onClear: (itemId: string) => void
+  onStatus?: (itemId: string, status: ChoiceStatus) => void
+  compare?: CompareView | null
 }
 
 // The oval a voter fills in; the radio input is visually hidden but keeps keyboard
@@ -42,6 +48,7 @@ function Oval({
   name,
   value,
   checked,
+  tentative = false,
   disabled,
   onSelect,
   label,
@@ -50,6 +57,8 @@ function Oval({
   name: string
   value: string
   checked: boolean
+  // Leaning, not decided: the oval is hatched instead of filled
+  tentative?: boolean
   disabled: boolean
   onSelect: () => void
   label: string
@@ -68,12 +77,16 @@ function Oval({
         checked={checked}
         disabled={disabled}
         onChange={onSelect}
-        aria-label={label}
+        aria-label={checked && tentative ? `${label} (leaning)` : label}
         className="peer sr-only"
       />
       <span
         aria-hidden
-        className="mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-ballot-ink bg-white peer-checked:bg-ballot-ink peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1"
+        className={`mt-0.5 h-3.5 w-6 shrink-0 rounded-[50%] border-[1.5px] border-ballot-ink bg-white peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
+          tentative
+            ? 'peer-checked:bg-[repeating-linear-gradient(135deg,var(--ballot-ink)_0_2px,transparent_2px_5px)]'
+            : 'peer-checked:bg-ballot-ink'
+        }`}
       />
       <span className="min-w-0 flex-1">{children}</span>
     </label>
@@ -129,6 +142,7 @@ function RaceChoices({
           value={row.name}
           label={row.label}
           checked={selection === row.name}
+          tentative={choice?.status === 'tentative'}
           disabled={readOnly}
           onSelect={() => onChange(item.id, row.name, choice?.notes)}
         >
@@ -149,6 +163,7 @@ function RaceChoices({
           value={WRITE_IN}
           label={`Write-in for ${item.title}`}
           checked={isWriteIn}
+          tentative={choice?.status === 'tentative'}
           disabled={readOnly}
           onSelect={saveWriteIn}
         >
@@ -195,6 +210,7 @@ function MeasureChoices({
           value={value}
           label={labels[i]}
           checked={choice?.selection === value}
+          tentative={choice?.status === 'tentative'}
           disabled={readOnly}
           onSelect={() => onChange(item.id, value, choice?.notes)}
         >
@@ -292,7 +308,35 @@ function CandidateSnack({ candidate: c }: { candidate: BallotCandidate }) {
   )
 }
 
-// Bite: one line, inline (easy-read view). Snack: the expandable panel. Meal: links out.
+// Leaning or decided, for a pick you've made (not shown on paper)
+function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (status: ChoiceStatus) => void }) {
+  return (
+    <div role="radiogroup" aria-label="How sure are you?" className="flex justify-end px-2 pb-1.5 font-sans print:hidden">
+      <div className="inline-flex overflow-hidden rounded-full border border-gray-300 text-[11px]">
+        {(['tentative', 'decided'] as const).map((value) => (
+          <button
+            key={value}
+            type="button"
+            role="radio"
+            aria-checked={status === value}
+            onClick={() => onStatus(value)}
+            className={`px-2 py-0.5 ${
+              status === value
+                ? value === 'decided'
+                  ? 'bg-green-700 font-semibold text-white'
+                  : 'bg-amber-200 font-semibold text-amber-950'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            {value === 'decided' ? 'Decided' : 'Leaning'}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// Bite: one line, inline (expanded view). Snack: the expandable panel. Meal: links out.
 function Enhancements({
   item,
   electionId,
@@ -327,7 +371,7 @@ function Enhancements({
         : null
 
   if (!open) {
-    if (density !== 'easy' || !(bite || choice?.notes)) return null
+    if (density !== 'expanded' || !(bite || choice?.notes)) return null
     return (
       <Extra className="text-xs">
         {bite && <p className="line-clamp-2">{bite}</p>}
@@ -399,14 +443,18 @@ function Enhancements({
   )
 }
 
-export default function Contest({ run, electionId, choices, readOnly, density, onChange, onClear }: ContestProps) {
-  const [open, setOpen] = useState(false)
+export default function Contest({ run, electionId, choices, readOnly, density, onChange, onClear, onStatus, compare }: ContestProps) {
+  // Expanded view opens every contest's extras; a contest you open or close yourself stays that
+  // way until you switch views
+  const [override, setOverride] = useState<{ density: Density; open: boolean } | null>(null)
+  const open = override?.density === density ? override.open : density === 'expanded'
   const first = run[0]
   const printed = layoutOf(first)
   const heading = printed?.heading ?? [first.number ? `${first.number} ${first.title}` : first.title]
   const instructions = printed?.instructions ?? (isMeasure(first) ? [] : ['Vote for one'])
   const decided = run.every((i) => choices[i.id])
   const blank = run.every((i) => choices[i.id]?.selection === ABSTAIN)
+  const leaning = run.some((i) => choices[i.id]?.status === 'tentative')
 
   return (
     <fieldset
@@ -418,45 +466,52 @@ export default function Contest({ run, electionId, choices, readOnly, density, o
         <div className="flex shrink-0 items-center gap-1 print:hidden">
           {decided && (
             <CheckCircle2
-              aria-label={blank ? 'Left blank on purpose' : 'Decided'}
-              className={`h-4 w-4 ${blank ? 'text-gray-500' : 'text-green-700'}`}
+              aria-label={blank ? 'Left blank on purpose' : leaning ? 'Leaning' : 'Decided'}
+              className={`h-4 w-4 ${blank ? 'text-gray-500' : leaning ? 'text-amber-600' : 'text-green-700'}`}
             />
           )}
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOverride({ density, open: !open })}
             aria-expanded={open}
             aria-label={`${open ? 'Hide' : 'Show'} Voter Guider info for ${heading.join(' ')}`}
             className="flex items-center gap-0.5 rounded bg-sky-100 px-1.5 py-0.5 text-[11px] font-semibold text-sky-800 hover:bg-sky-200"
           >
             <Info className="h-3.5 w-3.5" />
-            {density === 'easy' && 'More'}
+            {density === 'expanded' && (open ? 'Less' : 'More')}
             <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
           </button>
         </div>
       </ContestHead>
-      {run.map((item, i) => (
-        <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} className="scroll-mt-48 border-t border-gray-400">
-          {isMeasure(item) ? (
-            <>
-              <PrintedQuestion item={item} />
-              <MeasureChoices item={item} choice={choices[item.id]} readOnly={readOnly} onChange={onChange} />
-            </>
-          ) : (
-            <RaceChoices item={item} choice={choices[item.id]} readOnly={readOnly} onChange={onChange} />
-          )}
-          <Enhancements
-            item={item}
-            electionId={electionId}
-            choice={choices[item.id]}
-            readOnly={readOnly}
-            density={density}
-            open={open}
-            onChange={onChange}
-            onClear={onClear}
-          />
-        </div>
-      ))}
+      {run.map((item, i) => {
+        const choice = choices[item.id]
+        return (
+          <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} className="scroll-mt-48 border-t border-gray-400">
+            {isMeasure(item) ? (
+              <>
+                <PrintedQuestion item={item} />
+                <MeasureChoices item={item} choice={choice} readOnly={readOnly} onChange={onChange} />
+              </>
+            ) : (
+              <RaceChoices item={item} choice={choice} readOnly={readOnly} onChange={onChange} />
+            )}
+            {!readOnly && onStatus && choice && choice.selection !== ABSTAIN && (
+              <StatusPill status={choice.status ?? 'decided'} onStatus={(status) => onStatus(item.id, status)} />
+            )}
+            {compare && <CompareStrip item={item} view={compare} mine={choice} />}
+            <Enhancements
+              item={item}
+              electionId={electionId}
+              choice={choice}
+              readOnly={readOnly}
+              density={density}
+              open={open}
+              onChange={onChange}
+              onClear={onClear}
+            />
+          </div>
+        )
+      })}
     </fieldset>
   )
 }

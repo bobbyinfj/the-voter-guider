@@ -2,72 +2,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Prisma } from '@/generated/prisma/client'
 import { prisma } from '@/lib/prisma'
-import { getSessionId } from '@/lib/session'
+import { getViewer, isOwner, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
-import { parseDistrictSelection } from '@/lib/districts'
-import { snippetCandidates } from '@/lib/profile'
+import { districtsFrom, guideInclude, text, toResponse } from '@/lib/guides'
 
 const VISIBILITIES = new Set(['private', 'friends', 'public'])
-
-const guideInclude = {
-  choices: true,
-  election: {
-    include: {
-      ballots: {
-        orderBy: { number: Prisma.SortOrder.asc },
-        // Party and incumbency for the ballot view; races link to their office page
-        include: {
-          office: {
-            select: {
-              id: true,
-              district: true,
-              candidates: {
-                select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true },
-              },
-            },
-          },
-        },
-      },
-      jurisdiction: true,
-    },
-  },
-  jurisdiction: true,
-} satisfies Prisma.GuideInclude
-
-type GuideWithRelations = Prisma.GuideGetPayload<{ include: typeof guideInclude }>
-
-// Never send the owner's session id: it is the bearer credential in the session cookie.
-function toResponse(guide: GuideWithRelations, sessionId: string) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { sessionId: owner, userId, ...rest } = guide
-  return {
-    ...rest,
-    election: {
-      ...rest.election,
-      ballots: rest.election.ballots.map((b) => ({
-        ...b,
-        office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) },
-      })),
-    },
-    isOwner: owner === sessionId,
-  }
-}
-
-function text(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null
-  const trimmed = value.trim()
-  return trimmed ? trimmed.slice(0, max) : null
-}
-
-function districtsFrom(metadata: unknown) {
-  const districts =
-    metadata && typeof metadata === 'object' && 'districts' in metadata
-      ? (metadata as { districts?: unknown }).districts
-      : undefined
-  return parseDistrictSelection(
-    districts && typeof districts === 'object' ? (districts as Record<string, unknown>) : null,
-  )
-}
 
 // GET ?id= (owner only) | ?shareToken= (anyone with the link unless private) | no params (my guides)
 export async function GET(request: NextRequest) {
@@ -75,36 +14,38 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const shareToken = searchParams.get('shareToken')
     const guideId = searchParams.get('id')
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
 
     if (guideId) {
       const guide = await prisma.guide.findFirst({
-        where: { id: guideId, sessionId },
+        where: { AND: [{ id: guideId }, ownedBy(viewer)] },
         include: guideInclude,
       })
       if (!guide) return NextResponse.json({ error: 'Guide not found' }, { status: 404 })
-      return NextResponse.json(toResponse(guide, sessionId))
+      return NextResponse.json(toResponse(guide, viewer))
     }
 
     if (shareToken) {
       const guide = await prisma.guide.findUnique({ where: { shareToken }, include: guideInclude })
       // A private guide is only visible to its owner, even with the link
-      if (!guide || (guide.visibility === 'private' && guide.sessionId !== sessionId)) {
+      if (!guide || (guide.visibility === 'private' && !isOwner(guide, viewer))) {
         return NextResponse.json({ error: 'Guide not found' }, { status: 404 })
       }
-      if (guide.sessionId !== sessionId) {
+      if (!isOwner(guide, viewer)) {
         await prisma.guideAnalytics
           .create({ data: { guideId: guide.id, eventType: 'view' } })
           .catch(() => undefined)
       }
-      return NextResponse.json(toResponse(guide, sessionId))
+      return NextResponse.json(toResponse(guide, viewer))
     }
 
     const guides = await prisma.guide.findMany({
-      where: { sessionId },
+      where: ownedBy(viewer),
       select: {
         id: true,
         title: true,
+        defaultKey: true,
+        electionId: true,
         shareToken: true,
         visibility: true,
         updatedAt: true,
@@ -113,7 +54,7 @@ export async function GET(request: NextRequest) {
       },
       orderBy: { updatedAt: Prisma.SortOrder.desc },
     })
-    return NextResponse.json(guides)
+    return NextResponse.json(guides.map(({ defaultKey, ...g }) => ({ ...g, isDefault: !!defaultKey })))
   } catch (error) {
     const { message, statusCode } = handleApiError(error)
     return NextResponse.json({ error: message }, { status: statusCode })
@@ -124,7 +65,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
 
     const electionId = text(body.electionId, 100)
     const election = electionId
@@ -142,14 +83,15 @@ export async function POST(request: NextRequest) {
         notes: text(body.notes, 10000),
         electionId: election.id,
         jurisdictionId: election.jurisdictionId,
-        sessionId,
+        sessionId: viewer.sessionId,
+        userId: viewer.userId,
         visibility: VISIBILITIES.has(body.visibility) ? body.visibility : 'private',
         metadata: { districts: districtsFrom(body.metadata) },
       },
       include: guideInclude,
     })
 
-    return NextResponse.json(toResponse(guide, sessionId))
+    return NextResponse.json(toResponse(guide, viewer))
   } catch (error) {
     const { message, statusCode } = handleApiError(error)
     return NextResponse.json({ error: message }, { status: statusCode })
@@ -160,11 +102,11 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
     const id = text(body.id, 100)
     if (!id) return NextResponse.json({ error: 'Guide ID required' }, { status: 400 })
 
-    const existing = await prisma.guide.findFirst({ where: { id, sessionId } })
+    const existing = await prisma.guide.findFirst({ where: { AND: [{ id }, ownedBy(viewer)] } })
     if (!existing) return NextResponse.json({ error: 'Guide not found' }, { status: 404 })
 
     const data: Prisma.GuideUpdateInput = { lastAccessedAt: new Date() }
@@ -175,12 +117,14 @@ export async function PATCH(request: NextRequest) {
     if (body.visibility !== undefined && VISIBILITIES.has(body.visibility)) {
       data.visibility = body.visibility
     }
+    if (typeof body.shareCommunity === 'boolean') data.shareCommunity = body.shareCommunity
     if (body.districts !== undefined) {
-      data.metadata = { districts: districtsFrom({ districts: body.districts }) }
+      const metadata = existing.metadata && typeof existing.metadata === 'object' ? existing.metadata : {}
+      data.metadata = { ...metadata, districts: districtsFrom({ districts: body.districts }) }
     }
 
     const guide = await prisma.guide.update({ where: { id }, data, include: guideInclude })
-    return NextResponse.json(toResponse(guide, sessionId))
+    return NextResponse.json(toResponse(guide, viewer))
   } catch (error) {
     const { message, statusCode } = handleApiError(error)
     return NextResponse.json({ error: message }, { status: statusCode })
@@ -192,10 +136,10 @@ export async function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const guideId = searchParams.get('id')
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
     if (!guideId) return NextResponse.json({ error: 'Guide ID required' }, { status: 400 })
 
-    const { count } = await prisma.guide.deleteMany({ where: { id: guideId, sessionId } })
+    const { count } = await prisma.guide.deleteMany({ where: { AND: [{ id: guideId }, ownedBy(viewer)] } })
     if (!count) return NextResponse.json({ error: 'Guide not found' }, { status: 404 })
     return NextResponse.json({ success: true })
   } catch (error) {

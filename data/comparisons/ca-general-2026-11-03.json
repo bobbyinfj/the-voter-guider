@@ -1,0 +1,343 @@
+{
+  "electionSlug": "ca-general-2026-11-03",
+  "guides": [
+    {
+      "id": "ca-democratic-party",
+      "name": "California Democratic Party",
+      "kind": "party",
+      "lean": "left",
+      "url": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+      "retrieved": "2026-10-21",
+      "about": "The state party's official positions on the propositions and its statewide endorsements (as relayed by the Riverside County Democratic Party).",
+      "picks": [
+        {
+          "ballot": "ca26-governor-race",
+          "pick": "Xavier Becerra",
+          "source": "https://www.riversidecountydemocrats.org/cadem-announces-2026-general-election-endorsements/",
+          "quote": "Xavier Becerra for Governor"
+        },
+        {
+          "ballot": "ca26-lt-governor-race",
+          "pick": "Fiona Ma",
+          "source": "https://www.riversidecountydemocrats.org/cadem-announces-2026-general-election-endorsements/",
+          "quote": "Fiona Ma for Lieutenant Governor"
+        },
+        {
+          "ballot": "ca26-attorney-general-race",
+          "pick": "Rob Bonta",
+          "source": "https://www.riversidecountydemocrats.org/cadem-announces-2026-general-election-endorsements/",
+          "quote": "Rob Bonta for Attorney General"
+        },
+        {
+          "ballot": "ca26-m-prop-1",
+          "pick": "YES",
+          "source": "https://www.riversidecountydemocrats.org/cadem-announces-2026-general-election-endorsements/",
+          "quote": "supporting Propositions 1, 2, 3, 4, 5, 37, 38, and 40, while opposing Propositions 39, 41, 42, 43, 44, and 45"
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Strengthens California's rainy day fund to protect schools and healthcare 2 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Protects schools and healthcare and stops a tax cut for the wealthiest top 2% 3 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Empowers voters by allowing public campaign funding so elections are won, not bought 4 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Protects the right to recall and ensures the majority picks the replacement 5 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-37",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Lowers costs to make buying a home more affordable in CA - at zero cost to taxpayers 37 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-38",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Funds lifesaving immunology research threatened by Trump's medical research cuts 38 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Rewrites voting rules to help Trump and makes it harder for you to vote 39 NO"
+        },
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "YES",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Makes billionaires pay their fair share to save healthcare 40 YES"
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Creates red tape and seeks to prevent a tax on billionaires 41 NO"
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Limits future revenue and seeks to prevent a tax on billionaires 42 NO"
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Limits voters' ability to fund essential local services like fire, roads and schools 43 NO"
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Harms millions of patients by shutting down hundreds of community health clinics 44 NO"
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "NO",
+          "source": "https://cadem.org/wp-content/uploads/2026/10/2026-Proposition-Endorsements-2.pdf",
+          "quote": "Lets corporate polluters fast-track new data centers, gas pipelines & heavy industry 45 NO"
+        }
+      ]
+    },
+    {
+      "id": "ca-republican-party",
+      "name": "California Republican Party",
+      "kind": "party",
+      "lean": "right",
+      "url": "https://cagop.org/endorsements",
+      "retrieved": "2026-10-21",
+      "about": "The state party's 2026 endorsements and proposition positions.",
+      "picks": [
+        {
+          "ballot": "ca26-governor-race",
+          "pick": "Steve Hilton",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Governor: Steve HIlton"
+        },
+        {
+          "ballot": "ca26-lt-governor-race",
+          "pick": "Gloria Romero",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Lieutenant Governor: Gloria Romero"
+        },
+        {
+          "ballot": "ca26-secretary-of-state-race",
+          "pick": "Donald P. (Don) Wagner",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Secretary of State: DOn Wagner"
+        },
+        {
+          "ballot": "ca26-controller-race",
+          "pick": "Herb W Morgan",
+          "source": "https://cagop.org/endorsements",
+          "quote": "State Controller: Herb Morgan"
+        },
+        {
+          "ballot": "ca26-treasurer-race",
+          "pick": "Jennifer Hawks",
+          "source": "https://cagop.org/endorsements",
+          "quote": "State Treasurer: Jennifer Hawks"
+        },
+        {
+          "ballot": "ca26-attorney-general-race",
+          "pick": "Michael E. Gates",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Attorney General: MIchael Gates"
+        },
+        {
+          "ballot": "ca26-superintendent-race",
+          "pick": "Sonja Shaw",
+          "source": "https://cagop.org/endorsements",
+          "quote": "State Superintendent for Public INstruction: Sonja Shaw"
+        },
+        {
+          "ballot": "ca26-us-house-28-race",
+          "pick": "April A. Verlato",
+          "source": "https://cagop.org/endorsements",
+          "quote": "CD 28: April Verlato"
+        },
+        {
+          "ballot": "ca26-assembly-49-race",
+          "pick": "Long David Liu",
+          "source": "https://cagop.org/endorsements",
+          "quote": "AD 49: David Liu"
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "prop 2: oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 3: oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 4: oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 5: Oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-38",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 38: Support"
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 39: support"
+        },
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 40: oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 41: Support"
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 42: support"
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 43: support"
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 44: oppose"
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "YES",
+          "source": "https://cagop.org/endorsements",
+          "quote": "Prop 45: support"
+        }
+      ]
+    },
+    {
+      "id": "lwv-california",
+      "name": "League of Women Voters of California",
+      "kind": "lwv",
+      "url": "https://lwvc.org/ballot-recs",
+      "retrieved": "2026-10-21",
+      "about": "Nonpartisan; recommends on statewide propositions only, never candidates.",
+      "picks": [
+        {
+          "ballot": "ca26-m-prop-1",
+          "pick": "YES",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "The League of Women Voters of California has worked toward those goals for decades and supports Prop 1"
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "YES",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Proposition 2 will allow California to save more money during strong economic years so it can protect schools and other essential services when revenues fall."
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "YES",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "The League strongly supports the measure because it protects vital services, helps California weather economic downturns, and keeps the state's tax system fair."
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "YES",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 4 gives every California community the freedom to build elections where voters have more power and wealthy donors and special interests have less."
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "YES",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 5 restores the recall to its proper purpose: deciding whether an official should remain in office."
+        },
+        {
+          "ballot": "ca26-m-prop-37",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "California needs homeownership programs that lower families' total costs, confront racial barriers to building wealth, and support strong communities. Prop 37 does not meet that test."
+        },
+        {
+          "ballot": "ca26-m-prop-38",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Medical research can save lives, but Prop 38 is the wrong way to fund it."
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 39 is a partisan power grab to further President Trump's voter suppression efforts."
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 41 would put revenue from new state taxes under the Gann Limit's rigid constitutional spending cap, making it harder to fund essential services and respond to changing needs."
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 42 would lock broad new restrictions on state taxing power into the California Constitution, limiting California's ability to respond to future needs."
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Prop 43 would make it harder for communities to raise revenue for public services by allowing a minority of voters to block local tax measures."
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "A rule intended to direct more money to patient care should not put the safety net itself at risk."
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "NO",
+          "source": "https://lwvc.org/ballot-recs",
+          "quote": "Statutory exemptions and expedited processes are in place, some of which the League supported, making Proposition 45 unnecessary"
+        }
+      ]
+    }
+  ]
+}

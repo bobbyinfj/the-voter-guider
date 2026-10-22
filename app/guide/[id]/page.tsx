@@ -1,13 +1,13 @@
 'use client'
 
 import { BallotPage, accentButton } from '@/components/ballot/Paper'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import BallotTracker from '@/components/BallotTracker'
 import DistrictPicker from '@/components/DistrictPicker'
 import { orderForBallot, type BallotCandidate } from '@/components/ballot/ballot'
-import { Share2, CheckCircle2, Globe, Lock, Trash2, Save } from 'lucide-react'
+import { Share2, CheckCircle2, Globe, Lock, Trash2, Users } from 'lucide-react'
 import {
   districtOptions,
   matchesSelection,
@@ -15,6 +15,10 @@ import {
   type DistrictSelection,
 } from '@/lib/districts'
 import { formatElectionDate } from '@/lib/format'
+import { useGuideEditor, type EditableGuide } from '@/components/guide/useGuideEditor'
+import { useAccount } from '@/components/guide/useAccount'
+import SaveStatus from '@/components/guide/SaveStatus'
+import KeepGuidePrompt from '@/components/guide/KeepGuidePrompt'
 
 interface GuideBallot {
   id: string
@@ -29,16 +33,8 @@ interface GuideBallot {
   office: { id: string; district: string | null; candidates: BallotCandidate[] } | null
 }
 
-interface Guide {
-  id: string
-  title: string
+interface Guide extends EditableGuide {
   author: string | null
-  notes: string | null
-  shareToken: string
-  visibility: string
-  isOwner: boolean
-  metadata: unknown
-  choices: { ballotId: string; selection: string; notes: string | null }[]
   election: {
     id: string
     title: string
@@ -49,7 +45,7 @@ interface Guide {
   }
 }
 
-function districtsOf(guide: Guide): DistrictSelection {
+function districtsOf(guide: EditableGuide): DistrictSelection {
   const m = guide.metadata
   const d = m && typeof m === 'object' && 'districts' in m ? (m as { districts?: unknown }).districts : null
   return parseDistrictSelection(d && typeof d === 'object' ? (d as Record<string, unknown>) : null)
@@ -57,27 +53,9 @@ function districtsOf(guide: Guide): DistrictSelection {
 
 export default function GuidePage() {
   const params = useParams()
-  const router = useRouter()
   const guideKey = params.id as string
   const [guide, setGuide] = useState<Guide | null>(null)
-  const [choices, setChoices] = useState<Record<string, { selection: string; notes?: string }>>({})
-  const [copied, setCopied] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-  const [updating, setUpdating] = useState(false)
-  const [notes, setNotes] = useState('')
-  const [savingNotes, setSavingNotes] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  const applyGuide = useCallback((data: Guide) => {
-    setGuide(data)
-    setNotes(data.notes ?? '')
-    setChoices(
-      Object.fromEntries(
-        data.choices.map((c) => [c.ballotId, { selection: c.selection, notes: c.notes ?? undefined }]),
-      ),
-    )
-  }, [])
 
   useEffect(() => {
     ;(async () => {
@@ -85,109 +63,12 @@ export default function GuidePage() {
         // Owners open /guide/<id>; shared links are /guide/<shareToken>
         let res = await fetch(`/api/guides?id=${encodeURIComponent(guideKey)}`)
         if (!res.ok) res = await fetch(`/api/guides?shareToken=${encodeURIComponent(guideKey)}`)
-        if (res.ok) applyGuide(await res.json())
+        if (res.ok) setGuide(await res.json())
       } finally {
         setLoading(false)
       }
     })()
-  }, [guideKey, applyGuide])
-
-  const districts = useMemo(() => (guide ? districtsOf(guide) : {}), [guide])
-  const ballots = useMemo(
-    () => (guide ? orderForBallot(guide.election.ballots.filter((b) => matchesSelection(b, districts))) : []),
-    [guide, districts],
-  )
-  const pickerOptions = useMemo(
-    () => (guide ? districtOptions(guide.election.ballots.map((b) => ({ ...b, district: b.office?.district }))) : []),
-    [guide],
-  )
-
-  const patchGuide = async (body: Record<string, unknown>) => {
-    if (!guide) return false
-    const res = await fetch('/api/guides', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: guide.id, ...body }),
-    })
-    if (res.ok) applyGuide(await res.json())
-    return res.ok
-  }
-
-  const handleChoiceChange = async (ballotId: string, selection: string, choiceNotes?: string) => {
-    if (!guide?.isOwner) return
-    const previous = choices[ballotId]
-    setChoices((prev) => ({ ...prev, [ballotId]: { selection, notes: choiceNotes } }))
-    const res = await fetch('/api/choices', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ guideId: guide.id, ballotId, selection, notes: choiceNotes }),
-    })
-    if (!res.ok) {
-      setChoices((prev) => {
-        const next = { ...prev }
-        if (previous) next[ballotId] = previous
-        else delete next[ballotId]
-        return next
-      })
-      setError("Couldn't save that choice. Please try again.")
-    }
-  }
-
-  const handleChoiceClear = async (ballotId: string) => {
-    if (!guide?.isOwner) return
-    const previous = choices[ballotId]
-    setChoices((prev) => {
-      const next = { ...prev }
-      delete next[ballotId]
-      return next
-    })
-    const res = await fetch(
-      `/api/choices?guideId=${encodeURIComponent(guide.id)}&ballotId=${encodeURIComponent(ballotId)}`,
-      { method: 'DELETE' },
-    )
-    if (!res.ok) {
-      if (previous) setChoices((prev) => ({ ...prev, [ballotId]: previous }))
-      setError("Couldn't clear that choice. Please try again.")
-    }
-  }
-
-  const handleDistrictChange = async (type: string, code: string) => {
-    const next: Record<string, string> = { ...districts }
-    if (code) next[type] = code
-    else delete next[type]
-    if (!(await patchGuide({ districts: next }))) setError("Couldn't save your districts.")
-  }
-
-  const handleShare = async () => {
-    if (!guide) return
-    // A private guide can't be opened by others, so sharing makes it link-viewable
-    if (guide.visibility === 'private') {
-      setUpdating(true)
-      const ok = await patchGuide({ visibility: 'public' })
-      setUpdating(false)
-      if (!ok) return setError("Couldn't turn on link sharing.")
-    }
-    const shareUrl = `${window.location.origin}/guide/${guide.shareToken}`
-    if (navigator.share) {
-      await navigator.share({ title: guide.title, url: shareUrl }).catch(() => undefined)
-    } else {
-      await navigator.clipboard.writeText(shareUrl)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
-    fetch('/api/analytics', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ guideId: guide.id, eventType: 'share' }),
-    }).catch(() => undefined)
-  }
-
-  const handleDelete = async () => {
-    if (!guide) return
-    const res = await fetch(`/api/guides?id=${guide.id}`, { method: 'DELETE' })
-    if (res.ok) router.push('/guides')
-    else setError("Couldn't delete the guide.")
-  }
+  }, [guideKey])
 
   if (loading) {
     return (
@@ -210,37 +91,121 @@ export default function GuidePage() {
     )
   }
 
-  const ballotHref = `/elections/${guide.election.id}${
+  return <GuideView initial={guide} />
+}
+
+function GuideView({ initial }: { initial: Guide }) {
+  const router = useRouter()
+  const account = useAccount()
+  const election = initial.election
+  const editor = useGuideEditor({ initialGuide: initial, electionId: election.id })
+  const guide = editor.guide ?? initial
+  const { choices } = editor
+  const [copied, setCopied] = useState(false)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [title, setTitle] = useState(initial.title)
+  const [notes, setNotes] = useState(initial.notes ?? '')
+  const notesTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const districts = useMemo(() => districtsOf(guide), [guide])
+  const ballots = useMemo(
+    () => orderForBallot(election.ballots.filter((b) => matchesSelection(b, districts))),
+    [election.ballots, districts],
+  )
+  const pickerOptions = useMemo(
+    () => districtOptions(election.ballots.map((b) => ({ ...b, district: b.office?.district }))),
+    [election.ballots],
+  )
+  const answered = ballots.filter((b) => choices[b.id]).length
+
+  // Notes save themselves a moment after you stop typing (and when you leave the box)
+  const saveNotes = (value: string) => {
+    if (notesTimer.current) clearTimeout(notesTimer.current)
+    notesTimer.current = null
+    if (value !== (guide.notes ?? '')) editor.patchGuide({ notes: value }, "Couldn't save your notes.")
+  }
+  const changeNotes = (value: string) => {
+    setNotes(value)
+    if (notesTimer.current) clearTimeout(notesTimer.current)
+    notesTimer.current = setTimeout(() => saveNotes(value), 800)
+  }
+  const saveTitle = () => {
+    const value = title.trim()
+    if (!value) return setTitle(guide.title)
+    if (value !== guide.title) editor.patchGuide({ title: value }, "Couldn't rename the guide.")
+  }
+
+  const handleDistrictChange = (type: string, code: string) => {
+    const next: Record<string, string> = { ...districts }
+    if (code) next[type] = code
+    else delete next[type]
+    editor.patchGuide({ districts: next }, "Couldn't save your districts.")
+  }
+
+  const handleShare = async () => {
+    // A private guide can't be opened by others, so sharing makes it link-viewable
+    if (guide.visibility === 'private' && !(await editor.patchGuide({ visibility: 'public' }, "Couldn't turn on link sharing."))) return
+    const shareUrl = `${window.location.origin}/guide/${guide.shareToken}`
+    if (navigator.share) {
+      await navigator.share({ title: guide.title, url: shareUrl }).catch(() => undefined)
+    } else {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+    fetch('/api/analytics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ guideId: guide.id, eventType: 'share' }),
+    }).catch(() => undefined)
+  }
+
+  const handleDelete = async () => {
+    const res = await fetch(`/api/guides?id=${guide.id}`, { method: 'DELETE' })
+    if (res.ok) router.push(`/elections/${election.id}`)
+    else editor.setError("Couldn't delete the guide.")
+  }
+
+  const ballotHref = `/elections/${election.id}${
     Object.keys(districts).length ? `?${new URLSearchParams(districts as Record<string, string>)}` : ''
   }`
 
   return (
-    <BallotPage electionId={guide.election.id}>
+    <BallotPage electionId={election.id}>
       <div className="container mx-auto px-4 py-8 max-w-6xl">
-        {error && (
-          <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            {error}
+        {editor.error && (
+          <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {editor.error}
           </div>
         )}
         <div className="mb-6 border-[1.5px] border-t-[6px] border-ballot-ink border-t-ballot-accent bg-ballot-paper p-5 print:hidden">
           <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
             <div className="flex-1 basis-64 min-w-0">
-              <h1 className="mb-1 font-ballot-heading text-2xl font-bold sm:text-3xl">{guide.title}</h1>
-              {guide.author && <p className="text-gray-600 mb-2">By {guide.author}</p>}
+              {guide.isOwner ? (
+                <input
+                  aria-label="Guide name"
+                  value={title}
+                  maxLength={200}
+                  onChange={(e) => setTitle(e.target.value)}
+                  onBlur={saveTitle}
+                  onKeyDown={(e) => e.key === 'Enter' && e.currentTarget.blur()}
+                  className="mb-1 w-full border-b border-transparent bg-transparent font-ballot-heading text-2xl font-bold hover:border-gray-300 focus:border-gray-500 focus:outline-none sm:text-3xl"
+                />
+              ) : (
+                <h1 className="mb-1 font-ballot-heading text-2xl font-bold sm:text-3xl">{guide.title}</h1>
+              )}
+              {initial.author && <p className="text-gray-600 mb-2">By {initial.author}</p>}
               <p className="text-sm text-gray-500">
-                {guide.election.title} · {formatElectionDate(guide.election.electionDate)}
+                {election.title} · {formatElectionDate(election.electionDate)}
+                {guide.isOwner && guide.isDefault && ' · the guide your ballot page saves to'}
               </p>
               <Link href={ballotHref} className="text-sm text-blue-600 hover:underline">
-                See candidate details and the full ballot →
+                {guide.isOwner && guide.isDefault ? 'Back to my ballot →' : 'See candidate details and the full ballot →'}
               </Link>
             </div>
             {guide.isOwner && (
               <div className="flex items-center gap-2">
-                <button
-                  onClick={handleShare}
-                  disabled={updating}
-                  className={accentButton}
-                >
+                <button onClick={handleShare} className={accentButton}>
                   {copied ? <CheckCircle2 className="w-5 h-5" /> : <Share2 className="w-5 h-5" />}
                   {copied ? 'Link copied!' : 'Share'}
                 </button>
@@ -256,29 +221,48 @@ export default function GuidePage() {
           </div>
 
           {guide.isOwner && (
-            <div className="border-t pt-4 font-sans">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Who can see this guide</label>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { value: 'private', label: 'Only me', Icon: Lock },
-                  { value: 'public', label: 'Anyone with the link', Icon: Globe },
-                ].map(({ value, label, Icon }) => {
-                  const active = value === 'private' ? guide.visibility === 'private' : guide.visibility !== 'private'
-                  return (
-                    <button
-                      key={value}
-                      onClick={() => patchGuide({ visibility: value })}
-                      disabled={updating}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
-                        active ? 'bg-blue-100 text-blue-900 font-semibold' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                      {label}
-                    </button>
-                  )
-                })}
+            <div className="grid gap-4 border-t pt-4 font-sans sm:grid-cols-2">
+              <div>
+                <span className="block text-sm font-medium text-gray-700 mb-2">Who can see this guide</span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { value: 'private', label: 'Only me', Icon: Lock },
+                    { value: 'public', label: 'Anyone with the link', Icon: Globe },
+                  ].map(({ value, label, Icon }) => {
+                    const active = value === 'private' ? guide.visibility === 'private' : guide.visibility !== 'private'
+                    return (
+                      <button
+                        key={value}
+                        onClick={() => editor.patchGuide({ visibility: value })}
+                        aria-pressed={active}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                          active ? 'bg-blue-100 text-blue-900 font-semibold' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        <Icon className="w-4 h-4" />
+                        {label}
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
+              <label className="flex items-start gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={guide.shareCommunity}
+                  onChange={(e) => editor.patchGuide({ shareCommunity: e.target.checked })}
+                  className="mt-1"
+                />
+                <span>
+                  <span className="flex items-center gap-1 font-medium text-gray-700">
+                    <Users className="h-4 w-4" /> Count my picks in the community tally
+                  </span>
+                  <span className="block text-xs text-gray-500">
+                    Adds your picks, anonymously, to the &ldquo;Voter Guider users&rdquo; totals others can compare
+                    against. Never your name, email or notes. Turn it off any time.
+                  </span>
+                </span>
+              </label>
             </div>
           )}
 
@@ -313,8 +297,12 @@ export default function GuidePage() {
             ballots={ballots}
             guideTitle={guide.title}
             choices={choices}
-            election={guide.election}
+            election={election}
             readOnly={!guide.isOwner}
+            status={
+              guide.isOwner ? <SaveStatus state={editor.saveState} hasGuide signedIn={!!account?.email} /> : undefined
+            }
+            notice={guide.isOwner ? <KeepGuidePrompt show={answered > 0} /> : undefined}
             setup={
               guide.isOwner && pickerOptions.length > 0 ? (
                 <div className="print:hidden">
@@ -327,14 +315,15 @@ export default function GuidePage() {
                   <DistrictPicker
                     options={pickerOptions}
                     selection={districts}
-                    lookupUrl={guide.election.districtLookupUrl}
+                    lookupUrl={election.districtLookupUrl}
                     onChange={handleDistrictChange}
                   />
                 </div>
               ) : null
             }
-            onChoiceChange={handleChoiceChange}
-            onChoiceClear={handleChoiceClear}
+            onChoiceChange={editor.setChoice}
+            onChoiceClear={editor.clearChoice}
+            onStatusChange={editor.setStatus}
           />
         ) : (
           <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6 text-center text-gray-500">
@@ -344,29 +333,14 @@ export default function GuidePage() {
 
         {(guide.isOwner || guide.notes) && (
           <div className="mt-8 border-[1.5px] border-ballot-ink bg-ballot-paper p-5 font-sans print:hidden">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-800">Research &amp; Notes</h2>
-              {guide.isOwner && (
-                <button
-                  onClick={async () => {
-                    setSavingNotes(true)
-                    if (!(await patchGuide({ notes }))) setError("Couldn't save your notes.")
-                    setSavingNotes(false)
-                  }}
-                  disabled={savingNotes || notes === (guide.notes ?? '')}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
-                >
-                  <Save className="w-4 h-4" />
-                  {savingNotes ? 'Saving...' : 'Save Notes'}
-                </button>
-              )}
-            </div>
+            <h2 className="mb-4 text-xl font-semibold text-gray-800">Research &amp; Notes</h2>
             {guide.isOwner ? (
               <textarea
                 value={notes}
-                onChange={(e) => setNotes(e.target.value)}
+                onChange={(e) => changeNotes(e.target.value)}
+                onBlur={() => saveNotes(notes)}
                 maxLength={10000}
-                placeholder="Research, thoughts, links — anything you want to remember when you vote."
+                placeholder="Research, thoughts, links — anything you want to remember when you vote. Saves as you type."
                 className="w-full min-h-[160px] px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-y text-sm"
               />
             ) : (
@@ -374,7 +348,6 @@ export default function GuidePage() {
             )}
           </div>
         )}
-
       </div>
     </BallotPage>
   )

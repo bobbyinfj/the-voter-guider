@@ -3,9 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useAccount } from '@/components/guide/useAccount'
 
 export default function Header() {
   const pathname = usePathname()
+  const account = useAccount()
 
   const isActive = (path: string) => pathname === path
 
@@ -48,6 +50,32 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            {account?.email ? (
+              <span className="hidden items-center gap-2 text-sm text-gray-600 sm:flex">
+                <span className="max-w-[12rem] truncate" title={account.email}>
+                  {account.email}
+                </span>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await fetch('/api/auth/signout', { method: 'POST' })
+                    window.location.reload()
+                  }}
+                  className="text-blue-700 hover:underline"
+                >
+                  Sign out
+                </button>
+              </span>
+            ) : (
+              account?.emailEnabled && (
+                <Link
+                  href={`/signin?next=${encodeURIComponent(pathname)}`}
+                  className={`font-medium ${pathname === '/signin' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-800'}`}
+                >
+                  Sign in
+                </Link>
+              )
+            )}
           </nav>
         </div>
       </div>

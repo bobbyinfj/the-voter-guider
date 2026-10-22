@@ -73,20 +73,12 @@ export default async function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Link
-                      href={`/elections/${election.id}`}
-                      className="flex-1 text-center px-3 py-2 border border-blue-500 text-blue-600 rounded-lg text-sm hover:bg-blue-50 transition-colors"
-                    >
-                      See the ballot
-                    </Link>
-                    <Link
-                      href={`/guide/new?electionId=${election.id}`}
-                      className="flex-1 text-center px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 flex items-center justify-center gap-1"
-                    >
-                      Build my guide <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
+                  <Link
+                    href={`/elections/${election.id}`}
+                    className="flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm text-white hover:bg-blue-700"
+                  >
+                    Open my ballot <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               ))}
             </div>

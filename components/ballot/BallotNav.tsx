@@ -1,7 +1,7 @@
 'use client'
 
 import { CheckCircle2, Circle, MinusCircle } from 'lucide-react'
-import { ABSTAIN, contestDomId, contestLabel, type BallotSection, type ChoiceValue } from './ballot'
+import { ABSTAIN, contestDomId, navLabel, type BallotSection, type ChoiceValue } from './ballot'
 
 interface BallotNavProps {
   sections: BallotSection[]
@@ -27,6 +27,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
             <ul>
               {section.items.map((item) => {
                 const selection = choices[item.id]?.selection
+                const leaning = choices[item.id]?.status === 'tentative'
                 const Icon = !selection ? Circle : selection === ABSTAIN ? MinusCircle : CheckCircle2
                 return (
                   <li key={item.id}>
@@ -42,12 +43,12 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                       }`}
                     >
                       <Icon
-                        aria-label={!selection ? 'Undecided' : selection === ABSTAIN ? 'Left blank' : 'Decided'}
+                        aria-label={!selection ? 'Undecided' : selection === ABSTAIN ? 'Left blank' : leaning ? 'Leaning' : 'Decided'}
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : 'text-green-600'
+                          !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : leaning ? 'text-amber-600' : 'text-green-600'
                         }`}
                       />
-                      <span className="min-w-0 line-clamp-2">{contestLabel(item)}</span>
+                      <span className="min-w-0 line-clamp-2">{navLabel(item)}</span>
                     </a>
                   </li>
                 )

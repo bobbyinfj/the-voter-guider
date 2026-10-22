@@ -22,9 +22,13 @@ export interface BallotItem {
   office?: { id: string; district?: string | null; candidates: BallotCandidate[] } | null
 }
 
+// Leaning toward a pick, or settled on it
+export type ChoiceStatus = 'tentative' | 'decided'
+
 export interface ChoiceValue {
   selection: string
   notes?: string
+  status?: ChoiceStatus
 }
 
 export interface BallotSection {
@@ -185,6 +189,18 @@ export function contestLabel(item: BallotItem): string {
   if (printed?.group) return item.title
   if (printed) return printed.heading.join(' ')
   return item.number ? `${item.number} — ${item.title}` : item.title
+}
+
+// Short name for the contest navigator. LA County prints a long all-caps jurisdiction line
+// first ("CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION / City Clerk"), which would hide the
+// office, so those use our plain title ("Monterey Park City Clerk", "Measure AAA: …")
+export function navLabel(item: BallotItem): string {
+  const printed = layoutOf(item)
+  const first = printed?.heading[0] ?? ''
+  if (printed && !printed.group && printed.heading.length > 1 && /^[A-Z0-9 ,.'&-]{20,}$/.test(first)) {
+    return item.number ? `${item.number}: ${item.title}` : item.title
+  }
+  return contestLabel(item)
 }
 
 // Printed text for a stored selection: "YES/FOR", the ticket "A / B", "Write-in: X"

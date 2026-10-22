@@ -1,22 +1,23 @@
 // API Route: Manage choices (voting selections)
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { getSessionId } from '@/lib/session'
+import { getViewer, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
 
 const MEASURE_SELECTIONS = new Set(['YES', 'NO', 'ABSTAIN'])
+const STATUSES = new Set(['tentative', 'decided'])
 
 // POST - Create or update a choice on a guide the caller owns
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
     const { guideId, ballotId, selection } = body
     if (typeof guideId !== 'string' || typeof ballotId !== 'string' || typeof selection !== 'string') {
       return NextResponse.json({ error: 'guideId, ballotId and selection are required' }, { status: 400 })
     }
 
-    const guide = await prisma.guide.findFirst({ where: { id: guideId, sessionId } })
+    const guide = await prisma.guide.findFirst({ where: { AND: [{ id: guideId }, ownedBy(viewer)] } })
     if (!guide) {
       return NextResponse.json({ error: 'Guide not found or unauthorized' }, { status: 404 })
     }
@@ -33,11 +34,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid selection' }, { status: 400 })
     }
     const notes = typeof body.notes === 'string' ? body.notes.slice(0, 5000) : undefined
+    // Leaning vs. decided; unchanged when not sent
+    const status = STATUSES.has(body.status) ? (body.status as string) : undefined
 
     const choice = await prisma.choice.upsert({
       where: { guideId_ballotId: { guideId, ballotId } },
-      update: { selection, notes },
-      create: { guideId, ballotId, selection, notes },
+      update: { selection, notes, status },
+      create: { guideId, ballotId, selection, notes, status },
     })
     await prisma.guide.update({ where: { id: guideId }, data: { lastAccessedAt: new Date() } })
 
@@ -54,12 +57,12 @@ export async function DELETE(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const guideId = searchParams.get('guideId')
     const ballotId = searchParams.get('ballotId')
-    const sessionId = await getSessionId()
+    const viewer = await getViewer()
     if (!guideId || !ballotId) {
       return NextResponse.json({ error: 'Guide ID and Ballot ID required' }, { status: 400 })
     }
 
-    const guide = await prisma.guide.findFirst({ where: { id: guideId, sessionId } })
+    const guide = await prisma.guide.findFirst({ where: { AND: [{ id: guideId }, ownedBy(viewer)] } })
     if (!guide) {
       return NextResponse.json({ error: 'Guide not found or unauthorized' }, { status: 404 })
     }

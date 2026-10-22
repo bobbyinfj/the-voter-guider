@@ -24,11 +24,11 @@ export default function NotFound() {
             My Guides
           </Link>
           <Link
-            href="/guide/new"
+            href="/"
             className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
           >
             <Plus className="w-5 h-5" />
-            New Guide
+            Elections
           </Link>
         </div>
       </div>

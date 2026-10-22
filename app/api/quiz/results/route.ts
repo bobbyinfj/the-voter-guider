@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getSessionId } from "@/lib/session";
+import { getViewer, ownedBy } from "@/lib/owner";
 import { handleApiError } from "@/lib/errors";
 import { computeResults } from "@/lib/quiz/db";
 
 export async function GET(req: NextRequest) {
   try {
-    const sessionId = await getSessionId();
+    const viewer = await getViewer();
     const { searchParams } = new URL(req.url);
     const guideId = searchParams.get("guideId");
 
@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
     }
 
     const guide = await prisma.guide.findFirst({
-      where: { id: guideId, sessionId },
+      where: { AND: [{ id: guideId }, ownedBy(viewer)] },
     });
     if (!guide) {
       return NextResponse.json({ error: "Guide not found or unauthorized" }, { status: 403 });
