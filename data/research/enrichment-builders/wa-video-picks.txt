@@ -1,0 +1,12 @@
+# Reviewed video picks for Washington (tools/video-approve.py wa turns these into wa-videos.json).
+# Format and checks: see tools/video-approve.py. Campaign videos were found by the same scan of
+# every candidate's website (embeds and linked channels), 2026-10-23.
+
+wa26-teresa-mosqueda | SRtIVUyyj9Q | statement | independent ; found=embedded on teamteresa.org
+wa26-nick-duda | zDf7v__LBJY | statement | independent ; found=embedded on nickduda.com
+wa26-ld34-rep2 | nA1QpYrl4ms | forum | civic ; host=West Seattle Chamber of Commerce ; found=embedded on maryforwa.com ; with=wa26-mary-anito,wa26-joe-fitzgibbon
+
+wa26-cindy-ryu | KVv-GEIu-mw | statement | campaign ; source=https://www.cindyryu.com ; label=Shown on the campaign's website ; found=campaign site scan
+wa26-ian-birk | MEpd-x5a7i8 | statement | campaign ; source=https://www.ianbirk.com ; label=Shown on the campaign's website ; found=campaign site scan
+wa26-sean-o-donnell | ME2ojH6ZYBU | debate | campaign ; source=https://odonnellforjustice.com ; label=Shown on the campaign's website (the campaign's clip of TVW's debate) ; found=campaign site scan
+wa26-adam-smith | X8RDwCTEm_s | statement | campaign ; source=https://www.youtube.com/@AdamSmithforCongress ; label=The campaign's YouTube channel (linked from electadamsmith.com) ; found=campaign site scan

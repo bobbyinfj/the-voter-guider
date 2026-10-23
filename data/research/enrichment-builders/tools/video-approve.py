@@ -14,14 +14,19 @@
 # (`transcribe export-person-clips`, schema counciloris.person-clips v1): start, end and the
 # transcript link are taken from the export, which must be for this candidate by name.
 # usage: python3 tools/video-approve.py <state>   (reads <state>-video-picks.txt)
-import datetime, difflib, json, os, re, subprocess, sys, unicodedata, urllib.parse, urllib.request
+import datetime, difflib, importlib.util, json, os, re, subprocess, sys, unicodedata, urllib.parse, urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 ROOT = HERE.parents[2]
+# Saved, robots-checked copies of pages (comparison-builders/build.py)
+_spec = importlib.util.spec_from_file_location('cb', HERE.parent / 'comparison-builders' / 'build.py')
+cb = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(cb)
 SLUGS = {'wa': 'wa-general-2026-11-03', 'co': 'co-general-2026-11-03', 'ca': 'ca-general-2026-11-03'}
 YTDLP = os.environ.get('YTDLP', 'yt-dlp')
 TODAY = datetime.date.today().isoformat()
+MEETING_SINCE = '2025-10-01'  # same as build.py
 
 
 def squash(s):
@@ -89,6 +94,8 @@ def approve(state):
             errors.append(f'{where}: no metadata'); continue
         u = d['upload_date']
         published = f'{u[:4]}-{u[4:6]}-{u[6:]}'
+        if not (published >= MEETING_SINCE if kind == 'meeting' else published.startswith('2026')):
+            errors.append(f'{where}: uploaded {published}, outside this cycle'); continue
         text = squash(f"{d['title']} {d.get('description') or ''}")
         checks = [f'oEmbed: "{oe["title"]}" by {oe["author_name"]}', f'uploaded {published}']
 
@@ -104,6 +111,10 @@ def approve(state):
                         return f'transcript at {m[1]}s: "{m[2]}"{spelled}'
             if f' {last} ' in f' {text} ':
                 return f'named in the {"title" if last in squash(d["title"]) else "description"}'
+            if origin == 'campaign' and o.get('source') and 'youtube.com' not in o['source'][0]:
+                raw, fetched = cb.fetch(o['source'][0])
+                if vid in raw.decode('utf-8', 'replace'):
+                    return f"embedded on the campaign's site {o['source'][0]} (saved {fetched})"
             if origin == 'campaign' and f' {last} ' in f' {squash(oe["author_name"])} ':
                 return f'posted by the channel "{oe["author_name"]}"'
             return None

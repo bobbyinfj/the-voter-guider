@@ -18,6 +18,27 @@
     "published": "2026-10-01",
     "durationSec": 205,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "UvKC4Sj_QCU",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "CA Has Always Been Home",
+    "channel": "Xavier Becerra for Governor",
+    "published": "2026-09-15",
+    "durationSec": 30,
+    "sourceUrl": "https://www.youtube.com/@becerraforgovernor",
+    "sourceLabel": "The campaign's YouTube channel (linked from its website)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"CA Has Always Been Home\" by Xavier Becerra for Governor",
+      "uploaded 2026-09-15",
+      "named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-steve-hilton": [
@@ -49,6 +70,27 @@
     "published": "2026-05-29",
     "durationSec": 682,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "qBFHwlqBcKw",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "My Promise to California | Fiona Ma for Lieutenant Governor 2026",
+    "channel": "CA Lieutenant Governor Candidate Fiona Ma, CPA",
+    "published": "2026-10-16",
+    "durationSec": 30,
+    "sourceUrl": "https://www.youtube.com/@fionama",
+    "sourceLabel": "The campaign's YouTube channel (linked from its website)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"My Promise to California | Fiona Ma for Lieutenant Governor 2026\" by CA Lieutenant Governor Candidate Fiona Ma, CPA",
+      "uploaded 2026-10-16",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-gloria-romero": [
@@ -60,6 +102,46 @@
     "published": "2026-05-29",
     "durationSec": 1386,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "nr2mRUN1jAw",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas",
+    "channel": "VOZ",
+    "published": "2026-08-06",
+    "durationSec": 3611,
+    "evidence": {
+     "foundVia": "embedded on gloriajromero.com",
+     "checks": [
+      "oEmbed: \"Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas\" by VOZ",
+      "uploaded 2026-08-06",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "uHFKHfI4aX0",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Together, We Can Make California Golden Again.",
+    "channel": "Gloria Romero",
+    "published": "2026-04-10",
+    "durationSec": 122,
+    "sourceUrl": "https://gloriajromero.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Together, We Can Make California Golden Again.\" by Gloria Romero",
+      "uploaded 2026-04-10",
+      "named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-shirley-n-weber": [
@@ -104,6 +186,27 @@
     "published": "2026-07-12",
     "durationSec": 867,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "27Ws8ngDR_Y",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Herb Morgan for California State Controller",
+    "channel": "Herb Morgan for California Controller",
+    "published": "2026-10-07",
+    "durationSec": 43,
+    "sourceUrl": "https://www.youtube.com/@herb4controller",
+    "sourceLabel": "The campaign's YouTube channel (linked from its website)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Herb Morgan for California State Controller\" by Herb Morgan for California Controller",
+      "uploaded 2026-10-07",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-rob-bonta": [
@@ -137,6 +240,27 @@
     "published": "2026-08-09",
     "durationSec": 1139,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "zkfR1ZOarwI",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "An Introduction - Ben Allen for Insurance Commissioner",
+    "channel": "Ben Allen",
+    "published": "2026-05-04",
+    "durationSec": 76,
+    "sourceUrl": "https://benallenca.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"An Introduction - Ben Allen for Insurance Commissioner\" by Ben Allen",
+      "uploaded 2026-05-04",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-jane-kim": [
@@ -148,6 +272,27 @@
     "published": "2026-07-26",
     "durationSec": 1159,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "VdaRc61cYfk",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Jane Kim for California Insurance Commissioner",
+    "channel": "Jane Kim",
+    "published": "2026-01-21",
+    "durationSec": 70,
+    "sourceUrl": "https://www.janekim.org",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Jane Kim for California Insurance Commissioner\" by Jane Kim",
+      "uploaded 2026-01-21",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-richard-barrera": [
@@ -188,6 +333,27 @@
     "published": "2026-10-08",
     "durationSec": 3885,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "RSR2PAONeXE",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Our Kids Are Worth It | Sonja Shaw for State Superintendent",
+    "channel": "Sonja Shaw for CA State Superintendent",
+    "published": "2026-10-07",
+    "durationSec": 30,
+    "sourceUrl": "https://shawforca.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Our Kids Are Worth It | Sonja Shaw for State Superintendent\" by Sonja Shaw for CA State Superintendent",
+      "uploaded 2026-10-07",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "ca26-thomas-wong": [
@@ -288,6 +454,94 @@
       "counciloris export council-clips/monterey-park-vinh-t-ngo.json: 2026-07-01 City Council Meeting — July 1, 2026, called on just before: \"ys having so many great events at the library. Councilman Ngo? Thank you, Mayor.\"; rule: Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
       "quote: \"Kristen, great number of activities from wellness to workshops to movies and I'll just give another plug to the military installation. You'll be there for the entire month but it is so rare to have two major generals, two star …\"",
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "ftANH9V8vbI",
+    "kind": "interview",
+    "origin": "civic",
+    "title": "2026 Candidate Interview Ngo",
+    "channel": "Social Science Department AHS",
+    "published": "2026-10-14",
+    "durationSec": 576,
+    "host": "Alhambra High School Social Science Department",
+    "evidence": {
+     "foundVia": "YouTube search \"Monterey Park city council candidate forum 2026\"",
+     "checks": [
+      "oEmbed: \"2026 Candidate Interview Ngo\" by Social Science Department AHS",
+      "uploaded 2026-10-14",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-anna-slotky-reitano": [
+   {
+    "youtubeId": "NPmngV3azMU",
+    "kind": "interview",
+    "origin": "civic",
+    "title": "PODCAST 005: Judicial candidate, Anna Slotky Reitano (Seat 65)",
+    "channel": "San Fernando Valley Bar Association",
+    "published": "2026-09-02",
+    "durationSec": 1159,
+    "host": "San Fernando Valley Bar Association",
+    "evidence": {
+     "foundVia": "embedded on reitanoforjudge.com",
+     "checks": [
+      "oEmbed: \"PODCAST 005: Judicial candidate, Anna Slotky Reitano (Seat 65)\" by San Fernando Valley Bar Association",
+      "uploaded 2026-09-02",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-eleni-kounalakis": [
+   {
+    "youtubeId": "1GWHc-Pjb4c",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Stand Up and Fight Back",
+    "channel": "Eleni Kounalakis",
+    "published": "2026-04-28",
+    "durationSec": 30,
+    "sourceUrl": "https://eleniforca.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Stand Up and Fight Back\" by Eleni Kounalakis",
+      "uploaded 2026-04-28",
+      "embedded on the campaign's site https://eleniforca.com (saved 2026-10-23)"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-mike-gipson": [
+   {
+    "youtubeId": "MddHNRov7bE",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Mike Gipson for Board of Equalization: Accountable",
+    "channel": "Mike Gipson",
+    "published": "2026-10-22",
+    "durationSec": 30,
+    "sourceUrl": "https://www.youtube.com/@MikeGipson-boe",
+    "sourceLabel": "The campaign's YouTube channel (linked from its website)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Mike Gipson for Board of Equalization: Accountable\" by Mike Gipson",
+      "uploaded 2026-10-22",
+      "named in the title"
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"

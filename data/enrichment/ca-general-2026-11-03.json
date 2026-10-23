@@ -129,6 +129,17 @@
      "published": "2026-10-01",
      "durationSec": 205,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "UvKC4Sj_QCU",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "CA Has Always Been Home",
+     "channel": "Xavier Becerra for Governor",
+     "published": "2026-09-15",
+     "durationSec": 30,
+     "sourceUrl": "https://www.youtube.com/@becerraforgovernor",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
     }
    ]
   },
@@ -259,6 +270,17 @@
      "published": "2026-05-29",
      "durationSec": 682,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "qBFHwlqBcKw",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "My Promise to California | Fiona Ma for Lieutenant Governor 2026",
+     "channel": "CA Lieutenant Governor Candidate Fiona Ma, CPA",
+     "published": "2026-10-16",
+     "durationSec": 30,
+     "sourceUrl": "https://www.youtube.com/@fionama",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
     }
    ]
   },
@@ -303,6 +325,26 @@
      "published": "2026-05-29",
      "durationSec": 1386,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "nr2mRUN1jAw",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas",
+     "channel": "VOZ",
+     "published": "2026-08-06",
+     "durationSec": 3611
+    },
+    {
+     "youtubeId": "uHFKHfI4aX0",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Together, We Can Make California Golden Again.",
+     "channel": "Gloria Romero",
+     "published": "2026-04-10",
+     "durationSec": 122,
+     "sourceUrl": "https://gloriajromero.com",
+     "sourceLabel": "Shown on the campaign's website"
     }
    ]
   },
@@ -441,6 +483,17 @@
      "published": "2026-07-12",
      "durationSec": 867,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "27Ws8ngDR_Y",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Herb Morgan for California State Controller",
+     "channel": "Herb Morgan for California Controller",
+     "published": "2026-10-07",
+     "durationSec": 43,
+     "sourceUrl": "https://www.youtube.com/@herb4controller",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
     }
    ]
   },
@@ -523,7 +576,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "1GWHc-Pjb4c",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Stand Up and Fight Back",
+     "channel": "Eleni Kounalakis",
+     "published": "2026-04-28",
+     "durationSec": 30,
+     "sourceUrl": "https://eleniforca.com",
+     "sourceLabel": "Shown on the campaign's website"
+    }
+   ]
   },
   "ca26-jennifer-hawks": {
    "summary": {
@@ -738,6 +804,17 @@
      "published": "2026-08-09",
      "durationSec": 1139,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "zkfR1ZOarwI",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "An Introduction - Ben Allen for Insurance Commissioner",
+     "channel": "Ben Allen",
+     "published": "2026-05-04",
+     "durationSec": 76,
+     "sourceUrl": "https://benallenca.com",
+     "sourceLabel": "Shown on the campaign's website"
     }
    ]
   },
@@ -789,6 +866,17 @@
      "published": "2026-07-26",
      "durationSec": 1159,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "VdaRc61cYfk",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Jane Kim for California Insurance Commissioner",
+     "channel": "Jane Kim",
+     "published": "2026-01-21",
+     "durationSec": 70,
+     "sourceUrl": "https://www.janekim.org",
+     "sourceLabel": "Shown on the campaign's website"
     }
    ]
   },
@@ -895,6 +983,17 @@
      "published": "2026-10-08",
      "durationSec": 3885,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "RSR2PAONeXE",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Our Kids Are Worth It | Sonja Shaw for State Superintendent",
+     "channel": "Sonja Shaw for CA State Superintendent",
+     "published": "2026-10-07",
+     "durationSec": 30,
+     "sourceUrl": "https://shawforca.com",
+     "sourceLabel": "Shown on the campaign's website"
     }
    ]
   },
@@ -937,7 +1036,20 @@
       "shared": false
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "MddHNRov7bE",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Mike Gipson for Board of Equalization: Accountable",
+     "channel": "Mike Gipson",
+     "published": "2026-10-22",
+     "durationSec": 30,
+     "sourceUrl": "https://www.youtube.com/@MikeGipson-boe",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
+    }
+   ]
   },
   "ca26-samuel-p-sukaton": {
    "summary": {
@@ -1144,6 +1256,16 @@
      "endSec": 2699,
      "sourceUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=2660",
      "sourceLabel": "Transcript of the 2026-07-01 meeting (counciloris.com)"
+    },
+    {
+     "youtubeId": "ftANH9V8vbI",
+     "kind": "interview",
+     "origin": "civic",
+     "title": "2026 Candidate Interview Ngo",
+     "channel": "Social Science Department AHS",
+     "published": "2026-10-14",
+     "durationSec": 576,
+     "host": "Alhambra High School Social Science Department"
     }
    ]
   },
@@ -1724,7 +1846,19 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "NPmngV3azMU",
+     "kind": "interview",
+     "origin": "civic",
+     "title": "PODCAST 005: Judicial candidate, Anna Slotky Reitano (Seat 65)",
+     "channel": "San Fernando Valley Bar Association",
+     "published": "2026-09-02",
+     "durationSec": 1159,
+     "host": "San Fernando Valley Bar Association"
+    }
+   ]
   },
   "ca26-justin-allen-clayton": {
    "guide": {
