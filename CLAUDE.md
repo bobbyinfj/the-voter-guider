@@ -89,7 +89,7 @@ stacked on a phone), toggled at the top of the ballot with a ? explainer. A dism
 and a button in each contest's info panel nudge toward Expanded.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
 `/how-we-score`). Compact by default: a small video, the one-line summary, then a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, details in the
-hover title) and the one-line summary; clicking a chip opens the full cards. Columns: an interview video (debates with everyone in the race show once above, "Watch them
+hover title); clicking an icon opens just that column's card below the icons, clicking it again closes it. Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
 ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly
 False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies)
