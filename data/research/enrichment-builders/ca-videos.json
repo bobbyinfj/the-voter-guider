@@ -189,7 +189,112 @@
     "durationSec": 3885,
     "origin": "independent"
    }
+  ],
+  "ca26-thomas-wong": [
+   {
+    "youtubeId": "_ZK0skhcbIc",
+    "kind": "meeting",
+    "origin": "government",
+    "title": "MPK City Council Meeting, July 1, 2026, 6:30 p.m.",
+    "channel": "City of Monterey Park",
+    "published": "2026-07-02",
+    "durationSec": 9455,
+    "startSec": 932,
+    "endSec": 969,
+    "sourceUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=932",
+    "sourceLabel": "Transcript of the 2026-07-01 meeting (counciloris.com)",
+    "evidence": {
+     "foundVia": "counciloris export-person-clips",
+     "checks": [
+      "oEmbed: \"MPK City Council Meeting, July 1, 2026, 6:30 p.m.\" by City of Monterey Park",
+      "uploaded 2026-07-02",
+      "counciloris export council-clips/monterey-park-thomas-wong.json: 2026-07-01 City Council Meeting — July 1, 2026, called on just before: \"know the feedback from those that at least returned the survey. Appreciate that.\"; rule: Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+      "quote: \"I don't hear a lot of complaints, just the occasional they miss my trash or bulky item. Sometimes it's their fault, too. So appreciate that you guys are on top of it. Continue to provide excellent service in the city. …\"",
+      "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "yhQO0lfwteY",
+    "kind": "meeting",
+    "origin": "government",
+    "title": "MPK City Council Meeting, Aug. 5, 2026, 6:30 p.m.",
+    "channel": "City of Monterey Park",
+    "published": "2026-08-06",
+    "durationSec": 14690,
+    "startSec": 9634,
+    "endSec": 9667,
+    "sourceUrl": "https://counciloris.com/transcripts/2026-08-05/City%20Council%20Regular%20Meeting%20?t=10033",
+    "sourceLabel": "Transcript of the 2026-08-05 meeting (counciloris.com)",
+    "evidence": {
+     "foundVia": "counciloris export-person-clips",
+     "checks": [
+      "oEmbed: \"MPK City Council Meeting, Aug. 5, 2026, 6:30 p.m.\" by City of Monterey Park",
+      "uploaded 2026-08-06",
+      "counciloris export council-clips/monterey-park-thomas-wong.json: 2026-08-05 City Council Regular Meeting — August 5, 2026, called on just before: \"ould still be allowable through state law. Councilman Wong, did you want to add?\"; rule: Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+      "quote: \"Well, if the votes aren't there, it's fine. But if I'm wrong, I mean, correct me if I'm wrong, right, Surplus 9 Act requires us to allow affordable housing developers to come in and have first choice or prior first …\"",
+      "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-vinh-t-ngo": [
+   {
+    "youtubeId": "21C9NcDZYfg",
+    "kind": "meeting",
+    "origin": "government",
+    "title": "MPK City Council Meeting, July 15, 2026, 6:30 p.m.",
+    "channel": "City of Monterey Park",
+    "published": "2026-07-16",
+    "durationSec": 7445,
+    "startSec": 7001,
+    "endSec": 7061,
+    "sourceUrl": "https://counciloris.com/transcripts/2026-07-15/mpk-city-council-meeting-july-15-2026-6-30-p-m?t=7001",
+    "sourceLabel": "Transcript of the 2026-07-15 meeting (counciloris.com)",
+    "evidence": {
+     "foundVia": "counciloris export-person-clips",
+     "checks": [
+      "oEmbed: \"MPK City Council Meeting, July 15, 2026, 6:30 p.m.\" by City of Monterey Park",
+      "uploaded 2026-07-16",
+      "counciloris export council-clips/monterey-park-vinh-t-ngo.json: 2026-07-15 City Council Meeting — July 15, 2026, called on just before: \"ns and future agenda items for Councilman Yang. None here. Okay. Councilman Ngo.\"; rule: Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+      "quote: \"I just want to report that we just had the 250th birthday for the US, 4th of July and I hope everyone had a great long weekend just a couple of weeks ago and then there is a continuing exhibit …\"",
+      "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "_ZK0skhcbIc",
+    "kind": "meeting",
+    "origin": "government",
+    "title": "MPK City Council Meeting, July 1, 2026, 6:30 p.m.",
+    "channel": "City of Monterey Park",
+    "published": "2026-07-02",
+    "durationSec": 9455,
+    "startSec": 2660,
+    "endSec": 2699,
+    "sourceUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=2660",
+    "sourceLabel": "Transcript of the 2026-07-01 meeting (counciloris.com)",
+    "evidence": {
+     "foundVia": "counciloris export-person-clips",
+     "checks": [
+      "oEmbed: \"MPK City Council Meeting, July 1, 2026, 6:30 p.m.\" by City of Monterey Park",
+      "uploaded 2026-07-02",
+      "counciloris export council-clips/monterey-park-vinh-t-ngo.json: 2026-07-01 City Council Meeting — July 1, 2026, called on just before: \"ys having so many great events at the library. Councilman Ngo? Thank you, Mayor.\"; rule: Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+      "quote: \"Kristen, great number of activities from wellness to workshops to movies and I'll just give another plug to the military installation. You'll be there for the entire month but it is so rare to have two major generals, two star …\"",
+      "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
   ]
  },
- "races": {}
+ "races": {},
+ "measures": {}
 }

@@ -1071,7 +1071,35 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "_ZK0skhcbIc",
+     "kind": "meeting",
+     "origin": "government",
+     "title": "MPK City Council Meeting, July 1, 2026, 6:30 p.m.",
+     "channel": "City of Monterey Park",
+     "published": "2026-07-02",
+     "durationSec": 9455,
+     "startSec": 932,
+     "endSec": 969,
+     "sourceUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=932",
+     "sourceLabel": "Transcript of the 2026-07-01 meeting (counciloris.com)"
+    },
+    {
+     "youtubeId": "yhQO0lfwteY",
+     "kind": "meeting",
+     "origin": "government",
+     "title": "MPK City Council Meeting, Aug. 5, 2026, 6:30 p.m.",
+     "channel": "City of Monterey Park",
+     "published": "2026-08-06",
+     "durationSec": 14690,
+     "startSec": 9634,
+     "endSec": 9667,
+     "sourceUrl": "https://counciloris.com/transcripts/2026-08-05/City%20Council%20Regular%20Meeting%20?t=10033",
+     "sourceLabel": "Transcript of the 2026-08-05 meeting (counciloris.com)"
+    }
+   ]
   },
   "ca26-steven-kung": {
    "ethics": {
@@ -1089,7 +1117,35 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "21C9NcDZYfg",
+     "kind": "meeting",
+     "origin": "government",
+     "title": "MPK City Council Meeting, July 15, 2026, 6:30 p.m.",
+     "channel": "City of Monterey Park",
+     "published": "2026-07-16",
+     "durationSec": 7445,
+     "startSec": 7001,
+     "endSec": 7061,
+     "sourceUrl": "https://counciloris.com/transcripts/2026-07-15/mpk-city-council-meeting-july-15-2026-6-30-p-m?t=7001",
+     "sourceLabel": "Transcript of the 2026-07-15 meeting (counciloris.com)"
+    },
+    {
+     "youtubeId": "_ZK0skhcbIc",
+     "kind": "meeting",
+     "origin": "government",
+     "title": "MPK City Council Meeting, July 1, 2026, 6:30 p.m.",
+     "channel": "City of Monterey Park",
+     "published": "2026-07-02",
+     "durationSec": 9455,
+     "startSec": 2660,
+     "endSec": 2699,
+     "sourceUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=2660",
+     "sourceLabel": "Transcript of the 2026-07-01 meeting (counciloris.com)"
+    }
+   ]
   },
   "ca26-dora-leung": {
    "ethics": {

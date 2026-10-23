@@ -1,0 +1,38 @@
+{
+ "schema": "counciloris.person-clips",
+ "version": 1,
+ "generatedAt": "2026-10-23T23:02:59+00:00",
+ "city": "monterey-park",
+ "person": {
+  "name": "Thomas Wong",
+  "globalSpeakerUuid": "14507726-6e38-5e31-a7ff-1e78b9983fbf"
+ },
+ "rule": "Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+ "clips": [
+  {
+   "youtubeId": "_ZK0skhcbIc",
+   "startSec": 932,
+   "endSec": 969,
+   "meetingDate": "2026-07-01",
+   "meetingTitle": "City Council Meeting — July 1, 2026",
+   "transcriptUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=932",
+   "quote": "I don't hear a lot of complaints, just the occasional they miss my trash or bulky item. Sometimes it's their fault, too. So appreciate that you guys are on top of it. Continue to provide excellent service in the city. …",
+   "calledOn": "Councilmember Wong, I believe the contract has language for annual survey. It sounds like WHERE though is interested in continuing to do it at least annually, correct? Yeah, great. No, I appreciate that and I know the feedback from those that at least returned the survey. Appreciate that.",
+   "turnSeconds": 37.1,
+   "transcriptFile": "video_20260717_021433.json"
+  },
+  {
+   "youtubeId": "yhQO0lfwteY",
+   "startSec": 9634,
+   "endSec": 9667,
+   "meetingDate": "2026-08-05",
+   "meetingTitle": "City Council Regular Meeting — August 5, 2026",
+   "transcriptUrl": "https://counciloris.com/transcripts/2026-08-05/City%20Council%20Regular%20Meeting%20?t=10033",
+   "quote": "Well, if the votes aren't there, it's fine. But if I'm wrong, I mean, correct me if I'm wrong, right, Surplus 9 Act requires us to allow affordable housing developers to come in and have first choice or prior first …",
+   "calledOn": "So if that was a choice in the future, we would go through that process. It would still be allowable through state law. Councilman Wong, did you want to add?",
+   "turnSeconds": 32.4,
+   "transcriptFile": "video_20260807_102227.json"
+  }
+ ],
+ "qualifyingMeetings": 2
+}

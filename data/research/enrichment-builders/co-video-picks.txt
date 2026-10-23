@@ -17,7 +17,6 @@ co26-secretary-of-state | DMB4Nljvx7Y | debate | independent ; host=Colorado Pol
 co26-kevin-grantham | VghI2Mn05PI | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
 co26-jeff-bridges | xSQSJEbEEBY | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
 co26-attorney-general | 6zJfdMZFRUQ | debate | independent ; host=The Colorado Sun and Noticias Univision Colorado ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen" ; with=co26-jena-griswold,co26-michael-j-allen
-co26-michael-j-allen | n0afj555jsQ | interview | independent ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen"
 co26-governor | GF8J_vea64Y | forum | civic ; host=Colorado Chamber of Commerce ; found=YouTube search "Victor Marx Phil Weiser debate October 2026" ; with=co26-phil-weiser,co26-victor-marx
 co26-phil-weiser | ELnS-duesGM | interview | independent ; found=YouTube search "Colorado Point of View Phil Weiser"
 co26-phil-weiser | sXTw_9IWafs | interview | independent ; host=The Colorado Sun ; found=YouTube search "Victor Marx Phil Weiser debate October 2026"
@@ -31,3 +30,9 @@ co26-amanda-gonzalez | Z7T914tP53Y | interview | independent ; found=YouTube sea
 co26-jena-griswold | Bv8jAuBgEdk | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
 co26-jena-griswold | AjzVl1rOeGg | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
 co26-edie-hooton | 7gSOb65jGCY | statement | campaign ; source=https://www.youtube.com/@EdieforColorado ; label=The campaign's YouTube channel ; found=YouTube search "Edie Hooton CU Regent"
+co26-michael-j-allen | n0afj555jsQ | interview | independent ; start=76 ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen"
+co26-mark-baisley | hRaPAmr3000 | interview | independent ; start=484 ; said=506 "And joining me now here on Colorado Point of View is State Senator Mark Baisley." ; found=YouTube search "Colorado US Senate debate 2026 Hickenlooper Baisley"
+
+# League of Women Voters forum, State House districts 52 and 53, 9/30/26, on the City of Fort Collins channel
+co26-house-52 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-steve-yurash@202,co26-yara-zokaie@309 ; said=212 "I'm Steve Urash with the Colorado" ; said=265 "my socialist opponent Yara Zokai's attack"
+co26-house-53 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-andy-boesenecker@401,co26-daniel-frick@497 ; said=188 "Andy Bazenecker" ; said=508 "I'm Daniel Frick."

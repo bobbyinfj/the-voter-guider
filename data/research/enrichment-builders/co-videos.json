@@ -18,6 +18,7 @@
     "channel": "FOX31 Denver",
     "published": "2026-09-05",
     "durationSec": 1361,
+    "startSec": 76,
     "evidence": {
      "foundVia": "YouTube search \"Colorado attorney general debate 2026 Griswold Allen\"",
      "checks": [
@@ -284,6 +285,28 @@
       "oEmbed: \"Edie Hooton for CU Regent\" by Edie Hooton for CU Regent",
       "uploaded 2026-06-11",
       "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-mark-baisley": [
+   {
+    "youtubeId": "hRaPAmr3000",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Mark Baisley, Republican candidate running against Sen. John Hickenlooper | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-07-25",
+    "durationSec": 1352,
+    "startSec": 484,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado US Senate debate 2026 Hickenlooper Baisley\"",
+     "checks": [
+      "oEmbed: \"Mark Baisley, Republican candidate running against Sen. John Hickenlooper | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-07-25",
+      "transcript at 506s: \"And joining me now here on Colorado Point of View is State Senator Mark Baisley.\""
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"
@@ -579,6 +602,72 @@
       "uploaded 2026-10-15",
       "co26-jena-griswold: named in the description",
       "co26-michael-j-allen: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-house-52": [
+   {
+    "youtubeId": "OlEsdZF4CYs",
+    "kind": "forum",
+    "origin": "independent",
+    "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-01",
+    "durationSec": 5394,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-steve-yurash",
+      "startSec": 202
+     },
+     {
+      "id": "co26-yara-zokaie",
+      "startSec": 309
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)\" by City of Fort Collins",
+      "uploaded 2026-10-01",
+      "co26-steve-yurash: transcript at 212s: \"I'm Steve Urash with the Colorado\" (transcribed as \"urash\")",
+      "co26-yara-zokaie: transcript at 265s: \"my socialist opponent Yara Zokai's attack\" (transcribed as \"zokai\")"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-house-53": [
+   {
+    "youtubeId": "OlEsdZF4CYs",
+    "kind": "forum",
+    "origin": "independent",
+    "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+    "channel": "City of Fort Collins",
+    "published": "2026-10-01",
+    "durationSec": 5394,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-andy-boesenecker",
+      "startSec": 401
+     },
+     {
+      "id": "co26-daniel-frick",
+      "startSec": 497
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)\" by City of Fort Collins",
+      "uploaded 2026-10-01",
+      "co26-andy-boesenecker: transcript at 188s: \"Andy Bazenecker\" (transcribed as \"bazenecker\")",
+      "co26-daniel-frick: transcript at 508s: \"I'm Daniel Frick.\""
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"

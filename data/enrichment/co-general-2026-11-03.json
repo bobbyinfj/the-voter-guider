@@ -4,6 +4,16 @@
   "co26-mark-baisley": {
    "videos": [
     {
+     "youtubeId": "hRaPAmr3000",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Mark Baisley, Republican candidate running against Sen. John Hickenlooper | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-07-25",
+     "durationSec": 1352,
+     "startSec": 484
+    },
+    {
      "youtubeId": "0B-B0dsDjvs",
      "kind": "debate",
      "origin": "independent",
@@ -213,22 +223,14 @@
   "co26-michael-j-allen": {
    "videos": [
     {
-     "youtubeId": "6zJfdMZFRUQ",
-     "kind": "debate",
-     "title": "The Colorado Sun: The Attorney General Candidate Debate",
-     "channel": "The Colorado Sun",
-     "published": "2026-10-15",
-     "durationSec": 3885,
-     "origin": "independent"
-    },
-    {
      "youtubeId": "n0afj555jsQ",
      "kind": "interview",
      "origin": "independent",
      "title": "Michael Allen, Republican candidate for Colorado Attorney General | Colorado Point of View",
      "channel": "FOX31 Denver",
      "published": "2026-09-05",
-     "durationSec": 1361
+     "durationSec": 1361,
+     "startSec": 76
     },
     {
      "youtubeId": "6zJfdMZFRUQ",
@@ -244,15 +246,6 @@
   },
   "co26-jena-griswold": {
    "videos": [
-    {
-     "youtubeId": "6zJfdMZFRUQ",
-     "kind": "debate",
-     "title": "The Colorado Sun: The Attorney General Candidate Debate",
-     "channel": "The Colorado Sun",
-     "published": "2026-10-15",
-     "durationSec": 3885,
-     "origin": "independent"
-    },
     {
      "youtubeId": "Bv8jAuBgEdk",
      "kind": "statement",
@@ -299,6 +292,66 @@
      "durationSec": 30,
      "sourceUrl": "https://www.youtube.com/@EdieforColorado",
      "sourceLabel": "The campaign's YouTube channel"
+    }
+   ]
+  },
+  "co26-yara-zokaie": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "startSec": 309
+    }
+   ]
+  },
+  "co26-steve-yurash": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "startSec": 202
+    }
+   ]
+  },
+  "co26-daniel-frick": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "startSec": 497
+    }
+   ]
+  },
+  "co26-andy-boesenecker": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "startSec": 401
     }
    ]
   },
@@ -710,6 +763,66 @@
     }
    ]
   },
+  "co26-house-52": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-steve-yurash",
+       "startSec": 202
+      },
+      {
+       "id": "co26-yara-zokaie",
+       "startSec": 309
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=68343384"
+    }
+   ]
+  },
+  "co26-house-53": {
+   "videos": [
+    {
+     "youtubeId": "OlEsdZF4CYs",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: State House Representatives Districts 52 & 53 (9/30/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-01",
+     "durationSec": 5394,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-andy-boesenecker",
+       "startSec": 401
+      },
+      {
+       "id": "co26-daniel-frick",
+       "startSec": 497
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=72573301"
+    }
+   ]
+  },
   "co26-us-house-2": {
    "links": [
     {
@@ -723,22 +836,6 @@
     {
      "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
      "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699104"
-    }
-   ]
-  },
-  "co26-house-52": {
-   "links": [
-    {
-     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
-     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=68343384"
-    }
-   ]
-  },
-  "co26-house-53": {
-   "links": [
-    {
-     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
-     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=72573301"
     }
    ]
   },
