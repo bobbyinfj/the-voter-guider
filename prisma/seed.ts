@@ -266,10 +266,12 @@ async function seedElectionBundle(slug: string) {
   // Candidate extras (data/enrichment/<slug>.json, built by data/research/enrichment-builders)
   let enrichment: Record<string, { website?: string } & Record<string, unknown>> = {};
   let raceExtras: Record<string, Prisma.InputJsonObject> = {};
+  let measureExtras: Record<string, Prisma.InputJsonObject> = {};
   try {
     const file = JSON.parse(readFileSync(resolve(dataRoot, "enrichment", `${slug}.json`), "utf-8"));
     enrichment = file.candidates;
     raceExtras = file.races ?? {};
+    measureExtras = file.measures ?? {};
     console.log(`   ✅ Enrichment for ${Object.keys(enrichment).length} candidates, ${Object.keys(raceExtras).length} races`);
   } catch {
     console.log("   ℹ️  No enrichment file — candidate profiles cleared.");
@@ -401,6 +403,8 @@ async function seedElectionBundle(slug: string) {
         passes: m.passes ?? null,
         ...(m.ballot ? { ballot: m.ballot } : {}),
         ...(m.documents?.length ? { documents: m.documents } : {}),
+        // Explainers and each side's videos (data/enrichment/<slug>.json measures)
+        ...(measureExtras[m.id] ? { extras: measureExtras[m.id] } : {}),
         ...(m.scope ? { scope: m.scope } : {}),
       } as Prisma.InputJsonObject,
       districtType: m.districtType ?? null,

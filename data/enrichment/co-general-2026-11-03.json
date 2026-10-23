@@ -1,6 +1,19 @@
 {
  "slug": "co-general-2026-11-03",
  "candidates": {
+  "co26-mark-baisley": {
+   "videos": [
+    {
+     "youtubeId": "0B-B0dsDjvs",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in Colorado U.S. Senate debate",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 3185
+    }
+   ]
+  },
   "co26-john-hickenlooper": {
    "factCheck": {
     "publisher": "PolitiFact",
@@ -16,7 +29,186 @@
     },
     "bio": "John Hickenlooper is a former governor of Colorado. Hickenlooper served as a governor from 2011 to 2019.",
     "latestYear": 2019
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "0B-B0dsDjvs",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in Colorado U.S. Senate debate",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 3185
+    }
+   ]
+  },
+  "co26-victor-marx": {
+   "videos": [
+    {
+     "youtubeId": "n_bgCGlRuP4",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Victor Marx: Interview with Republican candidate for Colorado governor | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-08-08",
+     "durationSec": 1357
+    },
+    {
+     "youtubeId": "KywOV9EkNFg",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Full interview: Colorado Republican gubernatorial candidate Victor Marx",
+     "channel": "Next 9NEWS",
+     "published": "2026-05-28",
+     "durationSec": 1748
+    },
+    {
+     "youtubeId": "GF8J_vea64Y",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "Colorado Chamber of Commerce 2026 Gubernatorial Forum",
+     "channel": "The Colorado Chamber of Commerce",
+     "published": "2026-10-09",
+     "durationSec": 3152,
+     "host": "Colorado Chamber of Commerce"
+    }
+   ]
+  },
+  "co26-phil-weiser": {
+   "videos": [
+    {
+     "youtubeId": "ELnS-duesGM",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Phil Weiser, Democratic nominee running for Colorado governor | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-07-19",
+     "durationSec": 1357
+    },
+    {
+     "youtubeId": "sXTw_9IWafs",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The Colorado Sun: A conversation with Phil Weiser",
+     "channel": "Rocky Mountain PBS",
+     "published": "2026-10-09",
+     "durationSec": 4389,
+     "host": "The Colorado Sun"
+    },
+    {
+     "youtubeId": "-zgbzltwzmw",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
+     "channel": "KOAA 5",
+     "published": "2026-08-28",
+     "durationSec": 3556
+    },
+    {
+     "youtubeId": "GF8J_vea64Y",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "Colorado Chamber of Commerce 2026 Gubernatorial Forum",
+     "channel": "The Colorado Chamber of Commerce",
+     "published": "2026-10-09",
+     "durationSec": 3152,
+     "host": "Colorado Chamber of Commerce"
+    }
+   ]
+  },
+  "co26-greg-lopez": {
+   "videos": [
+    {
+     "youtubeId": "-zgbzltwzmw",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
+     "channel": "KOAA 5",
+     "published": "2026-08-28",
+     "durationSec": 3556
+    }
+   ]
+  },
+  "co26-amanda-gonzalez": {
+   "videos": [
+    {
+     "youtubeId": "sGKeanwGR3c",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Candidate Interview: Amanda Gonzalez — CO Secretary of State",
+     "channel": "Local News Network",
+     "published": "2026-10-13",
+     "durationSec": 606
+    },
+    {
+     "youtubeId": "Z7T914tP53Y",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Amanda Gonzalez, Democratic candidate for Colorado Secretary of State | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-08-22",
+     "durationSec": 1353
+    },
+    {
+     "youtubeId": "DMB4Nljvx7Y",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "2026 Colorado Secretary of State Debate",
+     "channel": "Gazette Visuals",
+     "published": "2026-10-11",
+     "durationSec": 4385,
+     "host": "Colorado Politics"
+    }
+   ]
+  },
+  "co26-james-wiley": {
+   "videos": [
+    {
+     "youtubeId": "WAeXmsfjZ9g",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Candidate Interview: James Wiley — CO Secretary of State",
+     "channel": "Local News Network",
+     "published": "2026-10-07",
+     "durationSec": 569
+    },
+    {
+     "youtubeId": "DMB4Nljvx7Y",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "2026 Colorado Secretary of State Debate",
+     "channel": "Gazette Visuals",
+     "published": "2026-10-11",
+     "durationSec": 4385,
+     "host": "Colorado Politics"
+    }
+   ]
+  },
+  "co26-jeff-bridges": {
+   "videos": [
+    {
+     "youtubeId": "xSQSJEbEEBY",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Candidate Interview: Jeff Bridges — CO State Treasurer",
+     "channel": "Local News Network",
+     "published": "2026-10-09",
+     "durationSec": 529
+    }
+   ]
+  },
+  "co26-kevin-grantham": {
+   "videos": [
+    {
+     "youtubeId": "VghI2Mn05PI",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Candidate Interview: Kevin Grantham — CO State Treasurer",
+     "channel": "Local News Network",
+     "published": "2026-10-06",
+     "durationSec": 1231
+    }
+   ]
   },
   "co26-michael-j-allen": {
    "videos": [
@@ -26,7 +218,27 @@
      "title": "The Colorado Sun: The Attorney General Candidate Debate",
      "channel": "The Colorado Sun",
      "published": "2026-10-15",
-     "durationSec": 3885
+     "durationSec": 3885,
+     "origin": "independent"
+    },
+    {
+     "youtubeId": "n0afj555jsQ",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Michael Allen, Republican candidate for Colorado Attorney General | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-09-05",
+     "durationSec": 1361
+    },
+    {
+     "youtubeId": "6zJfdMZFRUQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "The Colorado Sun: The Attorney General Candidate Debate",
+     "channel": "The Colorado Sun",
+     "published": "2026-10-15",
+     "durationSec": 3885,
+     "host": "The Colorado Sun and Noticias Univision Colorado"
     }
    ]
   },
@@ -38,7 +250,205 @@
      "title": "The Colorado Sun: The Attorney General Candidate Debate",
      "channel": "The Colorado Sun",
      "published": "2026-10-15",
-     "durationSec": 3885
+     "durationSec": 3885,
+     "origin": "independent"
+    },
+    {
+     "youtubeId": "Bv8jAuBgEdk",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Jena Griswold: Never Back Down",
+     "channel": "Jena Griswold",
+     "published": "2026-06-08",
+     "durationSec": 32,
+     "sourceUrl": "https://www.jenagriswold.com/",
+     "sourceLabel": "Shown on the campaign's website"
+    },
+    {
+     "youtubeId": "AjzVl1rOeGg",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Happened Right Here",
+     "channel": "Jena Griswold",
+     "published": "2026-02-16",
+     "durationSec": 128,
+     "sourceUrl": "https://www.jenagriswold.com/",
+     "sourceLabel": "Shown on the campaign's website"
+    },
+    {
+     "youtubeId": "6zJfdMZFRUQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "The Colorado Sun: The Attorney General Candidate Debate",
+     "channel": "The Colorado Sun",
+     "published": "2026-10-15",
+     "durationSec": 3885,
+     "host": "The Colorado Sun and Noticias Univision Colorado"
+    }
+   ]
+  },
+  "co26-edie-hooton": {
+   "videos": [
+    {
+     "youtubeId": "7gSOb65jGCY",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Edie Hooton for CU Regent",
+     "channel": "Edie Hooton for CU Regent",
+     "published": "2026-06-11",
+     "durationSec": 30,
+     "sourceUrl": "https://www.youtube.com/@EdieforColorado",
+     "sourceLabel": "The campaign's YouTube channel"
+    }
+   ]
+  },
+  "co26-shane-atkinson": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 289
+    }
+   ]
+  },
+  "co26-marc-roberson": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 363
+    }
+   ]
+  },
+  "co26-stephen-fowler": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 411
+    }
+   ]
+  },
+  "co26-tina-harris": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 1670
+    }
+   ]
+  },
+  "co26-kenneth-forsythe": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 1766
+    }
+   ]
+  },
+  "co26-joann-ginal": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 2621
+    }
+   ]
+  },
+  "co26-steve-olson": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 2726
+    }
+   ]
+  },
+  "co26-patrick-edwards": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 3711
+    }
+   ]
+  },
+  "co26-bob-overbeck": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 3806
+    }
+   ]
+  },
+  "co26-sam-bradley": {
+   "videos": [
+    {
+     "youtubeId": "MzQjjlUiVD8",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
+     "channel": "City of Fort Collins",
+     "published": "2026-10-08",
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "startSec": 3896
     }
    ]
   }
@@ -49,10 +459,20 @@
     {
      "youtubeId": "DMB4Nljvx7Y",
      "kind": "debate",
+     "origin": "independent",
      "title": "2026 Colorado Secretary of State Debate",
      "channel": "Gazette Visuals",
      "published": "2026-10-11",
-     "durationSec": 4385
+     "durationSec": 4385,
+     "host": "Colorado Politics",
+     "participants": [
+      {
+       "id": "co26-amanda-gonzalez"
+      },
+      {
+       "id": "co26-james-wiley"
+      }
+     ]
     }
    ],
    "links": [
@@ -67,10 +487,37 @@
     {
      "youtubeId": "-zgbzltwzmw",
      "kind": "debate",
+     "origin": "independent",
      "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
      "channel": "KOAA 5",
      "published": "2026-08-28",
-     "durationSec": 3556
+     "durationSec": 3556,
+     "participants": [
+      {
+       "id": "co26-greg-lopez"
+      },
+      {
+       "id": "co26-phil-weiser"
+      }
+     ]
+    },
+    {
+     "youtubeId": "GF8J_vea64Y",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "Colorado Chamber of Commerce 2026 Gubernatorial Forum",
+     "channel": "The Colorado Chamber of Commerce",
+     "published": "2026-10-09",
+     "durationSec": 3152,
+     "host": "Colorado Chamber of Commerce",
+     "participants": [
+      {
+       "id": "co26-phil-weiser"
+      },
+      {
+       "id": "co26-victor-marx"
+      }
+     ]
     }
    ],
    "links": [
@@ -85,10 +532,26 @@
     {
      "youtubeId": "MzQjjlUiVD8",
      "kind": "forum",
+     "origin": "independent",
      "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
      "channel": "City of Fort Collins",
      "published": "2026-10-08",
-     "durationSec": 5192
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-shane-atkinson",
+       "startSec": 289
+      },
+      {
+       "id": "co26-marc-roberson",
+       "startSec": 363
+      },
+      {
+       "id": "co26-stephen-fowler",
+       "startSec": 411
+      }
+     ]
     }
    ],
    "links": [
@@ -103,10 +566,22 @@
     {
      "youtubeId": "MzQjjlUiVD8",
      "kind": "forum",
+     "origin": "independent",
      "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
      "channel": "City of Fort Collins",
      "published": "2026-10-08",
-     "durationSec": 5192
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-tina-harris",
+       "startSec": 1670
+      },
+      {
+       "id": "co26-kenneth-forsythe",
+       "startSec": 1766
+      }
+     ]
     }
    ],
    "links": [
@@ -121,10 +596,22 @@
     {
      "youtubeId": "MzQjjlUiVD8",
      "kind": "forum",
+     "origin": "independent",
      "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
      "channel": "City of Fort Collins",
      "published": "2026-10-08",
-     "durationSec": 5192
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-joann-ginal",
+       "startSec": 2621
+      },
+      {
+       "id": "co26-steve-olson",
+       "startSec": 2726
+      }
+     ]
     }
    ],
    "links": [
@@ -139,10 +626,26 @@
     {
      "youtubeId": "MzQjjlUiVD8",
      "kind": "forum",
+     "origin": "independent",
      "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
      "channel": "City of Fort Collins",
      "published": "2026-10-08",
-     "durationSec": 5192
+     "durationSec": 5192,
+     "host": "League of Women Voters",
+     "participants": [
+      {
+       "id": "co26-patrick-edwards",
+       "startSec": 3711
+      },
+      {
+       "id": "co26-bob-overbeck",
+       "startSec": 3806
+      },
+      {
+       "id": "co26-sam-bradley",
+       "startSec": 3896
+      }
+     ]
     }
    ],
    "links": [
@@ -153,10 +656,57 @@
    ]
   },
   "co26-us-senate": {
+   "videos": [
+    {
+     "youtubeId": "0B-B0dsDjvs",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in Colorado U.S. Senate debate",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 3185,
+     "participants": [
+      {
+       "id": "co26-john-hickenlooper"
+      },
+      {
+       "id": "co26-mark-baisley"
+      }
+     ]
+    }
+   ],
    "links": [
     {
      "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
      "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=27100700"
+    }
+   ]
+  },
+  "co26-attorney-general": {
+   "videos": [
+    {
+     "youtubeId": "6zJfdMZFRUQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "The Colorado Sun: The Attorney General Candidate Debate",
+     "channel": "The Colorado Sun",
+     "published": "2026-10-15",
+     "durationSec": 3885,
+     "host": "The Colorado Sun and Noticias Univision Colorado",
+     "participants": [
+      {
+       "id": "co26-jena-griswold"
+      },
+      {
+       "id": "co26-michael-j-allen"
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
+     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699140"
     }
    ]
   },
@@ -173,14 +723,6 @@
     {
      "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
      "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699104"
-    }
-   ]
-  },
-  "co26-attorney-general": {
-   "links": [
-    {
-     "label": "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)",
-     "url": "https://www.vote411.org/ballot?lwv-ballot-widget-raceid=3699140"
     }
    ]
   },
@@ -232,5 +774,6 @@
     }
    ]
   }
- }
+ },
+ "measures": {}
 }

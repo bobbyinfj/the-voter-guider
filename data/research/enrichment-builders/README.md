@@ -23,10 +23,21 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   candidate endorses.
 - **Individuals are counted, not listed.** Organizations, news outlets, officials and named
   community leaders with titles get circles; long lists of private supporters become a count.
-- **Videos come from nonpartisan series**, in this order: League of Women Voters interviews,
-  then TVW / Seattle Channel video voters' guides, plus news-outlet debates that include
-  every candidate in the race. 2026 uploads only. Not used: incumbent-only "legislator
-  profile" clips, party-club endorsement interviews, personal channels.
+- **Videos say who made them** (`origin`, shown as a "Who made this" badge with an explainer),
+  most independent first:
+  1. `independent`: news outlets and nonpartisan series (League of Women Voters, TVW / Seattle
+     Channel video voters' guides, public media). Debates and forums list their `participants`,
+     named by the publisher or quoted from our transcript, with where each first speaks.
+  2. `civic`: forums by community groups (chambers, neighborhood councils, PTAs) that invited
+     every candidate in the race.
+  3. `government`: public-meeting clips (counciloris), picked by a fixed rule, with the
+     transcript link. They only exist for officeholders and people who spoke at a meeting.
+  4. `campaign`: the campaign's own videos, only when embedded or linked on its website or
+     posted by a channel named for the candidate; `sourceUrl` says which.
+  2026 uploads only (meeting clips: the past year). Never used: party or PAC videos, third-party
+  attack ads, or anything with embedding turned off. Same searches for every candidate in a race
+  (`tools/video-discover.py`); measures get an explainer, and a campaign's Yes or No video only
+  after the other side was searched too.
 - Endorsement quotes and logos aren't copied, only names.
 
 ## Colorado and California
@@ -68,5 +79,12 @@ The cache isn't committed (copyrighted pages). Rebuild it into `cache/wa/`:
    `wa-endorsement-picks.txt`, then `python3 tools/pick.py cache/wa wa-endorsement-picks.txt wa-endorsements.json`.
    Line numbers refer to the saved copy, so re-check picks after re-crawling.
 4. `python3 build.py wa` (needs `pymupdf`; `--offline` skips the YouTube check).
+
+Videos: `python3 tools/video-discover.py <state> [--measures]` writes `<state>-video-proposals.json`
+(metadata only, via yt-dlp). Review each one, transcribing long forums locally into
+`cache/transcripts/<id>.json` to quote who speaks when, record the decision in
+`<state>-video-picks.txt`, then run `python3 tools/video-approve.py <state>`. It re-checks every pick
+(embeddable, 2026, the candidate named or quoted) and writes `<state>-videos.json` with the checks
+as `evidence`. `python3 tools/video-coverage.py [--gaps]` shows which choices still have none.
 
 Retrieved 2026-10-20.

@@ -118,7 +118,8 @@
      "title": "Xavier Becerra explains why he should be California's next governor | California Politics 360",
      "channel": "KCRA 3",
      "published": "2026-04-26",
-     "durationSec": 2048
+     "durationSec": 2048,
+     "origin": "independent"
     },
     {
      "youtubeId": "cjS-2CIWmm8",
@@ -126,7 +127,8 @@
      "title": "Hilton, Becerra clash in California gubernatorial debate",
      "channel": "NBCLA",
      "published": "2026-10-01",
-     "durationSec": 205
+     "durationSec": 205,
+     "origin": "independent"
     }
    ]
   },
@@ -188,7 +190,8 @@
      "title": "Steve Hilton talks tax cuts, DMV overhaul, $3 gas and his other plans for California | CA Politic...",
      "channel": "KCRA 3",
      "published": "2026-09-20",
-     "durationSec": 2572
+     "durationSec": 2572,
+     "origin": "independent"
     },
     {
      "youtubeId": "cjS-2CIWmm8",
@@ -196,7 +199,8 @@
      "title": "Hilton, Becerra clash in California gubernatorial debate",
      "channel": "NBCLA",
      "published": "2026-10-01",
-     "durationSec": 205
+     "durationSec": 205,
+     "origin": "independent"
     }
    ]
   },
@@ -253,7 +257,8 @@
      "title": "Full interview | Lt. Gov candidate Fiona Ma",
      "channel": "KCRA 3",
      "published": "2026-05-29",
-     "durationSec": 682
+     "durationSec": 682,
+     "origin": "independent"
     }
    ]
   },
@@ -296,7 +301,8 @@
      "title": "Full interview | Lt. Gov candidate Gloria Romero",
      "channel": "KCRA 3",
      "published": "2026-05-29",
-     "durationSec": 1386
+     "durationSec": 1386,
+     "origin": "independent"
     }
    ]
   },
@@ -341,7 +347,8 @@
      "title": "Shirley Weber explains why she should be reelected as California's Secretary of State",
      "channel": "KCRA 3",
      "published": "2026-09-27",
-     "durationSec": 840
+     "durationSec": 840,
+     "origin": "independent"
     }
    ]
   },
@@ -386,7 +393,8 @@
      "title": "Don Wagner explains why he should be California's next Secretary of State | CA Politics 360 — Ful...",
      "channel": "KCRA 3",
      "published": "2026-10-04",
-     "durationSec": 954
+     "durationSec": 954,
+     "origin": "independent"
     }
    ]
   },
@@ -431,7 +439,8 @@
      "title": "California Politics 360 | CA controller candidate Herb Morgan — Full Interview",
      "channel": "KCRA 3",
      "published": "2026-07-12",
-     "durationSec": 867
+     "durationSec": 867,
+     "origin": "independent"
     }
    ]
   },
@@ -476,7 +485,8 @@
      "title": "Malia Cohen explains why she wants to be California state controller",
      "channel": "KCRA 3",
      "published": "2026-10-15",
-     "durationSec": 1049
+     "durationSec": 1049,
+     "origin": "independent"
     }
    ]
   },
@@ -611,7 +621,8 @@
      "title": "Michael Gates explains why he should be California's next Attorney General | CA Politics 360 — Fu...",
      "channel": "KCRA 3",
      "published": "2026-08-02",
-     "durationSec": 1572
+     "durationSec": 1572,
+     "origin": "independent"
     }
    ]
   },
@@ -677,7 +688,8 @@
      "title": "Full Interview: Rob Bonta explains why he should be reelected Attorney General | CA Politics 360",
      "channel": "KCRA 3",
      "published": "2026-10-11",
-     "durationSec": 1735
+     "durationSec": 1735,
+     "origin": "independent"
     }
    ]
   },
@@ -724,7 +736,8 @@
      "title": "Ben Allen explains why he should be California's next insurance commissioner",
      "channel": "KCRA 3",
      "published": "2026-08-09",
-     "durationSec": 1139
+     "durationSec": 1139,
+     "origin": "independent"
     }
    ]
   },
@@ -774,7 +787,8 @@
      "title": "Jane Kim explains why she should be California's next Insurance Commissioner",
      "channel": "KCRA 3",
      "published": "2026-07-26",
-     "durationSec": 1159
+     "durationSec": 1159,
+     "origin": "independent"
     }
    ]
   },
@@ -820,7 +834,8 @@
      "title": "Richard Barrera explains why he should be the next State Superintendent | CA Politics 360",
      "channel": "KCRA 3",
      "published": "2026-09-06",
-     "durationSec": 1091
+     "durationSec": 1091,
+     "origin": "independent"
     },
     {
      "youtubeId": "cgiCdJCZkEQ",
@@ -828,7 +843,8 @@
      "title": "Debate: Candidates for California schools chief face off as the role changes",
      "channel": "EdSource",
      "published": "2026-10-08",
-     "durationSec": 3885
+     "durationSec": 3885,
+     "origin": "independent"
     }
    ]
   },
@@ -868,7 +884,8 @@
      "title": "Sonja Shaw explains why she should be California’s next Superintendent of Public Instruction | CA...",
      "channel": "KCRA 3",
      "published": "2026-07-19",
-     "durationSec": 1123
+     "durationSec": 1123,
+     "origin": "independent"
     },
     {
      "youtubeId": "cgiCdJCZkEQ",
@@ -876,7 +893,8 @@
      "title": "Debate: Candidates for California schools chief face off as the role changes",
      "channel": "EdSource",
      "published": "2026-10-08",
-     "durationSec": 3885
+     "durationSec": 3885,
+     "origin": "independent"
     }
    ]
   },
@@ -2280,5 +2298,6 @@
     }
    ]
   }
- }
+ },
+ "measures": {}
 }

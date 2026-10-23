@@ -69,7 +69,13 @@ RACE_LINKS = {
     'co': ('co-vote411-races.json', "Every candidate's answers to the League of Women Voters questionnaire (VOTE411)"),
 }
 KINDS = {'org', 'official', 'media', 'person'}
-VIDEO_KINDS = {'interview', 'statement', 'debate', 'forum'}
+VIDEO_KINDS = {'interview', 'statement', 'debate', 'forum', 'explainer', 'meeting'}
+# Who made it (lib/profile.ts VIDEO_ORIGINS); campaign and meeting videos also need the page they came from
+ORIGINS = {'independent', 'civic', 'government', 'campaign'}
+# Public-meeting clips may come from the past year; everything else is from this cycle
+MEETING_SINCE = '2025-10-01'
+# Kept in the videos JSON for review, not shown to voters
+REVIEW_ONLY = ('evidence',)
 
 
 def squash(s):
@@ -93,6 +99,10 @@ def oembed(video_id):
         return json.load(r)
 
 
+def shown(video):
+    return {k: v for k, v in video.items() if k not in REVIEW_ONLY}
+
+
 def load(name, default):
     path = HERE / name
     return json.loads(path.read_text()) if path.exists() else default
@@ -108,15 +118,21 @@ def build(state, offline=False):
     errors = []
     checked = {}
 
-    def check_videos(owner, vids):
+    def check_videos(owner, vids, people=()):
         for v in vids:
-            if not re.fullmatch(r'[\w-]{11}', v['youtubeId']) or v['kind'] not in VIDEO_KINDS or not v['published'].startswith('2026'):
+            dated = v['published'] >= MEETING_SINCE if v['kind'] == 'meeting' else v['published'].startswith('2026')
+            needs_page = v['kind'] == 'meeting' or v.get('origin') == 'campaign'
+            if (not re.fullmatch(r'[\w-]{11}', v['youtubeId']) or v['kind'] not in VIDEO_KINDS or v.get('origin') not in ORIGINS
+                    or not dated or (needs_page and not str(v.get('sourceUrl', '')).startswith('https://'))):
                 errors.append(f'{owner}: bad video {v}')
             elif not offline:
                 o = checked.get(v['youtubeId']) or oembed(v['youtubeId'])
                 checked[v['youtubeId']] = o
                 if o['title'] != v['title'] or o['author_name'] != v['channel']:
                     errors.append(f"{owner}: video {v['youtubeId']} is now '{o['title']}' by {o['author_name']}")
+            for p in v.get('participants', []):
+                if p['id'] not in people:
+                    errors.append(f"{owner}: video {v['youtubeId']} participant {p['id']} isn't in the race")
 
     statements = cfg['statements'](cache, candidates) if 'statements' in cfg else {}
     endorsements = load(f'{state}-endorsements.json', {})
@@ -144,6 +160,8 @@ def build(state, offline=False):
         if cid not in ids:
             errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
 
+    office_of = {c['id']: o['id'] for o in bundle['offices'] for c in o['candidates']}
+    race_videos = videos['races']
     out = {}
     for c in candidates:
         cid = c['id']
@@ -204,8 +222,11 @@ def build(state, offline=False):
 
         vids = videos['candidates'].get(cid, [])
         check_videos(cid, vids)
+        # Race forums and debates they're in, from where they first speak when we know it
+        vids = vids + [{**{k: x for k, x in shown(v).items() if k != 'participants'}, **({'startSec': p['startSec']} if 'startSec' in p else {})}
+                       for v in race_videos.get(office_of[cid], []) for p in v.get('participants', []) if p['id'] == cid]
         if vids:
-            entry['videos'] = vids
+            entry['videos'] = [shown(v) for v in vids]
         if entry:
             out[cid] = entry
 
@@ -213,8 +234,16 @@ def build(state, offline=False):
     for office_id, vids in videos['races'].items():
         if office_id not in office_ids:
             errors.append(f'{office_id}: not an office in {cfg["slug"]}')
-        check_videos(office_id, vids)
-        races.setdefault(office_id, {})['videos'] = vids
+        check_videos(office_id, vids, {cid for cid, o in office_of.items() if o == office_id})
+        races.setdefault(office_id, {})['videos'] = [shown(v) for v in vids]
+    # Measures and retentions: explainers, forums, and each side's own videos
+    measure_ids = {m['id'] for m in bundle['measures']}
+    measures = {}
+    for measure_id, vids in videos.get('measures', {}).items():
+        if measure_id not in measure_ids:
+            errors.append(f'{measure_id}: not a measure in {cfg["slug"]}')
+        check_videos(measure_id, vids)
+        measures[measure_id] = {'videos': [shown(v) for v in vids]}
     if state in RACE_LINKS:
         file, label = RACE_LINKS[state]
         for office_id, url in load(file, {}).items():
@@ -231,10 +260,10 @@ def build(state, offline=False):
         sys.exit('Refusing to write:\n  ' + '\n  '.join(errors))
     dest = ROOT / 'data/enrichment' / f"{cfg['slug']}.json"
     dest.parent.mkdir(exist_ok=True)
-    dest.write_text(json.dumps({'slug': cfg['slug'], 'candidates': out, 'races': races}, indent=1, ensure_ascii=False) + '\n')
+    dest.write_text(json.dumps({'slug': cfg['slug'], 'candidates': out, 'races': races, 'measures': measures}, indent=1, ensure_ascii=False) + '\n')
     count = lambda k: sum(1 for v in out.values() if k in v)
     print(f"{dest.relative_to(ROOT)}: {len(candidates)} candidates; summary {count('summary')}, website {count('website')}, "
-          f"videos {count('videos')}, endorsements {count('endorsements')}, guide {count('guide')}, factCheck {count('factCheck')}; races with extras {len(races)}")
+          f"videos {count('videos')} (+{len(measures)} measures), endorsements {count('endorsements')}, guide {count('guide')}, factCheck {count('factCheck')}; races with extras {len(races)}")
 
 
 if __name__ == '__main__':

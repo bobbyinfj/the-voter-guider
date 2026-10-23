@@ -6,7 +6,7 @@ import { BallotPage, accentButton, outlineButton } from "@/components/ballot/Pap
 import PamphletSummary from "@/components/candidate/PamphletSummary";
 import VideoFacade from "@/components/candidate/VideoFacade";
 import { EndorsementList } from "@/components/candidate/Endorsements";
-import { asProfile, isHttpUrl } from "@/lib/profile";
+import { asProfile, isHttpUrl, sortVideos } from "@/lib/profile";
 import NewsGuide from "@/components/candidate/NewsGuide";
 
 interface Props {
@@ -130,12 +130,13 @@ export default async function CandidatePage({ params }: Props) {
           <section className={section} aria-labelledby="watch">
             <h2 id="watch" className="mb-3 font-ballot-heading text-lg font-bold">Watch</h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              {profile.videos.map((v) => (
-                <VideoFacade key={v.youtubeId} video={v} />
+              {sortVideos(profile.videos).map((v) => (
+                <VideoFacade key={`${v.youtubeId}-${v.startSec ?? 0}`} video={v} />
               ))}
             </div>
             <p className="mt-3 text-xs text-gray-600">
-              From nonpartisan series (League of Women Voters, TVW, Seattle Channel, public radio) and news debates.
+              Most independent first: news outlets and nonpartisan series, then civic forums, public meeting records, and
+              the campaign&apos;s own videos. Each one says who made it; click that label for what it means.
             </p>
           </section>
         ) : null}
