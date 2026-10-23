@@ -307,13 +307,16 @@ function flagSummary(candidate: BallotCandidate) {
   const { checked, flags } = flagsFor(candidate.profile)
   if (flags.length)
     return {
-      chip: `🚩 ${flags.length} flag${flags.length > 1 ? 's' : ''}`,
-      tone: flags.some((f) => f.level === 'red') ? 'border-red-300 bg-red-50 text-red-900' : 'border-amber-300 bg-amber-50 text-amber-900',
+      icon: '🚩',
+      value: String(flags.length),
+      label: `${flags.length} flag${flags.length > 1 ? 's' : ''}`,
+      tone: flags.some((f) => f.level === 'red') ? 'border-red-400 bg-red-50' : 'border-amber-400 bg-amber-50',
+      mark: flags.some((f) => f.level === 'red') ? 'bg-red-600 text-white' : 'bg-amber-400 text-amber-950',
       hover: flags.map((f) => `${f.level === 'red' ? 'Red' : 'Yellow'}: ${f.text} (${f.source.label})`).join('\n'),
     }
   if (checked.length)
-    return { chip: '🚩 none found', tone: 'border-gray-200 bg-white text-gray-700', hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}` }
-  return { chip: '🚩 –', tone: 'border-gray-200 bg-white text-gray-500', hover: 'No flag checks cover this race yet' }
+    return { icon: '🚩', value: '✓', label: 'No flags found', tone: 'border-gray-200 bg-white', mark: 'bg-green-700 text-white', hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}` }
+  return { icon: '🚩', value: '–', label: 'No flag checks', tone: 'border-gray-200 bg-white opacity-60', mark: 'bg-gray-200 text-gray-700', hover: 'No flag checks cover this race yet' }
 }
 
 function meterSummary(candidate: BallotCandidate, comparable: boolean) {
@@ -322,10 +325,17 @@ function meterSummary(candidate: BallotCandidate, comparable: boolean) {
   const claims = candidate.profile?.claims.length ?? 0
   const extra = claims ? `\n${claims} debate claim${claims > 1 ? 's' : ''} fact-checked by ${candidate.profile!.claims[0].publisher} (not in the %)` : ''
   if (fc && score.pct !== null && comparable)
-    return { chip: `💩 ${score.pct}%`, hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
+    return { icon: '💩', value: `${score.pct}%`, label: `💩 meter ${score.pct}%`, tone: 'border-amber-700/40 bg-amber-50', mark: 'bg-amber-800 text-white', hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
   if (fc && score.total)
-    return { chip: '💩 –', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
-  return { chip: claims ? `💩 – · ${claims} claims checked` : '💩 –', hover: `No PolitiFact rulings on them${extra}` }
+    return { icon: '💩', value: '–', label: '💩 meter not scored', tone: 'border-gray-200 bg-white', mark: 'bg-gray-200 text-gray-700', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
+  return {
+    icon: '💩',
+    value: claims ? `${claims}✓` : '–',
+    label: claims ? `${claims} claims fact-checked` : 'No fact-checks',
+    tone: claims ? 'border-gray-300 bg-white' : 'border-gray-200 bg-white opacity-60',
+    mark: 'bg-gray-200 text-gray-700',
+    hover: `No PolitiFact rulings on them${extra}`,
+  }
 }
 
 function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
@@ -339,22 +349,39 @@ function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
   ]
   const count = (candidate.incumbent ? 1 : 0) + (g?.rating ? 1 : 0) + badges.length
   return {
-    chip: count ? `🏅 ${count}` : names.length ? '🏅 endorsements' : '🏅 –',
+    icon: '🏅',
+    value: count ? String(count) : names.length ? '+' : '–',
+    label: count ? `${count} badge${count > 1 ? 's' : ''}` : names.length ? 'Endorsements' : 'No badges',
+    tone: count || names.length ? 'border-sky-300 bg-sky-50' : 'border-gray-200 bg-white opacity-60',
+    mark: count || names.length ? 'bg-sky-700 text-white' : 'bg-gray-200 text-gray-700',
     hover: names.length ? names.join('\n') : "No badges from our sources (that doesn't mean no endorsements)",
   }
 }
 
-function Chip({ text, hover, tone = 'border-gray-200 bg-white text-gray-800', onClick, open }: { text: string; hover: string; tone?: string; onClick: () => void; open: boolean }) {
+interface TileInfo {
+  icon: string
+  value: string
+  label: string
+  tone: string
+  mark: string
+  hover: string
+}
+
+// A 40px icon with its value in a corner marker; hover for the details, click for the full cards
+function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void; open: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-expanded={open}
-      title={hover}
-      aria-label={`${text}. ${hover.replace(/\n/g, '. ')}. ${open ? 'Hide' : 'Show'} details`}
-      className={`whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-semibold hover:brightness-95 ${tone}`}
+      title={tile.hover}
+      aria-label={`${tile.label}. ${tile.hover.replace(/\n/g, '. ')}. ${open ? 'Hide' : 'Show'} details`}
+      className={`relative flex h-10 min-w-10 items-center justify-center rounded-lg border-2 px-1 text-2xl leading-none shadow-sm hover:brightness-95 ${tile.tone}`}
     >
-      {text}
+      <span aria-hidden>{tile.icon}</span>
+      <span aria-hidden className={`absolute -right-2 -top-2 min-w-5 rounded-full px-1 text-center text-[0.6875rem] font-bold leading-5 shadow ${tile.mark}`}>
+        {tile.value}
+      </span>
     </button>
   )
 }
@@ -407,16 +434,16 @@ export function CandidateScorecard({
           <div className="w-28 shrink-0">
             <VideoCell candidate={candidate} race={race} small />
           </div>
-          <div className="min-w-0 flex-1 space-y-1">
-            <div className="flex flex-wrap items-center gap-1">
-              <Chip text={flag.chip} hover={flag.hover} tone={flag.tone} onClick={toggle} open={open} />
-              <Chip text={meter.chip} hover={meter.hover} onClick={toggle} open={open} />
-              <Chip text={badge.chip} hover={badge.hover} onClick={toggle} open={open} />
+          <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
+            {summary ?? <span />}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <IconTile tile={flag} onClick={toggle} open={open} />
+              <IconTile tile={meter} onClick={toggle} open={open} />
+              <IconTile tile={badge} onClick={toggle} open={open} />
               <button type="button" onClick={toggle} aria-expanded={open} className="text-xs text-blue-700 hover:underline">
                 Details
               </button>
             </div>
-            {summary}
           </div>
         </div>
       )}
@@ -431,15 +458,23 @@ export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; 
   const toggle = () => setOpen((o) => !o)
   if (!open)
     return (
-      <div className="flex flex-wrap items-center gap-1 font-sans">
+      <div className="flex flex-wrap items-center gap-4 pt-2 font-sans">
         {([[labels[0], yes], [labels[1], no]] as const).map(([label, list]) => (
-          <Chip
-            key={label}
-            text={`🏅 Say ${label}: ${list.length}`}
-            hover={list.length ? list.map((b) => b.by).join('\n') : 'None in the guides we use'}
-            onClick={toggle}
-            open={open}
-          />
+          <span key={label} className="flex items-center gap-1.5 text-xs font-semibold text-gray-700">
+            <IconTile
+              tile={{
+                icon: '🏅',
+                value: String(list.length),
+                label: `${list.length} say ${label}`,
+                tone: list.length ? 'border-sky-300 bg-sky-50' : 'border-gray-200 bg-white opacity-60',
+                mark: list.length ? 'bg-sky-700 text-white' : 'bg-gray-200 text-gray-700',
+                hover: list.length ? list.map((b) => b.by).join('\n') : 'None in the guides we use',
+              }}
+              onClick={toggle}
+              open={open}
+            />
+            Say {label}
+          </span>
         ))}
         <button type="button" onClick={toggle} aria-expanded={open} className="text-xs text-blue-700 hover:underline">
           Details
