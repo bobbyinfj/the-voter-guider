@@ -1,13 +1,13 @@
 {
   "slug": "ca-general-2026-11-03",
   "electionId": "ca-general-2026",
-  "title": "2026 General Election — Monterey Park, CA",
+  "title": "2026 General Election — Monterey Park & Montebello, CA",
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "California's November 3 general election as it appears on Monterey Park ballots: Monterey Park city races and measures, Los Angeles Community College District trustees, Assembly District 49, U.S. House District 28, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park addresses. A few edge precincts also vote on a Water Replenishment District seat, a Montebello Unified trustee area or City of Los Angeles Measure SC; those aren't included. California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
+  "description": "California's November 3 general election as it appears on Monterey Park and Montebello ballots (pick your city to see just yours). Monterey Park: city races and measures, Assembly District 49, U.S. House District 28. Montebello: city council and treasurer, State Senate District 30, Assembly District 54, U.S. House District 38, and for some addresses Montebello Unified Trustee Area 2 and Water Replenishment District Division 4. Both: Los Angeles Community College District trustees, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park and Montebello addresses. A few edge precincts vote on contests that aren't included (City of Los Angeles Measure SC, El Rancho Unified Measure ED, and in Monterey Park a Water Replenishment District seat or a Montebello Unified trustee area). California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
   "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
-  "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
+  "districtLookupUrl": "https://isb.lavote.gov/",
   "jurisdiction": {
     "name": "California",
     "state": "CA",
@@ -30,6 +30,14 @@
       "countyName": "Los Angeles",
       "type": "city",
       "fipsCode": "0648914"
+    },
+    {
+      "id": "montebello",
+      "name": "Montebello",
+      "state": "CA",
+      "countyName": "Los Angeles",
+      "type": "city",
+      "fipsCode": "0648816"
     }
   ],
   "offices": [
@@ -57,13 +65,16 @@
           "shortBio": "United States Representative"
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 800,
+        "order": 1800,
         "section": "",
         "heading": [
           "UNITED STATES REPRESENTATIVE, 28th District"
@@ -99,18 +110,18 @@
       "description": "Chief executive of California. 4-year term; Gavin Newsom is term-limited.",
       "candidates": [
         {
-          "id": "ca26-steve-hilton",
-          "name": "Steve Hilton",
-          "party": "Republican",
-          "incumbent": false,
-          "shortBio": "Small Business Owner"
-        },
-        {
           "id": "ca26-xavier-becerra",
           "name": "Xavier Becerra",
           "party": "Democratic",
           "incumbent": false,
           "shortBio": "Voting Rights Attorney"
+        },
+        {
+          "id": "ca26-steve-hilton",
+          "name": "Steve Hilton",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Small Business Owner"
         }
       ],
       "ballot": {
@@ -119,7 +130,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1800,
+        "order": 2800,
         "section": "",
         "heading": [
           "GOVERNOR"
@@ -131,16 +142,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10828.json",
         "candidates": [
           {
-            "name": "Steve Hilton",
-            "label": "STEVE HILTON",
-            "party": "Party Preference: Republican",
-            "designation": "Small Business Owner"
-          },
-          {
             "name": "Xavier Becerra",
             "label": "XAVIER BECERRA",
             "party": "Party Preference: Democratic",
             "designation": "Voting Rights Attorney"
+          },
+          {
+            "name": "Steve Hilton",
+            "label": "STEVE HILTON",
+            "party": "Party Preference: Republican",
+            "designation": "Small Business Owner"
           }
         ],
         "writeIn": false
@@ -155,18 +166,18 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-gloria-romero",
-          "name": "Gloria Romero",
-          "party": "Republican",
-          "incumbent": false,
-          "shortBio": "Educator/Businesswoman"
-        },
-        {
           "id": "ca26-fiona-ma",
           "name": "Fiona Ma",
           "party": "Democratic",
           "incumbent": false,
           "shortBio": "State Treasurer/CPA"
+        },
+        {
+          "id": "ca26-gloria-romero",
+          "name": "Gloria Romero",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Educator/Businesswoman"
         }
       ],
       "ballot": {
@@ -175,7 +186,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1900,
+        "order": 2900,
         "section": "",
         "heading": [
           "LIEUTENANT GOVERNOR"
@@ -187,16 +198,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10829.json",
         "candidates": [
           {
-            "name": "Gloria Romero",
-            "label": "GLORIA ROMERO",
-            "party": "Party Preference: Republican",
-            "designation": "Educator/Businesswoman"
-          },
-          {
             "name": "Fiona Ma",
             "label": "FIONA MA",
             "party": "Party Preference: Democratic",
             "designation": "State Treasurer/CPA"
+          },
+          {
+            "name": "Gloria Romero",
+            "label": "GLORIA ROMERO",
+            "party": "Party Preference: Republican",
+            "designation": "Educator/Businesswoman"
           }
         ],
         "writeIn": false
@@ -211,18 +222,18 @@
       "description": "Chief elections officer. 4-year term.",
       "candidates": [
         {
-          "id": "ca26-donald-p-don-wagner",
-          "name": "Donald P. (Don) Wagner",
-          "party": "Republican",
-          "incumbent": false,
-          "shortBio": "Orange County Supervisor"
-        },
-        {
           "id": "ca26-shirley-n-weber",
           "name": "Shirley N. Weber",
           "party": "Democratic",
           "incumbent": true,
           "shortBio": "California Secretary of State"
+        },
+        {
+          "id": "ca26-donald-p-don-wagner",
+          "name": "Donald P. (Don) Wagner",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Orange County Supervisor"
         }
       ],
       "ballot": {
@@ -231,7 +242,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2000,
+        "order": 3000,
         "section": "",
         "heading": [
           "SECRETARY OF STATE"
@@ -243,16 +254,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10830.json",
         "candidates": [
           {
-            "name": "Donald P. (Don) Wagner",
-            "label": "DONALD P. (DON) WAGNER",
-            "party": "Party Preference: Republican",
-            "designation": "Orange County Supervisor"
-          },
-          {
             "name": "Shirley N. Weber",
             "label": "SHIRLEY N. WEBER",
             "party": "Party Preference: Democratic",
             "designation": "California Secretary of State"
+          },
+          {
+            "name": "Donald P. (Don) Wagner",
+            "label": "DONALD P. (DON) WAGNER",
+            "party": "Party Preference: Republican",
+            "designation": "Orange County Supervisor"
           }
         ],
         "writeIn": false
@@ -267,18 +278,18 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-malia-m-cohen",
-          "name": "Malia M. Cohen",
-          "party": "Democratic",
-          "incumbent": true,
-          "shortBio": "State Controller/Mother"
-        },
-        {
           "id": "ca26-herb-w-morgan",
           "name": "Herb W Morgan",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Chief Investment Officer"
+        },
+        {
+          "id": "ca26-malia-m-cohen",
+          "name": "Malia M. Cohen",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "State Controller/Mother"
         }
       ],
       "ballot": {
@@ -287,7 +298,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2100,
+        "order": 3100,
         "section": "",
         "heading": [
           "CONTROLLER"
@@ -299,16 +310,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10831.json",
         "candidates": [
           {
-            "name": "Malia M. Cohen",
-            "label": "MALIA M. COHEN",
-            "party": "Party Preference: Democratic",
-            "designation": "State Controller/Mother"
-          },
-          {
             "name": "Herb W Morgan",
             "label": "HERB W MORGAN",
             "party": "Party Preference: Republican",
             "designation": "Chief Investment Officer"
+          },
+          {
+            "name": "Malia M. Cohen",
+            "label": "MALIA M. COHEN",
+            "party": "Party Preference: Democratic",
+            "designation": "State Controller/Mother"
           }
         ],
         "writeIn": false
@@ -323,18 +334,18 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-jennifer-hawks",
-          "name": "Jennifer Hawks",
-          "party": "Republican",
-          "incumbent": false,
-          "shortBio": "Retired Business Executive"
-        },
-        {
           "id": "ca26-eleni-kounalakis",
           "name": "Eleni Kounalakis",
           "party": "Democratic",
           "incumbent": false,
           "shortBio": "Lieutenant Governor of California"
+        },
+        {
+          "id": "ca26-jennifer-hawks",
+          "name": "Jennifer Hawks",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Retired Business Executive"
         }
       ],
       "ballot": {
@@ -343,7 +354,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2200,
+        "order": 3200,
         "section": "",
         "heading": [
           "TREASURER"
@@ -355,16 +366,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10832.json",
         "candidates": [
           {
-            "name": "Jennifer Hawks",
-            "label": "JENNIFER HAWKS",
-            "party": "Party Preference: Republican",
-            "designation": "Retired Business Executive"
-          },
-          {
             "name": "Eleni Kounalakis",
             "label": "ELENI KOUNALAKIS",
             "party": "Party Preference: Democratic",
             "designation": "Lieutenant Governor of California"
+          },
+          {
+            "name": "Jennifer Hawks",
+            "label": "JENNIFER HAWKS",
+            "party": "Party Preference: Republican",
+            "designation": "Retired Business Executive"
           }
         ],
         "writeIn": false
@@ -379,18 +390,18 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-rob-bonta",
-          "name": "Rob Bonta",
-          "party": "Democratic",
-          "incumbent": true,
-          "shortBio": "California Attorney General"
-        },
-        {
           "id": "ca26-michael-e-gates",
           "name": "Michael E. Gates",
           "party": "Republican",
           "incumbent": false,
           "shortBio": "Deputy United States Attorney"
+        },
+        {
+          "id": "ca26-rob-bonta",
+          "name": "Rob Bonta",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "California Attorney General"
         }
       ],
       "ballot": {
@@ -399,7 +410,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2300,
+        "order": 3300,
         "section": "",
         "heading": [
           "ATTORNEY GENERAL"
@@ -411,16 +422,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10833.json",
         "candidates": [
           {
-            "name": "Rob Bonta",
-            "label": "ROB BONTA",
-            "party": "Party Preference: Democratic",
-            "designation": "California Attorney General"
-          },
-          {
             "name": "Michael E. Gates",
             "label": "MICHAEL E. GATES",
             "party": "Party Preference: Republican",
             "designation": "Deputy United States Attorney"
+          },
+          {
+            "name": "Rob Bonta",
+            "label": "ROB BONTA",
+            "party": "Party Preference: Democratic",
+            "designation": "California Attorney General"
           }
         ],
         "writeIn": false
@@ -435,18 +446,18 @@
       "description": "4-year term.",
       "candidates": [
         {
-          "id": "ca26-jane-kim",
-          "name": "Jane Kim",
-          "party": "Democratic",
-          "incumbent": false,
-          "shortBio": "Attorney/Consumer Advocate"
-        },
-        {
           "id": "ca26-ben-allen",
           "name": "Ben Allen",
           "party": "Democratic",
           "incumbent": false,
           "shortBio": "California State Senator"
+        },
+        {
+          "id": "ca26-jane-kim",
+          "name": "Jane Kim",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "Attorney/Consumer Advocate"
         }
       ],
       "ballot": {
@@ -455,7 +466,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2400,
+        "order": 3400,
         "section": "",
         "heading": [
           "INSURANCE COMMISSIONER"
@@ -467,16 +478,16 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10834.json",
         "candidates": [
           {
-            "name": "Jane Kim",
-            "label": "JANE KIM",
-            "party": "Party Preference: Democratic",
-            "designation": "Attorney/Consumer Advocate"
-          },
-          {
             "name": "Ben Allen",
             "label": "BEN ALLEN",
             "party": "Party Preference: Democratic",
             "designation": "California State Senator"
+          },
+          {
+            "name": "Jane Kim",
+            "label": "JANE KIM",
+            "party": "Party Preference: Democratic",
+            "designation": "Attorney/Consumer Advocate"
           }
         ],
         "writeIn": false
@@ -491,18 +502,18 @@
       "description": "Nonpartisan. 4-year term.",
       "candidates": [
         {
-          "id": "ca26-sonja-shaw",
-          "name": "Sonja Shaw",
-          "party": "Nonpartisan",
-          "incumbent": false,
-          "shortBio": "School District President"
-        },
-        {
           "id": "ca26-richard-barrera",
           "name": "Richard Barrera",
           "party": "Nonpartisan",
           "incumbent": false,
           "shortBio": "State Superintendent Advisor"
+        },
+        {
+          "id": "ca26-sonja-shaw",
+          "name": "Sonja Shaw",
+          "party": "Nonpartisan",
+          "incumbent": false,
+          "shortBio": "School District President"
         }
       ],
       "ballot": {
@@ -511,7 +522,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2600,
+        "order": 3600,
         "section": "",
         "heading": [
           "SUPERINTENDENT OF PUBLIC INSTRUCTION"
@@ -523,14 +534,14 @@
         "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10836.json",
         "candidates": [
           {
-            "name": "Sonja Shaw",
-            "label": "SONJA SHAW",
-            "designation": "School District President"
-          },
-          {
             "name": "Richard Barrera",
             "label": "RICHARD BARRERA",
             "designation": "State Superintendent Advisor"
+          },
+          {
+            "name": "Sonja Shaw",
+            "label": "SONJA SHAW",
+            "designation": "School District President"
           }
         ],
         "writeIn": true
@@ -565,7 +576,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2500,
+        "order": 3500,
         "section": "",
         "heading": [
           "MEMBER STATE BOARD OF EQUALIZATION 3rd District"
@@ -622,13 +633,16 @@
           }
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 700,
+        "order": 1700,
         "section": "",
         "heading": [
           "MEMBER OF THE STATE ASSEMBLY, 49th District"
@@ -680,7 +694,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1100,
+        "order": 2100,
         "section": "",
         "heading": [
           "SHERIFF"
@@ -724,13 +738,16 @@
           "shortBio": "Monterey Park City Councilmember"
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 0,
+        "order": 500,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -788,13 +805,16 @@
           }
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 100,
+        "order": 600,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -836,13 +856,16 @@
           "shortBio": "Mother/Realtor/Entrepreneur"
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 500,
+        "order": 1500,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -879,13 +902,16 @@
           "shortBio": "City Treasurer/Attorney"
         }
       ],
+      "scope": {
+        "city": "monterey-park"
+      },
       "ballot": {
         "source": "https://isb.lavote.gov/",
         "style": {
           "party": "below",
           "responses": "stacked"
         },
-        "order": 600,
+        "order": 1600,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -952,7 +978,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 200,
+        "order": 700,
         "section": "",
         "heading": [
           "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
@@ -1050,7 +1076,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 300,
+        "order": 800,
         "section": "",
         "heading": [
           "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
@@ -1146,7 +1172,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 400,
+        "order": 900,
         "section": "",
         "heading": [
           "LOS ANGELES COMMUNITY COLLEGE DISTRICT",
@@ -1210,7 +1236,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1200,
+        "order": 2200,
         "section": "",
         "heading": [
           "JUDGE OF THE SUPERIOR COURT",
@@ -1264,7 +1290,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1300,
+        "order": 2300,
         "section": "",
         "heading": [
           "JUDGE OF THE SUPERIOR COURT",
@@ -1318,7 +1344,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1400,
+        "order": 2400,
         "section": "",
         "heading": [
           "JUDGE OF THE SUPERIOR COURT",
@@ -1372,7 +1398,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1500,
+        "order": 2500,
         "section": "",
         "heading": [
           "JUDGE OF THE SUPERIOR COURT",
@@ -1393,6 +1419,762 @@
             "name": "DAVID ROSS",
             "label": "DAVID ROSS",
             "designation": "Deputy Alternate Public Defender, County of Los Angeles"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-us-house-38",
+      "title": "U.S. Representative, District 38",
+      "level": "federal",
+      "jurisdictionFips": "06",
+      "sortOrder": 11,
+      "description": "2-year term. Every Montebello ballot includes District 38.",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "ca26-pedro-antonio-casas",
+          "name": "PEDRO ANTONIO CASAS",
+          "party": "Republican",
+          "incumbent": false,
+          "countyStatement": {
+            "order": 519,
+            "title": "STATEMENT OF PEDRO ANTONIO CASAS",
+            "text": "PARTY PREFERENCE: REPUBLICAN\n\nUNITED STATES REPRESENTATIVE, 38th DISTRICT\n\nDr. Pedro 'Antonio' Casas, Ph.D., Colonel, U.S. Army (retired) (29 years of service).\n\nLicensed Clinical/Forensic/Aero-Medical Psychologist.Raised in Baldwin Park (picked oranges) – Parents from Zacatecas, Mexico.Deployment to Afghanistan as a Commander.Two deployments to Iraq as Chief of Mental Health.Testified in criminal trials as expert for prosecution of rapists and pedophiles.Los Angeles Courts; represented undocumented immigrants, victims of domestic violence, military veterans; free of charge.Top Secret Assignments: Commander, Pentagon, F.B.I., N.S.A., Site R.\n\nAs your Congressman:\n\nImmigration Bill will PROTECT Immigrants.My plan will remove child pornographers, child rapists, murders, from our Country.Medical Bill for Immigrants.No Men in Women's/Girl's Sports.No Men in Girls Bathrooms.No child mutilation surgery.'Parent Rights' in children's education.Catholic/Christian values.JROTC at every high school – ROTC expanded to junior colleges.AFFORDABILITY thru 1) lower state and federal income taxes, 2) lower gas by $2 per gallon, 3) lower property taxes, 4) lower car and property insurance, 5) fewer regulations/taxes to help small businesses, 6) low-income homes/mortgages. Every single problem above has been present for DECADES: I HAVE SOLUTIONS TO MAKE YOUR LIFE BETTER.Supports 2nd Amendment.\n\nDr. Casas will lose over $75,000 every single year from his private practice to serve the people. My agenda will FIX the worst schools in the Country, lower homelessness, lower drug abuse, lower out of control crime, and investigate FRAUD, which have been present for DECADES.\n\nI WILL FIGHT TO MAKE YOUR LIFE BETTER; NOT GET RICH!\n\nDECLARACIÓN DE PEDRO ANTONIO CASAS\n\nPREFERENCIA DE PARTIDO: REPUBLICANO\n\nREPRESENTANTE DE LOS ESTADOS UNIDOS, 38° DISTRITO\n\nDr. Pedro 'Antonio' Casas, Ph.D. (Doctorado), Coronel del Ejército de los EE. UU. (jubilado) (29 años de servicio).\n\nPsicólogo Clínico/Forense/Aeromédico Licenciado.Criado en Baldwin Park (donde recogían naranjas) – Sus padres son de Zacatecas, México.Despliegue en Afganistán como Comandante.Dos despliegues a Irak como Jefe de Salud Mental.Testificó en juicios penales como perito de la fiscalía de violadores y pedófilos.Tribunales de Los Angeles: representó de forma gratuita a inmigrantes indocumentados, víctimas de violencia doméstica y veteranos militares.Misiones de Alto Secreto: Comandante, Pentágono, F.B.I. (Oficina Federal de Investigaciones), N.S.A. (Agencia de Seguridad Nacional), Sitio R.\n\nComo su Congresista:\n\nEl Proyecto de Ley de Inmigración PROTEGERÁ a los Inmigrantes.Mi plan eliminará a los productores de pornografía infantil, violadores de niños y asesinatos de nuestro país.Factura Médica para Inmigrantes.No Hombres en los Deportes de Mujeres/de Niñas.No Hombres en los Baños de Mujeres.No a la cirugía de mutilación infantil.'Derechos de los Padres' en la educación de los niños.Valores Católicos/Cristianos.JROTC (Cuerpo de Entrenamiento de Oficiales de Reserva Junior) presente en todas las preparatorias – el ROTC (Cuerpo de Entrenamiento de Oficiales de Reserva) extendido a los colegios de dos años.ACCESIBILIDAD a través de: 1) impuestos estatales y federales sobre la renta más bajos, 2) reducir el precio de la gasolina en $2 por galón, 3) impuestos sobre la propiedad más bajos, 4) seguros de automóviles y propiedades más baratos, 5) menos regulaciones/impuestos para ayudar a las pequeñas empresas, 6) viviendas/hipotecas para personas de bajos ingresos. Cada uno de los problemas mencionados anteriormente ha estado presente durante DÉCADAS; TENGO SOLUCIONES PARA MEJORAR SU VIDA.Apoya la 2.a Enmienda.\n\nEl Dr. Casas perderá más de $75,000 cada año en su consultorio privado para atender a la comunidad. Mi agenda será SOLUCIONAR el problema de las peores escuelas del país, reducir la falta de vivienda, reducir el abuso de drogas, reducir la delincuencia descontrolada e investigar el FRAUDE, que han estado presentes durante DÉCADAS.\n\n¡LUCHARÉ PARA MEJORAR SU VIDA, NO PARA HACERME RICO!",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10817.json"
+          }
+        },
+        {
+          "id": "ca26-hilda-solis",
+          "name": "HILDA SOLIS",
+          "party": "Democratic",
+          "incumbent": false,
+          "shortBio": "County Supervisor",
+          "countyStatement": {
+            "order": 520,
+            "title": "STATEMENT OF HILDA SOLIS",
+            "text": "PARTY PREFERENCE: DEMOCRATIC\n\nUNITED STATES REPRESENTATIVE, 38th DISTRICT\n\nThe working people of Southern California deserve a strong advocate in Congress. County Supervisor Hilda Solis is a proven fighter, and we can count on her to fight to create local jobs and economic growth, make neighborhoods safer, and tackle inflation and the high cost of health care, groceries, gasoline, insurance, housing and rent.\n\nThat's why Hilda Solis is the candidate in the 38th District endorsed by nurses, firefighters, deputies, small business owners, Planned Parenthood Action Fund, and unions representing tens of thousands of working families.\n\nHilda Solis has demonstrated that she stands up for the people – not the powerful – as an educator, lawmaker, U.S. Representative, President Barack Obama's Secretary of Labor, and county supervisor. She works across party lines to get things done, and is endorsed by Independents and the Democratic Party.\n\nRaised in the San Gabriel Valley as the daughter of immigrants, Hilda Solis fights for affordable healthcare for all. She's fighting back against the Trump Administration as they slash Medi-Cal for millions of Southern California residents. Hilda Solis fights for solutions to save the health and emergency care systems – and that's why she's supported by United Healthcare Workers.\n\nHilda Solis works to make our neighborhoods safer. That's why she's supported by Sheriff Robert Luna and Los Angeles County Firefighters Local #1014.\n\nHilda Solis works to improve our local economy so that people can earn more at work and get a fair chance to buy or rent an affordable home. She secured grants for small businesses to create local jobs. And Hilda Solis fights to lower the cost of living for all.\n\nWe need Hilda Solis in Congress, fighting for us.\n\nVisit HildaSolis.com",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10817.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1300,
+        "section": "",
+        "heading": [
+          "UNITED STATES REPRESENTATIVE, 38th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10817.json",
+        "candidates": [
+          {
+            "name": "PEDRO ANTONIO CASAS",
+            "label": "PEDRO ANTONIO CASAS",
+            "party": "Party Preference: Republican"
+          },
+          {
+            "name": "HILDA SOLIS",
+            "label": "HILDA SOLIS",
+            "party": "Party Preference: Democratic",
+            "designation": "County Supervisor"
+          }
+        ],
+        "writeIn": false
+      }
+    },
+    {
+      "id": "ca26-state-senate-30",
+      "title": "State Senate, District 30",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 39,
+      "description": "4-year term. Every Montebello ballot includes Senate District 30.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-bob-j-archuleta",
+          "name": "BOB J. ARCHULETA",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "State Senator",
+          "countyStatement": {
+            "order": 493,
+            "title": "STATEMENT OF BOB J. ARCHULETA",
+            "text": "PARTY PREFERENCE: DEMOCRATIC\n\nSTATE SENATOR, 30th DISTRICT\n\nSenator Bob Archuleta is a former Obama Presidential Appointee to the United States West Point Military Academy, an Army combat veteran and former paratrooper with the 82nd Airborne Division, who also served with the Montebello Police Department, and has valuable local governmental experience as the former Mayor and councilmember for the City of Pico Rivera.\n\nSenator Archuleta has been able to successfully work across party lines to help secure more than $100 million in state funding for local infrastructure projects, including parks, libraries, transportation, water and public safety projects, while supporting education, veteran services, clean energy initiatives, and supporting our first responders.\n\nSenator Archuleta has been a strong fighter for veterans, seniors, working families, women, equal and fair rights for all; public safety, small businesses, while promoting economic growth, environmental responsibility and good-paying local jobs.\n\nSenator Archuleta believes the government should be accountable, responsive, and transparent to the public, while focusing on practical solutions that improve the quality of life for the residents and tax-payers.\n\nSenator Archuleta's steadfast leadership and commitment to the public have earned him the trust of thousands of residents, community and regional leaders, organizations, and local law enforcement and first responder associations throughout the district.\n\nSenator Archuleta respectfully asks for your vote and support so he can continue working to keep neighborhoods safe, strengthen the local economy, and protect the quality of life for all families across the district.\n\nSenatorArchuleta2026@gmail.com",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10778.json"
+          }
+        },
+        {
+          "id": "ca26-araceli-martinez",
+          "name": "ARACELI MARTINEZ",
+          "party": "Republican",
+          "incumbent": false,
+          "shortBio": "Small Business Owner"
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1100,
+        "section": "",
+        "heading": [
+          "STATE SENATOR, 30th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10778.json",
+        "candidates": [
+          {
+            "name": "BOB J. ARCHULETA",
+            "label": "BOB J. ARCHULETA",
+            "party": "Party Preference: Democratic",
+            "designation": "State Senator"
+          },
+          {
+            "name": "ARACELI MARTINEZ",
+            "label": "ARACELI MARTINEZ",
+            "party": "Party Preference: Republican",
+            "designation": "Small Business Owner"
+          }
+        ],
+        "writeIn": false
+      }
+    },
+    {
+      "id": "ca26-assembly-54",
+      "title": "State Assembly, District 54",
+      "level": "state",
+      "jurisdictionFips": "06",
+      "sortOrder": 41,
+      "description": "2-year term. Every Montebello ballot includes Assembly District 54.",
+      "termYears": 2,
+      "candidates": [
+        {
+          "id": "ca26-alexandra-briseno",
+          "name": "ALEXANDRA BRISENO",
+          "party": "Republican",
+          "incumbent": false,
+          "countyStatement": {
+            "order": 506,
+            "title": "STATEMENT OF ALEXANDRA BRISENO",
+            "text": "PARTY PREFERENCE: REPUBLICAN\n\nMEMBER OF THE STATE ASSEMBLY, 54th DISTRICT\n\nAlexandra Brisenowww.Briseno54.com\n\nCalifornia families are working harder and paying more for nearly everything—from housing, groceries, gas, utilities, and healthcare to the cost of raising a family or operating a business. I am running for State Assembly District 54 because Sacramento decisions have real consequences in our homes, workplaces, and communities.\n\nAs an electrical engineer and community and policy advocate, I bring technical expertise, practical problem-solving, and firsthand experience engaging decision-makers. My background gives me a clear view of how policies impact infrastructure, energy reliability, utility costs, and household budgets. I know the value of identifying what is not working before asking Californians to pay more for it.\n\nIn the State Assembly, my priorities will be making California more affordable, reducing unnecessary costs on working families, protecting taxpayers, improving public safety, strengthening healthcare access and education, and supporting reliable infrastructure. We must review the laws, taxes, fees, and regulations driving up the cost of living so families never have to choose between paying a utility bill, filling a gas tank, or buying groceries. At the same time, we must protect our local economy and keep good jobs rooted right here.\n\nDistrict 54 includes diverse communities with different needs, but every neighborhood deserves strong representation. I will listen to renters, homeowners, workers, parents, seniors, and community leaders to ensure their voices guide our state laws. Effective public policy requires command of details, foresight, and a commitment to results. California does not need more promises; it needs better decisions.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10794.json"
+          }
+        },
+        {
+          "id": "ca26-mark-gonzalez",
+          "name": "MARK GONZALEZ",
+          "party": "Democratic",
+          "incumbent": true,
+          "shortBio": "Member of the State Assembly"
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1200,
+        "section": "",
+        "heading": [
+          "MEMBER OF THE STATE ASSEMBLY, 54th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10794.json",
+        "candidates": [
+          {
+            "name": "ALEXANDRA BRISENO",
+            "label": "ALEXANDRA BRISENO",
+            "party": "Party Preference: Republican"
+          },
+          {
+            "name": "MARK GONZALEZ",
+            "label": "MARK GONZALEZ",
+            "party": "Party Preference: Democratic",
+            "designation": "Member of the State Assembly"
+          }
+        ],
+        "writeIn": false
+      }
+    },
+    {
+      "id": "ca26-mb-council-1",
+      "title": "Montebello City Council, District 1",
+      "level": "city",
+      "jurisdictionFips": "0648816",
+      "sortOrder": 90,
+      "description": "4-year term.",
+      "district": "Montebello Council District 1",
+      "districtType": "city-council",
+      "districtCode": "mb-1",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-shazia-hoq",
+          "name": "SHAZIA HOQ",
+          "incumbent": false,
+          "shortBio": "Business Woman",
+          "countyStatement": {
+            "order": 158,
+            "title": "STATEMENT OF SHAZIA HOQ",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,1st District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Business Woman\n\nMy name is Shazia Hoq, and I am a businesswoman, community leader, and candidate for Montebello City Council District 1.\n\nI came to America from Bangladesh at a young age with a dream of building a better future through hard work, opportunity, and service. I earned an Associate Degree in Liberal Arts from Los Angeles Valley College and pursued Psychology at California State University Channel Islands.\n\nWith 20 years of experience in business as a President of Sarah & Brother Inc., a California retail business. My experience has taught me the importance of creating jobs, managing resources responsibly, and supporting local businesses.\n\nI also served two terms as Vice President of the Los Angeles Wilshire Center Koreatown Neighborhood Council, working with elected officials, nonprofits, and residents to advance economic development, public safety, housing, and homelessness solutions.\n\nI am running because District 1 deserves a strong, accessible voice at City Hall. I will fight for transparency, accountability, responsible budgeting, safer neighborhoods, economic opportunity, and a city government that respects residents, employees, labor partners, and public safety professionals.\n\nI respectfully ask for your vote to build a stronger, safer, and more prosperous Montebello.\n\nDECLARACIÓN DE SHAZIA HOQ\n\nCANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,1er Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Empresaria\n\nMi nombre es Shazia Hoq y soy empresaria, líder comunitaria y candidata para el Concejo de la Ciudad de Montebello por el Distrito 1.\n\nLlegué a los Estados Unidos desde Bangladés cuando era joven, con el sueño de construir un futuro mejor mediante el trabajo arduo, las oportunidades y el servicio. Obtuve un Título de Asociada en Humanidades en el Colegio de Los Angeles Valley y estudié Psicología en la Universidad Estatal de California, Channel Islands.\n\nTengo 20 años de experiencia empresarial como Presidenta de Sarah & Brother Inc., una empresa minorista de California. Mi experiencia me ha enseñado la importancia de crear empleos, administrar los recursos con responsabilidad y apoyar a las empresas locales.\n\nTambién cumplí dos períodos como Vicepresidenta del Consejo Vecinal de Los Angeles Wilshire Center Koreatown, donde trabajé con funcionarios electos, organizaciones sin fines de lucro y residentes para promover el desarrollo económico, la seguridad pública, la vivienda y las soluciones para la falta de vivienda.\n\nMe postulo porque el Distrito 1 merece una voz firme y accesible en el Ayuntamiento. Lucharé por la transparencia, la rendición de cuentas, la elaboración responsable de presupuestos, vecindarios más seguros, oportunidades económicas y un gobierno de la ciudad que respete a los residentes, empleados, socios laborales y profesionales de seguridad pública.\n\nLes pido respetuosamente su voto para construir una Montebello más sólida, segura y próspera.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json"
+          }
+        },
+        {
+          "id": "ca26-kimberly-cobos-cawthorne",
+          "name": "KIMBERLY COBOS CAWTHORNE",
+          "incumbent": false,
+          "shortBio": "Community Activist/Businesswoman",
+          "countyStatement": {
+            "order": 159,
+            "title": "STATEMENT OF KIMBERLY COBOS CAWTHORNE",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,1st District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Community Activist/Businesswoman\n\nMontebello has been my home my entire life. As your former Mayor and Council Member, I have dedicated years to fighting for fiscal accountability, public safety, and neighborhood empowerment. I successfully championed Measure H, securing over $48 million in dedicated, local tax revenue to protect vital city services — money that stays here in Montebello. Through my ongoing work as Founder of Moving Montebello Forward, I continue advocating for a safer, stronger, and more prosperous community.\n\nWhen elected, my priorities are clear: expanding resources for our local first responders; keeping every tax dollar working for Montebello; supporting small businesses and creating good local jobs; and investing in our youth programs and senior services so every generation is cared for.\n\nAs a further commitment to fiscal responsibility, I will not accept a city council salary when elected — every dollar saved goes back to serving you.\n\nI can not do this alone — I need your support. Together, we will move Montebello forward. I respectfully ask for your vote for District 1 Council Member.\n\nDECLARACIÓN DE KIMBERLY COBOS CAWTHORNE\n\nCANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,1er Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Activista Comunitaria/Empresaria\n\nMontebello ha sido mi hogar toda mi vida. Como su ex Alcaldesa y Miembro del Concejo, he dedicado años a luchar por la responsabilidad fiscal, la seguridad pública y el empoderamiento de los vecindarios. Impulsé con éxito la Medida H, consiguiendo más de $48 millones en ingresos fiscales locales específicos para proteger servicios municipales vitales — dinero que se queda aquí en Montebello. A través de mi labor como Fundadora de Moving Montebello Forward, sigo abogando por una comunidad más segura, más fuerte y más próspera.\n\nCuando resulte electa, mis prioridades serán claras: ampliar los recursos para nuestros servicios de emergencia locales; garantizar que cada dólar de los impuestos se destine al beneficio de Montebello; apoyar a las pequeñas empresas y crear buenos empleos locales; e invertir en nuestros programas para jóvenes y servicios para personas mayores para que todas las generaciones reciban la atención necesaria.\n\nComo muestra de mi compromiso con la responsabilidad fiscal, no aceptaré un salario de concejal cuando sea electa — cada dólar ahorrado se reinvertirá en servirles a ustedes.\n\nNo puedo hacer esto sola — necesito su apoyo. Juntos, haremos que Montebello avance. Le pido respetuosamente su voto para Miembro del Concejo del Distrito 1.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json"
+          }
+        },
+        {
+          "id": "ca26-rafael-santoya",
+          "name": "RAFAEL SANTOYA",
+          "incumbent": false,
+          "shortBio": "Los Angeles County Employee",
+          "countyStatement": {
+            "order": 160,
+            "title": "STATEMENT OF RAFAEL SANTOYA",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,1st District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Los Angeles County Employee\n\nMy name is Dr. Rafael Santoya, and Montebello is our home. I am a husband, father, first-generation college student, Licensed Marriage and Family Therapist, and Los Angeles County employee. I hold a Ph.D. and bring more than 15 years of experience in quality assurance, accountability, program improvement, and public service.\n\nMy family and I live here, our children attend school here, and we are invested in seeing our community thrive.\n\nI am running for City Council to help keep Montebello a safe, strong place to live, work, and raise our families. My priorities include public safety, strong schools, responsible city services, supporting local businesses, and ensuring our police and fire departments have the resources they need to serve our community.\n\nI believe good leadership starts with listening and working together. I am committed to collaborating with residents, city staff, and my fellow Councilmembers, respecting different perspectives and keeping our community at the center of decisions.\n\nI am proud to call Montebello home and would be honored to represent District 1. In unity there is strength, and together we can continue moving Montebello forward.\n\nDECLARACIÓN DE RAFAEL SANTOYA\n\nCANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,1er Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Empleado del Condado de Los Angeles\n\nMi nombre es Dr. Rafael Santoya y Montebello es nuestro hogar. Soy esposo, padre, estudiante de colegio de primera generación, Terapeuta Matrimonial y Familiar con Licencia y empleado del Condado de Los Angeles. Tengo un Ph.D. (Doctorado) y aporto más de 15 años de experiencia en garantía de calidad, rendición de cuentas, mejora de programas y servicio público.\n\nMi familia y yo vivimos aquí, nuestros hijos asisten a la escuela aquí y estamos comprometidos con la prosperidad de nuestra comunidad.\n\nMe postulo para el Concejo de la Ciudad con el propósito de contribuir a que Montebello siga siendo un lugar seguro y sólido para vivir, trabajar y criar a nuestras familias. Entre mis prioridades se encuentran la seguridad pública, escuelas sólidas, servicios responsables de la ciudad, el apoyo a las empresas locales y la garantía de que nuestros departamentos de policía y bomberos cuenten con los recursos necesarios para servir a nuestra comunidad.\n\nCreo que el buen liderazgo comienza por escuchar y trabajar juntos. Me comprometo a colaborar con los residentes, el personal de la Ciudad y mis compañeros Miembros del Concejo, respetar las diferentes perspectivas y mantener a nuestra comunidad en el centro de las decisiones.\n\nMe enorgullece llamar hogar a Montebello y sería un honor representar al Distrito 1. La unión hace la fuerza, y juntos podemos continuar impulsando Montebello hacia adelante.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json"
+          }
+        },
+        {
+          "id": "ca26-georgina-tamayo",
+          "name": "GEORGINA TAMAYO",
+          "incumbent": false,
+          "shortBio": "Mayor/Finance Director",
+          "countyStatement": {
+            "order": 161,
+            "title": "STATEMENT OF GEORGINA TAMAYO",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,1st District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Mayor/Finance Director\n\nIt has been the honor of my life to serve as your Mayor and District 1 Councilmember, representing the community where my husband and I have raised our two children for over 35 years. I bring my Bachelor's and Master's degrees from UCLA, along with my government career in development and finance, to every decision I make for Montebello.\n\nAs your Councilmember and Mayor, I have:\n\nSecured over $3 million for the development of a new fire station in District 1.Attracted major retailers including Tesla, Hobby Lobby, Planet Fitness, Yard House, and Round 1 Entertainment. Adopted the city's first Community Workforce Agreement, ensuring unionized labor on city funded projects.Invested in new community amenities, including a dog park, community garden, and police resource center.Made significant investments in our fire and police departments, expanding personnel and creating a new Public Park Safety Division.Reinstated our Traffic & Safety Commission to improve road safety and address community traffic concerns.\n\nMoving forward, I will:Continue investing in infrastructure and public safety across District 1. Support programs that serve our families, seniors, and local businesses.\n\nOur work is far from over. As your District 1 Councilmember, I will continue fighting for a safer, stronger Montebello. I respectfully request your vote.\n\nGeorgina Tamayogeorginaformontebello.com\n\nDECLARACIÓN DE GEORGINA TAMAYO\n\nCANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,1er Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Alcaldesa/Directora Financiera\n\nHa sido el honor de mi vida servir como su Alcaldesa y Miembro del Concejo del Distrito 1, representando a la comunidad donde mi esposo y yo hemos criado a nuestros dos hijos durante más de 35 años. Aporto mis títulos de Licenciatura y Maestría de la UCLA (Universidad de California, Los Angeles), junto con mi trayectoria profesional en el sector público en las áreas de desarrollo y finanzas, a cada decisión que tomo para Montebello.\n\nComo su Miembro del Concejo y Alcaldesa, he hecho lo siguiente:\n\nObtuve más de $3 millones para la construcción de una nueva estación de bomberos en el Distrito 1.Atraje a importantes tiendas como Tesla, Hobby Lobby, Planet Fitness, Yard House y Round 1 Entertainment. Se celebró el primer Acuerdo de Fuerza Laboral Comunitaria de la ciudad, que garantiza la presencia de mano de obra sindicalizada en los proyectos financiados por la ciudad.Se invirtió en nuevas instalaciones para la comunidad, que incluyen un parque para perros, un jardín comunitario y un centro de recursos policiales.Realizamos importantes inversiones en nuestros departamentos de bomberos y policía, ampliando el personal y creando una nueva División de Seguridad en Parques Públicos.Hemos restablecido nuestra Comisión de Tráfico y Seguridad para mejorar la seguridad vial y abordar las preocupaciones de la comunidad en materia de tráfico.\n\nDe cara al futuro:Continuaré invirtiendo en infraestructura y seguridad pública en todo el Distrito 1. Apoyaré los programas que beneficien a nuestras familias, personas mayores y negocios locales.\n\nNuestro trabajo está lejos de haber terminado. Como su Miembro del Concejo del Distrito 1, seguiré luchando por un Montebello más seguro y fuerte. Solicito respetuosamente su voto.\n\nGeorgina Tamayogeorginaformontebello.com",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 300,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION",
+          "Member of the City Council, 1st District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json",
+        "candidates": [
+          {
+            "name": "SHAZIA HOQ",
+            "label": "SHAZIA HOQ",
+            "designation": "Business Woman"
+          },
+          {
+            "name": "KIMBERLY COBOS CAWTHORNE",
+            "label": "KIMBERLY COBOS CAWTHORNE",
+            "designation": "Community Activist/Businesswoman"
+          },
+          {
+            "name": "RAFAEL SANTOYA",
+            "label": "RAFAEL SANTOYA",
+            "designation": "Los Angeles County Employee"
+          },
+          {
+            "name": "GEORGINA TAMAYO",
+            "label": "GEORGINA TAMAYO",
+            "designation": "Mayor/Finance Director"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-mb-council-3",
+      "title": "Montebello City Council, District 3",
+      "level": "city",
+      "jurisdictionFips": "0648816",
+      "sortOrder": 91,
+      "description": "4-year term.",
+      "district": "Montebello Council District 3",
+      "districtType": "city-council",
+      "districtCode": "mb-3",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-elva-sammy-osorio",
+          "name": "ELVA \"SAMMY\" OSORIO",
+          "incumbent": false,
+          "shortBio": "Nonprofit Technical Consultant",
+          "countyStatement": {
+            "order": 162,
+            "title": "STATEMENT OF ELVA \"SAMMY\" OSORIO",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,3rd District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Nonprofit Technical Consultant\n\nAs a local business owner on Whittier Boulevard, nonprofit technical consultant, and proud neighbor, I want to build a Montebello where people can stay, invest, and thrive for generations.\n\nOur neighbors shouldn't feel forced out by high costs or broken streets. My goal is keeping our community together through practical leadership. I will address homelessness with balance: combining mental health help and shelter with real safety rules.\n\nWe must fix our city's basics. I will prioritize repairing local roads, stopping unfair parking tickets, and fixing traffic lights on Whittier and Beverly so drivers aren't stuck at red lights. To support local families, I will focus on quicker emergency response times, Dial-a-Ride, and expanding programs for youth and seniors.\n\nUsing my technical background, I will audit city spending, demand accountability across city services, cut red tape for small businesses, and make downtown a safe, active hub.\n\nI don't answer to career politicians. My door is always open at my shop in the Goddess Mercado Bazaar. I respectfully ask for your vote for District 3.\n\nElva \"Sammy\" Osorio",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10482.json"
+          }
+        },
+        {
+          "id": "ca26-marie-ledezma",
+          "name": "MARIE LEDEZMA",
+          "incumbent": false,
+          "shortBio": "Paralegal/Business Owner",
+          "countyStatement": {
+            "order": 163,
+            "title": "STATEMENT OF MARIE LEDEZMA",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,3rd District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Paralegal/Business Owner\n\nI am Marie Ledezma, and I am one of you. Fluent in Spanish, a parent, a grandparent, a hard worker (paralegal and small business owner), and proud Montebello resident. For over ten years, I've invested time, money, and energy in this city-volunteering, attending City Council meetings, and holding our leaders accountable through advocacy.\n\nDistrict 3 needs a leader with persistence, poise, and passion- qualities I've developed alongside other strengths. As a senior paralegal, I listen, research, and solve complex problems under pressure. As a business owner, I understand the realities of entrepreneurship. As a mother and grandmother, I know what families and seniors need to thrive. These experiences prepare me to lead with competence and compassion.\n\nIf elected, I will lead with transparency and unwavering accountability. I will make decisions that prioritize Montebello first, firmly guided by ethics and law. Advocate for ordinances that work, cut red tape, and expand economic opportunities. I will fight for a beautiful Montebello by protecting our green spaces and rebuilding aging infrastructure. I am committed to building strong partnerships with city leaders, businesses, and first responders, to better serve and protect our community.\n\nI respectfully ask for your vote to serve District 3",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10482.json"
+          }
+        },
+        {
+          "id": "ca26-ana-torres",
+          "name": "ANA TORRES",
+          "incumbent": false,
+          "shortBio": "Montebello Business Owner",
+          "countyStatement": {
+            "order": 164,
+            "title": "STATEMENT OF ANA TORRES",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,3rd District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Montebello Business Owner\n\nMy name is Ana Torres, and Montebello has been my home for over 30 years. As a Mexican immigrant, mother of two, local business owner, and community advocate, I understand the value of hard work, perseverance, and service to others.\n\nI earned my Associate's degree from East Los Angeles College and both my Bachelor's and Master's degrees in Sociology from California State University, Los Angeles. I spent over 14 years serving students and families through the Los Angeles Community College District before investing in my own city by opening Organica Juice Bar, Montebello's first organic juice bar. My goal has always been to create opportunities that improve the health and well-being of our community while supporting local economic growth.\n\nThroughout my career, I have worked to bring people together, build meaningful partnerships, and serve with integrity. I am running for City Council to continue that work. Montebello deserves honest, transparent leadership that puts residents first.\n\nMy priorities include supporting public safety, strengthening local businesses, improving city services, investing in youth and seniors, and ensuring responsible stewardship of taxpayer dollars.\n\nI would be honored to earn your trust and your vote as we work together to build a better Montebello.\n\nDECLARACIÓN DE ANA TORRES\n\nCANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,3er Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Propietaria de Negocio en Montebello\n\nMi nombre es Ana Torres, y Montebello ha sido mi hogar durante más de 30 años. Como inmigrante mexicana, madre de dos hijos, propietaria de un negocio local y defensora de la comunidad, entiendo el valor del trabajo duro, la perseverancia y el servicio a los demás.\n\nObtuve mi título de Asociado en el Colegio East Los Angeles y mis títulos de Licenciatura y Maestría en Sociología en la Universidad Estatal de California, Los Angeles. Pasé más de 14 años al servicio de estudiantes y familias a través del Distrito de Colegios Comunitarios de Los Angeles antes de invertir en mi propia ciudad abriendo Organica Juice Bar, el primer bar de jugos orgánicos de Montebello. Mi objetivo siempre ha sido crear oportunidades que mejoren la salud y el bienestar de nuestra comunidad, al tiempo que apoyen el crecimiento económico local.\n\nA lo largo de mi carrera profesional, me he esforzado por unir a las personas, establecer alianzas significativas y servir con integridad. Me presento como candidata al Concejo de la Ciudad para continuar con ese trabajo. Montebello merece un liderazgo honesto y transparente que dé prioridad a los residentes.\n\nMis prioridades incluyen apoyar la seguridad pública, fortalecer las empresas locales, mejorar los servicios de la ciudad, invertir en jóvenes y personas mayores, y garantizar una gestión responsable del dinero de los contribuyentes.\n\nSería un honor para mí ganarme su confianza y su voto mientras trabajamos juntos para crear un Montebello mejor.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10482.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 100,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION",
+          "Member of the City Council, 3rd District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10482.json",
+        "candidates": [
+          {
+            "name": "ELVA \"SAMMY\" OSORIO",
+            "label": "ELVA \"SAMMY\" OSORIO",
+            "designation": "Nonprofit Technical Consultant"
+          },
+          {
+            "name": "MARIE LEDEZMA",
+            "label": "MARIE LEDEZMA",
+            "designation": "Paralegal/Business Owner"
+          },
+          {
+            "name": "ANA TORRES",
+            "label": "ANA TORRES",
+            "designation": "Montebello Business Owner"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-mb-council-4",
+      "title": "Montebello City Council, District 4 (unexpired term ending Nov. 7, 2028)",
+      "level": "city",
+      "jurisdictionFips": "0648816",
+      "sortOrder": 92,
+      "description": "Special election for the rest of the term.",
+      "district": "Montebello Council District 4",
+      "districtType": "city-council",
+      "districtCode": "mb-4",
+      "candidates": [
+        {
+          "id": "ca26-danielle-romero",
+          "name": "DANIELLE ROMERO",
+          "incumbent": false,
+          "shortBio": "Veteran Advocate/Councilmember",
+          "countyStatement": {
+            "order": 165,
+            "title": "STATEMENT OF DANIELLE ROMERO",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,4th District(Unexpired term ending November 7, 2028)\n\nCITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION\n\nOccupation: Veteran Advocate/Councilmember\n\nServing as your appointed District 4 Councilmember has been the greatest honor of my life. I am running to continue serving The City of Montebello with integrity, transparency, and a commitment to putting residents first.\n\nAs an Army veteran, Accredited American Legion Veteran Service Officer, mother, and community advocate, I have dedicated my life to serving others. On the Council, I have worked collaboratively to improve our parks, strengthen public safety, invest in infrastructure, support local businesses, and protect taxpayer dollars through responsible fiscal decisions.\n\nI believe every resident deserves to be heard and represented. My decisions are guided by what is best for our community today while planning responsibly for the future.\n\nI respectfully ask for your vote to continue serving District 4 and all of The City of Montebello. Together, we can build on our progress, address future challenges with thoughtful leadership, and preserve the values that make our community a great place to live, work, and raise a family.\n\nIt would be my privilege to earn your trust and serve as your elected Councilmember.\n\nDECLARACIÓN DE DANIELLE ROMERO\n\nCANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,4.º Distrito(Término vigente finalizando el 7 de noviembre de 2028)\n\nELECCIÓN MUNICIPAL ESPECIAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Defensora de Veteranos/Miembro del Concejo\n\nDesempeñarme como su Miembro del Concejo nombrada para el Distrito 4 ha sido el mayor honor de mi vida. Me postulo para seguir sirviendo a La Ciudad de Montebello con integridad, transparencia y el compromiso de priorizar a los residentes.\n\nComo veterana del Ejército, Funcionaria Acreditada de Servicios para Veteranos de la Legión Estadounidense, madre y defensora de la comunidad, he dedicado mi vida a servir a los demás. En el Concejo, he trabajado en colaboración para mejorar nuestros parques, fortalecer la seguridad pública, invertir en infraestructura, apoyar a las empresas locales y proteger el dinero de los contribuyentes mediante decisiones fiscales responsables.\n\nCreo que todos los residentes merecen ser escuchados y estar representados. Mis decisiones se rigen por aquello que es mejor para nuestra comunidad en la actualidad, a la vez que planifico con responsabilidad para el futuro.\n\nLes pido respetuosamente su voto para seguir sirviendo al Distrito 4 y a toda La Ciudad de Montebello. Juntos, podemos aprovechar nuestros avances, enfrentar los desafíos futuros con liderazgo reflexivo y preservar los valores que hacen de nuestra comunidad un excelente lugar para vivir, trabajar y criar una familia.\n\nSería un privilegio ganarme su confianza y servir como Miembro del Concejo electa.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10483.json"
+          }
+        },
+        {
+          "id": "ca26-rafael-gutierrez",
+          "name": "RAFAEL GUTIERREZ",
+          "incumbent": false,
+          "shortBio": "Teacher",
+          "countyStatement": {
+            "order": 166,
+            "title": "STATEMENT OF RAFAEL GUTIERREZ",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,4th District(Unexpired term ending November 7, 2028)\n\nCITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION\n\nOccupation: Teacher\n\nMy name is Rafael Gutierrez, and for over 45 years, Montebello has been my home. As a lifelong resident, educator, coach, and community volunteer, I have dedicated my life to serving our families and investing in the future of our city.\n\nIn addition I was honored to serve as your elected City Treasurer from 2018-2022.\n\nMy priorities are clear: improving our infrastructure, supporting responsible housing projects, enhancing our parks and neighborhoods, attracting new businesses, restaurants, and jobs, and making sure Montebello remains a safe and great place to live, work, and raise a family.\n\nI believe in the values that make our community strong—family, education, integrity, teamwork, and hard work. I will be a strong voice for our district and will work collaboratively to create positive results for all Montebello residents.\n\nI look forward to serving you on a positive path in this beautiful community we call home.\n\nI respectfully ask for your vote.\n\nRafael Gutierrez\n\nCommitted to Service: Montebello High School Teacher & Current Athletic Director20-Year Varsity Baseball CoachLions Club of Montebello Member Montebello Baseball Association Commissioner & Board MemberYouth Coach & Community VolunteerMHS Alumni Association Board MemberChair, Stu Pike/Tak Kobayashi Memorial Scholarship Golf Tournament & Athletic Hall of Fame\n\nDECLARACIÓN DE RAFAEL GUTIERREZ\n\nCANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,4º Distrito(Término vigente finalizando el 7 de noviembre de 2028)\n\nELECCIÓN MUNICIPAL ESPECIAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Maestro\n\nMi nombre es Rafael Gutierrez, y Montebello ha sido mi hogar durante más de 45 años. Como residente de toda la vida, educador, entrenador y voluntario comunitario, he dedicado mi vida a servir a nuestras familias e invertir en el futuro de nuestra ciudad.\n\nAdemás, tuve el honor de servir como su Tesorero de la Ciudad electo desde 2018 hasta 2022.\n\nMis prioridades son claras: mejorar nuestra infraestructura, apoyar proyectos de vivienda responsables, embellecer nuestros parques y vecindarios, atraer nuevos negocios, restaurantes y empleos, y asegurarme de que Montebello siga siendo un lugar seguro y excelente para vivir, trabajar y formar una familia.\n\nCreo en los valores que fortalecen nuestra comunidad—la familia, la educación, la integridad, el trabajo en equipo y el esfuerzo. Seré una voz firme para nuestro distrito y trabajaré en colaboración para lograr resultados positivos para todos los residentes de Montebello.\n\nEspero poder servirles en un camino positivo en esta hermosa comunidad a la que llamamos hogar.\n\nLe pido respetuosamente su voto.\n\nRafael Gutierrez\n\nComprometido con el Servicio: Maestro de la Preparatoria Montebello y Actual Director de AtletismoEntrenador de Béisbol Universitario durante 20 AñosMiembro del Lions Club de Montebello Comisionado y Miembro de la Junta de la Asociación de Béisbol de MontebelloEntrenador Juvenil y Voluntario ComunitarioMiembro de la Junta de la Asociación de Exalumnos de la MHS (Preparatoria Montebello)Presidente del Torneo de Golf de la Beca Conmemorativa de Stu Pike/Tak Kobayashi y del Salón de la Fama del Deporte.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10483.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 200,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION",
+          "Member of the City Council, 4th District (Unexpired term ending November 7, 2028)"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10483.json",
+        "candidates": [
+          {
+            "name": "DANIELLE ROMERO",
+            "label": "DANIELLE ROMERO",
+            "designation": "Veteran Advocate/Councilmember"
+          },
+          {
+            "name": "RAFAEL GUTIERREZ",
+            "label": "RAFAEL GUTIERREZ",
+            "designation": "Teacher"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-mb-council-5",
+      "title": "Montebello City Council, District 5",
+      "level": "city",
+      "jurisdictionFips": "0648816",
+      "sortOrder": 93,
+      "description": "4-year term.",
+      "district": "Montebello Council District 5",
+      "districtType": "city-council",
+      "districtCode": "mb-5",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-ricardo-ric-alonzo",
+          "name": "RICARDO \"RIC\"  ALONZO",
+          "incumbent": false,
+          "shortBio": "Engineer/Councilmember",
+          "countyStatement": {
+            "order": 167,
+            "title": "STATEMENT OF RICARDO \"RIC\" ALONZO",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,5th District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nAge: 42\n\nOccupation: Engineer/Councilmember\n\n18 months ago, on January 29th, 2025, I was appointed to represent District 5 in South Montebello. Here is a list of our accomplishments you can see for yourself in South Montebello:\n\nA police community resource center. Park rangers. Refurbished park restrooms. A community garden. Repaved streets. The Bluff Road Fence Project. The city's first sponsored Christmas event down here, plus the ones I put on myself. Before me, this side of town waited for necessities, while the north was bathed in luxuries. I also voted against a development that would have added residents without the services to carry them.\n\nI do not perform. I do not run this seat from a phone screen. I read every staff report, I ask my questions in open session where the record catches them, and I vote my own way. No theatrics. No dramatics. Just policy. That was the deal when I came in and it has not changed.\n\nThis is what I have done. I can do more.\n\nDECLARACIÓN DE RICARDO “RIC” ALONZO\n\nCANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,5.º Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nEdad: 42\n\nOcupación: Ingeniero/Miembro del Concejo\n\nHace 18 meses, el 29 de enero de 2025, fui nombrado para representar al Distrito 5 en South Montebello. La siguiente es una lista de nuestros logros que puede comprobar usted mismo en South Montebello:\n\nUn centro comunitario de recursos policiales. Guardaparques. Baños de los parques renovados. Un jardín comunitario. Calles repavimentadas. El Proyecto de Cercado de Bluff Road. El primer evento Navideño patrocinado por la ciudad en esta zona, además de los que organicé por mi cuenta. Antes de mi llegada, este lado de la Ciudad esperaba por lo indispensable, mientras el norte recibía toda clase de lujos. También voté en contra de un desarrollo que habría sumado residentes sin proporcionar los servicios necesarios para atenderlos.\n\nNo actúo. No desempeño este cargo desde la pantalla de un teléfono. Leo todos los informes del personal, planteo mis preguntas en sesiones públicas para que queden registradas y voto según mi propio criterio. Sin teatro. Sin dramatismo. Solo políticas. Ese fue el acuerdo cuando asumí el cargo y no ha cambiado.\n\nEsto es lo que he hecho. Puedo hacer más.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10484.json"
+          }
+        },
+        {
+          "id": "ca26-james-santana",
+          "name": "JAMES SANTANA",
+          "incumbent": false,
+          "shortBio": "Caretaker/Business Owner",
+          "countyStatement": {
+            "order": 168,
+            "title": "STATEMENT OF JAMES SANTANA",
+            "text": "CANDIDATE FOR MEMBER OF THE CITY COUNCIL,5th District\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: Caretaker/Business Owner\n\nMontebello is my community. It gave me my education, my first job, and my first chance to serve. Today I own a home here, run a small business here, and hope to raise a family here.\n\nI started in local politics as a teenager, organizing students for a local school bond. Since then, I have chaired the Parks and Recreation Commission, founded Montebello United, where neighbors gather to understand the decisions shaping our city, and built more than twenty years of business and community service experience.\n\nDistrict 5 carries more than its share. Homes sit beside small shops and heavy industry, and major projects are coming. We deserve a councilmember chosen by residents and present in our neighborhoods.\n\nOn every contract and every budget, I will ask one question first: does this benefit the people who live and work here?\n\nI will advocate for development that grows with residents, not around them. I will establish a commission for seniors, caregivers, and aging families. I will hold monthly District 5 office hours. I will support small businesses, renters, and working families.\n\nI am ready to serve District 5 and all of Montebello. I would be honored to earn your vote.\n\nDECLARACIÓN DE JAMES SANTANA\n\nCANDIDATO A MIEMBRO DEL CONCEJO DE LA CIUDAD,5º Distrito\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Cuidador/Propietario de Negocio\n\nMontebello es mi comunidad. Me brindó mi educación, mi primer trabajo y mi primera oportunidad de servir a la comunidad. Actualmente soy propietario de una casa aquí, dirijo un pequeño negocio aquí y también espero formar una familia aquí.\n\nMe inicié en la política local cuando era adolescente, organizando a los estudiantes para la aprobación de un bono escolar local. Desde entonces, he presidido la Comisión de Parques y Recreación, fundé Montebello United, donde los vecinos se reúnen para comprender las decisiones que dan forma a nuestra ciudad, y he acumulado más de veinte años de experiencia en el ámbito empresarial y en el servicio a la comunidad.\n\nEl Distrito 5 soporta más de lo que le corresponde. Las viviendas se ubican junto a pequeños comercios e industria pesada, y se avecinan grandes proyectos. Merecemos un miembro del concejo elegido por los residentes y presente en nuestros vecindarios.\n\nEn cada contrato y en cada presupuesto, primero me haré una pregunta: ¿esto beneficia a las personas que viven y trabajan aquí?\n\nDefenderé un desarrollo que crezca con los residentes, no a su alrededor. Crearé una comisión para personas mayores, cuidadores y familias de la tercera edad. Celebraré reuniones mensuales en el Distrito 5 en horario de oficina. Apoyaré a las pequeñas empresas, a los inquilinos y a las familias trabajadoras.\n\nEstoy listo para servir al Distrito 5 y a todo Montebello. Sería un honor ganarme su voto.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10484.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 0,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION",
+          "Member of the City Council, 5th District"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10484.json",
+        "candidates": [
+          {
+            "name": "RICARDO \"RIC\"  ALONZO",
+            "label": "RICARDO \"RIC\"  ALONZO",
+            "designation": "Engineer/Councilmember"
+          },
+          {
+            "name": "JAMES SANTANA",
+            "label": "JAMES SANTANA",
+            "designation": "Caretaker/Business Owner"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-mb-treasurer",
+      "title": "Montebello City Treasurer",
+      "level": "city",
+      "jurisdictionFips": "0648816",
+      "sortOrder": 94,
+      "description": "At-large. 4-year term. Unopposed.",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-david-matanga",
+          "name": "DAVID MATANGA",
+          "incumbent": true,
+          "shortBio": "City Treasurer, City of Montebello",
+          "countyStatement": {
+            "order": 488,
+            "title": "STATEMENT OF DAVID MATANGA",
+            "text": "CANDIDATE FOR CITY TREASURER\n\nCITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION\n\nOccupation: City Treasurer\n\nIt has been my honor and privilege to serve as your Montebello City Treasurer, and I respectfully ask for your support for re-election.\n\nGrowing up in East Los Angeles and graduation from Garfield High School, Class of 1970, I have proudly called Montebello home for more than 40 years. My wife, Carmel, and I raised our daughter, Monique, here, built lifelong friendships, and created cherished memories. Our family's deep roots in this community inspire my commitment to Montebello's future.\n\nMy career as a Senior Tax Compliance Representative with the State of California provided me with extensive experience in financial oversight, accountability, and fiscal responsibility. I also earned an Associate of Arts degree in Labor Studies from Los Angeles Trade-Technical College and an Associate of Arts degree in Liberal Studies from East Los Angeles College.\n\nMy service as District President of SEIU 1000 and as a delegate to the Los Angeles County Federation of Labor strengthened my understanding of the needs of working families and reinforced my commitment to honest, transparent government.\n\nAs your City Treasurer, I remain dedicated to protecting taxpayer resources, ensuring fiscal transparency, and serving every resident with integrity, accountability, and respect. I would be honored to earn your vote for re-election.\n\nDECLARACIÓN DE DAVID MATANGA\n\nCANDIDATO PARA TESORERO DE LA CIUDAD\n\nELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO\n\nOcupación: Tesorero de la Ciudad\n\nHa sido un honor y un privilegio desempeñarme como Tesorero de la Ciudad de Montebello y le pido respetuosamente su apoyo para la reelección.\n\nCrecí en East Los Angeles y me gradué de la Preparatoria Garfield, Clase de 1970. Me enorgullece considerar a Montebello mi hogar desde hace más de 40 años. Mi esposa Carmel y yo criamos aquí a nuestra hija Monique, establecimos amistades para toda la vida y creamos recuerdos entrañables. Las profundas raíces de nuestra familia en esta comunidad inspiran mi compromiso con el futuro de Montebello.\n\nMi carrera profesional como Representante Sénior de Cumplimiento Tributario del Estado de California me brindó amplia experiencia en supervisión financiera, rendición de cuentas y responsabilidad fiscal. También obtuve un Título de Asociado en Artes en Estudios Laborales en el Colegio Técnico de Oficios de Los Angeles y un Título de Asociado en Artes en Estudios Liberales en el Colegio de East Los Angeles.\n\nMi servicio como Presidente de Distrito del SEIU 1000 (Sindicato Internacional de Empleados de Servicios) y delegado ante la Federación Laboral del Condado de Los Angeles profundizó mi comprensión de las necesidades de las familias trabajadoras y reforzó mi compromiso con un gobierno honesto y transparente.\n\nComo su Tesorero de la Ciudad, mantengo mi dedicación a proteger los recursos de los contribuyentes, garantizar la transparencia fiscal y servir a todos los residentes con integridad, responsabilidad y respeto. Sería un honor ganarme su voto para la reelección.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10485.json"
+          }
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1000,
+        "section": "",
+        "heading": [
+          "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION",
+          "City Treasurer"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10485.json",
+        "candidates": [
+          {
+            "name": "DAVID MATANGA",
+            "label": "DAVID MATANGA",
+            "designation": "City Treasurer, City of Montebello"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-musd-2",
+      "title": "Montebello Unified School District Board, Trustee Area 2",
+      "level": "school",
+      "jurisdictionFips": "06037",
+      "sortOrder": 95,
+      "description": "Only some Montebello addresses are in Trustee Area 2. Nonpartisan.",
+      "district": "Montebello Unified Trustee Area 2",
+      "districtType": "school-board",
+      "districtCode": "musd-2",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-jasmin-jauregui-paulson",
+          "name": "JASMIN JAUREGUI PAULSON",
+          "incumbent": false,
+          "shortBio": "Educator/Parent",
+          "countyStatement": {
+            "order": 367,
+            "title": "STATEMENT OF JASMIN JAUREGUI PAULSON",
+            "text": "CANDIDATE FOR GOVERNING BOARD MEMBER,Trustee Area No. 2\n\nMONTEBELLO UNIFIED SCHOOL DISTRICT\n\nAge: 41\n\nOccupation: Educator/Parent\n\nEvery parent, no matter their circumstances, wants the same thing: a safe school, great teachers, and every opportunity for their child to succeed. Whether you're balancing work and family, volunteering in your child's classroom, advocating for a child with an IEP, or simply helping with homework after a long day, you deserve a voice in your child's education.\n\nAs a mother, substitute teacher, PTA leader, and former social worker, I have dedicated my life to supporting children and families. As the mother of a six-year-old attending Montebello Unified schools, I understand the hopes, challenges, and responsibilities that come with raising a child today. Like many parents, I also understand the importance of ensuring children receive the support and services they need to reach their full potential.\n\nFor nearly 12 years, my family has proudly called Montebello home. Throughout my career, I have worked alongside children, parents, and educators—first as a social worker serving at-risk youth and families, and now as a substitute teacher in our schools. As the elected Secretary of the La Merced Academy PTA, I have partnered with parents, teachers, and school leaders to strengthen family engagement and create opportunities that help students succeed.\n\nI am running for the Montebello Unified School District Governing Board because I believe every child deserves a high-quality education, every educator deserves respect and support, and every family deserves to be heard.\n\nAs both a parent and an educator, every decision I make will begin with one simple question: Would this be the decision I would want for my own son and for every child in our district? That principle will guide every decision I make.\n\nI will advocate for stable leadership, academic excellence, fiscal responsibility, transparency, safe schools, quality mental health and student support services, and strong partnerships between families, educators, and our community.\n\nTogether, we can restore trust, strengthen our schools, and ensure every child—regardless of their background, abilities, or circumstances—has the opportunity to learn, grow, and reach their full potential.\n\nI have stood with families as a social worker, supported students as an educator, partnered with parents through the PTA, and now I hope to serve our entire community as your Trustee.\n\nIt would be an honor to earn your trust and your vote for Montebello Unified School District Governing Board, Trustee Area No. 2.\n\nDECLARACIÓN DE JASMIN JAUREGUI PAULSON\n\nCANDIDATA PARA MIEMBRO DE LA JUNTA GUBERNATIVA,Área Sindical N.° 2\n\nDISTRITO ESCOLAR UNIFICADO DE MONTEBELLO\n\nEdad: 41\n\nOcupación: Educadora/Madre\n\nTodos los padres, independientemente de sus circunstancias, desean lo mismo: una escuela segura, excelentes maestros y todas las oportunidades para que sus hijos tengan éxito. Ya sea que busque el equilibrio entre el trabajo y la familia, participe como voluntario en el aula de su hijo, abogue por los derechos de un niño con un IEP (Programa de Educación Individualizado) o simplemente ayude con la tarea escolar después de un largo día, usted merece tener voz en la educación de su hijo.\n\nComo madre, maestra suplente, líder de la PTA (Asociación de Padres y Maestros) y ex trabajadora social, he dedicado mi vida a apoyar a los niños y las familias. Como madre de un niño de seis años que asiste a las escuelas del Unificado de Montebello, comprendo las esperanzas, los desafíos y las responsabilidades que conlleva criar a un hijo hoy en día. Al igual que muchos padres, también comprendo la importancia de garantizar que los niños reciban el apoyo y los servicios que necesitan para alcanzar su máximo potencial.\n\nDurante casi 12 años, mi familia ha llamado con orgullo a Montebello su hogar. A lo largo de mi trayectoria profesional, he trabajado junto a niños, padres y educadores—primero como trabajadora social al servicio de jóvenes y familias en situación de riesgo, y ahora como maestra suplente en nuestras escuelas. Como Secretaria electa de la PTA de la Academia La Merced, me he asociado con padres, maestros y líderes escolares para fortalecer la participación familiar y crear oportunidades que ayuden a los estudiantes a tener éxito.\n\nMe estoy postulando a la Junta Gubernativa del Distrito Escolar Unificado de Montebello porque creo que todos los niños merecen una educación de alta calidad, todos los educadores merecen respeto y apoyo, y todas las familias merecen ser escuchadas.\n\nComo madre y educadora, cada decisión que tome comenzará con una simple pregunta: ¿Sería esta la decisión que yo desearía para mi propio hijo y para todos los niños de nuestro distrito? Ese principio guiará cada decisión que tome.\n\nDefenderé un liderazgo estable, la excelencia académica, la responsabilidad fiscal, la transparencia, escuelas seguras, servicios de salud mental y apoyo estudiantil de calidad, y sólidas alianzas entre las familias, los educadores y nuestra comunidad.\n\nJuntos podemos restablecer la confianza, fortalecer nuestras escuelas y garantizar que cada niño—independientemente de su origen, habilidades o circunstancias—tenga la oportunidad de aprender, crecer y alcanzar su máximo potencial.\n\nHe estado al lado de las familias como trabajadora social, he apoyado a los estudiantes como educadora, he colaborado con los padres a través de la PTA, y ahora espero servir a toda nuestra comunidad como su Representante en la junta.\n\nSería un honor ganarme su confianza y su voto para la Junta Gubernativa del Distrito Escolar Unificado de Montebello, Área Sindical N.° 2.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10843.json"
+          }
+        },
+        {
+          "id": "ca26-lizbeth-renova",
+          "name": "LIZBETH RENOVA",
+          "incumbent": false,
+          "shortBio": "Child Development Director",
+          "countyStatement": {
+            "order": 368,
+            "title": "STATEMENT OF LIZBETH RENOVA",
+            "text": "CANDIDATE FOR GOVERNING BOARD MEMBER, Trustee Area No. 2\n\nMONTEBELLO UNIFIED SCHOOL DISTRICT\n\nOccupation: Teacher\n\nLizbeth Renova is an MHS graduate and a long-time MUSD resident. Got her B.A. from Cal State Long Beach in Family Consumer Sciences with a concentration in Child Development and Family Studies.\n\nAs a lifelong member of this community and a proud mother of three children attending Montebello Unified School District, Lizbeth cares deeply about the future of our district. Watching her children walk the same hallways and learn in the same classrooms that shaped her own childhood is both meaningful and motivating. It has strengthened her commitment to ensuring every student has the opportunity to succeed in a safe, supportive, and high - quality learning environment.\n\nLizbeth is running for the Montebello Unified School District school board because she believes our students deserve leaders who listen, work collaboratively, and always put children first. As a parent, a former MUSD student, and an educator, she understands the hopes families have for their children and the responsibility we have to provide them with the best education possible.\n\nThroughout her career as an educator and director, Lizbeth has achieved significant milestones, notably by fostering a secure and supportive environment for students and their families. Through her commitment to building a strong community, she has successfully empowered families in need to thrive within the Early Childhood Education sector. Furthermore, she has demonstrated exceptional leadership by establishing four Child Development Centers from the ground up. Guided by the belief that every child learns differently and possesses unique potential, Lizbeth remains dedicated to ensuring that every student enrolled in her programs is provided with the opportunity to reach their full potential. Teachers and staff make a difference every day. They deserve our respect, support, and the resources to succeed. Investing in those who educate our children strengthens our entire district.\n\nAs your elected MUSD trustee, Lizbeth will ensure that she\n\n- Update facilities- Bring a strong Special Education Program- Support small classes- Updates technology- Support teachers, classified and administrative staff- Increase financial responsibilities.\n\nI believe in listening, being transparent, and making thoughtful, fiscally responsible decisions. Together, we can continue building schools where every student feels safe, supported, and inspired to achieve their dreams. It will be an honor to serve the community that has given so much to my family and to help ensure MUSD remains a place where every child can succeed.\n\nThank you.\n\nDECLARACIÓN DE LIZBETH RENOVA\n\nCANDIDATA PARA MIEMBRO DE LA JUNTA GUBERNATIVA, Área Sindical N.° 2\n\nDISTRITO ESCOLAR UNIFICADO DE MONTEBELLO\n\nOcupación: Maestra\n\nLizbeth Renova es graduada de la MHS (Preparatoria Montebello) y residente del MUSD (Distrito Escolar Unificado de Montebello) desde hace mucho tiempo. Obtuvo su B.A. (Licenciatura) en Ciencias de la Familia y del Consumidor en Cal State Long Beach (Universidad Estatal de California en Long Beach), con especialización en Desarrollo Infantil y Estudios Familiares.\n\nComo miembro de esta comunidad de toda la vida y orgullosa madre de tres hijos que asisten al Distrito Escolar Unificado de Montebello, Lizbeth se preocupa profundamente por el futuro de nuestro distrito. Ver a sus hijos recorrer los mismos pasillos y aprender en las mismas aulas que marcaron su propia infancia es a la vez significativo y motivador. Esto ha reforzado su compromiso de garantizar que cada estudiante tenga la oportunidad de tener éxito en un entorno de aprendizaje seguro, que le brinde apoyo y de alta calidad.\n\nLizbeth se postula para la junta escolar del Distrito Escolar Unificado de Montebello porque cree que nuestros estudiantes merecen líderes que escuchen, trabajen en colaboración y siempre pongan a los niños en primer lugar. Como madre, exalumna del MUSD y educadora, comprende las esperanzas que las familias tienen para sus hijos y la responsabilidad que tenemos de brindarles la mejor educación posible.\n\nA lo largo de su trayectoria como educadora y directora, Lizbeth ha alcanzado logros significativos, en particular al fomentar un entorno seguro y de apoyo para los estudiantes y sus familias. Gracias a su compromiso con la construcción de una comunidad sólida, ha logrado empoderar a familias necesitadas para que prosperen en el sector de la Educación Infantil Temprana. Además, ha demostrado un liderazgo excepcional al establecer cuatro Centros de Desarrollo Infantil desde cero. Guiada por la creencia de que cada niño aprende de manera diferente y posee un potencial único, Lizbeth sigue comprometida a garantizar que todos los estudiantes matriculados en sus programas tengan la oportunidad de alcanzar su máximo potencial. Los maestros y el personal marcan la diferencia cada día. Merecen nuestro respeto, nuestro apoyo y los recursos necesarios para triunfar. Invertir en quienes educan a nuestros hijos fortalece a todo nuestro distrito.\n\nComo su síndica electa del MUSD, Lizbeth se asegurará de\n\n- Actualizar las instalaciones- Implementar un Programa sólido de Educación Especial- Apoyar las clases pequeñas- Actualizar la tecnología- Apoyar a los maestros, al personal de apoyo y al personal administrativo- Aumentar las responsabilidades financieras.\n\nCreo en escuchar, ser transparente y tomar decisiones reflexivas y fiscalmente responsables. Juntos, podemos seguir construyendo escuelas donde cada estudiante se sienta seguro, apoyado e inspirado para alcanzar sus sueños. Será un honor servir a la comunidad que tanto le ha dado a mi familia y ayudar a garantizar que el MUSD siga siendo un lugar donde todos los niños puedan tener éxito.\n\nGracias.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10843.json"
+          }
+        },
+        {
+          "id": "ca26-aaron-reveles",
+          "name": "AARON REVELES",
+          "incumbent": false,
+          "shortBio": "Public School Teacher"
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 400,
+        "section": "",
+        "heading": [
+          "MONTEBELLO UNIFIED SCHOOL DISTRICT",
+          "Governing Board Member, Trustee Area No. 2"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10843.json",
+        "candidates": [
+          {
+            "name": "JASMIN JAUREGUI PAULSON",
+            "label": "JASMIN JAUREGUI PAULSON",
+            "designation": "Educator/Parent"
+          },
+          {
+            "name": "LIZBETH RENOVA",
+            "label": "LIZBETH RENOVA",
+            "designation": "Child Development Director"
+          },
+          {
+            "name": "AARON REVELES",
+            "label": "AARON REVELES",
+            "designation": "Public School Teacher"
+          }
+        ],
+        "writeIn": true
+      }
+    },
+    {
+      "id": "ca26-wrd-4",
+      "title": "Water Replenishment District of Southern California, Division 4",
+      "level": "special",
+      "jurisdictionFips": "06037",
+      "sortOrder": 96,
+      "description": "Most Montebello addresses are in Division 4. Nonpartisan.",
+      "district": "Water Replenishment District Division 4",
+      "districtType": "water",
+      "districtCode": "wrd-4",
+      "termYears": 4,
+      "candidates": [
+        {
+          "id": "ca26-jorgel-chavez",
+          "name": "JORGEL CHAVEZ",
+          "incumbent": false,
+          "shortBio": "Infrastructure Consultant/Councilmember",
+          "countyStatement": {
+            "order": 635,
+            "title": "STATEMENT OF JORGEL CHAVEZ",
+            "text": "CANDIDATE FOR MEMBER, BOARD OF DIRECTORS,Division 4\n\nWATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA\n\nAge: 29\n\nOccupation: Water Policy Analyst\n\nAs a Water Policy Analyst and Southeast Los Angeles resident, I am running for the Water Replenishment District to bring new, accountable leadership to our communities.\n\nI am the first in my family to graduate from college. I earned two associate degrees from Long Beach City College before graduating cum laude from the University of Southern California with a bachelor's degree in Political Science, a minor in Communications, Policy, and Law, and a Master of Public Administration.\n\nAs Mayor of Bell Gardens, I led and advanced major infrastructure projects, including the opening of our regional aquatic center.\n\nOur communities have been represented by the same person for 20 years, since I was 9 years old. I believe it is time for new leadership.\n\nI will:\n\n-Protect clean, reliable, and affordable water.\n\n-Hold data centers accountable so they do not harm our water supply or force families to pay higher costs.\n\n-Protect groundwater through recycling, conservation, stormwater capture, and replenishment.\n\n-Work with cities and fire departments to strengthen water infrastructure and ensure water is available during wildfires and emergencies such as the Lineage warehouse fire.\n\nI respectfully ask for you to vote for me, Jorgel Chavez.\n\nDECLARACIÓN DE JORGEL CHAVEZ\n\nCANDIDATO PARA MIEMBRO, JUNTA DE DIRECTORES,División 4\n\nDISTRITO DE REABASTECIMIENTO DE AGUA DE SOUTHERN CALIFORNIA\n\nEdad: 29\n\nOcupación: Analista de Políticas Hídricas\n\nComo Analista de Políticas del Agua y residente del Sureste de Los Angeles, me postulo para el Distrito de Reabastecimiento de Agua con el fin de aportar un liderazgo nuevo y responsable a nuestras comunidades.\n\nSoy el primero de mi familia en graduarme del colegio. Obtuve dos títulos de asociado en el Colegio de la Ciudad de Long Beach antes de graduarme con honores de la Universidad del Sur de California con una licenciatura en Ciencias Políticas, una subespecialización en Comunicación, Políticas Públicas y Derecho, y una Maestría en Administración Pública.\n\nComo Alcalde de Bell Gardens, lideré e impulsé importantes proyectos de infraestructura, incluida la inauguración de nuestro centro acuático regional.\n\nNuestras comunidades han estado representadas por la misma persona durante 20 años, desde que yo tenía 9 años. Creo que es hora de un nuevo liderazgo.\n\nHaré lo siguiente:\n\n-Proteger un suministro de agua potable, fiable y asequible.\n\n-Exigir responsabilidades a los centros de datos para que no dañen nuestro suministro de agua ni obliguen a las familias a pagar precios más altos.\n\n-Proteger las aguas subterráneas mediante el reciclaje, la conservación, la captación de aguas pluviales y la recarga de acuíferos.\n\n-Colaborar con las ciudades y los departamentos de bomberos para fortalecer la infraestructura hídrica y garantizar el suministro de agua durante incendios forestales y emergencias como el incendio del almacén de Lineage.\n\nLe pido respetuosamente que vote por mí, Jorgel Chavez.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10569.json"
+          }
+        },
+        {
+          "id": "ca26-sergio-joseph-calderon",
+          "name": "SERGIO JOSEPH CALDERON",
+          "incumbent": false,
+          "shortBio": "Director, Water Replenishment District of So. Calif.",
+          "countyStatement": {
+            "order": 636,
+            "title": "STATEMENT OF SERGIO JOSEPH CALDERON",
+            "text": "CANDIDATE FOR MEMBER, BOARD OF DIRECTORS,Division 4\n\nWATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA\n\nIn 2022, the voters honored me by electing me as their public servant and Director of the Water Replenishment District of Southern California, Division 4. Since taking office, I have worked to protect our groundwater by keeping it safe, sustainable, and affordable. Today, groundwater remains the most affordable water supply in SoCal.\n\nAs a teacher, healthcare professional, and lifelong resident who lives and works within Division 4, I understand our communities' needs firsthand.\n\nIn 2026, I was unanimously appointed Board President, reflecting the Board's confidence in my leadership, integrity, and commitment to public service. This distinction gives the communities I represent a strong voice in shaping the future of our regional water supply.\n\nDuring my term, I helped secure more than $90 million in federal and state funding to address toxins known as PFAS, or \"forever chemicals,\" improve groundwater quality, and strengthen water infrastructure.\n\nI remain committed to government accountability, fiscal responsibility, and protecting taxpayers while safeguarding our most valuable natural resource.\n\nProven experience matters. I respectfully ask for your vote to continue providing experienced, honest leadership while working to ensure a safe, reliable, and affordable groundwater supply for today's families and generations to come.",
+            "source": "https://isb.lavote.gov/parsed/4348/contests/cc10569.json"
+          }
+        },
+        {
+          "id": "ca26-samuel-a-pe-a",
+          "name": "SAMUEL A. PEÑA",
+          "incumbent": false,
+          "shortBio": "Educator"
+        }
+      ],
+      "scope": {
+        "city": "montebello"
+      },
+      "ballot": {
+        "source": "https://isb.lavote.gov/",
+        "style": {
+          "party": "below",
+          "responses": "stacked"
+        },
+        "order": 1400,
+        "section": "",
+        "heading": [
+          "WATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA",
+          "Member, Board of Directors, Division 4"
+        ],
+        "instructions": [
+          "Vote For ONE"
+        ],
+        "sourceName": "Los Angeles County's Interactive Sample Ballot",
+        "contestSource": "https://isb.lavote.gov/parsed/4348/contests/cc10569.json",
+        "candidates": [
+          {
+            "name": "JORGEL CHAVEZ",
+            "label": "JORGEL CHAVEZ",
+            "designation": "Infrastructure Consultant/Councilmember"
+          },
+          {
+            "name": "SERGIO JOSEPH CALDERON",
+            "label": "SERGIO JOSEPH CALDERON",
+            "designation": "Director, Water Replenishment District of So. Calif."
+          },
+          {
+            "name": "SAMUEL A. PEÑA",
+            "label": "SAMUEL A. PEÑA",
+            "designation": "Educator"
           }
         ],
         "writeIn": true
@@ -1418,7 +2200,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2700,
+        "order": 3700,
         "section": "",
         "heading": [
           "STATE MEASURE 1"
@@ -1453,7 +2235,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2800,
+        "order": 3800,
         "section": "",
         "heading": [
           "STATE MEASURE 2"
@@ -1488,7 +2270,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 2900,
+        "order": 3900,
         "section": "",
         "heading": [
           "STATE MEASURE 3"
@@ -1523,7 +2305,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3000,
+        "order": 4000,
         "section": "",
         "heading": [
           "STATE MEASURE 4"
@@ -1558,7 +2340,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3100,
+        "order": 4100,
         "section": "",
         "heading": [
           "STATE MEASURE 5"
@@ -1593,7 +2375,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3200,
+        "order": 4200,
         "section": "",
         "heading": [
           "STATE MEASURE 37"
@@ -1628,7 +2410,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3300,
+        "order": 4300,
         "section": "",
         "heading": [
           "STATE MEASURE 38"
@@ -1663,7 +2445,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3400,
+        "order": 4400,
         "section": "",
         "heading": [
           "STATE MEASURE 39"
@@ -1698,7 +2480,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3500,
+        "order": 4500,
         "section": "",
         "heading": [
           "STATE MEASURE 40"
@@ -1733,7 +2515,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3600,
+        "order": 4600,
         "section": "",
         "heading": [
           "STATE MEASURE 41"
@@ -1768,7 +2550,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3700,
+        "order": 4700,
         "section": "",
         "heading": [
           "STATE MEASURE 42"
@@ -1803,7 +2585,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3800,
+        "order": 4800,
         "section": "",
         "heading": [
           "STATE MEASURE 43"
@@ -1838,7 +2620,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 3900,
+        "order": 4900,
         "section": "",
         "heading": [
           "STATE MEASURE 44"
@@ -1873,7 +2655,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4000,
+        "order": 5000,
         "section": "",
         "heading": [
           "STATE MEASURE 45"
@@ -1926,7 +2708,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1600,
+        "order": 2600,
         "section": "",
         "heading": [
           "COUNTY MEASURE A"
@@ -1979,7 +2761,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1700,
+        "order": 2700,
         "section": "",
         "heading": [
           "COUNTY MEASURE E"
@@ -2004,6 +2786,9 @@
       "type": "measure",
       "description": "Would amend the city's Land Use Element to create a Housing Overlay Mixed Environments (HOME) designation allowing housing (multifamily, townhomes, condos, mixed use) in identified commercial and industrial areas. It would not approve any project by itself, would not apply in R-1 or R-2 zones, and keeps the city's ban on data centers.",
       "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information",
+      "scope": {
+        "city": "monterey-park"
+      },
       "documents": [
         {
           "title": "CITY ATTORNEY'S IMPARTIAL ANALYSIS OF MEASURE HOM",
@@ -2027,7 +2812,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 900,
+        "order": 1900,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -2053,6 +2838,9 @@
       "type": "measure",
       "description": "Would raise the hotel/motel guest tax from 13% to 14% and set a 16% rate for short-term rental guests, raising about $600,000 a year for city services until ended by voters.",
       "sourceUrl": "https://www.montereypark.ca.gov/1738/2026-General-Election-Information",
+      "scope": {
+        "city": "monterey-park"
+      },
       "documents": [
         {
           "title": "CITY ATTORNEY'S IMPARTIAL ANALYSIS OF MEASURE AAA",
@@ -2076,7 +2864,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 1000,
+        "order": 2000,
         "section": "",
         "heading": [
           "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION",
@@ -2107,7 +2895,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4100,
+        "order": 5100,
         "section": "",
         "heading": [
           "For Associate Justice of the Supreme Court"
@@ -2138,7 +2926,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4101,
+        "order": 5101,
         "section": "",
         "heading": [
           "For Associate Justice of the Supreme Court"
@@ -2169,7 +2957,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4200,
+        "order": 5200,
         "section": "",
         "heading": [
           "For Presiding Justice, Court of Appeal, Second District, Division Three"
@@ -2199,7 +2987,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4300,
+        "order": 5300,
         "section": "",
         "heading": [
           "For Presiding Justice, Court of Appeal, Second District, Division Four"
@@ -2229,7 +3017,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4400,
+        "order": 5400,
         "section": "",
         "heading": [
           "For Presiding Justice, Court of Appeal, Second District, Division Five"
@@ -2259,7 +3047,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4500,
+        "order": 5500,
         "section": "",
         "heading": [
           "For Presiding Justice, Court of Appeal, Second District, Division Six"
@@ -2289,7 +3077,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4600,
+        "order": 5600,
         "section": "",
         "heading": [
           "For Presiding Justice, Court of Appeal, Second District, Division Seven"
@@ -2319,7 +3107,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4700,
+        "order": 5700,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division One"
@@ -2350,7 +3138,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4701,
+        "order": 5701,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division One"
@@ -2381,7 +3169,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4800,
+        "order": 5800,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Two"
@@ -2412,7 +3200,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4801,
+        "order": 5801,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Two"
@@ -2443,7 +3231,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 4900,
+        "order": 5900,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Three"
@@ -2473,7 +3261,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5000,
+        "order": 6000,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Four"
@@ -2504,7 +3292,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5001,
+        "order": 6001,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Four"
@@ -2535,7 +3323,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5002,
+        "order": 6002,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Four"
@@ -2566,7 +3354,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5100,
+        "order": 6100,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Six"
@@ -2596,7 +3384,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5200,
+        "order": 6200,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Seven"
@@ -2626,7 +3414,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5300,
+        "order": 6300,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Eight"
@@ -2657,7 +3445,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5301,
+        "order": 6301,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Eight"
@@ -2688,7 +3476,7 @@
           "party": "below",
           "responses": "stacked"
         },
-        "order": 5302,
+        "order": 6302,
         "section": "",
         "heading": [
           "For Associate Justice, Court of Appeal, Second District, Division Eight"

@@ -1,0 +1,106 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10483.json",
+ "data": {
+  "id": "cc10483",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION Member of the City Council, 4th District (Unexpired term ending November 7, 2028)"
+  },
+  "short_name": {
+   "EN": "MONTEBELLO CITY-CNC 4 U/T"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PQ",
+    "name": [
+     {
+      "EN": "DANIELLE ROMERO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DANIELLE ROMERO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Veteran Advocate/Councilmember"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002659005E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF DANIELLE ROMERO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">4th District<br dir=\"auto\">(Unexpired term ending November 7, 2028)</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Veteran Advocate/Councilmember</p><p dir=\"auto\">Serving as your appointed District 4 Councilmember has been the greatest honor of my life. I am running to continue serving The City of Montebello with integrity, transparency, and a commitment to putting residents first.</p><p dir=\"auto\">As an Army veteran, Accredited American Legion Veteran Service Officer, mother, and community advocate, I have dedicated my life to serving others. On the Council, I have worked collaboratively to improve our parks, strengthen public safety, invest in infrastructure, support local businesses, and protect taxpayer dollars through responsible fiscal decisions.</p><p dir=\"auto\">I believe every resident deserves to be heard and represented. My decisions are guided by what is best for our community today while planning responsibly for the future.</p><p dir=\"auto\">I respectfully ask for your vote to continue serving District 4 and all of The City of Montebello. Together, we can build on our progress, address future challenges with thoughtful leadership, and preserve the values that make our community a great place to live, work, and raise a family.</p><p dir=\"auto\">It would be my privilege to earn your trust and serve as your elected Councilmember.</p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE DANIELLE ROMERO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">4.º Distrito<br dir=\"auto\">(Término vigente finalizando el 7 de noviembre de 2028)</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL ESPECIAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Defensora de Veteranos/Miembro del Concejo</p><p dir=\"auto\">Desempeñarme como su Miembro del Concejo nombrada para el Distrito&nbsp;4 ha sido el mayor honor de mi vida. Me postulo para seguir sirviendo a La Ciudad de Montebello con integridad, transparencia y el compromiso de priorizar a los residentes.</p><p dir=\"auto\">Como veterana del Ejército, Funcionaria Acreditada de Servicios para Veteranos de la Legión Estadounidense, madre y defensora de la comunidad, he dedicado mi vida a servir a los demás. En el Concejo, he trabajado en colaboración para mejorar nuestros parques, fortalecer la seguridad pública, invertir en infraestructura, apoyar a las empresas locales y proteger el dinero de los contribuyentes mediante decisiones fiscales responsables.</p><p dir=\"auto\">Creo que todos los residentes merecen ser escuchados y estar representados. Mis decisiones se rigen por aquello que es mejor para nuestra comunidad en la actualidad, a la vez que planifico con responsabilidad para el futuro.</p><p dir=\"auto\">Les pido respetuosamente su voto para seguir sirviendo al Distrito&nbsp;4 y a toda La Ciudad de Montebello. Juntos, podemos aprovechar nuestros avances, enfrentar los desafíos futuros con liderazgo reflexivo y preservar los valores que hacen de nuestra comunidad un excelente lugar para vivir, trabajar y criar una familia.</p><p dir=\"auto\">Sería un privilegio ganarme su confianza y servir como Miembro del Concejo electa.</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PQ",
+      "SequenceOrder": 165
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PR",
+    "name": [
+     {
+      "EN": "RAFAEL GUTIERREZ"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RAFAEL GUTIERREZ"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Teacher"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002659105E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF RAFAEL GUTIERREZ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">4th District<br dir=\"auto\">(Unexpired term ending November 7, 2028)</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Teacher</p><p dir=\"auto\">My name is Rafael Gutierrez, and for over 45 years, Montebello has been my home. As a lifelong resident, educator, coach, and community volunteer, I have dedicated my life to serving our families and investing in the future of our city.</p><p dir=\"auto\">In addition I was honored to serve as your elected City Treasurer from 2018-2022.</p><p dir=\"auto\">My priorities are clear: improving our infrastructure, supporting responsible housing projects, enhancing our parks and neighborhoods, attracting new businesses, restaurants, and jobs, and making sure Montebello remains a safe and great place to live, work, and raise a family.</p><p dir=\"auto\">I believe in the values that make our community strong—family, education, integrity, teamwork, and hard work. I will be a strong voice for our district and will work collaboratively to create positive results for all Montebello residents.</p><p dir=\"auto\">I look forward to serving you on a positive path in this beautiful community we call home.</p><p dir=\"auto\">I respectfully ask for your vote.</p><p dir=\"auto\">Rafael Gutierrez</p><p dir=\"auto\">Committed to Service: <br dir=\"auto\">Montebello High School Teacher &amp; Current Athletic Director<br dir=\"auto\">20-Year Varsity Baseball Coach<br dir=\"auto\">Lions Club of Montebello Member <br dir=\"auto\">Montebello Baseball Association Commissioner &amp; Board Member<br dir=\"auto\">Youth Coach &amp; Community Volunteer<br dir=\"auto\">MHS Alumni Association Board Member<br dir=\"auto\">Chair, Stu Pike/Tak Kobayashi Memorial Scholarship Golf Tournament &amp; Athletic Hall of Fame</p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE RAFAEL GUTIERREZ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">4º Distrito<br dir=\"auto\">(Término vigente finalizando el 7 de noviembre de 2028)</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL ESPECIAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Maestro</p><p dir=\"auto\">Mi nombre es Rafael Gutierrez, y Montebello ha sido mi hogar durante más de 45&nbsp;años. Como residente de toda la vida, educador, entrenador y voluntario comunitario, he dedicado mi vida a servir a nuestras familias e invertir en el futuro de nuestra ciudad.</p><p dir=\"auto\">Además, tuve el honor de servir como su Tesorero de la Ciudad electo desde 2018 hasta 2022.</p><p dir=\"auto\">Mis prioridades son claras: mejorar nuestra infraestructura, apoyar proyectos de vivienda responsables, embellecer nuestros parques y vecindarios, atraer nuevos negocios, restaurantes y empleos, y asegurarme de que Montebello siga siendo un lugar seguro y excelente para vivir, trabajar y formar una familia.</p><p dir=\"auto\">Creo en los valores que fortalecen nuestra comunidad—la familia, la educación, la integridad, el trabajo en equipo y el esfuerzo. Seré una voz firme para nuestro distrito y trabajaré en colaboración para lograr resultados positivos para todos los residentes de Montebello.</p><p dir=\"auto\">Espero poder servirles en un camino positivo en esta hermosa comunidad a la que llamamos hogar.</p><p dir=\"auto\">Le pido respetuosamente su voto.</p><p dir=\"auto\">Rafael Gutierrez</p><p dir=\"auto\">Comprometido con el Servicio: <br dir=\"auto\">Maestro de la Preparatoria Montebello y Actual Director de Atletismo<br dir=\"auto\">Entrenador de Béisbol Universitario durante 20&nbsp;Años<br dir=\"auto\">Miembro del Lions Club de Montebello <br dir=\"auto\">Comisionado y Miembro de la Junta de la Asociación de Béisbol de Montebello<br dir=\"auto\">Entrenador Juvenil y Voluntario Comunitario<br dir=\"auto\">Miembro de la Junta de la Asociación de Exalumnos de la MHS (Preparatoria Montebello)<br dir=\"auto\">Presidente del Torneo de Golf de la Beca Conmemorativa de Stu Pike/Tak Kobayashi y del Salón de la Fama del Deporte.</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PR",
+      "SequenceOrder": 166
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LD",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

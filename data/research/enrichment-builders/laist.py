@@ -48,6 +48,8 @@ PAGES = {
     'ca26-superintendent': ('2026-election-california-general-superintendent-of-public-instruction', None),
     'ca26-boe-3': ('2026-election-california-general-board-of-equalization-district-3', None),
     'ca26-assembly-49': ('2026-election-california-general-state-assembly', 'District 49'),
+    'ca26-assembly-54': ('2026-election-california-general-state-assembly', 'District 54'),
+    'ca26-state-senate-30': ('2026-election-california-general-california-state-senate', 'District 30'),
     'ca26-la-sheriff': ('2026-election-california-general-la-county-sheriff', None),
     'ca26-la-superior-64': ('2026-election-california-general-la-county-judges', 'Office No. 64'),
     'ca26-la-superior-65': ('2026-election-california-general-la-county-judges', 'Office No. 65'),
@@ -75,7 +77,9 @@ def two_sentences(text):
 
 def name_key(name):
     """'Donald P. (Don) Wagner' / 'DONALD P. WAGNER' → ('donald', 'wagner')"""
-    n = re.sub(r'\(.*?\)|“.*?”|".*?"', ' ', name.lower())
+    # "Briseño" on the page, "BRISENO" on the ballot: compare without accents
+    n = unicodedata.normalize('NFKD', name.lower()).encode('ascii', 'ignore').decode()
+    n = re.sub(r'\(.*?\)|“.*?”|".*?"', ' ', n)
     words = [w for w in re.findall(r"[a-z][a-z'-]+", n) if w not in ('jr', 'sr', 'ii', 'iii', 'incumbent')]
     return (words[0], words[-1]) if words else ('', '')
 

@@ -1,0 +1,137 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10482.json",
+ "data": {
+  "id": "cc10482",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION Member of the City Council, 3rd District"
+  },
+  "short_name": {
+   "EN": "MONTEBELLO CITY GEN-CNC 3"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PM",
+    "name": [
+     {
+      "EN": "ELVA \"SAMMY\" OSORIO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ELVA OSORIO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Nonprofit Technical Consultant"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658805E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF ELVA \"SAMMY\" OSORIO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">3rd District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Nonprofit Technical Consultant</p><p dir=\"auto\">As a local business owner on Whittier Boulevard, nonprofit technical consultant, and proud neighbor, I want to build a Montebello where people can stay, invest, and thrive for generations.</p><p dir=\"auto\">Our neighbors shouldn't feel forced out by high costs or broken streets. My goal is keeping our community together through practical leadership. I will address homelessness with balance: combining mental health help and shelter with real safety rules.</p><p dir=\"auto\">We must fix our city's basics. I will prioritize repairing local roads, stopping unfair parking tickets, and fixing traffic lights on Whittier and Beverly so drivers aren't stuck at red lights. To support local families, I will focus on quicker emergency response times, Dial-a-Ride, and expanding programs for youth and seniors.</p><p dir=\"auto\">Using my technical background, I will audit city spending, demand accountability across city services, cut red tape for small businesses, and make downtown a safe, active hub.</p><p dir=\"auto\">I don't answer to career politicians. My door is always open at my shop in the Goddess Mercado Bazaar. I respectfully ask for your vote for District 3.</p><p dir=\"auto\">Elva \"Sammy\" Osorio</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PM",
+      "SequenceOrder": 162
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PN",
+    "name": [
+     {
+      "EN": "MARIE LEDEZMA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "MARIE LEDEZMA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Paralegal/Business Owner"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658705E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF MARIE LEDEZMA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">3rd District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Paralegal/Business Owner</p><p dir=\"auto\">I am Marie Ledezma, and I am one of you. Fluent in Spanish, a parent, a grandparent, a hard worker (paralegal and small business owner), and proud Montebello resident. For over ten years, I've invested time, money, and energy in this city-volunteering, attending City Council meetings, and holding our leaders accountable through advocacy.</p><p dir=\"auto\">District 3 needs a leader with persistence, poise, and passion- qualities I've developed alongside other strengths. As a senior paralegal, I listen, research, and solve complex problems under pressure. As a business owner, I understand the realities of entrepreneurship. As a mother and grandmother, I know what families and seniors need to thrive. These experiences prepare me to lead with competence and compassion.</p><p dir=\"auto\">If elected, I will lead with transparency and unwavering accountability. I will make decisions that prioritize Montebello first, firmly guided by ethics and law. Advocate for ordinances that work, cut red tape, and expand economic opportunities. I will fight for a beautiful Montebello by protecting our green spaces and rebuilding aging infrastructure. I am committed to building strong partnerships with city leaders, businesses, and first responders, to better serve and protect our community.</p><p dir=\"auto\">I respectfully ask for your vote to serve District 3</p><p dir=\"auto\"></p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PN",
+      "SequenceOrder": 163
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PP",
+    "name": [
+     {
+      "EN": "ANA TORRES"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "ANA TORRES"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Montebello Business Owner"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658905E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF ANA TORRES</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">3rd District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Montebello Business Owner</p><p dir=\"auto\">My name is Ana Torres, and Montebello has been my home for over 30 years. As a Mexican immigrant, mother of two, local business owner, and community advocate, I understand the value of hard work, perseverance, and service to others.</p><p dir=\"auto\">I earned my Associate's degree from East Los Angeles College and both my Bachelor's and Master's degrees in Sociology from California State University, Los Angeles. I spent over 14 years serving students and families through the Los Angeles Community College District before investing in my own city by opening Organica Juice Bar, Montebello's first organic juice bar. My goal has always been to create opportunities that improve the health and well-being of our community while supporting local economic growth.</p><p dir=\"auto\">Throughout my career, I have worked to bring people together, build meaningful partnerships, and serve with integrity. I am running for City Council to continue that work. Montebello deserves honest, transparent leadership that puts residents first.</p><p dir=\"auto\">My priorities include supporting public safety, strengthening local businesses, improving city services, investing in youth and seniors, and ensuring responsible stewardship of taxpayer dollars.</p><p dir=\"auto\">I would be honored to earn your trust and your vote as we work together to build a better Montebello.</p><p dir=\"auto\"></p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE ANA TORRES</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">3er Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Propietaria de Negocio en Montebello</p><p dir=\"auto\">Mi nombre es Ana Torres, y Montebello ha sido mi hogar durante más de 30&nbsp;años. Como inmigrante mexicana, madre de dos hijos, propietaria de un negocio local y defensora de la comunidad, entiendo el valor del trabajo duro, la perseverancia y el servicio a los demás.</p><p dir=\"auto\">Obtuve mi título de Asociado en el Colegio East Los Angeles y mis títulos de Licenciatura y Maestría en Sociología en la Universidad Estatal de California, Los Angeles. Pasé más de 14&nbsp;años al servicio de estudiantes y familias a través del Distrito de Colegios Comunitarios de Los Angeles antes de invertir en mi propia ciudad abriendo Organica Juice Bar, el primer bar de jugos orgánicos de Montebello. Mi objetivo siempre ha sido crear oportunidades que mejoren la salud y el bienestar de nuestra comunidad, al tiempo que apoyen el crecimiento económico local.</p><p dir=\"auto\">A lo largo de mi carrera profesional, me he esforzado por unir a las personas, establecer alianzas significativas y servir con integridad. Me presento como candidata al Concejo de la Ciudad para continuar con ese trabajo. Montebello merece un liderazgo honesto y transparente que dé prioridad a los residentes.</p><p dir=\"auto\">Mis prioridades incluyen apoyar la seguridad pública, fortalecer las empresas locales, mejorar los servicios de la ciudad, invertir en jóvenes y personas mayores, y garantizar una gestión responsable del dinero de los contribuyentes.</p><p dir=\"auto\">Sería un honor para mí ganarme su confianza y su voto mientras trabajamos juntos para crear un Montebello mejor.</p><p dir=\"auto\"></p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PP",
+      "SequenceOrder": 164
+     }
+    ],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LC",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 4,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

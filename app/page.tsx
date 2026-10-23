@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Calendar, FileText, MapPin, ArrowRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
+import { slugify } from "@/components/ballot/ballot";
 
 // Always read the current list of curated elections
 export const dynamic = "force-dynamic";
@@ -17,6 +18,8 @@ export default async function HomePage() {
       jurisdiction: true,
       _count: { select: { offices: true } },
       ballots: { where: { type: { not: "candidate" } }, select: { id: true } },
+      // Cities with their own races: an election covering several opens preset to one (?city=)
+      offices: { where: { jurisdiction: { type: "city" } }, select: { jurisdiction: { select: { name: true } } } },
     },
     orderBy: [{ electionDate: "asc" }, { title: "asc" }],
   });
@@ -73,12 +76,24 @@ export default async function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <Link
-                    href={`/elections/${election.id}`}
-                    className="flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm text-white hover:bg-blue-700"
-                  >
-                    Open my ballot <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  {(() => {
+                    const cities = [...new Set(election.offices.map((o) => o.jurisdiction.name))].sort()
+                    const button =
+                      "flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm text-white hover:bg-blue-700"
+                    return cities.length > 1 ? (
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {cities.map((name) => (
+                          <Link key={name} href={`/elections/${election.id}?city=${slugify(name)}`} className={button}>
+                            {name} ballot <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <Link href={`/elections/${election.id}`} className={button}>
+                        Open my ballot <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )
+                  })()}
                 </div>
               ))}
             </div>

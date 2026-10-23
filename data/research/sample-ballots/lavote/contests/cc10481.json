@@ -1,0 +1,168 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10481.json",
+ "data": {
+  "id": "cc10481",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION Member of the City Council, 1st District"
+  },
+  "short_name": {
+   "EN": "MONTEBELLO CITY GEN-CNC 1"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PH",
+    "name": [
+     {
+      "EN": "SHAZIA HOQ"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "SHAZIA HOQ"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Business Woman"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658505E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF SHAZIA HOQ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">1st District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Business Woman</p><p dir=\"auto\">My name is Shazia Hoq, and I am a businesswoman, community leader, and candidate for Montebello City Council District 1.</p><p dir=\"auto\">I came to America from Bangladesh at a young age with a dream of building a better future through hard work, opportunity, and service. I earned an Associate Degree in Liberal Arts from Los Angeles Valley College and pursued Psychology at California State University Channel Islands.</p><p dir=\"auto\">With 20 years of experience in business as a President of Sarah &amp; Brother Inc., a California retail business. My experience has taught me the importance of creating jobs, managing resources responsibly, and supporting local businesses.</p><p dir=\"auto\">I also served two terms as Vice President of the Los Angeles Wilshire Center Koreatown Neighborhood Council, working with elected officials, nonprofits, and residents to advance economic development, public safety, housing, and homelessness solutions.</p><p dir=\"auto\">I am running because District 1 deserves a strong, accessible voice at City Hall. I will fight for transparency, accountability, responsible budgeting, safer neighborhoods, economic opportunity, and a city government that respects residents, employees, labor partners, and public safety professionals.</p><p dir=\"auto\">I respectfully ask for your vote to build a stronger, safer, and more prosperous Montebello.</p><p dir=\"auto\"></p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE SHAZIA HOQ</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">1er Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Empresaria</p><p dir=\"auto\">Mi nombre es Shazia Hoq y soy empresaria, líder comunitaria y candidata para el Concejo de la Ciudad de Montebello por el Distrito&nbsp;1.</p><p dir=\"auto\">Llegué a los Estados Unidos desde Bangladés cuando era joven, con el sueño de construir un futuro mejor mediante el trabajo arduo, las oportunidades y el servicio. Obtuve un Título de Asociada en Humanidades en el Colegio de Los Angeles Valley y estudié Psicología en la Universidad Estatal de California, Channel Islands.</p><p dir=\"auto\">Tengo 20&nbsp;años de experiencia empresarial como Presidenta de Sarah &amp; Brother Inc., una empresa minorista de California. Mi experiencia me ha enseñado la importancia de crear empleos, administrar los recursos con responsabilidad y apoyar a las empresas locales.</p><p dir=\"auto\">También cumplí dos períodos como Vicepresidenta del Consejo Vecinal de Los Angeles Wilshire Center Koreatown, donde trabajé con funcionarios electos, organizaciones sin fines de lucro y residentes para promover el desarrollo económico, la seguridad pública, la vivienda y las soluciones para la falta de vivienda.</p><p dir=\"auto\">Me postulo porque el Distrito&nbsp;1 merece una voz firme y accesible en el Ayuntamiento. Lucharé por la transparencia, la rendición de cuentas, la elaboración responsable de presupuestos, vecindarios más seguros, oportunidades económicas y un gobierno de la ciudad que respete a los residentes, empleados, socios laborales y profesionales de seguridad pública.</p><p dir=\"auto\">Les pido respetuosamente su voto para construir una Montebello más sólida, segura y próspera.</p><p dir=\"auto\"></p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PH",
+      "SequenceOrder": 158
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PJ",
+    "name": [
+     {
+      "EN": "KIMBERLY COBOS CAWTHORNE"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "K COBOS CAWTHORNE"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Community Activist/Businesswoman"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658305E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF KIMBERLY COBOS CAWTHORNE </h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">1st District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Community Activist/Businesswoman</p><p dir=\"auto\">Montebello has been my home my entire life. As your former Mayor and Council Member, I have dedicated years to fighting for fiscal accountability, public safety, and neighborhood empowerment. I successfully championed Measure H, securing over $48 million in dedicated, local tax revenue to protect vital city services — money that stays here in Montebello. Through my ongoing work as Founder of Moving Montebello Forward, I continue advocating for a safer, stronger, and more prosperous community. </p><p dir=\"auto\">When elected, my priorities are clear: expanding resources for our local first responders; keeping every tax dollar working for Montebello; supporting small businesses and creating good local jobs; and investing in our youth programs and senior services so every generation is cared for. </p><p dir=\"auto\">As a further commitment to fiscal responsibility, I will not accept a city council salary when elected — every dollar saved goes back to serving you.</p><p dir=\"auto\">I can not do this alone — I need your support. Together, we will move Montebello forward. I respectfully ask for your vote for District 1 Council Member. </p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE KIMBERLY COBOS CAWTHORNE</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">1er Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Activista Comunitaria/Empresaria</p><p dir=\"auto\">Montebello ha sido mi hogar toda mi vida. Como su ex Alcaldesa y Miembro del Concejo, he dedicado años a luchar por la responsabilidad fiscal, la seguridad pública y el empoderamiento de los vecindarios. Impulsé con éxito la Medida&nbsp;H, consiguiendo más de $48&nbsp;millones en ingresos fiscales locales específicos para proteger servicios municipales vitales — dinero que se queda aquí en Montebello. A través de mi labor como Fundadora de Moving Montebello Forward, sigo abogando por una comunidad más segura, más fuerte y más próspera.</p><p dir=\"auto\">Cuando resulte electa, mis prioridades serán claras: ampliar los recursos para nuestros servicios de emergencia locales; garantizar que cada dólar de los impuestos se destine al beneficio de Montebello; apoyar a las pequeñas empresas y crear buenos empleos locales; e invertir en nuestros programas para jóvenes y servicios para personas mayores para que todas las generaciones reciban la atención necesaria.</p><p dir=\"auto\">Como muestra de mi compromiso con la responsabilidad fiscal, no aceptaré un salario de concejal cuando sea electa — cada dólar ahorrado se reinvertirá en servirles a ustedes.</p><p dir=\"auto\">No puedo hacer esto sola — necesito su apoyo. Juntos, haremos que Montebello avance. Le pido respetuosamente su voto para Miembro del Concejo del Distrito 1.</p>"
+      },
+      "CandidateID": "PJ",
+      "SequenceOrder": 159
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PK",
+    "name": [
+     {
+      "EN": "RAFAEL SANTOYA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RAFAEL SANTOYA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Los Angeles County Employee"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658605E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF RAFAEL SANTOYA </h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">1st District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Los Angeles County Employee </p><p dir=\"auto\">My name is Dr. Rafael Santoya, and Montebello is our home. I am a husband, father, first-generation college student, Licensed Marriage and Family Therapist, and Los Angeles County employee. I hold a Ph.D. and bring more than 15 years of experience in quality assurance, accountability, program improvement, and public service.</p><p dir=\"auto\">My family and I live here, our children attend school here, and we are invested in seeing our community thrive.</p><p dir=\"auto\">I am running for City Council to help keep Montebello a safe, strong place to live, work, and raise our families. My priorities include public safety, strong schools, responsible city services, supporting local businesses, and ensuring our police and fire departments have the resources they need to serve our community.</p><p dir=\"auto\">I believe good leadership starts with listening and working together. I am committed to collaborating with residents, city staff, and my fellow Councilmembers, respecting different perspectives and keeping our community at the center of decisions.</p><p dir=\"auto\">I am proud to call Montebello home and would be honored to represent District 1. In unity there is strength, and together we can continue moving Montebello forward.</p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE RAFAEL SANTOYA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">1er Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Empleado del Condado de Los Angeles</p><p dir=\"auto\">Mi nombre es Dr.&nbsp;Rafael Santoya y Montebello es nuestro hogar. Soy esposo, padre, estudiante de colegio de primera generación, Terapeuta Matrimonial y Familiar con Licencia y empleado del Condado de Los Angeles. Tengo un Ph.D. (Doctorado) y aporto más de 15&nbsp;años de experiencia en garantía de calidad, rendición de cuentas, mejora de programas y servicio público.</p><p dir=\"auto\">Mi familia y yo vivimos aquí, nuestros hijos asisten a la escuela aquí y estamos comprometidos con la prosperidad de nuestra comunidad.</p><p dir=\"auto\">Me postulo para el Concejo de la Ciudad con el propósito de contribuir a que Montebello siga siendo un lugar seguro y sólido para vivir, trabajar y criar a nuestras familias. Entre mis prioridades se encuentran la seguridad pública, escuelas sólidas, servicios responsables de la ciudad, el apoyo a las empresas locales y la garantía de que nuestros departamentos de policía y bomberos cuenten con los recursos necesarios para servir a nuestra comunidad.</p><p dir=\"auto\">Creo que el buen liderazgo comienza por escuchar y trabajar juntos. Me comprometo a colaborar con los residentes, el personal de la Ciudad y mis compañeros Miembros del Concejo, respetar las diferentes perspectivas y mantener a nuestra comunidad en el centro de las decisiones.</p><p dir=\"auto\">Me enorgullece llamar hogar a Montebello y sería un honor representar al Distrito&nbsp;1. La unión hace la fuerza, y juntos podemos continuar impulsando Montebello hacia adelante.</p><p dir=\"auto\"></p>"
+      },
+      "CandidateID": "PK",
+      "SequenceOrder": 160
+     }
+    ],
+    "order": 2,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PL",
+    "name": [
+     {
+      "EN": "GEORGINA TAMAYO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "GEORGINA TAMAYO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Mayor/Finance Director"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002658105E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF GEORGINA TAMAYO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">1st District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Mayor/Finance Director</p><p dir=\"auto\">It has been the honor of my life to serve as your Mayor and District 1 Councilmember, representing the community where my husband and I have raised our two children for over 35 years. I bring my Bachelor's and Master's degrees from UCLA, along with my government career in development and finance, to every decision I make for Montebello.</p><p dir=\"auto\">As your Councilmember and Mayor, I have:</p><p dir=\"auto\">Secured over $3 million for the development of a new fire station in District 1.<br dir=\"auto\">Attracted major retailers including Tesla, Hobby Lobby, Planet Fitness, Yard House, and Round 1 Entertainment. Adopted the city's first Community Workforce Agreement, ensuring unionized labor on city funded projects.<br dir=\"auto\">Invested in new community amenities, including a dog park, community garden, and police resource center.<br dir=\"auto\">Made significant investments in our fire and police departments, expanding personnel and creating a new Public Park Safety Division.<br dir=\"auto\">Reinstated our Traffic &amp; Safety Commission to improve road safety and address community traffic concerns.</p><p dir=\"auto\">Moving forward, I will:<br dir=\"auto\">Continue investing in infrastructure and public safety across District 1. <br dir=\"auto\">Support programs that serve our families, seniors, and local businesses.</p><p dir=\"auto\">Our work is far from over. As your District 1 Councilmember, I will continue fighting for a safer, stronger Montebello. I respectfully request your vote.</p><p dir=\"auto\">Georgina Tamayo<br dir=\"auto\"><u>georginaformontebello.com</u></p><p dir=\"auto\"></p><p dir=\"auto\"></p><p dir=\"auto\"></p><p dir=\"auto\" style=\"text-align: center\"></p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE GEORGINA TAMAYO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATA PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">1er Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Alcaldesa/Directora Financiera</p><p dir=\"auto\">Ha sido el honor de mi vida servir como su Alcaldesa y Miembro del Concejo del Distrito 1, representando a la comunidad donde mi esposo y yo hemos criado a nuestros dos hijos durante más de 35&nbsp;años. Aporto mis títulos de Licenciatura y Maestría de la UCLA (Universidad de California, Los Angeles), junto con mi trayectoria profesional en el sector público en las áreas de desarrollo y finanzas, a cada decisión que tomo para Montebello.</p><p dir=\"auto\">Como su Miembro del Concejo y Alcaldesa, he hecho lo siguiente:</p><p dir=\"auto\">Obtuve más de $3&nbsp;millones para la construcción de una nueva estación de bomberos en el Distrito 1.<br dir=\"auto\">Atraje a importantes tiendas como Tesla, Hobby Lobby, Planet Fitness, Yard House y Round 1 Entertainment. Se celebró el primer Acuerdo de Fuerza Laboral Comunitaria de la ciudad, que garantiza la presencia de mano de obra sindicalizada en los proyectos financiados por la ciudad.<br dir=\"auto\">Se invirtió en nuevas instalaciones para la comunidad, que incluyen un parque para perros, un jardín comunitario y un centro de recursos policiales.<br dir=\"auto\">Realizamos importantes inversiones en nuestros departamentos de bomberos y policía, ampliando el personal y creando una nueva División de Seguridad en Parques Públicos.<br dir=\"auto\">Hemos restablecido nuestra Comisión de Tráfico y Seguridad para mejorar la seguridad vial y abordar las preocupaciones de la comunidad en materia de tráfico.</p><p dir=\"auto\">De cara al futuro:<br dir=\"auto\">Continuaré invirtiendo en infraestructura y seguridad pública en todo el Distrito 1. <br dir=\"auto\">Apoyaré los programas que beneficien a nuestras familias, personas mayores y negocios locales.</p><p dir=\"auto\">Nuestro trabajo está lejos de haber terminado. Como su Miembro del Concejo del Distrito 1, seguiré luchando por un Montebello más seguro y fuerte. Solicito respetuosamente su voto.</p><p dir=\"auto\">Georgina Tamayo<br dir=\"auto\"><u>georginaformontebello.com</u></p><p dir=\"auto\"></p><p dir=\"auto\"></p><p dir=\"auto\"></p><p dir=\"auto\" style=\"text-align: center\"></p><p dir=\"auto\"></p>\n"
+      },
+      "CandidateID": "PL",
+      "SequenceOrder": 161
+     }
+    ],
+    "order": 3,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LB",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 5,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

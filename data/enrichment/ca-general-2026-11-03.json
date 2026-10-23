@@ -34,76 +34,6 @@
     "fines": []
    }
   },
-  "ca26-steve-hilton": {
-   "summary": {
-    "source": {
-     "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
-     "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 1
-    },
-    "fields": [],
-    "statement": "No candidate statement."
-   },
-   "guide": {
-    "source": {
-     "publisher": "LAist",
-     "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
-     "retrieved": "2026-10-22"
-    },
-    "about": "Hilton, who is British American, was senior adviser for former conservative Prime Minister David Cameron from 2010 to 2012 before moving to California, where he co-founded a political crowdfunding platform in Silicon Valley. He has written books on decentralizing power in large, bureaucratic institutions from government to the food and health care systems.",
-    "website": "https://stevehiltonforgovernor.com/",
-    "keyEndorsements": [
-     "President Donald Trump",
-     "Nisei Farmers League",
-     "Israeli-American Civic Action Network"
-    ]
-   },
-   "website": "https://stevehiltonforgovernor.com/",
-   "claims": [
-    {
-     "publisher": "CapRadio",
-     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
-     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
-     "retrieved": "2026-10-22",
-     "claim": "You dismantled the vetting that should have made sure that they were with a safe, protective family or sponsor",
-     "verdict": "Hilton stands on solid ground when he says Becerra's agency weakened vetting and lost track of thousands of children. He overstates it when he describes hundreds of thousands of missing kids and child sex trafficking."
-    },
-    {
-     "publisher": "CapRadio",
-     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
-     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
-     "retrieved": "2026-10-22",
-     "claim": "Right now, because of your policies, we have the highest poverty rate and the highest unemployment rate in America,",
-     "verdict": "When it comes to the rates, Hilton is nearly spot on. … But pinning the blame entirely on Becerra's \"policies\" is a stretch, as larger global economic forces affect employment and poverty, and not just one political party's decisions."
-    }
-   ],
-   "ethics": {
-    "publisher": "Fair Political Practices Commission",
-    "from": "2021-01",
-    "to": "2026-10",
-    "releases": 70,
-    "fines": []
-   },
-   "videos": [
-    {
-     "youtubeId": "fGdu7sDtPNM",
-     "kind": "interview",
-     "title": "Steve Hilton talks tax cuts, DMV overhaul, $3 gas and his other plans for California | CA Politic...",
-     "channel": "KCRA 3",
-     "published": "2026-09-20",
-     "durationSec": 2572
-    },
-    {
-     "youtubeId": "cjS-2CIWmm8",
-     "kind": "debate",
-     "title": "Hilton, Becerra clash in California gubernatorial debate",
-     "channel": "NBCLA",
-     "published": "2026-10-01",
-     "durationSec": 205
-    }
-   ]
-  },
   "ca26-xavier-becerra": {
    "summary": {
     "source": {
@@ -200,31 +130,50 @@
     }
    ]
   },
-  "ca26-gloria-romero": {
+  "ca26-steve-hilton": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 2
+     "page": 1
     },
     "fields": [],
-    "statement": "California needs a real choice. I'm Gloria Romero. I served as California Senate Majority Leader, fought for transparency in government, authored landmark school-choice reforms to give parents and students trapped in failing schools real opportunities, and stood up for survivors of violence and sexual harassment."
+    "statement": "No candidate statement."
    },
-   "website": "https://gloriajromero.com",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
      "retrieved": "2026-10-22"
     },
-    "about": "Romero, a former longtime Democratic lawmaker who served nearly 12 years in the state Legislature, became a registered Republican in 2024 after years of expressing discontent with the Democratic Party. She differs with Democrats on school choice, COVID-19 policies and gender identity.",
-    "website": "https://www.gloriaromero4ltgov.com/",
+    "about": "Hilton, who is British American, was senior adviser for former conservative Prime Minister David Cameron from 2010 to 2012 before moving to California, where he co-founded a political crowdfunding platform in Silicon Valley. He has written books on decentralizing power in large, bureaucratic institutions from government to the food and health care systems.",
+    "website": "https://stevehiltonforgovernor.com/",
     "keyEndorsements": [
-     "California Republican Party",
-     "Reform California"
+     "President Donald Trump",
+     "Nisei Farmers League",
+     "Israeli-American Civic Action Network"
     ]
    },
+   "website": "https://stevehiltonforgovernor.com/",
+   "claims": [
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "You dismantled the vetting that should have made sure that they were with a safe, protective family or sponsor",
+     "verdict": "Hilton stands on solid ground when he says Becerra's agency weakened vetting and lost track of thousands of children. He overstates it when he describes hundreds of thousands of missing kids and child sex trafficking."
+    },
+    {
+     "publisher": "CapRadio",
+     "title": "Fact-checking Becerra and Hilton in the California governor's debate on CNN",
+     "url": "https://www.capradio.org/articles/2026/10/01/fact-checking-becerra-and-hilton-in-the-california-governors-debate-on-cnn/",
+     "retrieved": "2026-10-22",
+     "claim": "Right now, because of your policies, we have the highest poverty rate and the highest unemployment rate in America,",
+     "verdict": "When it comes to the rates, Hilton is nearly spot on. … But pinning the blame entirely on Becerra's \"policies\" is a stretch, as larger global economic forces affect employment and poverty, and not just one political party's decisions."
+    }
+   ],
    "ethics": {
     "publisher": "Fair Political Practices Commission",
     "from": "2021-01",
@@ -234,12 +183,20 @@
    },
    "videos": [
     {
-     "youtubeId": "-ndCw-V2L3E",
+     "youtubeId": "fGdu7sDtPNM",
      "kind": "interview",
-     "title": "Full interview | Lt. Gov candidate Gloria Romero",
+     "title": "Steve Hilton talks tax cuts, DMV overhaul, $3 gas and his other plans for California | CA Politic...",
      "channel": "KCRA 3",
-     "published": "2026-05-29",
-     "durationSec": 1386
+     "published": "2026-09-20",
+     "durationSec": 2572
+    },
+    {
+     "youtubeId": "cjS-2CIWmm8",
+     "kind": "debate",
+     "title": "Hilton, Becerra clash in California gubernatorial debate",
+     "channel": "NBCLA",
+     "published": "2026-10-01",
+     "durationSec": 205
     }
    ]
   },
@@ -300,31 +257,29 @@
     }
    ]
   },
-  "ca26-donald-p-don-wagner": {
+  "ca26-gloria-romero": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 3
+     "page": 2
     },
     "fields": [],
-    "statement": "As California's Chief Elections Officer, I will ensure every eligible voter's right to participate in our democracy, every legitimate vote is counted, and every Californian can trust the result, no matter who wins. California's election system is mismanaged and broken."
+    "statement": "California needs a real choice. I'm Gloria Romero. I served as California Senate Majority Leader, fought for transparency in government, authored landmark school-choice reforms to give parents and students trapped in failing schools real opportunities, and stood up for survivors of violence and sexual harassment."
    },
-   "website": "https://wagnerforcalifornia.com",
+   "website": "https://gloriajromero.com",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
      "retrieved": "2026-10-22"
     },
-    "about": "Wagner, an Orange County supervisor, former mayor of Irvine and ex-state assemblymember, is running on a platform of election integrity. As supervisor, he criticized the state’s COVID-19 response, questioned the county’s investment in diversity, equity and inclusion programs and pushed for the release of sensitive voter information to President Donald Trump’s Department of Justice over claims of voting irregularities.",
-    "website": "https://wagnerforcalifornia.com/",
-    "endorsementsUrl": "https://wagnerforcalifornia.com/?page_id=296",
+    "about": "Romero, a former longtime Democratic lawmaker who served nearly 12 years in the state Legislature, became a registered Republican in 2024 after years of expressing discontent with the Democratic Party. She differs with Democrats on school choice, COVID-19 policies and gender identity.",
+    "website": "https://www.gloriaromero4ltgov.com/",
     "keyEndorsements": [
      "California Republican Party",
-     "Reform California",
-     "California Republican Assembly"
+     "Reform California"
     ]
    },
    "ethics": {
@@ -336,12 +291,12 @@
    },
    "videos": [
     {
-     "youtubeId": "XqMhn3Hxfx8",
+     "youtubeId": "-ndCw-V2L3E",
      "kind": "interview",
-     "title": "Don Wagner explains why he should be California's next Secretary of State | CA Politics 360 — Ful...",
+     "title": "Full interview | Lt. Gov candidate Gloria Romero",
      "channel": "KCRA 3",
-     "published": "2026-10-04",
-     "durationSec": 954
+     "published": "2026-05-29",
+     "durationSec": 1386
     }
    ]
   },
@@ -390,31 +345,31 @@
     }
    ]
   },
-  "ca26-malia-m-cohen": {
+  "ca26-donald-p-don-wagner": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 4
+     "page": 3
     },
     "fields": [],
-    "statement": "As California State Controller, Malia Cohen serves as the state's chief fiscal officer, safeguarding the finances of the world's fourth-largest economy. She is running for re-election to ensure taxpayer dollars are managed with transparency, accountability, and fairness."
+    "statement": "As California's Chief Elections Officer, I will ensure every eligible voter's right to participate in our democracy, every legitimate vote is counted, and every Californian can trust the result, no matter who wins. California's election system is mismanaged and broken."
    },
-   "website": "https://maliacohenforca.com",
+   "website": "https://wagnerforcalifornia.com",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
      "retrieved": "2026-10-22"
     },
-    "about": "Cohen has served as California’s controller since 2023 and is running for re-election. She’s campaigning on a promise to govern the state’s finances with “transparency, efficiency and fairness.”",
-    "website": "https://www.maliacohenforca.com/",
-    "endorsementsUrl": "https://www.maliacohenforca.com/endorsements",
+    "about": "Wagner, an Orange County supervisor, former mayor of Irvine and ex-state assemblymember, is running on a platform of election integrity. As supervisor, he criticized the state’s COVID-19 response, questioned the county’s investment in diversity, equity and inclusion programs and pushed for the release of sensitive voter information to President Donald Trump’s Department of Justice over claims of voting irregularities.",
+    "website": "https://wagnerforcalifornia.com/",
+    "endorsementsUrl": "https://wagnerforcalifornia.com/?page_id=296",
     "keyEndorsements": [
-     "California Democratic Party",
-     "California Labor Federation",
-     "Equality California"
+     "California Republican Party",
+     "Reform California",
+     "California Republican Assembly"
     ]
    },
    "ethics": {
@@ -426,12 +381,12 @@
    },
    "videos": [
     {
-     "youtubeId": "W1iNyMndlsU",
+     "youtubeId": "XqMhn3Hxfx8",
      "kind": "interview",
-     "title": "Malia Cohen explains why she wants to be California state controller",
+     "title": "Don Wagner explains why he should be California's next Secretary of State | CA Politics 360 — Ful...",
      "channel": "KCRA 3",
-     "published": "2026-10-15",
-     "durationSec": 1049
+     "published": "2026-10-04",
+     "durationSec": 954
     }
    ]
   },
@@ -480,30 +435,31 @@
     }
    ]
   },
-  "ca26-jennifer-hawks": {
+  "ca26-malia-m-cohen": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 5
+     "page": 4
     },
     "fields": [],
-    "statement": "I'm running for California State Treasurer because taxpayers deserve someone who will protect every dollar as if it were their own, and help bring much-needed change to Sacramento. I'm not a career politician."
+    "statement": "As California State Controller, Malia Cohen serves as the state's chief fiscal officer, safeguarding the finances of the world's fourth-largest economy. She is running for re-election to ensure taxpayer dollars are managed with transparency, accountability, and fairness."
    },
-   "website": "https://hawksforus.com",
+   "website": "https://maliacohenforca.com",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
      "retrieved": "2026-10-22"
     },
-    "about": "Hawks doesn’t have experience in elected office, a fact she touts proudly. The Silicon Valley retiree most recently served on the executive team at Sacred Heart Schools, an Atherton Catholic school favored by the Bay Area’s venture capitalist elite.",
-    "website": "https://hawksforus.com/",
+    "about": "Cohen has served as California’s controller since 2023 and is running for re-election. She’s campaigning on a promise to govern the state’s finances with “transparency, efficiency and fairness.”",
+    "website": "https://www.maliacohenforca.com/",
+    "endorsementsUrl": "https://www.maliacohenforca.com/endorsements",
     "keyEndorsements": [
-     "California Republican Party",
-     "California Republican Assembly",
-     "Reform California"
+     "California Democratic Party",
+     "California Labor Federation",
+     "Equality California"
     ]
    },
    "ethics": {
@@ -512,7 +468,17 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "W1iNyMndlsU",
+     "kind": "interview",
+     "title": "Malia Cohen explains why she wants to be California state controller",
+     "channel": "KCRA 3",
+     "published": "2026-10-15",
+     "durationSec": 1049
+    }
+   ]
   },
   "ca26-eleni-kounalakis": {
    "summary": {
@@ -549,71 +515,39 @@
     "fines": []
    }
   },
-  "ca26-rob-bonta": {
+  "ca26-jennifer-hawks": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 6
+     "page": 5
     },
     "fields": [],
-    "statement": "No candidate statement."
+    "statement": "I'm running for California State Treasurer because taxpayers deserve someone who will protect every dollar as if it were their own, and help bring much-needed change to Sacramento. I'm not a career politician."
    },
+   "website": "https://hawksforus.com",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
      "retrieved": "2026-10-22"
     },
-    "about": "Bonta was appointed attorney general in 2021 and was elected to a four-year term in 2022. Before that, he was an assemblymember representing parts of the East Bay.",
-    "website": "https://robbonta.com/",
-    "endorsementsUrl": "https://robbonta.com/endorsements/",
+    "about": "Hawks doesn’t have experience in elected office, a fact she touts proudly. The Silicon Valley retiree most recently served on the executive team at Sacred Heart Schools, an Atherton Catholic school favored by the Bay Area’s venture capitalist elite.",
+    "website": "https://hawksforus.com/",
     "keyEndorsements": [
-     "California Democratic Party",
-     "California Teachers Association",
-     "California Environmental Voters"
+     "California Republican Party",
+     "California Republican Assembly",
+     "Reform California"
     ]
-   },
-   "website": "https://robbonta.com/",
-   "bar": {
-    "publisher": "State Bar of California",
-    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
-    "retrieved": "2026-10-22",
-    "matched": "the only State Bar match for the name",
-    "status": "Active",
-    "discipline": [],
-    "admitted": "10/31/1999",
-    "shownName": "Robert Andres Bonta"
    },
    "ethics": {
     "publisher": "Fair Political Practices Commission",
     "from": "2021-01",
     "to": "2026-10",
     "releases": 70,
-    "fines": [
-     {
-      "respondent": "Rob Bonta",
-      "case": "21/738",
-      "fine": 200,
-      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
-      "month": "2024-09",
-      "retrieved": "2026-10-22",
-      "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
-      "shared": false
-     }
-    ]
-   },
-   "videos": [
-    {
-     "youtubeId": "eCxqIq-4xPc",
-     "kind": "interview",
-     "title": "Full Interview: Rob Bonta explains why he should be reelected Attorney General | CA Politics 360",
-     "channel": "KCRA 3",
-     "published": "2026-10-11",
-     "durationSec": 1735
-    }
-   ]
+    "fines": []
+   }
   },
   "ca26-michael-e-gates": {
    "summary": {
@@ -681,53 +615,69 @@
     }
    ]
   },
-  "ca26-jane-kim": {
+  "ca26-rob-bonta": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 7
+     "page": 6
     },
     "fields": [],
-    "statement": "The Insurance Commissioner should be working for you to lower prices, not working for the industry to increase profits. That's why I will never take a dime from insurance companies."
+    "statement": "No candidate statement."
    },
-   "website": "https://www.janekim.org",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
      "retrieved": "2026-10-22"
     },
-    "about": "The former San Francisco supervisor succeeded in securing free community college for city residents, the state’s first $15 minimum wage ordinance and a tenant-protection ordinance to avoid unjust evictions. Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods.",
-    "website": "https://www.janekim.org/",
-    "endorsementsUrl": "https://www.janekim.org/endorsements",
+    "about": "Bonta was appointed attorney general in 2021 and was elected to a four-year term in 2022. Before that, he was an assemblymember representing parts of the East Bay.",
+    "website": "https://robbonta.com/",
+    "endorsementsUrl": "https://robbonta.com/endorsements/",
     "keyEndorsements": [
-     "SEIU California",
+     "California Democratic Party",
      "California Teachers Association",
-     "California Faculty Association",
-     "California Labor Federation"
+     "California Environmental Voters"
     ]
    },
+   "website": "https://robbonta.com/",
    "bar": {
     "publisher": "State Bar of California",
-    "unmatched": "several"
+    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
+    "retrieved": "2026-10-22",
+    "matched": "the only State Bar match for the name",
+    "status": "Active",
+    "discipline": [],
+    "admitted": "10/31/1999",
+    "shownName": "Robert Andres Bonta"
    },
    "ethics": {
     "publisher": "Fair Political Practices Commission",
     "from": "2021-01",
     "to": "2026-10",
     "releases": 70,
-    "fines": []
+    "fines": [
+     {
+      "respondent": "Rob Bonta",
+      "case": "21/738",
+      "fine": 200,
+      "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
+      "month": "2024-09",
+      "retrieved": "2026-10-22",
+      "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
+      "shared": false
+     }
+    ]
    },
    "videos": [
     {
-     "youtubeId": "EY7vzRao1KY",
+     "youtubeId": "eCxqIq-4xPc",
      "kind": "interview",
-     "title": "Jane Kim explains why she should be California's next Insurance Commissioner",
+     "title": "Full Interview: Rob Bonta explains why he should be reelected Attorney General | CA Politics 360",
      "channel": "KCRA 3",
-     "published": "2026-07-26",
-     "durationSec": 1159
+     "published": "2026-10-11",
+     "durationSec": 1735
     }
    ]
   },
@@ -778,27 +728,37 @@
     }
    ]
   },
-  "ca26-sonja-shaw": {
+  "ca26-jane-kim": {
    "summary": {
     "source": {
      "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
      "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
-     "page": 13
+     "page": 7
     },
     "fields": [],
-    "statement": "California's public schools are failing our children. Fewer than half can read or write at grade level. Girls' fairness is under attack, with female athletes losing medals and scholarships. Many even change in their cars before practice because they feel unsafe in locker rooms. This is unacceptable."
+    "statement": "The Insurance Commissioner should be working for you to lower prices, not working for the industry to increase profits. That's why I will never take a dime from insurance companies."
    },
-   "website": "https://shawforca.com",
+   "website": "https://www.janekim.org",
    "guide": {
     "source": {
      "publisher": "LAist",
      "byline": "CalMatters",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
      "retrieved": "2026-10-22"
     },
-    "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
-    "website": "https://shawforca.com/",
-    "endorsementsUrl": "https://shawforca.com/#endorsements"
+    "about": "The former San Francisco supervisor succeeded in securing free community college for city residents, the state’s first $15 minimum wage ordinance and a tenant-protection ordinance to avoid unjust evictions. Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods.",
+    "website": "https://www.janekim.org/",
+    "endorsementsUrl": "https://www.janekim.org/endorsements",
+    "keyEndorsements": [
+     "SEIU California",
+     "California Teachers Association",
+     "California Faculty Association",
+     "California Labor Federation"
+    ]
+   },
+   "bar": {
+    "publisher": "State Bar of California",
+    "unmatched": "several"
    },
    "ethics": {
     "publisher": "Fair Political Practices Commission",
@@ -809,20 +769,12 @@
    },
    "videos": [
     {
-     "youtubeId": "OcusRWTk3yg",
+     "youtubeId": "EY7vzRao1KY",
      "kind": "interview",
-     "title": "Sonja Shaw explains why she should be California’s next Superintendent of Public Instruction | CA...",
+     "title": "Jane Kim explains why she should be California's next Insurance Commissioner",
      "channel": "KCRA 3",
-     "published": "2026-07-19",
-     "durationSec": 1123
-    },
-    {
-     "youtubeId": "cgiCdJCZkEQ",
-     "kind": "debate",
-     "title": "Debate: Candidates for California schools chief face off as the role changes",
-     "channel": "EdSource",
-     "published": "2026-10-08",
-     "durationSec": 3885
+     "published": "2026-07-26",
+     "durationSec": 1159
     }
    ]
   },
@@ -869,6 +821,54 @@
      "channel": "KCRA 3",
      "published": "2026-09-06",
      "durationSec": 1091
+    },
+    {
+     "youtubeId": "cgiCdJCZkEQ",
+     "kind": "debate",
+     "title": "Debate: Candidates for California schools chief face off as the role changes",
+     "channel": "EdSource",
+     "published": "2026-10-08",
+     "durationSec": 3885
+    }
+   ]
+  },
+  "ca26-sonja-shaw": {
+   "summary": {
+    "source": {
+     "title": "California Official Voter Information Guide, November 3, 2026 General Election: Candidate Statements",
+     "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
+     "page": 13
+    },
+    "fields": [],
+    "statement": "California's public schools are failing our children. Fewer than half can read or write at grade level. Girls' fairness is under attack, with female athletes losing medals and scholarships. Many even change in their cars before practice because they feel unsafe in locker rooms. This is unacceptable."
+   },
+   "website": "https://shawforca.com",
+   "guide": {
+    "source": {
+     "publisher": "LAist",
+     "byline": "CalMatters",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+     "retrieved": "2026-10-22"
+    },
+    "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
+    "website": "https://shawforca.com/",
+    "endorsementsUrl": "https://shawforca.com/#endorsements"
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   },
+   "videos": [
+    {
+     "youtubeId": "OcusRWTk3yg",
+     "kind": "interview",
+     "title": "Sonja Shaw explains why she should be California’s next Superintendent of Public Instruction | CA...",
+     "channel": "KCRA 3",
+     "published": "2026-07-19",
+     "durationSec": 1123
     },
     {
      "youtubeId": "cgiCdJCZkEQ",
@@ -1851,6 +1851,272 @@
     "releases": 70,
     "fines": []
    }
+  },
+  "ca26-pedro-antonio-casas": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-hilda-solis": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-bob-j-archuleta": {
+   "guide": {
+    "source": {
+     "publisher": "LAist",
+     "byline": "LAist",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate",
+     "retrieved": "2026-10-22"
+    },
+    "website": "https://www.bobarchuletaforsenate.com/"
+   },
+   "website": "https://www.bobarchuletaforsenate.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": [
+     {
+      "respondent": "Bob Archuleta for Senate 2018, Bob Archuleta, and Cine Ivery",
+      "case": "21/109",
+      "fine": 1571,
+      "url": "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-january-2023/",
+      "month": "2023-01",
+      "retrieved": "2026-10-22",
+      "summary": "The Committee, Archuleta, and Ivery failed to timely file two 10-day Reports, in violation of Government Code Section 85309, subdivision (c) (2 counts).",
+      "shared": true
+     }
+    ]
+   }
+  },
+  "ca26-araceli-martinez": {
+   "guide": {
+    "source": {
+     "publisher": "LAist",
+     "byline": "LAist",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate",
+     "retrieved": "2026-10-22"
+    },
+    "website": "https://www.araceliforca.com/"
+   },
+   "website": "https://www.araceliforca.com/",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-alexandra-briseno": {
+   "guide": {
+    "source": {
+     "publisher": "LAist",
+     "byline": "LAist",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+     "retrieved": "2026-10-22"
+    }
+   },
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-mark-gonzalez": {
+   "guide": {
+    "source": {
+     "publisher": "LAist",
+     "byline": "LAist",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+     "retrieved": "2026-10-22"
+    },
+    "website": "http://www.markgonzalezforassembly.com",
+    "endorsementsUrl": "https://www.markgonzalezforassembly.com/endorsements"
+   },
+   "website": "http://www.markgonzalezforassembly.com",
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-shazia-hoq": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-kimberly-cobos-cawthorne": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-rafael-santoya": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-georgina-tamayo": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-elva-sammy-osorio": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-marie-ledezma": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-ana-torres": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-danielle-romero": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-rafael-gutierrez": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-ricardo-ric-alonzo": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-james-santana": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-david-matanga": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-jasmin-jauregui-paulson": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-lizbeth-renova": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-aaron-reveles": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-jorgel-chavez": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-sergio-joseph-calderon": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
+  },
+  "ca26-samuel-a-pe-a": {
+   "ethics": {
+    "publisher": "Fair Political Practices Commission",
+    "from": "2021-01",
+    "to": "2026-10",
+    "releases": 70,
+    "fines": []
+   }
   }
  },
  "races": {
@@ -1931,6 +2197,22 @@
     {
      "label": "LAist voter guide to this race",
      "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly"
+    }
+   ]
+  },
+  "ca26-assembly-54": {
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly"
+    }
+   ]
+  },
+  "ca26-state-senate-30": {
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate"
     }
    ]
   },

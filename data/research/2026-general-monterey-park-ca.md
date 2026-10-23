@@ -70,3 +70,22 @@ EXISTING DATA BUG: data/elections/ca-primary-2026-06-02.json lists Gavin Newsom 
 - Council districts 2, 3, 4 not up in 2026.
 
 Judicial retention (CA Supreme Court, 2nd District Court of Appeal) is in [C1] but out of v1 scope.
+
+## Montebello (added 2026-10-22)
+
+Same election (`ca-general-2026`); voters pick their city and only see that city's races (`metadata.scope.city`).
+- [C9] LA County Interactive Sample Ballot data for Montebello addresses, election 4348. Ballot styles found in the
+  ISB street-segment files (`parsed/4348/street-segments/<first 3 letters of street>.json`, rows with City == MONTEBELLO):
+  2K622, 2JX22, 2K222, 2JY22, 2K422, 2JZ22, 2K722, 2JW22 (edge: 2K322 El Rancho USD Measure ED, 2K522 City of LA Measure SC).
+  robots.txt on isb.lavote.gov returns 404 for our user agent, which counts as allowed (`cb.robots_allow` → True for
+  `parsed/4348/ballots/...` and `street-segments/...`).
+- Every Montebello style has U.S. House 38, State Senate 30 and Assembly 54; Montebello City Treasurer; LACCD seats 2/4/6
+  (except edge 2K322). Council District 1 (2JX22, 2JW22), 3 (2JY22), 4 special election, unexpired term to Nov 7 2028
+  (2K222, 2JZ22), 5 (2K422). Water Replenishment District Division 4: all styles except 2JW22. Montebello Unified
+  Trustee Area 2: 2K622, 2JZ22.
+- Party preference for U.S. House 38, State Senate 30 and Assembly 54 is the county's printed "Party Preference" (the ISB
+  election file's party table, `partyId` VDM/VRP). The SOS certified list [C1] is not used for these: its host's
+  robots.txt returns 403, so it fails the robots check. The county's parties match [C1] for every Monterey Park race.
+- Candidate names are as the county prints them (upper case). Incumbent is set only where the ballot designation names the
+  seat (State Senator; Member of the State Assembly; City Treasurer, City of Montebello).
+- Census place code for Montebello city: 0648816 (https://www2.census.gov/geo/docs/reference/codes2020/place/st06_ca_place2020.txt).

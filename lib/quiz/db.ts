@@ -26,6 +26,8 @@ export async function loadQuizContext(electionId: string, guideMetadata?: unknow
       candidates: {
         include: { stances: true },
       },
+      // The race's ballot row carries the city scope (metadata.scope)
+      ballot: { select: { metadata: true } },
     },
     orderBy: { sortOrder: "asc" },
   });
@@ -37,7 +39,7 @@ export async function loadQuizContext(electionId: string, guideMetadata?: unknow
   const selection = parseDistrictSelection(
     districts && typeof districts === "object" ? (districts as Record<string, unknown>) : null,
   );
-  const offices = allOffices.filter((o) => matchesSelection(o, selection));
+  const offices = allOffices.filter((o) => matchesSelection({ ...o, metadata: o.ballot?.metadata }, selection));
 
   const issues = await prisma.issue.findMany();
   const issueNames: Record<string, string> = Object.fromEntries(

@@ -34,3 +34,23 @@ test('districtOptions lists each district present, numerically sorted', () => {
     ['legislative', ['11', '43']],
   ])
 })
+
+test('metadata.scope limits an item to a city, on top of its own district', () => {
+  const mbCouncil = { districtType: 'city-council', districtCode: 'mb-1', metadata: { scope: { city: 'montebello' } } }
+  const mpOnly = { districtType: null, districtCode: null, metadata: { scope: { city: 'monterey-park' } } }
+  assert.equal(matchesSelection(mbCouncil, {}), true)
+  assert.equal(matchesSelection(mbCouncil, { city: 'montebello' }), true)
+  assert.equal(matchesSelection(mbCouncil, { city: 'monterey-park' }), false)
+  assert.equal(matchesSelection(mbCouncil, { city: 'montebello', 'city-council': '5' }), false)
+  assert.equal(matchesSelection(mpOnly, { city: 'montebello' }), false)
+  assert.equal(matchesSelection(mpOnly, { 'city-council': '5' }), true)
+  const options = districtOptions([
+    { ...mbCouncil, district: 'Montebello Council District 1' },
+    { ...mpOnly, district: null },
+    { districtType: 'city-council', districtCode: '5', district: 'Council District 5', metadata: { scope: { city: 'monterey-park' } } },
+  ])
+  assert.deepEqual(options.map((o) => [o.type, o.codes]), [
+    ['city', [{ code: 'montebello', label: 'Montebello' }, { code: 'monterey-park', label: 'Monterey Park' }]],
+    ['city-council', [{ code: '5', label: 'Council District 5' }, { code: 'mb-1', label: 'Montebello Council District 1' }]],
+  ])
+})

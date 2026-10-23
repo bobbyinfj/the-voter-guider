@@ -44,6 +44,7 @@ CONFIRMED = {
     'ca26-fiona-ma': ['22/195'],  # "Fiona Ma for State Treasurer 2018"
     'ca26-mike-gipson': ['24/544'],  # "Mike Gipson, current State Assemblymember representing District 65"
     'ca26-alex-villanueva': ['18/1097'],  # "Villanueva for Los Angeles Sheriff 2018"
+    'ca26-bob-j-archuleta': ['21/109'],  # "Bob Archuleta for Senate 2018"
 }
 # Months with no release at any spelling (so re-runs don't refetch 404s)
 MISSING = HERE / 'cache-fppc-missing.json'
