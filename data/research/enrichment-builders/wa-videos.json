@@ -107,6 +107,27 @@
     "published": "2026-10-10",
     "durationSec": 330,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "MEpd-x5a7i8",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Judge Ian Birk for Justice",
+    "channel": "Ian Birk for Justice",
+    "published": "2026-10-13",
+    "durationSec": 30,
+    "sourceUrl": "https://www.ianbirk.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Judge Ian Birk for Justice\" by Ian Birk for Justice",
+      "uploaded 2026-10-13",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "wa26-sean-o-donnell": [
@@ -136,6 +157,27 @@
     "published": "2026-10-10",
     "durationSec": 330,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "ME2ojH6ZYBU",
+    "kind": "debate",
+    "origin": "campaign",
+    "title": "O'Donnell v. Birk Debate TVW 10-9-26 (8 min clip)",
+    "channel": "O'Donnell For Justice",
+    "published": "2026-10-12",
+    "durationSec": 473,
+    "sourceUrl": "https://odonnellforjustice.com",
+    "sourceLabel": "Shown on the campaign's website (the campaign's clip of TVW's debate)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"O'Donnell v. Birk Debate TVW 10-9-26 (8 min clip)\" by O'Donnell For Justice",
+      "uploaded 2026-10-12",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "wa26-theo-angelis": [
@@ -320,6 +362,25 @@
     "published": "2026-10-13",
     "durationSec": 120,
     "origin": "independent"
+   },
+   {
+    "youtubeId": "SRtIVUyyj9Q",
+    "kind": "statement",
+    "origin": "independent",
+    "title": "Teresa Mosqueda, candidate for Metropolitan King County Council, District 8",
+    "channel": "Seattle Channel",
+    "published": "2026-07-15",
+    "durationSec": 121,
+    "evidence": {
+     "foundVia": "embedded on teamteresa.org",
+     "checks": [
+      "oEmbed: \"Teresa Mosqueda, candidate for Metropolitan King County Council, District 8\" by Seattle Channel",
+      "uploaded 2026-07-15",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "wa26-nick-duda": [
@@ -335,11 +396,21 @@
    {
     "youtubeId": "zDf7v__LBJY",
     "kind": "statement",
+    "origin": "independent",
     "title": "Nick Duda, Candidate for Metropolitan King County Council, District 8",
     "channel": "Seattle Channel",
     "published": "2026-10-13",
     "durationSec": 120,
-    "origin": "independent"
+    "evidence": {
+     "foundVia": "embedded on nickduda.com",
+     "checks": [
+      "oEmbed: \"Nick Duda, Candidate for Metropolitan King County Council, District 8\" by Seattle Channel",
+      "uploaded 2026-10-13",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "wa26-nilu-jenks": [
@@ -454,7 +525,86 @@
     "durationSec": 755,
     "origin": "independent"
    }
+  ],
+  "wa26-cindy-ryu": [
+   {
+    "youtubeId": "KVv-GEIu-mw",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Cindy Ryu Campaign Video - No IOUs",
+    "channel": "Cindy Ryu for State Senate - LD 32",
+    "published": "2026-07-22",
+    "durationSec": 30,
+    "sourceUrl": "https://www.cindyryu.com",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Cindy Ryu Campaign Video - No IOUs\" by Cindy Ryu for State Senate - LD 32",
+      "uploaded 2026-07-22",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-adam-smith": [
+   {
+    "youtubeId": "X8RDwCTEm_s",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Rep. Adam Smith at No Kings Redmond",
+    "channel": "Adam Smith for Congress",
+    "published": "2026-03-09",
+    "durationSec": 55,
+    "sourceUrl": "https://www.youtube.com/@AdamSmithforCongress",
+    "sourceLabel": "The campaign's YouTube channel (linked from electadamsmith.com)",
+    "evidence": {
+     "foundVia": "campaign site scan",
+     "checks": [
+      "oEmbed: \"Rep. Adam Smith at No Kings Redmond\" by Adam Smith for Congress",
+      "uploaded 2026-03-09",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
   ]
  },
- "races": {}
+ "races": {
+  "wa26-ld34-rep2": [
+   {
+    "youtubeId": "nA1QpYrl4ms",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "Mary Anito and Joe Fitzgibbon at West Seattle Chamber of Commerce candidates' forum",
+    "channel": "westseattleblog",
+    "published": "2026-10-09",
+    "durationSec": 1358,
+    "host": "West Seattle Chamber of Commerce",
+    "participants": [
+     {
+      "id": "wa26-mary-anito"
+     },
+     {
+      "id": "wa26-joe-fitzgibbon"
+     }
+    ],
+    "evidence": {
+     "foundVia": "embedded on maryforwa.com",
+     "checks": [
+      "oEmbed: \"Mary Anito and Joe Fitzgibbon at West Seattle Chamber of Commerce candidates' forum\" by westseattleblog",
+      "uploaded 2026-10-09",
+      "wa26-mary-anito: named in the title",
+      "wa26-joe-fitzgibbon: named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ]
+ },
+ "measures": {}
 }

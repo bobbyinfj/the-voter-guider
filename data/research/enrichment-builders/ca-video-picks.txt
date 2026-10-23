@@ -7,3 +7,19 @@ ca26-thomas-wong | _ZK0skhcbIc | meeting | government ; clips=council-clips/mont
 ca26-thomas-wong | yhQO0lfwteY | meeting | government ; clips=council-clips/monterey-park-thomas-wong.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
 ca26-vinh-t-ngo | 21C9NcDZYfg | meeting | government ; clips=council-clips/monterey-park-vinh-t-ngo.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
 ca26-vinh-t-ngo | _ZK0skhcbIc | meeting | government ; clips=council-clips/monterey-park-vinh-t-ngo.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
+
+# Interviews and forums found on campaign websites (same scan for every candidate with a site, 2026-10-23)
+ca26-vinh-t-ngo | ftANH9V8vbI | interview | civic ; host=Alhambra High School Social Science Department ; found=YouTube search "Monterey Park city council candidate forum 2026"
+ca26-gloria-romero | nr2mRUN1jAw | interview | independent ; found=embedded on gloriajromero.com
+ca26-anna-slotky-reitano | NPmngV3azMU | interview | civic ; host=San Fernando Valley Bar Association ; found=embedded on reitanoforjudge.com
+
+# The campaigns' own videos (embedded on, or on a channel linked from, the campaign's website)
+ca26-gloria-romero | uHFKHfI4aX0 | statement | campaign ; source=https://gloriajromero.com ; label=Shown on the campaign's website ; found=campaign site scan
+ca26-eleni-kounalakis | 1GWHc-Pjb4c | statement | campaign ; source=https://eleniforca.com ; label=Shown on the campaign's website ; found=campaign site scan
+ca26-ben-allen | zkfR1ZOarwI | statement | campaign ; source=https://benallenca.com ; label=Shown on the campaign's website ; found=campaign site scan
+ca26-jane-kim | VdaRc61cYfk | statement | campaign ; source=https://www.janekim.org ; label=Shown on the campaign's website ; found=campaign site scan
+ca26-sonja-shaw | RSR2PAONeXE | statement | campaign ; source=https://shawforca.com ; label=Shown on the campaign's website ; found=campaign site scan
+ca26-xavier-becerra | UvKC4Sj_QCU | statement | campaign ; source=https://www.youtube.com/@becerraforgovernor ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+ca26-fiona-ma | qBFHwlqBcKw | statement | campaign ; source=https://www.youtube.com/@fionama ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+ca26-herb-w-morgan | 27Ws8ngDR_Y | statement | campaign ; source=https://www.youtube.com/@herb4controller ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+ca26-mike-gipson | MddHNRov7bE | statement | campaign ; source=https://www.youtube.com/@MikeGipson-boe ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
