@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { ExternalLink, Flag as FlagIcon, Video } from 'lucide-react'
 import VideoFacade from '@/components/candidate/VideoFacade'
@@ -64,7 +65,7 @@ export function RaceVideos({ race }: { race: BallotItem }) {
       <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Watch them together</p>
       <div className="flex snap-x gap-2 overflow-x-auto pb-1">
         {videos.map((v) => (
-          <div key={v.youtubeId} className="w-56 shrink-0 snap-start">
+          <div key={v.youtubeId} className="w-40 shrink-0 snap-start">
             <VideoFacade video={v} tiny />
           </div>
         ))}
@@ -73,15 +74,18 @@ export function RaceVideos({ race }: { race: BallotItem }) {
   )
 }
 
-function VideoCell({ candidate, race }: { candidate: BallotCandidate; race: BallotItem }) {
+function VideoCell({ candidate, race, small = false }: { candidate: BallotCandidate; race: BallotItem; small?: boolean }) {
   const together = new Set(sharedVideos(race).map((v) => v.youtubeId))
   const own = (candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))
   const lead = own.find((v) => v.kind === 'interview') ?? own[0]
   if (!lead)
     return (
-      <div className="flex aspect-video w-full flex-col items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 px-2 text-center text-[0.6875rem] leading-snug text-gray-500">
+      <div
+        title="No interview of them in the nonpartisan series we use"
+        className="flex aspect-video w-full flex-col items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 px-2 text-center text-[0.6875rem] leading-snug text-gray-500"
+      >
         <Video className="mb-0.5 h-4 w-4" />
-        No interview in the series we use
+        {small ? 'No interview' : 'No interview in the series we use'}
       </div>
     )
   return <VideoFacade video={lead} tiny />
@@ -298,40 +302,150 @@ function BadgeCell({ candidate, badges }: { candidate: BallotCandidate; badges: 
   )
 }
 
-// Beside one candidate's oval: video, then flags · 💩 meter · badges
+// Hover text and chip text for each column, so the compact row says what the full card says
+function flagSummary(candidate: BallotCandidate) {
+  const { checked, flags } = flagsFor(candidate.profile)
+  if (flags.length)
+    return {
+      chip: `🚩 ${flags.length} flag${flags.length > 1 ? 's' : ''}`,
+      tone: flags.some((f) => f.level === 'red') ? 'border-red-300 bg-red-50 text-red-900' : 'border-amber-300 bg-amber-50 text-amber-900',
+      hover: flags.map((f) => `${f.level === 'red' ? 'Red' : 'Yellow'}: ${f.text} (${f.source.label})`).join('\n'),
+    }
+  if (checked.length)
+    return { chip: '🚩 none found', tone: 'border-gray-200 bg-white text-gray-700', hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}` }
+  return { chip: '🚩 –', tone: 'border-gray-200 bg-white text-gray-500', hover: 'No flag checks cover this race yet' }
+}
+
+function meterSummary(candidate: BallotCandidate, comparable: boolean) {
+  const fc = candidate.profile?.factCheck
+  const score = factCheckScore(fc)
+  const claims = candidate.profile?.claims.length ?? 0
+  const extra = claims ? `\n${claims} debate claim${claims > 1 ? 's' : ''} fact-checked by ${candidate.profile!.claims[0].publisher} (not in the %)` : ''
+  if (fc && score.pct !== null && comparable)
+    return { chip: `💩 ${score.pct}%`, hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
+  if (fc && score.total)
+    return { chip: '💩 –', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
+  return { chip: claims ? `💩 – · ${claims} claims checked` : '💩 –', hover: `No PolitiFact rulings on them${extra}` }
+}
+
+function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
+  const g = candidate.profile?.guide
+  const names = [
+    ...(candidate.incumbent ? ['Incumbent'] : []),
+    ...(g?.rating ? [`${g.rating.value} (${g.rating.by})`] : []),
+    ...badges.map((b) => `Endorsed by ${b.by}`),
+    ...((g?.keyEndorsements?.length || g?.endorsementsLine) ? [`Key endorsements, per ${g.source.publisher}: ${g.keyEndorsements?.slice(0, 4).join(', ') ?? g.endorsementsLine}`] : []),
+    ...(candidate.profile?.endorserTotal ? [`${candidate.profile.endorserTotal.toLocaleString()} endorsements on their site`] : []),
+  ]
+  const count = (candidate.incumbent ? 1 : 0) + (g?.rating ? 1 : 0) + badges.length
+  return {
+    chip: count ? `🏅 ${count}` : names.length ? '🏅 endorsements' : '🏅 –',
+    hover: names.length ? names.join('\n') : "No badges from our sources (that doesn't mean no endorsements)",
+  }
+}
+
+function Chip({ text, hover, tone = 'border-gray-200 bg-white text-gray-800', onClick, open }: { text: string; hover: string; tone?: string; onClick: () => void; open: boolean }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={open}
+      title={hover}
+      aria-label={`${text}. ${hover.replace(/\n/g, '. ')}. ${open ? 'Hide' : 'Show'} details`}
+      className={`whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-semibold hover:brightness-95 ${tone}`}
+    >
+      {text}
+    </button>
+  )
+}
+
+// Beside one candidate's oval. Compact by default: a small video, a chip per column (details on
+// hover) and the one-line summary; clicking a chip opens the full cards with every source
 export function CandidateScorecard({
   candidate,
   race,
   badges,
+  summary,
   children,
 }: {
   candidate: BallotCandidate
   race: BallotItem
   badges: Badge[]
-  // The one-line summary and "more" panel under the columns
+  // The one-line summary, always shown
+  summary?: React.ReactNode
+  // More about them (news guide, statement, notes), shown with the full cards
   children?: React.ReactNode
 }) {
+  const [open, setOpen] = useState(false)
   const comparable = raceHasFactChecks(race.office?.candidates ?? [])
+  const flag = flagSummary(candidate)
+  const meter = meterSummary(candidate, comparable)
+  const badge = badgeSummary(candidate, badges)
+  const toggle = () => setOpen((o) => !o)
   return (
-    <div className="h-full space-y-1.5 bg-sky-50/60 px-2 py-2 font-sans print:hidden">
-      <div className="grid grid-cols-2 gap-1.5 md:grid-cols-[9.5rem_repeat(3,minmax(0,1fr))]">
-        <div>
-          <VideoCell candidate={candidate} race={race} />
+    <div className="h-full space-y-1.5 bg-sky-50/60 px-2 py-1.5 font-sans print:hidden">
+      {open ? (
+        <>
+          <div className="grid grid-cols-2 gap-1.5 md:grid-cols-[9.5rem_repeat(3,minmax(0,1fr))]">
+            <div>
+              <VideoCell candidate={candidate} race={race} />
+            </div>
+            <FlagCell candidate={candidate} />
+            <FactCheckCell candidate={candidate} comparable={comparable} />
+            <BadgeCell candidate={candidate} badges={badges} />
+          </div>
+          {summary}
+          <CheckedDetail candidate={candidate} />
+          <Claims candidate={candidate} />
+          {children}
+          <button type="button" onClick={toggle} aria-expanded className="text-xs font-semibold text-blue-700 hover:underline">
+            Show less
+          </button>
+        </>
+      ) : (
+        <div className="flex gap-2">
+          <div className="w-28 shrink-0">
+            <VideoCell candidate={candidate} race={race} small />
+          </div>
+          <div className="min-w-0 flex-1 space-y-1">
+            <div className="flex flex-wrap items-center gap-1">
+              <Chip text={flag.chip} hover={flag.hover} tone={flag.tone} onClick={toggle} open={open} />
+              <Chip text={meter.chip} hover={meter.hover} onClick={toggle} open={open} />
+              <Chip text={badge.chip} hover={badge.hover} onClick={toggle} open={open} />
+              <button type="button" onClick={toggle} aria-expanded={open} className="text-xs text-blue-700 hover:underline">
+                Details
+              </button>
+            </div>
+            {summary}
+          </div>
         </div>
-        <FlagCell candidate={candidate} />
-        <FactCheckCell candidate={candidate} comparable={comparable} />
-        <BadgeCell candidate={candidate} badges={badges} />
-      </div>
-      <CheckedDetail candidate={candidate} />
-      <Claims candidate={candidate} />
-      {children}
+      )}
     </div>
   )
 }
 
 // A measure's badges: who recommends Yes and who recommends No
 export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; labels: [string, string] }) {
+  const [open, setOpen] = useState(false)
   if (!yes.length && !no.length) return null
+  const toggle = () => setOpen((o) => !o)
+  if (!open)
+    return (
+      <div className="flex flex-wrap items-center gap-1 font-sans">
+        {([[labels[0], yes], [labels[1], no]] as const).map(([label, list]) => (
+          <Chip
+            key={label}
+            text={`🏅 Say ${label}: ${list.length}`}
+            hover={list.length ? list.map((b) => b.by).join('\n') : 'None in the guides we use'}
+            onClick={toggle}
+            open={open}
+          />
+        ))}
+        <button type="button" onClick={toggle} aria-expanded={open} className="text-xs text-blue-700 hover:underline">
+          Details
+        </button>
+      </div>
+    )
   return (
     <div className="grid grid-cols-2 gap-1.5 font-sans">
       {([[labels[0], yes], [labels[1], no]] as const).map(([label, list]) => (
@@ -347,6 +461,9 @@ export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; 
           )}
         </Cell>
       ))}
+      <button type="button" onClick={toggle} aria-expanded className="col-span-2 justify-self-start text-xs font-semibold text-blue-700 hover:underline">
+        Show less
+      </button>
     </div>
   )
 }
