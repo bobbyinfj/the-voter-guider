@@ -1,0 +1,9 @@
+# Reviewed video picks for California (tools/video-approve.py ca turns these into ca-videos.json).
+# Format and checks: see tools/video-approve.py.
+
+# Monterey Park City Council meetings (public record), from counciloris. Only current officeholders have
+# meeting footage; challengers can't, which the "Public record" badge explains.
+ca26-thomas-wong | _ZK0skhcbIc | meeting | government ; clips=council-clips/monterey-park-thomas-wong.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
+ca26-thomas-wong | yhQO0lfwteY | meeting | government ; clips=council-clips/monterey-park-thomas-wong.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
+ca26-vinh-t-ngo | 21C9NcDZYfg | meeting | government ; clips=council-clips/monterey-park-vinh-t-ngo.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote
+ca26-vinh-t-ngo | _ZK0skhcbIc | meeting | government ; clips=council-clips/monterey-park-vinh-t-ngo.json ; found=counciloris export-person-clips ; note=YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote

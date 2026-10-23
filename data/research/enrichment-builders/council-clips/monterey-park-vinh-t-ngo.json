@@ -1,0 +1,38 @@
+{
+ "schema": "counciloris.person-clips",
+ "version": 1,
+ "generatedAt": "2026-10-23T23:03:11+00:00",
+ "city": "monterey-park",
+ "person": {
+  "name": "Vinh T. Ngo",
+  "globalSpeakerUuid": "1c21f56b-7b40-539f-bfa4-8f52606d1285"
+ },
+ "rule": "Longest continuous speaking turns of at least 20 seconds, one per meeting, from meetings in the past 365 days with a YouTube copy; only turns where the transcript shows someone else calling on them by title and name just before.",
+ "clips": [
+  {
+   "youtubeId": "21C9NcDZYfg",
+   "startSec": 7001,
+   "endSec": 7061,
+   "meetingDate": "2026-07-15",
+   "meetingTitle": "City Council Meeting — July 15, 2026",
+   "transcriptUrl": "https://counciloris.com/transcripts/2026-07-15/mpk-city-council-meeting-july-15-2026-6-30-p-m?t=7001",
+   "quote": "I just want to report that we just had the 250th birthday for the US, 4th of July and I hope everyone had a great long weekend just a couple of weeks ago and then there is a continuing exhibit …",
+   "calledOn": "Moving on to city communications and future agenda items for Councilman Yang. None here. Okay. Councilman Ngo.",
+   "turnSeconds": 59.9,
+   "transcriptFile": "video_20260716_180744.json"
+  },
+  {
+   "youtubeId": "_ZK0skhcbIc",
+   "startSec": 2660,
+   "endSec": 2699,
+   "meetingDate": "2026-07-01",
+   "meetingTitle": "City Council Meeting — July 1, 2026",
+   "transcriptUrl": "https://counciloris.com/transcripts/2026-07-01/mpk-city-council-meeting-july-1-2026-6-30-p-m?t=2660",
+   "quote": "Kristen, great number of activities from wellness to workshops to movies and I'll just give another plug to the military installation. You'll be there for the entire month but it is so rare to have two major generals, two star …",
+   "calledOn": "Colleagues? Councilman Yang? No questions on my end. Just thank you for always having so many great events at the library. Councilman Ngo? Thank you, Mayor.",
+   "turnSeconds": 38.6,
+   "transcriptFile": "video_20260717_021433.json"
+  }
+ ],
+ "qualifyingMeetings": 2
+}

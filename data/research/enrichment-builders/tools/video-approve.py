@@ -10,6 +10,9 @@
 #     said=SEC "words": the words appear at that second in our saved transcript of the video
 #     (cache/transcripts/<id>.json, local Whisper; machine transcription, so the quote is
 #     what the speaker said, as transcribed). Every race participant needs one of the two.
+# Public-meeting clips (kind meeting, origin government) come from a counciloris export
+# (`transcribe export-person-clips`, schema counciloris.person-clips v1): start, end and the
+# transcript link are taken from the export, which must be for this candidate by name.
 # usage: python3 tools/video-approve.py <state>   (reads <state>-video-picks.txt)
 import datetime, difflib, json, os, re, subprocess, sys, unicodedata, urllib.parse, urllib.request
 from pathlib import Path
@@ -114,7 +117,19 @@ def approve(state):
             if k in o:
                 entry[f'{k}Sec'] = int(o[k][0])
         people = []
-        if group == 'candidates':
+        if 'clips' in o:
+            export = json.loads((HERE / o['clips'][0]).read_text())
+            clip = next((c for c in export.get('clips', []) if c['youtubeId'] == vid), None)
+            if export.get('schema') != 'counciloris.person-clips' or export.get('version') != 1 or not clip:
+                errors.append(f'{where}: not in {o["clips"][0]}'); continue
+            if squash(export['person']['name']) != squash(person.get(owner, '')):
+                errors.append(f"{where}: export is for {export['person']['name']}, not {person.get(owner)}"); continue
+            entry.update({'startSec': clip['startSec'], 'endSec': clip['endSec'], 'sourceUrl': clip['transcriptUrl'],
+                          'sourceLabel': f"Transcript of the {clip['meetingDate']} meeting (counciloris.com)"})
+            checks.append(f"counciloris export {o['clips'][0]}: {clip['meetingDate']} {clip['meetingTitle']}, "
+                          f"called on just before: \"{clip['calledOn'][-80:]}\"; rule: {export['rule']}")
+            checks.append(f"quote: \"{clip['quote']}\"")
+        elif group == 'candidates':
             how = named(owner)
             if not how:
                 errors.append(f'{where}: {person[owner]} not named in the video\'s title, description or a checked quote'); continue
@@ -132,6 +147,7 @@ def approve(state):
             people.append({'id': cid, **({'startSec': int(sec)} if sec else {})})
         if people:
             entry['participants'] = people
+        checks += o.get('note', [])
         entry['evidence'] = {'foundVia': (o.get('found') or ['YouTube search'])[0], 'checks': checks,
                              'verifiedBy': 'claude', 'verifiedAt': TODAY}
         bucket = videos[group].setdefault(owner, [])
