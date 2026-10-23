@@ -127,8 +127,9 @@ Everything not printed on the ballot is drawn as a sky-blue "Voter Guider extra"
 
 ### Candidate extras (enrichment)
 `data/enrichment/<slug>.json` (built by `data/research/enrichment-builders/build.py`) is seeded
-into `Candidate.profile`: pamphlet statement fields verbatim, videos from nonpartisan series
-(oEmbed-checked), and endorsements copied line-by-line from each campaign's own page (the build
+into `Candidate.profile`: pamphlet statement fields verbatim, videos labeled by who made them
+(independent → civic forum → public record → campaign; oEmbed-checked, rules in
+`enrichment-builders/README.md`, "Who made this" badge in `components/candidate/OriginBadge.tsx`), and endorsements copied line-by-line from each campaign's own page (the build
 refuses any name not on the saved page). Same method for every candidate in a race; never show
 "no endorsements". `factCheck` per candidate comes from `enrichment-builders/politifact.py` (PolitiFact pages, used only
 when the bio names the state; 10-second crawl delay). California also has `guide` per candidate: what LAist's voter guide for the race

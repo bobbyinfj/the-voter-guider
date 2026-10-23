@@ -7,7 +7,27 @@
     "title": "The Colorado Sun: The Attorney General Candidate Debate",
     "channel": "The Colorado Sun",
     "published": "2026-10-15",
-    "durationSec": 3885
+    "durationSec": 3885,
+    "origin": "independent"
+   },
+   {
+    "youtubeId": "n0afj555jsQ",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Michael Allen, Republican candidate for Colorado Attorney General | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-09-05",
+    "durationSec": 1361,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado attorney general debate 2026 Griswold Allen\"",
+     "checks": [
+      "oEmbed: \"Michael Allen, Republican candidate for Colorado Attorney General | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-09-05",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-jena-griswold": [
@@ -17,7 +37,257 @@
     "title": "The Colorado Sun: The Attorney General Candidate Debate",
     "channel": "The Colorado Sun",
     "published": "2026-10-15",
-    "durationSec": 3885
+    "durationSec": 3885,
+    "origin": "independent"
+   },
+   {
+    "youtubeId": "Bv8jAuBgEdk",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Jena Griswold: Never Back Down",
+    "channel": "Jena Griswold",
+    "published": "2026-06-08",
+    "durationSec": 32,
+    "sourceUrl": "https://www.jenagriswold.com/",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "embedded on jenagriswold.com (retrieved 2026-10-23)",
+     "checks": [
+      "oEmbed: \"Jena Griswold: Never Back Down\" by Jena Griswold",
+      "uploaded 2026-06-08",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "AjzVl1rOeGg",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Happened Right Here",
+    "channel": "Jena Griswold",
+    "published": "2026-02-16",
+    "durationSec": 128,
+    "sourceUrl": "https://www.jenagriswold.com/",
+    "sourceLabel": "Shown on the campaign's website",
+    "evidence": {
+     "foundVia": "embedded on jenagriswold.com (retrieved 2026-10-23)",
+     "checks": [
+      "oEmbed: \"Happened Right Here\" by Jena Griswold",
+      "uploaded 2026-02-16",
+      "posted by the channel \"Jena Griswold\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-kevin-grantham": [
+   {
+    "youtubeId": "VghI2Mn05PI",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Candidate Interview: Kevin Grantham — CO State Treasurer",
+    "channel": "Local News Network",
+    "published": "2026-10-06",
+    "durationSec": 1231,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado treasurer debate 2026\"",
+     "checks": [
+      "oEmbed: \"Candidate Interview: Kevin Grantham — CO State Treasurer\" by Local News Network",
+      "uploaded 2026-10-06",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-jeff-bridges": [
+   {
+    "youtubeId": "xSQSJEbEEBY",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Candidate Interview: Jeff Bridges — CO State Treasurer",
+    "channel": "Local News Network",
+    "published": "2026-10-09",
+    "durationSec": 529,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado treasurer debate 2026\"",
+     "checks": [
+      "oEmbed: \"Candidate Interview: Jeff Bridges — CO State Treasurer\" by Local News Network",
+      "uploaded 2026-10-09",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-phil-weiser": [
+   {
+    "youtubeId": "ELnS-duesGM",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Phil Weiser, Democratic nominee running for Colorado governor | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-07-19",
+    "durationSec": 1357,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Point of View Phil Weiser\"",
+     "checks": [
+      "oEmbed: \"Phil Weiser, Democratic nominee running for Colorado governor | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-07-19",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "sXTw_9IWafs",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "The Colorado Sun: A conversation with Phil Weiser",
+    "channel": "Rocky Mountain PBS",
+    "published": "2026-10-09",
+    "durationSec": 4389,
+    "host": "The Colorado Sun",
+    "evidence": {
+     "foundVia": "YouTube search \"Victor Marx Phil Weiser debate October 2026\"",
+     "checks": [
+      "oEmbed: \"The Colorado Sun: A conversation with Phil Weiser\" by Rocky Mountain PBS",
+      "uploaded 2026-10-09",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-victor-marx": [
+   {
+    "youtubeId": "n_bgCGlRuP4",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Victor Marx: Interview with Republican candidate for Colorado governor | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-08-08",
+    "durationSec": 1357,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Point of View Victor Marx\"",
+     "checks": [
+      "oEmbed: \"Victor Marx: Interview with Republican candidate for Colorado governor | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-08-08",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "KywOV9EkNFg",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Full interview: Colorado Republican gubernatorial candidate Victor Marx",
+    "channel": "Next 9NEWS",
+    "published": "2026-05-28",
+    "durationSec": 1748,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Point of View Victor Marx\"",
+     "checks": [
+      "oEmbed: \"Full interview: Colorado Republican gubernatorial candidate Victor Marx\" by Next 9NEWS",
+      "uploaded 2026-05-28",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-james-wiley": [
+   {
+    "youtubeId": "WAeXmsfjZ9g",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Candidate Interview: James Wiley — CO Secretary of State",
+    "channel": "Local News Network",
+    "published": "2026-10-07",
+    "durationSec": 569,
+    "evidence": {
+     "foundVia": "YouTube search \"Amanda Gonzalez James Wiley Secretary of State interview\"",
+     "checks": [
+      "oEmbed: \"Candidate Interview: James Wiley — CO Secretary of State\" by Local News Network",
+      "uploaded 2026-10-07",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-amanda-gonzalez": [
+   {
+    "youtubeId": "sGKeanwGR3c",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Candidate Interview: Amanda Gonzalez — CO Secretary of State",
+    "channel": "Local News Network",
+    "published": "2026-10-13",
+    "durationSec": 606,
+    "evidence": {
+     "foundVia": "YouTube search \"Amanda Gonzalez James Wiley Secretary of State interview\"",
+     "checks": [
+      "oEmbed: \"Candidate Interview: Amanda Gonzalez — CO Secretary of State\" by Local News Network",
+      "uploaded 2026-10-13",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "Z7T914tP53Y",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Amanda Gonzalez, Democratic candidate for Colorado Secretary of State | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-08-22",
+    "durationSec": 1353,
+    "evidence": {
+     "foundVia": "YouTube search \"Amanda Gonzalez James Wiley Secretary of State interview\"",
+     "checks": [
+      "oEmbed: \"Amanda Gonzalez, Democratic candidate for Colorado Secretary of State | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-08-22",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-edie-hooton": [
+   {
+    "youtubeId": "7gSOb65jGCY",
+    "kind": "statement",
+    "origin": "campaign",
+    "title": "Edie Hooton for CU Regent",
+    "channel": "Edie Hooton for CU Regent",
+    "published": "2026-06-11",
+    "durationSec": 30,
+    "sourceUrl": "https://www.youtube.com/@EdieforColorado",
+    "sourceLabel": "The campaign's YouTube channel",
+    "evidence": {
+     "foundVia": "YouTube search \"Edie Hooton CU Regent\"",
+     "checks": [
+      "oEmbed: \"Edie Hooton for CU Regent\" by Edie Hooton for CU Regent",
+      "uploaded 2026-06-11",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ]
  },
@@ -26,61 +296,295 @@
    {
     "youtubeId": "DMB4Nljvx7Y",
     "kind": "debate",
+    "origin": "independent",
     "title": "2026 Colorado Secretary of State Debate",
     "channel": "Gazette Visuals",
     "published": "2026-10-11",
-    "durationSec": 4385
+    "durationSec": 4385,
+    "host": "Colorado Politics",
+    "participants": [
+     {
+      "id": "co26-amanda-gonzalez"
+     },
+     {
+      "id": "co26-james-wiley"
+     }
+    ],
+    "evidence": {
+     "foundVia": "already listed (Gazette Visuals)",
+     "checks": [
+      "oEmbed: \"2026 Colorado Secretary of State Debate\" by Gazette Visuals",
+      "uploaded 2026-10-11",
+      "co26-amanda-gonzalez: named in the description",
+      "co26-james-wiley: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-governor": [
    {
     "youtubeId": "-zgbzltwzmw",
     "kind": "debate",
+    "origin": "independent",
     "title": "Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser",
     "channel": "KOAA 5",
     "published": "2026-08-28",
-    "durationSec": 3556
+    "durationSec": 3556,
+    "participants": [
+     {
+      "id": "co26-greg-lopez"
+     },
+     {
+      "id": "co26-phil-weiser"
+     }
+    ],
+    "evidence": {
+     "foundVia": "already listed (KOAA 5)",
+     "checks": [
+      "oEmbed: \"Colorado Gubernatorial Debate 2026: Greg Lopez and Phil Weiser\" by KOAA 5",
+      "uploaded 2026-08-28",
+      "co26-greg-lopez: named in the title",
+      "co26-phil-weiser: named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "GF8J_vea64Y",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "Colorado Chamber of Commerce 2026 Gubernatorial Forum",
+    "channel": "The Colorado Chamber of Commerce",
+    "published": "2026-10-09",
+    "durationSec": 3152,
+    "host": "Colorado Chamber of Commerce",
+    "participants": [
+     {
+      "id": "co26-phil-weiser"
+     },
+     {
+      "id": "co26-victor-marx"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Victor Marx Phil Weiser debate October 2026\"",
+     "checks": [
+      "oEmbed: \"Colorado Chamber of Commerce 2026 Gubernatorial Forum\" by The Colorado Chamber of Commerce",
+      "uploaded 2026-10-09",
+      "co26-phil-weiser: named in the description",
+      "co26-victor-marx: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-larimer-commissioner-1": [
    {
     "youtubeId": "MzQjjlUiVD8",
     "kind": "forum",
+    "origin": "independent",
     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
     "channel": "City of Fort Collins",
     "published": "2026-10-08",
-    "durationSec": 5192
+    "durationSec": 5192,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-shane-atkinson",
+      "startSec": 289
+     },
+     {
+      "id": "co26-marc-roberson",
+      "startSec": 363
+     },
+     {
+      "id": "co26-stephen-fowler",
+      "startSec": 411
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)\" by City of Fort Collins",
+      "uploaded 2026-10-08",
+      "co26-shane-atkinson: transcript at 303s: \"My name is Shane Atkinson, and I'm running for Larimer County Commissioner, District 1.\"",
+      "co26-marc-roberson: transcript at 368s: \"my name is Mark Roberson\"",
+      "co26-stephen-fowler: transcript at 411s: \"I'm Stephen Fowler\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-larimer-clerk": [
    {
     "youtubeId": "MzQjjlUiVD8",
     "kind": "forum",
+    "origin": "independent",
     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
     "channel": "City of Fort Collins",
     "published": "2026-10-08",
-    "durationSec": 5192
+    "durationSec": 5192,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-tina-harris",
+      "startSec": 1670
+     },
+     {
+      "id": "co26-kenneth-forsythe",
+      "startSec": 1766
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)\" by City of Fort Collins",
+      "uploaded 2026-10-08",
+      "co26-tina-harris: transcript at 1683s: \"My name is Tina Harris. I am the current Larimer County Clerk and Recorder.\"",
+      "co26-kenneth-forsythe: transcript at 1778s: \"My name is Ken Forsythe.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-larimer-treasurer": [
    {
     "youtubeId": "MzQjjlUiVD8",
     "kind": "forum",
+    "origin": "independent",
     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
     "channel": "City of Fort Collins",
     "published": "2026-10-08",
-    "durationSec": 5192
+    "durationSec": 5192,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-joann-ginal",
+      "startSec": 2621
+     },
+     {
+      "id": "co26-steve-olson",
+      "startSec": 2726
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)\" by City of Fort Collins",
+      "uploaded 2026-10-08",
+      "co26-joann-ginal: transcript at 2607s: \"we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson.\" (transcribed as \"ginnall\")",
+      "co26-steve-olson: transcript at 2607s: \"we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "co26-larimer-assessor": [
    {
     "youtubeId": "MzQjjlUiVD8",
     "kind": "forum",
+    "origin": "independent",
     "title": "League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)",
     "channel": "City of Fort Collins",
     "published": "2026-10-08",
-    "durationSec": 5192
+    "durationSec": 5192,
+    "host": "League of Women Voters",
+    "participants": [
+     {
+      "id": "co26-patrick-edwards",
+      "startSec": 3711
+     },
+     {
+      "id": "co26-bob-overbeck",
+      "startSec": 3806
+     },
+     {
+      "id": "co26-sam-bradley",
+      "startSec": 3896
+     }
+    ],
+    "evidence": {
+     "foundVia": "City of Fort Collins channel",
+     "checks": [
+      "oEmbed: \"League of Women Voters Candidate Forum: Larimer County Candidates (10/8/26)\" by City of Fort Collins",
+      "uploaded 2026-10-08",
+      "co26-patrick-edwards: transcript at 3698s: \"We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley.\"",
+      "co26-bob-overbeck: transcript at 3698s: \"We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley.\"",
+      "co26-sam-bradley: transcript at 3698s: \"We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-us-senate": [
+   {
+    "youtubeId": "0B-B0dsDjvs",
+    "kind": "debate",
+    "origin": "independent",
+    "title": "Hickenlooper, Baisley face off in Colorado U.S. Senate debate",
+    "channel": "9NEWS",
+    "published": "2026-10-15",
+    "durationSec": 3185,
+    "participants": [
+     {
+      "id": "co26-john-hickenlooper"
+     },
+     {
+      "id": "co26-mark-baisley"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado US Senate debate 2026\"",
+     "checks": [
+      "oEmbed: \"Hickenlooper, Baisley face off in Colorado U.S. Senate debate\" by 9NEWS",
+      "uploaded 2026-10-15",
+      "co26-john-hickenlooper: named in the title",
+      "co26-mark-baisley: named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-attorney-general": [
+   {
+    "youtubeId": "6zJfdMZFRUQ",
+    "kind": "debate",
+    "origin": "independent",
+    "title": "The Colorado Sun: The Attorney General Candidate Debate",
+    "channel": "The Colorado Sun",
+    "published": "2026-10-15",
+    "durationSec": 3885,
+    "host": "The Colorado Sun and Noticias Univision Colorado",
+    "participants": [
+     {
+      "id": "co26-jena-griswold"
+     },
+     {
+      "id": "co26-michael-j-allen"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado attorney general debate 2026 Griswold Allen\"",
+     "checks": [
+      "oEmbed: \"The Colorado Sun: The Attorney General Candidate Debate\" by The Colorado Sun",
+      "uploaded 2026-10-15",
+      "co26-jena-griswold: named in the description",
+      "co26-michael-j-allen: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ]
- }
+ },
+ "measures": {}
 }

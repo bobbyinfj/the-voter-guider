@@ -2,29 +2,40 @@
 
 import { useState } from 'react'
 import { Play } from 'lucide-react'
-import { VIDEO_KIND_LABELS, formatDuration, type CandidateVideo } from '@/lib/profile'
+import OriginBadge from './OriginBadge'
+import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, type CandidateVideo } from '@/lib/profile'
 
 // Thumbnail first; the YouTube player (privacy-enhanced domain) loads only when clicked.
-// `tiny` (scorecard cells): a one-line caption, with the title on hover
+// `tiny` (scorecard cells): a one-line caption, with the title on hover. `startSec` overrides the
+// video's own start (one candidate's part of a forum).
 export default function VideoFacade({
   video,
   compact = false,
   tiny = false,
+  startSec,
 }: {
   video: CandidateVideo
   compact?: boolean
   tiny?: boolean
+  startSec?: number
 }) {
   const [playing, setPlaying] = useState(false)
-  const duration = formatDuration(video.durationSec)
-  const label = `${VIDEO_KIND_LABELS[video.kind]} · ${video.channel}${duration ? ` · ${duration}` : ''}`
+  const start = startSec ?? video.startSec
+  const end = startSec === undefined ? video.endSec : undefined
+  const clip = start !== undefined && end !== undefined ? formatDuration(end - start) : null
+  const duration = clip ?? formatDuration(video.durationSec)
+  const at = start ? ` · from ${clock(start)}` : ''
+  const label = `${VIDEO_KIND_LABELS[video.kind]} · ${video.channel}${duration ? ` · ${duration}` : ''}${clip ? '' : at}`
+  const params = `autoplay=1&rel=0${start ? `&start=${start}` : ''}${end ? `&end=${end}` : ''}`
+  const watchUrl = `https://www.youtube.com/watch?v=${video.youtubeId}${start ? `&t=${start}s` : ''}`
+  const source = video.sourceUrl && isHttpUrl(video.sourceUrl) ? video.sourceUrl : null
 
   return (
     <figure className={compact ? 'max-w-xs' : ''} title={tiny ? video.title : undefined}>
       <div className="relative aspect-video w-full overflow-hidden rounded bg-black">
         {playing ? (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?${params}`}
             title={video.title}
             allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowFullScreen
@@ -54,28 +65,41 @@ export default function VideoFacade({
         )}
       </div>
       {tiny ? (
-        <figcaption className="mt-0.5 truncate text-[0.6875rem] leading-snug text-gray-700">
-          {label} ·{' '}
-          <a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} target="_blank" rel="noopener noreferrer" className="underline">
-            YouTube
-          </a>
+        <figcaption className="mt-0.5 text-[0.6875rem] leading-snug text-gray-700">
+          <OriginBadge origin={video.origin} host={video.host} />
+          <span className="block truncate">
+            {label} ·{' '}
+            <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="underline">
+              YouTube
+            </a>
+          </span>
         </figcaption>
       ) : (
       <figcaption className="mt-1 text-xs leading-snug">
-        <span className="font-semibold">{label}</span>
+        <OriginBadge origin={video.origin} host={video.host} /> <span className="font-semibold">{label}</span>
         <span className="block text-gray-600">
-          “{video.title}” ·{' '}
-          <a
-            href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
+          “{video.title}”{video.host ? ` · hosted by ${video.host}` : ''} ·{' '}
+          <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="underline">
             YouTube
           </a>
+          {source && (
+            <>
+              {' · '}
+              <a href={source} target="_blank" rel="noopener noreferrer" className="underline">
+                {video.sourceLabel ?? 'Where we found it'}
+              </a>
+            </>
+          )}
         </span>
       </figcaption>
       )}
     </figure>
   )
+}
+
+function clock(sec: number): string {
+  const h = Math.floor(sec / 3600)
+  const m = Math.floor((sec % 3600) / 60)
+  const s = String(sec % 60).padStart(2, '0')
+  return h ? `${h}:${String(m).padStart(2, '0')}:${s}` : `${m}:${s}`
 }

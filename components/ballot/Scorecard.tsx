@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ExternalLink, Flag as FlagIcon, Video } from 'lucide-react'
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
-import { isHttpUrl, raceExtrasOf, type CandidateVideo } from '@/lib/profile'
+import { isHttpUrl, leadVideo, raceExtrasOf, type CandidateVideo } from '@/lib/profile'
 import {
   FLAG_RULES,
   RULING_LABELS,
@@ -77,18 +77,22 @@ export function RaceVideos({ race }: { race: BallotItem }) {
 function VideoCell({ candidate, race, small = false }: { candidate: BallotCandidate; race: BallotItem; small?: boolean }) {
   const together = new Set(sharedVideos(race).map((v) => v.youtubeId))
   const own = (candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))
-  const lead = own.find((v) => v.kind === 'interview') ?? own[0]
-  if (!lead)
-    return (
-      <div
-        title="No interview of them in the nonpartisan series we use"
-        className="flex aspect-video w-full flex-col items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 px-2 text-center text-[0.6875rem] leading-snug text-gray-500"
-      >
-        <Video className="mb-0.5 h-4 w-4" />
-        {small ? 'No interview' : 'No interview in the series we use'}
-      </div>
-    )
-  return <VideoFacade video={lead} tiny />
+  const lead = leadVideo(own)
+  if (lead) return <VideoFacade video={lead} tiny />
+  // Otherwise a race forum or debate they're in, from where they first speak when we know it
+  for (const v of raceExtrasOf(race.metadata)?.videos ?? []) {
+    const them = v.participants?.find((p) => p.id === candidate.id)
+    if (them) return <VideoFacade video={v} startSec={them.startSec} tiny />
+  }
+  return (
+    <div
+      title="No video of them in the sources we search"
+      className="flex aspect-video w-full flex-col items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 px-2 text-center text-[0.6875rem] leading-snug text-gray-500"
+    >
+      <Video className="mb-0.5 h-4 w-4" />
+      {small ? 'No video found' : 'No video in the sources we search'}
+    </div>
+  )
 }
 
 function FlagCell({ candidate }: { candidate: BallotCandidate }) {

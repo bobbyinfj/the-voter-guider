@@ -675,6 +675,7 @@ function Enhancements({
           {item.description && <p>{item.description}</p>}
           <MeasureExplainer official={{ ...official, sourceUrl: null }} />
           <OfficialDocs docs={documentsOf(item.metadata)} label="From the county's official voter information" />
+          {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}
         </>
       ) : (
         <>

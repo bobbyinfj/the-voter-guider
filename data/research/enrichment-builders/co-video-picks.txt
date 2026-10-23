@@ -1,0 +1,33 @@
+# Reviewed video picks for Colorado (tools/video-approve.py co turns these into co-videos.json).
+# Format and checks: see tools/video-approve.py. Quotes are from our Whisper transcripts
+# (cache/transcripts/<id>.json), at the second given; start= is where each candidate's part begins.
+
+# League of Women Voters forum for Larimer County offices, 10/8/26, on the City of Fort Collins channel
+co26-larimer-commissioner-1 | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-shane-atkinson@289,co26-marc-roberson@363,co26-stephen-fowler@411 ; said=303 "My name is Shane Atkinson, and I'm running for Larimer County Commissioner, District 1." ; said=368 "my name is Mark Roberson" ; said=411 "I'm Stephen Fowler"
+co26-larimer-clerk | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-tina-harris@1670,co26-kenneth-forsythe@1766 ; said=1683 "My name is Tina Harris. I am the current Larimer County Clerk and Recorder." ; said=1778 "My name is Ken Forsythe."
+co26-larimer-treasurer | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-joann-ginal@2621,co26-steve-olson@2726 ; said=2607 "we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson."
+co26-larimer-assessor | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-patrick-edwards@3711,co26-bob-overbeck@3806,co26-sam-bradley@3896 ; said=3698 "We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley." ; said=3812 "I'm Bob Overbeck." ; said=3904 "My name is Sam Bradley."
+
+# Statewide debates, participants as named by the publisher
+co26-us-senate | 0B-B0dsDjvs | debate | independent ; found=YouTube search "Colorado US Senate debate 2026" ; with=co26-john-hickenlooper,co26-mark-baisley
+co26-governor | -zgbzltwzmw | debate | independent ; found=already listed (KOAA 5) ; with=co26-greg-lopez,co26-phil-weiser
+co26-secretary-of-state | DMB4Nljvx7Y | debate | independent ; host=Colorado Politics ; found=already listed (Gazette Visuals) ; with=co26-amanda-gonzalez,co26-james-wiley
+
+# One-on-one interviews (every candidate in these races was searched the same way)
+co26-kevin-grantham | VghI2Mn05PI | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
+co26-jeff-bridges | xSQSJEbEEBY | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
+co26-attorney-general | 6zJfdMZFRUQ | debate | independent ; host=The Colorado Sun and Noticias Univision Colorado ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen" ; with=co26-jena-griswold,co26-michael-j-allen
+co26-michael-j-allen | n0afj555jsQ | interview | independent ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen"
+co26-governor | GF8J_vea64Y | forum | civic ; host=Colorado Chamber of Commerce ; found=YouTube search "Victor Marx Phil Weiser debate October 2026" ; with=co26-phil-weiser,co26-victor-marx
+co26-phil-weiser | ELnS-duesGM | interview | independent ; found=YouTube search "Colorado Point of View Phil Weiser"
+co26-phil-weiser | sXTw_9IWafs | interview | independent ; host=The Colorado Sun ; found=YouTube search "Victor Marx Phil Weiser debate October 2026"
+co26-victor-marx | n_bgCGlRuP4 | interview | independent ; found=YouTube search "Colorado Point of View Victor Marx"
+co26-victor-marx | KywOV9EkNFg | interview | independent ; found=YouTube search "Colorado Point of View Victor Marx"
+co26-james-wiley | WAeXmsfjZ9g | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
+co26-amanda-gonzalez | sGKeanwGR3c | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
+co26-amanda-gonzalez | Z7T914tP53Y | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
+
+# The campaigns' own videos
+co26-jena-griswold | Bv8jAuBgEdk | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
+co26-jena-griswold | AjzVl1rOeGg | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
+co26-edie-hooton | 7gSOb65jGCY | statement | campaign ; source=https://www.youtube.com/@EdieforColorado ; label=The campaign's YouTube channel ; found=YouTube search "Edie Hooton CU Regent"

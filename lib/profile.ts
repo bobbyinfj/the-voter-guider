@@ -9,13 +9,27 @@ export interface Endorser {
   kind: EndorserKind
 }
 
+// Who made a video, from outside questions to the candidate's own message (VIDEO_ORIGINS)
+export type VideoOrigin = 'independent' | 'civic' | 'government' | 'campaign'
+
 export interface CandidateVideo {
   youtubeId: string
-  kind: 'interview' | 'statement' | 'debate' | 'forum'
+  kind: 'interview' | 'statement' | 'debate' | 'forum' | 'explainer' | 'meeting'
+  origin: VideoOrigin
   title: string
   channel: string
   published: string
   durationSec?: number
+  // Who organized it, when that isn't the channel (e.g. a League forum on a city channel)
+  host?: string
+  // A part of a long forum or meeting
+  startSec?: number
+  endSec?: number
+  // Where we found it, when that's more than YouTube: a campaign page, a meeting transcript
+  sourceUrl?: string
+  sourceLabel?: string
+  // Race videos: who is in it, and where each first speaks
+  participants?: { id: string; startSec?: number }[]
 }
 
 // What a news organization's voter guide says about a candidate (data/research/enrichment-builders/
@@ -101,7 +115,7 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
         ? { label: 'In their statement', text: p.summary.statement }
         : null),
     summarySource: p.summary?.source ?? null,
-    video: p.videos?.find((v) => v.kind === 'interview') ?? p.videos?.[0] ?? null,
+    video: leadVideo(p.videos ?? []),
     endorsers: ordered.slice(0, maxEndorsers),
     endorserTotal: ordered.length + (p.endorsements?.individuals ?? 0),
     endorsementsUrl: p.endorsements?.source.url ?? null,
@@ -119,10 +133,48 @@ export const VIDEO_KIND_LABELS: Record<CandidateVideo['kind'], string> = {
   statement: "Video voters' guide statement",
   debate: 'Debate',
   forum: 'Candidate forum',
+  explainer: 'Explainer',
+  meeting: 'At a public meeting',
 }
 
-// Extras for a whole race (debates and forums with several candidates, links), kept in the
-// race ballot's metadata.extras by the seed
+// Shown beside every video: who made it and what that means for what you're seeing.
+// Ordered from questions someone else asks to the candidate's own message.
+export const VIDEO_ORIGINS: Record<VideoOrigin, { label: string; about: string }> = {
+  independent: {
+    label: 'Independent',
+    about:
+      'Made by a news outlet or a nonpartisan series such as the League of Women Voters. They choose the questions and ask every candidate the same ones. Outlets still decide what to ask, so note who made it.',
+  },
+  civic: {
+    label: 'Civic forum',
+    about:
+      'Hosted by a community group (a chamber of commerce, neighborhood council or PTA) that invited every candidate in the race. The host picks the questions, and a forum audience can lean one way.',
+  },
+  government: {
+    label: 'Public record',
+    about:
+      "Recorded by the government at a public meeting, unedited. It only exists for people who already hold office or spoke at a meeting, so challengers often have none. We pick the part by a fixed rule (their longest times speaking at recent meetings), not by what they said.",
+  },
+  campaign: {
+    label: 'From the campaign',
+    about:
+      "Made or posted by the candidate's own campaign. It's how they choose to present themselves: nobody else asked the questions or checked the claims.",
+  },
+}
+export const ORIGIN_ORDER: VideoOrigin[] = ['independent', 'civic', 'government', 'campaign']
+
+// Most independent first, interviews ahead of the rest within each
+export function sortVideos(videos: CandidateVideo[]): CandidateVideo[] {
+  const rank = (v: CandidateVideo) => Math.max(0, ORIGIN_ORDER.indexOf(v.origin)) * 2 + (v.kind === 'interview' ? 0 : 1)
+  return [...videos].sort((a, b) => rank(a) - rank(b))
+}
+
+export function leadVideo(videos: CandidateVideo[]): CandidateVideo | null {
+  return sortVideos(videos)[0] ?? null
+}
+
+// Extras for a whole race or measure (debates and forums with several candidates, explainers,
+// links), kept in the ballot's metadata.extras by the seed
 export interface RaceExtras {
   videos?: CandidateVideo[]
   links?: { label: string; url: string }[]
