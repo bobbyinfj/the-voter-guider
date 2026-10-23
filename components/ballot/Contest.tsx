@@ -931,8 +931,19 @@ export default function Contest({
                       aside={(name) => {
                         const c = open && item.office?.candidates.find((p) => p.name === name)
                         return c ? (
-                          <CandidateScorecard candidate={c} race={item} badges={badges?.[item.id]?.[c.name] ?? []}>
-                            <CandidateLine race={item} name={c.name} />
+                          <CandidateScorecard
+                            candidate={c}
+                            race={item}
+                            badges={badges?.[item.id]?.[c.name] ?? []}
+                            summary={
+                              <>
+                                <CandidateLine race={item} name={c.name} />
+                                {choice?.candidateNotes?.[c.name] && (
+                                  <p className="line-clamp-1 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
+                                )}
+                              </>
+                            }
+                          >
                             <details className="group/more text-sm">
                               <summary className="cursor-pointer text-xs font-semibold text-blue-700 hover:underline">
                                 More on {c.name}: news guide, statement, notes
@@ -951,9 +962,6 @@ export default function Contest({
                                 />
                               </div>
                             </details>
-                            {choice?.candidateNotes?.[c.name] && (
-                              <p className="line-clamp-2 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
-                            )}
                           </CandidateScorecard>
                         ) : null
                       }}
