@@ -89,18 +89,6 @@
     "shared": true
    }
   ],
-  "ca26-rob-bonta": [
-   {
-    "respondent": "Rob Bonta",
-    "case": "21/738",
-    "fine": 200,
-    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
-    "month": "2024-09",
-    "retrieved": "2026-10-22",
-    "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
-    "shared": false
-   }
-  ],
   "ca26-michael-e-gates": [
    {
     "respondent": "Michael Gates",
@@ -110,6 +98,18 @@
     "month": "2026-05",
     "retrieved": "2026-10-22",
     "summary": "Michael Gates, City Attorney for Huntington Beach, failed to timely report a gift on a 2023 Annual Statement of Economic Interests, in violation of Government Code Section 87203 (1 Count).",
+    "shared": false
+   }
+  ],
+  "ca26-rob-bonta": [
+   {
+    "respondent": "Rob Bonta",
+    "case": "21/738",
+    "fine": 200,
+    "url": "https://www.fppc.ca.gov/news-releases/2024/fppc-enforcement-decisions-september-2024/",
+    "month": "2024-09",
+    "retrieved": "2026-10-22",
+    "summary": "Bonta, in his capacity as a member of the Assembly, failed to timely file four behested payment reports, in violation of Government Code Section 84224 (4 counts).",
     "shared": false
    }
   ],
@@ -134,6 +134,18 @@
     "month": "2024-01",
     "retrieved": "2026-10-22",
     "summary": "The Committee, Villanueva, and Ivery failed to report required occupation and employer information for a contribution received from Gomez, in violation of Government Code Section 84211, subdivision (f) (1 count).",
+    "shared": true
+   }
+  ],
+  "ca26-bob-j-archuleta": [
+   {
+    "respondent": "Bob Archuleta for Senate 2018, Bob Archuleta, and Cine Ivery",
+    "case": "21/109",
+    "fine": 1571,
+    "url": "https://www.fppc.ca.gov/news-releases/2023/fppc-enforcement-decisions-january-2023/",
+    "month": "2023-01",
+    "retrieved": "2026-10-22",
+    "summary": "The Committee, Archuleta, and Ivery failed to timely file two 10-day Reports, in violation of Government Code Section 85309, subdivision (c) (2 counts).",
     "shared": true
    }
   ]

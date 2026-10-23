@@ -1,8 +1,8 @@
 {
  "covered": [
   "ca26-xavier-becerra",
-  "ca26-rob-bonta",
   "ca26-michael-e-gates",
+  "ca26-rob-bonta",
   "ca26-jane-kim",
   "ca26-long-david-liu",
   "ca26-amy-lee",
@@ -31,16 +31,6 @@
    "admitted": "6/14/1985",
    "shownName": "Xavier Becerra"
   },
-  "ca26-rob-bonta": {
-   "publisher": "State Bar of California",
-   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
-   "retrieved": "2026-10-22",
-   "matched": "the only State Bar match for the name",
-   "status": "Active",
-   "discipline": [],
-   "admitted": "10/31/1999",
-   "shownName": "Robert Andres Bonta"
-  },
   "ca26-michael-e-gates": {
    "publisher": "State Bar of California",
    "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/258446",
@@ -50,6 +40,16 @@
    "discipline": [],
    "admitted": "12/1/2008",
    "shownName": "Michael E Gates"
+  },
+  "ca26-rob-bonta": {
+   "publisher": "State Bar of California",
+   "url": "https://apps.calbar.ca.gov/attorney/Licensee/Detail/202668",
+   "retrieved": "2026-10-22",
+   "matched": "the only State Bar match for the name",
+   "status": "Active",
+   "discipline": [],
+   "admitted": "10/31/1999",
+   "shownName": "Robert Andres Bonta"
   },
   "ca26-maria-ghobadi": {
    "publisher": "State Bar of California",

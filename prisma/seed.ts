@@ -65,6 +65,8 @@ interface OfficeData {
   district?: string;
   districtType?: string;
   districtCode?: string;
+  // More districts the item is limited to, e.g. { city: "montebello" } (lib/districts.ts)
+  scope?: Record<string, string>;
   termYears?: number;
   sortOrder?: number;
   description?: string;
@@ -82,6 +84,8 @@ interface MeasureData {
   type?: string;
   districtType?: string;
   districtCode?: string;
+  // More districts the item is limited to, e.g. { city: "montebello" } (lib/districts.ts)
+  scope?: Record<string, string>;
   sourceUrl?: string;
   // Official explanations, verbatim from the state/county voter guide
   yesMeans?: string;
@@ -318,6 +322,7 @@ async function seedElectionBundle(slug: string) {
           ? { statements: Object.fromEntries(officeData.candidates.filter((c) => c.countyStatement).map((c) => [c.name, c.countyStatement!])) }
           : {}),
         ...(raceExtras[officeData.id] ? { extras: raceExtras[officeData.id] } : {}),
+        ...(officeData.scope ? { scope: officeData.scope } : {}),
       } as Prisma.InputJsonObject,
       districtType: officeData.districtType ?? null,
       districtCode: officeData.districtCode ?? null,
@@ -396,6 +401,7 @@ async function seedElectionBundle(slug: string) {
         passes: m.passes ?? null,
         ...(m.ballot ? { ballot: m.ballot } : {}),
         ...(m.documents?.length ? { documents: m.documents } : {}),
+        ...(m.scope ? { scope: m.scope } : {}),
       } as Prisma.InputJsonObject,
       districtType: m.districtType ?? null,
       districtCode: m.districtCode ?? null,

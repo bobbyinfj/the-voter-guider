@@ -9,7 +9,7 @@ import { FilePlus2, Share2 } from 'lucide-react'
 import BallotTracker from '@/components/BallotTracker'
 import DistrictPicker from '@/components/DistrictPicker'
 import { orderForBallot, type BallotItem } from '@/components/ballot/ballot'
-import { matchesSelection, parseDistrictSelection, type DistrictOption, type DistrictSelection } from '@/lib/districts'
+import { districtOptions, matchesSelection, parseDistrictSelection, scopesOf, type DistrictOption, type DistrictSelection } from '@/lib/districts'
 import { useGuideEditor, type EditableGuide } from './useGuideEditor'
 import { useAccount } from './useAccount'
 import SaveStatus from './SaveStatus'
@@ -40,6 +40,21 @@ function savedDistricts(guide: EditableGuide | null): DistrictSelection {
   return parseDistrictSelection(d && typeof d === 'object' ? (d as Record<string, unknown>) : null)
 }
 
+// A guide saved before the election covered several cities has no city: take the one city its
+// picks (or its council district) belong to, so its "to go" count doesn't suddenly grow
+function withCity(selection: DistrictSelection, ballots: Ballot[], guide: EditableGuide | null): DistrictSelection {
+  if (selection.city || !ballots.some((b) => scopesOf(b).some(([t]) => t === 'city'))) return selection
+  const cityOf = (b: Ballot) => scopesOf(b).find(([t]) => t === 'city')?.[1]
+  const picked = new Set((guide?.choices ?? []).map((c) => c.ballotId))
+  const cities = new Set(
+    ballots
+      .filter((b) => picked.has(b.id) || scopesOf(b).some(([t, code]) => t !== 'city' && selection[t] === code))
+      .map(cityOf)
+      .filter((c): c is string => !!c),
+  )
+  return cities.size === 1 ? { ...selection, city: [...cities][0] } : selection
+}
+
 // The election's ballot, and your guide: whatever you mark here saves as you go
 export default function ElectionGuide({
   election,
@@ -57,8 +72,17 @@ export default function ElectionGuide({
   const account = useAccount()
   // The URL wins (shared links); otherwise the districts saved on your guide
   const [districts, setDistricts] = useState<DistrictSelection>(() =>
-    Object.keys(urlDistricts).length ? urlDistricts : savedDistricts(initialGuide),
+    Object.keys(urlDistricts).length ? urlDistricts : withCity(savedDistricts(initialGuide), ballots, initialGuide),
   )
+  // With several cities on one election: pick the city first, then only its districts are offered
+  const options = useMemo(() => {
+    const labeled = ballots.map((b) => ({ ...b, district: b.office?.district }))
+    const all = districtOptions(labeled)
+    const city = all.find((o) => o.type === 'city')
+    if (!city) return pickerOptions.length ? pickerOptions : all
+    if (!districts.city) return [city]
+    return [city, ...districtOptions(labeled.filter((b) => matchesSelection(b, { city: districts.city }))).filter((o) => o.type !== 'city')]
+  }, [ballots, districts.city, pickerOptions])
   const editor = useGuideEditor({ initialGuide, electionId: election.id, districts })
   const { guide, choices } = editor
   const [creating, setCreating] = useState(false)
@@ -67,7 +91,8 @@ export default function ElectionGuide({
   const answered = items.filter((b) => choices[b.id]).length
 
   const changeDistrict = (type: string, code: string) => {
-    const next: Record<string, string> = { ...districts }
+    // A new city starts its districts over (Monterey Park's council districts aren't Montebello's)
+    const next: Record<string, string> = type === 'city' ? {} : { ...districts }
     if (code) next[type] = code
     else delete next[type]
     setDistricts(next)
@@ -143,7 +168,7 @@ export default function ElectionGuide({
             pickerOptions.length > 0 ? (
               <div className="print:hidden">
                 <DistrictPicker
-                  options={pickerOptions}
+                  options={options}
                   selection={districts}
                   lookupUrl={election.districtLookupUrl}
                   onChange={changeDistrict}

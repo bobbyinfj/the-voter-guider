@@ -1,0 +1,75 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10485.json",
+ "data": {
+  "id": "cc10485",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION City Treasurer"
+  },
+  "short_name": {
+   "EN": "MONTEBELLO CITY GEN-TREAS"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "34L",
+    "name": [
+     {
+      "EN": "DAVID MATANGA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "DAVID MATANGA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "City Treasurer, City of Montebello"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002659605E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF DAVID MATANGA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR CITY TREASURER</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: City Treasurer</p><p dir=\"auto\">It has been my honor and privilege to serve as your Montebello City Treasurer, and I respectfully ask for your support for re-election.</p><p dir=\"auto\">Growing up in East Los Angeles and graduation from Garfield High School, Class of 1970, I have proudly called Montebello home for more than 40 years. My wife, Carmel, and I raised our daughter, Monique, here, built lifelong friendships, and created cherished memories. Our family's deep roots in this community inspire my commitment to Montebello's future.</p><p dir=\"auto\">My career as a Senior Tax Compliance Representative with the State of California provided me with extensive experience in financial oversight, accountability, and fiscal responsibility. I also earned an Associate of Arts degree in Labor Studies from Los Angeles Trade-Technical College and an Associate of Arts degree in Liberal Studies from East Los Angeles College.</p><p dir=\"auto\">My service as District President of SEIU 1000 and as a delegate to the Los Angeles County Federation of Labor strengthened my understanding of the needs of working families and reinforced my commitment to honest, transparent government.</p><p dir=\"auto\">As your City Treasurer, I remain dedicated to protecting taxpayer resources, ensuring fiscal transparency, and serving every resident with integrity, accountability, and respect. I would be honored to earn your vote for re-election.</p><p dir=\"auto\"></p><p dir=\"auto\"></p><p dir=\"auto\"></p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE DAVID MATANGA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA TESORERO DE LA CIUDAD</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Tesorero de la Ciudad</p><p dir=\"auto\">Ha sido un honor y un privilegio desempeñarme como Tesorero de la Ciudad de Montebello y le pido respetuosamente su apoyo para la reelección.</p><p dir=\"auto\">Crecí en East Los Angeles y me gradué de la Preparatoria Garfield, Clase de 1970. Me enorgullece considerar a Montebello mi hogar desde hace más de 40&nbsp;años. Mi esposa Carmel y yo criamos aquí a nuestra hija Monique, establecimos amistades para toda la vida y creamos recuerdos entrañables. Las profundas raíces de nuestra familia en esta comunidad inspiran mi compromiso con el futuro de Montebello.</p><p dir=\"auto\">Mi carrera profesional como Representante Sénior de Cumplimiento Tributario del Estado de California me brindó amplia experiencia en supervisión financiera, rendición de cuentas y responsabilidad fiscal. También obtuve un Título de Asociado en Artes en Estudios Laborales en el Colegio Técnico de Oficios de Los Angeles y un Título de Asociado en Artes en Estudios Liberales en el Colegio de East Los Angeles.</p><p dir=\"auto\">Mi servicio como Presidente de Distrito del SEIU&nbsp;1000 (Sindicato Internacional de Empleados de Servicios) y delegado ante la Federación Laboral del Condado de Los Angeles profundizó mi comprensión de las necesidades de las familias trabajadoras y reforzó mi compromiso con un gobierno honesto y transparente.</p><p dir=\"auto\">Como su Tesorero de la Ciudad, mantengo mi dedicación a proteger los recursos de los contribuyentes, garantizar la transparencia fiscal y servir a todos los residentes con integridad, responsabilidad y respeto. Sería un honor ganarme su voto para la reelección.</p>"
+      },
+      "CandidateID": "34L",
+      "SequenceOrder": 488
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3SK",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 2,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "url": "https://isb.lavote.gov/parsed/4348/contests/cc10484.json",
+ "data": {
+  "id": "cc10484",
+  "long_description": {},
+  "name": {
+   "EN": "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION Member of the City Council, 5th District"
+  },
+  "short_name": {
+   "EN": "MONTEBELLO CITY GEN-CNC 5"
+  },
+  "short_description": {},
+  "contest_class": "candidate_class",
+  "number_of_writeins": 1,
+  "vote_for_max": 1,
+  "vote_for_text": {
+   "EN": "Vote For <b>ONE</b>"
+  },
+  "division": "D61",
+  "candidates": [
+   {
+    "id": "PS",
+    "name": [
+     {
+      "EN": "RICARDO \"RIC\"  ALONZO"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "RICARDO ALONZO"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Engineer/Councilmember"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002659205E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF RICARDO \"RIC\" ALONZO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">5th District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Age: 42</p><p dir=\"auto\">Occupation: Engineer/Councilmember</p><p dir=\"auto\">18 months ago, on January 29th, 2025, I was appointed to represent District 5 in South Montebello. Here is a list of our accomplishments you can see for yourself in South Montebello:</p><p dir=\"auto\">A police community resource center. Park rangers. Refurbished park restrooms. A community garden. Repaved streets. The Bluff Road Fence Project. The city's first sponsored Christmas event down here, plus the ones I put on myself. Before me, this side of town waited for necessities, while the north was bathed in luxuries. I also voted against a development that would have added residents without the services to carry them.</p><p dir=\"auto\">I do not perform. I do not run this seat from a phone screen. I read every staff report, I ask my questions in open session where the record catches them, and I vote my own way. No theatrics. No dramatics. Just policy. That was the deal when I came in and it has not changed.</p><p dir=\"auto\">This is what I have done. I can do more.</p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE RICARDO “RIC” ALONZO</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATO PARA MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">5.º Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Edad: 42</p><p dir=\"auto\">Ocupación: Ingeniero/Miembro del Concejo</p><p dir=\"auto\">Hace 18&nbsp;meses, el 29 de enero de 2025, fui nombrado para representar al Distrito&nbsp;5 en South Montebello. La siguiente es una lista de nuestros logros que puede comprobar usted mismo en South Montebello:</p><p dir=\"auto\">Un centro comunitario de recursos policiales. Guardaparques. Baños de los parques renovados. Un jardín comunitario. Calles repavimentadas. El Proyecto de Cercado de Bluff Road. El primer evento Navideño patrocinado por la ciudad en esta zona, además de los que organicé por mi cuenta. Antes de mi llegada, este lado de la Ciudad esperaba por lo indispensable, mientras el norte recibía toda clase de lujos. También voté en contra de un desarrollo que habría sumado residentes sin proporcionar los servicios necesarios para atenderlos.</p><p dir=\"auto\">No actúo. No desempeño este cargo desde la pantalla de un teléfono. Leo todos los informes del personal, planteo mis preguntas en sesiones públicas para que queden registradas y voto según mi propio criterio. Sin teatro. Sin dramatismo. Solo políticas. Ese fue el acuerdo cuando asumí el cargo y no ha cambiado.</p><p dir=\"auto\">Esto es lo que he hecho. Puedo hacer más.</p>"
+      },
+      "CandidateID": "PS",
+      "SequenceOrder": 167
+     }
+    ],
+    "order": 0,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "PT",
+    "name": [
+     {
+      "EN": "JAMES SANTANA"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "JAMES SANTANA"
+     }
+    ],
+    "occupation": [
+     {
+      "EN": "Caretaker/Business Owner"
+     }
+    ],
+    "statements": [
+     {
+      "ID": "C0002659405E",
+      "FullHTML": {
+       "EN": "<h1 dir=\"auto\" style=\"text-align: center\">STATEMENT OF JAMES SANTANA</h1><h2 dir=\"auto\" style=\"text-align: center\">CANDIDATE FOR MEMBER OF THE CITY COUNCIL,<br dir=\"auto\">5th District</h2><h3 dir=\"auto\" style=\"text-align: center\">CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION</h3><p dir=\"auto\">Occupation: Caretaker/Business Owner</p><p dir=\"auto\">Montebello is my community. It gave me my education, my first job, and my first chance to serve. Today I own a home here, run a small business here, and hope to raise a family here.</p><p dir=\"auto\">I started in local politics as a teenager, organizing students for a local school bond. Since then, I have chaired the Parks and Recreation Commission, founded Montebello United, where neighbors gather to understand the decisions shaping our city, and built more than twenty years of business and community service experience.</p><p dir=\"auto\">District 5<em> </em>carries more than its share. Homes sit beside small shops and heavy industry, and major projects are coming. We deserve a councilmember chosen by residents and present in our neighborhoods.</p><p dir=\"auto\">On every contract and every budget, I will ask one question first: does this benefit the people who live and work here?</p><p dir=\"auto\">I will advocate for development that grows with residents, not around them. I will establish a commission for seniors, caregivers, and aging families. I will hold monthly District 5<em> </em>office hours. I will support small businesses, renters, and working families.</p><p dir=\"auto\">I am ready to serve District 5<em> </em>and all of Montebello. I would be honored to earn your vote.</p><p><br /></p><h1 dir=\"auto\" style=\"text-align: center\">DECLARACIÓN DE JAMES SANTANA</h1><h2 dir=\"auto\" style=\"text-align: center\"> CANDIDATO A MIEMBRO DEL CONCEJO DE LA CIUDAD,<br dir=\"auto\">5º Distrito</h2><h3 dir=\"auto\" style=\"text-align: center\">ELECCIÓN MUNICIPAL GENERAL DE LA CIUDAD DE MONTEBELLO</h3><p dir=\"auto\">Ocupación: Cuidador/Propietario de Negocio</p><p dir=\"auto\">Montebello es mi comunidad. Me brindó mi educación, mi primer trabajo y mi primera oportunidad de servir a la comunidad. Actualmente soy propietario de una casa aquí, dirijo un pequeño negocio aquí y también espero formar una familia aquí.</p><p dir=\"auto\">Me inicié en la política local cuando era adolescente, organizando a los estudiantes para la aprobación de un bono escolar local. Desde entonces, he presidido la Comisión de Parques y Recreación, fundé Montebello United, donde los vecinos se reúnen para comprender las decisiones que dan forma a nuestra ciudad, y he acumulado más de veinte años de experiencia en el ámbito empresarial y en el servicio a la comunidad.</p><p dir=\"auto\">El Distrito 5<em> </em>soporta más de lo que le corresponde. Las viviendas se ubican junto a pequeños comercios e industria pesada, y se avecinan grandes proyectos. Merecemos un miembro del concejo elegido por los residentes y presente en nuestros vecindarios.</p><p dir=\"auto\">En cada contrato y en cada presupuesto, primero me haré una pregunta: ¿esto beneficia a las personas que viven y trabajan aquí?</p><p dir=\"auto\">Defenderé un desarrollo que crezca con los residentes, no a su alrededor. Crearé una comisión para personas mayores, cuidadores y familias de la tercera edad. Celebraré reuniones mensuales en el Distrito 5<em> </em>en horario de oficina. Apoyaré a las pequeñas empresas, a los inquilinos y a las familias trabajadoras.</p><p dir=\"auto\">Estoy listo para servir al Distrito 5<em> </em>y a todo Montebello. Sería un honor ganarme su voto.</p>"
+      },
+      "CandidateID": "PT",
+      "SequenceOrder": 168
+     }
+    ],
+    "order": 1,
+    "isWriteIn": false,
+    "isPresidential": false
+   },
+   {
+    "id": "3LE",
+    "name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "short_name": [
+     {
+      "EN": "Write-In Candidate"
+     }
+    ],
+    "occupation": [
+     null
+    ],
+    "statements": [],
+    "order": 3,
+    "isWriteIn": true,
+    "isPresidential": false
+   }
+  ],
+  "statements": []
+ }
+}

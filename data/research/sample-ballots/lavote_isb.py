@@ -31,7 +31,24 @@ STYLES = {
     "2GF22": "Monterey Park, Council District 1",
     "2GJ22": "Monterey Park, Council District 5",
 }
-EDGE_STYLES = ["2GM22", "2GP22", "2GN22", "2GG22", "2GH22"]
+# Montebello's ballot styles, from the street-segment files for its streets (City == MONTEBELLO),
+# by how many street segments use each. Council District 1: 2JX22, 2JW22; District 3: 2JY22;
+# District 4 (special, unexpired term): 2K222, 2JZ22; District 5: 2K422, 2K322; no council race:
+# 2K622, 2K722, 2K522. Most also vote on Water Replenishment District Division 4; 2K622 and
+# 2JZ22 also on Montebello Unified Trustee Area 2.
+MONTEBELLO = {
+    "2K622": "Montebello, no council race (233 segments)",
+    "2JX22": "Montebello, Council District 1 (210)",
+    "2K222": "Montebello, Council District 4 (207)",
+    "2JY22": "Montebello, Council District 3 (182)",
+    "2K422": "Montebello, Council District 5 (174)",
+    "2JZ22": "Montebello, Council District 4 (121)",
+    "2K722": "Montebello, no council race (96)",
+    "2JW22": "Montebello, Council District 1, no Water Replenishment District race (31)",
+}
+STYLES.update(MONTEBELLO)
+# Edge precincts: a few streets get contests no other style in the city has; listed, not included
+EDGE_STYLES = ["2GM22", "2GP22", "2GN22", "2GG22", "2GH22", "2K322", "2K522"]
 OFFLINE = "--offline" in sys.argv
 
 
@@ -128,6 +145,10 @@ def contest(cid, style_order):
             row = {"name": en(p["name"]), "designation": text(en(p.get("occupation")))}
             if not row["designation"]:
                 del row["designation"]
+            # Voter-nominated offices: the "Party Preference: X" the county prints (its party table)
+            pref = PARTIES.get(p.get("partyId"), "")
+            if pref.startswith("Party Preference:"):
+                row["partyPreference"] = pref
             if p.get("statements"):
                 row["statement"] = document(p["statements"][0])
             c["candidates"].append(row)
@@ -144,7 +165,11 @@ def contest(cid, style_order):
     return c
 
 
+PARTIES = {}
+
+
 def main():
+    PARTIES.update({x["id"]: en(x["display_name"]) for x in fetch("election.json")["parties"]})
     fetch_list = lambda style: fetch(f"ballots/{style}.json")
     styles = {s: fetch_list(s) for s in STYLES}
     # One ordered list: 2GF22 (Council District 1) has every shared contest; District 5's
@@ -152,6 +177,15 @@ def main():
     order = [x["contest_id"] for x in sorted(styles["2GF22"]["contests"], key=lambda x: x["order"])]
     d5 = next(x["contest_id"] for x in styles["2GJ22"]["contests"] if x["order"] == 0)
     order.insert(order.index("cc10490") + 1, d5)
+    # Montebello's contests go where its own ballots print them: right after the contest that
+    # comes before them on that ballot
+    for s in MONTEBELLO:
+        prev = None
+        for x in sorted(styles[s]["contests"], key=lambda x: x["order"]):
+            cid = x["contest_id"]
+            if cid not in order:
+                order.insert(order.index(prev) + 1 if prev else 0, cid)
+            prev = cid
     for s, b in styles.items():
         missing = [x["contest_id"] for x in b["contests"] if x["contest_id"] not in order]
         assert not missing, f"{s} has contests not in the merged order: {missing}"

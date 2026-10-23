@@ -53,6 +53,61 @@ JUDGE = "JUDGE OF THE SUPERIOR COURT | Office No. {}"
 for i, n in enumerate([64, 65, 87, 131]):
     offices.append(office(P, f"la-superior-{n}", f"Judge of the Superior Court, Office No. {n}", "county", "06037", 80 + i,
                           printed_race(JUDGE.format(n)), desc="Los Angeles County Superior Court. Countywide. Nonpartisan. 6-year term.", term=6))
+# Montebello: its races from LA County's ballot data for Montebello addresses
+# (sample-ballots/lavote_isb.py, MONTEBELLO styles). Every Montebello style has U.S. House 38,
+# State Senate 30 and Assembly 54. Party preferences are the county's printed "Party Preference".
+MB_FIPS = "0648816"  # Census place code for Montebello city (st06_ca_place2020.txt)
+def partisan_race(key, incumbent=()):
+    return [(p["name"], p.get("partyPreference", "").removeprefix("Party Preference: ") or None, p["name"] in incumbent, p.get("designation"))
+            for p in next(c for c in LA["contests"] if c["key"] == key)["candidates"]]
+MBC = "CITY OF MONTEBELLO GENERAL MUNICIPAL ELECTION | {}"
+MB_KEYS = {
+  "mb-council-1": MBC.format("Member of the City Council, 1st District"),
+  "mb-council-3": MBC.format("Member of the City Council, 3rd District"),
+  "mb-council-4": "CITY OF MONTEBELLO SPECIAL MUNICIPAL ELECTION | Member of the City Council, 4th District (Unexpired term ending November 7, 2028)",
+  "mb-council-5": MBC.format("Member of the City Council, 5th District"),
+  "mb-treasurer": MBC.format("City Treasurer"),
+  "musd-2": "MONTEBELLO UNIFIED SCHOOL DISTRICT | Governing Board Member, Trustee Area No. 2",
+  "wrd-4": "WATER REPLENISHMENT DISTRICT OF SOUTHERN CALIFORNIA | Member, Board of Directors, Division 4",
+}
+MB_PARTISAN = {
+  "us-house-38": "UNITED STATES REPRESENTATIVE, 38th District",
+  "state-senate-30": "STATE SENATOR, 30th District",
+  "assembly-54": "MEMBER OF THE STATE ASSEMBLY, 54th District",
+}
+offices += [
+  office(P, "us-house-38", "U.S. Representative, District 38", "federal", "06", 11, partisan_race(MB_PARTISAN["us-house-38"]),
+         desc="2-year term. Every Montebello ballot includes District 38.", term=2),
+  office(P, "state-senate-30", "State Senate, District 30", "state", "06", 39, partisan_race(MB_PARTISAN["state-senate-30"], {"BOB J. ARCHULETA"}),
+         desc="4-year term. Every Montebello ballot includes Senate District 30.", term=4),
+  office(P, "assembly-54", "State Assembly, District 54", "state", "06", 41, partisan_race(MB_PARTISAN["assembly-54"], {"MARK GONZALEZ"}),
+         desc="2-year term. Every Montebello ballot includes Assembly District 54.", term=2),
+]
+for i, (n, label) in enumerate([(1, "1"), (3, "3"), (4, "4"), (5, "5")]):
+    offices.append(office(P, f"mb-council-{n}", f"Montebello City Council, District {n}" + (" (unexpired term ending Nov. 7, 2028)" if n == 4 else ""),
+                          "city", MB_FIPS, 90 + i, printed_race(MB_KEYS[f"mb-council-{n}"]),
+                          desc="Special election for the rest of the term." if n == 4 else "4-year term.",
+                          district=f"Montebello Council District {n}", dtype="city-council", dcode=f"mb-{n}", term=None if n == 4 else 4))
+offices += [
+  office(P, "mb-treasurer", "Montebello City Treasurer", "city", MB_FIPS, 94,
+         [(n, p, n == "DAVID MATANGA", d) for n, p, _, d in printed_race(MB_KEYS["mb-treasurer"])], desc="At-large. 4-year term. Unopposed.", term=4),
+  office(P, "musd-2", "Montebello Unified School District Board, Trustee Area 2", "school", "06037", 95, printed_race(MB_KEYS["musd-2"]),
+         desc="Only some Montebello addresses are in Trustee Area 2. Nonpartisan.", district="Montebello Unified Trustee Area 2",
+         dtype="school-board", dcode="musd-2", term=4),
+  office(P, "wrd-4", "Water Replenishment District of Southern California, Division 4", "special", "06037", 96, printed_race(MB_KEYS["wrd-4"]),
+         desc="Most Montebello addresses are in Division 4. Nonpartisan.", district="Water Replenishment District Division 4",
+         dtype="water", dcode="wrd-4", term=4),
+]
+# Each city's own races, and the districts that differ between the two cities, show only to voters
+# who pick that city (lib/districts.ts); everything else is on both cities' ballots
+CITY_SCOPE = {
+  "monterey-park": ["us-house-28", "assembly-49", "mp-council-1", "mp-council-5", "mp-clerk", "mp-treasurer"],
+  "montebello": ["us-house-38", "state-senate-30", "assembly-54", "mb-council-1", "mb-council-3", "mb-council-4", "mb-council-5",
+                 "mb-treasurer", "musd-2", "wrd-4"],
+}
+for city, ids in CITY_SCOPE.items():
+    for oid in ids:
+        next(o for o in offices if o["id"] == f"{P}-{oid}")["scope"] = {"city": city}
 for o in offices:
     for cd in o["candidates"]:
         # A ballot designation naming the seat itself means the incumbent holds it
@@ -106,6 +161,9 @@ for c in LA["contests"]:
         attach_measure(LA, m, c["key"], i)
         retention.append(m)
 measures += retention
+for m in measures:
+    if m["id"] in (f"{P}-m-mp-hom", f"{P}-m-mp-aaa"):
+        m["scope"] = {"city": "monterey-park"}
 
 # Printed ballot layout, from LA County's ballot data
 c = lambda oid: next(o for o in offices if o["id"] == f"{P}-{oid}")
@@ -115,6 +173,7 @@ for oid, key in [
     ("mp-council-5", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | Member of the City Council, 5th District"),
     ("mp-clerk", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | City Clerk"),
     ("mp-treasurer", "CITY OF MONTEREY PARK GENERAL MUNICIPAL ELECTION | City Treasurer"),
+] + list(MB_KEYS.items()) + [
     ("superintendent", "SUPERINTENDENT OF PUBLIC INSTRUCTION"),
 ] + [(f"laccd-{n}", LACCD.format(n)) for n in (2, 4, 6)] + [(f"la-superior-{n}", JUDGE.format(n)) for n in (64, 65, 87, 131)]:
     attach_race(LA, c(oid), key)
@@ -123,6 +182,7 @@ attach_race(LA, c("la-sheriff"), "SHERIFF", aliases={"ROBERT G. LUNA": "Robert L
 for oid, key in [
     ("assembly-49", "MEMBER OF THE STATE ASSEMBLY, 49th District"),
     ("us-house-28", "UNITED STATES REPRESENTATIVE, 28th District"),
+] + list(MB_PARTISAN.items()) + [
     ("governor", "GOVERNOR"), ("lt-governor", "LIEUTENANT GOVERNOR"), ("secretary-of-state", "SECRETARY OF STATE"),
     ("controller", "CONTROLLER"), ("treasurer", "TREASURER"), ("attorney-general", "ATTORNEY GENERAL"),
     ("insurance-commissioner", "INSURANCE COMMISSIONER"), ("boe-3", "MEMBER STATE BOARD OF EQUALIZATION 3rd District"),
@@ -141,17 +201,18 @@ report_unmapped(LA, offices + measures, {""})
 write("ca-general-2026-11-03", {
   "slug": "ca-general-2026-11-03",
   "electionId": "ca-general-2026",
-  "title": "2026 General Election — Monterey Park, CA",
+  "title": "2026 General Election — Monterey Park & Montebello, CA",
   "electionDate": "2026-11-03T00:00:00.000Z",
   "type": "general",
   "status": "upcoming",
-  "description": "California's November 3 general election as it appears on Monterey Park ballots: Monterey Park city races and measures, Los Angeles Community College District trustees, Assembly District 49, U.S. House District 28, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park addresses. A few edge precincts also vote on a Water Replenishment District seat, a Montebello Unified trustee area or City of Los Angeles Measure SC; those aren't included. California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
+  "description": "California's November 3 general election as it appears on Monterey Park and Montebello ballots (pick your city to see just yours). Monterey Park: city races and measures, Assembly District 49, U.S. House District 28. Montebello: city council and treasurer, State Senate District 30, Assembly District 54, U.S. House District 38, and for some addresses Montebello Unified Trustee Area 2 and Water Replenishment District Division 4. Both: Los Angeles Community College District trustees, Sheriff and four Superior Court judgeships, two county charter amendments, Governor and the other statewide offices, 14 statewide propositions and 20 judicial retention questions. Contest order, headings, ballot designations and measure wording are copied from Los Angeles County's Interactive Sample Ballot data for Monterey Park and Montebello addresses. A few edge precincts vote on contests that aren't included (City of Los Angeles Measure SC, El Rancho Unified Measure ED, and in Monterey Park a Water Replenishment District seat or a Montebello Unified trustee area). California has no U.S. Senate race in 2026. Party preferences are from the Secretary of State's certified list (Aug 27, 2026).",
   "officialUrl": "https://www.sos.ca.gov/elections/upcoming-elections/general-election-november-3-2026",
-  "districtLookupUrl": "https://www.montereypark.ca.gov/1223/District-Elections",
+  "districtLookupUrl": "https://isb.lavote.gov/",
   "jurisdiction": {"name": "California", "state": "CA", "type": "state", "fipsCode": "06"},
   "localJurisdictions": [
     {"id": "la-county", "name": "Los Angeles County", "state": "CA", "countyName": "Los Angeles", "type": "county", "fipsCode": "06037"},
     {"id": "monterey-park", "name": "Monterey Park", "state": "CA", "countyName": "Los Angeles", "type": "city", "fipsCode": "0648914"},
+    {"id": "montebello", "name": "Montebello", "state": "CA", "countyName": "Los Angeles", "type": "city", "fipsCode": "0648816"},
   ],
   "offices": offices,
   "measures": measures,

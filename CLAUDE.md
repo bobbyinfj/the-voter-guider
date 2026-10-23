@@ -143,7 +143,11 @@ in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Bu
 `globals.css` (112.5% on screen, 100% in print) scales the whole site in one place. Layout grammar only: no seals, signatures or "official" wording.
 
 ### Districts
-Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`).
+Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`), plus more
+scopes in `scope` (seeded to `Ballot.metadata.scope`, read by `scopesOf`), e.g. `{ "city": "montebello" }`: an
+item shows only when every scope the voter picked matches. The CA election covers Monterey Park and Montebello
+this way; the picker asks for the city first, then offers only that city's districts, and a guide saved without a
+city takes the one city its picks belong to. The home page links each city (`?city=`).
 Unscoped items are on every ballot. The election page's district picker filters by URL
 params (`?congressional=7&legislative=43`); the quiz copies them into `Guide.metadata.districts`
 and only scores matching offices.

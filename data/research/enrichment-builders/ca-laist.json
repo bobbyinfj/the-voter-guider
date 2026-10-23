@@ -1,20 +1,5 @@
 {
  "candidates": {
-  "ca26-steve-hilton": {
-   "source": {
-    "publisher": "LAist",
-    "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
-    "retrieved": "2026-10-22"
-   },
-   "about": "Hilton, who is British American, was senior adviser for former conservative Prime Minister David Cameron from 2010 to 2012 before moving to California, where he co-founded a political crowdfunding platform in Silicon Valley. He has written books on decentralizing power in large, bureaucratic institutions from government to the food and health care systems.",
-   "website": "https://stevehiltonforgovernor.com/",
-   "keyEndorsements": [
-    "President Donald Trump",
-    "Nisei Farmers League",
-    "Israeli-American Civic Action Network"
-   ]
-  },
   "ca26-xavier-becerra": {
    "source": {
     "publisher": "LAist",
@@ -31,18 +16,19 @@
     "Planned Parenthood California"
    ]
   },
-  "ca26-gloria-romero": {
+  "ca26-steve-hilton": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-governor",
     "retrieved": "2026-10-22"
    },
-   "about": "Romero, a former longtime Democratic lawmaker who served nearly 12 years in the state Legislature, became a registered Republican in 2024 after years of expressing discontent with the Democratic Party. She differs with Democrats on school choice, COVID-19 policies and gender identity.",
-   "website": "https://www.gloriaromero4ltgov.com/",
+   "about": "Hilton, who is British American, was senior adviser for former conservative Prime Minister David Cameron from 2010 to 2012 before moving to California, where he co-founded a political crowdfunding platform in Silicon Valley. He has written books on decentralizing power in large, bureaucratic institutions from government to the food and health care systems.",
+   "website": "https://stevehiltonforgovernor.com/",
    "keyEndorsements": [
-    "California Republican Party",
-    "Reform California"
+    "President Donald Trump",
+    "Nisei Farmers League",
+    "Israeli-American Civic Action Network"
    ]
   },
   "ca26-fiona-ma": {
@@ -61,20 +47,18 @@
     "AFSCME"
    ]
   },
-  "ca26-donald-p-don-wagner": {
+  "ca26-gloria-romero": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-lieutenant-governor",
     "retrieved": "2026-10-22"
    },
-   "about": "Wagner, an Orange County supervisor, former mayor of Irvine and ex-state assemblymember, is running on a platform of election integrity. As supervisor, he criticized the state’s COVID-19 response, questioned the county’s investment in diversity, equity and inclusion programs and pushed for the release of sensitive voter information to President Donald Trump’s Department of Justice over claims of voting irregularities.",
-   "website": "https://wagnerforcalifornia.com/",
-   "endorsementsUrl": "https://wagnerforcalifornia.com/?page_id=296",
+   "about": "Romero, a former longtime Democratic lawmaker who served nearly 12 years in the state Legislature, became a registered Republican in 2024 after years of expressing discontent with the Democratic Party. She differs with Democrats on school choice, COVID-19 policies and gender identity.",
+   "website": "https://www.gloriaromero4ltgov.com/",
    "keyEndorsements": [
     "California Republican Party",
-    "Reform California",
-    "California Republican Assembly"
+    "Reform California"
    ]
   },
   "ca26-shirley-n-weber": {
@@ -93,20 +77,20 @@
     "SEIU California"
    ]
   },
-  "ca26-malia-m-cohen": {
+  "ca26-donald-p-don-wagner": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-secretary-of-state",
     "retrieved": "2026-10-22"
    },
-   "about": "Cohen has served as California’s controller since 2023 and is running for re-election. She’s campaigning on a promise to govern the state’s finances with “transparency, efficiency and fairness.”",
-   "website": "https://www.maliacohenforca.com/",
-   "endorsementsUrl": "https://www.maliacohenforca.com/endorsements",
+   "about": "Wagner, an Orange County supervisor, former mayor of Irvine and ex-state assemblymember, is running on a platform of election integrity. As supervisor, he criticized the state’s COVID-19 response, questioned the county’s investment in diversity, equity and inclusion programs and pushed for the release of sensitive voter information to President Donald Trump’s Department of Justice over claims of voting irregularities.",
+   "website": "https://wagnerforcalifornia.com/",
+   "endorsementsUrl": "https://wagnerforcalifornia.com/?page_id=296",
    "keyEndorsements": [
-    "California Democratic Party",
-    "California Labor Federation",
-    "Equality California"
+    "California Republican Party",
+    "Reform California",
+    "California Republican Assembly"
    ]
   },
   "ca26-herb-w-morgan": {
@@ -125,19 +109,20 @@
     "Unity Party of California"
    ]
   },
-  "ca26-jennifer-hawks": {
+  "ca26-malia-m-cohen": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-controller",
     "retrieved": "2026-10-22"
    },
-   "about": "Hawks doesn’t have experience in elected office, a fact she touts proudly. The Silicon Valley retiree most recently served on the executive team at Sacred Heart Schools, an Atherton Catholic school favored by the Bay Area’s venture capitalist elite.",
-   "website": "https://hawksforus.com/",
+   "about": "Cohen has served as California’s controller since 2023 and is running for re-election. She’s campaigning on a promise to govern the state’s finances with “transparency, efficiency and fairness.”",
+   "website": "https://www.maliacohenforca.com/",
+   "endorsementsUrl": "https://www.maliacohenforca.com/endorsements",
    "keyEndorsements": [
-    "California Republican Party",
-    "California Republican Assembly",
-    "Reform California"
+    "California Democratic Party",
+    "California Labor Federation",
+    "Equality California"
    ]
   },
   "ca26-eleni-kounalakis": {
@@ -156,20 +141,19 @@
     "National Union of Healthcare Workers"
    ]
   },
-  "ca26-rob-bonta": {
+  "ca26-jennifer-hawks": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-treasurer",
     "retrieved": "2026-10-22"
    },
-   "about": "Bonta was appointed attorney general in 2021 and was elected to a four-year term in 2022. Before that, he was an assemblymember representing parts of the East Bay.",
-   "website": "https://robbonta.com/",
-   "endorsementsUrl": "https://robbonta.com/endorsements/",
+   "about": "Hawks doesn’t have experience in elected office, a fact she touts proudly. The Silicon Valley retiree most recently served on the executive team at Sacred Heart Schools, an Atherton Catholic school favored by the Bay Area’s venture capitalist elite.",
+   "website": "https://hawksforus.com/",
    "keyEndorsements": [
-    "California Democratic Party",
-    "California Teachers Association",
-    "California Environmental Voters"
+    "California Republican Party",
+    "California Republican Assembly",
+    "Reform California"
    ]
   },
   "ca26-michael-e-gates": {
@@ -188,21 +172,20 @@
     "California Rifle & Pistol Association"
    ]
   },
-  "ca26-jane-kim": {
+  "ca26-rob-bonta": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-attorney-general",
     "retrieved": "2026-10-22"
    },
-   "about": "The former San Francisco supervisor succeeded in securing free community college for city residents, the state’s first $15 minimum wage ordinance and a tenant-protection ordinance to avoid unjust evictions. Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods.",
-   "website": "https://www.janekim.org/",
-   "endorsementsUrl": "https://www.janekim.org/endorsements",
+   "about": "Bonta was appointed attorney general in 2021 and was elected to a four-year term in 2022. Before that, he was an assemblymember representing parts of the East Bay.",
+   "website": "https://robbonta.com/",
+   "endorsementsUrl": "https://robbonta.com/endorsements/",
    "keyEndorsements": [
-    "SEIU California",
+    "California Democratic Party",
     "California Teachers Association",
-    "California Faculty Association",
-    "California Labor Federation"
+    "California Environmental Voters"
    ]
   },
   "ca26-ben-allen": {
@@ -223,16 +206,22 @@
     "San Francisco Chronicle"
    ]
   },
-  "ca26-sonja-shaw": {
+  "ca26-jane-kim": {
    "source": {
     "publisher": "LAist",
     "byline": "CalMatters",
-    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-insurance-commissioner",
     "retrieved": "2026-10-22"
    },
-   "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
-   "website": "https://shawforca.com/",
-   "endorsementsUrl": "https://shawforca.com/#endorsements"
+   "about": "The former San Francisco supervisor succeeded in securing free community college for city residents, the state’s first $15 minimum wage ordinance and a tenant-protection ordinance to avoid unjust evictions. Kim wants to establish “natural disaster insurance for all,” a state-run authority funded by premiums paid to insurance companies that would guarantee coverage for wildfires and floods.",
+   "website": "https://www.janekim.org/",
+   "endorsementsUrl": "https://www.janekim.org/endorsements",
+   "keyEndorsements": [
+    "SEIU California",
+    "California Teachers Association",
+    "California Faculty Association",
+    "California Labor Federation"
+   ]
   },
   "ca26-richard-barrera": {
    "source": {
@@ -249,6 +238,17 @@
     "United Domestic Workers",
     "California Charter School Advocates"
    ]
+  },
+  "ca26-sonja-shaw": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "CalMatters",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-superintendent-of-public-instruction",
+    "retrieved": "2026-10-22"
+   },
+   "about": "President of the Chino Valley School Board, Shaw has been an outspoken opponent of protections for transgender students. She made headlines in 2023 when she presided over a school board meeting where State Superintendent of Public Instruction Tony Thurmond was escorted out during a debate over transgender student rights.",
+   "website": "https://shawforca.com/",
+   "endorsementsUrl": "https://shawforca.com/#endorsements"
   },
   "ca26-mike-gipson": {
    "source": {
@@ -288,6 +288,42 @@
     "retrieved": "2026-10-22"
    },
    "website": "http://www.mikefong.org"
+  },
+  "ca26-alexandra-briseno": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+    "retrieved": "2026-10-22"
+   }
+  },
+  "ca26-mark-gonzalez": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+    "retrieved": "2026-10-22"
+   },
+   "website": "http://www.markgonzalezforassembly.com",
+   "endorsementsUrl": "https://www.markgonzalezforassembly.com/endorsements"
+  },
+  "ca26-bob-j-archuleta": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.bobarchuletaforsenate.com/"
+  },
+  "ca26-araceli-martinez": {
+   "source": {
+    "publisher": "LAist",
+    "byline": "LAist",
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate",
+    "retrieved": "2026-10-22"
+   },
+   "website": "https://www.araceliforca.com/"
   },
   "ca26-alex-villanueva": {
    "source": {
@@ -806,6 +842,16 @@
   "ca26-assembly-49": {
    "label": "LAist voter guide to this race",
    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-assembly-54": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-state-assembly",
+   "retrieved": "2026-10-22"
+  },
+  "ca26-state-senate-30": {
+   "label": "LAist voter guide to this race",
+   "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-california-state-senate",
    "retrieved": "2026-10-22"
   },
   "ca26-la-sheriff": {

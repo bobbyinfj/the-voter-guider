@@ -35,7 +35,9 @@ export default function DistrictPicker({ options, selection, lookupUrl, onChange
       <p className="text-xs text-gray-500 mt-1 mb-3">
         {chosenCount === options.length
           ? "Showing only the races on your ballot."
-          : "Pick your districts to hide races you won't see. Until then, every district's race is shown."}
+          : options.some((o) => o.type === "city") && !selection.city
+            ? "This ballot covers more than one city. Pick yours to see just your races."
+            : "Pick your districts to hide races you won't see. Until then, every district's race is shown."}
       </p>
       <div className="space-y-3">
         {options.map((option) => (
@@ -46,14 +48,14 @@ export default function DistrictPicker({ options, selection, lookupUrl, onChange
               onChange={(e) => setDistrict(option.type, e.target.value)}
               className="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:border-blue-500 focus:outline-none"
             >
-              <option value="">All districts</option>
+              <option value="">{option.type === "city" ? "Every city" : "All districts"}</option>
               {option.codes.map((c) => (
                 <option key={c.code} value={c.code}>
                   {c.label}
                 </option>
               ))}
               {/* Matches no district code, so it hides every race of this type */}
-              <option value={NO_RACE}>My district isn&apos;t listed</option>
+              {option.type !== "city" && <option value={NO_RACE}>My district isn&apos;t listed</option>}
             </select>
           </label>
         ))}
