@@ -112,13 +112,13 @@ export function RaceVideos({ race }: { race: BallotItem }) {
 }
 
 // Every video of them not already shown above the race: their own (most independent first), then
-// race forums they're in, from where they first speak when we know it
+// their part of a race forum (from where they first speak; the whole forum is already above)
 function candidateVideos(candidate: BallotCandidate, race: BallotItem): VideoPick[] {
   const together = new Set(sharedVideos(race).map((v) => v.youtubeId))
   const own = sortVideos((candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))).map((video) => ({ video }))
   const forums = (raceExtrasOf(race.metadata)?.videos ?? []).flatMap((video) => {
     const them = video.participants?.find((p) => p.id === candidate.id)
-    return them ? [{ video, startSec: them.startSec }] : []
+    return them?.startSec !== undefined ? [{ video, startSec: them.startSec }] : []
   })
   return [...own, ...forums]
 }
@@ -135,7 +135,8 @@ const MEAL_NAMES: Record<CandidateVideo['kind'], string> = {
 function ladderLabel(pick: VideoPick & { tier: VideoTier }): string {
   const len = formatDuration(watchLength(pick))
   const name = pick.tier === 'bite' ? 'Quick look' : pick.tier === 'snack' ? 'Short video' : MEAL_NAMES[pick.video.kind]
-  const at = pick.startSec ? `their part from ${clockOf(pick.startSec)}` : null
+  const start = pick.startSec ?? pick.video.startSec
+  const at = start ? `their part from ${clockOf(start)}` : null
   return [name, len ?? at].filter(Boolean).join(' · ')
 }
 
@@ -522,7 +523,7 @@ export function CandidateScorecard({
           </div>
         </div>
       )}
-      <div className="grid grid-cols-3 items-start gap-x-3 gap-y-2 border-t border-sky-200 pt-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-5">
+      <div className={`grid grid-cols-3 items-start gap-x-3 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:gap-x-5 ${current || summary || ladder.length ? 'border-t border-sky-200 pt-3' : ''}`}>
         {tiles.map(([section, tile]) => (
           <span key={section} className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
             <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
