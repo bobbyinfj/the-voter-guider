@@ -64,6 +64,12 @@ export interface OfficeResult {
   // MIN_SHARED_QUESTIONS answered questions with a sourced position from every candidate
   verdict: "match" | "too-close" | "not-enough";
   sharedQuestions: number;
+  // Questions in the whole quiz that every candidate here has a sourced position on; with
+  // fewer than MIN_SHARED_QUESTIONS the quiz can never compare this race
+  decisiveQuestionIds: string[];
+  decidable: boolean;
+  // Candidates in the race with no sourced position on anything in the quiz
+  notCompared: { id: string; name: string }[];
 }
 
 export interface QuizResults {

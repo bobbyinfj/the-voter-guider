@@ -44,7 +44,20 @@ export default async function ElectionPage({ params, searchParams }: Props) {
             select: {
               id: true,
               district: true,
-              candidates: { select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true } },
+              candidates: {
+                select: {
+                  id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true,
+                  // Sourced positions, for "Where they stand" in each race
+                  stances: {
+                    select: {
+                      position: true,
+                      summary: true,
+                      issue: { select: { slug: true, name: true } },
+                      sources: { select: { url: true, title: true, quote: true } },
+                    },
+                  },
+                },
+              },
             },
           },
         },

@@ -67,3 +67,24 @@ test('questions marked as not mattering (importance 0) are ignored', () => {
   assert.equal(r.officeResults[0].sharedQuestions, 1)
   assert.equal(r.officeResults[0].verdict, 'not-enough')
 })
+
+test('candidates without any sourced position are listed, not compared, and do not block the race', () => {
+  // A six-name statewide race where only two candidates were researched
+  const r = run(
+    [cand('A', 'o', { 1: 2, 2: 2 }), cand('B', 'o', { 1: -2, 2: -2 }), cand('C', 'o', {}), cand('D', 'o', {})],
+    [answer(1, 2), answer(2, 2)],
+  )
+  const o = r.officeResults[0]
+  assert.equal(o.decidable, true)
+  assert.deepEqual(o.decisiveQuestionIds, ['q1', 'q2'])
+  assert.deepEqual(o.notCompared.map((c) => c.id), ['C', 'D'])
+  assert.deepEqual(o.rankedCandidates.map((rc) => rc.candidate.id), ['A', 'B'])
+  assert.equal(o.verdict, 'match')
+})
+
+test('a race whose compared candidates overlap on one question can never be compared', () => {
+  const r = run([cand('A', 'o', { 1: 2, 2: 1 }), cand('B', 'o', { 1: -2, 3: 1 })], [])
+  const o = r.officeResults[0]
+  assert.deepEqual(o.decisiveQuestionIds, ['q1'])
+  assert.equal(o.decidable, false)
+})

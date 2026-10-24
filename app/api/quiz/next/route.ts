@@ -26,13 +26,26 @@ export async function GET(req: NextRequest) {
     const question = results.nextQuestionId
       ? await prisma.question.findUnique({
           where: { id: results.nextQuestionId },
-          include: { options: { orderBy: { order: "asc" } } },
+          include: {
+            options: { orderBy: { order: "asc" } },
+            issues: { select: { issue: { select: { slug: true, name: true } } } },
+          },
         })
       : null;
+    const races = results.officeResults.filter((o) => o.decidable);
 
     return NextResponse.json({
       questionId: results.nextQuestionId,
-      question,
+      question: question && {
+        ...question,
+        topics: question.issues.map((i) => i.issue),
+        // The races on this ballot this question helps compare
+        compares: races.filter((o) => o.decisiveQuestionIds.includes(question.id)).map((o) => o.officeTitle),
+      },
+      // What the quiz can do for this ballot: the races it can compare, and how many questions
+      races: races.map((o) => o.officeTitle),
+      totalQuestions: results.totalQuestions,
+      answered: results.questionsAnswered,
       modules: results.modules,
     });
   } catch (error) {

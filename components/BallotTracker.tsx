@@ -257,8 +257,11 @@ export default function BallotTracker({
     setMode('step')
     setStepIndex(Math.min(Math.max(index, 0), steps.length - 1))
     if (jumpMenuRef.current) jumpMenuRef.current.open = false
-    const top = document.getElementById('ballot-top')
-    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
+    // After the new contest renders, bring its top (just under the toolbar) into view
+    window.setTimeout(() => {
+      const el = document.getElementById('step-top')
+      if (el) scrollToElement(el, 'auto')
+    }, 0)
   }
   const firstUndecidedStep = (from: number) => {
     for (let k = 1; k <= steps.length; k++) {
@@ -271,8 +274,7 @@ export default function BallotTracker({
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get('view') !== 'step' || !steps.length) return
     // eslint-disable-next-line react-hooks/set-state-in-effect -- the link's view, read after hydration
-    setMode('step')
-    setStepIndex(firstUndecidedStep(steps.length - 1))
+    goStep(firstUndecidedStep(steps.length - 1))
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only on arrival
   }, [steps.length])
 
@@ -491,8 +493,7 @@ export default function BallotTracker({
         {quiz && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-l-4 border-violet-400 bg-violet-50 px-3 py-2 font-sans text-sm text-violet-950 print:hidden">
             <span>
-              Your quiz found a clear match in {quizMatched} race{quizMatched === 1 ? '' : 's'}; races without enough
-              sourced positions say so instead of guessing.
+              Quiz matches: {quizMatched} race{quizMatched === 1 ? '' : 's'}, shown beside each one.
               {quizPending.length > 0 &&
                 (quizPending.length === 1 ? ' One of them isn’t marked yet.' : ` ${quizPending.length} of them aren’t marked yet.`)}
             </span>
@@ -549,7 +550,7 @@ export default function BallotTracker({
         {mode === 'review' ? (
           <ReviewSheet sections={sections} choices={choices} readOnly={readOnly} onEdit={jumpTo} />
         ) : mode === 'step' && step ? (
-          <div className="space-y-3">
+          <div id="step-top" className="space-y-3">
             <StepBar
               index={stepIndex}
               total={steps.length}
@@ -635,8 +636,9 @@ function StepBar({
   onReview: () => void
 }) {
   const last = index === total - 1
-  const button =
-    'inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium hover:bg-gray-50 disabled:opacity-40'
+  const base = 'inline-flex items-center gap-1.5 rounded-md border px-3 py-2 text-sm font-medium disabled:opacity-40'
+  const button = `${base} border-gray-300 bg-white hover:bg-gray-50`
+  const primary = `${base} border-ballot-ink bg-ballot-bar text-white hover:opacity-90`
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 font-sans print:hidden">
       <p className="text-sm text-gray-700">
@@ -656,11 +658,11 @@ function StepBar({
           </button>
         )}
         {last ? (
-          <button type="button" onClick={onReview} className={`${button} border-ballot-ink bg-ballot-bar text-white hover:bg-ballot-bar hover:opacity-90`}>
+          <button type="button" onClick={onReview} className={primary}>
             <Eye className="h-4 w-4" /> Review my ballot
           </button>
         ) : (
-          <button type="button" onClick={onNext} className={`${button} border-ballot-ink bg-ballot-bar text-white hover:bg-ballot-bar hover:opacity-90`}>
+          <button type="button" onClick={onNext} className={primary}>
             Next <ArrowRight className="h-4 w-4" />
           </button>
         )}

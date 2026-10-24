@@ -14,7 +14,7 @@ def source_text(path):
         _cache[path] = norm(open(os.path.join(HERE, path), encoding='utf-8', errors='ignore').read())
     return _cache[path]
 
-OPTIONS = [("Strongly agree", 2), ("Somewhat agree", 1), ("Neutral / unsure", 0), ("Somewhat disagree", -1), ("Strongly disagree", -2)]
+OPTIONS = [("Strongly agree", 2), ("Somewhat agree", 1), ("Neither agree nor disagree", 0), ("Somewhat disagree", -1), ("Strongly disagree", -2)]
 
 def build(slug, title, axes, sources):
     """axes: list of dict(slug, name, level, statement, help, stances=[(candidateId, position, summary, sourceKey, quote)])

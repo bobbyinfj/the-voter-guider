@@ -9,6 +9,15 @@ export interface BallotCandidate {
   shortBio?: string | null
   website?: string | null
   profile?: ProfileSnippet | null
+  // Sourced positions (CandidateStance), each with the quote it rests on
+  stances?: CandidatePosition[]
+}
+
+export interface CandidatePosition {
+  position: number
+  summary: string
+  issue: { slug: string; name: string }
+  sources: { url: string; title: string | null; quote: string | null }[]
 }
 
 export interface BallotItem {

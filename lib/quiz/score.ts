@@ -33,9 +33,9 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
 
   const officeResults: OfficeResult[] = [];
 
-  for (const [officeId, officeCandidates] of byOffice) {
+  for (const [officeId, everyone] of byOffice) {
     // Races with no researched positions can't be matched — leave them out of results
-    if (officeCandidates.every((c) => c.stances.length === 0)) continue;
+    if (everyone.every((c) => c.stances.length === 0)) continue;
 
     // Answered questions on which a candidate has a sourced position
     const answered = [...answerMap.values()].filter((a) => questionMap.has(a.questionId) && a.importance > 0);
@@ -43,9 +43,17 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
       const q = questionMap.get(questionId)!;
       return q.issues.map((i) => ({ ...i, stance: c.stances.find((s) => s.issueId === i.issueId) })).filter((i) => i.stance);
     };
-    // Candidates are only compared on questions where every one of them has a sourced position:
+    // Only candidates with a sourced position on something in the quiz are compared; the rest
+    // are listed as not compared rather than left to sink a whole race (a statewide race with
+    // six names and two researched ones could otherwise never be compared)
+    const officeCandidates = everyone.filter((c) => questions.some((q) => stanceOn(c, q.id).length > 0))
+    const notCompared = everyone.filter((c) => !officeCandidates.includes(c))
+    // Those compared are judged only on questions every one of them has a sourced position on:
     // otherwise someone with a single lucky agreement could outrank someone judged on more
     const shared = answered.filter((a) => officeCandidates.every((c) => stanceOn(c, a.questionId).length > 0));
+    const decisiveQuestionIds = questions
+      .filter((q) => officeCandidates.every((c) => stanceOn(c, q.id).length > 0))
+      .map((q) => q.id);
     const sharedIds = new Set(shared.map((a) => a.questionId));
 
     const rankedCandidates: RankedCandidate[] = officeCandidates.map((candidate) => {
@@ -98,6 +106,9 @@ export function scoreQuiz(input: ScoringInput): QuizResults {
       comparable: verdict !== "not-enough",
       verdict,
       sharedQuestions: shared.length,
+      decisiveQuestionIds,
+      decidable: officeCandidates.length > 1 && decisiveQuestionIds.length >= MIN_SHARED_QUESTIONS,
+      notCompared: notCompared.map((c) => ({ id: c.id, name: c.name })),
     });
   }
 

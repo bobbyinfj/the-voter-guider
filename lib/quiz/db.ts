@@ -110,13 +110,23 @@ export async function computeResults(
     totalQuestions: quiz?.questions.length ?? 0,
   });
 
-  const byQuestion = questionModules(scoringQuestions, offices);
+  // Only ask what can help compare a race: a question no race could ever be compared on
+  // (some candidate in every race lacks a sourced position on it) is left out
+  const useful = new Set(results.officeResults.filter((o) => o.decidable).flatMap((o) => o.decisiveQuestionIds));
+  const usefulQuestions = scoringQuestions.filter((q) => useful.has(q.id));
+  const byQuestion = questionModules(usefulQuestions, offices);
   const answeredIds = new Set<string>(answers.map((a) => a.questionId));
   const nextQuestion = pickNextQuestion({
-    questions: questionsFor(scoringQuestions, byQuestion, modules),
+    questions: questionsFor(usefulQuestions, byQuestion, modules),
     answeredQuestionIds: answeredIds,
-    officeResults: results.officeResults,
+    officeResults: results.officeResults.filter((o) => o.decidable),
   });
 
-  return { ...results, nextQuestionId: nextQuestion.questionId, modules: moduleCounts(byQuestion) };
+  return {
+    ...results,
+    totalQuestions: usefulQuestions.length,
+    questionsAnswered: answers.filter((a) => useful.has(a.questionId)).length,
+    nextQuestionId: nextQuestion.questionId,
+    modules: moduleCounts(byQuestion),
+  };
 }

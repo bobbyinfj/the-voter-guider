@@ -13,7 +13,8 @@ export interface QuizOnBallot {
 
 export function quizOnBallot(results: QuizResults, electionId: string, guideId: string): Record<string, QuizOnBallot> {
   return Object.fromEntries(
-    results.officeResults.map((o) => {
+    // Only races the quiz can compare: the others have no quiz result to show
+    results.officeResults.filter((o) => o.decidable).map((o) => {
       const v = verdictText(o)
       const href = `/elections/${electionId}/quiz/results?guideId=${encodeURIComponent(guideId)}#office-${o.officeId}`
       return [`${o.officeId}-race`, { verdict: o.verdict, headline: v.headline, detail: v.detail, top: v.top, href }]
