@@ -2489,5 +2489,246 @@
    ]
   }
  },
- "measures": {}
+ "measures": {
+  "ca26-m-prop-1": {
+   "videos": [
+    {
+     "youtubeId": "xsyUkwvd3tY",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Proposition 1: Borrow $11.25 billion for housing",
+     "channel": "CalMatters",
+     "published": "2026-09-29",
+     "durationSec": 102
+    }
+   ]
+  },
+  "ca26-m-prop-2": {
+   "videos": [
+    {
+     "youtubeId": "JG25goB0J54",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 2 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-28",
+     "durationSec": 87
+    }
+   ]
+  },
+  "ca26-m-prop-3": {
+   "videos": [
+    {
+     "youtubeId": "LJ8XYjfwt0E",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 3 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-28",
+     "durationSec": 101
+    }
+   ]
+  },
+  "ca26-m-prop-4": {
+   "videos": [
+    {
+     "youtubeId": "oGGjIqGjB5Y",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 4 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-30",
+     "durationSec": 80
+    }
+   ]
+  },
+  "ca26-m-prop-5": {
+   "videos": [
+    {
+     "youtubeId": "5SH-flhBMtA",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 5 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-25",
+     "durationSec": 113
+    }
+   ]
+  },
+  "ca26-m-prop-37": {
+   "videos": [
+    {
+     "youtubeId": "2Q9JIG_GiVs",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 37 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-25",
+     "durationSec": 112
+    }
+   ]
+  },
+  "ca26-m-prop-38": {
+   "videos": [
+    {
+     "youtubeId": "MOfo0irKpC4",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 38 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-10-02",
+     "durationSec": 118
+    }
+   ]
+  },
+  "ca26-m-prop-39": {
+   "videos": [
+    {
+     "youtubeId": "KQskVORvizg",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 39 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-25",
+     "durationSec": 73
+    }
+   ]
+  },
+  "ca26-m-prop-40": {
+   "videos": [
+    {
+     "youtubeId": "5wY3h8w9a2Q",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+     "channel": "CalMatters",
+     "published": "2026-09-30",
+     "durationSec": 148
+    }
+   ]
+  },
+  "ca26-m-prop-41": {
+   "videos": [
+    {
+     "youtubeId": "5wY3h8w9a2Q",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+     "channel": "CalMatters",
+     "published": "2026-09-30",
+     "durationSec": 148
+    }
+   ]
+  },
+  "ca26-m-prop-42": {
+   "videos": [
+    {
+     "youtubeId": "5wY3h8w9a2Q",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+     "channel": "CalMatters",
+     "published": "2026-09-30",
+     "durationSec": 148
+    }
+   ]
+  },
+  "ca26-m-prop-43": {
+   "videos": [
+    {
+     "youtubeId": "svcQfT9skfY",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 43 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-25",
+     "durationSec": 73
+    }
+   ]
+  },
+  "ca26-m-prop-44": {
+   "videos": [
+    {
+     "youtubeId": "3m3-6RSu6XI",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 44 explained l California 2026 election",
+     "channel": "CalMatters",
+     "published": "2026-09-28",
+     "durationSec": 84
+    }
+   ]
+  },
+  "ca26-m-prop-45": {
+   "videos": [
+    {
+     "youtubeId": "XZ3c3EroPnw",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop. 45 Explained: CEQA on the 2026 ballot",
+     "channel": "CalMatters",
+     "published": "2026-10-02",
+     "durationSec": 111
+    }
+   ]
+  },
+  "ca26-m-la-a": {
+   "videos": [
+    {
+     "youtubeId": "XvtrPQ9el0c",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Los Angeles County Measure A: Pros & Cons: LWV LA County, November 3, 2026 Election.",
+     "channel": "League of Women Voters of Los Angeles County",
+     "published": "2026-10-02",
+     "durationSec": 427,
+     "host": "League of Women Voters of Los Angeles County"
+    }
+   ]
+  },
+  "ca26-m-la-e": {
+   "videos": [
+    {
+     "youtubeId": "OUiAA2tYasY",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Los Angeles County Measure E: Pros & Cons: LWV LA County, November 3, 2026 Election.",
+     "channel": "League of Women Voters of Los Angeles County",
+     "published": "2026-10-02",
+     "durationSec": 563,
+     "host": "League of Women Voters of Los Angeles County"
+    }
+   ]
+  },
+  "ca26-m-mp-hom": {
+   "videos": [
+    {
+     "youtubeId": "svnPsS7yXYI",
+     "kind": "explainer",
+     "origin": "government",
+     "title": "Ballot Measure HOM Informational Presentation Webinar",
+     "channel": "City of Monterey Park",
+     "published": "2026-09-22",
+     "durationSec": 2402,
+     "sourceUrl": "https://www.montereypark.ca.gov/home",
+     "sourceLabel": "The city's page on Measure HOM"
+    }
+   ]
+  },
+  "ca26-m-mp-aaa": {
+   "videos": [
+    {
+     "youtubeId": "Ymt71VQmd_c",
+     "kind": "explainer",
+     "origin": "government",
+     "title": "Ballot Measure AAA Informational Presentation Webinar",
+     "channel": "City of Monterey Park",
+     "published": "2026-09-14",
+     "durationSec": 644,
+     "sourceUrl": "https://www.montereypark.ca.gov/1758/Measure-AAA",
+     "sourceLabel": "The city's page on Measure AAA"
+    }
+   ]
+  }
+ }
 }

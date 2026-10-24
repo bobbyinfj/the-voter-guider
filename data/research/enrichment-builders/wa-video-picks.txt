@@ -10,3 +10,23 @@ wa26-cindy-ryu | KVv-GEIu-mw | statement | campaign ; source=https://www.cindyry
 wa26-ian-birk | MEpd-x5a7i8 | statement | campaign ; source=https://www.ianbirk.com ; label=Shown on the campaign's website ; found=campaign site scan
 wa26-sean-o-donnell | ME2ojH6ZYBU | debate | campaign ; source=https://odonnellforjustice.com ; label=Shown on the campaign's website (the campaign's clip of TVW's debate) ; found=campaign site scan
 wa26-adam-smith | X8RDwCTEm_s | statement | campaign ; source=https://www.youtube.com/@AdamSmithforCongress ; label=The campaign's YouTube channel (linked from electadamsmith.com) ; found=campaign site scan
+
+# Measures: Seattle Channel's video voters' guide (the measure, then each side's own statement)
+wa26-m-seattle-prop-1 | wFu_UwCMArw | explainer | independent ; found=YouTube search "Seattle Prop 1 transit 2026"
+wa26-m-seattle-prop-1 | -M6MlPMph0c | statement | independent ; host=Seattle Channel video voters' guide (statement by the measure's supporters) ; found=YouTube search "Seattle Prop 1 transit 2026"
+wa26-m-seattle-prop-1 | gIPN2Ce8OAY | statement | independent ; host=Seattle Channel video voters' guide (statement by the measure's opponents) ; found=YouTube search "Seattle Prop 1 transit 2026"
+wa26-m-ip26-645 | 1esYEBjyEBg | debate | independent ; found=YouTube search "KUOW Washington initiatives November 2026"
+wa26-m-ip26-645 | gNkwI1Pbxeo | debate | independent ; found=YouTube search "Washington initiative state and local taxes IP26-645"
+wa26-m-il26-638 | -OtP-i3lFX4 | explainer | independent ; found=YouTube search "Washington IL26-638 girls sports initiative 2026"
+wa26-m-il26-001 | InVCs2BO8l4 | explainer | independent ; start=216 ; said=233 "this Parents\' Bill of Rights deals with parental access to student records" ; found=YouTube search "KUOW Washington initiatives November 2026"
+
+# Legislative races: League of Women Voters of Snohomish County forums, KUOW Soundside conversations and
+# debates, and the 37th LD forum by Building Changes, the League of Education Voters Foundation and SESEC
+wa26-ld32-sen | NA6rQu_XF1U | forum | independent ; host=League of Women Voters of Snohomish County ; found=LWV Snohomish County channel ; with=wa26-cindy-ryu,wa26-jesse-salomon
+wa26-ld32-sen | wRxnU3IA_Uk | debate | independent ; found=KUOW channel ; with=wa26-cindy-ryu,wa26-jesse-salomon
+wa26-ld43-sen | PLHGEr5RlKg | interview | independent ; found=KUOW channel ; with=wa26-jamie-pedersen,wa26-hannah-sabio-howell
+wa26-ld43-sen | 0XrRWXF6a8k | interview | independent ; found=KUOW channel ; with=wa26-jamie-pedersen,wa26-hannah-sabio-howell
+wa26-ld46-rep1 | pEfZRO2pi3o | interview | independent ; found=KUOW channel ; with=wa26-gerry-pollet,wa26-will-dreher
+wa26-ld37-rep1 | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-kelabe-tewolde,wa26-sharon-tomiko-santos
+wa26-ld37-sen | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-tatiana-brown,wa26-chipalo-street
+wa26-adam-smith | mNHcgcVD-HY | interview | independent ; found=KUOW channel

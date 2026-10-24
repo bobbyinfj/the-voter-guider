@@ -52,6 +52,41 @@
     }
    ]
   },
+  "co26-bob-chew": {
+   "videos": [
+    {
+     "youtubeId": "Mnh4Hcaxd0I",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Independent candidate for U.S. Senate Bob Chew talks about the issues facing Colorado",
+     "channel": "CBS Colorado",
+     "published": "2026-10-14",
+     "durationSec": 1251
+    },
+    {
+     "youtubeId": "Nnnewd7f2aI",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Bob Chew, Forward Party candidate running against Sen. John Hickenlooper | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-08-31",
+     "durationSec": 1387
+    }
+   ]
+  },
+  "co26-joe-neguse": {
+   "videos": [
+    {
+     "youtubeId": "dJlnOe3BVpA",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "INTERVIEW: Reps. Joe Neguse, Jason Crow | Colorado Point of View",
+     "channel": "FOX31 Denver",
+     "published": "2026-09-26",
+     "durationSec": 1359
+    }
+   ]
+  },
   "co26-victor-marx": {
    "videos": [
     {
@@ -872,5 +907,249 @@
    ]
   }
  },
- "measures": {}
+ "measures": {
+  "co26-m-amendment-82": {
+   "videos": [
+    {
+     "youtubeId": "565glUV-iNA",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Amendment 82: Do Coloradans need a constitutional right to natural gas?",
+     "channel": "CBS Colorado",
+     "published": "2026-09-30",
+     "durationSec": 206
+    },
+    {
+     "youtubeId": "vWHxHbpVqZ0",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part I | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-09-25",
+     "durationSec": 1839,
+     "startSec": 379
+    }
+   ]
+  },
+  "co26-m-amendment-83": {
+   "videos": [
+    {
+     "youtubeId": "OnzjoqgB9IU",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Colorado voters will consider Amendment 83 to enshrine hunting rights",
+     "channel": "FOX21 News",
+     "published": "2026-09-26",
+     "durationSec": 145
+    }
+   ]
+  },
+  "co26-m-amendment-84": {
+   "videos": [
+    {
+     "youtubeId": "0ycivVO51mY",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "A simplified explanation of Amendment 84",
+     "channel": "Next 9NEWS",
+     "published": "2026-09-29",
+     "durationSec": 211
+    }
+   ]
+  },
+  "co26-m-amendment-87": {
+   "videos": [
+    {
+     "youtubeId": "FDImWoksgLw",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Amendment 87: Could Colorado's Income Tax Be Changing?",
+     "channel": "PBS12",
+     "published": "2026-10-12",
+     "durationSec": 412
+    },
+    {
+     "youtubeId": "jI-HSKXPtAM",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Explaining 2 dueling Colorado ballot questions about income tax rates",
+     "channel": "Next 9NEWS",
+     "published": "2026-09-24",
+     "durationSec": 219
+    }
+   ]
+  },
+  "co26-m-proposition-136": {
+   "videos": [
+    {
+     "youtubeId": "jI-HSKXPtAM",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Explaining 2 dueling Colorado ballot questions about income tax rates",
+     "channel": "Next 9NEWS",
+     "published": "2026-09-24",
+     "durationSec": 219
+    }
+   ]
+  },
+  "co26-m-proposition-nn": {
+   "videos": [
+    {
+     "youtubeId": "XIk1Iap6GM4",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Proposition NN explanation for the 2026 Colorado ballot",
+     "channel": "CBS Colorado",
+     "published": "2026-10-08",
+     "durationSec": 243
+    },
+    {
+     "youtubeId": "vWHxHbpVqZ0",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part I | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-09-25",
+     "durationSec": 1839,
+     "startSec": 1000
+    }
+   ]
+  },
+  "co26-m-frprd-7a": {
+   "videos": [
+    {
+     "youtubeId": "2DvE1LQh2vc",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "7A ballot issue shows up on ballots where it shouldn't",
+     "channel": "9NEWS",
+     "published": "2026-10-08",
+     "durationSec": 285
+    }
+   ]
+  },
+  "co26-m-proposition-134": {
+   "videos": [
+    {
+     "youtubeId": "6anWDTndsDs",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-10-02",
+     "durationSec": 1814,
+     "startSec": 224
+    }
+   ]
+  },
+  "co26-m-proposition-135": {
+   "videos": [
+    {
+     "youtubeId": "6anWDTndsDs",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-10-02",
+     "durationSec": 1814,
+     "startSec": 297
+    }
+   ]
+  },
+  "co26-m-proposition-133": {
+   "videos": [
+    {
+     "youtubeId": "6anWDTndsDs",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-10-02",
+     "durationSec": 1814,
+     "startSec": 358
+    }
+   ]
+  },
+  "co26-m-proposition-132": {
+   "videos": [
+    {
+     "youtubeId": "6anWDTndsDs",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+     "channel": "Colorado Public Radio",
+     "published": "2026-10-02",
+     "durationSec": 1814,
+     "startSec": 608
+    }
+   ]
+  },
+  "co26-m-amendment-81": {
+   "videos": [
+    {
+     "youtubeId": "FDqUOQhN_Ls",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Amendment 81 would require law enforcement to notify immigration officials in certain cases",
+     "channel": "CBS Colorado",
+     "published": "2026-10-06",
+     "durationSec": 145
+    }
+   ]
+  },
+  "co26-m-amendment-85": {
+   "videos": [
+    {
+     "youtubeId": "eAgNcGrpWdk",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Amendment 85 would require ballot titles to be written at an eighth grade reading level",
+     "channel": "CBS Colorado",
+     "published": "2026-10-07",
+     "durationSec": 181
+    }
+   ]
+  },
+  "co26-m-amendment-86": {
+   "videos": [
+    {
+     "youtubeId": "B0u9-yYBIOw",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Amendment 86 aims to prevent potential rigging of the congressional map",
+     "channel": "CBS Colorado",
+     "published": "2026-10-14",
+     "durationSec": 148
+    }
+   ]
+  },
+  "co26-m-proposition-137": {
+   "videos": [
+    {
+     "youtubeId": "9o62PU2iiRk",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Prop 137 diverts Colorado's current sporting goods sales tax money to conservation",
+     "channel": "CBS Colorado",
+     "published": "2026-10-13",
+     "durationSec": 237
+    }
+   ]
+  },
+  "co26-m-larimer-1a": {
+   "videos": [
+    {
+     "youtubeId": "GSeVshbGbM8",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "LWVLC Gives Larimer County & Statewide Ballot Issues Presentation, 5 OCT 2026",
+     "channel": "League of Women Voters of Larimer County",
+     "published": "2026-10-07",
+     "durationSec": 4067,
+     "host": "League of Women Voters of Larimer County",
+     "startSec": 2916
+    }
+   ]
+  }
+ }
 }

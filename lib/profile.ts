@@ -153,7 +153,7 @@ export const VIDEO_ORIGINS: Record<VideoOrigin, { label: string; about: string }
   government: {
     label: 'Public record',
     about:
-      "Recorded by the government at a public meeting, unedited. It only exists for people who already hold office or spoke at a meeting, so challengers often have none. We pick the part by a fixed rule (their longest times speaking at recent meetings), not by what they said.",
+      "Made by a government. Public meetings are recorded unedited; that footage only exists for people who already hold office or spoke at a meeting, so challengers often have none, and we pick the part by a fixed rule (their longest times speaking at recent meetings), not by what they said. A government's presentation on a measure it put on the ballot comes from a side that wants it to pass.",
   },
   campaign: {
     label: 'From the campaign',

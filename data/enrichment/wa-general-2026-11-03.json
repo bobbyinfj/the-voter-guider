@@ -725,6 +725,15 @@
      "durationSec": 55,
      "sourceUrl": "https://www.youtube.com/@AdamSmithforCongress",
      "sourceLabel": "The campaign's YouTube channel (linked from electadamsmith.com)"
+    },
+    {
+     "youtubeId": "mNHcgcVD-HY",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Congressman Adam Smith answers your questions on Israel, AI, and more",
+     "channel": "KUOW",
+     "published": "2026-09-29",
+     "durationSec": 3074
     }
    ]
   },
@@ -1139,6 +1148,25 @@
      "durationSec": 30,
      "sourceUrl": "https://www.cindyryu.com",
      "sourceLabel": "Shown on the campaign's website"
+    },
+    {
+     "youtubeId": "NA6rQu_XF1U",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election, LD 32, State Senator",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-09-07",
+     "durationSec": 1735,
+     "host": "League of Women Voters of Snohomish County"
+    },
+    {
+     "youtubeId": "wRxnU3IA_Uk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "WA Senate Debate: Two Democrats vie to represent Seattle's northern suburbs",
+     "channel": "KUOW",
+     "published": "2026-10-01",
+     "durationSec": 3089
     }
    ]
   },
@@ -1386,7 +1414,28 @@
       "kind": "official"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "NA6rQu_XF1U",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election, LD 32, State Senator",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-09-07",
+     "durationSec": 1735,
+     "host": "League of Women Voters of Snohomish County"
+    },
+    {
+     "youtubeId": "wRxnU3IA_Uk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "WA Senate Debate: Two Democrats vie to represent Seattle's northern suburbs",
+     "channel": "KUOW",
+     "published": "2026-10-01",
+     "durationSec": 3089
+    }
+   ]
   },
   "wa26-keith-scully": {
    "summary": {
@@ -2657,7 +2706,19 @@
       "kind": "org"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+    }
+   ]
   },
   "wa26-tatiana-brown": {
    "summary": {
@@ -2850,7 +2911,19 @@
       "kind": "person"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+    }
+   ]
   },
   "wa26-kelabe-tewolde": {
    "summary": {
@@ -3020,7 +3093,19 @@
       "kind": "person"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+    }
+   ]
   },
   "wa26-sharon-tomiko-santos": {
    "summary": {
@@ -3044,7 +3129,19 @@
      }
     ],
     "statement": "In these tough times, Washington families face rising costs and complex challenges. As your State Representative and the House Education Chair, I am focused on a future where economic security and quality education are accessible to everyone."
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+    }
+   ]
   },
   "wa26-jaelynn-scott": {
    "summary": {
@@ -3601,7 +3698,27 @@
       "kind": "official"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "PLHGEr5RlKg",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates running to represent Seattle's progressive 43rd Legislative District",
+     "channel": "KUOW",
+     "published": "2026-09-28",
+     "durationSec": 3078
+    },
+    {
+     "youtubeId": "0XrRWXF6a8k",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates for Washington’s 43rd Legislative District talk affordability, policy and progress...",
+     "channel": "KUOW",
+     "published": "2026-10-03",
+     "durationSec": 2053
+    }
+   ]
   },
   "wa26-hannah-sabio-howell": {
    "summary": {
@@ -3795,7 +3912,27 @@
       "kind": "media"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "PLHGEr5RlKg",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates running to represent Seattle's progressive 43rd Legislative District",
+     "channel": "KUOW",
+     "published": "2026-09-28",
+     "durationSec": 3078
+    },
+    {
+     "youtubeId": "0XrRWXF6a8k",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates for Washington’s 43rd Legislative District talk affordability, policy and progress...",
+     "channel": "KUOW",
+     "published": "2026-10-03",
+     "durationSec": 2053
+    }
+   ]
   },
   "wa26-nicole-macri": {
    "summary": {
@@ -4531,7 +4668,18 @@
      }
     ],
     "individuals": 45
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "pEfZRO2pi3o",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "AI, housing, and Aurora Ave N: A conversation with the candidates for WA State Legislative Distri...",
+     "channel": "KUOW",
+     "published": "2026-09-21",
+     "durationSec": 3095
+    }
+   ]
   },
   "wa26-will-dreher": {
    "summary": {
@@ -4633,7 +4781,18 @@
       "kind": "person"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "pEfZRO2pi3o",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "AI, housing, and Aurora Ave N: A conversation with the candidates for WA State Legislative Distri...",
+     "channel": "KUOW",
+     "published": "2026-09-21",
+     "durationSec": 3095
+    }
+   ]
   },
   "wa26-darya-farivar": {
    "summary": {
@@ -15288,7 +15447,232 @@
      ]
     }
    ]
+  },
+  "wa26-ld32-sen": {
+   "videos": [
+    {
+     "youtubeId": "NA6rQu_XF1U",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election, LD 32, State Senator",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-09-07",
+     "durationSec": 1735,
+     "host": "League of Women Voters of Snohomish County",
+     "participants": [
+      {
+       "id": "wa26-cindy-ryu"
+      },
+      {
+       "id": "wa26-jesse-salomon"
+      }
+     ]
+    },
+    {
+     "youtubeId": "wRxnU3IA_Uk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "WA Senate Debate: Two Democrats vie to represent Seattle's northern suburbs",
+     "channel": "KUOW",
+     "published": "2026-10-01",
+     "durationSec": 3089,
+     "participants": [
+      {
+       "id": "wa26-cindy-ryu"
+      },
+      {
+       "id": "wa26-jesse-salomon"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld43-sen": {
+   "videos": [
+    {
+     "youtubeId": "PLHGEr5RlKg",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates running to represent Seattle's progressive 43rd Legislative District",
+     "channel": "KUOW",
+     "published": "2026-09-28",
+     "durationSec": 3078,
+     "participants": [
+      {
+       "id": "wa26-jamie-pedersen"
+      },
+      {
+       "id": "wa26-hannah-sabio-howell"
+      }
+     ]
+    },
+    {
+     "youtubeId": "0XrRWXF6a8k",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "The candidates for Washington’s 43rd Legislative District talk affordability, policy and progress...",
+     "channel": "KUOW",
+     "published": "2026-10-03",
+     "durationSec": 2053,
+     "participants": [
+      {
+       "id": "wa26-jamie-pedersen"
+      },
+      {
+       "id": "wa26-hannah-sabio-howell"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld46-rep1": {
+   "videos": [
+    {
+     "youtubeId": "pEfZRO2pi3o",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "AI, housing, and Aurora Ave N: A conversation with the candidates for WA State Legislative Distri...",
+     "channel": "KUOW",
+     "published": "2026-09-21",
+     "durationSec": 3095,
+     "participants": [
+      {
+       "id": "wa26-gerry-pollet"
+      },
+      {
+       "id": "wa26-will-dreher"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld37-rep1": {
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC",
+     "participants": [
+      {
+       "id": "wa26-kelabe-tewolde"
+      },
+      {
+       "id": "wa26-sharon-tomiko-santos"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld37-sen": {
+   "videos": [
+    {
+     "youtubeId": "h1BPzVTMbQ4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "37th Legislative District Candidate Forum: K–12 Education & Housing",
+     "channel": "Building Changes",
+     "published": "2026-10-03",
+     "durationSec": 4292,
+     "host": "Building Changes, League of Education Voters Foundation and SESEC",
+     "participants": [
+      {
+       "id": "wa26-tatiana-brown"
+      },
+      {
+       "id": "wa26-chipalo-street"
+      }
+     ]
+    }
+   ]
   }
  },
- "measures": {}
+ "measures": {
+  "wa26-m-seattle-prop-1": {
+   "videos": [
+    {
+     "youtubeId": "wFu_UwCMArw",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "City of Seattle, Proposition 1, Seattle Transit Measure",
+     "channel": "Seattle Channel",
+     "published": "2026-10-13",
+     "durationSec": 277
+    },
+    {
+     "youtubeId": "-M6MlPMph0c",
+     "kind": "statement",
+     "origin": "independent",
+     "title": "City of Seattle, Proposition No. 1 - Pro Statement",
+     "channel": "Seattle Channel",
+     "published": "2026-10-13",
+     "durationSec": 94,
+     "host": "Seattle Channel video voters' guide (statement by the measure's supporters)"
+    },
+    {
+     "youtubeId": "gIPN2Ce8OAY",
+     "kind": "statement",
+     "origin": "independent",
+     "title": "City of Seattle, Proposition No. 1 - Con Statement",
+     "channel": "Seattle Channel",
+     "published": "2026-10-13",
+     "durationSec": 122,
+     "host": "Seattle Channel video voters' guide (statement by the measure's opponents)"
+    }
+   ]
+  },
+  "wa26-m-ip26-645": {
+   "videos": [
+    {
+     "youtubeId": "1esYEBjyEBg",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "The debate over I-645, WA’s “millionaire’s tax”",
+     "channel": "KUOW",
+     "published": "2026-10-10",
+     "durationSec": 2101
+    },
+    {
+     "youtubeId": "gNkwI1Pbxeo",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Initiative debate: Millionaires tax on the ballot",
+     "channel": "KING 5 Seattle",
+     "published": "2026-10-09",
+     "durationSec": 3880
+    }
+   ]
+  },
+  "wa26-m-il26-638": {
+   "videos": [
+    {
+     "youtubeId": "-OtP-i3lFX4",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Election 2026: I-638, the fight over youth school sports",
+     "channel": "KIRO 7 News",
+     "published": "2026-10-17",
+     "durationSec": 168
+    }
+   ]
+  },
+  "wa26-m-il26-001": {
+   "videos": [
+    {
+     "youtubeId": "InVCs2BO8l4",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Parents' rights, trans athletes, and taxes: we break down the ballot",
+     "channel": "KUOW",
+     "published": "2026-10-22",
+     "durationSec": 986,
+     "startSec": 216
+    }
+   ]
+  }
+ }
 }
