@@ -4,12 +4,15 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import {
   ArrowDownToLine,
+  ArrowLeft,
+  ArrowRight,
   CircleHelp,
   Columns3,
   Download,
   ExternalLink,
   Eye,
   ListChecks,
+  ListOrdered,
   Printer,
   Rows3,
   SkipForward,
@@ -30,6 +33,7 @@ import {
   contestDomId,
   resolveAnchor,
   contestLabel,
+  groupRuns,
   groupSections,
   hasPrintedLayout,
   isPick,
@@ -69,7 +73,8 @@ interface BallotTrackerProps {
   badges?: BadgeMap | null
 }
 
-type Mode = 'ballot' | 'review'
+// 'step': one contest at a time, in ballot order, with everything we know about it open
+type Mode = 'ballot' | 'step' | 'review'
 // Remembered for this browser tab only: every visit starts on the 3-column ballot
 const DENSITY_KEY = 'voter-guider:view'
 const NUDGE_KEY = 'voter-guider:expanded-nudge'
@@ -142,6 +147,13 @@ export default function BallotTracker({
   }
 
   const sections = useMemo(() => groupSections(ballots), [ballots])
+  // One step per contest as printed (retention questions under one heading are one step)
+  const steps = useMemo(
+    () => sections.flatMap((section) => groupRuns(section.items).map((run) => ({ section, run }))),
+    [sections],
+  )
+  const [stepIndex, setStepIndex] = useState(0)
+  const stepOf = (itemId: string) => Math.max(0, steps.findIndex((st) => st.run.some((i) => i.id === itemId)))
   const printed = hasPrintedLayout(ballots)
   const source = ballots[0] ? layoutOf(ballots[0])?.source : undefined
   const pageOrder = useMemo(() => sections.flatMap((s) => s.items), [sections])
@@ -240,7 +252,32 @@ export default function BallotTracker({
     return () => observer.disconnect()
   }, [mode, ballots, visibleSections, density])
 
+  // Start (or continue) going through the ballot one contest at a time
+  const goStep = (index: number) => {
+    setMode('step')
+    setStepIndex(Math.min(Math.max(index, 0), steps.length - 1))
+    if (jumpMenuRef.current) jumpMenuRef.current.open = false
+    const top = document.getElementById('ballot-top')
+    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
+  }
+  const firstUndecidedStep = (from: number) => {
+    for (let k = 1; k <= steps.length; k++) {
+      const index = (from + k) % steps.length
+      if (steps[index].run.some((i) => !done(i.id))) return index
+    }
+    return from
+  }
+  // ?view=step (the "Go through my ballot" link) opens on the first contest still to decide
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('view') !== 'step' || !steps.length) return
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the link's view, read after hydration
+    setMode('step')
+    setStepIndex(firstUndecidedStep(steps.length - 1))
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only on arrival
+  }, [steps.length])
+
   const nextUndecided = () => {
+    if (mode === 'step') return goStep(firstUndecidedStep(stepIndex))
     const start = pageOrder.findIndex((b) => b.id === activeId)
     for (let step = 1; step <= pageOrder.length; step++) {
       const item = pageOrder[(start + step) % pageOrder.length]
@@ -275,8 +312,16 @@ export default function BallotTracker({
     'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
   const segment = (active: boolean) =>
     `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
-  const nav = <BallotNav sections={sections} choices={choices} activeId={activeId} onJump={jumpTo} />
-  const showSidebar = density === 'expanded' && mode === 'ballot'
+  const step = steps[stepIndex]
+  const nav = (
+    <BallotNav
+      sections={sections}
+      choices={choices}
+      activeId={mode === 'step' ? step?.run[0].id ?? null : activeId}
+      onJump={mode === 'step' ? (id) => goStep(stepOf(id)) : jumpTo}
+    />
+  )
+  const showSidebar = (density === 'expanded' && mode === 'ballot') || mode === 'step'
 
   return (
     <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8' : ''}>
@@ -370,6 +415,7 @@ export default function BallotTracker({
             <div role="tablist" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
               {([
                 { value: 'ballot', label: 'Ballot', Icon: Vote },
+                { value: 'step', label: 'One at a time', Icon: ListOrdered },
                 { value: 'review', label: 'Review', Icon: Eye },
               ] as const).map(({ value, label, Icon }) => (
                 <button
@@ -377,6 +423,7 @@ export default function BallotTracker({
                   role="tab"
                   aria-selected={mode === value}
                   onClick={() => {
+                    if (value === 'step') return goStep(mode === 'step' ? stepIndex : firstUndecidedStep(steps.length - 1))
                     setMode(value)
                     const top = document.getElementById('ballot-top')
                     if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
@@ -501,6 +548,42 @@ export default function BallotTracker({
 
         {mode === 'review' ? (
           <ReviewSheet sections={sections} choices={choices} readOnly={readOnly} onEdit={jumpTo} />
+        ) : mode === 'step' && step ? (
+          <div className="space-y-3">
+            <StepBar
+              index={stepIndex}
+              total={steps.length}
+              label={step.section.label}
+              decided={step.run.every((i) => done(i.id))}
+              onBack={() => goStep(stepIndex - 1)}
+              onNext={() => goStep(stepIndex + 1)}
+              onNextUndecided={readOnly ? undefined : () => goStep(firstUndecidedStep(stepIndex))}
+              onReview={() => setMode('review')}
+            />
+            <BallotSheet
+              sections={[{ ...step.section, items: step.run, continued: false, noBar: false }]}
+              electionId={election.id}
+              choices={choices}
+              readOnly={readOnly}
+              density="expanded"
+              onChange={onChoiceChange}
+              onClear={onChoiceClear}
+              onStatus={onStatusChange}
+              onCandidateNote={onCandidateNote}
+              quiz={quiz}
+              badges={badges}
+              compare={compare}
+            />
+            <StepBar
+              index={stepIndex}
+              total={steps.length}
+              decided={step.run.every((i) => done(i.id))}
+              onBack={() => goStep(stepIndex - 1)}
+              onNext={() => goStep(stepIndex + 1)}
+              onNextUndecided={readOnly ? undefined : () => goStep(firstUndecidedStep(stepIndex))}
+              onReview={() => setMode('review')}
+            />
+          </div>
         ) : visibleSections.length === 0 ? (
           <div className="border-2 border-dashed border-gray-300 bg-white p-6 text-center text-gray-600">
             Every contest has a choice.{' '}
@@ -525,6 +608,61 @@ export default function BallotTracker({
             onExpand={expandAt}
             compare={compare}
           />
+        )}
+      </div>
+    </div>
+  )
+}
+
+// Above and below the contest in "One at a time": where you are, and the way on
+function StepBar({
+  index,
+  total,
+  label,
+  decided,
+  onBack,
+  onNext,
+  onNextUndecided,
+  onReview,
+}: {
+  index: number
+  total: number
+  label?: string
+  decided: boolean
+  onBack: () => void
+  onNext: () => void
+  onNextUndecided?: () => void
+  onReview: () => void
+}) {
+  const last = index === total - 1
+  const button =
+    'inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium hover:bg-gray-50 disabled:opacity-40'
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-2 font-sans print:hidden">
+      <p className="text-sm text-gray-700">
+        <strong>
+          Contest {index + 1} of {total}
+        </strong>
+        {label && <span className="text-gray-500"> · {label}</span>}
+        {decided && <span className="ml-2 text-green-700">✓ marked</span>}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        <button type="button" onClick={onBack} disabled={index === 0} className={button}>
+          <ArrowLeft className="h-4 w-4" /> Back
+        </button>
+        {onNextUndecided && (
+          <button type="button" onClick={onNextUndecided} className={button}>
+            <SkipForward className="h-4 w-4" /> Next undecided
+          </button>
+        )}
+        {last ? (
+          <button type="button" onClick={onReview} className={`${button} border-ballot-ink bg-ballot-bar text-white hover:bg-ballot-bar hover:opacity-90`}>
+            <Eye className="h-4 w-4" /> Review my ballot
+          </button>
+        ) : (
+          <button type="button" onClick={onNext} className={`${button} border-ballot-ink bg-ballot-bar text-white hover:bg-ballot-bar hover:opacity-90`}>
+            Next <ArrowRight className="h-4 w-4" />
+          </button>
         )}
       </div>
     </div>
