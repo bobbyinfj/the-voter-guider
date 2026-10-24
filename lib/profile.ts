@@ -188,7 +188,45 @@ export function raceExtrasOf(metadata: unknown): RaceExtras | null {
 export function formatDuration(sec?: number): string | null {
   if (!sec) return null
   const m = Math.round(sec / 60)
-  return m < 1 ? `${sec} sec` : `${m} min`
+  if (m < 1) return `${sec} sec`
+  return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ` ${m % 60} min` : ''}`
+}
+
+// Bite / snack / meal for videos, since most people spend under an hour on their whole ballot: a
+// bite is a quick look (up to 2 min), a snack a short video (up to 10), a meal anything longer, or
+// a part of a long forum whose end we don't know. Only bites and snacks play up front.
+export type VideoTier = 'bite' | 'snack' | 'meal'
+export const BITE_SEC = 120
+export const SNACK_SEC = 600
+
+export interface VideoPick {
+  video: CandidateVideo
+  // Where their part of a forum starts, when it's not the video's own clip
+  startSec?: number
+}
+
+// How long it asks you to watch: a clip's own length, else the whole video's (unknown for a part of
+// a forum we only know the start of)
+export function watchLength({ video, startSec }: VideoPick): number | undefined {
+  const start = startSec ?? video.startSec
+  if (start !== undefined && video.endSec !== undefined && startSec === undefined) return video.endSec - start
+  if (start !== undefined) return undefined
+  return video.durationSec
+}
+
+export function videoTier(pick: VideoPick): VideoTier {
+  const len = watchLength(pick)
+  return len === undefined || len > SNACK_SEC ? 'meal' : len > BITE_SEC ? 'snack' : 'bite'
+}
+
+// The best video of each length, shortest first (a bite leads into a snack, a snack into a meal).
+// Picks come in preference order (most independent first) and keep it within a tier.
+export function videoLadder(picks: VideoPick[]): (VideoPick & { tier: VideoTier })[] {
+  const tiers: VideoTier[] = ['bite', 'snack', 'meal']
+  return tiers.flatMap((tier) => {
+    const pick = picks.find((p) => videoTier(p) === tier)
+    return pick ? [{ ...pick, tier }] : []
+  })
 }
 
 export function formatRetrieved(iso: string): string {

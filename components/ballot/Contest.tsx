@@ -114,12 +114,13 @@ function CopyLink({ targets, label }: { targets: { id: string; label: string }[]
 // the first sentence of their own statement (state voter guide, else the county's sample ballot
 // booklet); for a judge, the bar association's rating; else the first sentence of a news voter
 // guide's description. Nothing when none of those exist; we never write one ourselves.
-function CandidateLine({ race, name }: { race: BallotItem; name: string }) {
+// roomy: beside the Expanded view's scorecard, with space for a few lines
+function CandidateLine({ race, name, roomy = false }: { race: BallotItem; name: string; roomy?: boolean }) {
   const line = candidateLine(race, name)
   if (!line) return null
   return (
-    <span className="mt-0.5 block font-sans text-[0.6875rem] leading-snug text-sky-900 print:hidden" title={line.source}>
-      <span className="line-clamp-2">
+    <span className={`block font-sans leading-snug text-sky-900 print:hidden ${roomy ? 'text-sm' : 'mt-0.5 text-[0.6875rem]'}`} title={line.source}>
+      <span className={roomy ? 'line-clamp-4' : 'line-clamp-2'}>
         {line.quote ? `“${line.text}”` : line.text} <span className="text-sky-600">· {line.short}</span>
       </span>
     </span>
@@ -658,7 +659,10 @@ function Enhancements({
 
   return (
     <Extra className="space-y-3 text-sm">
-      <p className="text-[0.625rem] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
+      {/* Expanded view labels the whole right-hand column once, at the top of the contest */}
+      {!candidatesBeside && (
+        <p className="text-[0.625rem] font-bold uppercase tracking-wider text-sky-700">Voter Guider extras · not on your ballot</p>
+      )}
       {onExpand && (
         <button
           type="button"
@@ -860,6 +864,11 @@ export default function Contest({
           </button>
         </div>
       </ContestHead>
+      {wide && open && (
+        <BesideRow wide aside={<p className="border-b border-sky-200 bg-sky-100 px-3 py-1 font-sans text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>}>
+          <div className="flex-1" />
+        </BesideRow>
+      )}
       {run.map((item, i) => {
         const choice = choices[item.id]
         const pick = (selection: string) => stepPick(item.id, selection, choice, onChange, onClear)
@@ -940,7 +949,7 @@ export default function Contest({
                             badges={badges?.[item.id]?.[c.name] ?? []}
                             summary={
                               <>
-                                <CandidateLine race={item} name={c.name} />
+                                <CandidateLine race={item} name={c.name} roomy />
                                 {choice?.candidateNotes?.[c.name] && (
                                   <p className="line-clamp-1 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
                                 )}

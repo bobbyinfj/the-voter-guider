@@ -2,10 +2,21 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ExternalLink, Flag as FlagIcon, Video } from 'lucide-react'
+import { ExternalLink, Flag as FlagIcon } from 'lucide-react'
 import VideoFacade from '@/components/candidate/VideoFacade'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
-import { isHttpUrl, leadVideo, raceExtrasOf, type CandidateVideo } from '@/lib/profile'
+import {
+  formatDuration,
+  isHttpUrl,
+  raceExtrasOf,
+  sortVideos,
+  videoLadder,
+  videoTier,
+  watchLength,
+  type CandidateVideo,
+  type VideoPick,
+  type VideoTier,
+} from '@/lib/profile'
 import {
   FLAG_RULES,
   RULING_LABELS,
@@ -56,42 +67,113 @@ export function sharedVideos(race: BallotItem): CandidateVideo[] {
   return all.filter((v, i) => all.findIndex((w) => w.youtubeId === v.youtubeId) === i)
 }
 
-// Above the candidates: debates with everyone in them
+// Above the candidates: debates with everyone in them. Short ones as thumbnails; long ones (a meal)
+// as buttons with their length, playing only when chosen.
 export function RaceVideos({ race }: { race: BallotItem }) {
+  const [chosen, setChosen] = useState<string | null>(null)
   const videos = sharedVideos(race)
   if (!videos.length) return null
+  const meal = (v: CandidateVideo) => videoTier({ video: v }) === 'meal'
+  const shown = videos.filter((v) => !meal(v) || v.youtubeId === chosen)
+  const long = videos.filter(meal)
   return (
-    <div className="border-b border-sky-200 bg-sky-50 px-2 py-2 print:hidden">
+    <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 print:hidden">
       <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Watch them together</p>
-      <div className="flex snap-x gap-2 overflow-x-auto pb-1">
-        {videos.map((v) => (
-          <div key={v.youtubeId} className="w-40 shrink-0 snap-start">
-            <VideoFacade video={v} tiny />
-          </div>
-        ))}
-      </div>
+      {shown.length > 0 && (
+        <div className="flex snap-x gap-2 overflow-x-auto pb-1">
+          {shown.map((v) => (
+            <div key={v.youtubeId} className="w-64 shrink-0 snap-start sm:w-72">
+              <VideoFacade video={v} tiny />
+            </div>
+          ))}
+        </div>
+      )}
+      {long.length > 0 && (
+        <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[0.6875rem]">
+          {long.map((v) => (
+            <button
+              key={v.youtubeId}
+              type="button"
+              onClick={() => setChosen((c) => (c === v.youtubeId ? null : v.youtubeId))}
+              aria-pressed={chosen === v.youtubeId}
+              title={`${v.title} (${v.channel})`}
+              className={`rounded-full border px-2 py-0.5 font-semibold ${
+                chosen === v.youtubeId ? 'border-blue-700 bg-blue-50 text-blue-900' : 'border-sky-300 bg-white text-blue-700 hover:bg-sky-100'
+              }`}
+            >
+              ▶ {MEAL_NAMES[v.kind]} · {v.channel}
+              {formatDuration(v.durationSec) ? ` · ${formatDuration(v.durationSec)}` : ''}
+            </button>
+          ))}
+        </p>
+      )}
     </div>
   )
 }
 
-function VideoCell({ candidate, race, small = false }: { candidate: BallotCandidate; race: BallotItem; small?: boolean }) {
+// Every video of them not already shown above the race: their own (most independent first), then
+// race forums they're in, from where they first speak when we know it
+function candidateVideos(candidate: BallotCandidate, race: BallotItem): VideoPick[] {
   const together = new Set(sharedVideos(race).map((v) => v.youtubeId))
-  const own = (candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))
-  const lead = leadVideo(own)
-  if (lead) return <VideoFacade video={lead} tiny />
-  // Otherwise a race forum or debate they're in, from where they first speak when we know it
-  for (const v of raceExtrasOf(race.metadata)?.videos ?? []) {
-    const them = v.participants?.find((p) => p.id === candidate.id)
-    if (them) return <VideoFacade video={v} startSec={them.startSec} tiny />
-  }
+  const own = sortVideos((candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))).map((video) => ({ video }))
+  const forums = (raceExtrasOf(race.metadata)?.videos ?? []).flatMap((video) => {
+    const them = video.participants?.find((p) => p.id === candidate.id)
+    return them ? [{ video, startSec: them.startSec }] : []
+  })
+  return [...own, ...forums]
+}
+
+const MEAL_NAMES: Record<CandidateVideo['kind'], string> = {
+  forum: 'Full forum',
+  debate: 'Full debate',
+  meeting: 'Council meeting',
+  interview: 'Full interview',
+  statement: 'Full statement',
+  explainer: 'Full explainer',
+}
+
+function ladderLabel(pick: VideoPick & { tier: VideoTier }): string {
+  const len = formatDuration(watchLength(pick))
+  const name = pick.tier === 'bite' ? 'Quick look' : pick.tier === 'snack' ? 'Short video' : MEAL_NAMES[pick.video.kind]
+  const at = pick.startSec ? `their part from ${clockOf(pick.startSec)}` : null
+  return [name, len ?? at].filter(Boolean).join(' · ')
+}
+
+function clockOf(sec: number): string {
+  const h = Math.floor(sec / 3600)
+  const m = Math.floor((sec % 3600) / 60)
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}` : `${m}:${String(sec % 60).padStart(2, '0')}`
+}
+
+// Bite → snack → meal: one button per length we have, shortest first; the current one is outlined
+function VideoSteps({
+  ladder,
+  playing,
+  onPlay,
+}: {
+  ladder: (VideoPick & { tier: VideoTier })[]
+  playing: number | null
+  onPlay: (i: number) => void
+}) {
+  if (!ladder.length || (ladder.length === 1 && playing === 0)) return null
   return (
-    <div
-      title="No video of them in the sources we search"
-      className="flex aspect-video w-full flex-col items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 px-2 text-center text-[0.6875rem] leading-snug text-gray-500"
-    >
-      <Video className="mb-0.5 h-4 w-4" />
-      {small ? 'No video found' : 'No video in the sources we search'}
-    </div>
+    <p className="mt-2 flex flex-wrap items-center gap-1.5 text-[0.6875rem]">
+      <span className="text-gray-600">{playing === null ? 'Watch:' : 'Go deeper:'}</span>
+      {ladder.map((pick, i) => (
+        <button
+          key={pick.video.youtubeId + i}
+          type="button"
+          onClick={() => onPlay(i)}
+          aria-pressed={playing === i}
+          title={`${pick.video.title} (${pick.video.channel})`}
+          className={`rounded-full border px-2 py-0.5 font-semibold ${
+            playing === i ? 'border-blue-700 bg-blue-50 text-blue-900' : 'border-sky-300 bg-white text-blue-700 hover:bg-sky-100'
+          }`}
+        >
+          ▶ {ladderLabel(pick)}
+        </button>
+      ))}
+    </p>
   )
 }
 
@@ -320,7 +402,7 @@ function flagSummary(candidate: BallotCandidate) {
     }
   if (checked.length)
     return { icon: '🚩', value: '✓', label: 'No flags found', tone: 'border-gray-200 bg-white', mark: 'bg-green-700 text-white', hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}` }
-  return { icon: '🚩', value: '–', label: 'No flag checks', tone: 'border-gray-200 bg-white opacity-60', mark: 'bg-gray-200 text-gray-700', hover: 'No flag checks cover this race yet' }
+  return { icon: '🚩', value: '–', label: 'No checks yet', tone: 'border-gray-200 bg-white opacity-60', mark: 'bg-gray-200 text-gray-700', hover: 'No flag checks cover this race yet' }
 }
 
 function meterSummary(candidate: BallotCandidate, comparable: boolean) {
@@ -329,13 +411,13 @@ function meterSummary(candidate: BallotCandidate, comparable: boolean) {
   const claims = candidate.profile?.claims.length ?? 0
   const extra = claims ? `\n${claims} debate claim${claims > 1 ? 's' : ''} fact-checked by ${candidate.profile!.claims[0].publisher} (not in the %)` : ''
   if (fc && score.pct !== null && comparable)
-    return { icon: '💩', value: `${score.pct}%`, label: `💩 meter ${score.pct}%`, tone: 'border-amber-700/40 bg-amber-50', mark: 'bg-amber-800 text-white', hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
+    return { icon: '💩', value: `${score.pct}%`, label: `${score.pct}% Mostly False or worse`, tone: 'border-amber-700/40 bg-amber-50', mark: 'bg-amber-800 text-white', hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
   if (fc && score.total)
-    return { icon: '💩', value: '–', label: '💩 meter not scored', tone: 'border-gray-200 bg-white', mark: 'bg-gray-200 text-gray-700', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
+    return { icon: '💩', value: '–', label: 'Not scored', tone: 'border-gray-200 bg-white', mark: 'bg-gray-200 text-gray-700', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
   return {
     icon: '💩',
     value: claims ? `${claims}✓` : '–',
-    label: claims ? `${claims} claims fact-checked` : 'No fact-checks',
+    label: claims ? `${claims} claims fact-checked` : 'No PolitiFact rulings',
     tone: claims ? 'border-gray-300 bg-white' : 'border-gray-200 bg-white opacity-60',
     mark: 'bg-gray-200 text-gray-700',
     hover: `No PolitiFact rulings on them${extra}`,
@@ -394,9 +476,10 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
 
 type Section = 'flags' | 'meter' | 'badges' | 'more'
 
-// Beside one candidate's oval: a small video, the one-line summary and an icon per column (details
-// on hover). Clicking an icon opens just that column's card below the icons; clicking it again
-// closes it. "More" opens the news guide, statement and notes.
+// Beside one candidate's oval: their video (when we have one) next to the one-line summary, then a
+// row of its own with an icon per column (details on hover). Clicking an icon opens just that
+// column's card below the row; clicking it again closes it. "More" opens the news guide, statement
+// and notes.
 export function CandidateScorecard({
   candidate,
   race,
@@ -420,25 +503,39 @@ export function CandidateScorecard({
     ['meter', meterSummary(candidate, comparable)],
     ['badges', badgeSummary(candidate, badges)],
   ]
+  const ladder = videoLadder(candidateVideos(candidate, race))
+  // A bite or snack plays up front; a meal only when you choose it
+  const [playing, setPlaying] = useState<number | null>(ladder.length && ladder[0].tier !== 'meal' ? 0 : null)
+  const current = playing === null ? null : ladder[playing]
   return (
-    <div className="h-full space-y-2 bg-sky-50/60 px-2 py-1.5 font-sans print:hidden">
-      <div className="flex gap-2">
-        <div className="w-28 shrink-0">
-          <VideoCell candidate={candidate} race={race} small />
-        </div>
-        <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
-          {summary ?? <span />}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
-            {tiles.map(([section, tile]) => (
-              <IconTile key={section} tile={tile} onClick={() => toggle(section)} open={open === section} />
-            ))}
-            {children && (
-              <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="text-xs text-blue-700 hover:underline">
-                {open === 'more' ? 'Less' : 'More about them'}
-              </button>
-            )}
+    <div className="h-full space-y-2 bg-sky-50/60 px-3 py-2 font-sans print:hidden">
+      {(current || summary || ladder.length > 0) && (
+        <div className={current ? 'grid gap-3 sm:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]' : ''}>
+          {current && (
+            <div className="min-w-0">
+              <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />
+            </div>
+          )}
+          <div className="min-w-0">
+            {summary}
+            <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
           </div>
         </div>
+      )}
+      <div className="grid grid-cols-3 items-start gap-x-3 gap-y-2 border-t border-sky-200 pt-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-5">
+        {tiles.map(([section, tile]) => (
+          <span key={section} className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
+            <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
+            <span aria-hidden className="max-w-28 text-[0.6875rem] leading-tight text-gray-700">
+              {tile.label}
+            </span>
+          </span>
+        ))}
+        {children && (
+          <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="col-span-3 justify-self-end text-xs font-semibold text-blue-700 hover:underline sm:ml-auto">
+            {open === 'more' ? 'Less' : 'More about them'}
+          </button>
+        )}
       </div>
       {open === 'flags' && (
         <div className="space-y-1.5">
