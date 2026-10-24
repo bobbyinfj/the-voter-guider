@@ -53,5 +53,6 @@ ca26-la-superior-65 | zh-W4Flzx2c | forum | civic ; host=California State Univer
 ca26-la-superior-87 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-anthony-a-j-bayne@2041,ca26-david-dejute@2102 ; said=2045 "My name is Anthony A.J. Bain. I'm a criminal defense attorney" ; said=2102 "David DeJude, I'm running for Superior Court Judge against AJ."
 ca26-la-superior-131 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-david-ross@2175,ca26-donna-tryfman@2268 ; said=2181 "My name is David Ross." ; said=2269 "My name is Donna Triffman."
 
-# Batch 6 (2026-10-24): one-on-one interviews found by searching each Monterey Park ballot candidate without a video by name
+# Batch 6 (2026-10-24): CA-38. Found in a search for LACCD forums; then both candidates were searched by name
+# ("Hilda Solis 2026 interview", "Pedro Antonio Casas", "Pedro Casas congress 38"): Casas's interviews are from 2024
 ca26-hilda-solis | 6658KVVwDU0 | interview | independent ; found=YouTube search "Los Angeles Community College District trustee candidates 2026" ; named=title
