@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   ArrowRight,
   CircleHelp,
+  ClipboardCopy,
   Columns3,
   Download,
   ExternalLink,
@@ -29,10 +30,8 @@ import type { BadgeMap } from '@/lib/scorecard'
 import type { CompareView } from '@/components/compare/compare'
 import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
-  choiceLabel,
   contestDomId,
   resolveAnchor,
-  contestLabel,
   groupRuns,
   groupSections,
   hasPrintedLayout,
@@ -48,6 +47,7 @@ import {
 } from '@/components/ballot/ballot'
 import { formatElectionDate } from '@/lib/format'
 
+import { guideText, helpRequestText } from '@/components/ballot/export'
 export type { BallotItem } from '@/components/ballot/ballot'
 
 interface BallotTrackerProps {
@@ -287,27 +287,34 @@ export default function BallotTracker({
     }
   }
 
+  const exportInfo = () => ({
+    guideTitle,
+    electionTitle: election.title,
+    date: formatElectionDate(election.electionDate),
+    sections,
+    choices,
+  })
+
   const handleExport = () => {
-    const lines = [guideTitle, `${election.title} · ${formatElectionDate(election.electionDate)}`]
-    lines.push('Practice copy from the Voter Guider (unofficial). Not a ballot.', '')
-    for (const section of sections) {
-      lines.push(section.label.toUpperCase())
-      for (const ballot of section.items) {
-        const choice = choices[ballot.id]
-        const how = isPick(choice?.selection) && choice!.status !== 'decided' ? ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})` : ''
-        lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}${how}`)
-        if (choice?.notes) lines.push(`    Notes: ${choice.notes}`)
-        for (const [name, note] of Object.entries(choice?.candidateNotes ?? {})) lines.push(`    On ${name}: ${note}`)
-      }
-      lines.push('')
-    }
-    const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
+    const blob = new Blob([guideText(exportInfo())], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
     a.download = 'my-voter-guide.txt'
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  // Your picks, ?s and notes, with a request for help on the ones you're stuck on, to paste into an AI
+  const [copied, setCopied] = useState<'yes' | 'failed' | null>(null)
+  const handleCopyForAi = async () => {
+    const text = helpRequestText({ ...exportInfo(), link: `${window.location.origin}/elections/${election.id}` })
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied('yes')
+    } catch {
+      setCopied('failed')
+    }
   }
 
   const toolButton =
@@ -452,6 +459,9 @@ export default function BallotTracker({
                 <ListChecks className="h-4 w-4" /> {hiddenIds ? 'Showing undecided' : 'Undecided only'}
               </button>
             )}
+            <button onClick={handleCopyForAi} className={toolButton} title="Copies your picks, ?s and notes, with a request for help on the contests you're stuck on">
+              <ClipboardCopy className="h-4 w-4" /> Copy for an AI
+            </button>
             <button onClick={handleExport} className={toolButton}>
               <Download className="h-4 w-4" /> Text
             </button>
@@ -459,6 +469,24 @@ export default function BallotTracker({
               <Printer className="h-4 w-4" /> Print
             </button>
           </div>
+          {copied && (
+            <p role="status" className="mt-2 text-sm">
+              {copied === 'yes' ? (
+                <>
+                  Copied your ballot, with the contests you&apos;re stuck on first. Paste it into{' '}
+                  <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline">
+                    Claude ↗
+                  </a>{' '}
+                  or another AI. Its answers come from the AI, not the Voter Guider; check its sources.
+                </>
+              ) : (
+                <>Your browser didn&apos;t allow copying. Use Text to download it instead.</>
+              )}{' '}
+              <button type="button" onClick={() => setCopied(null)} className="text-gray-500 underline">
+                Dismiss
+              </button>
+            </p>
+          )}
           <ComparePicker electionId={election.id} ballots={ballots} choices={choices} view={compare} onView={setCompare} />
           <details ref={jumpMenuRef} className={`mt-3 ${showSidebar ? 'lg:hidden' : ''}`}>
             <summary className="flex cursor-pointer items-center gap-1.5 text-sm font-medium text-blue-700">

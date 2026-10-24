@@ -7,6 +7,7 @@ import ConfidenceIndicator from "@/components/quiz/ConfidenceIndicator";
 import type { QuizResults } from "@/lib/quiz/types";
 import { parseDistrictSelection } from "@/lib/districts";
 import { MODULES, parseModules, type QuizModule } from "@/lib/quiz/modules";
+import { askClaudeUrl } from "@/lib/quiz/ask";
 
 interface ModuleInfo {
   module: QuizModule;
@@ -311,6 +312,20 @@ export default function QuizPage() {
                     ))}
                   </p>
                 )}
+
+                <p className="text-sm mb-4">
+                  <a
+                    href={askClaudeUrl(state.question.prompt, state.question.compares)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 underline"
+                  >
+                    Not sure what this means? Ask Claude about it ↗
+                  </a>
+                  <span className="block text-xs text-gray-500">
+                    Opens Claude (claude.ai) with a neutral question about this statement. Its answer comes from Claude, not the Voter Guider, and we haven&apos;t checked it.
+                  </span>
+                </p>
 
                 {/* Options */}
                 <div role="radiogroup" aria-label="Your answer" className="space-y-2 mb-3">

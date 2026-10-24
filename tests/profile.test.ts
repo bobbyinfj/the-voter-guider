@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
-import { initials, isHttpUrl, leadVideo, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
+import { formatDuration, initials, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
 
 test('initials', () => {
   const i = (name: string, kind: 'org' | 'official' | 'media' | 'person') => initials({ name, kind })
@@ -97,4 +97,21 @@ test('leadVideo prefers the most independent source, then interviews', () => {
   assert.equal(leadVideo(list)?.youtubeId, 'lwv-int')
   assert.deepEqual(sortVideos(list).map((x) => x.youtubeId), ['lwv-int', 'lwv-stmt', 'meeting', 'campaign-int'])
   assert.equal(leadVideo([]), null)
+})
+
+test('videos: bite (≤2 min) leads into snack (≤10 min) into meal (longer or open-ended)', () => {
+  const v = (youtubeId: string, durationSec?: number, extra: Partial<CandidateVideo> = {}): CandidateVideo => ({
+    youtubeId, kind: 'interview', origin: 'independent', title: youtubeId, channel: 'c', published: '2026-10-01', durationSec, ...extra,
+  })
+  assert.equal(videoTier({ video: v('a', 90) }), 'bite')
+  assert.equal(videoTier({ video: v('b', 400) }), 'snack')
+  assert.equal(videoTier({ video: v('c', 9000) }), 'meal')
+  // A 90-second clip of a 3-hour forum is a bite; their part of a forum with no known end is a meal
+  assert.equal(videoTier({ video: v('d', 10800, { startSec: 600, endSec: 690 }) }), 'bite')
+  assert.equal(videoTier({ video: v('e', 10800), startSec: 600 }), 'meal')
+  const ladder = videoLadder([{ video: v('long', 9000) }, { video: v('mid', 400) }, { video: v('mid2', 300) }, { video: v('short', 60) }])
+  assert.deepEqual(ladder.map((p) => [p.tier, p.video.youtubeId]), [['bite', 'short'], ['snack', 'mid'], ['meal', 'long']])
+  assert.equal(formatDuration(9360), '2 h 36 min')
+  assert.equal(formatDuration(7200), '2 h')
+  assert.equal(formatDuration(400), '7 min')
 })

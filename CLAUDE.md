@@ -81,15 +81,19 @@ an oval steps it empty → ? → leaning → decided → empty (`stepPick` in `c
 The ? on a contest stores the special selection `UNSURE` ("no clue yet"); clearing a pick that has
 notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` in `ballot.ts` say
 what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the
-same default guide. Extra guides for an election live at `/guide/[id]`. After the first pick a
+same default guide. Extra guides for an election live at `/guide/[id]`. **Copy for an AI** (toolbar; `helpRequestText` in `components/ballot/export.ts`) copies the ballot with "no clue yet" and ? contests first, their choices and the voter's notes, under a neutral request (explain, cite sources, don't say how to vote) to paste into Claude or another AI. Quiz questions have an "Ask Claude about it" link (`lib/quiz/ask.ts`), labeled as Claude's answer, not ours. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
 **Ballot view** (`basic`: 3-column replica, the default every visit; heading link/? icons show on hover) and
 **Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
 stacked on a phone), toggled at the top of the ballot with a ? explainer. A dismissible banner (localStorage)
 and a button in each contest's info panel nudge toward Expanded.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
-`/how-we-score`). Compact by default: a small video, the one-line summary, then a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, details in the
-hover title); clicking an icon opens just that column's card below the icons, clicking it again closes it. Columns: an interview video (debates with everyone in the race show once above, "Watch them
+`/how-we-score`). Compact by default: their video (if any) beside the one-line summary, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
+hover title); clicking an icon opens just that column's card below the row, clicking it again closes it. No video means no video slot (never a "no video" placeholder).
+Videos follow bite / snack / meal (`videoTier`, `videoLadder` in `lib/profile.ts`): a bite is up to 2 min, a snack up to 10, a meal longer (or a
+forum part with no known end). Only a bite or snack plays up front; buttons step to the next length ("Go deeper: ▶ Full forum · 1 h 44 min"), and long
+race debates are buttons, not thumbnails, until chosen. Most people spend under an hour on their whole ballot.
+The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
 ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly
 False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies)

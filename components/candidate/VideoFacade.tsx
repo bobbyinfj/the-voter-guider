@@ -67,7 +67,7 @@ export default function VideoFacade({
       {tiny ? (
         <figcaption className="mt-0.5 text-[0.6875rem] leading-snug text-gray-700">
           <OriginBadge origin={video.origin} host={video.host} />
-          <span className="block truncate">
+          <span className="line-clamp-2">
             {label} ·{' '}
             <a href={watchUrl} target="_blank" rel="noopener noreferrer" className="underline">
               YouTube
