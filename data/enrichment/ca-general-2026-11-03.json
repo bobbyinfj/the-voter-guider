@@ -2156,7 +2156,18 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "6658KVVwDU0",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Our Community-Meet Hilda Solis, Candidate for US Congress, 38th District",
+     "channel": "OC Talk Radio",
+     "published": "2026-09-09",
+     "durationSec": 1802
+    }
+   ]
   },
   "ca26-bob-j-archuleta": {
    "guide": {

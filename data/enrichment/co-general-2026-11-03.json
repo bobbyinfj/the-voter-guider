@@ -21,6 +21,42 @@
      "channel": "9NEWS",
      "published": "2026-10-15",
      "durationSec": 3185
+    },
+    {
+     "youtubeId": "jvouZvm0Wsw",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on abortion law",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 115
+    },
+    {
+     "youtubeId": "xX5HCePuHug",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on Putin diesel fuel deal",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 67
+    },
+    {
+     "youtubeId": "xbNKc-nEzjQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Baisley, Hickenlooper ask questions of each other",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 296
+    },
+    {
+     "youtubeId": "wRJENYnLSZk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in U.S. Senate debate hosted by 9NEWS",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 289
     }
    ]
   },
@@ -49,6 +85,42 @@
      "channel": "9NEWS",
      "published": "2026-10-15",
      "durationSec": 3185
+    },
+    {
+     "youtubeId": "jvouZvm0Wsw",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on abortion law",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 115
+    },
+    {
+     "youtubeId": "xX5HCePuHug",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on Putin diesel fuel deal",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 67
+    },
+    {
+     "youtubeId": "xbNKc-nEzjQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Baisley, Hickenlooper ask questions of each other",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 296
+    },
+    {
+     "youtubeId": "wRJENYnLSZk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in U.S. Senate debate hosted by 9NEWS",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 289
     }
    ]
   },
@@ -753,6 +825,74 @@
      "channel": "9NEWS",
      "published": "2026-10-15",
      "durationSec": 3185,
+     "participants": [
+      {
+       "id": "co26-john-hickenlooper"
+      },
+      {
+       "id": "co26-mark-baisley"
+      }
+     ]
+    },
+    {
+     "youtubeId": "jvouZvm0Wsw",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on abortion law",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 115,
+     "participants": [
+      {
+       "id": "co26-john-hickenlooper"
+      },
+      {
+       "id": "co26-mark-baisley"
+      }
+     ]
+    },
+    {
+     "youtubeId": "xX5HCePuHug",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley on Putin diesel fuel deal",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 67,
+     "participants": [
+      {
+       "id": "co26-john-hickenlooper"
+      },
+      {
+       "id": "co26-mark-baisley"
+      }
+     ]
+    },
+    {
+     "youtubeId": "xbNKc-nEzjQ",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Baisley, Hickenlooper ask questions of each other",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 296,
+     "participants": [
+      {
+       "id": "co26-john-hickenlooper"
+      },
+      {
+       "id": "co26-mark-baisley"
+      }
+     ]
+    },
+    {
+     "youtubeId": "wRJENYnLSZk",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Hickenlooper, Baisley face off in U.S. Senate debate hosted by 9NEWS",
+     "channel": "9NEWS",
+     "published": "2026-10-15",
+     "durationSec": 289,
      "participants": [
       {
        "id": "co26-john-hickenlooper"

@@ -948,12 +948,14 @@ export default function Contest({
                             race={item}
                             badges={badges?.[item.id]?.[c.name] ?? []}
                             summary={
+                              (candidateLine(item, c.name) || choice?.candidateNotes?.[c.name]) && (
                               <>
                                 <CandidateLine race={item} name={c.name} roomy />
                                 {choice?.candidateNotes?.[c.name] && (
                                   <p className="line-clamp-1 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
                                 )}
                               </>
+                              )
                             }
                           >
                             <details className="group/more text-sm">
