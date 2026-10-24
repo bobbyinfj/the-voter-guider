@@ -23,3 +23,24 @@ ca26-xavier-becerra | UvKC4Sj_QCU | statement | campaign ; source=https://www.yo
 ca26-fiona-ma | qBFHwlqBcKw | statement | campaign ; source=https://www.youtube.com/@fionama ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
 ca26-herb-w-morgan | 27Ws8ngDR_Y | statement | campaign ; source=https://www.youtube.com/@herb4controller ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
 ca26-mike-gipson | MddHNRov7bE | statement | campaign ; source=https://www.youtube.com/@MikeGipson-boe ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+
+# Measures: CalMatters' explainer series (one per proposition; 40, 41 and 42 share one), the League of
+# Women Voters of Los Angeles County's pros and cons, and Monterey Park's own presentations on its measures
+ca26-m-prop-1 | xsyUkwvd3tY | explainer | independent ; found=CalMatters channel
+ca26-m-prop-2 | JG25goB0J54 | explainer | independent ; found=CalMatters channel
+ca26-m-prop-3 | LJ8XYjfwt0E | explainer | independent ; found=CalMatters channel
+ca26-m-prop-4 | oGGjIqGjB5Y | explainer | independent ; found=CalMatters channel
+ca26-m-prop-5 | 5SH-flhBMtA | explainer | independent ; found=CalMatters channel
+ca26-m-prop-37 | 2Q9JIG_GiVs | explainer | independent ; found=CalMatters channel
+ca26-m-prop-38 | MOfo0irKpC4 | explainer | independent ; found=CalMatters channel
+ca26-m-prop-39 | KQskVORvizg | explainer | independent ; found=CalMatters channel
+ca26-m-prop-40 | 5wY3h8w9a2Q | explainer | independent ; found=CalMatters channel
+ca26-m-prop-41 | 5wY3h8w9a2Q | explainer | independent ; found=CalMatters channel
+ca26-m-prop-42 | 5wY3h8w9a2Q | explainer | independent ; found=CalMatters channel
+ca26-m-prop-43 | svcQfT9skfY | explainer | independent ; found=CalMatters channel
+ca26-m-prop-44 | 3m3-6RSu6XI | explainer | independent ; found=CalMatters channel
+ca26-m-prop-45 | XZ3c3EroPnw | explainer | independent ; found=CalMatters channel
+ca26-m-la-a | XvtrPQ9el0c | explainer | independent ; host=League of Women Voters of Los Angeles County ; found=YouTube search "LA County Measure A 2026 charter"
+ca26-m-la-e | OUiAA2tYasY | explainer | independent ; host=League of Women Voters of Los Angeles County ; found=YouTube search "LA County Measure E ethics commission 2026"
+ca26-m-mp-hom | svnPsS7yXYI | explainer | government ; source=https://www.montereypark.ca.gov/home ; label=The city's page on Measure HOM ; found=City of Monterey Park channel
+ca26-m-mp-aaa | Ymt71VQmd_c | explainer | government ; source=https://www.montereypark.ca.gov/1758/Measure-AAA ; label=The city's page on Measure AAA ; found=City of Monterey Park channel

@@ -550,5 +550,390 @@
   ]
  },
  "races": {},
- "measures": {}
+ "measures": {
+  "ca26-m-prop-1": [
+   {
+    "youtubeId": "xsyUkwvd3tY",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Proposition 1: Borrow $11.25 billion for housing",
+    "channel": "CalMatters",
+    "published": "2026-09-29",
+    "durationSec": 102,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Proposition 1: Borrow $11.25 billion for housing\" by CalMatters",
+      "uploaded 2026-09-29",
+      "\"Prop 1\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-2": [
+   {
+    "youtubeId": "JG25goB0J54",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 2 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-28",
+    "durationSec": 87,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 2 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-28",
+      "\"Prop 2\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-3": [
+   {
+    "youtubeId": "LJ8XYjfwt0E",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 3 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-28",
+    "durationSec": 101,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 3 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-28",
+      "\"Prop 3\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-4": [
+   {
+    "youtubeId": "oGGjIqGjB5Y",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 4 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-30",
+    "durationSec": 80,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 4 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-30",
+      "\"Prop 4\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-5": [
+   {
+    "youtubeId": "5SH-flhBMtA",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 5 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-25",
+    "durationSec": 113,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 5 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-25",
+      "\"Prop 5\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-37": [
+   {
+    "youtubeId": "2Q9JIG_GiVs",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 37 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-25",
+    "durationSec": 112,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 37 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-25",
+      "\"Prop 37\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-38": [
+   {
+    "youtubeId": "MOfo0irKpC4",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 38 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-10-02",
+    "durationSec": 118,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 38 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-10-02",
+      "\"Prop 38\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-39": [
+   {
+    "youtubeId": "KQskVORvizg",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 39 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-25",
+    "durationSec": 73,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 39 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-25",
+      "\"Prop 39\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-40": [
+   {
+    "youtubeId": "5wY3h8w9a2Q",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+    "channel": "CalMatters",
+    "published": "2026-09-30",
+    "durationSec": 148,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"CA billionaire tax explained: Propositions 40, 41 and 42\" by CalMatters",
+      "uploaded 2026-09-30",
+      "\"Prop 40\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-41": [
+   {
+    "youtubeId": "5wY3h8w9a2Q",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+    "channel": "CalMatters",
+    "published": "2026-09-30",
+    "durationSec": 148,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"CA billionaire tax explained: Propositions 40, 41 and 42\" by CalMatters",
+      "uploaded 2026-09-30",
+      "\"Prop 41\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-42": [
+   {
+    "youtubeId": "5wY3h8w9a2Q",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "CA billionaire tax explained: Propositions 40, 41 and 42",
+    "channel": "CalMatters",
+    "published": "2026-09-30",
+    "durationSec": 148,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"CA billionaire tax explained: Propositions 40, 41 and 42\" by CalMatters",
+      "uploaded 2026-09-30",
+      "\"Prop 42\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-43": [
+   {
+    "youtubeId": "svcQfT9skfY",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 43 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-25",
+    "durationSec": 73,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 43 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-25",
+      "\"Prop 43\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-44": [
+   {
+    "youtubeId": "3m3-6RSu6XI",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 44 explained l California 2026 election",
+    "channel": "CalMatters",
+    "published": "2026-09-28",
+    "durationSec": 84,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop 44 explained l California 2026 election\" by CalMatters",
+      "uploaded 2026-09-28",
+      "\"Prop 44\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-prop-45": [
+   {
+    "youtubeId": "XZ3c3EroPnw",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop. 45 Explained: CEQA on the 2026 ballot",
+    "channel": "CalMatters",
+    "published": "2026-10-02",
+    "durationSec": 111,
+    "evidence": {
+     "foundVia": "CalMatters channel",
+     "checks": [
+      "oEmbed: \"Prop. 45 Explained: CEQA on the 2026 ballot\" by CalMatters",
+      "uploaded 2026-10-02",
+      "\"Prop 45\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-la-a": [
+   {
+    "youtubeId": "XvtrPQ9el0c",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Los Angeles County Measure A: Pros & Cons: LWV LA County, November 3, 2026 Election.",
+    "channel": "League of Women Voters of Los Angeles County",
+    "published": "2026-10-02",
+    "durationSec": 427,
+    "host": "League of Women Voters of Los Angeles County",
+    "evidence": {
+     "foundVia": "YouTube search \"LA County Measure A 2026 charter\"",
+     "checks": [
+      "oEmbed: \"Los Angeles County Measure A: Pros & Cons: LWV LA County, November 3, 2026 Election.\" by League of Women Voters of Los Angeles County",
+      "uploaded 2026-10-02",
+      "\"Measure A\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-la-e": [
+   {
+    "youtubeId": "OUiAA2tYasY",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Los Angeles County Measure E: Pros & Cons: LWV LA County, November 3, 2026 Election.",
+    "channel": "League of Women Voters of Los Angeles County",
+    "published": "2026-10-02",
+    "durationSec": 563,
+    "host": "League of Women Voters of Los Angeles County",
+    "evidence": {
+     "foundVia": "YouTube search \"LA County Measure E ethics commission 2026\"",
+     "checks": [
+      "oEmbed: \"Los Angeles County Measure E: Pros & Cons: LWV LA County, November 3, 2026 Election.\" by League of Women Voters of Los Angeles County",
+      "uploaded 2026-10-02",
+      "\"Measure E\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-mp-hom": [
+   {
+    "youtubeId": "svnPsS7yXYI",
+    "kind": "explainer",
+    "origin": "government",
+    "title": "Ballot Measure HOM Informational Presentation Webinar",
+    "channel": "City of Monterey Park",
+    "published": "2026-09-22",
+    "durationSec": 2402,
+    "sourceUrl": "https://www.montereypark.ca.gov/home",
+    "sourceLabel": "The city's page on Measure HOM",
+    "evidence": {
+     "foundVia": "City of Monterey Park channel",
+     "checks": [
+      "oEmbed: \"Ballot Measure HOM Informational Presentation Webinar\" by City of Monterey Park",
+      "uploaded 2026-09-22",
+      "\"Measure HOM\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-m-mp-aaa": [
+   {
+    "youtubeId": "Ymt71VQmd_c",
+    "kind": "explainer",
+    "origin": "government",
+    "title": "Ballot Measure AAA Informational Presentation Webinar",
+    "channel": "City of Monterey Park",
+    "published": "2026-09-14",
+    "durationSec": 644,
+    "sourceUrl": "https://www.montereypark.ca.gov/1758/Measure-AAA",
+    "sourceLabel": "The city's page on Measure AAA",
+    "evidence": {
+     "foundVia": "City of Monterey Park channel",
+     "checks": [
+      "oEmbed: \"Ballot Measure AAA Informational Presentation Webinar\" by City of Monterey Park",
+      "uploaded 2026-09-14",
+      "\"Measure AAA\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ]
+ }
 }

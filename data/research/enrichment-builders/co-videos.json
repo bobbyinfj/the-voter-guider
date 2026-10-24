@@ -77,7 +77,7 @@
      "checks": [
       "oEmbed: \"Happened Right Here\" by Jena Griswold",
       "uploaded 2026-02-16",
-      "posted by the channel \"Jena Griswold\""
+      "embedded on the campaign's site https://www.jenagriswold.com/ (saved 2026-10-23)"
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"
@@ -307,6 +307,67 @@
       "oEmbed: \"Mark Baisley, Republican candidate running against Sen. John Hickenlooper | Colorado Point of View\" by FOX31 Denver",
       "uploaded 2026-07-25",
       "transcript at 506s: \"And joining me now here on Colorado Point of View is State Senator Mark Baisley.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-bob-chew": [
+   {
+    "youtubeId": "Mnh4Hcaxd0I",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Independent candidate for U.S. Senate Bob Chew talks about the issues facing Colorado",
+    "channel": "CBS Colorado",
+    "published": "2026-10-14",
+    "durationSec": 1251,
+    "evidence": {
+     "foundVia": "YouTube search \"Bob Chew Forward Party Senate Colorado\"",
+     "checks": [
+      "oEmbed: \"Independent candidate for U.S. Senate Bob Chew talks about the issues facing Colorado\" by CBS Colorado",
+      "uploaded 2026-10-14",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "Nnnewd7f2aI",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Bob Chew, Forward Party candidate running against Sen. John Hickenlooper | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-08-31",
+    "durationSec": 1387,
+    "evidence": {
+     "foundVia": "YouTube search \"Bob Chew Forward Party Senate Colorado\"",
+     "checks": [
+      "oEmbed: \"Bob Chew, Forward Party candidate running against Sen. John Hickenlooper | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-08-31",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-joe-neguse": [
+   {
+    "youtubeId": "dJlnOe3BVpA",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "INTERVIEW: Reps. Joe Neguse, Jason Crow | Colorado Point of View",
+    "channel": "FOX31 Denver",
+    "published": "2026-09-26",
+    "durationSec": 1359,
+    "evidence": {
+     "foundVia": "YouTube search \"Joe Neguse 2026 interview\"",
+     "checks": [
+      "oEmbed: \"INTERVIEW: Reps. Joe Neguse, Jason Crow | Colorado Point of View\" by FOX31 Denver",
+      "uploaded 2026-09-26",
+      "named in the title"
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"
@@ -675,5 +736,407 @@
    }
   ]
  },
- "measures": {}
+ "measures": {
+  "co26-m-amendment-82": [
+   {
+    "youtubeId": "565glUV-iNA",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Amendment 82: Do Coloradans need a constitutional right to natural gas?",
+    "channel": "CBS Colorado",
+    "published": "2026-09-30",
+    "durationSec": 206,
+    "evidence": {
+     "foundVia": "YouTube search \"9NEWS explaining Colorado amendment 2026\"",
+     "checks": [
+      "oEmbed: \"Amendment 82: Do Coloradans need a constitutional right to natural gas?\" by CBS Colorado",
+      "uploaded 2026-09-30",
+      "\"Amdt 82\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "vWHxHbpVqZ0",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part I | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-09-25",
+    "durationSec": 1839,
+    "startSec": 379,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part I | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-09-25",
+      "transcript: 387 \"A right to natural gas, life, liberty, and the pursuit of natural gas.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-83": [
+   {
+    "youtubeId": "OnzjoqgB9IU",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Colorado voters will consider Amendment 83 to enshrine hunting rights",
+    "channel": "FOX21 News",
+    "published": "2026-09-26",
+    "durationSec": 145,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Sun amendment explained 2026\"",
+     "checks": [
+      "oEmbed: \"Colorado voters will consider Amendment 83 to enshrine hunting rights\" by FOX21 News",
+      "uploaded 2026-09-26",
+      "\"Amdt 83\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-84": [
+   {
+    "youtubeId": "0ycivVO51mY",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "A simplified explanation of Amendment 84",
+    "channel": "Next 9NEWS",
+    "published": "2026-09-29",
+    "durationSec": 211,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Sun amendment explained 2026\"",
+     "checks": [
+      "oEmbed: \"A simplified explanation of Amendment 84\" by Next 9NEWS",
+      "uploaded 2026-09-29",
+      "\"Amdt 84\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-87": [
+   {
+    "youtubeId": "FDImWoksgLw",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Amendment 87: Could Colorado's Income Tax Be Changing?",
+    "channel": "PBS12",
+    "published": "2026-10-12",
+    "durationSec": 412,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Amendment 87 graduated income tax\"",
+     "checks": [
+      "oEmbed: \"Amendment 87: Could Colorado's Income Tax Be Changing?\" by PBS12",
+      "uploaded 2026-10-12",
+      "\"Amdt 87\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "jI-HSKXPtAM",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Explaining 2 dueling Colorado ballot questions about income tax rates",
+    "channel": "Next 9NEWS",
+    "published": "2026-09-24",
+    "durationSec": 219,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Amendment 87 graduated income tax\"",
+     "checks": [
+      "oEmbed: \"Explaining 2 dueling Colorado ballot questions about income tax rates\" by Next 9NEWS",
+      "uploaded 2026-09-24",
+      "\"Amdt 87\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-136": [
+   {
+    "youtubeId": "jI-HSKXPtAM",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Explaining 2 dueling Colorado ballot questions about income tax rates",
+    "channel": "Next 9NEWS",
+    "published": "2026-09-24",
+    "durationSec": 219,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Proposition 136 income tax 2026\"",
+     "checks": [
+      "oEmbed: \"Explaining 2 dueling Colorado ballot questions about income tax rates\" by Next 9NEWS",
+      "uploaded 2026-09-24",
+      "\"Prop 136\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-nn": [
+   {
+    "youtubeId": "XIk1Iap6GM4",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Proposition NN explanation for the 2026 Colorado ballot",
+    "channel": "CBS Colorado",
+    "published": "2026-10-08",
+    "durationSec": 243,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado 2026 ballot measures explained\"",
+     "checks": [
+      "oEmbed: \"Proposition NN explanation for the 2026 Colorado ballot\" by CBS Colorado",
+      "uploaded 2026-10-08",
+      "\"Prop NN\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   },
+   {
+    "youtubeId": "vWHxHbpVqZ0",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part I | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-09-25",
+    "durationSec": 1839,
+    "startSec": 1000,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part I | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-09-25",
+      "transcript: 1006 \"John, so let's start out with Proposition NN.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-frprd-7a": [
+   {
+    "youtubeId": "2DvE1LQh2vc",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "7A ballot issue shows up on ballots where it shouldn't",
+    "channel": "9NEWS",
+    "published": "2026-10-08",
+    "durationSec": 285,
+    "evidence": {
+     "foundVia": "YouTube search \"Front Range Passenger Rail 7A\"",
+     "checks": [
+      "oEmbed: \"7A ballot issue shows up on ballots where it shouldn't\" by 9NEWS",
+      "uploaded 2026-10-08",
+      "\"7A\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-134": [
+   {
+    "youtubeId": "6anWDTndsDs",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-10-02",
+    "durationSec": 1814,
+    "startSec": 224,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part II | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-10-02",
+      "transcript: 224 \"we'll start with the male and female participation in school sports\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-135": [
+   {
+    "youtubeId": "6anWDTndsDs",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-10-02",
+    "durationSec": 1814,
+    "startSec": 297,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part II | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-10-02",
+      "transcript: 306 \"this measure would make it illegal for health care providers to essentially perform surgery on anyone under 18. And I mean the surgery, this gender-affirming surgery\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-133": [
+   {
+    "youtubeId": "6anWDTndsDs",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-10-02",
+    "durationSec": 1814,
+    "startSec": 358,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part II | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-10-02",
+      "transcript: 358 \"the proposal to increase penalties for human trafficking\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-132": [
+   {
+    "youtubeId": "6anWDTndsDs",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "‘The Great Colorado Ballot-O-Rama’: Part II | Purplish",
+    "channel": "Colorado Public Radio",
+    "published": "2026-10-02",
+    "durationSec": 1814,
+    "startSec": 608,
+    "evidence": {
+     "foundVia": "YouTube search \"CPR News Colorado ballot measure explained 2026\"",
+     "checks": [
+      "oEmbed: \"‘The Great Colorado Ballot-O-Rama’: Part II | Purplish\" by Colorado Public Radio",
+      "uploaded 2026-10-02",
+      "transcript: 620 \"So basically, this is a crackdown on fentanyl. It's a major increase in the punishment\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-81": [
+   {
+    "youtubeId": "FDqUOQhN_Ls",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Amendment 81 would require law enforcement to notify immigration officials in certain cases",
+    "channel": "CBS Colorado",
+    "published": "2026-10-06",
+    "durationSec": 145,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Amendment 81 immigration 2026\"",
+     "checks": [
+      "oEmbed: \"Amendment 81 would require law enforcement to notify immigration officials in certain cases\" by CBS Colorado",
+      "uploaded 2026-10-06",
+      "\"Amdt 81\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-85": [
+   {
+    "youtubeId": "eAgNcGrpWdk",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Amendment 85 would require ballot titles to be written at an eighth grade reading level",
+    "channel": "CBS Colorado",
+    "published": "2026-10-07",
+    "durationSec": 181,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Amendment 85 plain language ballot\"",
+     "checks": [
+      "oEmbed: \"Amendment 85 would require ballot titles to be written at an eighth grade reading level\" by CBS Colorado",
+      "uploaded 2026-10-07",
+      "\"Amdt 85\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-amendment-86": [
+   {
+    "youtubeId": "B0u9-yYBIOw",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Amendment 86 aims to prevent potential rigging of the congressional map",
+    "channel": "CBS Colorado",
+    "published": "2026-10-14",
+    "durationSec": 148,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Amendment 86 redistricting 2026\"",
+     "checks": [
+      "oEmbed: \"Amendment 86 aims to prevent potential rigging of the congressional map\" by CBS Colorado",
+      "uploaded 2026-10-14",
+      "\"Amdt 86\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-proposition-137": [
+   {
+    "youtubeId": "9o62PU2iiRk",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "Prop 137 diverts Colorado's current sporting goods sales tax money to conservation",
+    "channel": "CBS Colorado",
+    "published": "2026-10-13",
+    "durationSec": 237,
+    "evidence": {
+     "foundVia": "YouTube search \"Colorado Proposition 137 sporting goods conservation\"",
+     "checks": [
+      "oEmbed: \"Prop 137 diverts Colorado's current sporting goods sales tax money to conservation\" by CBS Colorado",
+      "uploaded 2026-10-13",
+      "\"Prop 137\" named in the title or description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "co26-m-larimer-1a": [
+   {
+    "youtubeId": "GSeVshbGbM8",
+    "kind": "explainer",
+    "origin": "independent",
+    "title": "LWVLC Gives Larimer County & Statewide Ballot Issues Presentation, 5 OCT 2026",
+    "channel": "League of Women Voters of Larimer County",
+    "published": "2026-10-07",
+    "durationSec": 4067,
+    "host": "League of Women Voters of Larimer County",
+    "startSec": 2916,
+    "evidence": {
+     "foundVia": "YouTube search \"Larimer County ballot issue 1A 2026\"",
+     "checks": [
+      "oEmbed: \"LWVLC Gives Larimer County & Statewide Ballot Issues Presentation, 5 OCT 2026\" by League of Women Voters of Larimer County",
+      "uploaded 2026-10-07",
+      "transcript: 2926 \"one is for larimer county so if you live in larimer county you got it so it is a new sales tax\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ]
+ }
 }

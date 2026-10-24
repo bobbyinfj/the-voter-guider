@@ -36,3 +36,30 @@ co26-mark-baisley | hRaPAmr3000 | interview | independent ; start=484 ; said=506
 # League of Women Voters forum, State House districts 52 and 53, 9/30/26, on the City of Fort Collins channel
 co26-house-52 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-steve-yurash@202,co26-yara-zokaie@309 ; said=212 "I'm Steve Urash with the Colorado" ; said=265 "my socialist opponent Yara Zokai's attack"
 co26-house-53 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-andy-boesenecker@401,co26-daniel-frick@497 ; said=188 "Andy Bazenecker" ; said=508 "I'm Daniel Frick."
+
+# Measures: local news explainers
+co26-m-amendment-82 | 565glUV-iNA | explainer | independent ; found=YouTube search "9NEWS explaining Colorado amendment 2026"
+co26-m-amendment-83 | OnzjoqgB9IU | explainer | independent ; found=YouTube search "Colorado Sun amendment explained 2026"
+co26-m-amendment-84 | 0ycivVO51mY | explainer | independent ; found=YouTube search "Colorado Sun amendment explained 2026"
+co26-m-amendment-87 | FDImWoksgLw | explainer | independent ; found=YouTube search "Colorado Amendment 87 graduated income tax"
+co26-m-amendment-87 | jI-HSKXPtAM | explainer | independent ; found=YouTube search "Colorado Amendment 87 graduated income tax"
+co26-m-proposition-136 | jI-HSKXPtAM | explainer | independent ; found=YouTube search "Colorado Proposition 136 income tax 2026"
+co26-m-proposition-nn | XIk1Iap6GM4 | explainer | independent ; found=YouTube search "Colorado 2026 ballot measures explained"
+co26-m-frprd-7a | 2DvE1LQh2vc | explainer | independent ; found=YouTube search "Front Range Passenger Rail 7A"
+
+# Colorado Public Radio's "Great Colorado Ballot-O-Rama" (Purplish), from where each measure starts;
+# quotes from our transcript of each episode
+co26-m-proposition-134 | 6anWDTndsDs | explainer | independent ; start=224 ; said=224 "we'll start with the male and female participation in school sports" ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-proposition-135 | 6anWDTndsDs | explainer | independent ; start=297 ; said=306 "this measure would make it illegal for health care providers to essentially perform surgery on anyone under 18. And I mean the surgery, this gender-affirming surgery" ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-proposition-133 | 6anWDTndsDs | explainer | independent ; start=358 ; said=358 "the proposal to increase penalties for human trafficking" ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-proposition-132 | 6anWDTndsDs | explainer | independent ; start=608 ; said=620 "So basically, this is a crackdown on fentanyl. It's a major increase in the punishment" ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-amendment-82 | vWHxHbpVqZ0 | explainer | independent ; start=379 ; said=387 "A right to natural gas, life, liberty, and the pursuit of natural gas." ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-proposition-nn | vWHxHbpVqZ0 | explainer | independent ; start=1000 ; said=1006 "John, so let's start out with Proposition NN." ; found=YouTube search "CPR News Colorado ballot measure explained 2026"
+co26-m-amendment-81 | FDqUOQhN_Ls | explainer | independent ; found=YouTube search "Colorado Amendment 81 immigration 2026"
+co26-m-amendment-85 | eAgNcGrpWdk | explainer | independent ; found=YouTube search "Colorado Amendment 85 plain language ballot"
+co26-m-amendment-86 | B0u9-yYBIOw | explainer | independent ; found=YouTube search "Colorado Amendment 86 redistricting 2026"
+co26-m-proposition-137 | 9o62PU2iiRk | explainer | independent ; found=YouTube search "Colorado Proposition 137 sporting goods conservation"
+co26-m-larimer-1a | GSeVshbGbM8 | explainer | independent ; host=League of Women Voters of Larimer County ; start=2916 ; said=2926 "one is for larimer county so if you live in larimer county you got it so it is a new sales tax" ; found=YouTube search "Larimer County ballot issue 1A 2026"
+co26-bob-chew | Mnh4Hcaxd0I | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
+co26-bob-chew | Nnnewd7f2aI | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
+co26-joe-neguse | dJlnOe3BVpA | interview | independent ; found=YouTube search "Joe Neguse 2026 interview"

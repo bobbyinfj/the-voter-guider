@@ -27,11 +27,21 @@ SLUGS = {'wa': 'wa-general-2026-11-03', 'co': 'co-general-2026-11-03', 'ca': 'ca
 YTDLP = os.environ.get('YTDLP', 'yt-dlp')
 TODAY = datetime.date.today().isoformat()
 MEETING_SINCE = '2025-10-01'  # same as build.py
+STOP_WORDS = {'a', 'an', 'and', 'the', 'of', 'for', 'to', 'in', 'on', 'or', 'with', 'by', 'certain', 'that', 'from'}
 
 
 def squash(s):
     s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower()
     return re.sub(r'[^a-z0-9]+', ' ', s).strip()
+
+
+def measure_words(text):
+    """'Proposition 1' and 'Prop. 1', 'Amdt 81' and 'Amendment 81', 'IP26-645' and 'I-645' read the same."""
+    t = squash(text)
+    t = re.sub(r'\bproposition\b', 'prop', t)
+    # Washington: filed as IP26-645 / IL26-638, talked about as I-645 / Initiative 638
+    t = re.sub(r'\b(?:i[pl]26|initiative)\s+0*(\d+)', r'i \1', t)
+    return re.sub(r'\bamdt\b', 'amendment', t)
 
 
 def oembed(video_id):
@@ -62,7 +72,8 @@ def approve(state):
     person = {c['id']: c['name'] for o in bundle['offices'] for c in o['candidates']}
     office_of = {c['id']: o['id'] for o in bundle['offices'] for c in o['candidates']}
     offices = {o['id'] for o in bundle['offices']}
-    measures = {m['id'] for m in bundle['measures']}
+    measures = {m['id']: m.get('number') or m['title'] for m in bundle['measures']}
+    measure_titles = {m['id']: m['title'] for m in bundle['measures']}
     path = HERE / f'{state}-videos.json'
     videos = json.loads(path.read_text())
     videos.setdefault('measures', {})
@@ -128,6 +139,19 @@ def approve(state):
             if k in o:
                 entry[f'{k}Sec'] = int(o[k][0])
         people = []
+        if group == 'measures':
+            label = measure_words(measures[owner])
+            # A quote names the measure by number, or uses two or more words of its official title
+            # (reporters often say "the fentanyl proposal", not "Proposition 132")
+            title_words = set(squash(measure_titles[owner]).split()) - STOP_WORDS
+            quoted = [q for q in o.get('said', []) if (m := re.fullmatch(r'(\d+)\s+"(.+)"', q)) and said_at(vid, int(m[1]), m[2])
+                      and (f' {label} ' in f' {measure_words(m[2])} ' or len(title_words & set(squash(m[2]).split())) >= 2)]
+            if f' {label} ' in f' {measure_words(text)} ':
+                checks.append(f'"{measures[owner]}" named in the title or description')
+            elif quoted:
+                checks.append(f'transcript: {quoted[0]}')
+            else:
+                errors.append(f'{where}: {measures[owner]} not named in the video or a checked quote'); continue
         if 'clips' in o:
             export = json.loads((HERE / o['clips'][0]).read_text())
             clip = next((c for c in export.get('clips', []) if c['youtubeId'] == vid), None)
