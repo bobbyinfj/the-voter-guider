@@ -22,23 +22,23 @@ export default function RacePositions({ people }: { people: BallotCandidate[] })
             {people.map((c) => {
               const stance = c.stances?.find((s) => s.issue.slug === slug)
               const source = stance?.sources.find((src) => isHttpUrl(src.url) && src.quote)
+              if (!stance || !source) return null
               return (
                 <li key={c.id} className="text-xs leading-snug">
-                  <span className="font-semibold">{c.name}:</span>{' '}
-                  {stance && source ? (
-                    <>
-                      “{source.quote}”{' '}
-                      <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 text-blue-700 underline">
-                        {source.title ?? 'Source'} <ExternalLink className="h-2.5 w-2.5" />
-                      </a>
-                    </>
-                  ) : (
-                    <span className="text-gray-500">no sourced position found</span>
-                  )}
+                  <span className="font-semibold">{c.name}:</span> “{source.quote}”{' '}
+                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 text-blue-700 underline">
+                    {source.title ?? 'Source'} <ExternalLink className="h-2.5 w-2.5" />
+                  </a>
                 </li>
               )
             })}
           </ul>
+          {(() => {
+            const none = people.filter((c) => !c.stances?.some((s) => s.issue.slug === slug && s.sources.some((src) => isHttpUrl(src.url) && src.quote)))
+            return none.length ? (
+              <p className="mt-1 text-xs text-gray-500">No sourced position found for {none.map((c) => c.name).join(', ')}.</p>
+            ) : null
+          })()}
         </div>
       ))}
     </div>

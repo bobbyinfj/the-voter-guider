@@ -306,7 +306,7 @@ export default function QuizPage() {
                   <p className="text-sm mb-4">
                     {state.question.topics.map((t) => (
                       <a key={t.slug} href={`/issues/${t.slug}`} target="_blank" rel="noopener" className="text-blue-700 underline mr-3">
-                        What the candidates said on {t.name.toLowerCase()} ↗
+                        What the candidates said: {t.name} ↗
                       </a>
                     ))}
                   </p>
@@ -343,7 +343,7 @@ export default function QuizPage() {
                 {state.selectedOption && (
                   <div className="mb-6">
                     <p className="text-sm text-gray-600 mb-2 font-medium">
-                      How much does {state.question.topics[0]?.name.toLowerCase() ?? "this"} matter to your vote? (optional)
+                      How much does this topic ({state.question.topics[0]?.name ?? "this question"}) matter to your vote? (optional)
                     </p>
                     <div className="flex gap-2">
                       {[
