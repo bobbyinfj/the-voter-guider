@@ -15,10 +15,10 @@ co26-secretary-of-state | DMB4Nljvx7Y | debate | independent ; host=Colorado Pol
 
 # Short debate clips (bites): 9NEWS's clips from its 10/15/26 debate whose title names both candidates
 # (clips titled about one candidate, often with the station's framing, are left out)
-co26-us-senate | jvouZvm0Wsw | debate | independent ; found=co-video-proposals.json (YouTube search) ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
-co26-us-senate | xX5HCePuHug | debate | independent ; found=co-video-proposals.json (YouTube search) ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
-co26-us-senate | xbNKc-nEzjQ | debate | independent ; found=co-video-proposals.json (YouTube search) ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
-co26-us-senate | wRJENYnLSZk | debate | independent ; found=co-video-proposals.json (YouTube search) ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
+co26-us-senate | jvouZvm0Wsw | debate | independent ; found=9NEWS channel search "Mark Baisley" ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
+co26-us-senate | xX5HCePuHug | debate | independent ; found=9NEWS channel search "Mark Baisley" ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
+co26-us-senate | xbNKc-nEzjQ | debate | independent ; found=YouTube search "Mark Baisley U.S. Senator 2026" ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
+co26-us-senate | wRJENYnLSZk | debate | independent ; found=9NEWS channel search "Mark Baisley" ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
 
 # One-on-one interviews (every candidate in these races was searched the same way)
 co26-kevin-grantham | VghI2Mn05PI | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
