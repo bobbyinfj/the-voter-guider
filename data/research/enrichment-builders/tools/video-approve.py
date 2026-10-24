@@ -79,6 +79,7 @@ def approve(state):
     videos.setdefault('measures', {})
     errors, added = [], 0
     meta = {}
+    picked = set()
 
     for n, raw in enumerate(open(HERE / f'{state}-video-picks.txt'), 1):
         raw = raw.strip()
@@ -91,6 +92,7 @@ def approve(state):
             k, v = opt.split('=', 1)
             o.setdefault(k.strip(), []).append(v.strip())
         where = f'line {n} ({owner} {vid})'
+        picked.add((owner, vid))
         group = 'candidates' if owner in person else 'races' if owner in offices else 'measures' if owner in measures else None
         if not group:
             errors.append(f'{where}: {owner} is not a candidate, office or measure'); continue
@@ -116,7 +118,11 @@ def approve(state):
                 m = re.fullmatch(r'(\d+)\s+"(.+)"', said)
                 if m and said_at(vid, int(m[1]), m[2]):
                     # Machine transcripts misspell names: a close spelling counts, and says so
-                    close = [w for w in squash(m[2]).split() if difflib.SequenceMatcher(None, w, last).ratio() >= 0.75]
+                    words = squash(m[2]).split()
+                    first = squash(re.sub(r'\(.*?\)', '', person[cid])).split()[0]
+                    # A looser spelling counts only next to their exact first name ("Anthony A.J. Bain")
+                    floor = 0.6 if first in words else 0.75
+                    close = [w for w in words if difflib.SequenceMatcher(None, w, last).ratio() >= floor]
                     if close:
                         spelled = '' if last in close else f' (transcribed as "{close[0]}")'
                         return f'transcript at {m[1]}s: "{m[2]}"{spelled}'
@@ -191,6 +197,18 @@ def approve(state):
 
     if errors:
         sys.exit('Refusing to write:\n  ' + '\n  '.join(errors))
+    # A pick taken out of the picks file comes out of the videos too (entries curated by hand
+    # before this tool have no evidence and are left alone)
+    for group in ('candidates', 'races', 'measures'):
+        for owner in list(videos[group]):
+            kept = [v for v in videos[group][owner] if 'evidence' not in v or (owner, v['youtubeId']) in picked]
+            for v in videos[group][owner]:
+                if v not in kept:
+                    print(f"removed {owner} {v['youtubeId']} (no longer in the picks file)")
+            if kept:
+                videos[group][owner] = kept
+            else:
+                del videos[group][owner]
     path.write_text(json.dumps(videos, indent=1, ensure_ascii=False) + '\n')
     print(f'{path.name}: {added} picks approved')
 

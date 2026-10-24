@@ -104,25 +104,6 @@
     "origin": "independent"
    },
    {
-    "youtubeId": "nr2mRUN1jAw",
-    "kind": "interview",
-    "origin": "independent",
-    "title": "Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas",
-    "channel": "VOZ",
-    "published": "2026-08-06",
-    "durationSec": 3611,
-    "evidence": {
-     "foundVia": "embedded on gloriajromero.com",
-     "checks": [
-      "oEmbed: \"Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas\" by VOZ",
-      "uploaded 2026-08-06",
-      "named in the title"
-     ],
-     "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
-    }
-   },
-   {
     "youtubeId": "uHFKHfI4aX0",
     "kind": "statement",
     "origin": "campaign",
@@ -547,9 +528,153 @@
      "verifiedAt": "2026-10-23"
     }
    }
+  ],
+  "ca26-alex-villanueva": [
+   {
+    "youtubeId": "1yaw5M2cOFk",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "\"Help is on the way\": Former L.A. County Sheriff Alex Villanueva Challenging Current Sheriff Luna",
+    "channel": "KTLA 5",
+    "published": "2026-10-20",
+    "durationSec": 745,
+    "evidence": {
+     "foundVia": "YouTube search \"LA County Sheriff debate 2026 Luna Villanueva\"",
+     "checks": [
+      "oEmbed: \"\"Help is on the way\": Former L.A. County Sheriff Alex Villanueva Challenging Current Sheriff Luna\" by KTLA 5",
+      "uploaded 2026-10-20",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
   ]
  },
- "races": {},
+ "races": {
+  "ca26-la-superior-64": [
+   {
+    "youtubeId": "zh-W4Flzx2c",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "2026 Election Judicial Forum and Midterm Review",
+    "channel": "csuDHTV",
+    "published": "2026-10-12",
+    "durationSec": 6223,
+    "host": "California State University, Dominguez Hills",
+    "participants": [
+     {
+      "id": "ca26-rhonda-a-haymon",
+      "startSec": 1893
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Los Angeles Superior Court judicial candidates forum 2026\"",
+     "checks": [
+      "oEmbed: \"2026 Election Judicial Forum and Midterm Review\" by csuDHTV",
+      "uploaded 2026-10-12",
+      "ca26-rhonda-a-haymon: transcript at 1905s: \"I'm Rhonda Heyman, and I'm running to bring balance to the bench\" (transcribed as \"heyman\")"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-la-superior-65": [
+   {
+    "youtubeId": "zh-W4Flzx2c",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "2026 Election Judicial Forum and Midterm Review",
+    "channel": "csuDHTV",
+    "published": "2026-10-12",
+    "durationSec": 6223,
+    "host": "California State University, Dominguez Hills",
+    "participants": [
+     {
+      "id": "ca26-justin-allen-clayton",
+      "startSec": 1976
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Los Angeles Superior Court judicial candidates forum 2026\"",
+     "checks": [
+      "oEmbed: \"2026 Election Judicial Forum and Midterm Review\" by csuDHTV",
+      "uploaded 2026-10-12",
+      "ca26-justin-allen-clayton: transcript at 1982s: \"My name is Justin Clayton, candidate for Superior Court Judge, Office Number 65.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-la-superior-87": [
+   {
+    "youtubeId": "zh-W4Flzx2c",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "2026 Election Judicial Forum and Midterm Review",
+    "channel": "csuDHTV",
+    "published": "2026-10-12",
+    "durationSec": 6223,
+    "host": "California State University, Dominguez Hills",
+    "participants": [
+     {
+      "id": "ca26-anthony-a-j-bayne",
+      "startSec": 2041
+     },
+     {
+      "id": "ca26-david-dejute",
+      "startSec": 2102
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Los Angeles Superior Court judicial candidates forum 2026\"",
+     "checks": [
+      "oEmbed: \"2026 Election Judicial Forum and Midterm Review\" by csuDHTV",
+      "uploaded 2026-10-12",
+      "ca26-anthony-a-j-bayne: transcript at 2045s: \"My name is Anthony A.J. Bain. I'm a criminal defense attorney\" (transcribed as \"bain\")",
+      "ca26-david-dejute: transcript at 2102s: \"David DeJude, I'm running for Superior Court Judge against AJ.\" (transcribed as \"dejude\")"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "ca26-la-superior-131": [
+   {
+    "youtubeId": "zh-W4Flzx2c",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "2026 Election Judicial Forum and Midterm Review",
+    "channel": "csuDHTV",
+    "published": "2026-10-12",
+    "durationSec": 6223,
+    "host": "California State University, Dominguez Hills",
+    "participants": [
+     {
+      "id": "ca26-david-ross",
+      "startSec": 2175
+     },
+     {
+      "id": "ca26-donna-tryfman",
+      "startSec": 2268
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Los Angeles Superior Court judicial candidates forum 2026\"",
+     "checks": [
+      "oEmbed: \"2026 Election Judicial Forum and Midterm Review\" by csuDHTV",
+      "uploaded 2026-10-12",
+      "ca26-david-ross: transcript at 2181s: \"My name is David Ross.\"",
+      "ca26-donna-tryfman: transcript at 2269s: \"My name is Donna Triffman.\" (transcribed as \"triffman\")"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ]
+ },
  "measures": {
   "ca26-m-prop-1": [
    {

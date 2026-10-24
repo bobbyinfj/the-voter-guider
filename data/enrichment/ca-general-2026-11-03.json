@@ -327,15 +327,6 @@
      "origin": "independent"
     },
     {
-     "youtubeId": "nr2mRUN1jAw",
-     "kind": "interview",
-     "origin": "independent",
-     "title": "Gloria Romero, la mexicoamericana que puede ser vicegobernadora de California | Gustavo Vargas",
-     "channel": "VOZ",
-     "published": "2026-08-06",
-     "durationSec": 3611
-    },
-    {
      "youtubeId": "uHFKHfI4aX0",
      "kind": "statement",
      "origin": "campaign",
@@ -1153,7 +1144,18 @@
       "shared": true
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "1yaw5M2cOFk",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "\"Help is on the way\": Former L.A. County Sheriff Alex Villanueva Challenging Current Sheriff Luna",
+     "channel": "KTLA 5",
+     "published": "2026-10-20",
+     "durationSec": 745
+    }
+   ]
   },
   "ca26-robert-luna": {
    "guide": {
@@ -1806,7 +1808,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 1893
+    }
+   ]
   },
   "ca26-anna-slotky-reitano": {
    "guide": {
@@ -1898,7 +1913,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 1976
+    }
+   ]
   },
   "ca26-anthony-a-j-bayne": {
    "guide": {
@@ -1938,7 +1966,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 2041
+    }
+   ]
   },
   "ca26-david-dejute": {
    "guide": {
@@ -1978,7 +2019,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 2102
+    }
+   ]
   },
   "ca26-donna-tryfman": {
    "guide": {
@@ -2018,7 +2072,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 2268
+    }
+   ]
   },
   "ca26-david-ross": {
    "guide": {
@@ -2058,7 +2125,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "startSec": 2175
+    }
+   ]
   },
   "ca26-pedro-antonio-casas": {
    "ethics": {
@@ -2328,6 +2408,118 @@
   }
  },
  "races": {
+  "ca26-la-superior-64": {
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "participants": [
+      {
+       "id": "ca26-rhonda-a-haymon",
+       "startSec": 1893
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
+    }
+   ]
+  },
+  "ca26-la-superior-65": {
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "participants": [
+      {
+       "id": "ca26-justin-allen-clayton",
+       "startSec": 1976
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
+    }
+   ]
+  },
+  "ca26-la-superior-87": {
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "participants": [
+      {
+       "id": "ca26-anthony-a-j-bayne",
+       "startSec": 2041
+      },
+      {
+       "id": "ca26-david-dejute",
+       "startSec": 2102
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
+    }
+   ]
+  },
+  "ca26-la-superior-131": {
+   "videos": [
+    {
+     "youtubeId": "zh-W4Flzx2c",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "2026 Election Judicial Forum and Midterm Review",
+     "channel": "csuDHTV",
+     "published": "2026-10-12",
+     "durationSec": 6223,
+     "host": "California State University, Dominguez Hills",
+     "participants": [
+      {
+       "id": "ca26-david-ross",
+       "startSec": 2175
+      },
+      {
+       "id": "ca26-donna-tryfman",
+       "startSec": 2268
+      }
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "LAist voter guide to this race",
+     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
+    }
+   ]
+  },
   "ca26-governor": {
    "links": [
     {
@@ -2429,38 +2621,6 @@
     {
      "label": "LAist voter guide to this race",
      "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-sheriff"
-    }
-   ]
-  },
-  "ca26-la-superior-64": {
-   "links": [
-    {
-     "label": "LAist voter guide to this race",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
-    }
-   ]
-  },
-  "ca26-la-superior-65": {
-   "links": [
-    {
-     "label": "LAist voter guide to this race",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
-    }
-   ]
-  },
-  "ca26-la-superior-87": {
-   "links": [
-    {
-     "label": "LAist voter guide to this race",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
-    }
-   ]
-  },
-  "ca26-la-superior-131": {
-   "links": [
-    {
-     "label": "LAist voter guide to this race",
-     "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-la-county-judges"
     }
    ]
   },
