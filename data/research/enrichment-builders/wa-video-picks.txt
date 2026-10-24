@@ -30,3 +30,13 @@ wa26-ld46-rep1 | pEfZRO2pi3o | interview | independent ; found=KUOW channel ; wi
 wa26-ld37-rep1 | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-kelabe-tewolde,wa26-sharon-tomiko-santos
 wa26-ld37-sen | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-tatiana-brown,wa26-chipalo-street
 wa26-adam-smith | mNHcgcVD-HY | interview | independent ; found=KUOW channel
+wa26-ld32-rep2 | 7qaNq5C5NW4 | forum | independent ; host=League of Women Voters of Snohomish County ; found=LWV Snohomish County channel ; with=wa26-imraan-siddiqi@158,wa26-lauren-davis@250 ; said=80 "Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui." ; said=161 "My name is Imran Siddiqui, and I'm running for position two."
+wa26-ld32-rep1 | IW2SbOo31Ho | forum | independent ; host=League of Women Voters of Snohomish County (primary forum) ; found=LWV Snohomish County channel ; with=wa26-danica-noble@269,wa26-keith-scully@473 ; said=92 "are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully."
+wa26-us-house-9 | BGQJqxnzvqw | interview | independent ; found=YouTube search "Doug Basler 2026 congress interview" ; with=wa26-adam-smith,wa26-doug-basler
+wa26-nirav-sheth | 4AHY4VrTBXg | interview | independent ; found=YouTube search "Nirav Sheth congress 2026"
+
+# Haller Lake Community Club candidates night, 9/11/26 (attendees as listed by the club)
+wa26-ld46-rep1 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-will-dreher,wa26-gerry-pollet
+wa26-ld46-rep2 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-darya-farivar,wa26-rodney-star-thornley
+wa26-ld46-sen | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-sandra-stephens
+wa26-us-house-7 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-nirav-sheth

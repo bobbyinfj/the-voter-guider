@@ -245,7 +245,28 @@
     ],
     "statement": "My goal is to create sustainable & affordable housing to solve homelessness, bringing law & order back to Seattle & cheaper cost of living for everyone. My name is Nirav Sheth."
    },
-   "website": "https://www.shethforcongress.com"
+   "website": "https://www.shethforcongress.com",
+   "videos": [
+    {
+     "youtubeId": "4AHY4VrTBXg",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "Nirav Sheth Interview",
+     "channel": "GSKA TV",
+     "published": "2026-06-25",
+     "durationSec": 1427
+    },
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
+    }
+   ]
   },
   "wa26-adam-smith": {
    "summary": {
@@ -734,6 +755,15 @@
      "channel": "KUOW",
      "published": "2026-09-29",
      "durationSec": 3074
+    },
+    {
+     "youtubeId": "BGQJqxnzvqw",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "WA 9th Congressional District candidates outline their priorities | FOX 13 Seattle",
+     "channel": "FOX 13 Seattle",
+     "published": "2026-10-20",
+     "durationSec": 114
     }
    ]
   },
@@ -760,7 +790,18 @@
     ],
     "statement": "I'm running for Congress because Washington families deserve more than another political revolution. We need an opportunity revolution. The Seattle area helped build some of the greatest companies in the world — Boeing, Microsoft, Starbucks, Amazon, Costco, and many more."
    },
-   "website": "https://dougbasler.com"
+   "website": "https://dougbasler.com",
+   "videos": [
+    {
+     "youtubeId": "BGQJqxnzvqw",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "WA 9th Congressional District candidates outline their priorities | FOX 13 Seattle",
+     "channel": "FOX 13 Seattle",
+     "published": "2026-10-20",
+     "durationSec": 114
+    }
+   ]
   },
   "wa26-david-hackney": {
    "summary": {
@@ -1783,6 +1824,17 @@
      "published": "2026-07-06",
      "durationSec": 822,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "IW2SbOo31Ho",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "Primary Election 2026: Legislative District 32 Position 1",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-07-17",
+     "durationSec": 4029,
+     "host": "League of Women Voters of Snohomish County (primary forum)",
+     "startSec": 473
     }
    ]
   },
@@ -1820,6 +1872,17 @@
      "published": "2026-07-08",
      "durationSec": 755,
      "origin": "independent"
+    },
+    {
+     "youtubeId": "IW2SbOo31Ho",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "Primary Election 2026: Legislative District 32 Position 1",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-07-17",
+     "durationSec": 4029,
+     "host": "League of Women Voters of Snohomish County (primary forum)",
+     "startSec": 269
     }
    ]
   },
@@ -2055,7 +2118,20 @@
       "kind": "official"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "7qaNq5C5NW4",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election LD 32 Position 2",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-10-14",
+     "durationSec": 2697,
+     "host": "League of Women Voters of Snohomish County",
+     "startSec": 250
+    }
+   ]
   },
   "wa26-imraan-siddiqi": {
    "summary": {
@@ -2285,7 +2361,20 @@
       "kind": "person"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "7qaNq5C5NW4",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election LD 32 Position 2",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-10-14",
+     "durationSec": 2697,
+     "host": "League of Women Voters of Snohomish County",
+     "startSec": 158
+    }
+   ]
   },
   "wa26-emily-alvarado": {
    "summary": {
@@ -4241,7 +4330,19 @@
     ],
     "statement": "From an early age I've wanted to help the most vulnerable among us. I'm a grandma that has raised seven children who loves our nation, and our Constitution. I believe in the sacredness of life, and the individual's freedom of conscience that is the bedrock of our society."
    },
-   "pamphletEndorsements": "I am proud of the endorsement I have received from the King County Republican Party."
+   "pamphletEndorsements": "I am proud of the endorsement I have received from the King County Republican Party.",
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
+    }
+   ]
   },
   "wa26-gerry-pollet": {
    "summary": {
@@ -4678,6 +4779,16 @@
      "channel": "KUOW",
      "published": "2026-09-21",
      "durationSec": 3095
+    },
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
     }
    ]
   },
@@ -4791,6 +4902,16 @@
      "channel": "KUOW",
      "published": "2026-09-21",
      "durationSec": 3095
+    },
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
     }
    ]
   },
@@ -4906,7 +5027,19 @@
       "kind": "official"
      }
     ]
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
+    }
+   ]
   },
   "wa26-rodney-star-thornley": {
    "summary": {
@@ -4931,7 +5064,19 @@
     ],
     "statement": "I'm running as an independent because Olympia needs a culture change. Too many elected officials fall in line with party leadership instead of focusing on the people they serve. I know this will be a steep climb as a first-time candidate, but I'm ready to do the work."
    },
-   "website": "https://rthornley.com"
+   "website": "https://rthornley.com",
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club"
+    }
+   ]
   },
   "wa26-colleen-melody": {
    "summary": {
@@ -15543,6 +15688,24 @@
        "id": "wa26-will-dreher"
       }
      ]
+    },
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club",
+     "participants": [
+      {
+       "id": "wa26-will-dreher"
+      },
+      {
+       "id": "wa26-gerry-pollet"
+      }
+     ]
     }
    ]
   },
@@ -15585,6 +15748,135 @@
       },
       {
        "id": "wa26-chipalo-street"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld32-rep2": {
+   "videos": [
+    {
+     "youtubeId": "7qaNq5C5NW4",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "2026 General Election LD 32 Position 2",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-10-14",
+     "durationSec": 2697,
+     "host": "League of Women Voters of Snohomish County",
+     "participants": [
+      {
+       "id": "wa26-imraan-siddiqi",
+       "startSec": 158
+      },
+      {
+       "id": "wa26-lauren-davis",
+       "startSec": 250
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld32-rep1": {
+   "videos": [
+    {
+     "youtubeId": "IW2SbOo31Ho",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "Primary Election 2026: Legislative District 32 Position 1",
+     "channel": "LWV Snohomish County Communications",
+     "published": "2026-07-17",
+     "durationSec": 4029,
+     "host": "League of Women Voters of Snohomish County (primary forum)",
+     "participants": [
+      {
+       "id": "wa26-danica-noble",
+       "startSec": 269
+      },
+      {
+       "id": "wa26-keith-scully",
+       "startSec": 473
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-us-house-9": {
+   "videos": [
+    {
+     "youtubeId": "BGQJqxnzvqw",
+     "kind": "interview",
+     "origin": "independent",
+     "title": "WA 9th Congressional District candidates outline their priorities | FOX 13 Seattle",
+     "channel": "FOX 13 Seattle",
+     "published": "2026-10-20",
+     "durationSec": 114,
+     "participants": [
+      {
+       "id": "wa26-adam-smith"
+      },
+      {
+       "id": "wa26-doug-basler"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld46-rep2": {
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club",
+     "participants": [
+      {
+       "id": "wa26-darya-farivar"
+      },
+      {
+       "id": "wa26-rodney-star-thornley"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-ld46-sen": {
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club",
+     "participants": [
+      {
+       "id": "wa26-sandra-stephens"
+      }
+     ]
+    }
+   ]
+  },
+  "wa26-us-house-7": {
+   "videos": [
+    {
+     "youtubeId": "Vx1tCpRr9R4",
+     "kind": "forum",
+     "origin": "civic",
+     "title": "HLCC September Meeting - Candidates Night 2026",
+     "channel": "Haller Lake Community Club",
+     "published": "2026-09-11",
+     "durationSec": 6794,
+     "host": "Haller Lake Community Club",
+     "participants": [
+      {
+       "id": "wa26-nirav-sheth"
       }
      ]
     }

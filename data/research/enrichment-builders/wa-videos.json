@@ -590,6 +590,27 @@
      "verifiedAt": "2026-10-23"
     }
    }
+  ],
+  "wa26-nirav-sheth": [
+   {
+    "youtubeId": "4AHY4VrTBXg",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "Nirav Sheth Interview",
+    "channel": "GSKA TV",
+    "published": "2026-06-25",
+    "durationSec": 1427,
+    "evidence": {
+     "foundVia": "YouTube search \"Nirav Sheth congress 2026\"",
+     "checks": [
+      "oEmbed: \"Nirav Sheth Interview\" by GSKA TV",
+      "uploaded 2026-06-25",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
   ]
  },
  "races": {
@@ -769,6 +790,35 @@
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"
     }
+   },
+   {
+    "youtubeId": "Vx1tCpRr9R4",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "HLCC September Meeting - Candidates Night 2026",
+    "channel": "Haller Lake Community Club",
+    "published": "2026-09-11",
+    "durationSec": 6794,
+    "host": "Haller Lake Community Club",
+    "participants": [
+     {
+      "id": "wa26-will-dreher"
+     },
+     {
+      "id": "wa26-gerry-pollet"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Darya Farivar Rodney Thornley\"",
+     "checks": [
+      "oEmbed: \"HLCC September Meeting - Candidates Night 2026\" by Haller Lake Community Club",
+      "uploaded 2026-09-11",
+      "wa26-will-dreher: named in the description",
+      "wa26-gerry-pollet: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
    }
   ],
   "wa26-ld37-rep1": [
@@ -827,6 +877,187 @@
       "uploaded 2026-10-03",
       "wa26-tatiana-brown: named in the description",
       "wa26-chipalo-street: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-ld32-rep2": [
+   {
+    "youtubeId": "7qaNq5C5NW4",
+    "kind": "forum",
+    "origin": "independent",
+    "title": "2026 General Election LD 32 Position 2",
+    "channel": "LWV Snohomish County Communications",
+    "published": "2026-10-14",
+    "durationSec": 2697,
+    "host": "League of Women Voters of Snohomish County",
+    "participants": [
+     {
+      "id": "wa26-imraan-siddiqi",
+      "startSec": 158
+     },
+     {
+      "id": "wa26-lauren-davis",
+      "startSec": 250
+     }
+    ],
+    "evidence": {
+     "foundVia": "LWV Snohomish County channel",
+     "checks": [
+      "oEmbed: \"2026 General Election LD 32 Position 2\" by LWV Snohomish County Communications",
+      "uploaded 2026-10-14",
+      "wa26-imraan-siddiqi: transcript at 80s: \"Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui.\" (transcribed as \"siddiqui\")",
+      "wa26-lauren-davis: transcript at 80s: \"Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-ld32-rep1": [
+   {
+    "youtubeId": "IW2SbOo31Ho",
+    "kind": "forum",
+    "origin": "independent",
+    "title": "Primary Election 2026: Legislative District 32 Position 1",
+    "channel": "LWV Snohomish County Communications",
+    "published": "2026-07-17",
+    "durationSec": 4029,
+    "host": "League of Women Voters of Snohomish County (primary forum)",
+    "participants": [
+     {
+      "id": "wa26-danica-noble",
+      "startSec": 269
+     },
+     {
+      "id": "wa26-keith-scully",
+      "startSec": 473
+     }
+    ],
+    "evidence": {
+     "foundVia": "LWV Snohomish County channel",
+     "checks": [
+      "oEmbed: \"Primary Election 2026: Legislative District 32 Position 1\" by LWV Snohomish County Communications",
+      "uploaded 2026-07-17",
+      "wa26-danica-noble: transcript at 92s: \"are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully.\"",
+      "wa26-keith-scully: transcript at 92s: \"are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully.\""
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-us-house-9": [
+   {
+    "youtubeId": "BGQJqxnzvqw",
+    "kind": "interview",
+    "origin": "independent",
+    "title": "WA 9th Congressional District candidates outline their priorities | FOX 13 Seattle",
+    "channel": "FOX 13 Seattle",
+    "published": "2026-10-20",
+    "durationSec": 114,
+    "participants": [
+     {
+      "id": "wa26-adam-smith"
+     },
+     {
+      "id": "wa26-doug-basler"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Doug Basler 2026 congress interview\"",
+     "checks": [
+      "oEmbed: \"WA 9th Congressional District candidates outline their priorities | FOX 13 Seattle\" by FOX 13 Seattle",
+      "uploaded 2026-10-20",
+      "wa26-adam-smith: named in the description",
+      "wa26-doug-basler: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-ld46-rep2": [
+   {
+    "youtubeId": "Vx1tCpRr9R4",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "HLCC September Meeting - Candidates Night 2026",
+    "channel": "Haller Lake Community Club",
+    "published": "2026-09-11",
+    "durationSec": 6794,
+    "host": "Haller Lake Community Club",
+    "participants": [
+     {
+      "id": "wa26-darya-farivar"
+     },
+     {
+      "id": "wa26-rodney-star-thornley"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Darya Farivar Rodney Thornley\"",
+     "checks": [
+      "oEmbed: \"HLCC September Meeting - Candidates Night 2026\" by Haller Lake Community Club",
+      "uploaded 2026-09-11",
+      "wa26-darya-farivar: named in the description",
+      "wa26-rodney-star-thornley: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-ld46-sen": [
+   {
+    "youtubeId": "Vx1tCpRr9R4",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "HLCC September Meeting - Candidates Night 2026",
+    "channel": "Haller Lake Community Club",
+    "published": "2026-09-11",
+    "durationSec": 6794,
+    "host": "Haller Lake Community Club",
+    "participants": [
+     {
+      "id": "wa26-sandra-stephens"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Darya Farivar Rodney Thornley\"",
+     "checks": [
+      "oEmbed: \"HLCC September Meeting - Candidates Night 2026\" by Haller Lake Community Club",
+      "uploaded 2026-09-11",
+      "wa26-sandra-stephens: named in the description"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-23"
+    }
+   }
+  ],
+  "wa26-us-house-7": [
+   {
+    "youtubeId": "Vx1tCpRr9R4",
+    "kind": "forum",
+    "origin": "civic",
+    "title": "HLCC September Meeting - Candidates Night 2026",
+    "channel": "Haller Lake Community Club",
+    "published": "2026-09-11",
+    "durationSec": 6794,
+    "host": "Haller Lake Community Club",
+    "participants": [
+     {
+      "id": "wa26-nirav-sheth"
+     }
+    ],
+    "evidence": {
+     "foundVia": "YouTube search \"Darya Farivar Rodney Thornley\"",
+     "checks": [
+      "oEmbed: \"HLCC September Meeting - Candidates Night 2026\" by Haller Lake Community Club",
+      "uploaded 2026-09-11",
+      "wa26-nirav-sheth: named in the description"
      ],
      "verifiedBy": "claude",
      "verifiedAt": "2026-10-23"
