@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Check, CheckCircle2, ChevronDown, CircleHelp, ExternalLink, Info, Link2, PlayCircle } from 'lucide-react'
 import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 import VideoFacade from '@/components/candidate/VideoFacade'
+import RacePositions from '@/components/candidate/RacePositions'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
@@ -695,6 +696,7 @@ function Enhancements({
             ))}
           </ul>
           )}
+          <RacePositions people={people} />
           {raceExtrasOf(item.metadata) && (
             // Beside the candidates, debates are already shown above them
             <RaceExtras extras={candidatesBeside ? { ...raceExtrasOf(item.metadata)!, videos: [] } : raceExtrasOf(item.metadata)!} compact />

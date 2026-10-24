@@ -5,7 +5,7 @@ import type { OfficeResult } from './types'
 
 export function verdictText(o: OfficeResult): { headline: string; detail: string; top: string | null } {
   const n = o.sharedQuestions
-  const basis = `${n} of your answer${n === 1 ? '' : 's'} where we have a sourced position from every candidate`
+  const basis = `${n} of your answer${n === 1 ? '' : 's'} where each candidate compared has a sourced position`
   if (o.verdict === 'match') {
     const top = o.rankedCandidates[0].candidate.name
     return { headline: `Closest match: ${top}`, detail: `Based on ${basis}.`, top }
@@ -13,12 +13,12 @@ export function verdictText(o: OfficeResult): { headline: string; detail: string
   if (o.verdict === 'too-close') {
     return { headline: 'Too close to call', detail: `The candidates agree with you about equally, based on ${basis}.`, top: null }
   }
+  const more = Math.max(MIN_SHARED_QUESTIONS - n, 1)
   return {
-    headline: 'Not enough sourced positions to suggest a match',
-    detail:
-      n === 0
-        ? "We don't have sourced positions from every candidate on any question you answered, so we won't guess."
-        : `Only ${basis} (we need at least ${MIN_SHARED_QUESTIONS}), so we won't guess.`,
+    headline: o.decidable ? `Answer ${more} more of its questions to compare` : 'Not enough sourced positions to compare',
+    detail: o.decidable
+      ? `A match needs at least ${MIN_SHARED_QUESTIONS} answers where each candidate compared has a sourced position.`
+      : `The candidates' sourced positions overlap on fewer than ${MIN_SHARED_QUESTIONS} questions.`,
     top: null,
   }
 }

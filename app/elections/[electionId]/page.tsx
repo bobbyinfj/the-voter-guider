@@ -44,7 +44,20 @@ export default async function ElectionPage({ params, searchParams }: Props) {
             select: {
               id: true,
               district: true,
-              candidates: { select: { id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true } },
+              candidates: {
+                select: {
+                  id: true, name: true, party: true, incumbent: true, shortBio: true, website: true, profile: true,
+                  // Sourced positions, for "Where they stand" in each race
+                  stances: {
+                    select: {
+                      position: true,
+                      summary: true,
+                      issue: { select: { slug: true, name: true } },
+                      sources: { select: { url: true, title: true, quote: true } },
+                    },
+                  },
+                },
+              },
             },
           },
         },
@@ -69,6 +82,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
   );
   const districtQuery = new URLSearchParams(selection as Record<string, string>).toString();
   const quizHref = `/elections/${electionId}/quiz${districtQuery ? `?${districtQuery}` : ""}`;
+  const stepHref = `/elections/${electionId}?${new URLSearchParams({ ...(selection as Record<string, string>), view: "step" })}`;
 
   // Your guide for this election: the checks on this ballot (if you've made any), and any
   // other guides you've started for it
@@ -107,13 +121,17 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           title={election.title}
           place={election.jurisdiction.name}
           aside={
-            <>
+            <div className="flex flex-col items-start gap-1.5 sm:items-end">
+              {/* A plain link: the ballot below opens "One at a time" from ?view=step */}
+              <a href={stepHref} className={outlineButton}>
+                Go through my ballot, one contest at a time
+              </a>
               {hasQuiz && (
-                <Link href={quizHref} className={outlineButton}>
-                  Take the quiz ({election.quiz?.questions.length} questions)
+                <Link href={quizHref} className="text-sm text-blue-700 hover:underline">
+                  Or take the issues quiz ({election.quiz?.questions.length} questions)
                 </Link>
               )}
-            </>
+            </div>
           }
         >
           {election.description && <p className="mt-2 max-w-3xl text-sm">{election.description}</p>}

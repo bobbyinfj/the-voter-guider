@@ -26,8 +26,11 @@ export default function HowWeScorePage() {
       <section id="video" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">🎥 Video</h2>
         <p>
-          An interview with the candidate from a nonpartisan series (in California, KCRA 3&apos;s California Politics
-          360; in Washington, League of Women Voters interviews and TVW / Seattle Channel video voters&apos; guides).
+          A video of the candidate speaking, and every video says who made it, most independent first:
+          <strong> Independent</strong> (news outlets and nonpartisan series like the League of Women Voters),
+          <strong> Civic forum</strong> (community groups that invited the candidates), <strong>Government</strong>{" "}
+          (public meetings, where only officeholders and people who spoke appear) and <strong>From the campaign</strong>{" "}
+          (the candidate&apos;s own video, from their website or channel). Forums start where that candidate speaks.
           Debates with everyone in the race show once, above the candidates, under &ldquo;Watch them together&rdquo;.
           Videos load from YouTube&apos;s privacy-enhanced player only when you press play.
         </p>

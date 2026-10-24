@@ -95,8 +95,18 @@ export default async function IssuePage({ params }: Props) {
                   <span className="text-green-600">Strongly agrees</span>
                 </div>
                 <div className="divide-y divide-gray-50">
-                  {stances.map((stance) => (
-                    <div key={stance.id} className="px-4 py-3 flex items-start gap-3">
+                  {stances
+                    .slice()
+                    .sort((a, b) => (a.candidate.office.sortOrder ?? 100) - (b.candidate.office.sortOrder ?? 100) || a.candidate.office.title.localeCompare(b.candidate.office.title) || b.position - a.position)
+                    .map((stance, i, all) => (
+                    <div key={stance.id}>
+                    {/* Who's running for what: a heading for each office */}
+                    {all[i - 1]?.candidate.office.id !== stance.candidate.office.id && (
+                      <p className="bg-gray-50 px-4 pt-2 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-600">
+                        {stance.candidate.office.title}
+                      </p>
+                    )}
+                    <div className="px-4 py-3 flex items-start gap-3">
                       <div className="w-5 flex-shrink-0" style={{ marginLeft: `${((stance.position + 2) / 4) * 80}%` }}>
                         <div className="w-2 h-2 rounded-full bg-blue-500 mt-1" />
                       </div>
@@ -132,6 +142,7 @@ export default async function IssuePage({ params }: Props) {
                           </div>
                         )}
                       </div>
+                    </div>
                     </div>
                   ))}
                 </div>

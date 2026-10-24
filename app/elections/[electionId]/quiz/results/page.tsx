@@ -79,24 +79,26 @@ export default function QuizResultsPage() {
             <div className="flex flex-wrap gap-2">
               {/* A full page load, so the ballot shows these results */}
               <a
-                href={`/elections/${electionId}`}
+                href={`/elections/${electionId}?view=step`}
                 className="px-4 py-2 bg-ballot-accent text-ballot-accent-ink text-sm font-bold hover:brightness-95"
               >
-                See my matches on my ballot
+                Go through my ballot with these matches
               </a>
-              <Link
-                href={`/elections/${electionId}/quiz?guideId=${guideId}`}
-                className="px-4 py-2 border-[1.5px] border-ballot-ink text-sm font-semibold hover:bg-ballot-head"
-              >
-                Continue quiz
-              </Link>
+              {results.questionsAnswered < results.totalQuestions && (
+                <Link
+                  href={`/elections/${electionId}/quiz?guideId=${guideId}`}
+                  className="px-4 py-2 border-[1.5px] border-ballot-ink text-sm font-semibold hover:bg-ballot-head"
+                >
+                  Answer the other {results.totalQuestions - results.questionsAnswered}
+                </Link>
+              )}
             </div>
           </div>
         </div>
 
         {/* Per-office results */}
         <div className="space-y-8">
-          {results.officeResults.map((officeResult) => (
+          {results.officeResults.filter((o) => o.decidable).map((officeResult) => (
             <div key={officeResult.officeId} id={`office-${officeResult.officeId}`} className="scroll-mt-4 border-[1.5px] border-ballot-ink bg-ballot-paper overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-800">{officeResult.officeTitle}</h2>
@@ -113,6 +115,12 @@ export default function QuizResultsPage() {
                 {officeResult.verdict === "not-enough" &&
                   " Below is what each candidate has said on the questions you answered, where we have a source."}
               </p>
+              {officeResult.notCompared.length > 0 && (
+                <p className="px-6 pt-1 text-xs text-gray-600">
+                  Not compared, because we found no sourced positions for them on these topics:{" "}
+                  {officeResult.notCompared.map((c) => c.name).join(", ")}.
+                </p>
+              )}
 
               <div className="divide-y divide-gray-50">
                 {officeResult.rankedCandidates.map((rc: RankedCandidate, idx) => {

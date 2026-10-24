@@ -505,18 +505,18 @@ async function seedElectionBundle(slug: string) {
       },
     });
 
-    // Replace options + question-issue links
-    await prisma.questionOption.deleteMany({ where: { questionId: question.id } });
+    // Update options in place by position: deleting one cascades to every user's answer that
+    // picked it (re-seeding production on 2026-10-23 wiped all saved quiz answers this way)
+    const existing = await prisma.questionOption.findMany({ where: { questionId: question.id } });
     for (const opt of qd.options) {
-      await prisma.questionOption.create({
-        data: {
-          questionId: question.id,
-          label: opt.label,
-          stanceValue: opt.stanceValue,
-          order: opt.order,
-        },
-      });
+      const data = { label: opt.label, stanceValue: opt.stanceValue, order: opt.order };
+      const same = existing.find((o) => o.order === opt.order);
+      if (same) await prisma.questionOption.update({ where: { id: same.id }, data });
+      else await prisma.questionOption.create({ data: { questionId: question.id, ...data } });
     }
+    await prisma.questionOption.deleteMany({
+      where: { questionId: question.id, order: { notIn: qd.options.map((o) => o.order) } },
+    });
 
     await prisma.questionIssue.deleteMany({ where: { questionId: question.id } });
     for (const qi of qd.issues) {

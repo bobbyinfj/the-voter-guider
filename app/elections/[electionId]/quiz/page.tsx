@@ -27,6 +27,9 @@ interface Question {
   helpText?: string;
   order: number;
   options: QuestionOption[];
+  // The topic(s) it's about, and the races on this ballot it helps compare
+  topics: { slug: string; name: string }[];
+  compares: string[];
 }
 
 interface QuizState {
@@ -35,7 +38,8 @@ interface QuizState {
   results: (QuizResults & { nextQuestionId: string | null }) | null;
   answeredIds: Set<string>;
   selectedOption: string | null;
-  importance: number;
+  // Nothing preselected; an answer saved without one counts as "Somewhat"
+  importance: number | null;
   loading: boolean;
   submitting: boolean;
   done: boolean;
@@ -52,6 +56,8 @@ export default function QuizPage() {
   const chosen = parseModules(searchParams.get("modules"));
   const modulesKey = chosen?.join(",") ?? "";
   const [modules, setModules] = useState<ModuleInfo[]>([]);
+  // What the quiz can compare on this ballot
+  const [scope, setScope] = useState<{ races: string[]; total: number }>({ races: [], total: 0 });
 
   const [state, setState] = useState<QuizState>({
     guideId: "",
@@ -59,7 +65,7 @@ export default function QuizPage() {
     results: null,
     answeredIds: new Set(),
     selectedOption: null,
-    importance: 1,
+    importance: null,
     loading: true,
     submitting: false,
     done: false,
@@ -88,6 +94,7 @@ export default function QuizPage() {
         if (!nextRes.ok) throw new Error("Could not load quiz");
         const nextData = await nextRes.json();
         setModules(nextData.modules ?? []);
+        setScope({ races: nextData.races ?? [], total: nextData.totalQuestions ?? 0 });
 
         setState((prev) => ({
           ...prev,
@@ -116,8 +123,14 @@ export default function QuizPage() {
     router.replace(`/elections/${electionId}/quiz${params.toString() ? `?${params}` : ""}`);
   };
 
-  const submitAnswer = async () => {
-    if (!state.selectedOption || !state.question || !state.guideId || state.submitting) return;
+  // "Not sure": saved as the middle answer with no weight, so it never moves a match and isn't asked again
+  const skip = () => {
+    const middle = state.question?.options.find((o) => o.stanceValue === 0);
+    if (middle) submitAnswer(middle.id, 0);
+  };
+
+  const submitAnswer = async (optionId = state.selectedOption, importance = state.importance ?? 1) => {
+    if (!optionId || !state.question || !state.guideId || state.submitting) return;
 
     setState((prev) => ({ ...prev, submitting: true }));
 
@@ -128,8 +141,8 @@ export default function QuizPage() {
         body: JSON.stringify({
           guideId: state.guideId,
           questionId: state.question.id,
-          optionId: state.selectedOption,
-          importance: state.importance,
+          optionId,
+          importance,
           modules: modulesKey || undefined,
         }),
       });
@@ -155,7 +168,7 @@ export default function QuizPage() {
         results: data,
         answeredIds: newAnswered,
         selectedOption: null,
-        importance: 1,
+        importance: null,
         submitting: false,
         done: !nextQuestion,
       }));
@@ -199,9 +212,24 @@ export default function QuizPage() {
             ← Back to election
           </Link>
           <h1 className="text-2xl font-bold text-gray-900 mt-2">Voter Quiz</h1>
-          <p className="text-gray-600 text-sm">
-            Answer as many questions as you like. Your results update live as you go.
-          </p>
+          {scope.races.length > 0 ? (
+            <p className="text-gray-700 text-sm">
+              These {scope.total} questions compare the candidates for {scope.races.join(", ")}: the races where
+              candidates&apos; sourced positions overlap enough to compare. For everything else on your ballot,{" "}
+              <a href={`/elections/${electionId}?view=step`} className="text-blue-700 underline">
+                go through it one contest at a time
+              </a>
+              .
+            </p>
+          ) : (
+            <p className="text-gray-700 text-sm">
+              No race on this ballot has enough sourced positions to compare candidates by quiz.{" "}
+              <a href={`/elections/${electionId}?view=step`} className="text-blue-700 underline">
+                Go through your ballot one contest at a time
+              </a>{" "}
+              to see each one&apos;s videos, statements and positions.
+            </p>
+          )}
           {modules.length > 1 && (
             <div className="mt-3 font-sans">
               <p className="mb-1.5 text-sm font-medium text-gray-700">Which parts of your ballot?</p>
@@ -236,27 +264,35 @@ export default function QuizPage() {
               <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-8 text-center">
                 <div className="text-5xl mb-4">🗳️</div>
                 <h2 className="text-xl font-bold text-gray-800 mb-2">
-                  {state.answeredIds.size === 0 ? "No questions yet" : "All done!"}
+                  {state.answeredIds.size === 0 ? "Nothing to ask here" : "That's every question"}
                 </h2>
                 <p className="text-gray-600 mb-6">
                   {state.answeredIds.size === 0
-                    ? "Something went wrong loading the quiz."
-                    : `You answered ${state.answeredIds.size} question${state.answeredIds.size !== 1 ? "s" : ""}.${
-                        chosen && chosen.length < modules.length ? " Turn on more parts above for more questions." : ""
-                      }`}
+                    ? "No race on your ballot can be compared by quiz."
+                    : chosen && chosen.length < modules.length
+                      ? "Turn on more parts above for more questions."
+                      : "Your matches now show beside each race as you go through your ballot."}
                 </p>
-                <button
-                  onClick={goToResults}
-                  className="px-6 py-3 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95 transition-colors"
-                >
-                  View full results
-                </button>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <a
+                    href={`/elections/${electionId}?view=step`}
+                    className="px-6 py-3 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95 transition-colors"
+                  >
+                    Go through my ballot
+                  </a>
+                  {state.answeredIds.size > 0 && (
+                    <button onClick={goToResults} className="px-6 py-3 border-[1.5px] border-ballot-ink font-semibold hover:bg-ballot-head">
+                      How each race compares
+                    </button>
+                  )}
+                </div>
               </div>
             ) : state.question ? (
               <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
                 {/* Question number */}
-                <div className="text-xs text-gray-400 mb-3 font-medium">
-                  Question {state.answeredIds.size + 1}
+                <div className="text-xs text-gray-500 mb-3 font-medium">
+                  Question {Math.min(state.answeredIds.size + 1, Math.max(scope.total, 1))} of {scope.total}
+                  {state.question.compares.length > 0 && <> · Compares candidates for {state.question.compares.join(", ")}</>}
                 </div>
 
                 {/* Prompt */}
@@ -264,31 +300,50 @@ export default function QuizPage() {
                   {state.question.prompt}
                 </h2>
                 {state.question.helpText && (
-                  <p className="text-sm text-gray-500 mb-4 italic">{state.question.helpText}</p>
+                  <p className="text-sm text-gray-600 mb-2">{state.question.helpText}</p>
+                )}
+                {state.question.topics.length > 0 && (
+                  <p className="text-sm mb-4">
+                    {state.question.topics.map((t) => (
+                      <a key={t.slug} href={`/issues/${t.slug}`} target="_blank" rel="noopener" className="text-blue-700 underline mr-3">
+                        What the candidates said: {t.name} ↗
+                      </a>
+                    ))}
+                  </p>
                 )}
 
                 {/* Options */}
-                <div className="space-y-2 mb-6">
-                  {state.question.options.map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => setState((prev) => ({ ...prev, selectedOption: opt.id }))}
-                      className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all text-sm ${
-                        state.selectedOption === opt.id
-                          ? "border-blue-500 bg-blue-50 text-blue-800 font-medium"
-                          : "border-gray-200 hover:border-gray-300 bg-white text-gray-700"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
+                <div role="radiogroup" aria-label="Your answer" className="space-y-2 mb-3">
+                  {state.question.options.map((opt) => {
+                    const on = state.selectedOption === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        role="radio"
+                        aria-checked={on}
+                        onClick={() => setState((prev) => ({ ...prev, selectedOption: opt.id }))}
+                        className={`flex w-full cursor-pointer items-center gap-3 text-left px-4 py-3 rounded-lg border-2 transition-all text-sm ${
+                          on ? "border-blue-600 bg-blue-50 text-blue-900 font-semibold" : "border-gray-300 hover:border-blue-400 hover:bg-blue-50/40 bg-white text-gray-800"
+                        }`}
+                      >
+                        <span aria-hidden className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${on ? "border-blue-600" : "border-gray-400"}`}>
+                          {on && <span className="h-2 w-2 rounded-full bg-blue-600" />}
+                        </span>
+                        {opt.label}
+                      </button>
+                    );
+                  })}
                 </div>
+                <button type="button" onClick={skip} disabled={state.submitting} className="mb-6 text-sm text-blue-700 underline disabled:opacity-50">
+                  Not sure yet: skip it (it won&apos;t count toward a match)
+                </button>
 
                 {/* Importance */}
                 {state.selectedOption && (
                   <div className="mb-6">
                     <p className="text-sm text-gray-600 mb-2 font-medium">
-                      How important is this issue to you?
+                      How much does this topic ({state.question.topics[0]?.name ?? "this question"}) matter to your vote? (optional)
                     </p>
                     <div className="flex gap-2">
                       {[
@@ -316,7 +371,7 @@ export default function QuizPage() {
                 {/* Submit */}
                 <div className="flex gap-3">
                   <button
-                    onClick={submitAnswer}
+                    onClick={() => submitAnswer()}
                     disabled={!state.selectedOption || state.submitting}
                     className="flex-1 py-3 px-6 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
