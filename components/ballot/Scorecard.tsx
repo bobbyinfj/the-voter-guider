@@ -185,6 +185,8 @@ function FlagCell({ candidate }: { candidate: BallotCandidate }) {
   return (
     <Cell how="flags" title={<><FlagIcon className="mr-0.5 inline h-3 w-3 align-[-1px]" />Flags</>}>
       {flags.length ? (
+        <>
+        <p className="mb-1 text-xs font-semibold">{flagCounts(flags)}</p>
         <ul className="space-y-1 text-xs leading-snug">
           {flags.map((f, i) => (
             <li key={`${f.rule}-${i}`} className="flex gap-1">
@@ -195,6 +197,7 @@ function FlagCell({ candidate }: { candidate: BallotCandidate }) {
             </li>
           ))}
         </ul>
+        </>
       ) : checked.length ? (
         <p className="text-xs leading-snug">
           <span className="font-semibold text-green-800">None found</span>{' '}
@@ -392,20 +395,48 @@ function BadgeCell({ candidate, badges }: { candidate: BallotCandidate; badges: 
 }
 
 // Hover text and chip text for each column, so the compact row says what the full card says
-function flagSummary(candidate: BallotCandidate) {
+// The flag takes the color of the worst finding: red, else yellow, else green when checks ran and
+// found nothing, else gray (nothing checked). The bubble counts flags, or the clean checks.
+const FLAG_COLORS = {
+  red: 'fill-red-600 text-red-700',
+  yellow: 'fill-amber-400 text-amber-600',
+  green: 'fill-green-600 text-green-700',
+  none: 'fill-gray-200 text-gray-400',
+}
+
+function ColoredFlag({ color }: { color: keyof typeof FLAG_COLORS }) {
+  return <FlagIcon className={`h-6 w-6 ${FLAG_COLORS[color]}`} strokeWidth={1.75} />
+}
+
+function flagCounts(flags: { level: string }[]): string {
+  const red = flags.filter((f) => f.level === 'red').length
+  const yellow = flags.length - red
+  return [red ? `${red} red` : '', yellow ? `${yellow} yellow` : ''].filter(Boolean).join(' · ')
+}
+
+function flagSummary(candidate: BallotCandidate): TileInfo {
   const { checked, flags } = flagsFor(candidate.profile)
-  if (flags.length)
+  if (flags.length) {
+    const red = flags.some((f) => f.level === 'red')
     return {
-      icon: '🚩',
+      icon: <ColoredFlag color={red ? 'red' : 'yellow'} />,
       value: String(flags.length),
-      label: `${flags.length} flag${flags.length > 1 ? 's' : ''}`,
-      tone: flags.some((f) => f.level === 'red') ? 'border-red-400 bg-red-50' : 'border-amber-400 bg-amber-50',
-      mark: flags.some((f) => f.level === 'red') ? 'bg-red-600 text-white' : 'bg-amber-400 text-amber-950',
+      label: `${flagCounts(flags)} flag${flags.length > 1 ? 's' : ''}`,
+      tone: red ? 'border-red-400 bg-red-50' : 'border-amber-400 bg-amber-50',
+      mark: red ? 'bg-red-600 text-white' : 'bg-amber-400 text-amber-950',
       hover: flags.map((f) => `${f.level === 'red' ? 'Red' : 'Yellow'}: ${f.text} (${f.source.label})`).join('\n'),
     }
+  }
   if (checked.length)
-    return { icon: '🚩', value: '✓', label: 'No flags found', tone: 'border-gray-200 bg-white', mark: 'bg-green-700 text-white', hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}` }
-  return { icon: '🚩', value: '–', label: 'No checks yet', tone: 'border-gray-200 bg-white opacity-60', mark: 'bg-gray-200 text-gray-700', hover: 'No flag checks cover this race yet' }
+    return {
+      icon: <ColoredFlag color="green" />,
+      value: String(checked.length),
+      label: `No flags in ${checked.length} check${checked.length > 1 ? 's' : ''}`,
+      tone: 'border-green-300 bg-green-50',
+      mark: 'bg-green-700 text-white',
+      hover: `None found. Checked: ${checked.map((r) => FLAG_RULES[r].check).join('; ')}`,
+    }
+  return { icon: <ColoredFlag color="none" />, value: '–', label: 'No checks yet', tone: 'border-gray-200 bg-white opacity-60', mark: 'bg-gray-200 text-gray-700', hover: 'No flag checks cover this race yet' }
 }
 
 function meterSummary(candidate: BallotCandidate, comparable: boolean) {
@@ -454,7 +485,7 @@ function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
 }
 
 interface TileInfo {
-  icon: string
+  icon: React.ReactNode
   value: string
   label: string
   tone: string
