@@ -96,9 +96,9 @@ race debates are buttons, not thumbnails, until chosen. Most people spend under 
 The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
 ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly
-False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies)
+False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies; below that the icon shows the raw count, e.g. "1/5"; a race where nobody has PolitiFact rulings or fact-checked claims gets no 💩 tile at all, `raceHasAnyFactChecks`)
 and 🏅 badges (published guides' picks from the comparison templates via `badgesFrom`, bar ratings, news
-guides' key endorsements, campaign-site endorsements). Measures get "Say Yes / Say No" badges.
+guides' key endorsements, campaign-site endorsements; the 🏅 tile counts badges plus endorsements, e.g. "1 badge · 105 endorsements"). Measures get "Say Yes / Say No" badges.
 Every part of the ballot is linkable: `#laccd-2` (contest: ballot id minus the election prefix),
 `#laccd-2--roy-payan` (candidate row), `#los-angeles-community-college-district` (every contest under
 one printed jurisdiction line), old `#contest-<ballot id>` links too (`resolveAnchor` in `ballot.ts`).

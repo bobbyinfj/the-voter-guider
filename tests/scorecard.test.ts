@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { badgesFrom, factCheckScore, flagsFor, raceHasFactChecks, type FactCheckRecord } from '@/lib/scorecard'
+import { badgesFrom, factCheckScore, flagsFor, raceHasAnyFactChecks, raceHasFactChecks, type FactCheckRecord } from '@/lib/scorecard'
 import type { NewsGuide, ProfileSnippet } from '@/lib/profile'
 
 const record = (counts: Partial<FactCheckRecord['counts']>): FactCheckRecord => ({
@@ -96,4 +96,13 @@ test('every FPPC fine is a yellow flag citing its release', () => {
   assert.equal(flags[0].level, 'yellow')
   assert.equal(flags[0].source.url, 'https://www.fppc.ca.gov/r')
   assert.match(flags[0].text, /\$200/)
+})
+
+test('a race gets a 💩 meter only when someone in it has been fact-checked', () => {
+  const none = { profile: snip({}) }
+  const ruled = { profile: snip({ factCheck: record({ false: 1 }) }) }
+  const claimed = { profile: snip({ claims: [{ claim: 'x', verdict: 'y', publisher: 'CapRadio', url: 'https://example.test' }] as never }) }
+  assert.equal(raceHasAnyFactChecks([none, none]), false)
+  assert.equal(raceHasAnyFactChecks([none, ruled]), true)
+  assert.equal(raceHasAnyFactChecks([claimed, { profile: null }]), true)
 })

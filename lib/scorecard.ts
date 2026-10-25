@@ -81,6 +81,12 @@ export interface EthicsRecord {
 
 // A share is only shown in a race when every candidate in it has enough rulings: one
 // candidate's 💩 % next to another's blank would read as a comparison it isn't
+// Whether anyone in the race has been fact-checked at all (PolitiFact rulings or a news fact-check of
+// a claim). Races where nobody has get no 💩 meter, rather than a row of blanks.
+export function raceHasAnyFactChecks(people: { profile?: ProfileSnippet | null }[]): boolean {
+  return people.some((c) => factCheckScore(c.profile?.factCheck).total > 0 || (c.profile?.claims.length ?? 0) > 0)
+}
+
 export function raceHasFactChecks(people: { profile?: ProfileSnippet | null }[]): boolean {
   return people.length > 1 && people.every((c) => factCheckScore(c.profile?.factCheck).pct !== null)
 }
