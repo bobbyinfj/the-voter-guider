@@ -93,7 +93,7 @@ hover title); clicking an icon opens just that column's card below the row, clic
 Videos follow bite / snack / meal (`videoTier`, `videoLadder` in `lib/profile.ts`): a bite is up to 2 min, a snack up to 10, a meal longer (or a
 forum part with no known end). Only a bite or snack plays up front, the most independent one (`leadRung`: a 1-minute meeting clip doesn't beat a 10-minute interview); buttons step to the next length ("Go deeper: ▶ Full forum · 1 h 44 min"), and long
 race debates are buttons, not thumbnails, until chosen. Most people spend under an hour on their whole ballot.
-The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. Columns: an interview video (debates with everyone in the race show once above, "Watch them
+The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. The 🚩 icon takes the worst finding's color (red, yellow, green when checks ran clean, gray when nothing was checked) with the count in its bubble. Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
 ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly
 False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies; below that the icon shows the raw count, e.g. "1/5"; a race where nobody has PolitiFact rulings or fact-checked claims gets no 💩 tile at all, `raceHasAnyFactChecks`)
