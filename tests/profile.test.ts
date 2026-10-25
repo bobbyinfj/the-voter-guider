@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
-import { formatDuration, initials, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
+import { formatDuration, initials, leadRung, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
 
 test('initials', () => {
   const i = (name: string, kind: 'org' | 'official' | 'media' | 'person') => initials({ name, kind })
@@ -114,4 +114,17 @@ test('videos: bite (≤2 min) leads into snack (≤10 min) into meal (longer or 
   assert.equal(formatDuration(9360), '2 h 36 min')
   assert.equal(formatDuration(7200), '2 h')
   assert.equal(formatDuration(400), '7 min')
+})
+
+test('the most independent bite or snack plays first, not just the shortest', () => {
+  const v = (youtubeId: string, durationSec: number, origin: CandidateVideo['origin']): CandidateVideo => ({
+    youtubeId, kind: 'interview', origin, title: youtubeId, channel: 'c', published: '2026-10-01', durationSec,
+  })
+  // A 1-minute council clip and a 10-minute school interview: the interview leads
+  const ladder = videoLadder([{ video: v('school', 576, 'civic') }, { video: v('meeting', 60, 'government') }])
+  assert.equal(ladder[leadRung(ladder)].video.youtubeId, 'school')
+  // Same origin: the shorter one
+  const same = videoLadder([{ video: v('long', 500, 'independent') }, { video: v('short', 60, 'independent') }])
+  assert.equal(same[leadRung(same)].video.youtubeId, 'short')
+  assert.equal(leadRung(videoLadder([{ video: v('forum', 9000, 'civic') }])), -1)
 })
