@@ -92,6 +92,10 @@ export default function HowWeScorePage() {
             they&apos;ve said.
           </li>
           <li>
+            The meter only appears in races where someone has been fact-checked; in a race nobody has, there&apos;s nothing to
+            show. Below a percentage, the icon shows the raw count (&ldquo;1/5&rdquo;: 1 of 5 rulings Mostly False or worse).
+          </li>
+          <li>
             Fewer than {FACTCHECK_MIN} rulings gets no percentage (&ldquo;too few to score&rdquo;), and no rulings is
             never shown as 0%.
           </li>

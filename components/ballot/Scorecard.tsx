@@ -23,6 +23,7 @@ import {
   RULING_LABELS,
   factCheckScore,
   flagsFor,
+  raceHasAnyFactChecks,
   raceHasFactChecks,
   type Badge,
   type FactCheckRecord,
@@ -415,11 +416,11 @@ function meterSummary(candidate: BallotCandidate, comparable: boolean) {
   if (fc && score.pct !== null && comparable)
     return { icon: '💩', value: `${score.pct}%`, label: `${score.pct}% Mostly False or worse`, tone: 'border-amber-700/40 bg-amber-50', mark: 'bg-amber-800 text-white', hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
   if (fc && score.total)
-    return { icon: '💩', value: '–', label: 'Not scored', tone: 'border-gray-200 bg-white', mark: 'bg-gray-200 text-gray-700', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
+    return { icon: '💩', value: `${score.falseish}/${score.total}`, label: `${score.falseish} of ${score.total} rated Mostly False or worse`, tone: 'border-amber-700/30 bg-white', mark: 'bg-amber-100 text-amber-950', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
   return {
     icon: '💩',
     value: claims ? `${claims}✓` : '–',
-    label: claims ? `${claims} claims fact-checked` : 'No PolitiFact rulings',
+    label: claims ? `${claims} debate claim${claims > 1 ? 's' : ''} fact-checked` : 'No PolitiFact rulings',
     tone: claims ? 'border-gray-300 bg-white' : 'border-gray-200 bg-white opacity-60',
     mark: 'bg-gray-200 text-gray-700',
     hover: `No PolitiFact rulings on them${extra}`,
@@ -436,10 +437,16 @@ function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
     ...(candidate.profile?.endorserTotal ? [`${candidate.profile.endorserTotal.toLocaleString()} endorsements on their site`] : []),
   ]
   const count = (candidate.incumbent ? 1 : 0) + (g?.rating ? 1 : 0) + badges.length
+  // Endorsements we can count: the campaign site's list, else the news guide's named ones
+  const endorsements = candidate.profile?.endorserTotal || g?.keyEndorsements?.length || 0
+  const parts = [
+    ...(count ? [`${count} badge${count > 1 ? 's' : ''}`] : []),
+    ...(endorsements ? [`${endorsements.toLocaleString()} endorsement${endorsements > 1 ? 's' : ''}`] : g?.endorsementsLine ? ['Endorsements'] : []),
+  ]
   return {
     icon: '🏅',
-    value: count ? String(count) : names.length ? '+' : '–',
-    label: count ? `${count} badge${count > 1 ? 's' : ''}` : names.length ? 'Endorsements' : 'No badges',
+    value: count + endorsements ? (count + endorsements).toLocaleString() : names.length ? '+' : '–',
+    label: parts.length ? parts.join(' · ') : 'No badges',
     tone: count || names.length ? 'border-sky-300 bg-sky-50' : 'border-gray-200 bg-white opacity-60',
     mark: count || names.length ? 'bg-sky-700 text-white' : 'bg-gray-200 text-gray-700',
     hover: names.length ? names.join('\n') : "No badges from our sources (that doesn't mean no endorsements)",
@@ -502,7 +509,7 @@ export function CandidateScorecard({
   const toggle = (section: Section) => setOpen((o) => (o === section ? null : section))
   const tiles: [Section, TileInfo][] = [
     ['flags', flagSummary(candidate)],
-    ['meter', meterSummary(candidate, comparable)],
+    ...(raceHasAnyFactChecks(race.office?.candidates ?? []) ? [['meter', meterSummary(candidate, comparable)] as [Section, TileInfo]] : []),
     ['badges', badgeSummary(candidate, badges)],
   ]
   const ladder = videoLadder(candidateVideos(candidate, race))
