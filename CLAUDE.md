@@ -91,7 +91,7 @@ and a button in each contest's info panel nudge toward Expanded.
 `/how-we-score`). Compact by default: their video (if any) beside the one-line summary, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
 hover title); clicking an icon opens just that column's card below the row, clicking it again closes it. No video means no video slot (never a "no video" placeholder).
 Videos follow bite / snack / meal (`videoTier`, `videoLadder` in `lib/profile.ts`): a bite is up to 2 min, a snack up to 10, a meal longer (or a
-forum part with no known end). Only a bite or snack plays up front; buttons step to the next length ("Go deeper: ▶ Full forum · 1 h 44 min"), and long
+forum part with no known end). Only a bite or snack plays up front, the most independent one (`leadRung`: a 1-minute meeting clip doesn't beat a 10-minute interview); buttons step to the next length ("Go deeper: ▶ Full forum · 1 h 44 min"), and long
 race debates are buttons, not thumbnails, until chosen. Most people spend under an hour on their whole ballot.
 The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that

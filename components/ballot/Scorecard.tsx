@@ -10,6 +10,7 @@ import {
   isHttpUrl,
   raceExtrasOf,
   sortVideos,
+  leadRung,
   videoLadder,
   videoTier,
   watchLength,
@@ -159,7 +160,7 @@ function VideoSteps({
   if (!ladder.length || (ladder.length === 1 && playing === 0)) return null
   return (
     <p className="mt-2 flex flex-wrap items-center gap-1.5 text-[0.6875rem]">
-      <span className="text-gray-600">{playing === null ? 'Watch:' : 'Go deeper:'}</span>
+      <span className="text-gray-600">{playing === null ? 'Watch:' : 'Also:'}</span>
       {ladder.map((pick, i) => (
         <button
           key={pick.video.youtubeId + i}
@@ -505,8 +506,11 @@ export function CandidateScorecard({
     ['badges', badgeSummary(candidate, badges)],
   ]
   const ladder = videoLadder(candidateVideos(candidate, race))
-  // A bite or snack plays up front; a meal only when you choose it
-  const [playing, setPlaying] = useState<number | null>(ladder.length && ladder[0].tier !== 'meal' ? 0 : null)
+  // The most independent bite or snack plays up front; a meal only when you choose it
+  const [playing, setPlaying] = useState<number | null>(() => {
+    const lead = leadRung(ladder)
+    return lead < 0 ? null : lead
+  })
   const current = playing === null ? null : ladder[playing]
   return (
     <div className="h-full space-y-2 bg-sky-50/60 px-3 py-2 font-sans print:hidden">

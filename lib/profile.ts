@@ -219,6 +219,17 @@ export function videoTier(pick: VideoPick): VideoTier {
   return len === undefined || len > SNACK_SEC ? 'meal' : len > BITE_SEC ? 'snack' : 'bite'
 }
 
+// Which rung plays up front: the most independent bite or snack (a 1-minute meeting clip shouldn't
+// beat a 10-minute interview), the shorter one on a tie. -1 when there are only meals.
+export function leadRung(ladder: (VideoPick & { tier: VideoTier })[]): number {
+  const rank = (p: VideoPick) => Math.max(0, ORIGIN_ORDER.indexOf(p.video.origin))
+  let best = -1
+  ladder.forEach((p, i) => {
+    if (p.tier !== 'meal' && (best < 0 || rank(p) < rank(ladder[best]))) best = i
+  })
+  return best
+}
+
 // The best video of each length, shortest first (a bite leads into a snack, a snack into a meal).
 // Picks come in preference order (most independent first) and keep it within a tier.
 export function videoLadder(picks: VideoPick[]): (VideoPick & { tier: VideoTier })[] {
