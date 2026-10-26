@@ -1093,7 +1093,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "MjiwuGU2B-w",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Long David Liu And Gloria Romero Promised That All Students  Would Be Treated Equally",
+     "channel": "Long David Liu for CA 49th Assembly District ",
+     "published": "2026-10-19",
+     "durationSec": 889,
+     "sourceUrl": "https://www.youtube.com/@liulaw",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
+    }
+   ]
   },
   "ca26-mike-fong": {
    "guide": {
@@ -1728,7 +1741,20 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "2aMhoZn6rqY",
+     "kind": "statement",
+     "origin": "campaign",
+     "title": "Andrea Gonzalez on why you should support Dr. Buelna's re-election campaign for Seat No. 6",
+     "channel": "Gabriel Buelna",
+     "published": "2026-09-17",
+     "durationSec": 77,
+     "sourceUrl": "https://www.youtube.com/@GabrielBuelna-sbc",
+     "sourceLabel": "The campaign's YouTube channel (linked from its website)"
+    }
+   ]
   },
   "ca26-maria-ghobadi": {
    "guide": {
