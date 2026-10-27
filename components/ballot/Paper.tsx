@@ -48,7 +48,7 @@ export function BallotHeader({
           {place && <p className="text-sm">{place}</p>}
           {children}
         </div>
-        {aside && <div className="flex shrink-0 flex-col gap-2">{aside}</div>}
+        {aside && <div className="flex min-w-0 max-w-full shrink-0 flex-col gap-2">{aside}</div>}
       </div>
       {styledAfter && (
         <p className="border-t border-gray-300 px-4 py-1 text-[0.6875rem] text-gray-600">
@@ -117,4 +117,4 @@ export function Extra({ children, className = '' }: { children: React.ReactNode;
 export const accentButton =
   'inline-flex items-center justify-center gap-1.5 bg-ballot-accent px-4 py-2 text-sm font-bold text-ballot-accent-ink hover:brightness-95 disabled:opacity-50'
 export const outlineButton =
-  'inline-flex items-center justify-center gap-1.5 border-[1.5px] border-ballot-ink bg-ballot-paper px-4 py-2 text-sm font-semibold hover:bg-ballot-head disabled:opacity-50'
+  'inline-flex items-center justify-center gap-1.5 border-[1.5px] border-ballot-ink bg-ballot-paper px-4 py-2 text-center text-sm font-semibold hover:bg-ballot-head disabled:opacity-50'

@@ -10,6 +10,7 @@ import BallotTracker from '@/components/BallotTracker'
 import DistrictPicker from '@/components/DistrictPicker'
 import { orderForBallot, type BallotItem } from '@/components/ballot/ballot'
 import { districtOptions, matchesSelection, parseDistrictSelection, scopesOf, type DistrictOption, type DistrictSelection } from '@/lib/districts'
+import type { DistrictMaps } from '@/lib/maps'
 import { useGuideEditor, type EditableGuide } from './useGuideEditor'
 import { useAccount } from './useAccount'
 import SaveStatus from './SaveStatus'
@@ -34,6 +35,7 @@ interface Props {
   badges?: BadgeMap | null
   // This page is one city's ballot: the city isn't offered in the picker
   city?: string | null
+  maps?: DistrictMaps | null
 }
 
 function savedDistricts(guide: EditableGuide | null): DistrictSelection {
@@ -69,6 +71,7 @@ export default function ElectionGuide({
   quiz,
   badges,
   city,
+  maps,
 }: Props) {
   const router = useRouter()
   const pathname = usePathname()
@@ -184,6 +187,7 @@ export default function ElectionGuide({
                   selection={districts}
                   lookupUrl={election.districtLookupUrl}
                   onChange={changeDistrict}
+                  maps={maps}
                 />
               </div>
             ) : null

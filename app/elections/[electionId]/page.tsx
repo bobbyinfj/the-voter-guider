@@ -10,6 +10,7 @@ import { BallotHeader, outlineButton } from "@/components/ballot/Paper";
 import { orderForBallot } from "@/components/ballot/ballot";
 import { cityLabel, cityPagesOf, districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 import ElectionGuide from "@/components/guide/ElectionGuide";
+import { districtMapsOf } from "@/lib/maps";
 import type { EditableGuide } from "@/components/guide/useGuideEditor";
 import { defaultKeyFor, getViewer, ownedBy } from "@/lib/owner";
 
@@ -224,6 +225,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           quiz={quiz}
           badges={badges}
           city={city}
+          maps={districtMapsOf(election.metadata)}
         />
       </div>
     </>
