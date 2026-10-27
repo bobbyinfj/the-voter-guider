@@ -143,3 +143,14 @@ test('judge evaluations: every Colorado retention question has one, credited and
   assert.equal(evaluationMeets(e), true)
   assert.equal(evaluationMeets({ ...e, recommendation: 'Does Not Meet Performance Standards' }), false)
 })
+
+test('judge biographies: every California retention question has its court biography, rating words from its sentence', () => {
+  const file = JSON.parse(readFileSync('data/enrichment/ca-general-2026-11-03.json', 'utf-8'))
+  const bundle = JSON.parse(readFileSync('data/elections/ca-general-2026-11-03.json', 'utf-8'))
+  for (const m of bundle.measures.filter((x: { type?: string }) => x.type === 'retention')) {
+    const e = file.measures[m.id]?.evaluation
+    assert.equal(e?.kind, 'biography', `${m.id} has no biography`)
+    assert.ok(isHttpUrl(e.source.url) && e.paragraphs.length, `${m.id}: source and text`)
+    if (e.ratingWords) assert.ok(e.rating.includes(e.ratingWords), `${m.id}: rating words come from the rating sentence`)
+  }
+})

@@ -2,7 +2,7 @@
 # Format and checks: see tools/video-approve.py. Quotes are from our Whisper transcripts
 # (cache/transcripts/<id>.json), at the second given; start= is where each candidate's part begins.
 
-# League of Women Voters forum for Larimer County offices, 10/8/26, on the City of Fort Collins channel
+# League of Women Voters forum for Larimer County offices, 10/7/26 (the channel first titled it 10/8), on the City of Fort Collins channel
 co26-larimer-commissioner-1 | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-shane-atkinson@289,co26-marc-roberson@363,co26-stephen-fowler@411 ; said=303 "My name is Shane Atkinson, and I'm running for Larimer County Commissioner, District 1." ; said=368 "my name is Mark Roberson" ; said=411 "I'm Stephen Fowler"
 co26-larimer-clerk | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-tina-harris@1670,co26-kenneth-forsythe@1766 ; said=1683 "My name is Tina Harris. I am the current Larimer County Clerk and Recorder." ; said=1778 "My name is Ken Forsythe."
 co26-larimer-treasurer | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-joann-ginal@2621,co26-steve-olson@2726 ; said=2607 "we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson."
