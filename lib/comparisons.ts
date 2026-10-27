@@ -1,10 +1,10 @@
 // Published voter guides people can compare their picks with (party slates, newspaper
-// editorial boards, the League of Women Voters, advocacy guides). Built by
+// editorial boards and columnists, the League of Women Voters, advocacy guides). Built by
 // data/research/comparison-builders/build.py into data/comparisons/<election slug>.json and
 // seeded as read-only template guides. Every pick carries its own source and a verbatim quote
 // from it; the build refuses a quote that isn't on the saved page.
 
-export type ComparisonKind = 'party' | 'editorial' | 'lwv' | 'advocacy'
+export type ComparisonKind = 'party' | 'editorial' | 'columnist' | 'lwv' | 'advocacy'
 export type Lean = 'left' | 'right'
 
 export interface ComparisonPick {
@@ -34,6 +34,7 @@ export interface ComparisonFile {
 export const KIND_LABELS: Record<ComparisonKind, string> = {
   party: 'Party endorsements',
   editorial: 'Newspaper editorial boards',
+  columnist: 'Newspaper columnists',
   lwv: 'League of Women Voters',
   advocacy: 'Advocacy guides',
 }

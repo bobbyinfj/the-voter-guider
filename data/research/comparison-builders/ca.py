@@ -79,6 +79,13 @@ lwvc = [
 ]  # Prop 40: "the League takes a neutral position", so no pick
 
 
+# ── Los Angeles Times editorial board ────────────────────────────────────────
+# The only 2026 ballot editorial linked from latimes.com/opinion or its editorials list
+# (latimes.com/topic/editorials) as of 2026-10-27. Its other picks, if any, aren't linked there.
+LAT_40 = 'https://www.latimes.com/opinion/story/2026-09-06/editorial-vote-no-on-proposition-40'
+latimes = [pick(prop(40), 'NO', LAT_40, 'Vote no on Prop. 40. It ignores education, housing and safety')]
+
+
 def lwvc_icons(texts):
     raw = texts[LWVC][0].decode('utf-8', 'replace')
     heads = [(m.start(), m.group(1)) for m in re.finditer(r'>\s*Proposition (\d+)\s*<', raw)]
@@ -101,4 +108,6 @@ GUIDES = [
          about="The state party's 2026 endorsements and proposition positions.", picks=cagop),
     dict(id='lwv-california', name='League of Women Voters of California', kind='lwv', url=LWVC,
          about='Nonpartisan; recommends on statewide propositions only, never candidates.', picks=lwvc, checks=[lwvc_icons]),
+    dict(id='la-times', name='Los Angeles Times editorial board', kind='editorial', url=LAT_40,
+         about='The one 2026 ballot editorial we found linked from the paper\'s opinion pages: Prop 40.', picks=latimes),
 ]
