@@ -64,3 +64,12 @@ ca26-hilda-solis | 6658KVVwDU0 | interview | independent ; found=YouTube search 
 # her; Kung, Leung and Lee have no Monterey Park meeting footage (counciloris export: 0 clips).
 ca26-long-david-liu | MjiwuGU2B-w | statement | campaign ; source=https://www.youtube.com/@liulaw ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
 ca26-gabriel-buelna | 2aMhoZn6rqY | statement | campaign ; source=https://www.youtube.com/@GabrielBuelna-sbc ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+
+# Viewpoint outlets (allowed from 2026-10-27, the user's call): one-host shows with a point of view, from
+# the 2026 uploads of each channel (Talking Downey, CrowdSourceCarrie, LA Progressive, KHTS "Politics and
+# the Pulpit"). Used only where a candidate has no other video, or where the host interviewed every
+# candidate in the race (Office 65). Talking Downey has no Bob Archuleta interview.
+ca26-araceli-martinez | yryUxeoSom0 | interview | viewpoint ; host=Talking Downey ; found=Talking Downey channel uploads
+ca26-maria-ghobadi | NeiECRTjFO0 | interview | viewpoint ; host=Talking Downey ; found=Talking Downey channel uploads
+ca26-justin-allen-clayton | dlYtZsOASEU | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads
+ca26-anna-slotky-reitano | Wv2eQl3ukb4 | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads

@@ -75,3 +75,7 @@ co26-joe-neguse | dJlnOe3BVpA | interview | independent ; found=YouTube search "
 # "Janice Marchman 2026"). The League of Women Voters of Boulder County's SD15 forum is from 2022 and
 # Woodward's channel has only 2022 uploads, so only Marchman's own channel has a 2026 video.
 co26-janice-marchman | _kZfn8SP614 | statement | campaign ; source=https://www.youtube.com/@JaniceMarchmanforColorado ; label=The campaign's YouTube channel (named for the candidate) ; found=YouTube search "Janice Marchman 2026"
+
+# Viewpoint outlets (allowed from 2026-10-27, the user's call). CO-2: the only 2026 video of Kelley Anne
+# Dennison found by name is Dr. Drew's interview; Gaylon Kent's channel has nothing from 2026.
+co26-kelley-anne-dennison | jJO9L2xOGb4 | interview | viewpoint ; host=Dr. Drew ; found=YouTube search "Kelley Dennison congress"

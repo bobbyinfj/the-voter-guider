@@ -30,9 +30,11 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
      named by the publisher or quoted from our transcript, with where each first speaks.
   2. `civic`: forums by community groups (chambers, neighborhood councils, PTAs) that invited
      every candidate in the race.
-  3. `government`: public-meeting clips (counciloris), picked by a fixed rule, with the
+  3. `viewpoint`: commentators and outlets with a point of view (podcasts, opinion sites, faith
+     programs), named by `host`. Allowed since 2026-10-27 (the user's call), ranked below civic forums.
+  4. `government`: public-meeting clips (counciloris), picked by a fixed rule, with the
      transcript link. They only exist for officeholders and people who spoke at a meeting.
-  4. `campaign`: the campaign's own videos, only when embedded or linked on its website or
+  5. `campaign`: the campaign's own videos, only when embedded or linked on its website or
      posted by a channel named for the candidate; `sourceUrl` says which.
   2026 uploads only (meeting clips: the past year). Never used: party or PAC videos, third-party
   attack ads, or anything with embedding turned off. Same searches for every candidate in a race

@@ -135,7 +135,7 @@ export default async function CandidatePage({ params }: Props) {
               ))}
             </div>
             <p className="mt-3 text-xs text-gray-600">
-              Most independent first: news outlets and nonpartisan series, then civic forums, public meeting records, and
+              Most independent first: news outlets and nonpartisan series, then civic forums, viewpoint outlets, public meeting records, and
               the campaign&apos;s own videos. Each one says who made it; click that label for what it means.
             </p>
           </section>

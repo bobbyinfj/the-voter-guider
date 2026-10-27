@@ -37,7 +37,7 @@
       "named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -89,7 +89,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -121,7 +121,7 @@
       "named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -186,7 +186,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -240,7 +240,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -272,7 +272,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -333,7 +333,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -360,7 +360,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -385,7 +385,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -412,7 +412,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -437,7 +437,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -457,7 +457,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -479,7 +479,27 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
+    }
+   },
+   {
+    "youtubeId": "Wv2eQl3ukb4",
+    "kind": "interview",
+    "origin": "viewpoint",
+    "title": "Anna Reitano,  Candidate for Los Angeles Superior Court Judge, Office 65",
+    "channel": "CrowdSourceCarrie",
+    "published": "2026-09-01",
+    "durationSec": 3797,
+    "host": "CrowdSourceCarrie",
+    "evidence": {
+     "foundVia": "CrowdSourceCarrie channel uploads",
+     "checks": [
+      "oEmbed: \"Anna Reitano,  Candidate for Los Angeles Superior Court Judge, Office 65\" by CrowdSourceCarrie",
+      "uploaded 2026-09-01",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -502,7 +522,7 @@
       "embedded on the campaign's site https://eleniforca.com (saved 2026-10-23)"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -525,7 +545,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -546,7 +566,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -567,7 +587,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -590,7 +610,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -613,7 +633,73 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
+    }
+   }
+  ],
+  "ca26-araceli-martinez": [
+   {
+    "youtubeId": "yryUxeoSom0",
+    "kind": "interview",
+    "origin": "viewpoint",
+    "title": "Araceli Martinez on Why She's Running for California State Senate | Talking Downey",
+    "channel": "Talking Downey",
+    "published": "2026-10-23",
+    "durationSec": 1596,
+    "host": "Talking Downey",
+    "evidence": {
+     "foundVia": "Talking Downey channel uploads",
+     "checks": [
+      "oEmbed: \"Araceli Martinez on Why She's Running for California State Senate | Talking Downey\" by Talking Downey",
+      "uploaded 2026-10-23",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-27"
+    }
+   }
+  ],
+  "ca26-maria-ghobadi": [
+   {
+    "youtubeId": "NeiECRTjFO0",
+    "kind": "interview",
+    "origin": "viewpoint",
+    "title": "Inside The Courtroom: Maria Ghobadi on Justice, Public Safety & Judicial Seat 64",
+    "channel": "Talking Downey",
+    "published": "2026-05-11",
+    "durationSec": 1828,
+    "host": "Talking Downey",
+    "evidence": {
+     "foundVia": "Talking Downey channel uploads",
+     "checks": [
+      "oEmbed: \"Inside The Courtroom: Maria Ghobadi on Justice, Public Safety & Judicial Seat 64\" by Talking Downey",
+      "uploaded 2026-05-11",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-27"
+    }
+   }
+  ],
+  "ca26-justin-allen-clayton": [
+   {
+    "youtubeId": "dlYtZsOASEU",
+    "kind": "interview",
+    "origin": "viewpoint",
+    "title": "Justin Clayton, Candidate for  Los Angeles Superior Court Judge, Office 65",
+    "channel": "CrowdSourceCarrie",
+    "published": "2026-08-28",
+    "durationSec": 2330,
+    "host": "CrowdSourceCarrie",
+    "evidence": {
+     "foundVia": "CrowdSourceCarrie channel uploads",
+     "checks": [
+      "oEmbed: \"Justin Clayton, Candidate for  Los Angeles Superior Court Judge, Office 65\" by CrowdSourceCarrie",
+      "uploaded 2026-08-28",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-27"
     }
    }
   ]
@@ -643,7 +729,7 @@
       "ca26-rhonda-a-haymon: transcript at 1905s: \"I'm Rhonda Heyman, and I'm running to bring balance to the bench\" (transcribed as \"heyman\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -671,7 +757,7 @@
       "ca26-justin-allen-clayton: transcript at 1982s: \"My name is Justin Clayton, candidate for Superior Court Judge, Office Number 65.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -704,7 +790,7 @@
       "ca26-david-dejute: transcript at 2102s: \"David DeJude, I'm running for Superior Court Judge against AJ.\" (transcribed as \"dejude\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -737,7 +823,7 @@
       "ca26-donna-tryfman: transcript at 2269s: \"My name is Donna Triffman.\" (transcribed as \"triffman\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ]
@@ -760,7 +846,7 @@
       "\"Prop 1\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -781,7 +867,7 @@
       "\"Prop 2\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -802,7 +888,7 @@
       "\"Prop 3\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -823,7 +909,7 @@
       "\"Prop 4\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -844,7 +930,7 @@
       "\"Prop 5\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -865,7 +951,7 @@
       "\"Prop 37\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -886,7 +972,7 @@
       "\"Prop 38\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -907,7 +993,7 @@
       "\"Prop 39\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -928,7 +1014,7 @@
       "\"Prop 40\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -949,7 +1035,7 @@
       "\"Prop 41\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -970,7 +1056,7 @@
       "\"Prop 42\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -991,7 +1077,7 @@
       "\"Prop 43\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1012,7 +1098,7 @@
       "\"Prop 44\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1033,7 +1119,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1055,7 +1141,7 @@
       "\"Measure A\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1077,7 +1163,7 @@
       "\"Measure E\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1100,7 +1186,7 @@
       "\"Measure HOM\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1123,7 +1209,7 @@
       "\"Measure AAA\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ]

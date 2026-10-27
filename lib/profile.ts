@@ -10,7 +10,7 @@ export interface Endorser {
 }
 
 // Who made a video, from outside questions to the candidate's own message (VIDEO_ORIGINS)
-export type VideoOrigin = 'independent' | 'civic' | 'government' | 'campaign'
+export type VideoOrigin = 'independent' | 'civic' | 'viewpoint' | 'government' | 'campaign'
 
 export interface CandidateVideo {
   youtubeId: string
@@ -150,6 +150,11 @@ export const VIDEO_ORIGINS: Record<VideoOrigin, { label: string; about: string }
     about:
       'Hosted by a community group (a chamber of commerce, neighborhood council or PTA) that invited every candidate in the race. The host picks the questions, and a forum audience can lean one way.',
   },
+  viewpoint: {
+    label: 'Viewpoint outlet',
+    about:
+      "Made by a commentator or outlet with a point of view (a podcast host, an opinion site, a faith program). They pick who to invite and what to ask, often only one candidate in the race gets on, and the questions can be friendly or hostile depending on the host.",
+  },
   government: {
     label: 'Government',
     about:
@@ -161,7 +166,7 @@ export const VIDEO_ORIGINS: Record<VideoOrigin, { label: string; about: string }
       "Made or posted by the candidate's own campaign. It's how they choose to present themselves: nobody else asked the questions or checked the claims.",
   },
 }
-export const ORIGIN_ORDER: VideoOrigin[] = ['independent', 'civic', 'government', 'campaign']
+export const ORIGIN_ORDER: VideoOrigin[] = ['independent', 'civic', 'viewpoint', 'government', 'campaign']
 
 // Most independent first, interviews ahead of the rest within each
 export function sortVideos(videos: CandidateVideo[]): CandidateVideo[] {
