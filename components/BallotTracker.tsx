@@ -57,6 +57,8 @@ interface BallotTrackerProps {
   election: { id: string; title: string; electionDate: string; jurisdiction: { name: string } }
   choices: Record<string, ChoiceValue>
   readOnly?: boolean
+  // Someone else's guide, opened from its share link
+  shared?: boolean
   // Shown above the ballot, e.g. the district picker
   setup?: React.ReactNode
   // Right side of the view row, e.g. "Saved on this device"
@@ -75,7 +77,8 @@ interface BallotTrackerProps {
 
 // 'step': one contest at a time, in ballot order, with everything we know about it open
 type Mode = 'ballot' | 'step' | 'review'
-// Remembered for this browser tab only: every visit starts on the 3-column ballot
+// Remembered for this browser tab only: every visit starts on the 3-column ballot, except shared
+// links (to part of the ballot, or someone else's guide), which open Expanded
 const DENSITY_KEY = 'voter-guider:view'
 const NUDGE_KEY = 'voter-guider:expanded-nudge'
 
@@ -87,6 +90,7 @@ export default function BallotTracker({
   election,
   choices,
   readOnly = false,
+  shared = false,
   setup,
   status,
   notice,
@@ -108,13 +112,18 @@ export default function BallotTracker({
   const jumpMenuRef = useRef<HTMLDetailsElement>(null)
   const toolbarRef = useRef<HTMLDivElement>(null)
 
-  // Per-tab preference; storage can be unavailable (private mode), which is fine
+  // Per-tab preference; storage can be unavailable (private mode), which is fine. Without one, a
+  // shared link opens Expanded so whoever follows it sees the scorecards, not just the names.
   useEffect(() => {
+    let saved: string | null = null
     try {
-      const saved = sessionStorage.getItem(DENSITY_KEY)
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
-      if (saved === 'expanded' || saved === 'basic') setDensity(saved)
+      saved = sessionStorage.getItem(DENSITY_KEY)
     } catch {}
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
+    if (saved === 'expanded' || saved === 'basic') setDensity(saved)
+    else if (shared || resolveAnchor(window.location.hash, ballots)) setDensity('expanded')
+    // Only on arrival: later hash changes are the voter moving around, not a new link
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const chooseDensity = (value: Density) => {
     setDensity(value)
