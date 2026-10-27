@@ -69,7 +69,7 @@ export function sharedVideos(race: BallotItem): CandidateVideo[] {
   return all.filter((v, i) => all.findIndex((w) => w.youtubeId === v.youtubeId) === i)
 }
 
-// Above the candidates: debates with everyone in them. Short ones as thumbnails; long ones (a meal)
+// Above the candidates: debates with everyone in them. Short ones as column-wide players; long ones (a meal)
 // as buttons with their length, playing only when chosen.
 export function RaceVideos({ race }: { race: BallotItem }) {
   const [chosen, setChosen] = useState<string | null>(null)
@@ -84,7 +84,7 @@ export function RaceVideos({ race }: { race: BallotItem }) {
       {shown.length > 0 && (
         <div className="flex snap-x gap-2 overflow-x-auto pb-1">
           {shown.map((v) => (
-            <div key={v.youtubeId} className="w-64 shrink-0 snap-start sm:w-72">
+            <div key={v.youtubeId} className={`shrink-0 snap-start ${shown.length > 1 ? 'w-[85%]' : 'w-full'}`}>
               <VideoFacade video={v} tiny />
             </div>
           ))}
@@ -516,10 +516,10 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
 
 type Section = 'flags' | 'meter' | 'badges' | 'more'
 
-// Beside one candidate's oval: their video (when we have one) next to the one-line summary, then a
-// row of its own with an icon per column (details on hover). Clicking an icon opens just that
-// column's card below the row; clicking it again closes it. "More" opens the news guide, statement
-// and notes.
+// Beside one candidate's oval: their video (when we have one) across the whole column, the one-line
+// summary under it, then a row of its own with an icon per column (details on hover). Clicking an
+// icon opens just that column's card below the row; clicking it again closes it. "More" opens the
+// news guide, statement and notes.
 export function CandidateScorecard({
   candidate,
   race,
@@ -553,12 +553,8 @@ export function CandidateScorecard({
   return (
     <div className="h-full space-y-2 bg-sky-50/60 px-3 py-2 font-sans print:hidden">
       {(current || summary || ladder.length > 0) && (
-        <div className={current ? 'grid gap-3 sm:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]' : ''}>
-          {current && (
-            <div className="min-w-0">
-              <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />
-            </div>
-          )}
+        <div className="space-y-2">
+          {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
           <div className="min-w-0">
             {summary}
             <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
