@@ -79,6 +79,9 @@ model Election {
   officialUrl       String?
   // Official "which district am I in?" lookup, shown next to the district picker
   districtLookupUrl String?
+  // { cities: { "<city id>": { title, description } } } for an election covering several cities,
+  // each shown as its own page (?city=<id>)
+  metadata          Json?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
