@@ -1,0 +1,65 @@
+name: Deploy data to production
+
+# Applies pending migrations and re-seeds the production database whenever data or the
+# schema changes on main, so nobody has to run `npm run seed` by hand. The seed is
+# idempotent (bundles are the source of truth) and keeps quiz option ids stable, so
+# saved answers survive it.
+#
+# Needs one repo secret, PROD_DATABASE_URL: the Neon *direct* (non "-pooler") URL.
+# migrate deploy takes an advisory lock that the pooler doesn't support.
+#
+# Vercel deploys main on its own, so a schema change can briefly go live before its
+# migration has run. Merge migration-only PRs first when that matters.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "prisma/**"
+  workflow_dispatch:
+    inputs:
+      status_only:
+        description: "Only back up and print `prisma migrate status`; don't migrate or seed"
+        type: boolean
+        default: true
+
+concurrency:
+  group: prod-db
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Back up, migrate, seed
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm ci --ignore-scripts
+      - run: npx prisma generate
+      - run: npm test
+
+      # The dump holds user accounts and quiz answers, so it never leaves this runner and is gone
+      # when the run ends. If a step below fails, restore from it with `pg_restore` over the
+      # job's debug shell, or go back to before this run with Neon's point-in-time restore.
+      - name: Back up the database
+        run: |
+          test -n "$DATABASE_URL" || { echo "PROD_DATABASE_URL secret is not set"; exit 1; }
+          docker run --rm -e URL="$DATABASE_URL" postgres:17 \
+            sh -c 'pg_dump --no-owner --format=custom "$URL"' > "$RUNNER_TEMP/prod.dump"
+          ls -l "$RUNNER_TEMP/prod.dump"
+
+      - run: npx prisma migrate status
+        # Exits non-zero when migrations are pending; that's what the next step is for
+        continue-on-error: true
+      - if: ${{ !inputs.status_only }}
+        run: npx prisma migrate deploy
+      - if: ${{ !inputs.status_only }}
+        run: npm run seed
