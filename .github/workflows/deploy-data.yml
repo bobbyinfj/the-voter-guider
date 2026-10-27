@@ -5,8 +5,10 @@ name: Deploy data to production
 # idempotent (bundles are the source of truth) and keeps quiz option ids stable, so
 # saved answers survive it.
 #
-# Needs one repo secret, PROD_DATABASE_URL: the Neon *direct* (non "-pooler") URL.
-# migrate deploy takes an advisory lock that the pooler doesn't support.
+# Needs two repo secrets:
+#   PROD_DATABASE_URL  the Neon *direct* (non "-pooler") URL; migrate deploy takes an advisory
+#                      lock that the pooler doesn't support.
+#   BACKUP_PASSPHRASE  encrypts the backup each run keeps (see "Back up the database").
 #
 # Vercel deploys main on its own, so a schema change can briefly go live before its
 # migration has run. Merge migration-only PRs first when that matters.
@@ -46,15 +48,31 @@ jobs:
       - run: npx prisma generate
       - run: npm test
 
-      # The dump holds user accounts and quiz answers, so it never leaves this runner and is gone
-      # when the run ends. Taking it proves the connection works before anything is written; to
-      # undo a bad run, use Neon's point-in-time restore to just before it.
+      # A backup before anything is written, kept as an encrypted run artifact for 30 days (GitHub
+      # deletes it after that, so storage rolls). The dump holds user accounts and quiz answers, so
+      # only the encrypted copy leaves the runner. To restore one:
+      #   gh run download <run-id> -n prod-db-backup
+      #   openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -in prod.dump.enc -out prod.dump
+      #   pg_restore --clean --no-owner -d "$URL" prod.dump
+      # Neon's point-in-time restore also works, within its history window.
       - name: Back up the database
+        env:
+          BACKUP_PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
         run: |
           test -n "$DATABASE_URL" || { echo "PROD_DATABASE_URL secret is not set"; exit 1; }
+          test -n "$BACKUP_PASSPHRASE" || { echo "BACKUP_PASSPHRASE secret is not set"; exit 1; }
           docker run --rm -e URL="$DATABASE_URL" postgres:17 \
             sh -c 'pg_dump --no-owner --format=custom "$URL"' > "$RUNNER_TEMP/prod.dump"
-          ls -l "$RUNNER_TEMP/prod.dump"
+          printf '%s' "$BACKUP_PASSPHRASE" | openssl enc -aes-256-cbc -pbkdf2 -iter 600000 -salt -pass stdin \
+            -in "$RUNNER_TEMP/prod.dump" -out "$RUNNER_TEMP/prod.dump.enc"
+          rm "$RUNNER_TEMP/prod.dump"
+          ls -l "$RUNNER_TEMP/prod.dump.enc"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: prod-db-backup
+          path: ${{ runner.temp }}/prod.dump.enc
+          retention-days: 30
+          if-no-files-found: error
 
       - run: npx prisma migrate status
         # Exits non-zero when migrations are pending; that's what the next step is for
