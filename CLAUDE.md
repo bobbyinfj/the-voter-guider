@@ -159,11 +159,15 @@ in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Bu
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`), plus more
 scopes in `scope` (seeded to `Ballot.metadata.scope`, read by `scopesOf`), e.g. `{ "city": "montebello" }`: an
 item shows only when every scope the voter picked matches. The CA election covers Monterey Park and Montebello
-this way; the picker asks for the city first, then offers only that city's districts, and a guide saved without a
-city takes the one city its picks belong to. The home page links each city (`?city=`).
+this way, each as its own page (`?city=<id>`, title and text from the bundle's `cities`, seeded to
+`Election.metadata.cities`; the bare election URL asks which city). A city page's picker offers only that
+city's districts, and a guide saved without a city takes the one city its picks belong to. The home page has a card per city.
 Unscoped items are on every ballot. The election page's district picker filters by URL
 params (`?congressional=7&legislative=43`); the quiz copies them into `Guide.metadata.districts`
-and only scores matching offices.
+and only scores matching offices. Under the picker, "See the district maps" draws each district type
+around the city (`components/DistrictMap.tsx`; tapping a district picks it) from `data/maps/<slug>.json`,
+built by `data/research/map-builders/districts.py` from the Census Bureau's TIGERweb and seeded to
+`Election.metadata.maps`; the source and retrieval date show under the maps.
 
 ## Running locally
 ```bash

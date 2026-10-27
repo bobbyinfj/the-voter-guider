@@ -4,7 +4,7 @@
 import { PrismaClient, Prisma } from "../generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
-import { readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync, readdirSync } from "fs";
 import { resolve } from "path";
 import { comparisonProblems, type ComparisonFile } from "../lib/comparisons";
 
@@ -172,6 +172,13 @@ async function seedElectionBundle(slug: string) {
   const electionData: ElectionFile = JSON.parse(readFileSync(electionPath, "utf-8"));
 
   console.log(`\n🗳️  Seeding ${electionData.title} (${slug})...`);
+  // Per-city pages, and district maps (data/maps, built by data/research/map-builders)
+  const mapsPath = resolve(dataRoot, "maps", `${slug}.json`);
+  const maps = existsSync(mapsPath) ? JSON.parse(readFileSync(mapsPath, "utf-8")) : null;
+  const electionMetadata =
+    electionData.cities || maps
+      ? { ...(electionData.cities && { cities: electionData.cities }), ...(maps && { maps: { base: maps.base, maps: maps.maps } }) }
+      : Prisma.DbNull;
 
   // 1. Upsert jurisdictions
   const stateJurisdiction = await prisma.jurisdiction.upsert({
@@ -216,7 +223,7 @@ async function seedElectionBundle(slug: string) {
       status: electionData.status,
       officialUrl: electionData.officialUrl,
       districtLookupUrl: electionData.districtLookupUrl ?? null,
-      metadata: electionData.cities ? { cities: electionData.cities } : Prisma.DbNull,
+      metadata: electionMetadata,
     },
     create: {
       id: electionData.electionId,
@@ -228,7 +235,7 @@ async function seedElectionBundle(slug: string) {
       status: electionData.status,
       officialUrl: electionData.officialUrl,
       districtLookupUrl: electionData.districtLookupUrl ?? null,
-      metadata: electionData.cities ? { cities: electionData.cities } : Prisma.DbNull,
+      metadata: electionMetadata,
     },
   });
   console.log("   ✅ Election upserted");

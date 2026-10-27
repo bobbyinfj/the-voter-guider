@@ -43,6 +43,12 @@ searching broadly.
    primary. Those only appear in the November county documents.
 3. Districts: check 5–15 real addresses per city with the Census geocoder. Redistricting moves seats
    (Monterey Park went to CA-28 under Prop 50). Never infer district geography.
+4. District maps: `map-builders/districts.py <st>` draws congressional and legislative districts
+   from TIGERweb (one fetch pattern for every state) around the city, and fails unless geocoded
+   addresses land in the districts the geocoder names. Add a state by adding a `SPECS` entry: the
+   city's Census place code, the district types, and those addresses. City/county council and
+   school districts aren't in TIGERweb; draw them only from the publisher's own GIS layer, never
+   from a PDF map (that would be tracing).
 
 ## 2. Measures
 

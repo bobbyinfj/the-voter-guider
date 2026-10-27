@@ -1,5 +1,5 @@
 {
- "about": "Every source tried for the 2026 general (WA, CA, CO): what it gives us, whether our robots-checked fetcher (comparison-builders/build.py fetch) may use it, and which builder reads it. Start a new election here: look for the same kind of source in the new state. `python3 tools/source-check.py` re-checks access for every entry. access: ok | robots-disallow (robots.txt blocks Claude-User) | robots-403 (robots.txt unreadable, so treated as a block) | http-403 (blocks plain fetches; never work around it) | none-found. Our rule (cb.robots_allow) needs Claude-User allowed, the agent the fetcher identifies as. Since 2026-10-27, blocks on only the ClaudeBot / anthropic-ai crawler agents (common on news and state sites) don't count: these are user-requested fetches, not crawls.",
+ "about": "Every source tried for the 2026 general (WA, CA, CO): what it gives us, whether our robots-checked fetcher (comparison-builders/build.py fetch) may use it, and which builder reads it. Start a new election here: look for the same kind of source in the new state. `python3 tools/source-check.py` re-checks access for every entry. access: ok | robots-disallow (robots.txt blocks Claude-User) | robots-403 (robots.txt unreadable, so treated as a block) | http-403 (blocks plain fetches; never work around it) | robots-400 (robots.txt answers 400; treated as a block) | none-found. Our rule (cb.robots_allow) needs Claude-User allowed, the agent the fetcher identifies as. Since 2026-10-27, blocks on only the ClaudeBot / anthropic-ai crawler agents (common on news and state sites) don't count: these are user-requested fetches, not crawls.",
  "kinds": {
   "ballot": "Who and what is on the ballot, in printed order (official)",
   "statements": "Candidates' own statements (official voters' pamphlet / guide)",
@@ -440,6 +440,31 @@
    "access": "ok",
    "builder": "bundle-builders",
    "notes": "Check a handful of real addresses per city: CA's Prop 50 map moved Monterey Park to CA-28.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "tigerweb",
+   "state": "US",
+   "kind": [
+    "district-geometry"
+   ],
+   "name": "U.S. Census Bureau TIGERweb",
+   "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb",
+   "access": "ok",
+   "builder": "map-builders/districts.py",
+   "notes": "District maps for every state: Legislative/MapServer has the 120th Congress (layer 0) and 2026 state legislative districts (1 upper, 2 lower), Jan 1 2026 vintage. Also city limits (Places .../4), primary roads, areal water. The Census geocoder names the same layers, so districts.py checks real addresses against the drawn shapes. Has no city council, county council or school districts.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "arcgis-online",
+   "state": "US",
+   "kind": [
+    "district-geometry"
+   ],
+   "name": "ArcGIS Online hosted layers (services.arcgis.com)",
+   "url": "https://services.arcgis.com/",
+   "access": "robots-400",
+   "notes": "Where most city and county open-data portals serve their layers (Seattle council districts ZOyb2t4B0UYuYNYH/Seattle_City_Council_Districts; King County council kccdst_wtrbdy on Ej0PsM5Aw677QF1W). Its robots.txt returns 400 'Invalid URL', which our rule counts as a block (only 404 counts as no robots.txt) — pending the user's decision (2026-10-27). King County's own gismaps.kingcounty.gov disallows /arcgis/.",
    "checked": "2026-10-27"
   },
   {
