@@ -54,6 +54,11 @@ data/
 `seedElectionBundles()` in `prisma/seed.ts` seeds every `data/elections/*.json`, plus the
 stances/quiz files with the same slug when they exist. To add a location, add a bundle and re-seed.
 
+### Doing a new election
+Start with `data/research/PLAYBOOK.md` (steps in order of value and cost) and `data/research/sources.json`
+(every source tried, with its access status). Re-check access first with `python3 data/research/tools/source-check.py`.
+Record each new source and its quirks there as you go.
+
 ### Transparency is the product
 Sourcing where information comes from is paramount. Every fact, summary, endorsement, pick,
 video or tally shown to a voter must say where it came from, visibly and next to the thing

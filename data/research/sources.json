@@ -1,0 +1,432 @@
+{
+ "about": "Every source tried for the 2026 general (WA, CA, CO): what it gives us, whether our robots-checked fetcher (comparison-builders/build.py fetch) may use it, and which builder reads it. Start a new election here: look for the same kind of source in the new state. `python3 tools/source-check.py` re-checks access for every entry. access: ok | robots-disallow (robots.txt blocks Claude's agents) | robots-403 (robots.txt unreadable, so treated as a block) | http-403 (blocks plain fetches; never work around it) | none-found. Our rule (cb.robots_allow) needs every Claude agent allowed, including the ClaudeBot / anthropic-ai crawler agents; several news and state sites block only those.",
+ "kinds": {
+  "ballot": "Who and what is on the ballot, in printed order (official)",
+  "statements": "Candidates' own statements (official voters' pamphlet / guide)",
+  "measure-text": "Measure summaries, fiscal impact, what a yes/no vote means (official)",
+  "judicial-evaluation": "An official body's evaluation of judges on retention questions",
+  "judicial-bio": "A court's own biography of a judge",
+  "bar-rating": "A bar association's rating of judicial candidates",
+  "news-guide": "A news outlet's voter guide or candidate coverage",
+  "slate": "A party, newspaper editorial board, League of Women Voters or advocacy group's picks",
+  "fact-check": "Fact-check records",
+  "lawyer-record": "State Bar discipline records",
+  "ethics": "Campaign-finance / ethics enforcement",
+  "video": "Candidate and measure videos",
+  "districts": "District geography"
+ },
+ "sources": [
+  {
+   "id": "wa-sos-pamphlet",
+   "state": "WA",
+   "kind": [
+    "statements",
+    "measure-text"
+   ],
+   "name": "WA Secretary of State voters' pamphlet (edition per county)",
+   "url": "https://www.sos.wa.gov/",
+   "access": "ok",
+   "builder": "enrichment-builders/pamphlet.py",
+   "notes": "PDF per edition (Seattle = Edition 04). Statement fields verbatim, page numbers recorded.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kc-sample-ballot",
+   "state": "WA",
+   "kind": [
+    "ballot"
+   ],
+   "name": "King County sample ballot",
+   "url": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf",
+   "access": "ok",
+   "builder": "sample-ballots/parse.py",
+   "notes": "Posted ~3 weeks before the election; races with no primary only appear here and in the local pamphlet.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kc-local-pamphlet",
+   "state": "WA",
+   "kind": [
+    "statements"
+   ],
+   "name": "King County Local Voters' Pamphlet",
+   "url": "https://cdn.kingcounty.gov/-/media/king-county/depts/elections/how-to-vote/voters-pamphlets/2026/11/local-edition.pdf",
+   "access": "ok",
+   "builder": "enrichment-builders/pamphlet.py",
+   "notes": "404s until ~3 weeks out (it did on 2026-10-04).",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kcba-ratings",
+   "state": "WA",
+   "kind": [
+    "bar-rating"
+   ],
+   "name": "King County Bar Association judicial candidate ratings",
+   "url": "https://www.kcba.org/?pg=Judicial-Candidate-Evaluation-Ratings",
+   "access": "ok",
+   "builder": "enrichment-builders/kcba.py",
+   "notes": "Year page linked from this one. Only contested races; most 2026 Supreme Court candidates didn't seek a rating (N/A). Also links WA minority/specialty bar ratings (Loren Miller, QLaw, Latina/o Bar, Washington Women Lawyers, Joint Asian Judicial Evaluations): not yet tried.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "votewa-races",
+   "state": "WA",
+   "kind": [
+    "ballot"
+   ],
+   "name": "VoteWA scheduled races",
+   "url": "https://voter.votewa.gov/ScheduledRaces.aspx",
+   "access": "ok",
+   "builder": null,
+   "notes": "Which offices are up, before candidate lists exist.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kuow",
+   "state": "WA",
+   "kind": [
+    "news-guide"
+   ],
+   "name": "KUOW",
+   "url": "https://www.kuow.org/",
+   "access": "robots-disallow",
+   "builder": null,
+   "notes": "Its YouTube videos (Soundside) are still usable as videos.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "seattle-times",
+   "state": "WA",
+   "kind": [
+    "slate",
+    "news-guide"
+   ],
+   "name": "Seattle Times",
+   "url": "https://www.seattletimes.com/",
+   "access": "robots-disallow",
+   "builder": null,
+   "notes": "robots.txt disallows ClaudeBot and anthropic-ai (2026-10-27).",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "wa-gop",
+   "state": "WA",
+   "kind": [
+    "slate"
+   ],
+   "name": "Washington State Republican Party / King County GOP",
+   "url": "https://wsrp.org/",
+   "access": "robots-disallow",
+   "builder": null,
+   "notes": "So no fair party pair for WA.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-sos-vig",
+   "state": "CA",
+   "kind": [
+    "statements",
+    "measure-text"
+   ],
+   "name": "CA Secretary of State Official Voter Information Guide",
+   "url": "https://voterguide.sos.ca.gov/",
+   "access": "robots-403",
+   "builder": "bundle-builders/ca.py (ca-props.json)",
+   "notes": "Proposition pages: summary, fiscal impact, what your vote means (ca-props.json, built earlier). robots.txt returned 403 on 2026-10-27, so a re-run would refuse.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-sos-vig-cdn",
+   "state": "CA",
+   "kind": [
+    "statements",
+    "judicial-bio"
+   ],
+   "name": "CA SOS voter guide PDFs (vig.cdn.sos.ca.gov)",
+   "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
+   "access": "robots-403",
+   "builder": "enrichment-builders/build.py (CA_GUIDE, cached earlier)",
+   "notes": "robots.txt returns S3 AccessDenied (2026-10-27), which our fetcher treats as a block. The candidate statements PDF in the cache predates that check: decide whether a missing-file 403 on a CDN counts as a block.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "lavote-isb",
+   "state": "CA",
+   "kind": [
+    "ballot"
+   ],
+   "name": "LA County Interactive Sample Ballot data",
+   "url": "https://isb.lavote.gov/",
+   "access": "ok",
+   "builder": "sample-ballots/lavote_isb.py",
+   "notes": "Sample ballots are per voter; the ISB JSON gives each ballot style.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-courts-bios",
+   "state": "CA",
+   "kind": [
+    "judicial-bio"
+   ],
+   "name": "California Supreme Court and Court of Appeal justices' biographies",
+   "url": "https://appellate.courts.ca.gov/district-courts/2dca/justices",
+   "access": "ok",
+   "builder": "enrichment-builders/judges.py ca",
+   "notes": "No official retention evaluation exists that we found. Bios of recent appointees quote the Judicial Nominees Evaluation Commission rating (10/18). Supreme Court list: https://supreme.courts.ca.gov/ . Confirmation releases on courts.ca.gov / newsroom.courts.ca.gov also allowed.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "lacba-ratings",
+   "state": "CA",
+   "kind": [
+    "bar-rating"
+   ],
+   "name": "Los Angeles County Bar Association judicial ratings",
+   "url": "https://lacba.org/docDownload/3141411",
+   "access": "ok",
+   "builder": "enrichment-builders/laist.py",
+   "notes": "Every LAist-reported rating is checked against it.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "laist",
+   "state": "CA",
+   "kind": [
+    "news-guide"
+   ],
+   "name": "LAist voter guides",
+   "url": "https://laist.com/news/politics/voter-guides/",
+   "access": "ok",
+   "builder": "enrichment-builders/laist.py",
+   "notes": "Per-race guides, statewide ones by CalMatters. Doesn't cover U.S. House 28 or Monterey Park city races.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "calmatters",
+   "state": "CA",
+   "kind": [
+    "news-guide",
+    "video"
+   ],
+   "name": "CalMatters voter guide",
+   "url": "https://calmatters.org/california-voter-guide-2026/",
+   "access": "ok",
+   "builder": "quiz-builders, enrichment-builders",
+   "notes": "Proposition explainer videos on its YouTube channel; Supreme Court retention page.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "calbar",
+   "state": "CA",
+   "kind": [
+    "lawyer-record"
+   ],
+   "name": "State Bar of California attorney search",
+   "url": "https://apps.calbar.ca.gov/attorney/",
+   "access": "ok",
+   "builder": "enrichment-builders/calbar.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "fppc",
+   "state": "CA",
+   "kind": [
+    "ethics"
+   ],
+   "name": "FPPC enforcement releases",
+   "url": "https://www.fppc.ca.gov/",
+   "access": "ok",
+   "builder": "enrichment-builders/fppc.py",
+   "notes": "Monthly releases since 2021, searched by name.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-parties",
+   "state": "CA",
+   "kind": [
+    "slate"
+   ],
+   "name": "California Democratic / Republican Party, LWV California",
+   "url": "https://lwvc.org/ballot-recs",
+   "access": "ok",
+   "builder": "comparison-builders/ca.py",
+   "notes": "cadem.org pages 403 to plain fetches; its PDF and the Riverside County Democratic Party relay work.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-papers",
+   "state": "CA",
+   "kind": [
+    "slate",
+    "news-guide"
+   ],
+   "name": "LA Times, SF Chronicle, Mercury News, SCNG papers",
+   "url": "https://www.latimes.com/",
+   "access": "robots-disallow",
+   "builder": null,
+   "notes": "Sacramento Bee: robots-403.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "counciloris",
+   "state": "CA",
+   "kind": [
+    "video"
+   ],
+   "name": "counciloris council-meeting clips (our own transcriber)",
+   "url": "https://www.youtube.com/@Counciloris",
+   "access": "ok",
+   "builder": "transcribe export-person-clips",
+   "notes": "Officeholders and public commenters only; challengers have none.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-sos-candidates",
+   "state": "CO",
+   "kind": [
+    "ballot"
+   ],
+   "name": "CO SOS certified candidate list",
+   "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+   "access": "robots-disallow",
+   "builder": "bundle-builders/co.py",
+   "notes": "robots.txt now disallows ClaudeBot and anthropic-ai (2026-10-27); the bundle was built from it earlier. The county sample ballot covers the same names.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-blue-book",
+   "state": "CO",
+   "kind": [
+    "measure-text"
+   ],
+   "name": "Colorado Blue Book (Legislative Council)",
+   "url": "https://content.leg.colorado.gov/",
+   "access": "ok",
+   "builder": "bundle-builders/co.py (co-measures.json)",
+   "notes": "The legislature's judicial evaluations PDF there was still the 2024 edition on 2026-10-27; use the OJPE site.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "larimer-sample-ballot",
+   "state": "CO",
+   "kind": [
+    "ballot"
+   ],
+   "name": "Larimer County sample ballot",
+   "url": "https://www.larimer.gov/sites/default/files/2026ge-larimer-county-sample-ballot.pdf",
+   "access": "ok",
+   "builder": "sample-ballots/parse.py",
+   "notes": "Fetched fine on 2026-10-20; plain fetches got 403 on 2026-10-27, so re-use the parsed sample-ballots/larimer.json.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-ojpe",
+   "state": "CO",
+   "kind": [
+    "judicial-evaluation"
+   ],
+   "name": "Colorado Office of Judicial Performance Evaluation",
+   "url": "https://judicialperformance.colorado.gov/2026-judicial-performance-evaluations-full-list",
+   "access": "ok",
+   "builder": "enrichment-builders/judges.py co",
+   "notes": "Our honest research user agent is served; WebFetch and curl's default agent get a CloudFront 403 (don't impersonate a browser to get past that). Every judge on the ballot, official recommendation + vote + narrative.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "vote411",
+   "state": "*",
+   "kind": [
+    "news-guide"
+   ],
+   "name": "League of Women Voters VOTE411",
+   "url": "https://www.vote411.org/",
+   "access": "ok",
+   "builder": "enrichment-builders (links only)",
+   "notes": "Terms forbid automated access and copying: link each race, never copy answers.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-papers",
+   "state": "CO",
+   "kind": [
+    "slate",
+    "news-guide"
+   ],
+   "name": "Denver Post, Colorado Sun",
+   "url": "https://coloradosun.com/",
+   "access": "robots-disallow",
+   "builder": null,
+   "notes": "Coloradoan and LWV Colorado: robots-403. Colorado Politics allows us (its judges guide is usable as news).",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "cpr",
+   "state": "CO",
+   "kind": [
+    "news-guide",
+    "video"
+   ],
+   "name": "Colorado Public Radio",
+   "url": "https://www.cpr.org/",
+   "access": "robots-disallow",
+   "builder": "quiz-builders, enrichment-builders",
+   "notes": "Purplish ballot-measure episodes on YouTube (videos stay usable). robots.txt now disallows ClaudeBot and anthropic-ai (2026-10-27); quiz-builders fetched its articles earlier, so re-running them would now refuse.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "politifact",
+   "state": "*",
+   "kind": [
+    "fact-check"
+   ],
+   "name": "PolitiFact personality pages",
+   "url": "https://www.politifact.com/",
+   "access": "ok",
+   "builder": "enrichment-builders/politifact.py",
+   "notes": "robots.txt crawl delay 10 s, kept. Only pages whose bio names the state.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ballotpedia",
+   "state": "*",
+   "kind": [
+    "ballot",
+    "news-guide"
+   ],
+   "name": "Ballotpedia",
+   "url": "https://ballotpedia.org/California_Supreme_Court_elections,_2026",
+   "access": "ok",
+   "builder": null,
+   "notes": "Was blocking automated access earlier in October; on 2026-10-27 our research user agent got a page. Use it to orient (who's running, which races), and take facts from the official source it cites.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "census-geocoder",
+   "state": "*",
+   "kind": [
+    "districts"
+   ],
+   "name": "Census geocoder + state redistricting files",
+   "url": "https://geocoding.geo.census.gov/",
+   "access": "ok",
+   "builder": "bundle-builders",
+   "notes": "Check a handful of real addresses per city: CA's Prop 50 map moved Monterey Park to CA-28.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "youtube",
+   "state": "*",
+   "kind": [
+    "video"
+   ],
+   "name": "YouTube (oEmbed + yt-dlp)",
+   "url": "https://www.youtube.com/",
+   "access": "ok",
+   "builder": "enrichment-builders/tools/video-approve.py",
+   "notes": "yt-dlp needs the curl-cffi extra (pip install 'yt-dlp[default,curl-cffi]') for --impersonate; captions 429 from home IP, so download audio and transcribe with mlx_whisper.",
+   "checked": "2026-10-27"
+  }
+ ]
+}
