@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
-import { formatDuration, initials, leadRung, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
+import { evaluationMeets, formatDuration, initials, leadRung, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
 
 test('initials', () => {
   const i = (name: string, kind: 'org' | 'official' | 'media' | 'person') => initials({ name, kind })
@@ -127,4 +127,19 @@ test('the most independent bite or snack plays first, not just the shortest', ()
   const same = videoLadder([{ video: v('long', 500, 'independent') }, { video: v('short', 60, 'independent') }])
   assert.equal(same[leadRung(same)].video.youtubeId, 'short')
   assert.equal(leadRung(videoLadder([{ video: v('forum', 9000, 'civic') }])), -1)
+})
+
+test('judge evaluations: every Colorado retention question has one, credited and verbatim-shaped', () => {
+  const file = JSON.parse(readFileSync('data/enrichment/co-general-2026-11-03.json', 'utf-8'))
+  const bundle = JSON.parse(readFileSync('data/elections/co-general-2026-11-03.json', 'utf-8'))
+  const retentions = bundle.measures.filter((m: { type?: string }) => m.type === 'retention')
+  for (const m of retentions) {
+    const e = file.measures[m.id]?.evaluation
+    assert.ok(e, `${m.id} has no evaluation`)
+    assert.ok(isHttpUrl(e.source.url) && e.source.retrieved, `${m.id}: source`)
+    assert.ok(e.finding.includes(e.vote), `${m.id}: the vote comes from the finding`)
+  }
+  const e = { recommendation: 'Meets Performance Standards' } as Parameters<typeof evaluationMeets>[0]
+  assert.equal(evaluationMeets(e), true)
+  assert.equal(evaluationMeets({ ...e, recommendation: 'Does Not Meet Performance Standards' }), false)
 })
