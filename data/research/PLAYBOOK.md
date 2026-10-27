@@ -106,8 +106,10 @@ a candidate has nothing else or where the host interviewed everyone in the race.
 
 - Each PR: `npx tsc --noEmit --skipLibCheck`, `npm run lint`, `npm test`. Check it in a browser with
   Playwright against local Postgres (`voter-guider-pg` on :5433).
-- Merging a change under `data/**` or `prisma/**` runs `.github/workflows/deploy-data.yml`: a backup,
-  `migrate deploy`, then the seed, against prod. It needs the `PROD_DATABASE_URL` secret.
+- Merging a change under `data/**` or `prisma/**` runs `.github/workflows/deploy-data.yml`: an
+  encrypted backup (a run artifact, kept 30 days; the restore steps are in the workflow), `migrate
+  deploy`, then the seed, against prod. It needs the `PROD_DATABASE_URL` and `BACKUP_PASSPHRASE`
+  secrets.
 
 ## What we'd do differently next time
 
