@@ -299,6 +299,7 @@ function GuideView({ initial }: { initial: Guide }) {
             choices={choices}
             election={election}
             readOnly={!guide.isOwner}
+            shared={!guide.isOwner}
             status={
               guide.isOwner ? <SaveStatus state={editor.saveState} hasGuide signedIn={!!account?.email} /> : undefined
             }

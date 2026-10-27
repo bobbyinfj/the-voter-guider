@@ -88,9 +88,9 @@ notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` 
 what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the
 same default guide. Extra guides for an election live at `/guide/[id]`. **Copy for an AI** (toolbar; `helpRequestText` in `components/ballot/export.ts`) copies the ballot with "no clue yet" and ? contests first, their choices and the voter's notes, under a neutral request (explain, cite sources, don't say how to vote) to paste into Claude or another AI. Quiz questions have an "Ask Claude about it" link (`lib/quiz/ask.ts`), labeled as Claude's answer, not ours. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
-**Ballot view** (`basic`: 3-column replica, the default every visit; heading link/? icons show on hover) and
+**Ballot view** (`basic`: 3-column replica, the default every visit except shared links; heading link/? icons show on hover) and
 **Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
-stacked on a phone), toggled at the top of the ballot with a ? explainer. A dismissible banner (localStorage)
+stacked on a phone), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage); with no choice yet, a shared link (a `#contest` anchor, or someone else's guide at `/guide/<shareToken>`) opens Expanded. A dismissible banner (localStorage)
 and a button in each contest's info panel nudge toward Expanded.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
 `/how-we-score`). Compact by default: their video (if any) across the whole column with the one-line summary under it, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
