@@ -1,5 +1,5 @@
 # Re-checks access for every source in ../sources.json with the same rule the builders use
-# (comparison-builders/build.py robots_allow: robots.txt must allow Claude's agents; unreadable
+# (comparison-builders/build.py robots_allow: robots.txt must allow Claude-User; unreadable
 # robots.txt other than a 404 counts as a block) and prints any entry whose recorded `access`
 # no longer matches. Run it at the start of each new election, and after adding sources.
 #
