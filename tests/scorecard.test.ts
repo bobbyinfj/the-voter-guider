@@ -21,6 +21,8 @@ const snip = (extra: Partial<ProfileSnippet>): ProfileSnippet => ({
   claims: [],
   bar: null,
   ethics: null,
+  // As snippet() does: a news guide's bar rating is the candidate's bar rating
+  barRating: extra.guide?.rating ?? null,
   videos: [],
   ...extra,
 })

@@ -59,6 +59,7 @@ No US Senate, Governor or statewide executive races in WA in 2026.
 - Municipal Court Judge Pos 5: Gabe Rothstein vs Garmon Newsom
 - No Seattle measures on Nov ballot [S5]; Prop 1 library levy was the AUGUST ballot and passed (75%)
 
-## Not yet listed (no primary held; King County Nov local pamphlet not yet published as of 2026-10-04)
+## Races with no primary (added 2026-10-20)
+These were listed once King County published its November documents: candidates from the county's official sample ballot (https://cdn.kingcounty.gov/-/media/king-county/depts/elections/current-election/2026/11/sample-ballot.pdf), statements from its Local Voters' Pamphlet (https://cdn.kingcounty.gov/-/media/king-county/depts/elections/how-to-vote/voters-pamphlets/2026/11/local-edition.pdf). The notes below are from before then (2026-10-04).
 - [S6] VoteWA scheduled races for King County (https://voter.votewa.gov/ScheduledRaces.aspx?y=2026&c=17) shows these offices are up: Prosecuting Attorney (inc. Leesa Manion), Director of Elections (inc. Julie Wise), County Council D2 (4-year short & full term; appointed inc. Rhonda Lewis), D4 (inc. Jorge L. Barón — northwest Seattle), D6, D8; Seattle Municipal Court Judge Positions 1–7; King County Superior Court seats.
-- General-election candidate names for D4, Prosecutor, Elections Director, Muni Court 1–4/6–7: NOT VERIFIED — add once the King County local voters' pamphlet is published.
+- General-election candidate names for D4, Prosecutor, Elections Director, Muni Court 1–4/6–7: since taken from the sample ballot above.

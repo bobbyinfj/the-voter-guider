@@ -358,7 +358,7 @@ function BadgeCell({ candidate, badges }: { candidate: BallotCandidate; badges: 
   const p = candidate.profile
   const g = p?.guide
   const all: Badge[] = [
-    ...(g?.rating ? [{ by: g.rating.by, kind: 'rating' as const, label: `${g.rating.value} (bar assn.)`, url: g.rating.source.url }] : []),
+    ...(p?.barRating ? [{ by: p.barRating.by, kind: 'rating' as const, label: `${p.barRating.value} (bar assn.)`, url: p.barRating.source.url }] : []),
     ...badges,
   ]
   const named = g?.keyEndorsements ?? []
@@ -462,12 +462,12 @@ function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
   const g = candidate.profile?.guide
   const names = [
     ...(candidate.incumbent ? ['Incumbent'] : []),
-    ...(g?.rating ? [`${g.rating.value} (${g.rating.by})`] : []),
+    ...(candidate.profile?.barRating ? [`${candidate.profile.barRating.value} (${candidate.profile.barRating.by})`] : []),
     ...badges.map((b) => `Endorsed by ${b.by}`),
     ...((g?.keyEndorsements?.length || g?.endorsementsLine) ? [`Key endorsements, per ${g.source.publisher}: ${g.keyEndorsements?.slice(0, 4).join(', ') ?? g.endorsementsLine}`] : []),
     ...(candidate.profile?.endorserTotal ? [`${candidate.profile.endorserTotal.toLocaleString()} endorsements on their site`] : []),
   ]
-  const count = (candidate.incumbent ? 1 : 0) + (g?.rating ? 1 : 0) + badges.length
+  const count = (candidate.incumbent ? 1 : 0) + (candidate.profile?.barRating ? 1 : 0) + badges.length
   // Endorsements we can count: the campaign site's list, else the news guide's named ones
   const endorsements = candidate.profile?.endorserTotal || g?.keyEndorsements?.length || 0
   const parts = [

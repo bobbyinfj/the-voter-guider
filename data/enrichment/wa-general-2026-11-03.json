@@ -9293,7 +9293,17 @@
      "sourceUrl": "https://odonnellforjustice.com",
      "sourceLabel": "Shown on the campaign's website (the campaign's clip of TVW's debate)"
     }
-   ]
+   ],
+   "barRating": {
+    "by": "King County Bar Association",
+    "value": "Exceptionally Well Qualified",
+    "date": "Feb. 24, 2026",
+    "source": {
+     "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+     "retrieved": "2026-10-27"
+    }
+   }
   },
   "wa26-theo-angelis": {
    "summary": {
@@ -15224,7 +15234,17 @@
      "durationSec": 116,
      "origin": "independent"
     }
-   ]
+   ],
+   "barRating": {
+    "by": "King County Bar Association",
+    "value": "Well Qualified",
+    "date": "July 14, 2026",
+    "source": {
+     "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+     "retrieved": "2026-10-27"
+    }
+   }
   },
   "wa26-garmon-newsom": {
    "summary": {
@@ -15879,6 +15899,54 @@
        "id": "wa26-nirav-sheth"
       }
      ]
+    }
+   ]
+  },
+  "wa26-seattle-muni-5": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
+    }
+   ]
+  },
+  "wa26-supreme-1": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
+    }
+   ]
+  },
+  "wa26-supreme-3": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
+    }
+   ]
+  },
+  "wa26-supreme-4": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
+    }
+   ]
+  },
+  "wa26-supreme-5": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
+    }
+   ]
+  },
+  "wa26-supreme-7": {
+   "links": [
+    {
+     "label": "King County Bar Association's ratings for this race (N/A: not rated within the last three years)",
+     "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election"
     }
    ]
   }
