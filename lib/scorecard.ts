@@ -193,7 +193,7 @@ export function flagsFor(p: ProfileSnippet | null | undefined): { checked: FlagR
 // it was published
 export interface Badge {
   by: string
-  kind: 'party' | 'editorial' | 'lwv' | 'advocacy' | 'rating' | 'news'
+  kind: 'party' | 'editorial' | 'columnist' | 'lwv' | 'advocacy' | 'rating' | 'news'
   lean?: 'left' | 'right' | null
   label: string
   url: string | null

@@ -1,0 +1,199 @@
+{
+  "electionSlug": "co-general-2026-11-03",
+  "guides": [
+    {
+      "id": "co-cronin",
+      "name": "Tom Cronin (Colorado Politics)",
+      "kind": "columnist",
+      "url": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+      "retrieved": "2026-10-27",
+      "about": "Colorado Politics columnist; one of two writers giving their own verdicts on each measure in a shared column (\"news commentators who write about Colorado and national politics\").",
+      "picks": [
+        {
+          "ballot": "co26-m-amendment-81",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against: This should and probably will be defeated."
+        },
+        {
+          "ballot": "co26-m-amendment-82",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against. Not necessary."
+        },
+        {
+          "ballot": "co26-m-amendment-83",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against. Colorado is a hunting and fishing paradise"
+        },
+        {
+          "ballot": "co26-m-amendment-84",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against. Not needed and would wrongly disenfranchise some legitimate voters."
+        },
+        {
+          "ballot": "co26-m-amendment-85",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: For. This will easily pass and should pass."
+        },
+        {
+          "ballot": "co26-m-amendment-86",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against."
+        },
+        {
+          "ballot": "co26-m-proposition-nn",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: For."
+        },
+        {
+          "ballot": "co26-m-proposition-132",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: For. Sadly, this is needed."
+        },
+        {
+          "ballot": "co26-m-proposition-133",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against. Right direction, but the penalty is too severe."
+        },
+        {
+          "ballot": "co26-m-proposition-134",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: For. This will and should pass."
+        },
+        {
+          "ballot": "co26-m-proposition-135",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: For. This will and should pass"
+        },
+        {
+          "ballot": "co26-m-proposition-136",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against."
+        },
+        {
+          "ballot": "co26-m-proposition-137",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against."
+        },
+        {
+          "ballot": "co26-m-frprd-7a",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "CRONIN: Against. Too expensive for the return on investment."
+        }
+      ]
+    },
+    {
+      "id": "co-loevy",
+      "name": "Bob Loevy (Colorado Politics)",
+      "kind": "columnist",
+      "url": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+      "retrieved": "2026-10-27",
+      "about": "Colorado Politics columnist; one of two writers giving their own verdicts on each measure in a shared column (\"news commentators who write about Colorado and national politics\").",
+      "picks": [
+        {
+          "ballot": "co26-m-amendment-81",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. This issue should not be elevated into the Colorado state constitution."
+        },
+        {
+          "ballot": "co26-m-amendment-82",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. Does not belong in state constitution."
+        },
+        {
+          "ballot": "co26-m-amendment-83",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. Hunting and fishing in Colorado should be regulated by the state legislature and governor"
+        },
+        {
+          "ballot": "co26-m-amendment-84",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. Voting by mail is working well in Colorado as is and does not need to be changed."
+        },
+        {
+          "ballot": "co26-m-amendment-85",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. Keeping future ballot measures simple and readable is a good idea"
+        },
+        {
+          "ballot": "co26-m-amendment-86",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. Colorado currently has excellent procedures for redistricting"
+        },
+        {
+          "ballot": "co26-m-amendment-87",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. The large tax increase is unfairly concentrated on too small a group of taxpayers"
+        },
+        {
+          "ballot": "co26-m-proposition-nn",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. The need for money for public schools in Colorado is well known"
+        },
+        {
+          "ballot": "co26-m-proposition-132",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. Fentanyl overdoses are killing too many Coloradans."
+        },
+        {
+          "ballot": "co26-m-proposition-133",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. The new penalty of life in prison is too severe."
+        },
+        {
+          "ballot": "co26-m-proposition-134",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. People born as males should not participate in female sports."
+        },
+        {
+          "ballot": "co26-m-proposition-135",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. Minors are too young to decide on sex change operations."
+        },
+        {
+          "ballot": "co26-m-proposition-136",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. The state legislature and governor should set taxes at rates"
+        },
+        {
+          "ballot": "co26-m-proposition-137",
+          "pick": "NO",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: Against. These are all worthwhile activities"
+        },
+        {
+          "ballot": "co26-m-frprd-7a",
+          "pick": "YES",
+          "source": "https://www.coloradopolitics.com/2026/10/04/our-take-on-colorados-2026-ballot-measures-cronin-loevy-2/",
+          "quote": "LOEVY: For. The CoCo (Colorado Connector) rail passenger train will provide comfortable and frequent service"
+        }
+      ]
+    }
+  ]
+}

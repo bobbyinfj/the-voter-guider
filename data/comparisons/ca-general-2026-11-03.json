@@ -338,6 +338,22 @@
           "quote": "Statutory exemptions and expedited processes are in place, some of which the League supported, making Proposition 45 unnecessary"
         }
       ]
+    },
+    {
+      "id": "la-times",
+      "name": "Los Angeles Times editorial board",
+      "kind": "editorial",
+      "url": "https://www.latimes.com/opinion/story/2026-09-06/editorial-vote-no-on-proposition-40",
+      "retrieved": "2026-10-27",
+      "about": "The one 2026 ballot editorial we found linked from the paper's opinion pages: Prop 40.",
+      "picks": [
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "NO",
+          "source": "https://www.latimes.com/opinion/story/2026-09-06/editorial-vote-no-on-proposition-40",
+          "quote": "Vote no on Prop. 40. It ignores education, housing and safety"
+        }
+      ]
     }
   ]
 }

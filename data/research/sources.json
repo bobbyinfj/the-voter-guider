@@ -256,17 +256,30 @@
    "checked": "2026-10-27"
   },
   {
+   "id": "latimes",
+   "state": "CA",
+   "kind": [
+    "slate"
+   ],
+   "name": "Los Angeles Times editorial board",
+   "url": "https://www.latimes.com/opinion",
+   "access": "ok",
+   "builder": "comparison-builders/ca.py",
+   "notes": "Allows Claude-User. Anthropic's WebSearch can't search latimes.com, so find editorials from latimes.com/opinion and latimes.com/topic/editorials (that list was stale on 2026-10-27). Only one 2026 ballot editorial was linked there (no on Prop 40).",
+   "checked": "2026-10-27"
+  },
+  {
    "id": "ca-papers",
    "state": "CA",
    "kind": [
     "slate",
     "news-guide"
    ],
-   "name": "LA Times, SF Chronicle, Mercury News, SCNG papers",
-   "url": "https://www.latimes.com/",
-   "access": "ok",
+   "name": "SF Chronicle, Mercury News, Press Democrat, SCNG papers (Daily News, SGV Tribune, Register)",
+   "url": "https://www.sgvtribune.com/opinion/endorsements/",
+   "access": "robots-disallow",
    "builder": null,
-   "notes": "Sacramento Bee: robots-403.",
+   "notes": "Still block Claude-User in robots.txt (2026-10-27). Sacramento Bee: robots-403. The LA Times is its own entry.",
    "checked": "2026-10-27"
   },
   {
@@ -348,6 +361,20 @@
    "checked": "2026-10-27"
   },
   {
+   "id": "colorado-politics",
+   "state": "CO",
+   "kind": [
+    "slate",
+    "news-guide"
+   ],
+   "name": "Colorado Politics",
+   "url": "https://www.coloradopolitics.com/",
+   "access": "ok",
+   "builder": "comparison-builders/co.py",
+   "notes": "No editorial board slate. Columnists Tom Cronin and Bob Loevy publish a shared 'Our take' column each fall with each writer's verdict on every statewide measure; search 'Cronin Loevy our take ballot measures'. Many verdicts are bare ('CRONIN: Against.'), so co.py checks each against its measure's section. Also a news 'Judicial retention' explainer and guest columns (opinion, not used).",
+   "checked": "2026-10-27"
+  },
+  {
    "id": "co-papers",
    "state": "CO",
    "kind": [
@@ -358,7 +385,7 @@
    "url": "https://coloradosun.com/",
    "access": "robots-403",
    "builder": null,
-   "notes": "Coloradoan and LWV Colorado: robots-403. Colorado Politics allows us (its judges guide is usable as news).",
+   "notes": "Coloradoan and LWV Colorado: robots-403. Colorado Politics is its own entry.",
    "checked": "2026-10-27"
   },
   {

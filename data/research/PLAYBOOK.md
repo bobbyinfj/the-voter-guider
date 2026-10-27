@@ -62,6 +62,11 @@ In order of yield per hour:
    ethics fines (`fppc.py`). The CA ones are per-state; look for the equivalent agency elsewhere.
 4. **Endorsements** from campaign sites (`crawl-*.mjs/py` → `pick.py`). Slow; do it last.
 
+**Comparison guides** (`comparison-builders/`): most big papers block us, so check what's left
+before searching. Look for a columnist pair's measure-by-measure column (Colorado Politics' Cronin &
+Loevy) and the editorials list on a paper's own site when WebSearch can't see it (the LA Times).
+Bare verdicts ("CRONIN: Against.") need a per-section check like `co.py cl_sections()`.
+
 ## 4. Judges (what voters say they're most lost on)
 
 Look for these, in this order:
