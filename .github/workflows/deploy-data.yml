@@ -47,8 +47,8 @@ jobs:
       - run: npm test
 
       # The dump holds user accounts and quiz answers, so it never leaves this runner and is gone
-      # when the run ends. If a step below fails, restore from it with `pg_restore` over the
-      # job's debug shell, or go back to before this run with Neon's point-in-time restore.
+      # when the run ends. Taking it proves the connection works before anything is written; to
+      # undo a bad run, use Neon's point-in-time restore to just before it.
       - name: Back up the database
         run: |
           test -n "$DATABASE_URL" || { echo "PROD_DATABASE_URL secret is not set"; exit 1; }
