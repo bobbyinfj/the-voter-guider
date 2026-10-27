@@ -56,3 +56,11 @@ ca26-la-superior-131 | zh-W4Flzx2c | forum | civic ; host=California State Unive
 # Batch 6 (2026-10-24): CA-38. Found in a search for LACCD forums; then both candidates were searched by name
 # ("Hilda Solis 2026 interview", "Pedro Antonio Casas", "Pedro Casas congress 38"): Casas's interviews are from 2024
 ca26-hilda-solis | 6658KVVwDU0 | interview | independent ; found=YouTube search "Los Angeles Community College District trustee candidates 2026" ; named=title
+
+# Batch 7 (2026-10-26): campaign-site scan of every remaining CA candidate with a website (embeds and
+# linked channels). Liu's site links @liulaw; Buelna's links @GabrielBuelna-sbc. Luna's linked channel
+# only has 2022 uploads, Gonzalez's 2024, Alaniz's 2022, so they're left out. Searched and not used:
+# ANN News's 7/31/26 report on Dora Leung's fundraiser (tIPihI-FCuo) is narration and endorsers, not
+# her; Kung, Leung and Lee have no Monterey Park meeting footage (counciloris export: 0 clips).
+ca26-long-david-liu | MjiwuGU2B-w | statement | campaign ; source=https://www.youtube.com/@liulaw ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan
+ca26-gabriel-buelna | 2aMhoZn6rqY | statement | campaign ; source=https://www.youtube.com/@GabrielBuelna-sbc ; label=The campaign's YouTube channel (linked from its website) ; found=campaign site scan

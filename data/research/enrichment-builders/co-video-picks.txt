@@ -70,3 +70,8 @@ co26-m-larimer-1a | GSeVshbGbM8 | explainer | independent ; host=League of Women
 co26-bob-chew | Mnh4Hcaxd0I | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
 co26-bob-chew | Nnnewd7f2aI | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
 co26-joe-neguse | dJlnOe3BVpA | interview | independent ; found=YouTube search "Joe Neguse 2026 interview"
+
+# Batch 7 (2026-10-26): State Senate 15, by name ("Rob Woodward Janice Marchman senate district 15",
+# "Janice Marchman 2026"). The League of Women Voters of Boulder County's SD15 forum is from 2022 and
+# Woodward's channel has only 2022 uploads, so only Marchman's own channel has a 2026 video.
+co26-janice-marchman | _kZfn8SP614 | statement | campaign ; source=https://www.youtube.com/@JaniceMarchmanforColorado ; label=The campaign's YouTube channel (named for the candidate) ; found=YouTube search "Janice Marchman 2026"
