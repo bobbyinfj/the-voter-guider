@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { NO_RACE, districtOptions, matchesSelection, parseDistrictSelection } from '@/lib/districts'
+import { NO_RACE, cityPagesOf, districtOptions, electionPageFor, matchesSelection, parseDistrictSelection } from '@/lib/districts'
 
 test('parseDistrictSelection keeps only known types with short alphanumeric codes', () => {
   assert.deepEqual(
@@ -53,4 +53,19 @@ test('metadata.scope limits an item to a city, on top of its own district', () =
     ['city', [{ code: 'montebello', label: 'Montebello' }, { code: 'monterey-park', label: 'Monterey Park' }]],
     ['city-council', [{ code: '5', label: 'Council District 5' }, { code: 'mb-1', label: 'Montebello Council District 1' }]],
   ])
+})
+
+test('cityPagesOf reads each city page and ignores malformed ones', () => {
+  const meta = { cities: { 'monterey-park': { title: 'MP', description: 'd' }, bad: { title: 1 }, 'has space': { title: 't', description: 'd' } } }
+  assert.deepEqual(cityPagesOf(meta), { 'monterey-park': { title: 'MP', description: 'd' } })
+  assert.deepEqual(cityPagesOf(null), {})
+  assert.deepEqual(cityPagesOf({ cities: 'x' }), {})
+})
+
+test("electionPageFor sends a city's race to its city page, and shared races to the election", () => {
+  const election = { id: 'ca', title: 'Both', metadata: { cities: { montebello: { title: 'Montebello', description: '' } } } }
+  const cityRace = { districtType: 'city-council', districtCode: 'mb-1', metadata: { scope: { city: 'montebello' } } }
+  assert.deepEqual(electionPageFor(election, cityRace), { title: 'Montebello', href: '/elections/ca?city=montebello' })
+  assert.deepEqual(electionPageFor(election, { districtType: null, districtCode: null }), { title: 'Both', href: '/elections/ca' })
+  assert.deepEqual(electionPageFor({ ...election, metadata: null }, cityRace), { title: 'Both', href: '/elections/ca' })
 })

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { electionPageFor } from "@/lib/districts";
 import StanceBadge from "@/components/quiz/StanceBadge";
 import { BallotPage, accentButton, outlineButton } from "@/components/ballot/Paper";
 import PamphletSummary from "@/components/candidate/PamphletSummary";
@@ -22,6 +23,7 @@ export default async function CandidatePage({ params }: Props) {
       office: {
         include: {
           election: { include: { jurisdiction: true } },
+          ballot: { select: { metadata: true } },
         },
       },
       stances: {
@@ -39,6 +41,7 @@ export default async function CandidatePage({ params }: Props) {
   const { office } = candidate;
   const { election } = office;
   const profile = asProfile(candidate.profile);
+  const electionPage = electionPageFor(election, { ...office, metadata: office.ballot?.metadata });
   const section = "mb-6 border-[1.5px] border-ballot-ink bg-ballot-paper p-5 font-sans";
 
   return (
@@ -46,8 +49,8 @@ export default async function CandidatePage({ params }: Props) {
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Breadcrumb */}
         <div className="mb-6 text-sm text-gray-500 flex flex-wrap gap-2">
-          <Link href={`/elections/${election.id}`} className="text-blue-600 hover:underline">
-            {election.title}
+          <Link href={electionPage.href} className="text-blue-600 hover:underline">
+            {electionPage.title}
           </Link>
           <span>/</span>
           <Link href={`/elections/${election.id}/offices/${office.id}`} className="text-blue-600 hover:underline">

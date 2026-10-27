@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Calendar, FileText, MapPin, ArrowRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
-import { slugify } from "@/components/ballot/ballot";
+import { cityLabel, cityPagesOf, matchesSelection } from "@/lib/districts";
 
 // Always read the current list of curated elections
 export const dynamic = "force-dynamic";
@@ -16,12 +16,32 @@ export default async function HomePage() {
     where: { status: { not: "completed" }, electionDate: { gte: today } },
     include: {
       jurisdiction: true,
-      _count: { select: { offices: true } },
-      ballots: { where: { type: { not: "candidate" } }, select: { id: true } },
-      // Cities with their own races: an election covering several opens preset to one (?city=)
-      offices: { where: { jurisdiction: { type: "city" } }, select: { jurisdiction: { select: { name: true } } } },
+      // Counted per city for an election covering several
+      ballots: { select: { type: true, districtType: true, districtCode: true, metadata: true } },
     },
     orderBy: [{ electionDate: "asc" }, { title: "asc" }],
+  });
+
+  // One card per ballot: an election covering several cities gets a card for each (its own page)
+  const cards = elections.flatMap((election) => {
+    const count = (city?: string) => {
+      const on = election.ballots.filter((b) => !city || matchesSelection(b, { city }));
+      return { races: on.filter((b) => b.type === "candidate").length, measures: on.filter((b) => b.type !== "candidate").length };
+    };
+    const base = { date: election.electionDate };
+    const pages = cityPagesOf(election.metadata);
+    const ids = Object.keys(pages);
+    if (ids.length === 0) {
+      return [{ ...base, key: election.id, title: election.title, place: election.jurisdiction.name, href: `/elections/${election.id}`, ...count() }];
+    }
+    return ids.map((id) => ({
+      ...base,
+      key: `${election.id}-${id}`,
+      title: pages[id].title,
+      place: `${cityLabel(id)}, ${election.jurisdiction.name}`,
+      href: `/elections/${election.id}?city=${id}`,
+      ...count(id),
+    }));
   });
 
   return (
@@ -50,50 +70,35 @@ export default async function HomePage() {
 
         <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl font-semibold mb-6 text-gray-800">Upcoming Elections</h3>
-          {elections.length === 0 ? (
+          {cards.length === 0 ? (
             <p className="text-gray-500 italic">No upcoming elections are loaded yet.</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
-              {elections.map((election) => (
+              {cards.map((card) => (
                 <div
-                  key={election.id}
+                  key={card.key}
                   className="bg-white rounded-lg border-2 border-gray-200 p-6 hover:border-blue-500 hover:shadow-lg transition-all"
                 >
-                  <h4 className="text-lg font-semibold text-gray-800 mb-3">{election.title}</h4>
+                  <h4 className="text-lg font-semibold text-gray-800 mb-3">{card.title}</h4>
                   <div className="space-y-2 text-sm text-gray-600 mb-4">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4" />
-                      <span>{election.jurisdiction.name}</span>
+                      <span>{card.place}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      <span>{formatElectionDate(election.electionDate)}</span>
+                      <span>{formatElectionDate(card.date)}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <FileText className="w-4 h-4" />
                       <span>
-                        {election._count.offices} races · {election.ballots.length} measures
+                        {card.races} races · {card.measures} measures
                       </span>
                     </div>
                   </div>
-                  {(() => {
-                    const cities = [...new Set(election.offices.map((o) => o.jurisdiction.name))].sort()
-                    const button =
-                      "flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm text-white hover:bg-blue-700"
-                    return cities.length > 1 ? (
-                      <div className="grid gap-2 sm:grid-cols-2">
-                        {cities.map((name) => (
-                          <Link key={name} href={`/elections/${election.id}?city=${slugify(name)}`} className={button}>
-                            {name} ballot <ArrowRight className="w-3.5 h-3.5" />
-                          </Link>
-                        ))}
-                      </div>
-                    ) : (
-                      <Link href={`/elections/${election.id}`} className={button}>
-                        Open my ballot <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    )
-                  })()}
+                  <Link href={card.href} className="flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-3 py-2 text-center text-sm text-white hover:bg-blue-700">
+                    Open my ballot <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               ))}
             </div>
