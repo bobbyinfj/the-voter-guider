@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { electionPageFor } from "@/lib/districts";
 import StanceBadge from "@/components/quiz/StanceBadge";
 import { BallotHeader, accentButton } from "@/components/ballot/Paper";
 import { formatElectionDate } from "@/lib/format";
@@ -38,6 +39,7 @@ export default async function OfficePage({ params }: Props) {
   if (!office || office.election.id !== electionId) notFound();
   const candidates = inPrintedOrder(office.candidates, office.ballot);
   const raceExtras = raceExtrasOf(office.ballot?.metadata);
+  const electionPage = electionPageFor(office.election, { ...office, metadata: office.ballot?.metadata });
 
   // Collect all unique issues across all candidates
   const issueSet = new Map<string, { id: string; name: string; slug: string; summary: string }>();
@@ -53,8 +55,8 @@ export default async function OfficePage({ params }: Props) {
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Breadcrumb */}
         <div className="mb-6 text-sm text-gray-500 flex gap-2">
-          <Link href={`/elections/${electionId}`} className="text-blue-600 hover:underline">
-            {office.election.title}
+          <Link href={electionPage.href} className="text-blue-600 hover:underline">
+            {electionPage.title}
           </Link>
           <span>/</span>
           <span>{office.title}</span>
@@ -65,7 +67,7 @@ export default async function OfficePage({ params }: Props) {
             electionId={electionId}
             date={formatElectionDate(office.election.electionDate)}
             title={office.title}
-            place={office.election.title}
+            place={electionPage.title}
             aside={
               office.election.quiz ? (
                 <Link href={`/elections/${electionId}/quiz`} className={accentButton}>

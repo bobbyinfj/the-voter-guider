@@ -8,7 +8,7 @@ import { snippetCandidates } from "@/lib/profile";
 import { badgesFrom } from "@/lib/scorecard";
 import { BallotHeader, outlineButton } from "@/components/ballot/Paper";
 import { orderForBallot } from "@/components/ballot/ballot";
-import { districtOptions, parseDistrictSelection } from "@/lib/districts";
+import { cityLabel, cityPagesOf, districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
 import ElectionGuide from "@/components/guide/ElectionGuide";
 import type { EditableGuide } from "@/components/guide/useGuideEditor";
 import { defaultKeyFor, getViewer, ownedBy } from "@/lib/owner";
@@ -69,13 +69,40 @@ export default async function ElectionPage({ params, searchParams }: Props) {
 
   if (!election) notFound();
 
+  // An election covering several cities: each city is its own page (?city=<id>); without one,
+  // this page asks which city
+  const cityPages = cityPagesOf(election.metadata);
+  const cityIds = Object.keys(cityPages);
+  const city = selection.city && cityPages[selection.city] ? selection.city : null;
+  if (cityIds.length > 0 && !city) {
+    return (
+      <div className="container mx-auto max-w-6xl space-y-4 px-4 py-8">
+        <BallotHeader electionId={electionId} date={formatElectionDate(election.electionDate)} title="Which city do you vote in?">
+          <p className="mt-2 max-w-3xl text-sm">Each city has its own ballot.</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {cityIds.map((id) => (
+              <Link key={id} href={`/elections/${electionId}?city=${id}`} className={outlineButton}>
+                {cityPages[id].title}
+              </Link>
+            ))}
+          </div>
+        </BallotHeader>
+      </div>
+    );
+  }
+  const page = city ? cityPages[city] : { title: election.title, description: election.description ?? "" };
+
   const hasQuiz = (election.quiz?.questions.length ?? 0) > 0;
-  // Topics where at least one candidate on this ballot has a sourced position
-  const quizIssues = await prisma.issue.findMany({
+  // Topics where at least one candidate on this ballot (this city's, on a city page) has a sourced position
+  const issuesWithOffices = await prisma.issue.findMany({
     where: { stances: { some: { candidate: { office: { electionId } } } } },
-    select: { slug: true, name: true },
+    select: { slug: true, name: true, stances: { select: { candidate: { select: { officeId: true } } } } },
     orderBy: { name: "asc" },
   });
+  const onThisPage = new Set(
+    election.ballots.filter((b) => !city || matchesSelection(b, { city })).flatMap((b) => (b.office ? [b.office.id] : [])),
+  );
+  const quizIssues = issuesWithOffices.filter((i) => i.stances.some((s) => onThisPage.has(s.candidate.officeId)));
   const pickerOptions = districtOptions([...election.offices, ...election.ballots]);
   const items = orderForBallot(
     election.ballots.map((b) => ({ ...b, office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) } })),
@@ -118,7 +145,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
         <BallotHeader
           electionId={electionId}
           date={formatElectionDate(election.electionDate)}
-          title={election.title}
+          title={page.title}
           place={election.jurisdiction.name}
           aside={
             <div className="flex flex-col items-start gap-1.5 sm:items-end">
@@ -134,7 +161,19 @@ export default async function ElectionPage({ params, searchParams }: Props) {
             </div>
           }
         >
-          {election.description && <p className="mt-2 max-w-3xl text-sm">{election.description}</p>}
+          {page.description && <p className="mt-2 max-w-3xl text-sm">{page.description}</p>}
+          {city && cityIds.length > 1 && (
+            <p className="mt-1 text-sm">
+              Not in {cityLabel(city)}?{" "}
+              {cityIds
+                .filter((id) => id !== city)
+                .map((id) => (
+                  <Link key={id} href={`/elections/${electionId}?city=${id}`} className="text-blue-700 hover:underline">
+                    {cityLabel(id)}&apos;s ballot
+                  </Link>
+                ))}
+            </p>
+          )}
           {election.officialUrl && (
             <a
               href={election.officialUrl}
@@ -171,7 +210,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
         <ElectionGuide
           election={{
             id: election.id,
-            title: election.title,
+            title: page.title,
             electionDate: election.electionDate.toISOString(),
             districtLookupUrl: election.districtLookupUrl,
             jurisdiction: { name: election.jurisdiction.name },
@@ -184,6 +223,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           readOnly={election.status === "completed"}
           quiz={quiz}
           badges={badges}
+          city={city}
         />
       </div>
     </>

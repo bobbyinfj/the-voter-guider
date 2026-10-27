@@ -77,6 +77,38 @@ export function cityLabel(code: string): string {
   return code.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
+// An election covering several cities shows each as its own page (?city=<id>), with the title
+// and text in Election.metadata.cities. Empty for a one-city election.
+export interface CityPage {
+  title: string;
+  description: string;
+}
+
+export function cityPagesOf(metadata: unknown): Record<string, CityPage> {
+  const cities = metadata && typeof metadata === "object" ? (metadata as { cities?: unknown }).cities : null;
+  if (!cities || typeof cities !== "object") return {};
+  const out: Record<string, CityPage> = {};
+  for (const [id, page] of Object.entries(cities as Record<string, unknown>)) {
+    const p = page as Partial<CityPage> | null;
+    if (CODE_PATTERN.test(id) && typeof p?.title === "string" && typeof p.description === "string") {
+      out[id] = { title: p.title, description: p.description };
+    }
+  }
+  return out;
+}
+
+// The page an item belongs on: its city's page when it's a city's race, else the election's
+export function electionPageFor(
+  election: { id: string; title: string; metadata: unknown },
+  item?: DistrictScoped | null,
+): { title: string; href: string } {
+  const pages = cityPagesOf(election.metadata);
+  const city = item ? scopesOf(item).find(([type, code]) => type === "city" && pages[code])?.[1] : undefined;
+  return city
+    ? { title: pages[city].title, href: `/elections/${election.id}?city=${city}` }
+    : { title: election.title, href: `/elections/${election.id}` };
+}
+
 export interface DistrictOption {
   type: DistrictType;
   label: string;

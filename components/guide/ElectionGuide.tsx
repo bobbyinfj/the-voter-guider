@@ -32,6 +32,8 @@ interface Props {
   quiz?: Record<string, QuizOnBallot> | null
   // Published guides' picks, shown as badges in the Expanded view
   badges?: BadgeMap | null
+  // This page is one city's ballot: the city isn't offered in the picker
+  city?: string | null
 }
 
 function savedDistricts(guide: EditableGuide | null): DistrictSelection {
@@ -66,14 +68,21 @@ export default function ElectionGuide({
   readOnly = false,
   quiz,
   badges,
+  city,
 }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const account = useAccount()
-  // The URL wins (shared links); otherwise the districts saved on your guide
-  const [districts, setDistricts] = useState<DistrictSelection>(() =>
-    Object.keys(urlDistricts).length ? urlDistricts : withCity(savedDistricts(initialGuide), ballots, initialGuide),
-  )
+  // The URL wins (shared links); otherwise the districts saved on your guide. A city page's URL
+  // names only the city, so your guide's other districts for that city still apply.
+  const lockedCity = city ?? null
+  const [districts, setDistricts] = useState<DistrictSelection>(() => {
+    const saved = withCity(savedDistricts(initialGuide), ballots, initialGuide)
+    const keys = Object.keys(urlDistricts)
+    if (!keys.length) return saved
+    const onlyCity = keys.length === 1 && urlDistricts.city
+    return onlyCity && (!saved.city || saved.city === urlDistricts.city) ? { ...saved, ...urlDistricts } : urlDistricts
+  })
   // With several cities on one election: pick the city first, then only its districts are offered
   const options = useMemo(() => {
     const labeled = ballots.map((b) => ({ ...b, district: b.office?.district }))
@@ -81,8 +90,10 @@ export default function ElectionGuide({
     const city = all.find((o) => o.type === 'city')
     if (!city) return pickerOptions.length ? pickerOptions : all
     if (!districts.city) return [city]
-    return [city, ...districtOptions(labeled.filter((b) => matchesSelection(b, { city: districts.city }))).filter((o) => o.type !== 'city')]
-  }, [ballots, districts.city, pickerOptions])
+    const others = districtOptions(labeled.filter((b) => matchesSelection(b, { city: districts.city }))).filter((o) => o.type !== 'city')
+    if (lockedCity) return others
+    return [city, ...others]
+  }, [ballots, districts.city, pickerOptions, lockedCity])
   const editor = useGuideEditor({ initialGuide, electionId: election.id, districts })
   const { guide, choices } = editor
   const [creating, setCreating] = useState(false)
@@ -93,6 +104,7 @@ export default function ElectionGuide({
   const changeDistrict = (type: string, code: string) => {
     // A new city starts its districts over (Monterey Park's council districts aren't Montebello's)
     const next: Record<string, string> = type === 'city' ? {} : { ...districts }
+    if (lockedCity) next.city = lockedCity
     if (code) next[type] = code
     else delete next[type]
     setDistricts(next)
@@ -165,7 +177,7 @@ export default function ElectionGuide({
           status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
           notice={<KeepGuidePrompt show={answered > 0} />}
           setup={
-            pickerOptions.length > 0 ? (
+            pickerOptions.length > 0 && options.length > 0 ? (
               <div className="print:hidden">
                 <DistrictPicker
                   options={options}
