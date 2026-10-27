@@ -116,7 +116,9 @@ else county booklet), labeled with its source, or nothing (`openingSentence`).
 published guides — party slates, newspaper editorial boards, League of Women Voters, advocacy
 guides — seeded as public template guides (`Guide.isTemplate`, id `cmp-…`). Every pick stores its
 source URL and a verbatim quote; the build checks the quote against the saved page and skips any
-source whose robots.txt disallows Claude's user agents (never work around a block). Party and
+source whose robots.txt disallows Claude-User, the agent the fetcher identifies as (never work
+around a block; crawler-only blocks on ClaudeBot/anthropic-ai don't apply to these user-requested
+fetches). Party and
 advocacy guides are only published as left/right pairs (`comparisonProblems` in
 `lib/comparisons.ts`; seed and `npm test` enforce it). `/api/compare` also returns the community
 tally: anonymous totals from guides whose owner ticked "Count my picks", shown per contest only

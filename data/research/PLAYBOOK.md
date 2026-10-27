@@ -7,8 +7,8 @@ builders' READMEs have the details.
 
 **Start with `sources.json`**: every source we tried, what kind of data it gives, and whether our
 fetcher may use it. Run `python3 data/research/tools/source-check.py` first, because access changes:
-on 2026-10-27, CPR, the Colorado SOS and the Seattle Times had started blocking Claude's agents since
-we last used them. For a new state, look for the same kinds of source (the `kinds` list) before
+on 2026-10-27, CPR, the Colorado SOS and the Seattle Times had started blocking Claude's crawler
+agents since we last used them. For a new state, look for the same kinds of source (the `kinds` list) before
 searching broadly.
 
 ## 0. Ground rules that save time
@@ -18,8 +18,11 @@ searching broadly.
   date. Some official sites (Colorado's judicial performance office) 403 WebFetch but serve it.
   - If robots.txt blocks us, or a site refuses it, the source is out. Never switch user agents or
     impersonate a browser.
-  - The rule refuses a source if any Claude agent is blocked, including the crawler agents
-    (ClaudeBot, anthropic-ai), which is what most news sites block.
+  - The fetcher identifies as Claude-User, Anthropic's agent for fetches a person asked for, and
+    obeys robots.txt for that agent. Most news sites block only the crawler agents (ClaudeBot,
+    anthropic-ai), which don't apply to us; the user decided this on 2026-10-27. Some firewalls
+    refuse anything naming Claude-User, even robots.txt (CalMatters and the Seattle Times did on
+    2026-10-27, though they served our earlier user agent). That's a block too: the source is out.
 - **Search results and search summaries are never data.** Use WebSearch to find the official page,
   then fetch it. Its summaries got vote counts and URLs subtly wrong. One summary also gave a judge's
   evaluation URL (`ellison-katharine-jenny-2026-evaluation`) that doesn't exist; the real one is

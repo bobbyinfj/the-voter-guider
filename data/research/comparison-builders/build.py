@@ -5,8 +5,10 @@
 # Rules (CLAUDE.md "Transparency is the product"):
 #   - Every pick has a source URL and a quote copied from that source. The quote must appear on
 #     the saved copy of the page (whitespace and curly quotes normalized), or the build fails.
-#   - We only use sources whose robots.txt allows Claude's user agents; a source that blocks
-#     them (or whose robots.txt we can't read, other than a 404) is skipped, never worked around.
+#   - Every fetch is one a person asked for, so it identifies as Claude-User (Anthropic's agent
+#     for user-requested fetches) and obeys robots.txt for that agent. A source whose robots.txt
+#     blocks Claude-User (or that we can't read, other than a 404) is skipped, never worked
+#     around. Blocks aimed only at crawlers (ClaudeBot, anthropic-ai) don't apply: we don't crawl.
 #   - Candidate picks use the bundle's candidate name; when the source spells the name
 #     differently, the quote shows the source's spelling and `alias` records why it's the same
 #     person.
@@ -30,8 +32,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 CACHE = HERE / 'cache'
-UA = 'Mozilla/5.0 (compatible; the-voter-guider research; one-time fetch of a public voter guide)'
-CLAUDE_AGENTS = ['Claude-User', 'ClaudeBot', 'anthropic-ai', 'claude-web']
+UA = 'Mozilla/5.0 (compatible; Claude-User; the-voter-guider research; one-time fetch of a public voter guide)'
+AGENT = 'Claude-User'
 
 
 def robots_allow(url):
@@ -44,7 +46,7 @@ def robots_allow(url):
         return e.code == 404
     except Exception:
         return False
-    return all(rp.can_fetch(a, url) for a in CLAUDE_AGENTS)
+    return rp.can_fetch(AGENT, url)
 
 
 def fetch(url):
@@ -53,7 +55,7 @@ def fetch(url):
     key = hashlib.sha256(url.encode()).hexdigest()[:16]
     body, meta = CACHE / key, CACHE / f'{key}.json'
     if not body.exists():
-        assert robots_allow(url), f"robots.txt doesn't allow Claude to fetch {url}; don't use this source"
+        assert robots_allow(url), f"robots.txt doesn't allow {AGENT} to fetch {url}; don't use this source"
         req = urllib.request.Request(url, headers={'User-Agent': UA})
         with urllib.request.urlopen(req, timeout=60) as r:
             body.write_bytes(r.read())

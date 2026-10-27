@@ -1,5 +1,5 @@
 {
- "about": "Every source tried for the 2026 general (WA, CA, CO): what it gives us, whether our robots-checked fetcher (comparison-builders/build.py fetch) may use it, and which builder reads it. Start a new election here: look for the same kind of source in the new state. `python3 tools/source-check.py` re-checks access for every entry. access: ok | robots-disallow (robots.txt blocks Claude's agents) | robots-403 (robots.txt unreadable, so treated as a block) | http-403 (blocks plain fetches; never work around it) | none-found. Our rule (cb.robots_allow) needs every Claude agent allowed, including the ClaudeBot / anthropic-ai crawler agents; several news and state sites block only those.",
+ "about": "Every source tried for the 2026 general (WA, CA, CO): what it gives us, whether our robots-checked fetcher (comparison-builders/build.py fetch) may use it, and which builder reads it. Start a new election here: look for the same kind of source in the new state. `python3 tools/source-check.py` re-checks access for every entry. access: ok | robots-disallow (robots.txt blocks Claude-User) | robots-403 (robots.txt unreadable, so treated as a block) | http-403 (blocks plain fetches; never work around it) | none-found. Our rule (cb.robots_allow) needs Claude-User allowed, the agent the fetcher identifies as. Since 2026-10-27, blocks on only the ClaudeBot / anthropic-ai crawler agents (common on news and state sites) don't count: these are user-requested fetches, not crawls.",
  "kinds": {
   "ballot": "Who and what is on the ballot, in printed order (official)",
   "statements": "Candidates' own statements (official voters' pamphlet / guide)",
@@ -90,7 +90,7 @@
    ],
    "name": "KUOW",
    "url": "https://www.kuow.org/",
-   "access": "robots-disallow",
+   "access": "ok",
    "builder": null,
    "notes": "Its YouTube videos (Soundside) are still usable as videos.",
    "checked": "2026-10-27"
@@ -104,7 +104,7 @@
    ],
    "name": "Seattle Times",
    "url": "https://www.seattletimes.com/",
-   "access": "robots-disallow",
+   "access": "robots-403",
    "builder": null,
    "notes": "robots.txt disallows ClaudeBot and anthropic-ai (2026-10-27).",
    "checked": "2026-10-27"
@@ -211,7 +211,7 @@
    ],
    "name": "CalMatters voter guide",
    "url": "https://calmatters.org/california-voter-guide-2026/",
-   "access": "ok",
+   "access": "robots-403",
    "builder": "quiz-builders, enrichment-builders",
    "notes": "Proposition explainer videos on its YouTube channel; Supreme Court retention page.",
    "checked": "2026-10-27"
@@ -264,7 +264,7 @@
    ],
    "name": "LA Times, SF Chronicle, Mercury News, SCNG papers",
    "url": "https://www.latimes.com/",
-   "access": "robots-disallow",
+   "access": "ok",
    "builder": null,
    "notes": "Sacramento Bee: robots-403.",
    "checked": "2026-10-27"
@@ -290,7 +290,7 @@
    ],
    "name": "CO SOS certified candidate list",
    "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
-   "access": "robots-disallow",
+   "access": "ok",
    "builder": "bundle-builders/co.py",
    "notes": "robots.txt now disallows ClaudeBot and anthropic-ai (2026-10-27); the bundle was built from it earlier. The county sample ballot covers the same names.",
    "checked": "2026-10-27"
@@ -356,7 +356,7 @@
    ],
    "name": "Denver Post, Colorado Sun",
    "url": "https://coloradosun.com/",
-   "access": "robots-disallow",
+   "access": "robots-403",
    "builder": null,
    "notes": "Coloradoan and LWV Colorado: robots-403. Colorado Politics allows us (its judges guide is usable as news).",
    "checked": "2026-10-27"
@@ -370,7 +370,7 @@
    ],
    "name": "Colorado Public Radio",
    "url": "https://www.cpr.org/",
-   "access": "robots-disallow",
+   "access": "http-403",
    "builder": "quiz-builders, enrichment-builders",
    "notes": "Purplish ballot-measure episodes on YouTube (videos stay usable). robots.txt now disallows ClaudeBot and anthropic-ai (2026-10-27); quiz-builders fetched its articles earlier, so re-running them would now refuse.",
    "checked": "2026-10-27"
