@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ORIGIN_ORDER, VIDEO_ORIGINS, type VideoOrigin } from '@/lib/profile'
 
-// "Who made this" beside a video: a four-step scale from questions someone else asks to the
+// "Who made this" beside a video: a five-step scale from questions someone else asks to the
 // candidate's own message. Click for what that means; it's a description, not a score.
 export default function OriginBadge({ origin, host }: { origin?: VideoOrigin; host?: string }) {
   const [open, setOpen] = useState(false)

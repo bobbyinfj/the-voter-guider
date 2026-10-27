@@ -27,7 +27,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -59,7 +59,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -80,7 +80,7 @@
       "embedded on the campaign's site https://www.jenagriswold.com/ (saved 2026-10-23)"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -101,7 +101,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -122,7 +122,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -143,7 +143,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -163,7 +163,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -184,7 +184,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -203,7 +203,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -224,7 +224,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -245,7 +245,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -264,7 +264,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -287,7 +287,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -309,7 +309,7 @@
       "transcript at 506s: \"And joining me now here on Colorado Point of View is State Senator Mark Baisley.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -330,7 +330,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -349,7 +349,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -370,7 +370,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -393,7 +393,29 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
+    }
+   }
+  ],
+  "co26-kelley-anne-dennison": [
+   {
+    "youtubeId": "jJO9L2xOGb4",
+    "kind": "interview",
+    "origin": "viewpoint",
+    "title": "\"Goth Baddie\" For Congress: Can Gen-Z Republican Kelley Dennison Flip Colorado Red? – Ask Dr. Drew",
+    "channel": "Dr. Drew",
+    "published": "2026-07-22",
+    "durationSec": 4168,
+    "host": "Dr. Drew",
+    "evidence": {
+     "foundVia": "YouTube search \"Kelley Dennison congress\"",
+     "checks": [
+      "oEmbed: \"\"Goth Baddie\" For Congress: Can Gen-Z Republican Kelley Dennison Flip Colorado Red? – Ask Dr. Drew\" by Dr. Drew",
+      "uploaded 2026-07-22",
+      "named in the title"
+     ],
+     "verifiedBy": "claude",
+     "verifiedAt": "2026-10-27"
     }
    }
   ]
@@ -426,7 +448,7 @@
       "co26-james-wiley: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -456,7 +478,7 @@
       "co26-phil-weiser: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -485,7 +507,7 @@
       "co26-victor-marx: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -523,7 +545,7 @@
       "co26-stephen-fowler: transcript at 411s: \"I'm Stephen Fowler\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -556,7 +578,7 @@
       "co26-kenneth-forsythe: transcript at 1778s: \"My name is Ken Forsythe.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -589,7 +611,7 @@
       "co26-steve-olson: transcript at 2607s: \"we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -627,7 +649,7 @@
       "co26-sam-bradley: transcript at 3698s: \"We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -657,7 +679,7 @@
       "co26-mark-baisley: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -685,7 +707,7 @@
       "co26-mark-baisley: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -713,7 +735,7 @@
       "co26-mark-baisley: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -741,7 +763,7 @@
       "co26-mark-baisley: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -769,7 +791,7 @@
       "co26-mark-baisley: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -800,7 +822,7 @@
       "co26-michael-j-allen: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -833,7 +855,7 @@
       "co26-yara-zokaie: transcript at 265s: \"my socialist opponent Yara Zokai's attack\" (transcribed as \"zokai\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -866,7 +888,7 @@
       "co26-daniel-frick: transcript at 508s: \"I'm Daniel Frick.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ]
@@ -889,7 +911,7 @@
       "\"Amdt 82\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -909,7 +931,7 @@
       "transcript: 387 \"A right to natural gas, life, liberty, and the pursuit of natural gas.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -930,7 +952,7 @@
       "\"Amdt 83\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -951,7 +973,7 @@
       "\"Amdt 84\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -972,7 +994,7 @@
       "\"Amdt 87\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -991,7 +1013,7 @@
       "\"Amdt 87\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1012,7 +1034,7 @@
       "\"Prop 136\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1033,7 +1055,7 @@
       "\"Prop NN\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    },
    {
@@ -1053,7 +1075,7 @@
       "transcript: 1006 \"John, so let's start out with Proposition NN.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1074,7 +1096,7 @@
       "\"7A\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1096,7 +1118,7 @@
       "transcript: 224 \"we'll start with the male and female participation in school sports\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1118,7 +1140,7 @@
       "transcript: 306 \"this measure would make it illegal for health care providers to essentially perform surgery on anyone under 18. And I mean the surgery, this gender-affirming surgery\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1140,7 +1162,7 @@
       "transcript: 358 \"the proposal to increase penalties for human trafficking\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1162,7 +1184,7 @@
       "transcript: 620 \"So basically, this is a crackdown on fentanyl. It's a major increase in the punishment\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1183,7 +1205,7 @@
       "\"Amdt 81\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1204,7 +1226,7 @@
       "\"Amdt 85\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1225,7 +1247,7 @@
       "\"Amdt 86\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1246,7 +1268,7 @@
       "\"Prop 137\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ],
@@ -1269,7 +1291,7 @@
       "transcript: 2926 \"one is for larimer county so if you live in larimer county you got it so it is a new sales tax\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-26"
+     "verifiedAt": "2026-10-27"
     }
    }
   ]

@@ -71,7 +71,7 @@ RACE_LINKS = {
 KINDS = {'org', 'official', 'media', 'person'}
 VIDEO_KINDS = {'interview', 'statement', 'debate', 'forum', 'explainer', 'meeting'}
 # Who made it (lib/profile.ts VIDEO_ORIGINS); campaign and meeting videos also need the page they came from
-ORIGINS = {'independent', 'civic', 'government', 'campaign'}
+ORIGINS = {'independent', 'civic', 'viewpoint', 'government', 'campaign'}
 # Public-meeting clips may come from the past year; everything else is from this cycle
 MEETING_SINCE = '2025-10-01'
 # Kept in the videos JSON for review, not shown to voters

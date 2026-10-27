@@ -1794,7 +1794,19 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "NeiECRTjFO0",
+     "kind": "interview",
+     "origin": "viewpoint",
+     "title": "Inside The Courtroom: Maria Ghobadi on Justice, Public Safety & Judicial Seat 64",
+     "channel": "Talking Downey",
+     "published": "2026-05-11",
+     "durationSec": 1828,
+     "host": "Talking Downey"
+    }
+   ]
   },
   "ca26-rhonda-a-haymon": {
    "guide": {
@@ -1898,6 +1910,16 @@
      "published": "2026-09-02",
      "durationSec": 1159,
      "host": "San Fernando Valley Bar Association"
+    },
+    {
+     "youtubeId": "Wv2eQl3ukb4",
+     "kind": "interview",
+     "origin": "viewpoint",
+     "title": "Anna Reitano,  Candidate for Los Angeles Superior Court Judge, Office 65",
+     "channel": "CrowdSourceCarrie",
+     "published": "2026-09-01",
+     "durationSec": 3797,
+     "host": "CrowdSourceCarrie"
     }
    ]
   },
@@ -1941,6 +1963,16 @@
     "fines": []
    },
    "videos": [
+    {
+     "youtubeId": "dlYtZsOASEU",
+     "kind": "interview",
+     "origin": "viewpoint",
+     "title": "Justin Clayton, Candidate for  Los Angeles Superior Court Judge, Office 65",
+     "channel": "CrowdSourceCarrie",
+     "published": "2026-08-28",
+     "durationSec": 2330,
+     "host": "CrowdSourceCarrie"
+    },
     {
      "youtubeId": "zh-W4Flzx2c",
      "kind": "forum",
@@ -2242,7 +2274,19 @@
     "to": "2026-10",
     "releases": 70,
     "fines": []
-   }
+   },
+   "videos": [
+    {
+     "youtubeId": "yryUxeoSom0",
+     "kind": "interview",
+     "origin": "viewpoint",
+     "title": "Araceli Martinez on Why She's Running for California State Senate | Talking Downey",
+     "channel": "Talking Downey",
+     "published": "2026-10-23",
+     "durationSec": 1596,
+     "host": "Talking Downey"
+    }
+   ]
   },
   "ca26-alexandra-briseno": {
    "guide": {
