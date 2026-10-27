@@ -11,6 +11,7 @@ import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
 import CompareStrip from '@/components/compare/CompareStrip'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
+import JudgeEvaluation, { EvaluationLine } from './JudgeEvaluation'
 import type { CompareView } from '@/components/compare/compare'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { VIDEO_KIND_LABELS, formatDuration, guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
@@ -679,6 +680,7 @@ function Enhancements({
         <>
           {item.description && <p>{item.description}</p>}
           <MeasureExplainer official={{ ...official, sourceUrl: null }} />
+          {raceExtrasOf(item.metadata)?.evaluation && <JudgeEvaluation evaluation={raceExtrasOf(item.metadata)!.evaluation!} />}
           <OfficialDocs docs={documentsOf(item.metadata)} label="From the county's official voter information" />
           {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}
         </>
@@ -924,6 +926,7 @@ export default function Contest({
                     <div className="min-w-0 flex-1">
                       <PrintedQuestion item={item} />
                       <MeasureChoices item={item} choice={choice} readOnly={readOnly} onPick={pick} />
+                      <EvaluationLine item={item} />
                       {status}
                     </div>
                   </BesideRow>
@@ -992,6 +995,7 @@ export default function Contest({
                   <>
                     <PrintedQuestion item={item} />
                     <MeasureChoices item={item} choice={choice} readOnly={readOnly} onPick={pick} />
+                    <EvaluationLine item={item} />
                   </>
                 ) : (
                   <RaceChoices item={item} choice={choice} readOnly={readOnly} onChange={onChange} onPick={pick} />

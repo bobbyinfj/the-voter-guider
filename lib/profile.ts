@@ -183,6 +183,24 @@ export function leadVideo(videos: CandidateVideo[]): CandidateVideo | null {
 export interface RaceExtras {
   videos?: CandidateVideo[]
   links?: { label: string; url: string }[]
+  // Retention questions: the official evaluation of the judge (enrichment-builders/judges.py), verbatim
+  evaluation?: JudgeEvaluation
+}
+
+export interface JudgeEvaluation {
+  by: string
+  publisher: string
+  recommendation: string
+  finding: string
+  vote: string
+  narrative: string[]
+  reports: { label: string; url: string }[]
+  source: { title: string; url: string; retrieved: string }
+}
+
+// "Meets Performance Standards" reads as a pass; anything else (Does Not Meet, …) doesn't
+export function evaluationMeets(e: JudgeEvaluation): boolean {
+  return /^meets\b/i.test(e.recommendation.trim())
 }
 
 export function raceExtrasOf(metadata: unknown): RaceExtras | null {

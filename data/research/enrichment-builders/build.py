@@ -246,6 +246,11 @@ def build(state, offline=False):
             errors.append(f'{measure_id}: not a measure in {cfg["slug"]}')
         check_videos(measure_id, vids)
         measures[measure_id] = {'videos': [shown(v) for v in vids]}
+    # Retention questions: the official evaluation of the judge (judges.py builds <state>-judges.json)
+    for measure_id, evaluation in load(f'{state}-judges.json', {}).items():
+        if measure_id not in measure_ids:
+            errors.append(f'{measure_id}: not a measure in {cfg["slug"]}')
+        measures.setdefault(measure_id, {})['evaluation'] = evaluation
     if state in RACE_LINKS:
         file, label = RACE_LINKS[state]
         for office_id, url in load(file, {}).items():
@@ -265,7 +270,7 @@ def build(state, offline=False):
     dest.write_text(json.dumps({'slug': cfg['slug'], 'candidates': out, 'races': races, 'measures': measures}, indent=1, ensure_ascii=False) + '\n')
     count = lambda k: sum(1 for v in out.values() if k in v)
     print(f"{dest.relative_to(ROOT)}: {len(candidates)} candidates; summary {count('summary')}, website {count('website')}, "
-          f"videos {count('videos')} (+{len(measures)} measures), endorsements {count('endorsements')}, guide {count('guide')}, factCheck {count('factCheck')}; races with extras {len(races)}")
+          f"videos {count('videos')} (+{sum('videos' in m for m in measures.values())} measures), judge evaluations {sum('evaluation' in m for m in measures.values())}, endorsements {count('endorsements')}, guide {count('guide')}, factCheck {count('factCheck')}; races with extras {len(races)}")
 
 
 if __name__ == '__main__':

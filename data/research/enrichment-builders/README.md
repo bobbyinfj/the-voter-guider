@@ -66,6 +66,11 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   line and the year of the newest ruling. A page is used only when its bio names the state (or the
   candidate is in `SAME_PERSON` after a manual check); missing pages are skipped. robots.txt allows
   Claude; its 10-second crawl delay is kept. Feeds the Expanded view's 💩 meter (`lib/scorecard.ts`).
+- **Judges on retention questions:** `judges.py <state>` → `<state>-judges.json`, merged as `evaluation` on the
+  retention question. Colorado: each judge's 2026 page from the Office of Judicial Performance Evaluation
+  (found through its full list, never built from the URL pattern): the recommendation, the commission's
+  finding sentence and vote, its narrative paragraphs and survey report links, all verbatim from the saved page.
+  Shown under the ovals (finding + vote) and in the info panel ("How to decide").
 - Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)
