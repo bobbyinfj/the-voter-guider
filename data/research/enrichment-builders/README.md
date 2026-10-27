@@ -71,6 +71,10 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   (found through its full list, never built from the URL pattern): the recommendation, the commission's
   finding sentence and vote, its narrative paragraphs and survey report links, all verbatim from the saved page.
   Shown under the ovals (finding + vote) and in the info panel ("How to decide").
+  California (no retention evaluation found): each justice's biography from their court's own site (Supreme
+  Court, Second District Court of Appeal), found through the court's list of justices. The sentence quoting
+  the Judicial Nominees Evaluation Commission's rating when the biography has one (10 of 18 appellate
+  justices; older biographies and the Supreme Court's don't), the appointment sentence, and the biography.
 - Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)

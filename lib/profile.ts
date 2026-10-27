@@ -183,11 +183,24 @@ export function leadVideo(videos: CandidateVideo[]): CandidateVideo | null {
 export interface RaceExtras {
   videos?: CandidateVideo[]
   links?: { label: string; url: string }[]
-  // Retention questions: the official evaluation of the judge (enrichment-builders/judges.py), verbatim
-  evaluation?: JudgeEvaluation
+  // Retention questions: the official evaluation of the judge, or where there is none (California) their
+  // court's biography of them (enrichment-builders/judges.py), verbatim
+  evaluation?: JudgeEvaluation | JudgeBiography
+}
+
+export interface JudgeBiography {
+  kind: 'biography'
+  publisher: string
+  role: string[]
+  rating: string | null
+  ratingWords: string | null
+  appointed: string | null
+  paragraphs: string[]
+  source: { title: string; url: string; retrieved: string }
 }
 
 export interface JudgeEvaluation {
+  kind?: 'evaluation'
   by: string
   publisher: string
   recommendation: string
