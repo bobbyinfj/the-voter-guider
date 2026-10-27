@@ -109,6 +109,8 @@ interface ElectionFile {
   officialUrl?: string;
   districtLookupUrl?: string;
   jurisdiction: { name: string; state: string; type: string; fipsCode: string };
+  // Per-city page title and text, for an election covering several cities
+  cities?: Record<string, { title: string; description: string }>;
   localJurisdictions?: Array<{
     id: string;
     name: string;
@@ -214,6 +216,7 @@ async function seedElectionBundle(slug: string) {
       status: electionData.status,
       officialUrl: electionData.officialUrl,
       districtLookupUrl: electionData.districtLookupUrl ?? null,
+      metadata: electionData.cities ? { cities: electionData.cities } : Prisma.DbNull,
     },
     create: {
       id: electionData.electionId,
@@ -225,6 +228,7 @@ async function seedElectionBundle(slug: string) {
       status: electionData.status,
       officialUrl: electionData.officialUrl,
       districtLookupUrl: electionData.districtLookupUrl ?? null,
+      metadata: electionData.cities ? { cities: electionData.cities } : Prisma.DbNull,
     },
   });
   console.log("   ✅ Election upserted");
