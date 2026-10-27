@@ -122,7 +122,7 @@ export const FLAG_RULES: Record<FlagRule, { level: Flag['level']; name: string; 
     level: 'red',
     name: 'Rated "Not Qualified" by the county bar association',
     check: 'bar association rating',
-    covers: 'judicial candidates the Los Angeles County Bar Association rates',
+    covers: 'judicial candidates the Los Angeles County Bar Association (California) or the King County Bar Association (Washington) rates',
   },
   'skipped-news-survey': {
     level: 'yellow',
@@ -165,14 +165,15 @@ export function flagsFor(p: ProfileSnippet | null | undefined): { checked: FlagR
         source: { label: `FPPC, ${f.month}`, url: f.url, retrieved: f.retrieved },
       })
   }
-  if (g?.rating) {
+  const rating = p?.barRating
+  if (rating) {
     checked.push('bar-not-qualified')
-    if (/^not qualified$/i.test(g.rating.value))
+    if (/^not qualified$/i.test(rating.value))
       flags.push({
         level: 'red',
         rule: 'bar-not-qualified',
-        text: `Rated "${g.rating.value}"`,
-        source: { label: g.rating.by, url: g.rating.source.url, retrieved: g.rating.source.retrieved },
+        text: `Rated "${rating.value}"`,
+        source: { label: rating.by, url: rating.source.url, retrieved: rating.source.retrieved },
       })
   }
   if (g && (g.answers?.length || /did not respond/i.test(g.note ?? ''))) {

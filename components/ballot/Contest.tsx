@@ -139,7 +139,8 @@ function candidateLine(race: BallotItem, name: string): { text: string; source: 
   const first = doc && openingSentence(doc.text)
   if (first) return { text: first, source: 'From their county ballot booklet statement', short: 'their statement', quote: true }
   const guide = profile?.guide
-  if (guide?.rating) return { text: `Rated ${guide.rating.value}`, source: `By the ${guide.rating.by}`, short: 'county bar assn.', quote: false }
+  const rating = profile?.barRating
+  if (rating) return { text: `Rated ${rating.value}`, source: `By the ${rating.by}`, short: 'county bar assn.', quote: false }
   const about = guide?.about && openingSentence(guide.about)
   if (guide && about) return { text: about, source: `From ${guideCredit(guide)}'s voter guide`, short: guide.source.publisher, quote: true }
   return null

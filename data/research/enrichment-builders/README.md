@@ -75,6 +75,9 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
   Court, Second District Court of Appeal), found through the court's list of justices. The sentence quoting
   the Judicial Nominees Evaluation Commission's rating when the biography has one (10 of 18 appellate
   justices; older biographies and the Supreme Court's don't), the appointment sentence, and the biography.
+- **Washington bar ratings:** `kcba.py` → `wa-ratings.json`, merged as `barRating` on each candidate the King County
+  Bar Association rates (its 2026 contested-elections list), plus a link to that list on each race it covers. The
+  list's note explains its N/A ("not rated … within the last three years"); N/A is never shown as a rating.
 - Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)

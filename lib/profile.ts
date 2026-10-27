@@ -44,8 +44,16 @@ export interface NewsGuide {
   website?: string
   endorsementsUrl?: string
   stateBarUrl?: string
-  rating?: { by: string; value: string; source: { title: string; url: string; retrieved: string } }
+  rating?: BarRating
   answers?: { q: string; a: string }[]
+}
+
+// A bar association's rating of a judicial candidate, as the association publishes it
+export interface BarRating {
+  by: string
+  value: string
+  date?: string
+  source: { title: string; url: string; retrieved: string }
 }
 
 export interface CandidateProfile {
@@ -67,6 +75,8 @@ export interface CandidateProfile {
   claims?: FactCheckClaim[]
   bar?: BarRecord
   ethics?: EthicsRecord
+  // Where no news guide carries it (Washington): straight from the bar association's list (kcba.py)
+  barRating?: BarRating
 }
 
 // What ballot views get: enough for a "snack" without shipping every endorser to the browser
@@ -82,6 +92,7 @@ export interface ProfileSnippet {
   claims: FactCheckClaim[]
   bar: BarRecord | null
   ethics: EthicsRecord | null
+  barRating: BarRating | null
   // Every video of them, for the scorecard's video column (`video` is the one to lead with)
   videos: CandidateVideo[]
 }
@@ -124,6 +135,7 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
     claims: p.claims ?? [],
     bar: p.bar ?? null,
     ethics: p.ethics ?? null,
+    barRating: p.guide?.rating ?? p.barRating ?? null,
     videos: p.videos ?? [],
   }
 }

@@ -258,6 +258,18 @@ def build(state, offline=False):
                 errors.append(f'{office_id}: bad race link {url}')
             races.setdefault(office_id, {})['links'] = [{'label': label, 'url': url}]
 
+    # The King County Bar Association's ratings (kcba.py): on each candidate it rates, and its list on each
+    # race it covers, since that's where an unrated opponent's N/A is explained
+    ratings = load(f'{state}-ratings.json', None)
+    if ratings:
+        for cid, rating in ratings['candidates'].items():
+            if cid not in ids:
+                errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
+            out.setdefault(cid, {})['barRating'] = rating
+        for office_id in ratings['races']:
+            races.setdefault(office_id, {}).setdefault('links', []).append(
+                {'label': "King County Bar Association's ratings for this race (N/A: not rated within the last three years)", 'url': ratings['url']})
+
     for office_id, link in guides['races'].items():
         if office_id not in office_ids:
             errors.append(f'{office_id}: not an office in {cfg["slug"]}')
