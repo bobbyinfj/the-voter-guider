@@ -134,9 +134,11 @@ headings repeat per Court of Appeal division. Other states' judges don't get it.
 
 ### Tax measures: rates with and without
 `data/measures/tax-rates.json` (built by `data/research/measure-builders/tax_rates.py`, read through
-`lib/taxRates.ts`) holds a tax measure's brackets now / if approved / if rejected, from the LAO analysis. The
-LAO's rate table is an image, so brackets are transcribed by hand and the image's SHA-256 is pinned (the build
-fails if LAO changes it); the quotes shown beside the chart are checked against the page. The measure's info
+`lib/taxRates.ts`) holds a tax measure's brackets now / if approved / if rejected, from the official analysis
+(CA Prop 3: LAO; CO Amendment 87: the Blue Book). An image table (LAO) is transcribed by hand with the image's
+SHA-256 pinned (the build fails if it changes); a text table (Blue Book) is checked against the page bracket by
+bracket. Quotes shown beside the chart are checked too. No `joint` brackets means one schedule for every filer.
+Tests check the math against the official worked examples. The measure's info
 panel shows "Learn more: tax rates with and without …" (`components/ballot/TaxRates.tsx`): a step chart of the
 marginal rate by income (hover for any income), a box for your income (our math, labeled, no deductions), and
 the table. Static file: no seed needed.

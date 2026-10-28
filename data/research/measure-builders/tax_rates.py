@@ -2,15 +2,19 @@
 # "tax rates with and without" chart on the ballot (lib/taxRates.ts, components/ballot/TaxRates.tsx).
 #
 # Rules (CLAUDE.md "Transparency is the product"):
-#   - Rates come from the Legislative Analyst's Office analysis. Its rate table is an image, so the
-#     brackets below are transcribed from it by hand; the build records the image's SHA-256 and
-#     fails if LAO changes the figure, so the transcription gets re-checked.
+#   - Rates come from the official analysis (CA: Legislative Analyst's Office; CO: the Blue Book).
+#     When the rate table is an image (LAO), the brackets are transcribed by hand and the build pins
+#     the image's SHA-256, failing if it changes. When it's text (Blue Book `table`), the build checks
+#     the table is on the page and that every bracket's rates appear in it, in order.
+#   - Blue Book PDFs number their lines; `stripLineNumbers` drops those before quotes are checked.
+#   - Brackets with no `joint` threshold mean one schedule for everyone (no single/joint toggle).
 #   - The text claims shown beside the chart (revenue range, expiry) are quotes checked against
 #     the saved LAO page.
 #
 # Usage: python3 tax_rates.py   (fetches via comparison-builders/build.py: robots-checked, cached)
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -47,6 +51,29 @@ MEASURES = {
             [743 * K, 1500 * K, 12.3, 12.3, 9.3],
         ],
     },
+    'co26-m-amendment-87': {
+        'page': 'https://leg.colorado.gov/ballots/graduated-income-tax-2/files/blue-book',
+        'sourceName': 'Colorado Legislative Council Staff, 2026 Blue Book analysis of Amendment 87 (Table 1)',
+        'stripLineNumbers': True,
+        'tax': 'Colorado income tax, individuals and businesses',
+        'labels': {'now': 'Current law (flat rate)', 'yes': 'From 2027 if approved', 'no': 'If rejected'},
+        'table': '$25,000 or less 4.4% 3.7% -0.7 $25,001 to $100,000 4.4% 4.2% -0.2 $100,001 to $500,000 4.4% 4.4% 0.0 $500,001 to $750,000 4.4% 7.4% +3.0 $750,001 to $1,000,000 4.4% 7.9% +3.5 More than $1,000,000 4.4% 8.4% +4.0',
+        'quotes': [
+            'Amendment 87 removes the constitutional requirement that income be taxed at a flat rate and creates a graduated income tax starting in 2027.',
+            "Unlike the federal income tax, the new state income tax brackets are not adjusted for inflation, so more of taxpayers' incomes will fall into the higher brackets over time.",
+            'Amendment 87 will decrease the amount of income tax owed by taxpayers with Colorado taxable income of less than $510,834 and increase the amount of income tax owed by taxpayers with Colorado taxable income of $510,834 and above.',
+            'Amendment 87 is expected to increase state income tax revenue by an estimated $2 billion in the first full year and more in later years.',
+        ],
+        # [from, now, if approved, if rejected] (percent): one schedule for everyone
+        'brackets': [
+            [0, 4.4, 3.7, 4.4],
+            [25 * K, 4.4, 4.2, 4.4],
+            [100 * K, 4.4, 4.4, 4.4],
+            [500 * K, 4.4, 7.4, 4.4],
+            [750 * K, 4.4, 7.9, 4.4],
+            [1000 * K, 4.4, 8.4, 4.4],
+        ],
+    },
 }
 
 
@@ -57,18 +84,29 @@ def build():
     for mid, m in MEASURES.items():
         raw, fetched = cb.fetch(m['page'])
         page = cb.norm(cb.page_text(raw))
+        if m.get('stripLineNumbers'):
+            # A bare 1-3 digit number between words is a line number, except a measure's own number
+            page = re.sub(r'(?<= )(?<!Amendment )(?<!Proposition )\d{1,3} (?=\S)', '', page)
         for q in m['quotes']:
             assert cb.norm(q) in page, f'{mid}: quote not on {m["page"]}: {q[:70]}'
-        img, _ = cb.fetch(m['figure'])
-        sha = hashlib.sha256(img).hexdigest()
-        pinned = old.get(mid, {}).get('source', {}).get('figureSha256')
-        assert not pinned or pinned == sha, f'{mid}: LAO changed the figure; re-check the brackets against it, then delete the pinned hash'
+        source = {'url': m['page'], 'name': m['sourceName'], 'retrieved': fetched}
+        if 'figure' in m:
+            img, _ = cb.fetch(m['figure'])
+            sha = hashlib.sha256(img).hexdigest()
+            pinned = old.get(mid, {}).get('source', {}).get('figureSha256')
+            assert not pinned or pinned == sha, f'{mid}: the figure changed; re-check the brackets against it, then delete the pinned hash'
+            source.update(figure=m['figure'], figureSha256=sha)
+        if 'table' in m:
+            assert cb.norm(m['table']) in page, f'{mid}: rate table not on {m["page"]}'
+            cells = re.findall(r'(\d+\.\d)%', m['table'])  # current, proposed per row
+            assert cells == [f'{r:.1f}' for b in m['brackets'] for r in (b[-3], b[-2])], f'{mid}: brackets differ from the table'
+        keys = ['single', 'joint', 'now', 'yes', 'no'] if len(m['brackets'][0]) == 5 else ['single', 'now', 'yes', 'no']
         out[mid] = {
             'tax': m['tax'],
             'labels': m['labels'],
-            'brackets': [dict(zip(['single', 'joint', 'now', 'yes', 'no'], b)) for b in m['brackets']],
+            'brackets': [dict(zip(keys, b)) for b in m['brackets']],
             'quotes': m['quotes'],
-            'source': {'url': m['page'], 'name': m['sourceName'], 'figure': m['figure'], 'figureSha256': sha, 'retrieved': fetched},
+            'source': source,
         }
     out_path.parent.mkdir(exist_ok=True)
     out_path.write_text(json.dumps(out, indent=1) + '\n')

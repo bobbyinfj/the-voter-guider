@@ -857,6 +857,19 @@
    "builder": "glossary-builders/build.py",
    "notes": "",
    "checked": "2026-10-27"
+  },
+  {
+   "id": "co-blue-book",
+   "state": "CO",
+   "kind": [
+    "measure-text"
+   ],
+   "name": "Colorado Legislative Council Staff, 2026 Blue Book (per-measure analysis PDFs)",
+   "url": "https://leg.colorado.gov/ballots/graduated-income-tax-2/files/blue-book",
+   "access": "ok",
+   "builder": "measure-builders/tax_rates.py",
+   "notes": "PDF with numbered lines (tax_rates.py strips them before checking quotes). Rate tables are text, so brackets are checked against the table itself.",
+   "checked": "2026-10-27"
   }
  ]
 }
