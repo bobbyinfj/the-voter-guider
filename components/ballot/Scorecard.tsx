@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ExternalLink, Flag as FlagIcon } from 'lucide-react'
 import VideoFacade from '@/components/candidate/VideoFacade'
+import VideoCarousel from '@/components/candidate/VideoCarousel'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import {
   formatDuration,
@@ -81,6 +82,10 @@ export function RaceVideos({ race }: { race: BallotItem }) {
   return (
     <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 print:hidden">
       <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Watch them together</p>
+      {videos.length > 1 ? (
+        <VideoCarousel videos={videos} tiny label="Debates and forums" />
+      ) : (
+      <>
       {shown.length > 0 && (
         <div className="flex snap-x gap-2 overflow-x-auto pb-1">
           {shown.map((v) => (
@@ -108,6 +113,8 @@ export function RaceVideos({ race }: { race: BallotItem }) {
             </button>
           ))}
         </p>
+      )}
+      </>
       )}
     </div>
   )

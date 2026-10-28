@@ -289,6 +289,14 @@ export function leadRung(ladder: (VideoPick & { tier: VideoTier })[]): number {
   return best
 }
 
+// Every video, shortest first (a part of a long show counts as its own length; unknown lengths last),
+// the most independent first on a tie: the order a carousel steps through, from a bite to a meal
+export function shortestFirst(videos: CandidateVideo[]): CandidateVideo[] {
+  const len = (v: CandidateVideo) => watchLength({ video: v }) ?? Infinity
+  const rank = (v: CandidateVideo) => Math.max(0, ORIGIN_ORDER.indexOf(v.origin))
+  return [...videos].sort((a, b) => len(a) - len(b) || rank(a) - rank(b))
+}
+
 // The best video of each length, shortest first (a bite leads into a snack, a snack into a meal).
 // Picks come in preference order (most independent first) and keep it within a tier.
 export function videoLadder(picks: VideoPick[]): (VideoPick & { tier: VideoTier })[] {

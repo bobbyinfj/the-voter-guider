@@ -2910,6 +2910,67 @@
      "channel": "CalMatters",
      "published": "2026-10-02",
      "durationSec": 111
+    },
+    {
+     "youtubeId": "lTQLuJhLNxo",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Election 2026: Proposition 45",
+     "channel": "CBS LA",
+     "published": "2026-10-02",
+     "durationSec": 144
+    },
+    {
+     "youtubeId": "fiF28g8MHqE",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "California's Prop 45: Speeding Up Development vs. Environmental Protection",
+     "channel": "FOX40 News",
+     "published": "2026-10-09",
+     "durationSec": 205
+    },
+    {
+     "youtubeId": "Uv2V700AuWU",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "Proposition 45: Modifies Environmental Review for Certain Projects",
+     "channel": "League of Women Voters of Los Angeles County",
+     "published": "2026-10-07",
+     "durationSec": 444,
+     "host": "League of Women Voters of Los Angeles County"
+    },
+    {
+     "youtubeId": "XfPTVjCzn8E",
+     "kind": "forum",
+     "origin": "independent",
+     "title": "Every California ballot measure explained before the Nov. 3 election | AirTalk's Ballot Cram Session",
+     "channel": "LAist",
+     "published": "2026-10-10",
+     "durationSec": 3440,
+     "startSec": 3147,
+     "endSec": 3440
+    },
+    {
+     "youtubeId": "AgQzIgSUJ2c",
+     "kind": "explainer",
+     "origin": "independent",
+     "title": "2026 Ballot Pros & Cons - State Propositions",
+     "channel": "League of Women Voters San Diego",
+     "published": "2026-10-07",
+     "durationSec": 5303,
+     "host": "League of Women Voters of San Diego",
+     "startSec": 4080,
+     "endSec": 4597
+    },
+    {
+     "youtubeId": "hNFbntT27-M",
+     "kind": "debate",
+     "origin": "independent",
+     "title": "Should Developers Build Faster with Less Environmental Review?",
+     "channel": "Voice of San Diego",
+     "published": "2026-10-11",
+     "durationSec": 4394,
+     "host": "Voice of San Diego (Politifest 2026)"
     }
    ]
   },

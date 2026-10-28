@@ -174,3 +174,18 @@ test('every judge on a ballot has a sourced record line or rating where a source
     }
   }
 })
+
+test('a carousel steps from the shortest video to the longest, parts of long shows by their own length', async () => {
+  const { shortestFirst } = await import('../lib/profile')
+  const v = (youtubeId: string, extra: Partial<CandidateVideo>): CandidateVideo => ({
+    youtubeId, kind: 'explainer', origin: 'independent', title: youtubeId, channel: 'X', published: '2026-10-01', ...extra,
+  })
+  const order = shortestFirst([
+    v('debate', { kind: 'debate', durationSec: 4394 }),
+    v('segment', { durationSec: 5303, startSec: 4080, endSec: 4597 }),
+    v('open-ended', { kind: 'forum', startSec: 100 }),
+    v('campaign-clip', { origin: 'campaign', durationSec: 111 }),
+    v('news', { durationSec: 111 }),
+  ]).map((x) => x.youtubeId)
+  assert.deepEqual(order, ['news', 'campaign-clip', 'segment', 'debate', 'open-ended'])
+})

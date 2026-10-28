@@ -52,7 +52,9 @@ def oembed(video_id):
 
 
 def details(video_id):
-    r = subprocess.run([YTDLP, '--impersonate', 'chrome', '-J', '--skip-download', '--no-warnings', '--', video_id],
+    # A plain request, as yt-dlp identifies itself; browser impersonation only when asked for
+    imp = ['--impersonate', 'chrome'] if os.environ.get('YTDLP_IMPERSONATE') == '1' else []
+    r = subprocess.run([YTDLP, *imp, '-J', '--skip-download', '--no-warnings', '--', video_id],
                        capture_output=True, text=True, timeout=180)
     return json.loads(r.stdout) if r.stdout.startswith('{') else None
 

@@ -3,10 +3,12 @@
 import { useState } from 'react'
 import { ExternalLink, PlayCircle } from 'lucide-react'
 import VideoFacade from './VideoFacade'
+import VideoCarousel from './VideoCarousel'
 import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, videoTier, type RaceExtras as Extras } from '@/lib/profile'
 
-// Debates, forums and links for a whole race. Compact (contest info panel): short videos as
-// column-wide players, long ones (a meal) as a button that opens one; otherwise a grid of players.
+// Debates, forums and links for a whole race or measure. Compact (contest info panel): several videos
+// as a carousel, shortest first; one short video as a column-wide player, one long one (a meal) as a
+// button that opens it. Otherwise a grid of players.
 export default function RaceExtras({ extras, compact = false }: { extras: Extras; compact?: boolean }) {
   const [open, setOpen] = useState<string | null>(null)
   const videos = extras.videos ?? []
@@ -14,7 +16,9 @@ export default function RaceExtras({ extras, compact = false }: { extras: Extras
   if (!videos.length && !links.length) return null
   return (
     <div className="space-y-2">
-      {compact ? (
+      {compact && videos.length > 1 ? (
+        <VideoCarousel videos={videos} />
+      ) : compact ? (
         videos.map((v) =>
           videoTier({ video: v }) !== 'meal' ? (
             <VideoFacade key={v.youtubeId} video={v} />
