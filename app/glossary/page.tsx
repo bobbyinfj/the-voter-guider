@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 // Every office we've explained (data/glossary/offices.json), grouped by state, with an anchor per
 // office (#ca-insurance-commissioner) that the ballot's "What's this job?" popover links to.
 export default function GlossaryPage() {
-  const states = [...new Set(OFFICE_GLOSSARY.map((e) => e.state))].sort();
+  // Federal offices first, then states alphabetically
+  const states = [...new Set(OFFICE_GLOSSARY.map((e) => e.state))].sort((a, b) => (a === 'US' ? -1 : b === 'US' ? 1 : a.localeCompare(b)));
   return (
     <div className="container mx-auto max-w-3xl space-y-6 px-4 py-8 text-gray-900">
       <div className="flex items-center gap-3">

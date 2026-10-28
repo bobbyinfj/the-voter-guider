@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm print:hidden">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <div className="flex items-center gap-4">
             <Link href="/">
               <Image
@@ -33,11 +33,11 @@ export default function Header() {
               </div>
             </Link>
           </div>
-          <nav className="flex items-center gap-4">
+          <nav className="flex flex-wrap items-center gap-x-4 gap-y-1">
             {[
               { href: '/', label: 'Elections', active: isActive('/') || pathname.startsWith('/elections') },
               { href: '/guides', label: 'My Guides', active: isActive('/guides') || pathname.startsWith('/guide/') },
-              { href: '/glossary', label: 'Offices explained', active: isActive('/glossary') },
+              { href: '/glossary', label: <>Offices<span className="hidden sm:inline"> explained</span></>, active: isActive('/glossary') },
             ].map((item) => (
               <Link
                 key={item.href}
