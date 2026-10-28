@@ -181,6 +181,12 @@ in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Bu
 `components/ballot/Paper.tsx`. Text sizes are rem only (no `text-[Npx]`), so the root size in
 `globals.css` (112.5% on screen, 100% in print) scales the whole site in one place. Layout grammar only: no seals, signatures or "official" wording.
 
+### Ranked choice (not supported yet)
+The ballot handles vote-for-one and Yes/No only. Fort Collins city races (odd years, from 2025) and Seattle city
+primaries (from Aug 2027) are ranked-choice. `tests/rankedChoice.test.ts` fails on any contest whose printed
+heading/instructions ask voters to rank (or `votingMethod: "ranked"`), so add ranking support (ordered picks,
+validation, export, tally) before adding those elections.
+
 ### Districts
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`), plus more
 scopes in `scope` (seeded to `Ballot.metadata.scope`, read by `scopesOf`), e.g. `{ "city": "montebello" }`: an
