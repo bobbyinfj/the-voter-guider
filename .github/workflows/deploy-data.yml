@@ -16,9 +16,19 @@ name: Deploy data to production
 on:
   push:
     branches: [main]
+    # Only what the seed reads (prisma/seed.ts) or the schema. Static files the app imports directly
+    # (data/glossary, data/measures, data/research) ship with the Vercel build and don't need a
+    # run, which would wake Neon's compute for nothing.
     paths:
-      - "data/**"
       - "prisma/**"
+      - "data/elections/**"
+      - "data/maps/**"
+      - "data/issues/**"
+      - "data/enrichment/**"
+      - "data/stances/**"
+      - "data/quizzes/**"
+      - "data/comparisons/**"
+      - "lib/comparisons.ts"
   workflow_dispatch:
     inputs:
       status_only:
