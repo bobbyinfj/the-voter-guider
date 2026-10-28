@@ -11,8 +11,8 @@ interface BallotNavProps {
   onJump: (itemId: string) => void
 }
 
-// Table of contents for the ballot: every contest with its decided/undecided state, and for a
-// Yes/No question which way you're voting (solid once decided, outlined while leaning or unsure)
+// Table of contents for the ballot: every contest with its decided/undecided state. A Yes/No
+// question's icon also says which way you're voting (VoteMark)
 export default function BallotNav({ sections, choices, activeId, onJump }: BallotNavProps) {
   return (
     <nav aria-label="Contests on this ballot" className="space-y-4 text-sm">
@@ -34,7 +34,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                 const leaning = isPick(selection) && choices[item.id]?.status === 'tentative'
                 const Icon = !selection ? Circle : selection === ABSTAIN ? MinusCircle : unsure ? CircleHelp : CheckCircle2
                 const vote = selection === 'YES' || selection === 'NO' ? selection : null
-                const sure = choices[item.id]?.status === 'decided' || !choices[item.id]?.status
+                const status = choices[item.id]?.status ?? 'decided'
                 return (
                   <li key={item.id}>
                     <a
@@ -48,29 +48,21 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                         activeId === item.id ? 'bg-blue-100 text-blue-900' : 'text-gray-700 hover:bg-gray-100'
                       }`}
                     >
+                      {vote ? (
+                        <VoteMark vote={vote} status={status} />
+                      ) : (
                       <Icon
                         aria-label={!selection ? 'Undecided' : selection === ABSTAIN ? 'Left blank' : unsure ? 'Not sure yet' : leaning ? 'Leaning' : 'Decided'}
                         className={`mt-0.5 h-4 w-4 shrink-0 ${
                           !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : unsure ? 'text-purple-600' : leaning ? 'text-amber-600' : 'text-green-600'
                         }`}
                       />
+                      )}
                       <span className="min-w-0" title={MEASURE_TOPICS[item.id] ? item.title : undefined}>
                         <span className="line-clamp-2">{navLabel(item)}</span>
                         {/* A state measure's topic, in words from its official title (lib/measureTopics.ts) */}
                         {MEASURE_TOPICS[item.id] && <span className="block text-xs text-gray-500">{MEASURE_TOPICS[item.id]}</span>}
                       </span>
-                      {vote && (
-                        <span
-                          className={`ml-auto mt-0.5 inline-flex shrink-0 items-center gap-0.5 rounded px-1 text-[0.625rem] font-bold leading-4 ${
-                            vote === 'YES'
-                              ? sure ? 'bg-green-700 text-white' : 'border border-green-700 text-green-800'
-                              : sure ? 'bg-red-700 text-white' : 'border border-red-700 text-red-800'
-                          }`}
-                        >
-                          {vote === 'YES' ? <Check aria-hidden className="h-3 w-3" /> : <X aria-hidden className="h-3 w-3" />}
-                          {vote}
-                        </span>
-                      )}
                     </a>
                   </li>
                 )
@@ -80,5 +72,30 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
         )
       })}
     </nav>
+  )
+}
+
+// A Yes/No pick drawn like its ballot oval: green ✓ for Yes or red ✕ for No, solid once decided,
+// striped while leaning, a dashed ring while possibly or not sure
+function VoteMark({ vote, status }: { vote: 'YES' | 'NO'; status: string }) {
+  const yes = vote === 'YES'
+  const Glyph = yes ? Check : X
+  const how = status === 'decided' ? 'decided' : status === 'tentative' ? 'leaning' : status === 'possible' ? 'possibly' : 'not sure'
+  const ring = yes ? 'border-green-700' : 'border-red-700'
+  const style =
+    how === 'decided'
+      ? `${yes ? 'bg-green-700' : 'bg-red-700'} ${ring} text-white`
+      : how === 'leaning'
+        ? `${ring} ${yes ? 'text-green-800 bg-[repeating-linear-gradient(135deg,var(--color-green-200)_0_2px,transparent_2px_4px)]' : 'text-red-800 bg-[repeating-linear-gradient(135deg,var(--color-red-200)_0_2px,transparent_2px_4px)]'}`
+        : `border-dashed ${ring} ${yes ? 'text-green-800' : 'text-red-800'} bg-white`
+  return (
+    <span
+      role="img"
+      aria-label={`Voting ${yes ? 'Yes' : 'No'}, ${how}`}
+      title={`Voting ${yes ? 'Yes' : 'No'} (${how})`}
+      className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-[1.5px] ${style}`}
+    >
+      <Glyph aria-hidden className="h-2.5 w-2.5" strokeWidth={3.5} />
+    </span>
   )
 }

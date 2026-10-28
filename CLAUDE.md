@@ -95,8 +95,9 @@ skippable prompt offers a magic-link sign-in so the guide follows you to other d
 **Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
 stacked on a phone), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage); with no choice yet, a shared link (a `#contest` anchor, or someone else's guide at `/guide/<shareToken>`) opens Expanded. A dismissible banner (localStorage)
 and a button in each contest's info panel nudge toward Expanded.
-The table of contents (`components/ballot/BallotNav.tsx`) shows a ✓ YES / ✕ NO tag on Yes/No questions you've marked
-(solid once decided, outlined while leaning or unsure) and, under each state measure's number, a topic of a word or
+The table of contents (`components/ballot/BallotNav.tsx`) draws a Yes/No pick's icon like its ballot oval (`VoteMark`):
+green ✓ for Yes or red ✕ for No, solid once decided, striped while leaning, a dashed ring while possibly or not sure
+(candidate races keep the decided/leaning/not-sure icons) and, under each state measure's number, a topic of a word or
 two (`lib/measureTopics.ts`) built only from words in the official title (a test checks), with that title on hover.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
 `/how-we-score`). Compact by default: their video (if any) across the whole column with the one-line summary under it, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
@@ -183,6 +184,12 @@ Each election's pages take its county ballot's fonts and colors (`lib/ballot-the
 in `app/globals.css`: `bg-ballot-bar`, `bg-ballot-head`, `font-ballot`, ...). Building blocks in
 `components/ballot/Paper.tsx`. Text sizes are rem only (no `text-[Npx]`), so the root size in
 `globals.css` (112.5% on screen, 100% in print) scales the whole site in one place. Layout grammar only: no seals, signatures or "official" wording.
+
+### Ranked choice (not supported yet)
+The ballot handles vote-for-one and Yes/No only. Fort Collins city races (odd years, from 2025) and Seattle city
+primaries (from Aug 2027) are ranked-choice. `tests/rankedChoice.test.ts` fails on any contest whose printed
+heading/instructions ask voters to rank (or `votingMethod: "ranked"`), so add ranking support (ordered picks,
+validation, export, tally) before adding those elections.
 
 ### Districts
 Offices and measures can carry `districtType` + `districtCode` (types in `lib/districts.ts`), plus more
