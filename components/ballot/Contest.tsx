@@ -689,7 +689,7 @@ function Enhancements({
         </>
       ) : (
         <>
-          {glossaryFor(item.office?.id) && <OfficeExplainer entry={glossaryFor(item.office?.id)!} />}
+          {!candidatesBeside && glossaryFor(item.office?.id) && <OfficeExplainer entry={glossaryFor(item.office?.id)!} />}
           {!candidatesBeside && (
           <ul className="space-y-3">
             {people.map((c) => (
@@ -872,7 +872,20 @@ export default function Contest({
         </div>
       </ContestHead>
       {wide && open && (
-        <BesideRow wide aside={<p className="border-b border-sky-200 bg-sky-100 px-3 py-1 font-sans text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>}>
+        <BesideRow
+          wide
+          aside={
+            <>
+              <p className="border-b border-sky-200 bg-sky-100 px-3 py-1 font-sans text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>
+              {/* What the job is, before the candidates (the info panel below them skips it here) */}
+              {glossaryFor(first.office?.id) && (
+                <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 font-sans text-sky-950">
+                  <OfficeExplainer entry={glossaryFor(first.office?.id)!} />
+                </div>
+              )}
+            </>
+          }
+        >
           <div className="flex-1" />
         </BesideRow>
       )}
