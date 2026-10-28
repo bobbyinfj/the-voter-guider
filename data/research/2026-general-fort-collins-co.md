@@ -12,6 +12,7 @@ Parsed into `sample-ballots/larimer.json` (contest order, headings, party labels
 - Added the judicial retention questions on every Larimer ballot: Colorado Supreme Court (William W. Hood, III), Court of Appeals (six judges) and Larimer County Court (three judges).
 
 Fort Collins city elections are odd-year; no city races on this ballot.
+Ranked voting: Fort Collins elects Mayor and Council by ranked choice in races with 3+ candidates (approved 2022, first used Nov 5 2025; https://www.fortcollins.gov/Government/Elections/Ranked-Voting). Next city election Nov 2027; the ballot needs ranking support before then (tests/rankedChoice.test.ts fails on a ranked contest).
 
 ## Statewide [K1,K3] (major + minor parties as listed)
 - US Senate: John Hickenlooper* (D) vs Mark Baisley (R); also Bob Chew (Forward), Christopher Baum (Approval Voting)
