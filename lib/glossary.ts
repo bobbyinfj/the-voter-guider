@@ -46,4 +46,4 @@ export function glossaryForItem(item: { id: string; office?: { id: string } | nu
   return glossaryFor(item.office?.id) ?? glossaryFor(item.id)
 }
 
-export const STATE_NAMES: Record<string, string> = { CA: 'California', CO: 'Colorado', WA: 'Washington' }
+export const STATE_NAMES: Record<string, string> = { US: 'Federal (every state)', CA: 'California', CO: 'Colorado', WA: 'Washington' }
