@@ -76,12 +76,12 @@ function SourceLine({ source, inline = false }: { source: GlossarySource; inline
 }
 
 // A "What's this job?" button for a contest heading that opens the explainer in a popover
-// (click, not hover, so it works on phones). Closes on Escape or a click outside. It hangs left from
-// the button, or right when the button is too near the left edge (a first-column contest) to fit.
+// (click, not hover, so it works on phones). Closes on Escape or a click outside. It sits right after
+// the job's title and hangs right from the button, or left when it's too near the right edge to fit.
 export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
   const [open, setOpen] = useState(false)
-  const [fromLeft, setFromLeft] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
+  const [fromLeft, setFromLeft] = useState(true)
+  const ref = useRef<HTMLSpanElement>(null)
   useEffect(() => {
     if (!open) return
     const close = (e: MouseEvent | KeyboardEvent) => {
@@ -95,23 +95,23 @@ export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
     }
   }, [open])
   return (
-    <div ref={ref} className="relative font-sans">
+    <span ref={ref} className="relative inline-block align-middle font-sans print:hidden">
       <button
         type="button"
         onClick={(e) => {
           const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
-          setFromLeft(e.currentTarget.getBoundingClientRect().right < 23 * remPx)
+          setFromLeft(window.innerWidth - e.currentTarget.getBoundingClientRect().left >= 23 * remPx)
           setOpen((o) => !o)
         }}
         aria-expanded={open}
         aria-label={entry.measures?.length ? `About this vote: ${entry.title}` : `What does the ${entry.title} do?`}
         title={entry.measures?.length ? 'What is this vote?' : "What's this job?"}
-        className={`flex items-center gap-0.5 rounded px-1 py-0.5 text-[0.6875rem] font-semibold ${
+        className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-[0.6875rem] font-semibold ${
           open ? 'bg-sky-200 text-sky-900' : 'text-sky-800 hover:bg-sky-100'
         }`}
       >
         <BookOpen className="h-3.5 w-3.5" />
-        <span className="hidden sm:inline">{entry.measures?.length ? 'What is this vote?' : <>What&apos;s this job?</>}</span>
+        <span>{entry.measures?.length ? 'What is this vote?' : <>What&apos;s this job?</>}</span>
       </button>
       {open && (
         <div
@@ -122,6 +122,6 @@ export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
           <OfficeExplainer entry={entry} />
         </div>
       )}
-    </div>
+    </span>
   )
 }
