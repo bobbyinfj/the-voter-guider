@@ -44,6 +44,37 @@ CA_GUIDE = (
     "California Secretary of State, Official Voter Information Guide (June 2010, archived)",
 )
 
+CA_SENATE_PROCESS = ('https://www.senate.ca.gov/citizens-guide/legislative-process', "California State Senate, Citizens' Guide: Legislative Process")
+CA_BUDGET_FACT = {
+    'plain': 'The Legislature must pass the state budget by June 15 each year; the budget decides which services the state provides and who pays for them.',
+    'source': ('https://www.senate.ca.gov/media/3004', "California State Senate, The Budget Process: A Citizen's Guide to Participation"),
+    'quotes': ['After its introduction, the Legislature has until June 15 to pass the budget.', 'The final state budget determines which services are provided and who pays for them.'],
+}
+CA_TERMS_FACT = {
+    'plain': "Assembly members serve two-year terms and senators four-year terms. As of 2015 each Assembly member represented about 475,000 people and each senator about 950,000.",
+    'source': ('https://www.assembly.ca.gov/sites/assembly.ca.gov/files/Publications/csa_2015.pdf', 'California State Assembly, California\'s State Assembly (2015)'),
+    'quotes': [
+        'Members of the Assembly are elected for two-year terms, while Senators are elected for four-year terms, with one-half of the membership elected every two years.',
+        'Out of 38+ million Californians, each Member of the Assembly represents approximately 475,000 people, and each Senator represents approximately 950,000 people.',
+    ],
+}
+CA_TERM_LIMIT_FACT = {
+    'plain': 'Nobody may serve more than 12 years in the Legislature in their lifetime, in the Senate, the Assembly or both.',
+    'source': ('https://www.senate.ca.gov/citizens-guide/faqs', 'California State Senate, FAQs'),
+    'quotes': ['During his or her lifetime a person may serve no more than 12 years in the Senate, Assembly, or both, in any combination of terms.'],
+}
+CA_LEGISLATOR_ASK = [
+    'What would they put first in the state budget?',
+    'Which bills would they write first, and which would they vote against?',
+    'How would they hear from people in their district?',
+]
+CITY_COUNCIL_ASK = [
+    'What would they put first in the city budget?',
+    'Which city services would they add, keep or cut?',
+    'How would they keep residents informed and involved in decisions?',
+]
+CO_OJPE_FAQ = ('https://judicialperformance.colorado.gov/frequently-asked-questions', 'Colorado Office of Judicial Performance Evaluation, Frequently Asked Questions')
+
 ENTRIES = [
     {
         'key': 'ca-governor', 'title': 'Governor', 'state': 'CA', 'offices': ['ca26-governor'],
@@ -362,6 +393,250 @@ ENTRIES = [
         'links': [
             {'label': 'Read their recent opinions (the courts\u2019 own lists)', 'url': 'https://courts.ca.gov/opinions'},
         ],
+    },
+    {
+        'key': 'ca-assembly', 'title': 'State Assembly member', 'state': 'CA', 'offices': ['ca26-assembly-49', 'ca26-assembly-54'],
+        'plain': "A member of the Assembly, one of the two houses of California's Legislature. Members write bills, often from ideas people bring them, and vote on bills and on the state budget; with the Senate they can override a governor's veto by a two-thirds vote. Assembly terms are two years.",
+        'source': CA_SENATE_PROCESS,
+        'quotes': [
+            'These ideas can come from anybody and the process begins when either an individual or group persuades a Member of the Legislature to author a bill.',
+            'If the Governor vetoes the bill, a two-thirds vote in each house is needed to override the veto.',
+        ],
+        'facts': [CA_BUDGET_FACT, CA_TERMS_FACT, CA_TERM_LIMIT_FACT],
+        'ask': CA_LEGISLATOR_ASK,
+    },
+    {
+        'key': 'ca-state-senate', 'title': 'State Senator', 'state': 'CA', 'offices': ['ca26-state-senate-30'],
+        'plain': "One of 40 members of the State Senate, the other house of California's Legislature, elected for four-year terms. Senators write bills, often from ideas people bring them, and vote on bills and on the state budget; with the Assembly they can override a governor's veto by a two-thirds vote.",
+        'source': CA_SENATE_PROCESS,
+        'quotes': [
+            'These ideas can come from anybody and the process begins when either an individual or group persuades a Member of the Legislature to author a bill.',
+            'If the Governor vetoes the bill, a two-thirds vote in each house is needed to override the veto.',
+        ],
+        'facts': [
+            {
+                'plain': 'The Senate has 40 members with four-year terms; half begin every two years.',
+                'source': ('https://www.senate.ca.gov/citizens-guide/faqs', 'California State Senate, FAQs'),
+                'quotes': ['The Senate has a membership of 40 Senators elected for 4-year terms, 20 to begin every 2 years.'],
+            },
+            CA_BUDGET_FACT, CA_TERMS_FACT, CA_TERM_LIMIT_FACT,
+        ],
+        'ask': CA_LEGISLATOR_ASK,
+    },
+    {
+        'key': 'ca-la-sheriff', 'title': 'Los Angeles County Sheriff', 'state': 'CA', 'offices': ['ca26-la-sheriff'],
+        'plain': "Runs the Sheriff's Department, the county's chief law enforcement agency. It polices most of the county's unincorporated areas and 42 cities that contract with it, guards courtrooms, and runs the county jails, which hold about 13,000 people in seven facilities.",
+        'source': ('https://file.lacounty.gov/SDSInter/bos/supdocs/200532.pdf', "Los Angeles County Board of Supervisors, Sheriff's Department budget summary (2025)"),
+        'quotes': [
+            "The Sheriff serves as the chief law enforcement officer of Los Angeles County, enforcing state laws and county ordinances across 77% of the county's unincorporated areas and all cities within the county.",
+            'The office provides law enforcement and traffic services to 42 cities, as well as agencies like the Los Angeles Superior Court and Metrolink.',
+            'Additionally, the Sheriff manages the care, placement, and secure housing of approximately 13,000 individuals in County jails across seven facilities.',
+            'Courtroom Security Services: Serving as bailiff and protecting judges and juries.',
+        ],
+        'ask': [
+            'What would they change about how deputies patrol and respond to calls?',
+            'How would they run the county jails?',
+            'How would they handle complaints about deputies?',
+        ],
+    },
+    {
+        'key': 'ca-laccd', 'title': 'Los Angeles Community College District trustee', 'state': 'CA', 'offices': ['ca26-laccd-2', 'ca26-laccd-4', 'ca26-laccd-6'],
+        'plain': "One of seven trustees who govern the Los Angeles Community College District. Trustees are elected by voters across the whole district (not one area) for four-year terms; three or four seats are up every two years.",
+        'source': ('https://build-laccd.org/about-buildlaccd/leadership', "Los Angeles Community College District, BuildLACCD: Leadership"),
+        'quotes': [
+            'The Los Angeles Community College District is governed by a seven-member Board.',
+            'Board members are elected at large for terms of four years.',
+            'Elections are held every two years, with three members being chosen at one election and four members at the other.',
+        ],
+        'facts': [
+            {
+                'plain': "The district runs nine colleges. Voter-approved bonds (Propositions A and AA, Measure J) pay for building at them, reviewed by a citizens' oversight committee.",
+                'source': ('https://www.build-laccd.org/wp-content/uploads/2023/07/final_dcoc_annual_report_2011-12.pdf', "LACCD Citizens' Oversight Committee, Annual Report 2011-12"),
+                'quotes': [
+                    'Over the past 83 years, the nine colleges combined have served more than three million students.',
+                    'In it is a breakdown of the costs and a review of the progress made on the construction, renovation, up- grades, furnishings and equipment for projects at the nine colleges and the satellite campuses funded by Proposi- tion A, AA and Measure J.',
+                ],
+            },
+        ],
+        'ask': [
+            'What would they put first in the district budget?',
+            'How would they help more students finish a degree, a certificate or a transfer?',
+            'How would they oversee spending from the construction bonds?',
+        ],
+    },
+    {
+        'key': 'ca-monterey-park-council', 'title': 'Monterey Park City Council member', 'state': 'CA', 'offices': ['ca26-mp-council-1', 'ca26-mp-council-5'],
+        'plain': "The City Council adopts Monterey Park's budget each year, which sets how much service residents get and what the city collects. It approves city contracts and spending, and adopts the city's service goals, policies and regulations.",
+        'source': ('https://www.montereypark.ca.gov/746/City-Council', 'City of Monterey Park, City Council'),
+        'quotes': [
+            'The City Council determines service levels and revenue obligations through the adoption of an annual budget, authorizes City contracts and expenditures, establishes municipal service goals and operating policies, and adopts regulatory measures necessary to establish community protection.',
+        ],
+        'ask': CITY_COUNCIL_ASK,
+    },
+    {
+        'key': 'ca-monterey-park-treasurer', 'title': 'Monterey Park City Treasurer', 'state': 'CA', 'offices': ['ca26-mp-treasurer'],
+        'plain': "An elected official who oversees the safekeeping of the city's money and pays it out when the City Council orders it.",
+        'source': ('https://www.montereypark.ca.gov/1253/Elected-Officials', 'City of Monterey Park, Elected Officials'),
+        'quotes': ['The City Treasurer is an elected position and is responsible to the electorate for overseeing the custody of the City monies and their disbursement upon order of the City Council.'],
+        'ask': ["How would they keep the city's money safe?", "How would they report to residents on the city's money?"],
+    },
+    {
+        'key': 'ca-montebello-council', 'title': 'Montebello City Council member', 'state': 'CA', 'offices': ['ca26-mb-council-1', 'ca26-mb-council-3', 'ca26-mb-council-4', 'ca26-mb-council-5'],
+        'plain': "One of five council members who set Montebello's overall policies and direction; a city manager runs day-to-day operations. Members serve four-year terms, pick one of themselves as mayor each year, and appoint residents to city commissions.",
+        'source': ('https://montebelloca.gov/government/elected_officials', 'City of Montebello, Elected Officials'),
+        'quotes': [
+            'As a general-law city, Montebello operates through the Council - City Manager form of municipal government.',
+            'The five City Council members are elected to overlapping terms of four years and annually select one of their members to serve as Mayor.',
+            'The City Council is the legislative body responsible for the overall policies and direction for the City of Montebello.',
+            'The City Council appoints residents to serve on several commissions.',
+        ],
+        'ask': CITY_COUNCIL_ASK,
+    },
+    {
+        'key': 'ca-montebello-usd', 'title': 'Montebello Unified School District board member', 'state': 'CA', 'offices': ['ca26-musd-2'],
+        'plain': "A member of the board that governs Montebello Unified. The board sets the district's long-term direction, answers to the community for its schools' education and finances, and alone hires the superintendent who runs the district.",
+        'source': ('https://information.auditor.ca.gov/reports/2017-104/introduction.html', 'California State Auditor, Report 2017-104 on Montebello Unified (2017), Introduction'),
+        'quotes': [
+            "The board's primary role is to establish Montebello's long-term vision, maintain a basic organizational structure, and ensure educational and fiscal accountability to the community while providing community leadership.",
+            "The board is also solely responsible for employing the superintendent, who is the general administrator of all of Montebello's instructional and business operations.",
+        ],
+        'ask': [
+            'What would they put first in the district budget?',
+            "How would they judge whether the superintendent is doing a good job?",
+            "How would they report the district's finances to families?",
+        ],
+    },
+    {
+        'key': 'us-senate', 'title': 'U.S. Senator', 'state': 'US', 'offices': ['co26-us-senate'],
+        'plain': "One of a state's two U.S. senators. The Senate and the House are the two chambers of Congress, the federal government's legislative branch. Only the Senate approves or rejects the president's nominees for federal judges and other top posts, approves treaties (by a two-thirds vote) and holds impeachment trials.",
+        'source': ('https://www.senate.gov/about/powers-procedures.htm', 'U.S. Senate, Powers and Procedures'),
+        'quotes': [
+            'The Senate has always jealously guarded its power to review and approve or reject presidential appointees to executive and judicial branch posts.',
+            'The Constitution gives the Senate the power to approve, by a two-thirds vote, treaties made by the executive branch.',
+            'The Senate has the sole power to conduct impeachment trials, essentially serving as jury and judge.',
+        ],
+        'facts': [
+            {
+                'plain': "Congress has two chambers, the House and the Senate, and is the federal government's legislative branch.",
+                'source': ('https://www.house.gov/the-house-explained', 'U.S. House of Representatives, The House Explained'),
+                'quotes': ["The House is one of Congress's two chambers (the other is the U.S. Senate), and part of the federal government's legislative branch."],
+            },
+            {
+                'plain': 'Each state has two senators, who serve six-year terms. (The Constitution as written had state legislatures choose them.)',
+                'source': ('https://www.senate.gov/about/origins-foundations/senate-and-constitution.htm', 'U.S. Senate, The Senate and the United States Constitution'),
+                'quotes': ['The Senate of the United States shall be composed of two Senators from each State, chosen by the Legislature thereof, for six Years.'],
+            },
+        ],
+        'ask': [
+            'Which federal laws would they work to pass or change first?',
+            "How would they decide whether to confirm a president's nominees?",
+        ],
+    },
+    {
+        'key': 'co-governor', 'title': 'Governor (and Lieutenant Governor)', 'state': 'CO', 'offices': ['co26-governor'],
+        'plain': "The governor decides what happens to every bill the Legislature passes: sign it, let it become law unsigned, or veto it. When a judge's seat opens, the governor picks the new judge from two or three nominees chosen by a nominating commission.",
+        'source': ('https://leg.colorado.gov/sites/default/files/images/legislature_at_a_glance_both.pdf', 'Colorado General Assembly, The Legislature at a Glance'),
+        'quotes': [
+            'If a bill passes, or is approved, by both the House and the Senate, it will go to the Governor.',
+            'The Governor can do three things with the bill: sign it into law, allow it to become law without his or her signature, or veto the billl.',
+        ],
+        'facts': [
+            {
+                'plain': "The governor appoints Colorado's state judges from a short list of nominees.",
+                'source': CO_OJPE_FAQ,
+                'quotes': ['Each time a vacancy occurs, the Governor selects a new judge from a list of two or three highly qualified nominees chosen by a judicial nominating commission.'],
+            },
+        ],
+        'ask': [
+            'Which kinds of bills would they sign, and which would they veto?',
+            'How would they choose judges from the nominees they are given?',
+        ],
+    },
+    {
+        'key': 'co-treasurer', 'title': 'State Treasurer', 'state': 'CO', 'offices': ['co26-treasurer'],
+        'plain': "Heads the State Treasury, which holds the state's money: it accounts for tax dollars from when they come in until they are paid out, invests them in the meantime in investments state law allows, and keeps enough cash on hand for daily needs. It also runs the state's unclaimed property program.",
+        'source': ('https://treasury.colorado.gov/sites/treasury/files/documents/Long%20Range%20Financial%20Plan%2021_22.pdf', 'Colorado Department of the Treasury, Long Range Financial Plan (Nov. 2021)'),
+        'quotes': [
+            "The Colorado State Treasury is the constitutional custodian of the public's funds.",
+            "It is the Treasury's duty to manage and account for the citizen's tax dollars from the time they are received until the time they are disbursed.",
+            'As funds are deposited, they are invested in statutorily authorized investments.',
+            "Simultaneously, the Treasury ensures that sufficient funds are maintained in cash accounts to meet the State's daily cash needs.",
+            'The Treasury Department is organized into five distinct divisions: Administration (encompassing Accounting, Cash Management and Banking, Investments, Debt Management), CLIMBER, Secure Savings, Unclaimed Property, and Special Purpose.',
+        ],
+        'ask': ["How would they invest the state's money, and how much risk would they take?", "How would they report to the public on the state's money?"],
+    },
+    {
+        'key': 'co-legislator', 'title': 'State Senator or Representative', 'state': 'CO', 'offices': ['co26-senate-15', 'co26-house-52', 'co26-house-53', 'co26-house-65'],
+        'plain': "One of Colorado's 100 legislators (35 senators, 65 representatives), who make the state's laws and represent the people of their district. Bills are heard in committees, where the public can speak for or against them. Senators can serve two four-year terms in a row and representatives four two-year terms, then must sit out a term before running again.",
+        'source': ('https://leg.colorado.gov/sites/default/files/images/legislature_at_a_glance_both.pdf', 'Colorado General Assembly, The Legislature at a Glance'),
+        'quotes': [
+            'There are 100 legislators (35 Senators and 65 Representatives).',
+            'Our legislators make laws to improve the lives of people living in our state.',
+            'Legislators represent the people living in their districts.',
+            'In committee, a small group of legislators hear from the public about why a bill should or should not be made into law.',
+            'Senators are term limited to 2 four-year terms and representatives to 4 two-year terms.',
+            'Term limits are consecutive and members can run again after sitting out the length of a term.',
+        ],
+        'ask': [
+            'Which bills would they write or support first?',
+            'How would they hear from people in their district?',
+        ],
+    },
+    {
+        'key': 'co-larimer-clerk', 'title': 'Larimer County Clerk and Recorder', 'state': 'CO', 'offices': ['co26-larimer-clerk'],
+        'plain': "Runs three county services: elections (voter rolls, ballots, polling sites and counting), recording (deeds, liens and other public records), and vehicle titles and registration.",
+        'source': ('https://www.larimer.gov/sites/default/files/section_a_-_introduction_overview_0.pdf', 'Larimer County 2022 Budget, Introduction & Overview'),
+        'quotes': ['The Office of the Clerk and Recorder is responsible for recording deeds, liens and other documents in the permanent public record, providing motor vehicle services such as titling and registration, and overseeing elections in the County, including providing polling equipment and tabulating results, monitoring polling sites, providing ballots, and maintaining voter registration rolls.'],
+        'ask': ['How would they run elections and show voters they were counted correctly?', 'How would they improve vehicle and recording services?'],
+    },
+    {
+        'key': 'co-larimer-sheriff', 'title': 'Larimer County Sheriff', 'state': 'CO', 'offices': ['co26-larimer-sheriff'],
+        'plain': "Runs the Larimer County Sheriff's Office, on a budget of almost $70 million a year. By law the sheriff handles law enforcement, the county jail, the courts (officer of the court, security, moving prisoners), and serves as fire warden and leads search and rescue and hazardous-materials response.",
+        'source': ('https://www.larimer.gov/sheriff/about-lcso', "Larimer County Sheriff's Office, About"),
+        'quotes': [
+            'An annual budget of almost 70 million dollars is used to operate the agency in order to fulfill the statutory duties of the Sheriff.',
+            'The statutory duties of the Sheriff are: Law Enforcement Keeper of the Jail Officer of the Court Court Security Transportation of Prisoners Fire Warden Search and Rescue Hazardous Materials',
+        ],
+        'ask': ['How would they run the county jail?', 'What would they put first in patrols and investigations?'],
+    },
+    {
+        'key': 'wa-seattle-council', 'title': 'Seattle City Council member', 'state': 'WA', 'offices': ['wa26-seattle-council-5'],
+        'plain': "The City Council makes Seattle's laws (ordinances), sets city policy and approves the city's budget.",
+        'source': ('https://www.seattle.gov/council', 'Seattle City Council'),
+        'quotes': [
+            'The Seattle City Council establishes City policy through enactment of ordinances (laws) and adoption of resolutions.',
+            "The City Council also approves and adopts the City's budget.",
+        ],
+        'ask': CITY_COUNCIL_ASK,
+    },
+    {
+        # Keyed to every CO retention question in the bundle, like ca-justice-retention
+        'key': 'co-judge-retention', 'title': 'Keeping a judge (retention)', 'state': 'CO', 'offices': [],
+        'measuresOfType': ('co', 'retention'),
+        'plain': "Colorado's judges aren't picked in a race. When a seat opens, the governor appoints a judge from two or three nominees a commission picks. After two years the judge is on the ballot for a Yes or No vote on keeping them, and again at the end of every term: 8 years for the Court of Appeals, 10 for the Supreme Court.",
+        'source': CO_OJPE_FAQ,
+        'quotes': [
+            'In 1966, Colorado voters passed a constitutional amendment that abolished partisan elections for state court judges and established a new merit selection system for the nomination, appointment, and retention of state court judges.',
+            'Each time a vacancy occurs, the Governor selects a new judge from a list of two or three highly qualified nominees chosen by a judicial nominating commission.',
+            'The judge serves a two-year provisional term before his or her name is on the ballot for retention.',
+            'Once retained, the judge serves a fixed term - four years for county court judges, six years for district court judges, eight years for court of appeals judges, and ten years for supreme court justices - before his or her name is on a retention ballot again.',
+        ],
+        'facts': [
+            {
+                'plain': 'Before each vote, a state commission evaluates every judge on the ballot so voters have something to go on (its finding shows under each question).',
+                'source': CO_OJPE_FAQ,
+                'quotes': ['Commissions on judicial performance provide voters with fair, responsible, and constructive evaluations of judges and justices seeking retention in general elections.'],
+            },
+            {
+                'plain': 'From 1990 to 2025 voters kept 1,898 of 1,914 judges (99.2%): 99.7% of those the commissions recommended keeping, and 63.6% of those they recommended not keeping.',
+                'source': ('https://judicialperformance.colorado.gov/sites/judicialperformance/files/documents/factsheet%20accessible-UA.pdf', 'Colorado Office of Judicial Performance Evaluation, Fact Sheet'),
+                'quotes': [
+                    'Colorado voters elected to retain 1,898 of the 1,914 (99.2%) judicial officers standing for retention since 1990.',
+                    'Colorado voters retained 99.7% of the judges receiving "Retain" recommendations, 63.6% of those receiving "Do Not Retain" recommendations, and retained all judicial officers where commissions offered no opinion.',
+                ],
+            },
+        ],
+        'ask': [],
     },
 ]
 

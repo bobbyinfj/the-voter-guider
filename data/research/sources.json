@@ -660,7 +660,7 @@
    "url": "https://www.senate.gov/about.htm",
    "access": "ok",
    "builder": "glossary-builders/build.py",
-   "notes": "No plain description of the job on this page; CO U.S. Senator not explained yet.",
+   "notes": "No plain description of the job on this page; use /about/powers-procedures.htm (us-senate-powers).",
    "checked": "2026-10-27"
   },
   {
@@ -842,7 +842,7 @@
    "url": "https://treasury.colorado.gov/about-us",
    "access": "http-403",
    "builder": "glossary-builders/build.py",
-   "notes": "Blocks plain fetches; State Treasurer not explained yet.",
+   "notes": "Pages 403 plain fetches; the Long Range Financial Plan PDF is served (co-treasury-lrfp).",
    "checked": "2026-10-27"
   },
   {
@@ -870,6 +870,188 @@
    "builder": "measure-builders/tax_rates.py",
    "notes": "PDF with numbered lines (tax_rates.py strips them before checking quotes). Rate tables are text, so brackets are checked against the table itself.",
    "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-senate-process",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "California State Senate, Citizens' Guide: Legislative Process",
+   "url": "https://www.senate.ca.gov/citizens-guide/legislative-process",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "How a bill is authored, veto override. Used for CA legislators; the Senate FAQ (/citizens-guide/faqs) and budget guide (/media/3004) add terms and the June 15 deadline.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "ca-assembly-csa-2015",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "California State Assembly, California's State Assembly (2015)",
+   "url": "https://www.assembly.ca.gov/sites/assembly.ca.gov/files/Publications/csa_2015.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Terms and people per district (2015 figures). /about-assembly is a 404.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "la-sheriff-budget",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "LA County Board of Supervisors, Sheriff's Department budget summary (2025)",
+   "url": "https://file.lacounty.gov/SDSInter/bos/supdocs/200532.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Neutral county description of the Sheriff's duties (lasd.org names the sitting sheriff).",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "build-laccd",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "LACCD BuildLACCD: Leadership, and the bond oversight committee report",
+   "url": "https://build-laccd.org/about-buildlaccd/leadership",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "The district's bond-program site allows Claude-User where laccd.edu does not. Board size, at-large terms; nine colleges from the 2011-12 oversight report. cao.lacity.gov robots-blocks Claude-User.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "mp-council",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "City of Monterey Park, City Council",
+   "url": "https://www.montereypark.ca.gov/746/City-Council",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Budget, contracts, policies. /1253/Elected-Officials describes the City Treasurer.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "montebello-officials",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "City of Montebello, Elected Officials",
+   "url": "https://montebelloca.gov/government/elected_officials",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Council role and terms. Lists the City Treasurer by name only: no description of the job anywhere on the city site, so no explainer.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "ca-auditor-musd",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "California State Auditor, Report 2017-104 (Montebello Unified)",
+   "url": "https://information.auditor.ca.gov/reports/2017-104/introduction.html",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Board's role and sole power to hire the superintendent; the report is critical, so only role sentences are quoted.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "us-senate-powers",
+   "state": "US",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "U.S. Senate, Powers and Procedures",
+   "url": "https://www.senate.gov/about/powers-procedures.htm",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Nominations, treaties, impeachment trials.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "co-leg-at-a-glance",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado General Assembly, The Legislature at a Glance",
+   "url": "https://leg.colorado.gov/sites/default/files/images/legislature_at_a_glance_both.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Legislators, term limits, governor's three options on a bill. colorado.gov/governor is about the sitting governor; spl.cde.state.co.us robots-blocks Claude-User.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "co-treasury-lrfp",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado Treasury, Long Range Financial Plan (2021)",
+   "url": "https://treasury.colorado.gov/sites/treasury/files/documents/Long%20Range%20Financial%20Plan%2021_22.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "The PDF is served to our agent though treasury.colorado.gov pages 403.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "co-ojpe-faq",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado OJPE, FAQ and fact sheet",
+   "url": "https://judicialperformance.colorado.gov/frequently-asked-questions",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Merit selection, terms, retention record 1990-2025 (factsheet accessible-UA.pdf).",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "larimer-budget-2022",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Larimer County 2022 Budget, Introduction & Overview",
+   "url": "https://www.larimer.gov/sites/default/files/section_a_-_introduction_overview_0.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Describes the Clerk and Recorder (its own page is only service links).",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "larimer-sheriff-about",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Larimer County Sheriff's Office, About",
+   "url": "https://www.larimer.gov/sheriff/about-lcso",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Statutory duties list and budget.",
+   "checked": "2026-10-28"
+  },
+  {
+   "id": "seattle-council",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Seattle City Council",
+   "url": "https://www.seattle.gov/council",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Ordinances and budget.",
+   "checked": "2026-10-28"
   }
  ]
 }

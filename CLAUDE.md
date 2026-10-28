@@ -136,7 +136,9 @@ right-hand column before the candidates (Expanded view), and on `/glossary` (anc
 choose between candidates"). Static file: no seed needed. California retention questions share one entry
 (`ca-justice-retention`, keyed to every CA retention measure id): how justices get there, retention history and
 drop-off, each fact with its own source; it shows only as the heading's "What is this vote?" popover, since
-headings repeat per Court of Appeal division. Other states' judges don't get it.
+headings repeat per Court of Appeal division. Colorado's have their own (`co-judge-retention`: merit selection,
+terms, the evaluation commissions and their retention record, from the state's judicial performance office).
+Where no official page describes a job (Montebello City Treasurer: the city lists only who holds it), it has no entry.
 
 ### Tax measures: rates with and without
 `data/measures/tax-rates.json` (built by `data/research/measure-builders/tax_rates.py`, read through

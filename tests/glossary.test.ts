@@ -35,12 +35,10 @@ test('every glossary entry is sourced and points at real offices', () => {
   }
 })
 
-test('retention context covers every California retention question and no other state', () => {
+test("each retention question gets its own state's retention context, never another state's", () => {
+  const byState: Record<string, string> = { ca: 'ca-justice-retention', co: 'co-judge-retention' }
   const retention = [...bundleMeasures].filter(([, type]) => type === 'retention').map(([id]) => id)
-  for (const id of retention) {
-    if (id.startsWith('ca')) assert.equal(glossaryFor(id)?.key, 'ca-justice-retention', id)
-    else assert.equal(glossaryFor(id), undefined, `${id} shouldn't get California's retention history`)
-  }
+  for (const id of retention) assert.equal(glossaryFor(id)?.key, byState[id.slice(0, 2)], id)
 })
 
 test('glossaryFor finds an office, and nothing for unknown ones', () => {

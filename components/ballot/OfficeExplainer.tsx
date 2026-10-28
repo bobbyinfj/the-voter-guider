@@ -76,9 +76,11 @@ function SourceLine({ source, inline = false }: { source: GlossarySource; inline
 }
 
 // A "What's this job?" button for a contest heading that opens the explainer in a popover
-// (click, not hover, so it works on phones). Closes on Escape or a click outside.
+// (click, not hover, so it works on phones). Closes on Escape or a click outside. It hangs left from
+// the button, or right when the button is too near the left edge (a first-column contest) to fit.
 export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
   const [open, setOpen] = useState(false)
+  const [fromLeft, setFromLeft] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!open) return
@@ -96,7 +98,11 @@ export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
     <div ref={ref} className="relative font-sans">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={(e) => {
+          const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+          setFromLeft(e.currentTarget.getBoundingClientRect().right < 23 * remPx)
+          setOpen((o) => !o)
+        }}
         aria-expanded={open}
         aria-label={entry.measures?.length ? `About this vote: ${entry.title}` : `What does the ${entry.title} do?`}
         title={entry.measures?.length ? 'What is this vote?' : "What's this job?"}
@@ -111,7 +117,7 @@ export function OfficeExplainerButton({ entry }: { entry: OfficeGlossary }) {
         <div
           role="dialog"
           aria-label={entry.title}
-          className="fixed inset-x-4 top-24 z-30 max-h-[70vh] overflow-y-auto rounded-md sm:absolute sm:inset-x-auto sm:right-0 sm:top-full sm:mt-1 sm:w-[22rem] border border-sky-300 bg-sky-50 p-3 text-left font-normal normal-case tracking-normal text-sky-950 shadow-lg"
+          className={`fixed inset-x-4 top-24 z-30 max-h-[70vh] overflow-y-auto rounded-md sm:absolute sm:inset-x-auto ${fromLeft ? 'sm:left-0' : 'sm:right-0'} sm:top-full sm:mt-1 sm:w-[22rem] border border-sky-300 bg-sky-50 p-3 text-left font-normal normal-case tracking-normal text-sky-950 shadow-lg`}
         >
           <OfficeExplainer entry={entry} />
         </div>
