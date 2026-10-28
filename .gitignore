@@ -50,3 +50,4 @@ __pycache__/
 # Downloaded pages for the enrichment builders (copyrighted; not committed)
 data/research/enrichment-builders/cache/
 data/research/comparison-builders/cache/
+data/research/glossary-builders/cache/

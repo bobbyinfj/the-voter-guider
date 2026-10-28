@@ -111,6 +111,16 @@ The link icon on a contest heading copies one; landing on one clears filters and
 Under each candidate the Basic view shows one sentence from their own statement (state voter guide,
 else county booklet), labeled with its source, or nothing (`openingSentence`).
 
+### Offices explained (glossary)
+`data/glossary/offices.json` (built by `data/research/glossary-builders/build.py`, read through `lib/glossary.ts`)
+says what an office does in plain English, keyed by bundle office id. Each entry: our summary (`plain`, labeled
+a Voter Guider summary, claiming nothing the quotes don't), verbatim `quotes` from an official page (the build
+fails if a quote isn't on the saved page), the source with its retrieval date, and `ask`: questions to put to
+every candidate alike about the job's powers (never assuming a position or stating current events; none for
+judges). No official description, no entry, no placeholder. Shown by the "What's this job?" popover on a contest
+heading (`components/ballot/OfficeExplainer.tsx`), at the top of the contest's info panel, and on `/glossary`
+(anchor per entry, plus "How to choose between candidates"). Static file: no seed needed.
+
 ### Comparison guides and the community tally
 `data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds
 published guides — party slates, newspaper editorial boards, League of Women Voters, advocacy
@@ -188,6 +198,7 @@ Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and r
 | `/elections/[id]/offices/[officeId]` | Side-by-side candidate comparison |
 | `/candidates/[id]` | Candidate profile + all stances with sources |
 | `/issues/[slug]` | Issue explainer + all candidates' stances |
+| `/glossary` | What each office does (plain English, official source) + how to choose |
 | `/guide/new` | Redirects to the election page (its ballot is your guide) |
 | `/guide/[id]` | A guide's own page: name, notes, sharing, community opt-in |
 | `/signin`, `/signin/verify` | Magic-link sign-in (the link page signs in on a button press) |

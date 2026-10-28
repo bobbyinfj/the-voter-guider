@@ -13,7 +13,8 @@
   "lawyer-record": "State Bar discipline records",
   "ethics": "Campaign-finance / ethics enforcement",
   "video": "Candidate and measure videos",
-  "districts": "District geography"
+  "districts": "District geography",
+  "office-duties": "What an office does, from the office's own site or the state's voter guide"
  },
  "sources": [
   {
@@ -478,6 +479,110 @@
    "access": "ok",
    "builder": "enrichment-builders/tools/video-approve.py",
    "notes": "yt-dlp needs the curl-cffi extra (pip install 'yt-dlp[default,curl-cffi]') for --impersonate; captions 429 from home IP, so download audio and transcribe with mlx_whisper.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-sos-office-desc-2010",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "CA Secretary of State, statewide office descriptions (June 2010 voter guide, archived)",
+   "url": "https://vigarchive.sos.ca.gov/2010/primary/voter-info/statewide-elective-office-desc.htm",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Covers every CA statewide office. The current guide (voterguide.sos.ca.gov) robots-blocks Claude-User; the archive host allows it. Only the 2010 edition exists in the archive; BOE's tax list there is out of date, so BOE uses boe.ca.gov.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-sos-voterguide-current",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "CA Secretary of State, current Official Voter Information Guide",
+   "url": "https://voterguide.sos.ca.gov/",
+   "access": "robots-disallow",
+   "builder": "glossary-builders/build.py",
+   "notes": "robots.txt blocks Claude-User; don't use.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-boe-about",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "CA State Board of Equalization, About BOE",
+   "url": "https://www.boe.ca.gov/info/about.htm",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Current duties (property tax oversight, alcohol tax, tax on insurers).",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-sco-duties",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "CA State Controller, duties page",
+   "url": "https://www.sco.ca.gov/eo_about_duties.html",
+   "access": "robots-disallow",
+   "builder": "glossary-builders/build.py",
+   "notes": "robots.txt blocks Claude-User; Controller uses the SOS archive instead.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "king-pao",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "King County Prosecuting Attorney's Office",
+   "url": "https://kingcounty.gov/en/dept/pao",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "States what the office prosecutes and that it is the county's law firm.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "king-assessor",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "King County Assessor",
+   "url": "https://kingcounty.gov/en/dept/assessor",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Fetchable but only service links, no description of the job; not used yet.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "larimer-offices",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Larimer County office pages (coroner, surveyor, assessor, treasurer, clerk)",
+   "url": "https://www.larimer.gov/",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Coroner, surveyor, assessor and treasurer pages describe the job; the clerk page is service links only.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "cu-regents",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "University of Colorado Board of Regents",
+   "url": "https://www.cu.edu/regents",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Quotes the board's constitutional charge.",
    "checked": "2026-10-27"
   }
  ]
