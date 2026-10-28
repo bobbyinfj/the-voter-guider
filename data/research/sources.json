@@ -636,6 +636,227 @@
    "builder": "measure-builders/tax_rates.py",
    "notes": "Robots allows Claude-User (the SOS guide that reprints these doesn't). Rate tables are images (e.g. /ballot/2026/prop3-fig1.png): transcribed by hand, image SHA-256 pinned so a change fails the build.",
    "checked": "2026-10-27"
+  },
+  {
+   "id": "us-house-explained",
+   "state": "US",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "U.S. House, The House Explained",
+   "url": "https://www.house.gov/the-house-explained",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "us-senate-about",
+   "state": "US",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "U.S. Senate, About",
+   "url": "https://www.senate.gov/about.htm",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "No plain description of the job on this page; CO U.S. Senator not explained yet.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-courts-system",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Judicial Branch of California, system and superior courts pages",
+   "url": "https://www.courts.ca.gov/2113.htm",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Also https://courts.ca.gov/courts/superior-courts.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "wrd-acfr",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Water Replenishment District, Annual Comprehensive Financial Report 2022",
+   "url": "https://wrdca.specialdistrict.org/files/76f533418/Annual+Comprehensive+Financial+Report+2022.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "wrd.org pages have no job description; the district's own report does.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "mp-city-clerk",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "City of Monterey Park, City Clerk's Office",
+   "url": "https://www.montereypark.ca.gov/131/City-Clerk",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "The civicplus.com mirror robots-blocks Claude-User; use montereypark.ca.gov.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "laccd",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Los Angeles Community College District",
+   "url": "https://www.laccd.edu/",
+   "access": "robots-disallow",
+   "builder": "glossary-builders/build.py",
+   "notes": "robots.txt blocks Claude-User; trustees not explained.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "lasd",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "LA County Sheriff's Department",
+   "url": "https://lasd.org/",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Describes the department by naming the current sheriff; not used for the Sheriff explainer (find a neutral county source).",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-senate-guide",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "California State Senate, Citizens' Guide",
+   "url": "https://www.senate.ca.gov/citizens-guide",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Menus only in fetched HTML; no plain job description found. CA legislators not explained yet.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kc-council",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Metropolitan King County Council",
+   "url": "https://kingcounty.gov/en/dept/council",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "kc-elections-about",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "King County Elections, About us",
+   "url": "https://kingcounty.gov/en/dept/elections/about-us",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "seattle-muni-court",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Seattle Municipal Court, About",
+   "url": "https://www.seattle.gov/courts/about",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "wa-court-guide",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "A Guide to Washington State Courts (2011)",
+   "url": "https://www.courts.wa.gov/newsinfo/content/pdf/CourtGuide2011.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Supreme Court, Court of Appeals, district/municipal courts. Dollar limits in it are dated; not quoted.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "wa-capaa-legislature",
+   "state": "WA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "WA Commission on Asian Pacific American Affairs, About the Legislature",
+   "url": "https://capaa.wa.gov/node/150",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-ag-about",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado Attorney General, About us",
+   "url": "https://coag.gov/about-us/",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-sos-about",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado Secretary of State, About",
+   "url": "https://coloradosos.gov/pubs/info_center/about.html",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "co-treasury",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Colorado State Treasurer",
+   "url": "https://treasury.colorado.gov/about-us",
+   "access": "http-403",
+   "builder": "glossary-builders/build.py",
+   "notes": "Blocks plain fetches; State Treasurer not explained yet.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "larimer-bocc",
+   "state": "CO",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "Larimer County Board of County Commissioners",
+   "url": "https://www.larimer.gov/bocc",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "",
+   "checked": "2026-10-27"
   }
  ]
 }

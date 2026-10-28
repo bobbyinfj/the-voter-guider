@@ -344,6 +344,400 @@
    "facts": []
   },
   {
+   "key": "us-house",
+   "title": "U.S. Representative",
+   "state": "US",
+   "offices": [
+    "ca26-us-house-28",
+    "ca26-us-house-38",
+    "co26-us-house-2",
+    "wa26-us-house-7",
+    "wa26-us-house-9"
+   ],
+   "plain": "Your member of the U.S. House of Representatives: one of up to 435 who write and pass federal laws, elected every two years to represent your congressional district.",
+   "source": {
+    "url": "https://www.house.gov/the-house-explained",
+    "name": "U.S. House of Representatives, The House Explained",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "House of Representatives makes and passes federal laws.",
+    "The number of voting representatives in the House is fixed by law at no more than 435, proportionally representing the population of the 50 states.",
+    "Also referred to as a congressman or congresswoman, each representative is elected to a two-year term serving the people of a specific congressional district."
+   ],
+   "ask": [
+    "Which federal laws would they work to pass, or to block?",
+    "How would they serve people in this district?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "ca-superior-court",
+   "title": "Superior Court judge",
+   "state": "CA",
+   "offices": [
+    "ca26-la-superior-64",
+    "ca26-la-superior-65",
+    "ca26-la-superior-87",
+    "ca26-la-superior-131"
+   ],
+   "plain": "A trial judge on the county's Superior Court, where most California cases start: criminal and civil cases, plus family, probate, juvenile and traffic cases. The judge (sometimes with a jury) hears the evidence and decides by applying the law.",
+   "source": {
+    "url": "https://www.courts.ca.gov/2113.htm",
+    "name": "Judicial Branch of California, California Judicial System",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Most cases in California start in one of the 58 superior courts, or trial courts, handling both civil and criminal cases, such as family, probate, mental health, juvenile, and traffic cases."
+   ],
+   "facts": [
+    {
+     "plain": "In a trial, a judge (and sometimes a jury) hears testimony and evidence and decides the case by applying the law to the facts.",
+     "source": {
+      "url": "https://courts.ca.gov/courts/superior-courts",
+      "name": "Judicial Branch of California, Superior Courts",
+      "retrieved": "2026-10-27"
+     },
+     "quotes": [
+      "In trial (superior) courts, a judge and sometimes a jury hears witnesses' testimony and other evidence and decides cases by applying the relevant law to the relevant facts."
+     ]
+    }
+   ],
+   "ask": []
+  },
+  {
+   "key": "ca-wrd",
+   "title": "Water Replenishment District director",
+   "state": "CA",
+   "offices": [
+    "ca26-wrd-4"
+   ],
+   "plain": "A director of the water district that manages the groundwater basins under southern Los Angeles County, which supply about four million people in 43 cities. Voters created it in 1959 to stop over-pumping. Its board sets the district's replenishment charge.",
+   "source": {
+    "url": "https://wrdca.specialdistrict.org/files/76f533418/Annual+Comprehensive+Financial+Report+2022.pdf",
+    "name": "Water Replenishment District of Southern California, Annual Comprehensive Financial Report 2022",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "The WRD is a special water District that was established in 1959 by popular vote to counteract the effects of over pumping of groundwater from two major groundwater basins in Los Angeles County.",
+    "WRD manages the Central and West Coast groundwater basin (collectively, the \"Basins\") which provide groundwater for approximately four million residents in 43 cities of southern Los Angeles County (County).",
+    "WRD Board of Directors voted to increase the Fiscal Year 2022 Replenishment Assessment to $394.00 per acre-foot."
+   ],
+   "ask": [
+    "How would they keep groundwater clean and plentiful?",
+    "How would they decide the district's charges?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "ca-monterey-park-clerk",
+   "title": "Monterey Park City Clerk",
+   "state": "CA",
+   "offices": [
+    "ca26-mp-clerk"
+   ],
+   "plain": "A part-time elected official who runs the City Clerk's office. The office is where candidates file campaign finance statements and officials file conflict-of-interest statements.",
+   "source": {
+    "url": "https://www.montereypark.ca.gov/131/City-Clerk",
+    "name": "City of Monterey Park, City Clerk's Office",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "As a part time elected official, the City Clerk is responsible for establishing policies, guidelines and procedures for the operation of the City Clerk's office.",
+    "The City Clerk serves as the filing officer for candidate campaign finance statements and conflict of interest statements by elected, appointed officials and key city employees."
+   ],
+   "ask": [
+    "How would they make campaign and conflict-of-interest filings easy for the public to see?",
+    "What experience do they have running an office?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "wa-king-council",
+   "title": "King County Council",
+   "state": "WA",
+   "offices": [
+    "wa26-king-council-2",
+    "wa26-king-council-4",
+    "wa26-king-council-8"
+   ],
+   "plain": "One of nine councilmembers who make King County's laws and policies and adopt its budget. Each represents a district of over 260,000 people, elected without party labels for four years.",
+   "source": {
+    "url": "https://kingcounty.gov/en/dept/council",
+    "name": "Metropolitan King County Council",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "As the legislative branch of county government, the Council sets policies, enacts laws, and adopts budgets that guide an array of services for county residents.",
+    "The Council's nine councilmembers are elected on a non-partisan basis and serve four-year terms.",
+    "Each councilmember represents a geographical district of over 260,000 residents."
+   ],
+   "ask": [
+    "What would they fund first, or cut, in the county budget?",
+    "Which county services would they change, and how?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "wa-king-elections",
+   "title": "King County Director of Elections",
+   "state": "WA",
+   "offices": [
+    "wa26-king-elections-director"
+   ],
+   "plain": "Leads King County Elections, which serves a third of Washington's voters by mail: getting voters registered and their ballots cast and counted.",
+   "source": {
+    "url": "https://kingcounty.gov/en/dept/elections/about-us",
+    "name": "King County Elections, About us",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Home to one-third of Washington State's voters, King County was the largest vote-by-mail jurisdiction in the world for many years prior to more widespread adoption in 2020.",
+    "the team at KCE is committed to ensuring all King County voters can get registered, cast their ballot, and make their voices heard."
+   ],
+   "ask": [
+    "How would they keep elections accurate and secure?",
+    "How would they make voting easier for everyone?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "wa-king-assessor",
+   "title": "King County Assessor",
+   "state": "WA",
+   "offices": [
+    "wa26-king-assessor"
+   ],
+   "plain": "Runs the office that values property in King County for property taxes, hears appeals of those values, and runs the property tax relief programs.",
+   "source": {
+    "url": "https://kingcounty.gov/en/dept/assessor",
+    "name": "King County Assessor",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "we hope this site will help you with issues regarding property values, and the tax relief programs we administer.",
+    "You can also find information on your property's value, details and data on our property tax system, how to appeal your property value, and information on our office."
+   ],
+   "ask": [
+    "How would they keep property values accurate and fair?",
+    "How would they make appeals and tax relief easier to use?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "wa-seattle-municipal-court",
+   "title": "Seattle Municipal Court judge",
+   "state": "WA",
+   "offices": [
+    "wa26-seattle-muni-1",
+    "wa26-seattle-muni-2",
+    "wa26-seattle-muni-3",
+    "wa26-seattle-muni-4",
+    "wa26-seattle-muni-5",
+    "wa26-seattle-muni-6",
+    "wa26-seattle-muni-7"
+   ],
+   "plain": "One of seven elected judges on Seattle's city court, the busiest of its kind in the state. It hears misdemeanor crimes (such as DUI, domestic violence, theft and trespass) and civil infractions.",
+   "source": {
+    "url": "https://www.seattle.gov/courts/about",
+    "name": "Seattle Municipal Court, About us",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Seattle Municipal Court is the largest limited jurisdiction court by case volume in Washington State with seven elected judges and five appointed magistrates .",
+    "Seattle Municipal Court handles all misdemeanor and gross misdemeanor crimes, civil infractions, and other offenses authorized under the Seattle Municipal Code and certain Revised Code of Washington Statutes.",
+    "Gross Misdemeanors: Crimes that carry a maximum sentence of 364 days in jail and a $5,000 fine, including offenses such as driving under the influence (DUI), domestic violence, theft, and trespass."
+   ],
+   "ask": [],
+   "facts": []
+  },
+  {
+   "key": "wa-king-district-court",
+   "title": "King County District Court judge",
+   "state": "WA",
+   "offices": [
+    "wa26-kc-district-west-1",
+    "wa26-kc-district-west-2",
+    "wa26-kc-district-west-3",
+    "wa26-kc-district-west-4",
+    "wa26-kc-district-west-5"
+   ],
+   "plain": "A judge on the county's District Court, which hears misdemeanor crimes (such as DUI, reckless driving and fourth-degree assault) and smaller civil cases.",
+   "source": {
+    "url": "https://www.courts.wa.gov/newsinfo/content/pdf/CourtGuide2011.pdf",
+    "name": "Washington Courts, A Guide to Washington State Courts (2011)",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "District courts are county courts and serve defined territories, both incorporated and unincorporated, within the counties.",
+    "District courts have jurisdiction over both criminal and civil cases. Criminal jurisdiction includes misdemeanors and gross misdemeanors cases that involve traffic or non-traffic offenses.",
+    "Examples include: Driving while under the influence of intoxicating liquor or drugs (DUI), reckless driving, driving with a suspended driver's license and assault in the fourth degree."
+   ],
+   "ask": [],
+   "facts": []
+  },
+  {
+   "key": "wa-supreme-court",
+   "title": "Washington Supreme Court justice",
+   "state": "WA",
+   "offices": [
+    "wa26-supreme-1",
+    "wa26-supreme-3",
+    "wa26-supreme-4",
+    "wa26-supreme-5",
+    "wa26-supreme-7"
+   ],
+   "plain": "One of nine justices on Washington's highest court. Its decisions become state law that every other court follows, and it sets the rules for all of the state's courts.",
+   "source": {
+    "url": "https://www.courts.wa.gov/newsinfo/content/pdf/CourtGuide2011.pdf",
+    "name": "Washington Courts, A Guide to Washington State Courts (2011)",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "The Supreme Court is the state's highest court. Its opinions are published, become the law of the state, and set precedent for subsequent cases decided in Washington.",
+    "All nine justices hear and dispose of cases argued on the appeal calendar.",
+    "The Supreme Court is the final rule-making authority for all of the state's courts."
+   ],
+   "ask": [],
+   "facts": []
+  },
+  {
+   "key": "wa-court-of-appeals",
+   "title": "Washington Court of Appeals judge",
+   "state": "WA",
+   "offices": [
+    "wa26-appeals-1-1-5",
+    "wa26-appeals-1-1-6"
+   ],
+   "plain": "A judge on the court that hears most appeals from the county superior courts. It must take every appeal filed, and can uphold, overturn, change or send back a lower court's decision.",
+   "source": {
+    "url": "https://www.courts.wa.gov/newsinfo/content/pdf/CourtGuide2011.pdf",
+    "name": "Washington Courts, A Guide to Washington State Courts (2011)",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Most cases appealed from superior courts go directly to the Court of Appeals. It is a non-discretionary appellate court--it must accept all appeals filed with it. The Court of Appeals has authority to reverse (overrule), remand (send back to the lower court), modify, or affirm the decision of the lower court."
+   ],
+   "ask": [],
+   "facts": []
+  },
+  {
+   "key": "wa-legislator",
+   "title": "Washington State Senator or Representative",
+   "state": "WA",
+   "offices": [
+    "wa26-ld32-sen",
+    "wa26-ld34-sen",
+    "wa26-ld36-sen",
+    "wa26-ld37-sen",
+    "wa26-ld43-sen",
+    "wa26-ld46-sen",
+    "wa26-ld11-rep1",
+    "wa26-ld11-rep2",
+    "wa26-ld32-rep1",
+    "wa26-ld32-rep2",
+    "wa26-ld34-rep1",
+    "wa26-ld34-rep2",
+    "wa26-ld36-rep1",
+    "wa26-ld36-rep2",
+    "wa26-ld37-rep1",
+    "wa26-ld37-rep2",
+    "wa26-ld43-rep1",
+    "wa26-ld43-rep2",
+    "wa26-ld46-rep1",
+    "wa26-ld46-rep2"
+   ],
+   "plain": "Each legislative district elects one state senator (four-year term) and two state representatives (two-year terms). They vote on the bills that become state law, and on the state budget.",
+   "source": {
+    "url": "https://capaa.wa.gov/node/150",
+    "name": "Washington State Commission on Asian Pacific American Affairs, About the Legislature",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Each district is served by one Senator and two House members.",
+    "Members of the Senate are elected to four-year terms, and House members are elected to two-year terms.",
+    "If a bill passes all of these steps, it then moves to the opposite chamber .",
+    "In odd-numbered years-the budget year-the Legislature meets for 105 days."
+   ],
+   "ask": [
+    "Which state laws would they work to pass or change?",
+    "What would they put first in the state budget?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "co-attorney-general",
+   "title": "Attorney General",
+   "state": "CO",
+   "offices": [
+    "co26-attorney-general"
+   ],
+   "plain": "Colorado's top lawyer, elected statewide. Runs the Department of Law, which upholds the U.S. and Colorado constitutions, defends state laws and officials when they're challenged in court, and works with law enforcement.",
+   "source": {
+    "url": "https://coag.gov/about-us/",
+    "name": "Colorado Attorney General, About us",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "The Colorado Attorney General is one of four independently elected statewide offices in Colorado and was established by the State Constitution upon statehood in 1876.",
+    "Upholding the United States and Colorado Constitutions.",
+    "Defending the laws and officers of the State of Colorado from legal challenge.",
+    "Advocating for policies that help law enforcement improve community safety."
+   ],
+   "ask": [
+    "Which kinds of cases would they make a priority?",
+    "When would they take someone to court on the state's behalf?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "co-secretary-of-state",
+   "title": "Secretary of State",
+   "state": "CO",
+   "offices": [
+    "co26-secretary-of-state"
+   ],
+   "plain": "Oversees Colorado's elections (the statewide voter list, checking petition signatures for ballot measures, campaign finance rules) and registers businesses and other public records.",
+   "source": {
+    "url": "https://coloradosos.gov/pubs/info_center/about.html",
+    "name": "Colorado Secretary of State, About the office",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "These varied duties are divided primarily between the Business & Licensing and Elections Divisions.",
+    "The basic mission of the Department of State is to collect, secure, and make accessible a wide variety of public records, ensure the integrity of elections, and enhance commerce.",
+    "Supervises elections, maintains statewide voter registration file, verifies initiative petition signatures, and administers the Campaign Finance Laws"
+   ],
+   "ask": [
+    "How would they run elections that are both secure and easy to vote in?",
+    "How would they make campaign money easier to follow?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "co-larimer-commissioner",
+   "title": "Larimer County Commissioner",
+   "state": "CO",
+   "offices": [
+    "co26-larimer-commissioner-1"
+   ],
+   "plain": "One of three commissioners who make policy for Larimer County. Each is elected countywide, from one of three districts, for a four-year term.",
+   "source": {
+    "url": "https://www.larimer.gov/bocc",
+    "name": "Larimer County Board of County Commissioners",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "Larimer's three-member Board of County Commissioners is the main policy-making body in the County and works to represent the interest of the citizens of Larimer County at local, state and national levels.",
+    "Commissioners are elected at large from one of three geographic districts for four-year staggered terms."
+   ],
+   "ask": [
+    "What would they change about county services or the county budget?",
+    "Which county issues would they put first?"
+   ],
+   "facts": []
+  },
+  {
    "key": "ca-justice-retention",
    "title": "Keeping a justice (retention)",
    "state": "CA",
