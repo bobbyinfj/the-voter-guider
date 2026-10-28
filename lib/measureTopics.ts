@@ -1,0 +1,37 @@
+// A word or two for each state measure, shown under its number in the ballot's table of contents
+// so "State Measure 3" has something to anchor it. Neutral by rule: every word comes from the
+// measure's official title (tests/measureTopics.test.ts checks it), never our framing. The full
+// official title shows on hover.
+export const MEASURE_TOPICS: Record<string, string> = {
+  'ca26-m-prop-1': 'Housing bonds',
+  'ca26-m-prop-2': 'Rainy day fund',
+  'ca26-m-prop-3': 'Income tax',
+  'ca26-m-prop-4': 'Campaign funding',
+  'ca26-m-prop-5': 'Recall',
+  'ca26-m-prop-37': 'Home loans',
+  'ca26-m-prop-38': 'Research bonds',
+  'ca26-m-prop-39': 'Voting ID',
+  'ca26-m-prop-40': 'One-time tax',
+  'ca26-m-prop-41': 'Spending limit',
+  'ca26-m-prop-42': 'Property taxes',
+  'ca26-m-prop-43': 'Local revenues',
+  'ca26-m-prop-44': 'Health clinics',
+  'ca26-m-prop-45': 'Environmental review',
+  'co26-m-amendment-81': 'Immigration',
+  'co26-m-amendment-82': 'Natural gas',
+  'co26-m-amendment-83': 'Hunt and fish',
+  'co26-m-amendment-84': 'Mail ballot ID',
+  'co26-m-amendment-85': 'Ballot titles',
+  'co26-m-amendment-86': 'Redistricting',
+  'co26-m-amendment-87': 'Income tax',
+  'co26-m-proposition-nn': 'Education',
+  'co26-m-proposition-132': 'Fentanyl',
+  'co26-m-proposition-133': 'Trafficking',
+  'co26-m-proposition-134': 'School sports',
+  'co26-m-proposition-135': 'Surgery on minors',
+  'co26-m-proposition-136': 'Income tax limit',
+  'co26-m-proposition-137': 'Conservation',
+  'wa26-m-ip26-645': 'Taxes',
+  'wa26-m-il26-001': 'Parental rights',
+  'wa26-m-il26-638': 'School athletics',
+}

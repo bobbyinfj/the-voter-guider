@@ -95,6 +95,9 @@ skippable prompt offers a magic-link sign-in so the guide follows you to other d
 **Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
 stacked on a phone), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage); with no choice yet, a shared link (a `#contest` anchor, or someone else's guide at `/guide/<shareToken>`) opens Expanded. A dismissible banner (localStorage)
 and a button in each contest's info panel nudge toward Expanded.
+The table of contents (`components/ballot/BallotNav.tsx`) shows a ✓ YES / ✕ NO tag on Yes/No questions you've marked
+(solid once decided, outlined while leaning or unsure) and, under each state measure's number, a topic of a word or
+two (`lib/measureTopics.ts`) built only from words in the official title (a test checks), with that title on hover.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
 `/how-we-score`). Compact by default: their video (if any) across the whole column with the one-line summary under it, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
 hover title); clicking an icon opens just that column's card below the row, clicking it again closes it. No video means no video slot (never a "no video" placeholder).
