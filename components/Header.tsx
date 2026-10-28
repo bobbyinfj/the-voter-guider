@@ -37,6 +37,7 @@ export default function Header() {
             {[
               { href: '/', label: 'Elections', active: isActive('/') || pathname.startsWith('/elections') },
               { href: '/guides', label: 'My Guides', active: isActive('/guides') || pathname.startsWith('/guide/') },
+              { href: '/glossary', label: 'Offices explained', active: isActive('/glossary') },
             ].map((item) => (
               <Link
                 key={item.href}

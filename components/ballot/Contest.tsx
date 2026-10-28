@@ -36,6 +36,8 @@ import {
   type ChoiceValue,
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
+import OfficeExplainer, { OfficeExplainerButton } from './OfficeExplainer'
+import { glossaryFor } from '@/lib/glossary'
 import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
 import type { BadgeMap } from '@/lib/scorecard'
 
@@ -687,6 +689,7 @@ function Enhancements({
         </>
       ) : (
         <>
+          {glossaryFor(item.office?.id) && <OfficeExplainer entry={glossaryFor(item.office?.id)!} />}
           {!candidatesBeside && (
           <ul className="space-y-3">
             {people.map((c) => (
@@ -854,6 +857,7 @@ export default function Contest({
             </button>
           )}
           </span>
+          {glossaryFor(first.office?.id) && <OfficeExplainerButton entry={glossaryFor(first.office?.id)!} />}
           <button
             type="button"
             onClick={() => setOverride({ density, open: !open })}
