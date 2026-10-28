@@ -81,8 +81,11 @@ removes anything in a database that isn't backed by a bundle.
 The election page's ballot *is* your guide: the first box you check creates your default guide
 for that election (`Guide.defaultKey` = `<owner>:<electionId>`, unique, via `getOrCreateDefaultGuide`),
 and every change autosaves (`components/guide/useGuideEditor.ts`); there are no save buttons. Each
-pick is `unsure` (? in the oval), `tentative` (leaning, hatched) or `decided` (`Choice.status`); clicking
-an oval steps it empty → ? → leaning → decided → empty (`stepPick` in `components/ballot/Contest.tsx`).
+pick is `unsure` (? in the oval), `possible` (~), `tentative` (leaning, hatched) or `decided` (`Choice.status`); clicking
+an oval steps it empty → leaning → decided → possibly → not sure → empty (`stepMark` in `components/ballot/ballot.ts`).
+The three soft labels can sit on several options at once (`Choice.marks`, stored only with two or more;
+`selection`/`status` are then the strongest, so tallies and filters read them as before); deciding one clears the
+rest, and adding a label while one is decided demotes it to leaning. Possibly, like not sure, is still to go.
 The ? on a contest stores the special selection `UNSURE` ("no clue yet"); clearing a pick that has
 notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` in `ballot.ts` say
 what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the

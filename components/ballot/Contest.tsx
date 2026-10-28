@@ -29,10 +29,14 @@ import {
   isPick,
   isSettled,
   layoutOf,
+  markOf,
   optionList,
+  stepMark,
+  STATUS_WORDS,
   type BallotCandidate,
   type BallotItem,
   type ChoiceStatus,
+  type SoftStatus,
   type ChoiceValue,
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
@@ -51,7 +55,7 @@ interface ContestProps {
   choices: Record<string, ChoiceValue>
   readOnly: boolean
   density: Density
-  onChange: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
+  onChange: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus, marks?: Record<string, SoftStatus> | null) => void
   onClear: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   onCandidateNote?: (itemId: string, name: string, text: string) => void
@@ -148,9 +152,9 @@ function candidateLine(race: BallotItem, name: string): { text: string; source: 
   return null
 }
 
-// The oval a voter fills in; the radio input is visually hidden but keeps keyboard
-// (arrow keys within a contest) and screen reader behaviour. It listens for clicks, not changes,
-// so clicking an oval that's already filled steps it on (see stepPick)
+// The oval a voter fills in; the checkbox input is visually hidden but keeps keyboard and screen
+// reader behaviour (a checkbox, since soft labels can be on several options). It listens for
+// clicks, not changes, so clicking an oval that's already marked steps it on (see stepPick)
 function Oval({
   name,
   value,
@@ -164,7 +168,8 @@ function Oval({
   name: string
   value: string
   checked: boolean
-  // How sure you are of this pick: ? in the oval (unsure), hatched (leaning) or filled (decided)
+  // How sure you are of this option: ? in the oval (not sure), ~ (possibly), hatched (leaning) or
+  // filled (decided)
   status?: ChoiceStatus
   disabled: boolean
   onSelect: () => void
@@ -178,20 +183,20 @@ function Oval({
       }`}
     >
       <input
-        type="radio"
+        type="checkbox"
         name={name}
         value={value}
         checked={checked}
         disabled={disabled}
         onChange={() => {}}
         onClick={onSelect}
-        aria-label={checked && status !== 'decided' ? `${label} (${status === 'unsure' ? 'not sure' : 'leaning'})` : label}
+        aria-label={checked && status !== 'decided' ? `${label} (${STATUS_WORDS[status]})` : label}
         className="peer sr-only"
       />
       <span
         aria-hidden
         className={`mt-0.5 flex h-3.5 w-6 shrink-0 items-center justify-center rounded-[50%] border-[1.5px] border-ballot-ink bg-white text-[0.625rem] font-bold leading-none text-purple-700 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500 peer-focus-visible:ring-offset-1 ${
-          status === 'unsure'
+          status === 'unsure' || status === 'possible'
             ? ''
             : status === 'tentative'
               ? 'peer-checked:bg-[repeating-linear-gradient(135deg,var(--ballot-ink)_0_2px,transparent_2px_5px)]'
@@ -199,6 +204,7 @@ function Oval({
         }`}
       >
         {checked && status === 'unsure' && '?'}
+        {checked && status === 'possible' && '~'}
       </span>
       <span className="min-w-0 flex-1">{children}</span>
     </label>
@@ -293,8 +299,9 @@ function RaceChoices({
 }) {
   const printed = layoutOf(item)
   const selection = choice?.selection
-  const isWriteIn = selection?.startsWith(WRITE_IN) ?? false
-  const [writeIn, setWriteIn] = useState(isWriteIn ? selection!.slice(WRITE_IN.length) : '')
+  // Your write-in, if you've marked one (it may not be the lead pick when several are marked)
+  const writeInKey = [selection, ...Object.keys(choice?.marks ?? {})].find((o) => o?.startsWith(WRITE_IN) && markOf(choice, o))
+  const [writeIn, setWriteIn] = useState(writeInKey ? writeInKey.slice(WRITE_IN.length) : '')
   const people = new Map((item.office?.candidates ?? []).map((c) => [c.name, c]))
   const rows =
     printed?.candidates ??
@@ -302,9 +309,13 @@ function RaceChoices({
   const partyRight = printed?.style.party === 'right'
   const saveWriteIn = () => {
     const name = writeIn.trim()
-    if (!name || selection === `${WRITE_IN}${name}`) return
-    // Renaming your write-in keeps leaning/decided; a new write-in starts as leaning
-    onChange(item.id, `${WRITE_IN}${name}`, choice?.notes, isWriteIn ? undefined : 'tentative')
+    const key = `${WRITE_IN}${name}`
+    if (!name || writeInKey === key) return
+    // Renaming your write-in keeps its label; a new write-in starts as leaning
+    if (!writeInKey) return onChange(item.id, key, choice?.notes, 'tentative')
+    const rename = (o: string) => (o === writeInKey ? key : o)
+    const marks = choice?.marks && Object.fromEntries(Object.entries(choice.marks).map(([o, m]) => [rename(o), m]))
+    onChange(item.id, rename(selection!), choice?.notes, choice?.status, marks ?? null)
   }
   return (
     <div className="divide-y divide-gray-200">
@@ -314,8 +325,8 @@ function RaceChoices({
           name={item.id}
           value={row.name}
           label={row.label}
-          checked={selection === row.name}
-          status={choice?.status}
+          checked={!!markOf(choice, row.name)}
+          status={markOf(choice, row.name)}
           disabled={readOnly}
           onSelect={() => onPick(row.name)}
         >
@@ -338,10 +349,10 @@ function RaceChoices({
           name={item.id}
           value={WRITE_IN}
           label={`Write-in for ${item.title}`}
-          checked={isWriteIn}
-          status={choice?.status}
+          checked={!!writeInKey}
+          status={writeInKey ? markOf(choice, writeInKey) : undefined}
           disabled={readOnly}
-          onSelect={() => (isWriteIn ? onPick(selection!) : saveWriteIn())}
+          onSelect={() => (writeInKey ? onPick(writeInKey) : saveWriteIn())}
         >
           {readOnly ? (
             <span className="block min-h-[1.25rem] border-b border-gray-500 text-[0.8125rem] font-semibold uppercase">{writeIn}</span>
@@ -386,8 +397,8 @@ function MeasureChoices({
           name={item.id}
           value={value}
           label={labels[i]}
-          checked={choice?.selection === value}
-          status={choice?.status}
+          checked={!!markOf(choice, value)}
+          status={markOf(choice, value)}
           disabled={readOnly}
           onSelect={() => onPick(value)}
         >
@@ -585,7 +596,7 @@ function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (sta
   return (
     <div role="radiogroup" aria-label="How sure are you?" className="flex justify-end px-2 pb-1.5 font-sans print:hidden">
       <div className="inline-flex overflow-hidden rounded-full border border-gray-300 text-[0.6875rem]">
-        {(['unsure', 'tentative', 'decided'] as const).map((value) => (
+        {(['unsure', 'possible', 'tentative', 'decided'] as const).map((value) => (
           <button
             key={value}
             type="button"
@@ -598,11 +609,13 @@ function StatusPill({ status, onStatus }: { status: ChoiceStatus; onStatus: (sta
                   ? 'bg-green-700 font-semibold text-white'
                   : value === 'tentative'
                     ? 'bg-amber-200 font-semibold text-amber-950'
-                    : 'bg-purple-100 font-semibold text-purple-800'
+                    : value === 'possible'
+                      ? 'bg-sky-100 font-semibold text-sky-900'
+                      : 'bg-purple-100 font-semibold text-purple-800'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
           >
-            {value === 'decided' ? 'Decided' : value === 'tentative' ? 'Leaning' : 'Not sure'}
+            {STATUS_WORDS[value][0].toUpperCase() + STATUS_WORDS[value].slice(1)}
           </button>
         ))}
       </div>
@@ -764,9 +777,9 @@ function Enhancements({
   )
 }
 
-// Each click on an oval steps it along: empty → ? (not sure) → leaning (hatched) → decided
-// (filled) → empty. Clicking a different oval in the contest moves your pick there, as ?.
-// Clearing a pick keeps any notes you wrote on the contest.
+// Each click on an oval steps its label (stepMark): empty → leaning (hatched) → decided (filled) →
+// possibly (~) → not sure (?) → empty. Soft labels can sit on several ovals; deciding clears the
+// others. Clearing the last label keeps any notes you wrote on the contest.
 function stepPick(
   itemId: string,
   selection: string,
@@ -774,9 +787,8 @@ function stepPick(
   onChange: ContestProps['onChange'],
   onClear: ContestProps['onClear'],
 ) {
-  if (choice?.selection !== selection) onChange(itemId, selection, choice?.notes, 'unsure')
-  else if (choice.status === 'unsure') onChange(itemId, selection, choice.notes, 'tentative')
-  else if (choice.status === 'tentative') onChange(itemId, selection, choice.notes, 'decided')
+  const next = stepMark(choice, selection)
+  if (next) onChange(itemId, next.selection, choice?.notes, next.status, next.marks ?? null)
   else clearPick(itemId, choice, onChange, onClear)
 }
 
@@ -893,7 +905,7 @@ export default function Contest({
       {run.map((item, i) => {
         const choice = choices[item.id]
         const pick = (selection: string) => stepPick(item.id, selection, choice, onChange, onClear)
-        const status = !readOnly && onStatus && choice && isPick(choice.selection) && (
+        const status = !readOnly && onStatus && choice && isPick(choice.selection) && !choice.marks && (
           <StatusPill status={choice.status ?? 'decided'} onStatus={(value) => onStatus(item.id, value)} />
         )
         const strip = (

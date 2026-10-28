@@ -2,7 +2,7 @@ import {
   ABSTAIN,
   NOTES_ONLY,
   UNSURE,
-  choiceLabel,
+  pickLabel,
   contestLabel,
   isMeasure,
   isPick,
@@ -40,8 +40,7 @@ export function guideText({ guideTitle, electionTitle, date, sections, choices }
     lines.push(section.label.toUpperCase())
     for (const ballot of section.items) {
       const choice = choices[ballot.id]
-      const how = isPick(choice?.selection) && choice!.status !== 'decided' ? ` (${choice!.status === 'unsure' ? 'not sure' : 'leaning'})` : ''
-      lines.push(`  ${contestLabel(ballot)}: ${choice ? choiceLabel(choice.selection, ballot) : '(no choice)'}${how}`)
+      lines.push(`  ${contestLabel(ballot)}: ${choice ? pickLabel(choice, ballot) : '(no choice)'}`)
       lines.push(...noteLines(choice))
     }
     lines.push('')
@@ -55,13 +54,13 @@ function groupOf(choice?: ChoiceValue): Group {
   if (!choice || choice.selection === NOTES_ONLY) return 'untouched'
   if (choice.selection === UNSURE) return 'help'
   if (choice.selection === ABSTAIN) return 'blank'
-  if (choice.status === 'unsure') return 'unsure'
+  if (choice.status === 'unsure' || choice.status === 'possible') return 'unsure'
   return choice.status === 'tentative' ? 'leaning' : 'decided'
 }
 
 const HEADINGS: Record<Group, string> = {
   help: 'NO CLUE YET (I need the most help here)',
-  unsure: "NOT SURE (I put a ? on a choice but haven't decided)",
+  unsure: "NOT SURE (I marked choices as not sure or possibly, but haven't decided)",
   untouched: "HAVEN'T LOOKED AT YET",
   leaning: 'LEANING',
   decided: 'DECIDED',
@@ -75,7 +74,7 @@ export function helpRequestText({ electionTitle, date, sections, choices, link }
       const choice = choices[item.id]
       const group = groupOf(choice)
       const lines = groups.get(group)!
-      const pick = isPick(choice?.selection) ? `: ${choiceLabel(choice!.selection, item)}` : ''
+      const pick = isPick(choice?.selection) ? `: ${pickLabel(choice!, item)}` : ''
       lines.push(`- ${navLabel(item)}${pick}`)
       // Where you're stuck, the choices on the ballot so the answer can cover each one
       if (group === 'help' || group === 'unsure') {
