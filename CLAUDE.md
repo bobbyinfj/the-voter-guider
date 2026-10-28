@@ -242,6 +242,18 @@ npm test                           # node:test via tsx (tests/*.test.ts), incl. 
 Browser checks: Playwright with its bundled Chromium, installed outside the repo, against a local
 Postgres (see README), never the shared Neon DB.
 
+## Working with main (several developers)
+Several people and agents merge to `main`, often several times a day. Always work from the latest `main`:
+- **Starting work:** `git fetch` and `git pull --ff-only` on `main`, then branch from it. Never start from a stale checkout.
+- **While working:** `git fetch` at intervals (at least before each new step, and whenever you've been away);
+  if `origin/main` moved, merge or rebase it into your branch and re-run the checks before going on.
+- **Before pushing and before opening a PR:** fetch, bring `origin/main` into the branch, resolve conflicts, and
+  re-run `tsc`, lint and `npm test` on the result.
+- **Before merging:** fetch again. If `main` moved since your last check, update the branch and re-run the checks
+  first (`gh pr view --json mergeStateStatus` shows when it's behind). After merging, `git pull --ff-only` on `main`.
+- Never force-push `main` or rewrite history others have pulled. Never merge a schema change before its Neon
+  migration is applied (see Deploying): another dev's deploy would run your code against the old schema.
+
 ## Deploying
 Updates ship to production by default. Neon is shared by Preview and Production, so apply
 migrations and `npm run seed` to Neon *before* merging code that depends on them; take a
