@@ -5,7 +5,8 @@
 #
 # The page is a table: a position heading, then per candidate four cells (name, rating, date of
 # rating, voter's pamphlet link). Ratings are copied as printed; "N/A" is not a rating, so a
-# candidate the list shows as N/A gets nothing. Names match the bundle's candidate by first and last
+# candidate the list shows as N/A goes in `unrated` instead (the list's note explains it), letting
+# the ballot say so beside them rather than show a rating for only one side of a race. Names match the bundle's candidate by first and last
 # name (accents, case and middle initials aside), and every rating must appear on the saved page.
 #
 # Usage: python3 kcba.py   (the page is cached in ../comparison-builders/cache/)
@@ -56,19 +57,23 @@ def main():
             i += 1
     bundle = json.loads((ROOT / 'data/elections/wa-general-2026-11-03.json').read_text())
     by_name = {name_key(c['name']): (c['id'], o['id']) for o in bundle['offices'] for c in o['candidates']}
-    candidates, races = {}, set()
+    note = re.sub(r'^\*?NOTE\s*-\s*', '', next(l for l in lines if 'N/A' in l and 'three years' in l))
+    candidates, unrated, races = {}, {}, set()
     for name, rating, date in rows:
         hit = by_name.get(name_key(name))
         if not hit:
             continue
         races.add(hit[1])
         if rating == 'N/A':
+            unrated[hit[0]] = {'by': BY, 'note': note,
+                               'source': {'title': f'{TITLE} ({updated[0].lower()}{updated[1:]})', 'url': URL, 'retrieved': retrieved}}
+            print(f'  {name}: N/A')
             continue
         assert rating in RATINGS and rating in raw.decode('utf-8', 'replace')
         candidates[hit[0]] = {'by': BY, 'value': rating, 'date': date,
                               'source': {'title': f'{TITLE} ({updated[0].lower()}{updated[1:]})', 'url': URL, 'retrieved': retrieved}}
         print(f'  {name}: {rating} ({date})')
-    out = {'candidates': candidates, 'races': sorted(races), 'url': URL, 'title': TITLE}
+    out = {'candidates': candidates, 'unrated': unrated, 'races': sorted(races), 'url': URL, 'title': TITLE}
     (HERE / 'wa-ratings.json').write_text(json.dumps(out, indent=1, ensure_ascii=False) + '\n')
     print(f'wa-ratings.json: {len(candidates)} ratings in {len(races)} races on the ballot ({updated})')
 

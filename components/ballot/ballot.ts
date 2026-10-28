@@ -1,5 +1,5 @@
 // Shared types and helpers for the ballot-replica guide view
-import type { ProfileSnippet } from '@/lib/profile'
+import type { JudgeBiography, ProfileSnippet } from '@/lib/profile'
 
 export interface BallotCandidate {
   id: string
@@ -390,4 +390,33 @@ export function inPrintedOrder<T extends { name: string }>(
   const names = printed?.candidates?.map((c) => c.name) ?? optionList(race.options)
   const rank = (p: T) => (names.includes(p.name) ? names.indexOf(p.name) : names.length)
   return [...people].sort((a, b) => rank(a) - rank(b))
+}
+
+// "Los Angeles County Bar Association" → "Los Angeles County Bar Assn.", to fit under a name
+const shortBar = (by: string) => by.replace(/\bAssociation\b/, 'Assn.')
+
+// A judicial candidate's record from their bar association, for the line under their name: its rating,
+// or, where its list names them as N/A, that it hasn't rated them (in the list's own words on hover),
+// so a race never shows one side's rating and nothing for the other. Null when no bar list covers them.
+export function judgeRecord(
+  p: ProfileSnippet | null | undefined,
+): { text: string; by: string; title: string; url: string; rated: boolean } | null {
+  const r = p?.barRating
+  if (r) {
+    const when = r.date ? `, rated ${r.date}` : ''
+    return { text: r.value, by: shortBar(r.by), title: `${r.by}: ${r.source.title}${when} (retrieved ${r.source.retrieved})`, url: r.source.url, rated: true }
+  }
+  const u = p?.barUnrated
+  if (u) return { text: 'Not rated (N/A)', by: shortBar(u.by), title: `${u.by}: “${u.note}” (retrieved ${u.source.retrieved})`, url: u.source.url, rated: false }
+  return null
+}
+
+// One line under a California retention question from the court's biography of the justice: the
+// nominee rating it quotes, else their title and "Since <year>" (Court of Appeal pages), else the
+// biography's opening sentence (Supreme Court pages, which have neither), quoted
+export function biographyLine(e: JudgeBiography): { text: string; quote: boolean } | null {
+  if (e.ratingWords) return { text: `Nominee rating: “${e.ratingWords}”`, quote: false }
+  if (e.role.some((r) => /^Since \d{4}$/.test(r))) return { text: e.role.join(', '), quote: false }
+  const first = e.paragraphs.length ? openingSentence(e.paragraphs[0]) : null
+  return first ? { text: first, quote: true } : null
 }

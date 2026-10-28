@@ -21,6 +21,98 @@
    }
   }
  },
+ "unrated": {
+  "wa26-scott-edwards": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-colleen-melody": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-jaime-michelle-hawk": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-david-stevens": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-ian-birk": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-theo-angelis": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-dave-larson": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-todd-a-bloom": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-debra-l-stephens": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  },
+  "wa26-garmon-newsom": {
+   "by": "King County Bar Association",
+   "note": "N/A denotes the candidate has not been rated by the KCBA Judicial Candidate Evaluation Committee within the last three years.",
+   "source": {
+    "title": "KCBA Ratings of Candidates in 2026 Judicial Elections (last updated August 4, 2026)",
+    "url": "https://www.kcba.org/?pg=Rating-of-Candidates-in-2026-Election",
+    "retrieved": "2026-10-27"
+   }
+  }
+ },
  "races": [
   "wa26-seattle-muni-5",
   "wa26-supreme-1",

@@ -1,6 +1,7 @@
 import { CheckCircle2, ExternalLink, Scale, XCircle } from 'lucide-react'
 import { evaluationMeets, isHttpUrl, raceExtrasOf, type JudgeBiography, type JudgeEvaluation as Evaluation } from '@/lib/profile'
-import type { BallotItem } from './ballot'
+import { biographyLine, judgeRecord, type BallotItem } from './ballot'
+import type { ProfileSnippet } from '@/lib/profile'
 
 export function evaluationOf(item: BallotItem): Evaluation | JudgeBiography | null {
   return raceExtrasOf(item.metadata)?.evaluation ?? null
@@ -11,30 +12,32 @@ const isBiography = (e: Evaluation | JudgeBiography): e is JudgeBiography => e.k
 // The page prints "MEETS PERFORMANCE STANDARDS ." with a space; keep the words, drop the gap
 const tidy = (s: string) => s.replace(/\s+([.,])/g, '$1')
 
-function Link({ href, children }: { href: string; children: React.ReactNode }) {
+function Link({ href, children, className = 'text-blue-700' }: { href: string; children: React.ReactNode; className?: string }) {
   if (!isHttpUrl(href)) return null
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 text-blue-700 hover:underline">
+    <a href={href} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-0.5 hover:underline ${className}`}>
       {children} <ExternalLink className="h-3 w-3" />
     </a>
   )
 }
 
 // One line under a retention question's ovals, so the voter has something to go on right where they
-// choose: the official commission's finding and vote (Colorado), or what the court's own biography says:
-// the nominee rating in its words, else how long they've served (California). A credited extra.
+// choose: the official commission's finding and vote (Colorado), or what the court's own biography says
+// (California, biographyLine). A credited extra; the credit links to the source.
 export function EvaluationLine({ item }: { item: BallotItem }) {
   const e = evaluationOf(item)
   if (!e) return null
   if (isBiography(e)) {
-    const since = e.role.find((r) => /^Since \d{4}$/.test(r))
-    const text = e.ratingWords ? `Nominee rating: “${e.ratingWords}”` : since ? `${e.role.join(', ')}` : null
-    if (!text) return null
+    const line = biographyLine(e)
+    if (!line) return null
     return (
       <p className="flex items-start gap-1 px-2 pb-1.5 font-sans text-[0.6875rem] leading-snug text-sky-900 print:hidden" title={e.rating ?? undefined}>
         <Scale className="mt-px h-3.5 w-3.5 shrink-0 text-sky-700" aria-hidden />
         <span>
-          {text} <span className="text-sky-600">· the court&apos;s biography</span>
+          {line.quote ? `“${line.text}”` : line.text} ·{' '}
+          <Link href={e.source.url} className="text-sky-700">
+            the court&apos;s biography
+          </Link>
         </span>
       </p>
     )
@@ -45,9 +48,30 @@ export function EvaluationLine({ item }: { item: BallotItem }) {
     <p className="flex items-start gap-1 px-2 pb-1.5 font-sans text-[0.6875rem] leading-snug text-sky-900 print:hidden" title={tidy(e.finding)}>
       <Icon className={`mt-px h-3.5 w-3.5 shrink-0 ${meets ? 'text-green-700' : 'text-red-700'}`} aria-hidden />
       <span>
-        <span className="font-semibold">{e.recommendation}</span> ({e.vote}) <span className="text-sky-600">· {e.by}</span>
+        <span className="font-semibold">{e.recommendation}</span> ({e.vote}) ·{' '}
+        <Link href={e.source.url} className="text-sky-700">
+          {e.by}
+        </Link>
       </span>
     </p>
+  )
+}
+
+// Under a judicial candidate's name: their bar association's rating, or that its list shows them as
+// N/A (judgeRecord), linked to the list. Nothing when no bar list covers the race.
+export function JudgeRecordLine({ profile, roomy = false }: { profile: ProfileSnippet | null | undefined; roomy?: boolean }) {
+  const r = judgeRecord(profile)
+  if (!r) return null
+  return (
+    <span className={`flex items-start gap-1 font-sans leading-snug text-sky-900 print:hidden ${roomy ? 'text-sm' : 'mt-0.5 text-[0.6875rem]'}`} title={r.title}>
+      <Scale className={`mt-px shrink-0 text-sky-700 ${roomy ? 'h-4 w-4' : 'h-3.5 w-3.5'}`} aria-hidden />
+      <span>
+        <span className={r.rated ? 'font-semibold' : ''}>{r.text}</span> ·{' '}
+        <Link href={r.url} className="text-sky-700">
+          {r.by}
+        </Link>
+      </span>
+    </span>
   )
 }
 

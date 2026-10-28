@@ -11,7 +11,7 @@ import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
 import CompareStrip from '@/components/compare/CompareStrip'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
-import JudgeEvaluation, { EvaluationLine } from './JudgeEvaluation'
+import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
 import type { CompareView } from '@/components/compare/compare'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { VIDEO_KIND_LABELS, formatDuration, guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
@@ -26,6 +26,7 @@ import {
   contestDomId,
   openingSentence,
   isMeasure,
+  judgeRecord,
   isPick,
   isSettled,
   layoutOf,
@@ -121,8 +122,8 @@ function CopyLink({ targets, label }: { targets: { id: string; label: string }[]
 
 // One line about a candidate, shown under their name, always labeled with where it's from:
 // the first sentence of their own statement (state voter guide, else the county's sample ballot
-// booklet); for a judge, the bar association's rating; else the first sentence of a news voter
-// guide's description. Nothing when none of those exist; we never write one ourselves.
+// booklet); else the first sentence of a news voter guide's description. Nothing when none of those
+// exist; we never write one ourselves. A judge's bar rating has its own line (JudgeRecordLine).
 // roomy: beside the Expanded view's scorecard, with space for a few lines
 function CandidateLine({ race, name, roomy = false }: { race: BallotItem; name: string; roomy?: boolean }) {
   const line = candidateLine(race, name)
@@ -147,8 +148,6 @@ function candidateLine(race: BallotItem, name: string): { text: string; source: 
   const first = doc && openingSentence(doc.text)
   if (first) return { text: first, source: 'From their county ballot booklet statement', short: 'their statement', quote: true }
   const guide = profile?.guide
-  const rating = profile?.barRating
-  if (rating) return { text: `Rated ${rating.value}`, source: `By the ${rating.by}`, short: 'county bar assn.', quote: false }
   const about = guide?.about && openingSentence(guide.about)
   if (guide && about) return { text: about, source: `From ${guideCredit(guide)}'s voter guide`, short: guide.source.publisher, quote: true }
   return null
@@ -342,6 +341,7 @@ function RaceChoices({
           </span>
           {'designation' in row && row.designation && <span className="block text-[0.6875rem] leading-snug">{row.designation}</span>}
           {!aside && <CandidateLine race={item} name={row.name} />}
+          {!aside && <JudgeRecordLine profile={item.office?.candidates.find((c) => c.name === row.name)?.profile} />}
         </Oval>
         </BesideRow>
       ))}
@@ -985,9 +985,10 @@ export default function Contest({
                             race={item}
                             badges={badges?.[item.id]?.[c.name] ?? []}
                             summary={
-                              (candidateLine(item, c.name) || choice?.candidateNotes?.[c.name]) && (
+                              (candidateLine(item, c.name) || judgeRecord(c.profile) || choice?.candidateNotes?.[c.name]) && (
                               <>
                                 <CandidateLine race={item} name={c.name} roomy />
+                                <JudgeRecordLine profile={c.profile} roomy />
                                 {choice?.candidateNotes?.[c.name] && (
                                   <p className="line-clamp-1 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
                                 )}

@@ -56,6 +56,13 @@ export interface BarRating {
   source: { title: string; url: string; retrieved: string }
 }
 
+// A bar association's list that names the candidate without rating them ("N/A"), with the list's own note
+export interface BarUnrated {
+  by: string
+  note: string
+  source: { title: string; url: string; retrieved: string }
+}
+
 export interface CandidateProfile {
   summary?: {
     source: { title: string; url: string; page?: number }
@@ -77,6 +84,8 @@ export interface CandidateProfile {
   ethics?: EthicsRecord
   // Where no news guide carries it (Washington): straight from the bar association's list (kcba.py)
   barRating?: BarRating
+  // Named on that list as N/A (kcba.py), so the ballot says so beside them
+  barUnrated?: BarUnrated
 }
 
 // What ballot views get: enough for a "snack" without shipping every endorser to the browser
@@ -93,6 +102,7 @@ export interface ProfileSnippet {
   bar: BarRecord | null
   ethics: EthicsRecord | null
   barRating: BarRating | null
+  barUnrated: BarUnrated | null
   // Every video of them, for the scorecard's video column (`video` is the one to lead with)
   videos: CandidateVideo[]
 }
@@ -136,6 +146,7 @@ export function snippet(value: unknown, maxEndorsers = 8): ProfileSnippet | null
     bar: p.bar ?? null,
     ethics: p.ethics ?? null,
     barRating: p.guide?.rating ?? p.barRating ?? null,
+    barUnrated: p.barUnrated ?? null,
     videos: p.videos ?? [],
   }
 }

@@ -117,6 +117,12 @@ one printed jurisdiction line), old `#contest-<ballot id>` links too (`resolveAn
 The link icon on a contest heading copies one; landing on one clears filters and highlights it.
 Under each candidate the Basic view shows one sentence from their own statement (state voter guide,
 else county booklet), labeled with its source, or nothing (`openingSentence`).
+Judges' records sit right on the ballot (`components/ballot/JudgeEvaluation.tsx`, pure parts `judgeRecord` /
+`biographyLine` in `ballot.ts`): a ⚖ line under each judicial candidate with their bar association's rating
+(LACBA via LAist, KCBA), or "Not rated (N/A)" when that list names them as N/A (`barUnrated`, kcba.py), so a
+covered race never shows a rating for one side only; and under each retention question's ovals, the
+commission's finding (CO) or the court biography's rating, title and since-year, or opening sentence (CA).
+Each credit links to its source; `tests/profile.test.ts` checks every judge gets one.
 
 ### Offices explained (glossary)
 `data/glossary/offices.json` (built by `data/research/glossary-builders/build.py`, read through `lib/glossary.ts`)

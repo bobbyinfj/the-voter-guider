@@ -266,6 +266,11 @@ def build(state, offline=False):
             if cid not in ids:
                 errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
             out.setdefault(cid, {})['barRating'] = rating
+        # Listed as N/A: said beside them, so a race never shows one side's rating and nothing for the other
+        for cid, unrated in ratings.get('unrated', {}).items():
+            if cid not in ids:
+                errors.append(f'{cid}: not a candidate in {cfg["slug"]}')
+            out.setdefault(cid, {})['barUnrated'] = unrated
         for office_id in ratings['races']:
             races.setdefault(office_id, {}).setdefault('links', []).append(
                 {'label': "King County Bar Association's ratings for this race (N/A: not rated within the last three years)", 'url': ratings['url']})
