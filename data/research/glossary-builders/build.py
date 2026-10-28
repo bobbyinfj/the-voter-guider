@@ -3,8 +3,13 @@
 #
 # Rules (CLAUDE.md "Transparency is the product"):
 #   - `plain` is our own wording (shown as a Voter Guider summary) and says nothing the quotes
-#     don't. Every quote must appear on the saved copy of an official page (the office's own site,
-#     or the state's voter guide), or the build fails.
+#     don't. Every quote must appear on the saved copy of its source, or the build fails. What a
+#     job is comes from an official page (the office's own site, the state's voter guide); `facts`
+#     (context such as retention history) each carry their own source, official or a credited
+#     news guide.
+#   - An entry applies to offices (`offices`) or, for questions like judicial retention, to every
+#     measure of one type in one state's bundle (`measures`, filled in here). Retention context is
+#     California's only: other states' judges have their own systems.
 #   - Fetches identify as Claude-User and obey robots.txt (comparison-builders/build.py fetch).
 #     The current CA voter guide (voterguide.sos.ca.gov) blocks Claude-User; the Secretary of
 #     State's own archive (vigarchive.sos.ca.gov) allows it, so CA statewide offices quote the
@@ -26,6 +31,11 @@ import build as cb  # noqa: E402
 
 cb.CACHE = HERE / 'cache'
 ROOT = HERE.parents[2]
+
+ASSEMBLY_ACA8 = (
+    'https://aelc.assembly.ca.gov/system/files/2025-07/aca-8-pellerin-175252940213150.pdf',
+    'California Assembly Elections Committee, analysis of ACA 8 (2025)',
+)
 
 CA_GUIDE = (
     'https://vigarchive.sos.ca.gov/2010/primary/voter-info/statewide-elective-office-desc.htm',
@@ -205,6 +215,40 @@ ENTRIES = [
             'How would they work with families and with law enforcement?',
         ],
     },
+    {
+        # Keyed to every CA retention question in the bundle (filled in by build()), not an office
+        'key': 'ca-justice-retention', 'title': 'Keeping a justice (retention)', 'state': 'CA', 'offices': [],
+        'measuresOfType': ('ca', 'retention'),
+        'plain': "Supreme Court and Court of Appeal justices aren't picked in a race. The governor appoints them, a state commission confirms them, and then voters answer Yes or No on keeping each one: at the next governor's election, and again whenever they want another term.",
+        'source': ('https://laist.com/news/politics/voter-guides/2026-election-california-general-courts-appeal-justice-la-orange-county', "LAist, 2026 voter guide to Court of Appeal justices"),
+        'quotes': ['In California, appellate court justices are first appointed by the governor and then subject to approval by the Commission on Judicial Appointments. Newly confirmed justices have to face voters at the next gubernatorial election and when they want another term.'],
+        'ask': [],
+        'facts': [
+            {
+                'plain': 'Since retention votes began in 1934, justices have kept their seats in 794 of 797 votes. No Court of Appeal justice has ever lost one; the three who lost were all on the Supreme Court, in 1986.',
+                'source': ASSEMBLY_ACA8,
+                'quotes': ["Since the state's retention election process was created in 1934, no Court of Appeals justice has ever been defeated in a retention election, while three Supreme Court justices were defeated (all in 1986). In all, justices were retained in 794 of the 797 retention elections held in the state's history (99.6%)."],
+            },
+            {
+                'plain': 'Many voters leave these blank: regularly more than 25% of ballots, and over 40% in some recent elections, compared with 2% to 6% for statewide offices.',
+                'source': ASSEMBLY_ACA8,
+                'quotes': ['The percentage of ballots that are left blank (commonly referred to as "drop-off") in retention elections regularly exceeds 25%, and has been more than 40% in some recent retention elections. By contrast, drop-off in elections for statewide office during the same time period typically has ranged from 2%-6%'],
+            },
+            {
+                'plain': "LAist: \u201cyour vote here is largely about sending a signal on whether you support what they've done.\u201d",
+                'source': ('https://laist.com/news/politics/voter-guides/2026-election-california-general-courts-appeal-justice-la-orange-county', "LAist, 2026 voter guide to Court of Appeal justices"),
+                'quotes': ["It's rare for a justice to lose a seat, so your vote here is largely about sending a signal on whether you support what they've done."],
+            },
+            {
+                'plain': 'Leaving a question blank doesn\u2019t affect the rest of your ballot: everything you do vote on still counts.',
+                'source': ('https://laist.com/news/politics/california-general-election-2024-undervoting-los-angeles-orange-county-propositions-senate', 'LAist, on undervoting'),
+                'quotes': ["even if you've undervoted, the things you do vote on still count."],
+            },
+        ],
+        'links': [
+            {'label': 'Read their recent opinions (the courts\u2019 own lists)', 'url': 'https://courts.ca.gov/opinions'},
+        ],
+    },
 ]
 
 
@@ -215,22 +259,39 @@ def bundle_offices():
     return ids
 
 
+def bundle_measures(state, kind):
+    """Ids of a state's measures of one type (e.g. every CA retention question)."""
+    out = []
+    for f in sorted((ROOT / 'data' / 'elections').glob(f'{state}-*.json')):
+        out += [m['id'] for m in json.loads(f.read_text()).get('measures', []) if m.get('type') == kind]
+    return out
+
+
+def sourced(url, name, quotes, key):
+    raw, fetched = cb.fetch(url)
+    page = cb.norm(cb.page_text(raw))
+    for q in quotes:
+        assert cb.norm(q) in page, f"{key}: quote not on {url}: {q[:80]}"
+    return {'url': url, 'name': name, 'retrieved': fetched}
+
+
 def build():
     known = bundle_offices()
     out = []
     for e in ENTRIES:
-        url, name = e['source']
-        raw, fetched = cb.fetch(url)
-        page = cb.norm(cb.page_text(raw))
-        for q in e['quotes']:
-            assert cb.norm(q) in page, f"{e['key']}: quote not on {url}: {q[:80]}"
+        e = dict(e)
+        e['source'] = sourced(*e['source'], e['quotes'], e['key'])
         for office in e['offices']:
             assert office in known, f"{e['key']}: no office {office} in data/elections"
-        out.append({**e, 'source': {'url': url, 'name': name, 'retrieved': fetched}})
+        if 'measuresOfType' in e:
+            e['measures'] = bundle_measures(*e.pop('measuresOfType'))
+            assert e['measures'], f"{e['key']}: no matching measures"
+        e['facts'] = [{**f, 'source': sourced(*f['source'], f['quotes'], e['key'])} for f in e.get('facts', [])]
+        out.append(e)
     path = ROOT / 'data' / 'glossary' / 'offices.json'
     path.parent.mkdir(exist_ok=True)
     path.write_text(json.dumps({'entries': out}, indent=1, ensure_ascii=False) + '\n')
-    print(f'wrote {path.relative_to(ROOT)}: {len(out)} offices')
+    print(f'wrote {path.relative_to(ROOT)}: {len(out)} entries')
 
 
 if __name__ == '__main__':

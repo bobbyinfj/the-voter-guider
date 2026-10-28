@@ -584,6 +584,45 @@
    "builder": "glossary-builders/build.py",
    "notes": "Quotes the board's constitutional charge.",
    "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-assembly-aca8",
+   "state": "CA",
+   "kind": [
+    "office-duties"
+   ],
+   "name": "CA Assembly Elections Committee, analysis of ACA 8 (2025)",
+   "url": "https://aelc.assembly.ca.gov/system/files/2025-07/aca-8-pellerin-175252940213150.pdf",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Retention history: since 1934 no Court of Appeal justice defeated, three Supreme Court justices in 1986, 794 of 797 retained; drop-off >25%, sometimes >40%, vs 2-6% statewide. Doesn't name the 1986 justices. Linked from LAist.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "laist-undervoting",
+   "state": "CA",
+   "kind": [
+    "news-guide"
+   ],
+   "name": "LAist, undervoting explainer (2024)",
+   "url": "https://laist.com/news/politics/california-general-election-2024-undervoting-los-angeles-orange-county-propositions-senate",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Says skipped contests don't disqualify a ballot. The SOS election-myths page that said so is now a 404.",
+   "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-courts-opinions",
+   "state": "CA",
+   "kind": [
+    "judicial-bio"
+   ],
+   "name": "CA courts opinion lists (published, unpublished)",
+   "url": "https://courts.ca.gov/opinions",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "Last ~120 days only, 50 per page, PDF per opinion on www.courts.ca.gov; older published opinions via the Official Reports (not checked). /opinions/archive is a 403. CourtListener robots-blocks Claude-User.",
+   "checked": "2026-10-27"
   }
  ]
 }

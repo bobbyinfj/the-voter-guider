@@ -4,10 +4,12 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { OFFICE_GLOSSARY, glossaryFor } from '../lib/glossary'
 import { isHttpUrl } from '../lib/profile'
 
-const bundleOffices = new Set(
-  readdirSync('data/elections')
-    .filter((f) => f.endsWith('.json'))
-    .flatMap((f) => JSON.parse(readFileSync(`data/elections/${f}`, 'utf8')).offices.map((o: { id: string }) => o.id)),
+const bundles = readdirSync('data/elections')
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => JSON.parse(readFileSync(`data/elections/${f}`, 'utf8')))
+const bundleOffices = new Set(bundles.flatMap((b) => b.offices.map((o: { id: string }) => o.id)))
+const bundleMeasures = new Map<string, string>(
+  bundles.flatMap((b) => (b.measures ?? []).map((m: { id: string; type: string }) => [m.id, m.type] as [string, string])),
 )
 
 test('every glossary entry is sourced and points at real offices', () => {
@@ -26,6 +28,18 @@ test('every glossary entry is sourced and points at real offices', () => {
       assert.ok(!offices.has(id), `${id} is in two glossary entries`)
       offices.add(id)
     }
+    for (const f of e.facts ?? []) {
+      assert.ok(f.plain.trim() && f.quotes.length && isHttpUrl(f.source.url), `${e.key}: unsourced fact`)
+    }
+    for (const id of e.measures ?? []) assert.ok(bundleMeasures.has(id), `${e.key}: no measure ${id} in data/elections`)
+  }
+})
+
+test('retention context covers every California retention question and no other state', () => {
+  const retention = [...bundleMeasures].filter(([, type]) => type === 'retention').map(([id]) => id)
+  for (const id of retention) {
+    if (id.startsWith('ca')) assert.equal(glossaryFor(id)?.key, 'ca-justice-retention', id)
+    else assert.equal(glossaryFor(id), undefined, `${id} shouldn't get California's retention history`)
   }
 })
 
