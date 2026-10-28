@@ -1,7 +1,8 @@
 'use client'
 
-import { CheckCircle2, Circle, CircleHelp, MinusCircle } from 'lucide-react'
+import { Check, CheckCircle2, Circle, CircleHelp, MinusCircle, X } from 'lucide-react'
 import { ABSTAIN, NOTES_ONLY, contestDomId, isPick, isSettled, isUnsure, navLabel, type BallotSection, type ChoiceValue } from './ballot'
+import { MEASURE_TOPICS } from '@/lib/measureTopics'
 
 interface BallotNavProps {
   sections: BallotSection[]
@@ -10,7 +11,8 @@ interface BallotNavProps {
   onJump: (itemId: string) => void
 }
 
-// Table of contents for the ballot: every contest with its decided/undecided state
+// Table of contents for the ballot: every contest with its decided/undecided state, and for a
+// Yes/No question which way you're voting (solid once decided, outlined while leaning or unsure)
 export default function BallotNav({ sections, choices, activeId, onJump }: BallotNavProps) {
   return (
     <nav aria-label="Contests on this ballot" className="space-y-4 text-sm">
@@ -31,6 +33,8 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                 const unsure = isUnsure(choices[item.id])
                 const leaning = isPick(selection) && choices[item.id]?.status === 'tentative'
                 const Icon = !selection ? Circle : selection === ABSTAIN ? MinusCircle : unsure ? CircleHelp : CheckCircle2
+                const vote = selection === 'YES' || selection === 'NO' ? selection : null
+                const sure = choices[item.id]?.status === 'decided' || !choices[item.id]?.status
                 return (
                   <li key={item.id}>
                     <a
@@ -50,7 +54,23 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                           !selection ? 'text-gray-400' : selection === ABSTAIN ? 'text-gray-500' : unsure ? 'text-purple-600' : leaning ? 'text-amber-600' : 'text-green-600'
                         }`}
                       />
-                      <span className="min-w-0 line-clamp-2">{navLabel(item)}</span>
+                      <span className="min-w-0" title={MEASURE_TOPICS[item.id] ? item.title : undefined}>
+                        <span className="line-clamp-2">{navLabel(item)}</span>
+                        {/* A state measure's topic, in words from its official title (lib/measureTopics.ts) */}
+                        {MEASURE_TOPICS[item.id] && <span className="block text-xs text-gray-500">{MEASURE_TOPICS[item.id]}</span>}
+                      </span>
+                      {vote && (
+                        <span
+                          className={`ml-auto mt-0.5 inline-flex shrink-0 items-center gap-0.5 rounded px-1 text-[0.625rem] font-bold leading-4 ${
+                            vote === 'YES'
+                              ? sure ? 'bg-green-700 text-white' : 'border border-green-700 text-green-800'
+                              : sure ? 'bg-red-700 text-white' : 'border border-red-700 text-red-800'
+                          }`}
+                        >
+                          {vote === 'YES' ? <Check aria-hidden className="h-3 w-3" /> : <X aria-hidden className="h-3 w-3" />}
+                          {vote}
+                        </span>
+                      )}
                     </a>
                   </li>
                 )
