@@ -118,8 +118,12 @@ a Voter Guider summary, claiming nothing the quotes don't), verbatim `quotes` fr
 fails if a quote isn't on the saved page), the source with its retrieval date, and `ask`: questions to put to
 every candidate alike about the job's powers (never assuming a position or stating current events; none for
 judges). No official description, no entry, no placeholder. Shown by the "What's this job?" popover on a contest
-heading (`components/ballot/OfficeExplainer.tsx`), at the top of the contest's info panel, and on `/glossary`
-(anchor per entry, plus "How to choose between candidates"). Static file: no seed needed.
+heading (`components/ballot/OfficeExplainer.tsx`), at the top of the contest's info panel (Ballot view) or of the
+right-hand column before the candidates (Expanded view), and on `/glossary` (anchor per entry, plus "How to
+choose between candidates"). Static file: no seed needed. California retention questions share one entry
+(`ca-justice-retention`, keyed to every CA retention measure id): how justices get there, retention history and
+drop-off, each fact with its own source; it shows only as the heading's "What is this vote?" popover, since
+headings repeat per Court of Appeal division. Other states' judges don't get it.
 
 ### Comparison guides and the community tally
 `data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds

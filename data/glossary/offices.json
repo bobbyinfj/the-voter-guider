@@ -20,7 +20,8 @@
     "What would they put first in the state budget, and what would they cut?",
     "Which kinds of bills would they sign, and which would they veto?",
     "How would they choose judges and the people who run state agencies?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-lt-governor",
@@ -41,7 +42,8 @@
    "ask": [
     "Are they ready to step in as governor?",
     "How would they use a tie-breaking vote in the State Senate?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-secretary-of-state",
@@ -62,7 +64,8 @@
    "ask": [
     "How would they run elections that are both secure and easy to vote in?",
     "How would they make campaign and lobbying money easier to follow?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-controller",
@@ -84,7 +87,8 @@
    "ask": [
     "What would they audit first, and why?",
     "What experience do they have with accounting, auditing or managing large budgets?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-treasurer",
@@ -105,7 +109,8 @@
    "ask": [
     "How would they balance safety and returns when investing state money?",
     "What experience do they have with investing or public finance?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-attorney-general",
@@ -127,7 +132,8 @@
     "Which kinds of cases would they make a priority?",
     "When would they take someone to court on the state's behalf?",
     "How would they oversee local law enforcement?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-insurance-commissioner",
@@ -149,7 +155,8 @@
     "How strictly would they regulate insurance companies, and what would that mean for prices and coverage?",
     "What would they do for people with complaints about their insurer?",
     "What experience do they have with insurance or consumer protection?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-superintendent",
@@ -170,7 +177,8 @@
    "ask": [
     "What would they change about how the state supports local schools?",
     "What experience do they have in education?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "ca-board-of-equalization",
@@ -192,7 +200,8 @@
    "ask": [
     "How would they keep property taxes assessed the same way in every county?",
     "What experience do they have with taxes or property assessment?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "wa-king-prosecutor",
@@ -216,7 +225,8 @@
     "Which crimes would they make a priority?",
     "When would they seek jail, and when other options?",
     "What experience do they have as a prosecutor or in court?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "co-cu-regent",
@@ -237,7 +247,8 @@
    "ask": [
     "How would they handle tuition and what students pay?",
     "What would they want the university to spend more, or less, on?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "co-larimer-assessor",
@@ -260,7 +271,8 @@
    "ask": [
     "How would they keep property values accurate and easy to understand?",
     "How would they handle protests from property owners?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "co-larimer-treasurer",
@@ -282,7 +294,8 @@
    "ask": [
     "How would they make paying property taxes easier?",
     "What experience do they have managing public money?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "co-larimer-surveyor",
@@ -303,7 +316,8 @@
    ],
    "ask": [
     "What surveying experience and credentials do they have?"
-   ]
+   ],
+   "facts": []
   },
   {
    "key": "co-larimer-coroner",
@@ -326,6 +340,97 @@
    "ask": [
     "What medical or death-investigation training do they have?",
     "How would they work with families and with law enforcement?"
+   ],
+   "facts": []
+  },
+  {
+   "key": "ca-justice-retention",
+   "title": "Keeping a justice (retention)",
+   "state": "CA",
+   "offices": [],
+   "plain": "Supreme Court and Court of Appeal justices aren't picked in a race. The governor appoints them, a state commission confirms them, and then voters answer Yes or No on keeping each one: at the next governor's election, and again whenever they want another term.",
+   "source": {
+    "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-courts-appeal-justice-la-orange-county",
+    "name": "LAist, 2026 voter guide to Court of Appeal justices",
+    "retrieved": "2026-10-27"
+   },
+   "quotes": [
+    "In California, appellate court justices are first appointed by the governor and then subject to approval by the Commission on Judicial Appointments. Newly confirmed justices have to face voters at the next gubernatorial election and when they want another term."
+   ],
+   "ask": [],
+   "facts": [
+    {
+     "plain": "Since retention votes began in 1934, justices have kept their seats in 794 of 797 votes. No Court of Appeal justice has ever lost one; the three who lost were all on the Supreme Court, in 1986.",
+     "source": {
+      "url": "https://aelc.assembly.ca.gov/system/files/2025-07/aca-8-pellerin-175252940213150.pdf",
+      "name": "California Assembly Elections Committee, analysis of ACA 8 (2025)",
+      "retrieved": "2026-10-27"
+     },
+     "quotes": [
+      "Since the state's retention election process was created in 1934, no Court of Appeals justice has ever been defeated in a retention election, while three Supreme Court justices were defeated (all in 1986). In all, justices were retained in 794 of the 797 retention elections held in the state's history (99.6%)."
+     ]
+    },
+    {
+     "plain": "Many voters leave these blank: regularly more than 25% of ballots, and over 40% in some recent elections, compared with 2% to 6% for statewide offices.",
+     "source": {
+      "url": "https://aelc.assembly.ca.gov/system/files/2025-07/aca-8-pellerin-175252940213150.pdf",
+      "name": "California Assembly Elections Committee, analysis of ACA 8 (2025)",
+      "retrieved": "2026-10-27"
+     },
+     "quotes": [
+      "The percentage of ballots that are left blank (commonly referred to as \"drop-off\") in retention elections regularly exceeds 25%, and has been more than 40% in some recent retention elections. By contrast, drop-off in elections for statewide office during the same time period typically has ranged from 2%-6%"
+     ]
+    },
+    {
+     "plain": "LAist: “your vote here is largely about sending a signal on whether you support what they've done.”",
+     "source": {
+      "url": "https://laist.com/news/politics/voter-guides/2026-election-california-general-courts-appeal-justice-la-orange-county",
+      "name": "LAist, 2026 voter guide to Court of Appeal justices",
+      "retrieved": "2026-10-27"
+     },
+     "quotes": [
+      "It's rare for a justice to lose a seat, so your vote here is largely about sending a signal on whether you support what they've done."
+     ]
+    },
+    {
+     "plain": "Leaving a question blank doesn’t affect the rest of your ballot: everything you do vote on still counts.",
+     "source": {
+      "url": "https://laist.com/news/politics/california-general-election-2024-undervoting-los-angeles-orange-county-propositions-senate",
+      "name": "LAist, on undervoting",
+      "retrieved": "2026-10-27"
+     },
+     "quotes": [
+      "even if you've undervoted, the things you do vote on still count."
+     ]
+    }
+   ],
+   "links": [
+    {
+     "label": "Read their recent opinions (the courts’ own lists)",
+     "url": "https://courts.ca.gov/opinions"
+    }
+   ],
+   "measures": [
+    "ca26-m-retain-joshua-groban",
+    "ca26-m-retain-kelli-m-evans",
+    "ca26-m-retain-rashida-a-adams",
+    "ca26-m-retain-helen-zukin",
+    "ca26-m-retain-brian-m-hoffstadt",
+    "ca26-m-retain-tari-l-cody",
+    "ca26-m-retain-gonzalo-c-martinez",
+    "ca26-m-retain-michelle-c-kim",
+    "ca26-m-retain-gregory-j-weingart",
+    "ca26-m-retain-anne-richardson",
+    "ca26-m-retain-steve-goorvitch",
+    "ca26-m-retain-mark-hanasono",
+    "ca26-m-retain-nicholas-daum",
+    "ca26-m-retain-audra-m-mori",
+    "ca26-m-retain-armen-tamzarian",
+    "ca26-m-retain-kenneth-r-yegan",
+    "ca26-m-retain-natalie-stone",
+    "ca26-m-retain-john-wiley",
+    "ca26-m-retain-matthew-a-scherb",
+    "ca26-m-retain-victor-g-viramontes"
    ]
   }
  ]

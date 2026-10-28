@@ -37,7 +37,7 @@ import {
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
 import OfficeExplainer, { OfficeExplainerButton } from './OfficeExplainer'
-import { glossaryFor } from '@/lib/glossary'
+import { glossaryForItem } from '@/lib/glossary'
 import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
 import type { BadgeMap } from '@/lib/scorecard'
 
@@ -689,7 +689,7 @@ function Enhancements({
         </>
       ) : (
         <>
-          {!candidatesBeside && glossaryFor(item.office?.id) && <OfficeExplainer entry={glossaryFor(item.office?.id)!} />}
+          {!candidatesBeside && glossaryForItem(item) && <OfficeExplainer entry={glossaryForItem(item)!} />}
           {!candidatesBeside && (
           <ul className="space-y-3">
             {people.map((c) => (
@@ -857,7 +857,7 @@ export default function Contest({
             </button>
           )}
           </span>
-          {glossaryFor(first.office?.id) && <OfficeExplainerButton entry={glossaryFor(first.office?.id)!} />}
+          {glossaryForItem(first) && <OfficeExplainerButton entry={glossaryForItem(first)!} />}
           <button
             type="button"
             onClick={() => setOverride({ density, open: !open })}
@@ -877,10 +877,11 @@ export default function Contest({
           aside={
             <>
               <p className="border-b border-sky-200 bg-sky-100 px-3 py-1 font-sans text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>
-              {/* What the job is, before the candidates (the info panel below them skips it here) */}
-              {glossaryFor(first.office?.id) && (
+              {/* What the job is, before the candidates (the info panel below them skips it here).
+                  Retention questions repeat a heading per division, so they keep just the heading's popover. */}
+              {glossaryForItem(first) && !glossaryForItem(first)!.measures?.length && (
                 <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 font-sans text-sky-950">
-                  <OfficeExplainer entry={glossaryFor(first.office?.id)!} />
+                  <OfficeExplainer entry={glossaryForItem(first)!} />
                 </div>
               )}
             </>
