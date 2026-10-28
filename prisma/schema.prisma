@@ -127,8 +127,11 @@ model Choice {
   guideId   String
   ballotId  String
   selection String // YES, NO, candidate name, abstain, etc.
-  // "tentative" (leaning) or "decided"
+  // "unsure" (not sure), "possible" (possibly), "tentative" (leaning) or "decided"
   status    String   @default("decided")
+  // Soft labels on several options at once: { "<option>": "tentative" | "possible" | "unsure" }.
+  // Only set with two or more; selection/status are then the strongest of them.
+  marks     Json?
   notes     String?
   // Your notes on each candidate: { "<candidate name as on the ballot>": "<note>" }
   candidateNotes Json?

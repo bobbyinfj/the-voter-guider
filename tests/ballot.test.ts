@@ -2,6 +2,10 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   candidateDomId,
+  markOf,
+  marksOf,
+  stepMark,
+  withMark,
   choiceLabel,
   contestDomId,
   openingSentence,
@@ -15,6 +19,7 @@ import {
   orderForBallot,
   type BallotItem,
   type PrintedLayout,
+  type ChoiceValue,
 } from '@/components/ballot/ballot'
 
 const style = { party: 'below', responses: 'stacked' } as const
@@ -183,4 +188,39 @@ test('openingSentence skips the county statement header lines', () => {
   )
   assert.equal(openingSentence('I hold a Ph.D. in Political Science from Claremont. Next.'), 'I hold a Ph.D. in Political Science from Claremont.')
   assert.equal(openingSentence('NO STATEMENT'), null)
+})
+
+test('clicking an oval steps leaning → decided → possibly → not sure → empty', () => {
+  let c: ChoiceValue | undefined
+  const click = (option: string) => {
+    const next = stepMark(c, option)
+    c = next ?? undefined
+    return next
+  }
+  assert.deepEqual(click('Ann'), { selection: 'Ann', status: 'tentative' })
+  assert.deepEqual(click('Ann'), { selection: 'Ann', status: 'decided' })
+  assert.deepEqual(click('Ann'), { selection: 'Ann', status: 'possible' })
+  assert.deepEqual(click('Ann'), { selection: 'Ann', status: 'unsure' })
+  assert.equal(click('Ann'), null)
+})
+
+test('soft labels sit on several options; the strongest leads', () => {
+  let c: ChoiceValue | undefined = { selection: 'Ann', status: 'possible' }
+  c = stepMark(c, 'Bob')! // Bob: leaning
+  assert.deepEqual(c, { selection: 'Bob', status: 'tentative', marks: { Ann: 'possible', Bob: 'tentative' } })
+  assert.equal(markOf(c, 'Ann'), 'possible')
+  assert.equal(isSettled(c), true) // leading with leaning
+  c = withMark(c, 'Bob', null)! // Bob removed: Ann alone, back to a single pick
+  assert.deepEqual(c, { selection: 'Ann', status: 'possible' })
+  assert.equal(isSettled(c), false)
+})
+
+test('deciding clears the other labels; a new label demotes a decided pick to leaning', () => {
+  const several: ChoiceValue = { selection: 'Bob', status: 'tentative', marks: { Ann: 'possible', Bob: 'tentative' } }
+  assert.deepEqual(stepMark(several, 'Bob'), { selection: 'Bob', status: 'decided' })
+  const decided: ChoiceValue = { selection: 'Bob', status: 'decided' }
+  assert.deepEqual(stepMark(decided, 'Ann'), { selection: 'Bob', status: 'tentative', marks: { Bob: 'tentative', Ann: 'tentative' } })
+  // Old single picks read as one label
+  assert.deepEqual(marksOf({ selection: 'Ann', status: 'unsure' }), { Ann: 'unsure' })
+  assert.deepEqual(marksOf({ selection: 'Ann', status: 'decided' }), {})
 })

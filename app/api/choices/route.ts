@@ -7,7 +7,8 @@ import { handleApiError } from '@/lib/errors'
 
 const SPECIAL = ['ABSTAIN', 'UNSURE', 'NOTES']
 const MEASURE_SELECTIONS = new Set(['YES', 'NO', ...SPECIAL])
-const STATUSES = new Set(['unsure', 'tentative', 'decided'])
+const STATUSES = new Set(['unsure', 'possible', 'tentative', 'decided'])
+const SOFT = new Set(['unsure', 'possible', 'tentative'])
 
 // POST - Create or update a choice on a guide the caller owns
 export async function POST(request: NextRequest) {
@@ -36,7 +37,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid selection' }, { status: 400 })
     }
     const notes = typeof body.notes === 'string' ? body.notes.slice(0, 5000) : undefined
-    // Leaning vs. decided; unchanged when not sent
+    // Not sure / possibly / leaning / decided; unchanged when not sent
     const status = STATUSES.has(body.status) ? (body.status as string) : undefined
     // Notes per candidate, keyed by a name on this ballot item; unchanged when not sent
     let candidateNotes: Prisma.InputJsonObject | typeof Prisma.DbNull | undefined
@@ -54,10 +55,24 @@ export async function POST(request: NextRequest) {
       candidateNotes = Object.keys(kept).length ? kept : Prisma.DbNull
     }
 
+    // Soft labels on several options, each one of this item's options; unchanged when not sent,
+    // cleared by null. Two or more, and the pick must be among them (the strongest leads).
+    let marks: Prisma.InputJsonObject | typeof Prisma.DbNull | undefined
+    if (body.marks === null) marks = Prisma.DbNull
+    else if (body.marks !== undefined) {
+      const entries = body.marks && typeof body.marks === 'object' && !Array.isArray(body.marks) ? Object.entries(body.marks) : []
+      const isOption = (o: string) =>
+        ballot.type === 'candidate' ? options.includes(o) || (o.startsWith('WRITE-IN:') && o.length <= 200) : o === 'YES' || o === 'NO'
+      if (entries.length < 2 || !entries.every(([o, s]) => isOption(o) && SOFT.has(s as string)) || !(selection in body.marks)) {
+        return NextResponse.json({ error: 'Invalid marks' }, { status: 400 })
+      }
+      marks = Object.fromEntries(entries) as Prisma.InputJsonObject
+    }
+
     const choice = await prisma.choice.upsert({
       where: { guideId_ballotId: { guideId, ballotId } },
-      update: { selection, notes, status, candidateNotes },
-      create: { guideId, ballotId, selection, notes, status, candidateNotes },
+      update: { selection, notes, status, candidateNotes, marks },
+      create: { guideId, ballotId, selection, notes, status, candidateNotes, marks },
     })
     await prisma.guide.update({ where: { id: guideId }, data: { lastAccessedAt: new Date() } })
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useRef, useState } from 'react'
-import { NOTES_ONLY, toStatus, type ChoiceStatus, type ChoiceValue } from '@/components/ballot/ballot'
+import { NOTES_ONLY, isPick, isSoft, toStatus, withMark, type ChoiceStatus, type ChoiceValue, type SoftStatus } from '@/components/ballot/ballot'
 
 export interface EditableGuide {
   id: string
@@ -13,7 +13,7 @@ export interface EditableGuide {
   shareCommunity: boolean
   notes: string | null
   metadata: unknown
-  choices: { ballotId: string; selection: string; notes: string | null; status?: string; candidateNotes?: unknown }[]
+  choices: { ballotId: string; selection: string; notes: string | null; status?: string; marks?: unknown; candidateNotes?: unknown }[]
 }
 
 export type SaveState = 'idle' | 'saving' | 'saved' | 'error'
@@ -24,6 +24,12 @@ function candidateNotesOf(value: unknown): Record<string, string> | undefined {
   return Object.keys(notes).length ? notes : undefined
 }
 
+function marksFrom(value: unknown): Record<string, SoftStatus> | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined
+  const marks = Object.fromEntries(Object.entries(value).filter((e): e is [string, SoftStatus] => isSoft(e[1])))
+  return Object.keys(marks).length > 1 ? marks : undefined
+}
+
 export function choiceMap(guide: EditableGuide | null): Record<string, ChoiceValue> {
   return Object.fromEntries(
     (guide?.choices ?? []).map((c) => [
@@ -32,6 +38,7 @@ export function choiceMap(guide: EditableGuide | null): Record<string, ChoiceVal
         selection: c.selection,
         notes: c.notes ?? undefined,
         status: toStatus(c.status),
+        marks: marksFrom(c.marks),
         candidateNotes: candidateNotesOf(c.candidateNotes),
       },
     ]),
@@ -113,6 +120,7 @@ export function useGuideEditor(opts: {
           selection: value.selection,
           notes: value.notes,
           status: value.status,
+          marks: value.marks ?? null,
           candidateNotes: value.candidateNotes ?? {},
         }),
       })
@@ -139,16 +147,18 @@ export function useGuideEditor(opts: {
     [postChoice, track, updateChoices],
   )
 
+  // `marks` given (an oval click works out every label): use them, null for none. Not given: this
+  // sets one option's label and keeps the others (withMark). Changing your pick keeps how sure you
+  // were, and your candidate notes.
   const setChoice = useCallback(
-    (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => {
+    (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus, marks?: Record<string, SoftStatus> | null) => {
       const previous = choicesRef.current[ballotId]
-      // Changing your pick keeps whether you were leaning or decided, and your candidate notes
-      return saveChoice(ballotId, {
-        selection,
-        notes,
-        status: status ?? previous?.status ?? 'decided',
-        candidateNotes: previous?.candidateNotes,
-      })
+      const resolved = status ?? previous?.status ?? 'decided'
+      const pick =
+        marks !== undefined ? { selection, status: resolved, marks: marks ?? undefined }
+        : isPick(selection) ? (withMark(previous, selection, resolved) ?? { selection, status: resolved })
+        : { selection, status: resolved }
+      return saveChoice(ballotId, { ...pick, notes, candidateNotes: previous?.candidateNotes })
     },
     [saveChoice],
   )

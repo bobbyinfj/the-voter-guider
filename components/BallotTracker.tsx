@@ -43,6 +43,7 @@ import {
   layoutSourceName,
   type BallotItem,
   type ChoiceStatus,
+  type SoftStatus,
   type ChoiceValue,
 } from '@/components/ballot/ballot'
 import { formatElectionDate } from '@/lib/format'
@@ -65,7 +66,7 @@ interface BallotTrackerProps {
   status?: React.ReactNode
   // Under the toolbar, e.g. the "keep your guide" prompt
   notice?: React.ReactNode
-  onChoiceChange?: (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
+  onChoiceChange?: (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus, marks?: Record<string, SoftStatus> | null) => void
   onChoiceClear?: (ballotId: string) => void
   onStatusChange?: (ballotId: string, status: ChoiceStatus) => void
   onCandidateNote?: (ballotId: string, name: string, text: string) => void
@@ -406,8 +407,10 @@ export default function BallotTracker({
                       Measures get who says Yes and No, and the official explanations.
                     </p>
                     <p>
-                      Click an oval once for <strong>not sure</strong> (?), again for <strong>leaning</strong>{' '}
-                      (striped), again for <strong>decided</strong> (filled), and once more to clear it. Tap <CircleHelp className="inline h-4 w-4 align-text-bottom" />{' '}
+                      Click an oval once for <strong>leaning</strong> (striped), again for <strong>decided</strong> (filled),
+                      again for <strong>possibly</strong> (~), again for <strong>not sure</strong> (?), and once more to clear it.
+                      Leaning, possibly and not sure can go on several candidates while you compare; deciding on one clears
+                      the rest. Tap <CircleHelp className="inline h-4 w-4 align-text-bottom" />{' '}
                       on a contest if you have no clue yet. Everything saves as you go.
                     </p>
                   </div>

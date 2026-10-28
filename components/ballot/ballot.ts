@@ -31,14 +31,27 @@ export interface BallotItem {
   office?: { id: string; district?: string | null; candidates: BallotCandidate[] } | null
 }
 
-// Unsure about this option (a ? in the oval), leaning toward it, or settled on it
-export type ChoiceStatus = 'unsure' | 'tentative' | 'decided'
-export const toStatus = (s?: string | null): ChoiceStatus => (s === 'unsure' || s === 'tentative' ? s : 'decided')
+// How you feel about an option: not sure (? in the oval), possibly, leaning toward it, or decided.
+// Only decided is exclusive; the other three (soft) can be on several options of a contest at once.
+export type SoftStatus = 'unsure' | 'possible' | 'tentative'
+export type ChoiceStatus = SoftStatus | 'decided'
+export const SOFT_STATUSES: readonly SoftStatus[] = ['tentative', 'possible', 'unsure']
+export const isSoft = (s: unknown): s is SoftStatus => SOFT_STATUSES.includes(s as SoftStatus)
+export const toStatus = (s?: string | null): ChoiceStatus => (isSoft(s) ? s : 'decided')
+export const STATUS_WORDS: Record<ChoiceStatus, string> = {
+  unsure: 'not sure',
+  possible: 'possibly',
+  tentative: 'leaning',
+  decided: 'decided',
+}
 
 export interface ChoiceValue {
   selection: string
   notes?: string
   status?: ChoiceStatus
+  // Soft labels on several options at once ({ "Jane Doe": "tentative", "Ann Lee": "possible" }); only
+  // stored with two or more. `selection`/`status` are then the strongest of them (see withMark).
+  marks?: Record<string, SoftStatus>
   // Your notes on each candidate, by name
   candidateNotes?: Record<string, string>
 }
@@ -92,9 +105,53 @@ export const isPick = (selection?: string) =>
 // Done with this contest: leaning toward or decided on a pick, or left blank on purpose. A ? on
 // the contest or on an option is still to go.
 export const isSettled = (c?: ChoiceValue) =>
-  !!c && c.selection !== UNSURE && c.selection !== NOTES_ONLY && c.status !== 'unsure'
+  !!c && c.selection !== UNSURE && c.selection !== NOTES_ONLY && c.status !== 'unsure' && c.status !== 'possible'
 // A ? on the contest ("no clue yet") or on one option
 export const isUnsure = (c?: ChoiceValue) => !!c && (c.selection === UNSURE || (isPick(c.selection) && c.status === 'unsure'))
+
+// Every soft label in a contest, by option (one pick that isn't decided counts as one label)
+export function marksOf(c?: ChoiceValue): Record<string, SoftStatus> {
+  if (!c || !isPick(c.selection) || !isSoft(c.status)) return {}
+  return c.marks && Object.keys(c.marks).length ? c.marks : { [c.selection]: c.status }
+}
+
+// The label on one option: decided, a soft label, or nothing
+export function markOf(c: ChoiceValue | undefined, option: string): ChoiceStatus | undefined {
+  if (c?.selection === option && toStatus(c.status) === 'decided') return 'decided'
+  return marksOf(c)[option]
+}
+
+type Pick = { selection: string; status: ChoiceStatus; marks?: Record<string, SoftStatus> }
+
+// Set one option's label (null removes it). Decided clears every other label; a soft label added
+// while another option is decided demotes that one to leaning. The strongest label leads
+// (selection/status), keeping the current lead on a tie. Returns null when nothing is left.
+export function withMark(c: ChoiceValue | undefined, option: string, status: ChoiceStatus | null): Pick | null {
+  if (status === 'decided') return { selection: option, status }
+  const decidedOn = c && isPick(c.selection) && toStatus(c.status) === 'decided' ? c.selection : null
+  const marks: Record<string, SoftStatus> = decidedOn ? (decidedOn === option ? {} : { [decidedOn]: 'tentative' }) : { ...marksOf(c) }
+  if (status) marks[option] = status
+  else delete marks[option]
+  const names = Object.keys(marks)
+  if (!names.length) return null
+  const strength = (n: string) => SOFT_STATUSES.length - SOFT_STATUSES.indexOf(marks[n])
+  const best = Math.max(...names.map(strength))
+  const top = names.filter((n) => strength(n) === best)
+  const lead = top.find((n) => n === c?.selection) ?? top.find((n) => n === option) ?? top[0]
+  return { selection: lead, status: marks[lead], ...(names.length > 1 ? { marks } : {}) }
+}
+
+// Clicking an oval steps its label: empty → leaning → decided → possibly → not sure → empty
+const NEXT: Record<ChoiceStatus | 'none', ChoiceStatus | null> = {
+  none: 'tentative',
+  tentative: 'decided',
+  decided: 'possible',
+  possible: 'unsure',
+  unsure: null,
+}
+export const stepMark = (c: ChoiceValue | undefined, option: string): Pick | null =>
+  withMark(c, option, NEXT[markOf(c, option) ?? 'none'])
+
 // A measure's printed responses map, in order, to these stored values
 export const MEASURE_VALUES = ['YES', 'NO'] as const
 
@@ -229,6 +286,14 @@ export function navLabel(item: BallotItem): string {
 }
 
 // Printed text for a stored selection: "YES/FOR", the ticket "A / B", "Write-in: X"
+// A pick in words with how sure you are: "Ann Lee", "Ann Lee (leaning)", or every soft label
+// when there are several: "Ann Lee (leaning), Bob Ray (possibly)"
+export function pickLabel(c: ChoiceValue, item?: BallotItem): string {
+  const marks = Object.entries(marksOf(c))
+  if (!isPick(c.selection) || !marks.length) return choiceLabel(c.selection, item)
+  return marks.map(([o, m]) => `${choiceLabel(o, item)} (${STATUS_WORDS[m]})`).join(', ')
+}
+
 export function choiceLabel(selection: string, item?: BallotItem): string {
   if (selection === ABSTAIN) return 'Left blank'
   if (selection === UNSURE) return 'No clue yet'

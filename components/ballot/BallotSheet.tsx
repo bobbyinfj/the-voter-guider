@@ -5,7 +5,7 @@ import Contest, { type Density } from './Contest'
 import type { CompareView } from '@/components/compare/compare'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { BadgeMap } from '@/lib/scorecard'
-import { contestGroups, groupRuns, type BallotSection, type ChoiceStatus, type ChoiceValue } from './ballot'
+import { contestGroups, groupRuns, type BallotSection, type ChoiceStatus, type SoftStatus, type ChoiceValue } from './ballot'
 
 // The contests themselves, in printed sections and columns. Used by the guide (BallotTracker)
 // and, read-only, as the ballot preview on the election page.
@@ -29,7 +29,7 @@ export default function BallotSheet({
   choices?: Record<string, ChoiceValue>
   readOnly?: boolean
   density?: Density
-  onChange?: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus) => void
+  onChange?: (itemId: string, selection: string, notes?: string, status?: ChoiceStatus, marks?: Record<string, SoftStatus> | null) => void
   onClear?: (itemId: string) => void
   onStatus?: (itemId: string, status: ChoiceStatus) => void
   onCandidateNote?: (itemId: string, name: string, text: string) => void
