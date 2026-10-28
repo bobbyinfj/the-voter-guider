@@ -128,6 +128,15 @@ choose between candidates"). Static file: no seed needed. California retention q
 drop-off, each fact with its own source; it shows only as the heading's "What is this vote?" popover, since
 headings repeat per Court of Appeal division. Other states' judges don't get it.
 
+### Tax measures: rates with and without
+`data/measures/tax-rates.json` (built by `data/research/measure-builders/tax_rates.py`, read through
+`lib/taxRates.ts`) holds a tax measure's brackets now / if approved / if rejected, from the LAO analysis. The
+LAO's rate table is an image, so brackets are transcribed by hand and the image's SHA-256 is pinned (the build
+fails if LAO changes it); the quotes shown beside the chart are checked against the page. The measure's info
+panel shows "Learn more: tax rates with and without …" (`components/ballot/TaxRates.tsx`): a step chart of the
+marginal rate by income (hover for any income), a box for your income (our math, labeled, no deductions), and
+the table. Static file: no seed needed.
+
 ### Comparison guides and the community tally
 `data/comparisons/<slug>.json` (built by `data/research/comparison-builders/build.py <state>`) holds
 published guides — party slates, newspaper editorial boards, League of Women Voters, advocacy

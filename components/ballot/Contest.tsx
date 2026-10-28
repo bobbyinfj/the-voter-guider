@@ -42,6 +42,8 @@ import {
 import { ContestHead, Extra } from './Paper'
 import OfficeExplainer, { OfficeExplainerButton } from './OfficeExplainer'
 import { glossaryForItem } from '@/lib/glossary'
+import { taxRatesFor } from '@/lib/taxRates'
+import TaxRates from './TaxRates'
 import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
 import type { BadgeMap } from '@/lib/scorecard'
 
@@ -696,6 +698,7 @@ function Enhancements({
         <>
           {item.description && <p>{item.description}</p>}
           <MeasureExplainer official={{ ...official, sourceUrl: null }} />
+          {taxRatesFor(item.id) && <TaxRates rates={taxRatesFor(item.id)!} measureLabel={item.number ?? 'this measure'} />}
           {raceExtrasOf(item.metadata)?.evaluation && <JudgeEvaluation evaluation={raceExtrasOf(item.metadata)!.evaluation!} />}
           <OfficialDocs docs={documentsOf(item.metadata)} label="From the county's official voter information" />
           {raceExtrasOf(item.metadata) && <RaceExtras extras={raceExtrasOf(item.metadata)!} compact />}

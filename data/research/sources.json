@@ -623,6 +623,19 @@
    "builder": "glossary-builders/build.py",
    "notes": "Last ~120 days only, 50 per page, PDF per opinion on www.courts.ca.gov; older published opinions via the Official Reports (not checked). /opinions/archive is a 403. CourtListener robots-blocks Claude-User.",
    "checked": "2026-10-27"
+  },
+  {
+   "id": "ca-lao-ballot-analysis",
+   "state": "CA",
+   "kind": [
+    "measure-text"
+   ],
+   "name": "Legislative Analyst's Office ballot analyses",
+   "url": "https://lao.ca.gov/BallotAnalysis/Proposition?number=3&year=2026",
+   "access": "ok",
+   "builder": "measure-builders/tax_rates.py",
+   "notes": "Robots allows Claude-User (the SOS guide that reprints these doesn't). Rate tables are images (e.g. /ballot/2026/prop3-fig1.png): transcribed by hand, image SHA-256 pinned so a change fails the build.",
+   "checked": "2026-10-27"
   }
  ]
 }
