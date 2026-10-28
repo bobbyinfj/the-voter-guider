@@ -154,3 +154,23 @@ test('judge biographies: every California retention question has its court biogr
     if (e.ratingWords) assert.ok(e.rating.includes(e.ratingWords), `${m.id}: rating words come from the rating sentence`)
   }
 })
+
+test('every judge on a ballot has a sourced record line or rating where a source covers them', async () => {
+  const { biographyLine, judgeRecord } = await import('../components/ballot/ballot')
+  for (const file of readdirSync('data/enrichment')) {
+    const e = JSON.parse(readFileSync(`data/enrichment/${file}`, 'utf8'))
+    const b = JSON.parse(readFileSync(`data/elections/${file}`, 'utf8'))
+    // Retention questions: the commission's line (CO) or a biography line (CA) for every one
+    for (const m of b.measures ?? []) {
+      if (!/-retain-/.test(m.id)) continue
+      const ev = (e.measures?.[m.id] as RaceExtras | undefined)?.evaluation
+      assert.ok(ev, `${m.id}: no evaluation`)
+      if (ev.kind === 'biography') assert.ok(biographyLine(ev), `${m.id}: biography gives no line`)
+    }
+    // A race a bar list covers: every candidate in it gets a line (a rating or the list's N/A)
+    for (const o of b.offices ?? []) {
+      const lines = o.candidates.map((c: { id: string }) => judgeRecord(snippet(e.candidates?.[c.id])))
+      if (lines.some(Boolean)) assert.ok(lines.every(Boolean), `${o.id}: a bar rating for one side only`)
+    }
+  }
+})
