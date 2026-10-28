@@ -281,7 +281,8 @@ Several people and agents merge to `main`, often several times a day. Always wor
 ## Deploying
 Updates ship to production by default. Merge to `main`: Vercel deploys the code, and
 `.github/workflows/deploy-data.yml` backs up Neon, runs `prisma migrate deploy` and `npm run seed` on every
-push to `main` that touches `prisma/**` or `data/**`. No hand-run dump, migrate or seed is needed.
+push to `main` that touches the schema or a file the seed reads (the workflow's `paths` list; keep it in
+step with `prisma/seed.ts`). No hand-run dump, migrate or seed is needed.
 Neon is shared by Preview and Production, and Vercel can go live before the workflow finishes, so for a
 schema change run the workflow from the branch first (`gh workflow run deploy-data.yml --ref <branch>
 -f status_only=false`), wait for it to pass, then merge. Keep migrations additive so the old code still
