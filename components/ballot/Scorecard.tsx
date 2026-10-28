@@ -429,8 +429,9 @@ function flagSummary(candidate: BallotCandidate): TileInfo {
   }
   if (checked.length)
     return {
+      // No bubble: the green flag already says "none found" (a number there reads as a flag count)
       icon: <ColoredFlag color="green" />,
-      value: String(checked.length),
+      value: '',
       label: `No flags in ${checked.length} check${checked.length > 1 ? 's' : ''}`,
       tone: 'border-green-300 bg-green-50',
       mark: 'bg-green-700 text-white',
@@ -486,6 +487,7 @@ function badgeSummary(candidate: BallotCandidate, badges: Badge[]) {
 
 interface TileInfo {
   icon: React.ReactNode
+  // The corner bubble; empty for none
   value: string
   label: string
   tone: string
@@ -507,9 +509,11 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
       }`}
     >
       <span aria-hidden>{tile.icon}</span>
-      <span aria-hidden className={`absolute -right-2 -top-2 min-w-5 rounded-full px-1 text-center text-[0.6875rem] font-bold leading-5 shadow ${tile.mark}`}>
-        {tile.value}
-      </span>
+      {tile.value && (
+        <span aria-hidden className={`absolute -right-2 -top-2 min-w-5 rounded-full px-1 text-center text-[0.6875rem] font-bold leading-5 shadow ${tile.mark}`}>
+          {tile.value}
+        </span>
+      )}
     </button>
   )
 }
