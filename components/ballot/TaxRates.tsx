@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink } from 'lucide-react'
-import { rateAt, taxOn, type Filer, type MeasureTaxRates } from '@/lib/taxRates'
+import { bracketStart, hasJoint, rateAt, taxOn, type Filer, type MeasureTaxRates } from '@/lib/taxRates'
 
 // "Learn more" under a tax measure: the marginal tax rate at each income if it passes and if it
 // fails (step lines, hover for the rates at any income), a box to see the difference at your
@@ -30,7 +30,9 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
     return () => ro.disconnect()
   }, [])
   const B = rates.brackets
-  const top = B[B.length - 1][filer]
+  const joint = hasJoint(rates)
+  const at0 = (i: number) => bracketStart(B[i], filer)
+  const top = at0(B.length - 1)
   // Room past the top bracket, on a round number so the ticks land on quarters of it
   const step = top > 1_000_000 ? 500_000 : 250_000
   const xMax = Math.ceil((top * 1.3) / step) * step
@@ -39,8 +41,8 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
   const y = (r: number) => PAD.top + (1 - r / yMax) * (H - PAD.top - PAD.bottom)
   const path = (s: 'yes' | 'no') =>
     B.map((b, i) => {
-      const end = B[i + 1]?.[filer] ?? xMax
-      return `${i ? 'L' : 'M'}${x(b[filer])},${y(b[s])} L${x(end)},${y(b[s])}`
+      const end = i + 1 < B.length ? at0(i + 1) : xMax
+      return `${i ? 'L' : 'M'}${x(at0(i))},${y(b[s])} L${x(end)},${y(b[s])}`
     }).join(' ')
   const xTicks = Array.from({ length: xMax / step + 1 }, (_, i) => i * step).filter((_, i, a) => a.length <= 6 || i % 2 === 0)
   const yTicks = Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2)
@@ -60,6 +62,7 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
       </summary>
       <div className="space-y-3 px-2 pb-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
+          {joint ? (
           <div role="radiogroup" aria-label="Filing as" className="inline-flex overflow-hidden rounded-full border border-gray-300 text-xs">
             {(['single', 'joint'] as const).map((f) => (
               <button
@@ -74,6 +77,9 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
               </button>
             ))}
           </div>
+          ) : (
+            <span className="text-xs text-gray-600">Same brackets for every filer</span>
+          )}
           <p className="flex items-center gap-3 text-xs text-gray-700" aria-hidden>
             <span className="flex items-center gap-1">
               <svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke={YES} strokeWidth="2" /></svg>
@@ -150,11 +156,11 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
           />
           {diff !== null && (
             <span className="mt-1 block text-gray-800">
-              {diff > 0
-                ? `If it passes, you'd keep paying about ${dollars(diff)} a year more in state income tax after 2030 than if it fails.`
-                : 'No difference at this income: the rates only change above the top 9.3% bracket.'}
+              {Math.abs(diff) < 1
+                ? 'No difference at this income.'
+                : `${rates.labels.yes}: about ${dollars(Math.abs(diff))} a year ${diff > 0 ? 'more' : 'less'} than ${rates.labels.no.toLowerCase()}.`}
               <span className="block text-gray-600">
-                Our math from the LAO&apos;s rounded brackets. Ignores deductions, credits and inflation adjustments.
+                Our math from the official brackets. Ignores deductions, credits and inflation adjustments.
               </span>
             </span>
           )}
@@ -165,7 +171,7 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
           <table className="mt-1 w-full border-collapse text-left">
             <thead>
               <tr className="border-b border-gray-300">
-                <th className="py-1 pr-2 font-semibold">{filer === 'single' ? 'Single filer' : 'Joint filers'}: income from</th>
+                <th className="py-1 pr-2 font-semibold">{joint ? (filer === 'single' ? 'Single filer: income from' : 'Joint filers: income from') : 'Taxable income from'}</th>
                 <th className="py-1 pr-2 font-semibold">{rates.labels.now}</th>
                 <th className="py-1 pr-2 font-semibold">{rates.labels.yes}</th>
                 <th className="py-1 font-semibold">{rates.labels.no}</th>
@@ -173,8 +179,8 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
             </thead>
             <tbody>
               {B.map((b) => (
-                <tr key={b[filer]} className={`border-b border-gray-100 ${b.yes !== b.no ? 'font-semibold' : ''}`}>
-                  <td className="py-0.5 pr-2">{money(b[filer])}</td>
+                <tr key={bracketStart(b, filer)} className={`border-b border-gray-100 ${b.yes !== b.no ? 'font-semibold' : ''}`}>
+                  <td className="py-0.5 pr-2">{money(bracketStart(b, filer))}</td>
                   <td className="py-0.5 pr-2">{b.now}%</td>
                   <td className="py-0.5 pr-2">{b.yes}%</td>
                   <td className="py-0.5">{b.no}%</td>
