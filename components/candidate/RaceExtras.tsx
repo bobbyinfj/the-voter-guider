@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { ExternalLink, PlayCircle } from 'lucide-react'
 import VideoFacade from './VideoFacade'
-import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, type RaceExtras as Extras } from '@/lib/profile'
+import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, videoTier, type RaceExtras as Extras } from '@/lib/profile'
 
-// Debates, forums and links for a whole race. Compact (contest info panel): a button per
-// video that opens the player; otherwise a grid of players.
+// Debates, forums and links for a whole race. Compact (contest info panel): short videos as
+// column-wide players, long ones (a meal) as a button that opens one; otherwise a grid of players.
 export default function RaceExtras({ extras, compact = false }: { extras: Extras; compact?: boolean }) {
   const [open, setOpen] = useState<string | null>(null)
   const videos = extras.videos ?? []
@@ -15,23 +15,27 @@ export default function RaceExtras({ extras, compact = false }: { extras: Extras
   return (
     <div className="space-y-2">
       {compact ? (
-        videos.map((v) => (
-          <div key={v.youtubeId} className="space-y-1">
-            <button
-              type="button"
-              onClick={() => setOpen((o) => (o === v.youtubeId ? null : v.youtubeId))}
-              aria-expanded={open === v.youtubeId}
-              className="inline-flex items-start gap-1 text-left text-xs font-semibold text-blue-700 hover:underline"
-            >
-              <PlayCircle className="mt-px h-3.5 w-3.5 shrink-0" />
-              <span>
-                {open === v.youtubeId ? 'Hide' : 'Watch'} {VIDEO_KIND_LABELS[v.kind].toLowerCase()}: “{v.title}”
-                {formatDuration(v.durationSec) && ` (${formatDuration(v.durationSec)})`}
-              </span>
-            </button>
-            {open === v.youtubeId && <VideoFacade video={v} compact />}
-          </div>
-        ))
+        videos.map((v) =>
+          videoTier({ video: v }) !== 'meal' ? (
+            <VideoFacade key={v.youtubeId} video={v} />
+          ) : (
+            <div key={v.youtubeId} className="space-y-1">
+              <button
+                type="button"
+                onClick={() => setOpen((o) => (o === v.youtubeId ? null : v.youtubeId))}
+                aria-expanded={open === v.youtubeId}
+                className="inline-flex items-start gap-1 text-left text-xs font-semibold text-blue-700 hover:underline"
+              >
+                <PlayCircle className="mt-px h-3.5 w-3.5 shrink-0" />
+                <span>
+                  {open === v.youtubeId ? 'Hide' : 'Watch'} {VIDEO_KIND_LABELS[v.kind].toLowerCase()}: “{v.title}”
+                  {formatDuration(v.durationSec) && ` (${formatDuration(v.durationSec)})`}
+                </span>
+              </button>
+              {open === v.youtubeId && <VideoFacade video={v} />}
+            </div>
+          ),
+        )
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {videos.map((v) => (
