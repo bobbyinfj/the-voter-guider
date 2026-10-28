@@ -105,6 +105,10 @@ hover title); clicking an icon opens just that column's card below the row, clic
 Videos follow bite / snack / meal (`videoTier`, `videoLadder` in `lib/profile.ts`): a bite is up to 2 min, a snack up to 10, a meal longer (or a
 forum part with no known end). Only a bite or snack plays up front, the most independent one (`leadRung`: a 1-minute meeting clip doesn't beat a 10-minute interview); buttons step to the next length ("Go deeper: ▶ Full forum · 1 h 44 min"), and long
 race debates are buttons, not thumbnails, until chosen. Most people spend under an hour on their whole ballot.
+A measure or race with several videos shows them as a carousel (`components/candidate/VideoCarousel.tsx`, order
+`shortestFirst`): one player, arrows, and a chip per video (Quick look / Short / Go deep, length, kind, who made it).
+A part of a long show (`start`/`end` from the uploader's chapters) counts as its own length. Video picks are fetched
+with yt-dlp's plain request; `video-approve.py` impersonates a browser only with `YTDLP_IMPERSONATE=1`.
 The right-hand column is labeled once per contest ("Voter Guider extras · not on your ballot"); "Where they stand" is one line per topic, opening to the quotes. The 🚩 icon takes the worst finding's color (red, yellow, green when checks ran clean, gray when nothing was checked) with the flag count in its bubble (no bubble when green: the flag says it). Columns: an interview video (debates with everyone in the race show once above, "Watch them
 together"), 🚩 flags (written rules applied to everyone a source covers; the card lists the checks that
 ran, so "none found" is never a clean bill of health), the 💩 meter (share of PolitiFact rulings Mostly

@@ -39,6 +39,19 @@ ca26-m-prop-42 | 5wY3h8w9a2Q | explainer | independent ; found=CalMatters channe
 ca26-m-prop-43 | svcQfT9skfY | explainer | independent ; found=CalMatters channel
 ca26-m-prop-44 | 3m3-6RSu6XI | explainer | independent ; found=CalMatters channel
 ca26-m-prop-45 | XZ3c3EroPnw | explainer | independent ; found=CalMatters channel
+
+# Batch 8 (2026-10-28): more on Prop 45 (CEQA), the user's ask for debate. Searched YouTube for "Prop 45 debate
+# CEQA 2026", "Proposition 45 California 2026 CEQA yes no", "Prop 45 CEQA forum" and "Proposition 45 environmental
+# review ballot measure debate"; kept independent outlets that give both sides: two short news reports (each
+# states the supporters' and opponents' case), the LA County League's pros and cons, the Prop 45 parts of two
+# longer measure roundups (chapters from the uploader's description), and Voice of San Diego's Politifest debate
+# (moderated, Yes and No panelists). No campaign videos (neither side's were searched for).
+ca26-m-prop-45 | lTQLuJhLNxo | explainer | independent ; found=YouTube search "Prop 45 debate CEQA 2026"
+ca26-m-prop-45 | fiF28g8MHqE | explainer | independent ; found=YouTube search "Prop 45 debate CEQA 2026"
+ca26-m-prop-45 | Uv2V700AuWU | explainer | independent ; host=League of Women Voters of Los Angeles County ; found=YouTube search "Proposition 45 California 2026 CEQA yes no"
+ca26-m-prop-45 | XfPTVjCzn8E | forum | independent ; start=3147 ; end=3440 ; found=YouTube search "Prop 45 CEQA forum" (chapter "Proposition 45: CEQA reform")
+ca26-m-prop-45 | AgQzIgSUJ2c | explainer | independent ; host=League of Women Voters of San Diego ; start=4080 ; end=4597 ; found=YouTube search "Proposition 45 environmental review ballot measure debate" (chapter "Proposition 45: Environmental Review and Housing")
+ca26-m-prop-45 | hNFbntT27-M | debate | independent ; host=Voice of San Diego (Politifest 2026) ; found=YouTube search "Proposition 45 environmental review ballot measure debate"
 ca26-m-la-a | XvtrPQ9el0c | explainer | independent ; host=League of Women Voters of Los Angeles County ; found=YouTube search "LA County Measure A 2026 charter"
 ca26-m-la-e | OUiAA2tYasY | explainer | independent ; host=League of Women Voters of Los Angeles County ; found=YouTube search "LA County Measure E ethics commission 2026"
 ca26-m-mp-hom | svnPsS7yXYI | explainer | government ; source=https://www.montereypark.ca.gov/home ; label=The city's page on Measure HOM ; found=City of Monterey Park channel
