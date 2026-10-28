@@ -279,9 +279,13 @@ Several people and agents merge to `main`, often several times a day. Always wor
   migration is applied (see Deploying): another dev's deploy would run your code against the old schema.
 
 ## Deploying
-Updates ship to production by default. Neon is shared by Preview and Production, so apply
-migrations and `npm run seed` to Neon *before* merging code that depends on them; take a
-`pg_dump` first. Then merge to `main` (Vercel deploys it) and smoke-test the live site.
+Updates ship to production by default. Merge to `main`: Vercel deploys the code, and
+`.github/workflows/deploy-data.yml` backs up Neon, runs `prisma migrate deploy` and `npm run seed` on every
+push to `main` that touches `prisma/**` or `data/**`. No hand-run dump, migrate or seed is needed.
+Neon is shared by Preview and Production, and Vercel can go live before the workflow finishes, so for a
+schema change run the workflow from the branch first (`gh workflow run deploy-data.yml --ref <branch>
+-f status_only=false`), wait for it to pass, then merge. Keep migrations additive so the old code still
+works against the new schema. Then smoke-test the live site.
 
 ## Security
 
