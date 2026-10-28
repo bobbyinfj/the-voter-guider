@@ -1,0 +1,87 @@
+{
+ "ca26-m-prop-3": {
+  "tax": "California personal income tax",
+  "labels": {
+   "now": "Now through 2030",
+   "yes": "After 2030 if approved",
+   "no": "After 2030 if rejected"
+  },
+  "brackets": [
+   {
+    "single": 0,
+    "joint": 0,
+    "now": 1.0,
+    "yes": 1.0,
+    "no": 1.0
+   },
+   {
+    "single": 11000,
+    "joint": 22000,
+    "now": 2.0,
+    "yes": 2.0,
+    "no": 2.0
+   },
+   {
+    "single": 26000,
+    "joint": 53000,
+    "now": 4.0,
+    "yes": 4.0,
+    "no": 4.0
+   },
+   {
+    "single": 41000,
+    "joint": 83000,
+    "now": 6.0,
+    "yes": 6.0,
+    "no": 6.0
+   },
+   {
+    "single": 58000,
+    "joint": 115000,
+    "now": 8.0,
+    "yes": 8.0,
+    "no": 8.0
+   },
+   {
+    "single": 73000,
+    "joint": 145000,
+    "now": 9.3,
+    "yes": 9.3,
+    "no": 9.3
+   },
+   {
+    "single": 371000,
+    "joint": 743000,
+    "now": 10.3,
+    "yes": 10.3,
+    "no": 9.3
+   },
+   {
+    "single": 446000,
+    "joint": 892000,
+    "now": 11.3,
+    "yes": 11.3,
+    "no": 9.3
+   },
+   {
+    "single": 743000,
+    "joint": 1500000,
+    "now": 12.3,
+    "yes": 12.3,
+    "no": 9.3
+   }
+  ],
+  "quotes": [
+   "Proposition 3 makes the higher income tax rates established by Proposition 30 permanent instead of letting them expire in 2031.",
+   "In a weak year, the proposition might bring in around $5 billion in revenue to the state. In a strong year, the proposition might bring in $15 billion in revenue to the state.",
+   "Roughly 40 percent of the funding would go to schools and community colleges."
+  ],
+  "source": {
+   "url": "https://lao.ca.gov/BallotAnalysis/Proposition?number=3&year=2026",
+   "name": "Legislative Analyst's Office, Proposition 3 analysis (Figure 1)",
+   "figure": "https://lao.ca.gov/ballot/2026/prop3-fig1.png",
+   "figureSha256": "a3f44991a5dc5bebc79eeb96de62f3940b03628fc16f0da67809b32a494e5ea6",
+   "retrieved": "2026-10-27"
+  }
+ }
+}
