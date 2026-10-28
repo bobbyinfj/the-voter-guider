@@ -77,11 +77,14 @@ export function ContestBox({ children, className = '' }: { children: React.React
 export function ContestHead({
   heading,
   instructions = [],
+  titleAside,
   children,
   className = '',
 }: {
   heading: React.ReactNode[]
   instructions?: string[]
+  // Sits right after the last heading line (the job's title), e.g. "What's this job?"
+  titleAside?: React.ReactNode
   children?: React.ReactNode
   className?: string
 }) {
@@ -89,9 +92,10 @@ export function ContestHead({
     <div className={`flex items-start gap-2 bg-ballot-head px-2 py-1.5 print:bg-gray-100 ${className}`}>
       <div className="min-w-0 flex-1">
         {heading.map((line, i) => (
-          <p key={i} className="text-[0.8125rem] font-bold leading-snug">
+          <div key={i} className="text-[0.8125rem] font-bold leading-snug">
             {line}
-          </p>
+            {i === heading.length - 1 && titleAside && <> {titleAside}</>}
+          </div>
         ))}
         {instructions.map((line) => (
           <p key={line} className="text-[0.75rem] leading-snug">

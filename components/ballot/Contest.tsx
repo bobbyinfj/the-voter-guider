@@ -840,7 +840,11 @@ export default function Contest({
       className="group/contest mb-[-1.5px] min-w-0 scroll-mt-48 break-inside-avoid border-[1.5px] border-ballot-ink bg-ballot-paper"
     >
       <legend className="sr-only">{heading.join(' ')}</legend>
-      <ContestHead heading={heading} instructions={instructions}>
+      <ContestHead
+        heading={heading}
+        instructions={instructions}
+        titleAside={glossaryForItem(first) && <OfficeExplainerButton entry={glossaryForItem(first)!} />}
+      >
         <div className="flex shrink-0 items-center gap-1 print:hidden">
           {decided && (
             <CheckCircle2
@@ -872,7 +876,6 @@ export default function Contest({
             </button>
           )}
           </span>
-          {glossaryForItem(first) && <OfficeExplainerButton entry={glossaryForItem(first)!} />}
           <button
             type="button"
             onClick={() => setOverride({ density, open: !open })}
