@@ -79,8 +79,65 @@
   "source": {
    "url": "https://lao.ca.gov/BallotAnalysis/Proposition?number=3&year=2026",
    "name": "Legislative Analyst's Office, Proposition 3 analysis (Figure 1)",
+   "retrieved": "2026-10-27",
    "figure": "https://lao.ca.gov/ballot/2026/prop3-fig1.png",
-   "figureSha256": "a3f44991a5dc5bebc79eeb96de62f3940b03628fc16f0da67809b32a494e5ea6",
+   "figureSha256": "a3f44991a5dc5bebc79eeb96de62f3940b03628fc16f0da67809b32a494e5ea6"
+  }
+ },
+ "co26-m-amendment-87": {
+  "tax": "Colorado income tax, individuals and businesses",
+  "labels": {
+   "now": "Current law (flat rate)",
+   "yes": "From 2027 if approved",
+   "no": "If rejected"
+  },
+  "brackets": [
+   {
+    "single": 0,
+    "now": 4.4,
+    "yes": 3.7,
+    "no": 4.4
+   },
+   {
+    "single": 25000,
+    "now": 4.4,
+    "yes": 4.2,
+    "no": 4.4
+   },
+   {
+    "single": 100000,
+    "now": 4.4,
+    "yes": 4.4,
+    "no": 4.4
+   },
+   {
+    "single": 500000,
+    "now": 4.4,
+    "yes": 7.4,
+    "no": 4.4
+   },
+   {
+    "single": 750000,
+    "now": 4.4,
+    "yes": 7.9,
+    "no": 4.4
+   },
+   {
+    "single": 1000000,
+    "now": 4.4,
+    "yes": 8.4,
+    "no": 4.4
+   }
+  ],
+  "quotes": [
+   "Amendment 87 removes the constitutional requirement that income be taxed at a flat rate and creates a graduated income tax starting in 2027.",
+   "Unlike the federal income tax, the new state income tax brackets are not adjusted for inflation, so more of taxpayers' incomes will fall into the higher brackets over time.",
+   "Amendment 87 will decrease the amount of income tax owed by taxpayers with Colorado taxable income of less than $510,834 and increase the amount of income tax owed by taxpayers with Colorado taxable income of $510,834 and above.",
+   "Amendment 87 is expected to increase state income tax revenue by an estimated $2 billion in the first full year and more in later years."
+  ],
+  "source": {
+   "url": "https://leg.colorado.gov/ballots/graduated-income-tax-2/files/blue-book",
+   "name": "Colorado Legislative Council Staff, 2026 Blue Book analysis of Amendment 87 (Table 1)",
    "retrieved": "2026-10-27"
   }
  }
