@@ -142,7 +142,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
 
   return (
     <>
-      <div className="container mx-auto max-w-6xl space-y-4 px-4 py-8">
+      <div className="container mx-auto max-w-6xl xl:max-w-[calc(100vw-2rem)] 2xl:max-w-[96rem] space-y-4 px-4 py-8">
         <BallotHeader
           electionId={electionId}
           date={formatElectionDate(election.electionDate)}
