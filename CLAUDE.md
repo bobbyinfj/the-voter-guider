@@ -231,12 +231,11 @@ built by `data/research/map-builders/districts.py` from the Census Bureau's TIGE
 
 ## Running locally
 ```bash
-cp .env.local.example .env.local   # add DATABASE_URL
-npx prisma migrate dev             # apply schema
-npm run seed                       # legacy sample data + every data/elections bundle
+cp .env.example .env.local         # add DATABASE_URL
+npx prisma migrate deploy          # apply migrations
+npm run seed                       # every data/elections bundle + its stances, quiz, comparisons
 npm run dev
 ```
-Real ballot data (structure only, not stances): set `GOOGLE_CIVIC_API_KEY` and run `npm run data:populate-ballots`.
 
 ## Important paths
 | Route | Purpose |
@@ -309,6 +308,8 @@ Neon is shared by Preview and Production, and Vercel can go live before the work
 schema change run the workflow from the branch first (`gh workflow run deploy-data.yml --ref <branch>
 -f status_only=false`), wait for it to pass, then merge. Keep migrations additive so the old code still
 works against the new schema. Then smoke-test the live site.
+A seed from a branch prunes whatever `main` has that the branch doesn't, and pruning a ballot item deletes
+every voter's pick on it (`Choice` cascades), so rebase onto `main` before running it from a branch.
 
 ## Security
 
