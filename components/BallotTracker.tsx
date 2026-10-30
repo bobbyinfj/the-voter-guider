@@ -9,6 +9,7 @@ import {
   CircleHelp,
   ClipboardCopy,
   Columns3,
+  GitCompare,
   Download,
   ExternalLink,
   Eye,
@@ -16,6 +17,7 @@ import {
   ListOrdered,
   Printer,
   Rows3,
+  SlidersHorizontal,
   SkipForward,
   Vote,
   X,
@@ -24,10 +26,9 @@ import { type Density } from '@/components/ballot/Contest'
 import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
-import ComparePicker from '@/components/compare/ComparePicker'
+import CompareSheet from '@/components/compare/CompareSheet'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { BadgeMap } from '@/lib/scorecard'
-import type { CompareView } from '@/components/compare/compare'
 import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
 import {
   contestDomId,
@@ -99,9 +100,12 @@ export default function BallotTracker({
   badges,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
-  const [density, setDensity] = useState<Density>('expanded')
+  const [view, setView] = useState<Density | 'compare'>('expanded')
+  const density: Density = view === 'expanded' ? 'expanded' : 'basic'
+  const [showFilters, setShowFilters] = useState(false)
+  const [differOnly, setDifferOnly] = useState(false)
+  const [coveredOnly, setCoveredOnly] = useState(false)
   const [showViewHelp, setShowViewHelp] = useState(false)
-  const [compare, setCompare] = useState<CompareView | null>(null)
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
   // vanish the moment you mark it
@@ -116,10 +120,10 @@ export default function BallotTracker({
       saved = sessionStorage.getItem(DENSITY_KEY)
     } catch {}
     // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
-    if (saved === 'expanded' || saved === 'basic') setDensity(saved)
+    if (saved === 'expanded' || saved === 'basic' || saved === 'compare') setView(saved)
   }, [])
-  const chooseDensity = (value: Density) => {
-    setDensity(value)
+  const chooseDensity = (value: Density | 'compare') => {
+    setView(value)
     try {
       sessionStorage.setItem(DENSITY_KEY, value)
     } catch {}
@@ -235,7 +239,7 @@ export default function BallotTracker({
       if (el) observer.observe(el)
     }
     return () => observer.disconnect()
-  }, [mode, ballots, visibleSections, density])
+  }, [mode, ballots, visibleSections, view])
 
   // Start (or continue) going through the ballot one contest at a time
   const goStep = (index: number) => {
@@ -307,6 +311,7 @@ export default function BallotTracker({
   const quietButton = 'flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-gray-600 hover:bg-gray-100'
   const segment = (active: boolean) =>
     `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
+  const activeFilters = (hiddenIds ? 1 : 0) + (view === 'compare' ? Number(differOnly) + Number(coveredOnly) : 0)
   const step = steps[stepIndex]
   const nav = (
     <BallotNav
@@ -316,7 +321,7 @@ export default function BallotTracker({
       onJump={mode === 'step' ? (id) => goStep(stepOf(id)) : jumpTo}
     />
   )
-  const showSidebar = (density === 'expanded' && mode === 'ballot') || mode === 'step'
+  const showSidebar = (view === 'expanded' && mode === 'ballot') || mode === 'step'
 
   return (
     <div className={showSidebar ? 'lg:grid lg:grid-cols-[clamp(15rem,27vw,28rem)_minmax(0,1fr)] lg:gap-8 print:block!' : ''}>
@@ -332,11 +337,14 @@ export default function BallotTracker({
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
-                <button onClick={() => chooseDensity('basic')} aria-pressed={density === 'basic'} className={segment(density === 'basic')}>
-                  <Columns3 className="h-4 w-4" /> Ballot view
+                <button onClick={() => chooseDensity('basic')} aria-pressed={view === 'basic'} className={segment(view === 'basic')}>
+                  <Columns3 className="h-4 w-4" /> Ballot<span className="max-sm:hidden"> view</span>
                 </button>
-                <button onClick={() => chooseDensity('expanded')} aria-pressed={density === 'expanded'} className={segment(density === 'expanded')}>
-                  <Rows3 className="h-4 w-4" /> Expanded view
+                <button onClick={() => chooseDensity('expanded')} aria-pressed={view === 'expanded'} className={segment(view === 'expanded')}>
+                  <Rows3 className="h-4 w-4" /> Expanded<span className="max-sm:hidden"> view</span>
+                </button>
+                <button onClick={() => chooseDensity('compare')} aria-pressed={view === 'compare'} className={segment(view === 'compare')}>
+                  <GitCompare className="h-4 w-4" /> Compare<span className="max-sm:hidden"> view</span>
                 </button>
               </div>
               <div className="relative">
@@ -368,6 +376,9 @@ export default function BallotTracker({
                     <p className="mb-2 pr-5">
                       <strong>Ballot view</strong> looks like your paper ballot: same contests, order and wording, in columns
                       (one column on a phone). Tap ⓘ on any contest for more.
+                    </p>
+                    <p className="mb-2">
+                      <strong>Compare view</strong> puts your picks in a column beside up to four sources.
                     </p>
                     <p className="mb-2">
                       <strong>Expanded view</strong> puts the ballot on the left and a scorecard beside each name: a
@@ -439,13 +450,11 @@ export default function BallotTracker({
             )}
             {mode === 'ballot' && (
               <button
-                onClick={() =>
-                  setHiddenIds((prev) => (prev ? null : new Set(ballots.filter((b) => done(b.id)).map((b) => b.id))))
-                }
-                aria-pressed={hiddenIds !== null}
-                className={`${toolButton} ${hiddenIds ? 'border-blue-400 bg-blue-50 text-blue-900' : ''}`}
+                onClick={() => setShowFilters((f) => !f)}
+                aria-expanded={showFilters}
+                className={`${toolButton} ${activeFilters ? 'border-blue-400 bg-blue-50 text-blue-900' : ''}`}
               >
-                <ListChecks className="h-4 w-4" /> {hiddenIds ? 'Showing undecided' : 'Undecided only'}
+                <SlidersHorizontal className="h-4 w-4" /> Filters{activeFilters > 0 && ` (${activeFilters})`}
               </button>
             )}
             <button onClick={handleCopyForAi} className={toolButton} title="Copies your picks, ?s and notes, with a request for help on the contests you're stuck on">
@@ -470,7 +479,30 @@ export default function BallotTracker({
               </button>
             </p>
           )}
-          <ComparePicker electionId={election.id} ballots={ballots} choices={choices} view={compare} onView={setCompare} />
+          {showFilters && mode === 'ballot' && (
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm">
+              <label className="flex items-center gap-1.5">
+                <input
+                  type="checkbox"
+                  checked={hiddenIds !== null}
+                  onChange={() => setHiddenIds((prev) => (prev ? null : new Set(ballots.filter((b) => done(b.id)).map((b) => b.id))))}
+                />
+                <ListChecks className="h-4 w-4 text-gray-500" /> Undecided only
+              </label>
+              {view === 'compare' && (
+                <label className="flex items-center gap-1.5">
+                  <input type="checkbox" checked={differOnly} onChange={() => setDifferOnly((d) => !d)} />
+                  Only where a source differs from me
+                </label>
+              )}
+              {view === 'compare' && (
+                <label className="flex items-center gap-1.5">
+                  <input type="checkbox" checked={coveredOnly} onChange={() => setCoveredOnly((c) => !c)} />
+                  Only contests a source covers
+                </label>
+              )}
+            </div>
+          )}
           <details ref={jumpMenuRef} className={`mt-3 ${showSidebar ? 'lg:hidden' : ''}`}>
             <summary className="flex cursor-pointer items-center gap-1.5 text-sm font-medium text-blue-700">
               <ArrowDownToLine className="h-4 w-4" /> Jump to a contest
@@ -563,7 +595,6 @@ export default function BallotTracker({
               onCandidateNote={onCandidateNote}
               quiz={quiz}
               badges={badges}
-              compare={compare}
             />
             <StepBar
               index={stepIndex}
@@ -575,6 +606,8 @@ export default function BallotTracker({
               onReview={() => setMode('review')}
             />
           </div>
+        ) : mode === 'ballot' && view === 'compare' ? (
+          <CompareSheet electionId={election.id} sections={visibleSections} choices={choices} differOnly={differOnly} coveredOnly={coveredOnly} onOpen={expandAt} />
         ) : visibleSections.length === 0 ? (
           <div className="border-2 border-dashed border-gray-300 bg-white p-6 text-center text-gray-600">
             Every contest has a choice.{' '}
@@ -597,7 +630,6 @@ export default function BallotTracker({
             quiz={quiz}
             badges={badges}
             onExpand={expandAt}
-            compare={compare}
           />
         )}
       </div>

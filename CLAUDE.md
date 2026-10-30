@@ -93,7 +93,7 @@ same default guide. Extra guides for an election live at `/guide/[id]`. **Copy f
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
 **Expanded view** (the default every visit: ballot on the left third, a scorecard beside each candidate on the right two-thirds;
 stacked on a phone; prints as the 3-column ballot without the extras) and
-**Ballot view** (`basic`: 3-column replica; heading link/? icons show on hover), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage).
+**Ballot view** (`basic`: 3-column replica; heading link/? icons show on hover), and **Compare view** (`components/compare/CompareSheet.tsx`: a column for your picks and up to four sources, a left/right pair taking two), toggled at the top of the ballot with a ? explainer. Filters sit behind the toolbar's Filters button. The choice lasts for the browser tab (sessionStorage).
 A button in each contest's info panel goes to Expanded.
 The table of contents (`components/ballot/BallotNav.tsx`) draws a Yes/No pick's icon like its ballot oval (`VoteMark`):
 green ✓ for Yes or red ✕ for No, solid once decided, striped while leaning, a dashed ring while possibly or not sure
