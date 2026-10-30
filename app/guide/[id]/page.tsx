@@ -172,7 +172,7 @@ function GuideView({ initial }: { initial: Guide }) {
 
   return (
     <BallotPage electionId={election.id}>
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl xl:max-w-[calc(100vw-2rem)] 2xl:max-w-[96rem]">
         {editor.error && (
           <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
             {editor.error}

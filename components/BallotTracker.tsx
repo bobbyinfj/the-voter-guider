@@ -319,7 +319,7 @@ export default function BallotTracker({
   const showSidebar = (density === 'expanded' && mode === 'ballot') || mode === 'step'
 
   return (
-    <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8 print:block!' : ''}>
+    <div className={showSidebar ? 'lg:grid lg:grid-cols-[clamp(15rem,27vw,28rem)_minmax(0,1fr)] lg:gap-8 print:block!' : ''}>
       <PrintWatermark />
       {showSidebar && (
         <aside className="hidden lg:block print:hidden">

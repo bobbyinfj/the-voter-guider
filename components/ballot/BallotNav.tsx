@@ -20,7 +20,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
         const decided = section.items.filter((i) => isSettled(choices[i.id])).length
         return (
           <div key={section.key} className="break-inside-avoid">
-            <p className="mb-1 flex justify-between text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <p className="mb-1 flex justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
               <span>{section.continued ? section.subsection : section.label}</span>
               <span>
                 {decided}/{section.items.length}
@@ -59,7 +59,7 @@ export default function BallotNav({ sections, choices, activeId, onJump }: Ballo
                       />
                       )}
                       <span className="min-w-0" title={MEASURE_TOPICS[item.id] ? item.title : undefined}>
-                        <span className="line-clamp-2">{navLabel(item)}</span>
+                        <span className="block">{navLabel(item)}</span>
                         {/* A state measure's topic, in words from its official title (lib/measureTopics.ts) */}
                         {MEASURE_TOPICS[item.id] && <span className="block text-xs text-gray-500">{MEASURE_TOPICS[item.id]}</span>}
                       </span>
