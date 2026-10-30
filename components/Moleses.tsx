@@ -41,7 +41,7 @@ export function UnofficialFooter() {
         <MolesesAvatar size={88} className="border border-gray-200" />
         <div className="max-w-3xl space-y-2 text-sm text-gray-700">
           <p className="font-semibold text-gray-900">
-            Moleses is a nearly blind mole wizard (hence the glasses and the squint), not an election official. Neither are we.
+            Moleses is a nearly blind mole wizard, not an election official. Neither are we.
           </p>
           <p>
             The Voter Guider is an independent, unofficial voter guide. It isn&apos;t run by, affiliated with or

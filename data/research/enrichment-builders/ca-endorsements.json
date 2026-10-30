@@ -1,0 +1,848 @@
+{
+ "ca26-robert-luna": {
+  "url": "https://www.lunaforsheriff.com/2026endorsements",
+  "retrieved": "2026-10-30",
+  "endorsers": [
+   {
+    "name": "Southern California News Group Editorial Board",
+    "kind": "media"
+   },
+   {
+    "name": "Los Angeles County Federation of Labor",
+    "kind": "org"
+   },
+   {
+    "name": "ALADS - Association for Los Angeles Deputy Sheriffs",
+    "kind": "org"
+   },
+   {
+    "name": "Amalgamated Transit Union Local 1277",
+    "kind": "org"
+   },
+   {
+    "name": "International Association of Machinists (IAM) Local 1484",
+    "kind": "org"
+   },
+   {
+    "name": "International Brotherhood of Electrical Workers (IBEW) Local 11",
+    "kind": "org"
+   },
+   {
+    "name": "International Longshore and Warehouse Union (ILWU) Local 13",
+    "kind": "org"
+   },
+   {
+    "name": "International Longshore and Warehouse Union (ILWU) Local 63",
+    "kind": "org"
+   },
+   {
+    "name": "International Longshore and Warehouse Union (ILWU) Local 94",
+    "kind": "org"
+   },
+   {
+    "name": "International Longshore and Warehouse Union (ILWU) Southern California District Council",
+    "kind": "org"
+   },
+   {
+    "name": "LiUNA! Laborers Local 300",
+    "kind": "org"
+   },
+   {
+    "name": "LiUNA! Southern California District Council of Laborers",
+    "kind": "org"
+   },
+   {
+    "name": "Long Beach POA",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles/Orange Counties Building and Construction Trades Council",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Firefighters, IAFF Local 1014",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Professional Peace Officers Association (PPOA)",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles Police Protective League (LAPPL)",
+    "kind": "org"
+   },
+   {
+    "name": "Service Employees International Union (SEIU) Local 121",
+    "kind": "org"
+   },
+   {
+    "name": "Service Employees International Union (SEIU) Local 721",
+    "kind": "org"
+   },
+   {
+    "name": "Southern California District Council of Laborers",
+    "kind": "org"
+   },
+   {
+    "name": "Teamsters Joint Council 42",
+    "kind": "org"
+   },
+   {
+    "name": "United Food and Commercial Workers (UFCW) Local 324",
+    "kind": "org"
+   },
+   {
+    "name": "United Food and Commercial Workers (UFCW) Local 770",
+    "kind": "org"
+   },
+   {
+    "name": "UNITE HERE! Local 11",
+    "kind": "org"
+   },
+   {
+    "name": "Western States Regional Council of Carpenters",
+    "kind": "org"
+   },
+   {
+    "name": "BizFed PAC",
+    "kind": "org"
+   },
+   {
+    "name": "Central City Association",
+    "kind": "org"
+   },
+   {
+    "name": "Hollywood Chamber of Commerce",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles Jobs PAC – Sponsored by the Los Angeles Area Chamber of Commerce",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles Latino Chamber of Commerce",
+    "kind": "org"
+   },
+   {
+    "name": "Long Beach Area Chamber of Commerce",
+    "kind": "org"
+   },
+   {
+    "name": "Asian Democrats of Los Angeles County",
+    "kind": "org"
+   },
+   {
+    "name": "Beach City Democrats",
+    "kind": "org"
+   },
+   {
+    "name": "Citizens for Accountable Leadership (CAL)",
+    "kind": "org"
+   },
+   {
+    "name": "Democratic Club of Claremont",
+    "kind": "org"
+   },
+   {
+    "name": "Democratic Party of the San Fernando Valley",
+    "kind": "org"
+   },
+   {
+    "name": "Democrats for Neighborhood Action (DNA)",
+    "kind": "org"
+   },
+   {
+    "name": "East Area Progressive Democrats (EAPD)",
+    "kind": "org"
+   },
+   {
+    "name": "Heart of LA Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "Long Beach Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "Malibu Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "New Frontier Democratic Club (NFDC)",
+    "kind": "org"
+   },
+   {
+    "name": "North Valley Democratic Club of Los Angeles",
+    "kind": "org"
+   },
+   {
+    "name": "Pasadena Arroyo Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "Pilipino American Dems Los Angeles (PALAD)",
+    "kind": "org"
+   },
+   {
+    "name": "Santa Clarita Valley Democrats",
+    "kind": "org"
+   },
+   {
+    "name": "Santa Monica Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "Southern California Armenian Democrats",
+    "kind": "org"
+   },
+   {
+    "name": "Stonewall Democratic Club - Los Angeles",
+    "kind": "org"
+   },
+   {
+    "name": "Stonewall Young Democrats",
+    "kind": "org"
+   },
+   {
+    "name": "West LA Democratic Club",
+    "kind": "org"
+   },
+   {
+    "name": "Westside Young Democrats",
+    "kind": "org"
+   },
+   {
+    "name": "Association of Orange County Deputy Sheriffs (AOCDS)",
+    "kind": "org"
+   },
+   {
+    "name": "California Association of Highway Patrolmen",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Police Chiefs Association",
+    "kind": "org"
+   },
+   {
+    "name": "Peace Officers Research Association of California (PORAC)",
+    "kind": "org"
+   },
+   {
+    "name": "Armenian National Committee of America - Western Region (ANCA-WR)",
+    "kind": "org"
+   },
+   {
+    "name": "Mexican American Bar Association (MABA)",
+    "kind": "org"
+   },
+   {
+    "name": "Planned Parenthood Advocacy Project Los Angeles County Action Fund (PPAP)",
+    "kind": "org"
+   },
+   {
+    "name": "Alex Padilla, US Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Judy Chu, Congressmember",
+    "kind": "official"
+   },
+   {
+    "name": "Robert Garcia, Congressmember",
+    "kind": "official"
+   },
+   {
+    "name": "George Whitesides, Congressmember",
+    "kind": "official"
+   },
+   {
+    "name": "Grace Napolitano, Retired Congressmember",
+    "kind": "official"
+   },
+   {
+    "name": "Fiona Ma, CPA, California State Treasurer",
+    "kind": "official"
+   },
+   {
+    "name": "Bob Archuleta, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Maria Elena Durazo, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Lena Gonzalez, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Caroline Menjivar, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Sasha Renée Pérez, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Susan Rubio, State Senator",
+    "kind": "official"
+   },
+   {
+    "name": "Lisa Calderon, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Mike Fong, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Mike Gipson, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "John Harabedian, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Josh Lowenthal, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Blanca Pacheco, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Celeste Rodriguez, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Nick Schultz, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Jose Solache, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Rick Chavez Zbur, State Assemblymember",
+    "kind": "official"
+   },
+   {
+    "name": "Kathryn Barger, LA County Supervisor",
+    "kind": "official"
+   },
+   {
+    "name": "Janice Hahn, LA County Supervisor",
+    "kind": "official"
+   },
+   {
+    "name": "Lindsey Horvath, LA County Supervisor",
+    "kind": "official"
+   },
+   {
+    "name": "Holly Mitchell, LA County Supervisor",
+    "kind": "official"
+   },
+   {
+    "name": "Hilda Solis, LA County Supervisor",
+    "kind": "official"
+   },
+   {
+    "name": "Nathan Hochman, LA County District Attorney",
+    "kind": "official"
+   },
+   {
+    "name": "Jeffrey Prang, LA County Assessor",
+    "kind": "official"
+   },
+   {
+    "name": "Jeremy Wolf, Agoura Hills Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Adele Andrade-Stadler, Alhambra Vice Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Paul Cheng, Arcadia Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Michael Cao, Arcadia Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "David Fu, Arcadia Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Rene Trevino, Artesia Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Melissa Ramoso, Artesia Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Zeel Ahir, Artesia Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Monica Manalo, Artesia Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Robert Gonzales, Azusa Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Andrew Mendez, Azusa Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Alejandra Avila, Baldwin Park Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Victor Sanchez, Bellflower Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Sonny Santa Ines, Bellflower Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "James R Bozajian, Calabasas Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Peter Kraut, Calabasas Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Frank Aurelio Yokoyama, Cerritos Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Mark Pulido, Cerritos Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Ivan Altamirano, Commerce Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Oralia Rebollo, Commerce Councilwoman",
+    "kind": "official"
+   },
+   {
+    "name": "Martin Fuentes, Cudahy Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Freddy Puza, Culver City Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Andrew Chou, Diamond Bar Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Haracio Ortiz, Downey Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Mario Trujillo, Downey Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Margaret Finlay, Duarte Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Jessica Ancona, El Monte Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Viviana Longoria, El Monte Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Martin Herrera, El Monte Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Raymond Jackson, Hermosa Beach Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "James Butts, Inglewood Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Tim Hepburn, La Verne Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Luis Cuellar, Lynwood Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Rex Richardson, Long Beach Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Mary Zendejas, Long Beach Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Karen Bass, Los Angeles Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Imelda Padilla, Los Angeles City Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Monica Rodriguez, Los Angeles City Councilwoman",
+    "kind": "official"
+   },
+   {
+    "name": "Doug Stewart, Malibu Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Lou Lamonte, Malibu Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Mikke Pierson, Malibu Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Henry Lo, Monterey Park Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Thomas Wong, Monterey Park Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Jennifer Perez, Norwalk Vice Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Brenda Olmos, Paramount Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Isabel Aguayo, Paramount Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Annette C. Delgadillo, Paramount Councilember",
+    "kind": "official"
+   },
+   {
+    "name": "Gustavo Camacho, Pico Rivera Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Dr. Monica Sanchez, Pico Rivera Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Sandra Armenta, Rosemead Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Sean Dang, Rosemead Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Eric Weber, San Dimas Mayor Pro Tem",
+    "kind": "official"
+   },
+   {
+    "name": "Eric Nakano, San Dimas Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Tony Ding, San Gabriel Vice Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Denise Menchaca, San Gabriel Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Jorge Herrera Avila, San Gabriel Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "John Wu, San Gabriel Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Hector Delgado, South El Monte Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Vincent Yu, Temple City Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Ritchie Cajulis, Walnut Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Brian Gutierrez, West Covina Councilmember",
+    "kind": "official"
+   },
+   {
+    "name": "Danny Hang, West Hollywood Vice Mayor",
+    "kind": "official"
+   },
+   {
+    "name": "Mariana Pacheco, Cerritos Community College District",
+    "kind": "official"
+   },
+   {
+    "name": "Alton Wang, Pasadena Area Community College District Trustee",
+    "kind": "official"
+   },
+   {
+    "name": "Derek Bahmanou, Bonita Unified School District Vice President",
+    "kind": "official"
+   },
+   {
+    "name": "Jim Elliott, Bonita Unified School District Vice President",
+    "kind": "official"
+   },
+   {
+    "name": "Greg Palatto, Bonita Unified School District Board Member",
+    "kind": "official"
+   },
+   {
+    "name": "Armond Aghakhanian, Burbank Unified School District President",
+    "kind": "official"
+   },
+   {
+    "name": "Andrew Yam, Garvey School District Board Member",
+    "kind": "official"
+   },
+   {
+    "name": "Gino Kwok, Hacienda La Puente Unified School District President",
+    "kind": "official"
+   },
+   {
+    "name": "Jen Dohner, Manhattan Beach Unified School District Board Member",
+    "kind": "official"
+   },
+   {
+    "name": "Alicia Anderson, Paramount Unified School District Board President",
+    "kind": "official"
+   },
+   {
+    "name": "Diane J. Martinez, Paramount Unified School District Board Trustee",
+    "kind": "official"
+   },
+   {
+    "name": "Eddie Cruz, Paramount Unified School District Board Trustee",
+    "kind": "official"
+   },
+   {
+    "name": "Nancy Armenta, Rosemead School District Board Member",
+    "kind": "official"
+   },
+   {
+    "name": "Robert Bonner, Former Chair of the Los Angeles Civilian Oversight Commission",
+    "kind": "person"
+   },
+   {
+    "name": "Stephanie Garcia, Chair of the Rosemead Public Safety Commission",
+    "kind": "person"
+   },
+   {
+    "name": "Liz Fonseca, Vice-Chair of the Rosemead Public Safety Commission",
+    "kind": "person"
+   },
+   {
+    "name": "George Nickle, Former Commissioner West Hollywood Public Safety Commission",
+    "kind": "person"
+   },
+   {
+    "name": "Renay Grace Rodriguez, LBTQ+ Community Activist",
+    "kind": "person"
+   },
+   {
+    "name": "Alec White, President of the Westside Young Democrats & Chair of the West Hollywood LGBTQ+ Commission",
+    "kind": "person"
+   }
+  ],
+  "cacheSuffix": ".static"
+ },
+ "ca26-alex-villanueva": {
+  "url": "https://alexvillanueva2026.com/endorsements/",
+  "retrieved": "2026-10-30",
+  "endorsers": [
+   {
+    "name": "Assemblyman David Tangipa",
+    "kind": "official"
+   },
+   {
+    "name": "Assemblyman Carl Demaio",
+    "kind": "official"
+   },
+   {
+    "name": "Assembly member Leticia Castillo",
+    "kind": "official"
+   },
+   {
+    "name": "Baldwin Park Councilwoman Jean M. Ayala",
+    "kind": "official"
+   },
+   {
+    "name": "Baldwin Park Councilman Manuel Lozano",
+    "kind": "official"
+   },
+   {
+    "name": "La Habra Heights Councilan Norm Zezula",
+    "kind": "official"
+   },
+   {
+    "name": "Lancaster Council Member Ken Maan",
+    "kind": "official"
+   },
+   {
+    "name": "Santa Fe Springs Council Member Bill Rounds",
+    "kind": "official"
+   },
+   {
+    "name": "Walnut Council Member Kaylee May Law",
+    "kind": "official"
+   },
+   {
+    "name": "Santa Clarita Mayor Bill Miranda",
+    "kind": "official"
+   },
+   {
+    "name": "Rosemead City Mayor Margaret Clark",
+    "kind": "official"
+   },
+   {
+    "name": "Whittier Council Member Cathy Warner",
+    "kind": "official"
+   },
+   {
+    "name": "Hawthorne Mayor Pro Tem Faye Johnson",
+    "kind": "official"
+   },
+   {
+    "name": "Stanton Mayor David John Shawver",
+    "kind": "official"
+   },
+   {
+    "name": "Bell Gardens Council Member Dr. Francis De Leon Sanchez",
+    "kind": "official"
+   },
+   {
+    "name": "Centinela Valley Union School Board President Hon. Hugo M. Rojas II",
+    "kind": "official"
+   },
+   {
+    "name": "Baldwin Park School District Board Member Ricardo Vasquez",
+    "kind": "official"
+   },
+   {
+    "name": "Cerritos City Council Member Jennifer Hong",
+    "kind": "official"
+   },
+   {
+    "name": "ABC Unified School District Board Member Soo Yoo",
+    "kind": "official"
+   },
+   {
+    "name": "Former Cerritos Mayor Chuong Vo",
+    "kind": "official"
+   },
+   {
+    "name": "Baldwin Park School District Board of Education Elect Yvonne Juarez",
+    "kind": "official"
+   },
+   {
+    "name": "Beverly Hills Unified School Board of Education Russell Stuart",
+    "kind": "official"
+   },
+   {
+    "name": "Charter Oak USD School Board Trustee for District 1 Elect Erica Landmann",
+    "kind": "official"
+   },
+   {
+    "name": "Norwalk City Council Member Rick Ramirez",
+    "kind": "official"
+   },
+   {
+    "name": "La Puente City Council Member David Argudo",
+    "kind": "official"
+   },
+   {
+    "name": "West Covina Mayor Pro Tem Ollie Cantos",
+    "kind": "official"
+   },
+   {
+    "name": "Candidate for La Verne Richard Bowen",
+    "kind": "person"
+   },
+   {
+    "name": "Claremont Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles School Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles Sheriff’s Professional Association",
+    "kind": "org"
+   },
+   {
+    "name": "Whittier Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "Arcadia Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "San Bernardino Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "Monterey Park Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "Alhambra Police Officers Association",
+    "kind": "org"
+   },
+   {
+    "name": "National Latino Peace Officers Association Advocacy",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Lincoln Clubs",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Republican Party",
+    "kind": "org"
+   },
+   {
+    "name": "Los Angeles County Taxpayers Association",
+    "kind": "org"
+   }
+  ],
+  "cacheSuffix": ".static"
+ }
+}
