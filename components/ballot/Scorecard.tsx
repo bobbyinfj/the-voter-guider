@@ -488,8 +488,8 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
 
 type Section = 'flags' | 'meter' | 'badges' | 'more'
 
-// Beside one candidate's oval: their video (when we have one), with the one-line summary and an icon
-// per column (details on hover) next to it. Clicking an icon opens just that column's card below;
+// Beside one candidate's oval: their video (when we have one) across the whole column, the one-line
+// summary under it, then a row of its own with an icon per column (details on hover). Clicking an icon opens just that column's card below;
 // clicking it again closes it. "More" opens the news guide, statement and notes.
 export function CandidateScorecard({
   candidate,
@@ -524,27 +524,25 @@ export function CandidateScorecard({
   const current = playing === null ? null : ladder[playing]
   return (
     <div className="h-full space-y-3 bg-white px-3 py-3 font-sans print:hidden">
-      <div className={current ? 'gap-4 md:grid md:grid-cols-2' : ''}>
-        {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
-        <div className={`min-w-0 space-y-3 ${current ? 'mt-3 md:mt-0' : ''}`}>
-          {summary}
-          <div className="grid grid-cols-3 items-start gap-2 pr-2">
-            {tiles.map(([section, tile]) => (
-              <span key={section} className="flex min-w-0 flex-col items-start gap-1">
-                <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
-                <span aria-hidden className="text-[0.6875rem] leading-tight text-gray-600">
-                  {tile.label}
-                </span>
+      {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
+      <div className="min-w-0 space-y-3">
+        {summary}
+        <div className={`grid grid-cols-3 items-start gap-2 pr-2 ${current || summary ? 'border-t border-gray-100 pt-3' : ''}`}>
+          {tiles.map(([section, tile]) => (
+            <span key={section} className="flex min-w-0 items-start gap-2 max-sm:flex-col sm:items-center">
+              <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
+              <span aria-hidden className="text-[0.6875rem] leading-tight text-gray-600">
+                {tile.label}
               </span>
-            ))}
-          </div>
-          <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
-          {children && (
-            <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="text-xs font-semibold text-blue-700 hover:underline">
-              {open === 'more' ? 'Less' : 'More about them'}
-            </button>
-          )}
+            </span>
+          ))}
         </div>
+        <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
+        {children && (
+          <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="text-xs font-semibold text-blue-700 hover:underline">
+            {open === 'more' ? 'Less' : 'More about them'}
+          </button>
+        )}
       </div>
       {open === 'flags' && (
         <div className="space-y-1.5">
