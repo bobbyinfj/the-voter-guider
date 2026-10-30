@@ -59,7 +59,6 @@ interface BallotTrackerProps {
   choices: Record<string, ChoiceValue>
   readOnly?: boolean
   // Someone else's guide, opened from its share link
-  shared?: boolean
   // Shown above the ballot, e.g. the district picker
   setup?: React.ReactNode
   // Right side of the view row, e.g. "Saved on this device"
@@ -78,10 +77,8 @@ interface BallotTrackerProps {
 
 // 'step': one contest at a time, in ballot order, with everything we know about it open
 type Mode = 'ballot' | 'step' | 'review'
-// Remembered for this browser tab only: every visit starts on the 3-column ballot, except shared
-// links (to part of the ballot, or someone else's guide), which open Expanded
+// Remembered for this browser tab only: every visit starts on Expanded
 const DENSITY_KEY = 'voter-guider:view'
-const NUDGE_KEY = 'voter-guider:expanded-nudge'
 
 // A guide laid out like the voter's own ballot (same contests, order and wording as the
 // county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
@@ -91,7 +88,6 @@ export default function BallotTracker({
   election,
   choices,
   readOnly = false,
-  shared = false,
   setup,
   status,
   notice,
@@ -103,7 +99,7 @@ export default function BallotTracker({
   badges,
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
-  const [density, setDensity] = useState<Density>('basic')
+  const [density, setDensity] = useState<Density>('expanded')
   const [showViewHelp, setShowViewHelp] = useState(false)
   const [compare, setCompare] = useState<CompareView | null>(null)
   const [activeId, setActiveId] = useState<string | null>(null)
@@ -113,8 +109,7 @@ export default function BallotTracker({
   const jumpMenuRef = useRef<HTMLDetailsElement>(null)
   const toolbarRef = useRef<HTMLDivElement>(null)
 
-  // Per-tab preference; storage can be unavailable (private mode), which is fine. Without one, a
-  // shared link opens Expanded so whoever follows it sees the scorecards, not just the names.
+  // Per-tab preference; storage can be unavailable (private mode), which is fine
   useEffect(() => {
     let saved: string | null = null
     try {
@@ -122,9 +117,6 @@ export default function BallotTracker({
     } catch {}
     // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
     if (saved === 'expanded' || saved === 'basic') setDensity(saved)
-    else if (shared || resolveAnchor(window.location.hash, ballots)) setDensity('expanded')
-    // Only on arrival: later hash changes are the voter moving around, not a new link
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const chooseDensity = (value: Density) => {
     setDensity(value)
@@ -139,23 +131,6 @@ export default function BallotTracker({
     const el = document.getElementById(domId)
     if (el) scrollToElement(el, 'auto')
   }
-  // The nudge toward Expanded above the ballot, until you dismiss it (or try Expanded)
-  const [nudge, setNudge] = useState(false)
-  useEffect(() => {
-    try {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
-      setNudge(localStorage.getItem(NUDGE_KEY) !== 'done')
-    } catch {
-      setNudge(true)
-    }
-  }, [])
-  const endNudge = () => {
-    setNudge(false)
-    try {
-      localStorage.setItem(NUDGE_KEY, 'done')
-    } catch {}
-  }
-
   const sections = useMemo(() => groupSections(ballots), [ballots])
   // One step per contest as printed (retention questions under one heading are one step)
   const steps = useMemo(
@@ -212,7 +187,7 @@ export default function BallotTracker({
 
   // Arriving on a link to part of the ballot (#laccd-2, #laccd-2--roy-payan, or a group of
   // contests): show the ballot with nothing filtered out, scroll there once the layout has
-  // settled (the saved view can switch to Expanded just after load), and highlight it briefly
+  // settled (the saved view can switch to Ballot just after load), and highlight it briefly
   useEffect(() => {
     const timers: number[] = []
     const go = () => {
@@ -343,7 +318,7 @@ export default function BallotTracker({
   const showSidebar = (density === 'expanded' && mode === 'ballot') || mode === 'step'
 
   return (
-    <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8' : ''}>
+    <div className={showSidebar ? 'lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8 print:block!' : ''}>
       <PrintWatermark />
       {showSidebar && (
         <aside className="hidden lg:block print:hidden">
@@ -359,14 +334,7 @@ export default function BallotTracker({
                 <button onClick={() => chooseDensity('basic')} aria-pressed={density === 'basic'} className={segment(density === 'basic')}>
                   <Columns3 className="h-4 w-4" /> Ballot view
                 </button>
-                <button
-                  onClick={() => {
-                    chooseDensity('expanded')
-                    endNudge()
-                  }}
-                  aria-pressed={density === 'expanded'}
-                  className={segment(density === 'expanded')}
-                >
+                <button onClick={() => chooseDensity('expanded')} aria-pressed={density === 'expanded'} className={segment(density === 'expanded')}>
                   <Rows3 className="h-4 w-4" /> Expanded view
                 </button>
               </div>
@@ -509,27 +477,6 @@ export default function BallotTracker({
         </div>
 
         {notice}
-        {nudge && density === 'basic' && mode === 'ballot' && (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-l-4 border-sky-500 bg-sky-50 px-3 py-2 font-sans text-sm text-sky-950 print:hidden">
-            <span className="min-w-0 basis-full sm:basis-0 sm:flex-1">
-              <strong>Compare candidates side by side.</strong> Expanded view puts a scorecard next to every name:
-              video of them speaking · 🚩 flags · 💩 meter · 🏅 badges, each with its source.
-            </span>
-            <button
-              type="button"
-              onClick={() => {
-                chooseDensity('expanded')
-                endNudge()
-              }}
-              className="rounded bg-ballot-bar px-3 py-1.5 font-semibold text-white hover:opacity-90"
-            >
-              Try Expanded view
-            </button>
-            <button type="button" onClick={endNudge} aria-label="Dismiss" className="text-sky-700 hover:text-sky-950">
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        )}
         {quiz && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-l-4 border-violet-400 bg-violet-50 px-3 py-2 font-sans text-sm text-violet-950 print:hidden">
             <span>

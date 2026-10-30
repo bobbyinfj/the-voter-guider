@@ -91,10 +91,10 @@ notes stores `NOTES` (no pick, notes kept). `isPick` / `isSettled` / `isUnsure` 
 what counts: ?s are still to go, and only settled real picks reach the community tally. The quiz writes to the
 same default guide. Extra guides for an election live at `/guide/[id]`. **Copy for an AI** (toolbar; `helpRequestText` in `components/ballot/export.ts`) copies the ballot with "no clue yet" and ? contests first, their choices and the voter's notes, under a neutral request (explain, cite sources, don't say how to vote) to paste into Claude or another AI. Quiz questions have an "Ask Claude about it" link (`lib/quiz/ask.ts`), labeled as Claude's answer, not ours. After the first pick a
 skippable prompt offers a magic-link sign-in so the guide follows you to other devices. Views:
-**Ballot view** (`basic`: 3-column replica, the default every visit except shared links; heading link/? icons show on hover) and
-**Expanded view** (ballot on the left third, a scorecard beside each candidate on the right two-thirds;
-stacked on a phone), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage); with no choice yet, a shared link (a `#contest` anchor, or someone else's guide at `/guide/<shareToken>`) opens Expanded. A dismissible banner (localStorage)
-and a button in each contest's info panel nudge toward Expanded.
+**Expanded view** (the default every visit: ballot on the left third, a scorecard beside each candidate on the right two-thirds;
+stacked on a phone; prints as the 3-column ballot without the extras) and
+**Ballot view** (`basic`: 3-column replica; heading link/? icons show on hover), toggled at the top of the ballot with a ? explainer. The choice lasts for the browser tab (sessionStorage).
+A button in each contest's info panel goes to Expanded.
 The table of contents (`components/ballot/BallotNav.tsx`) draws a Yes/No pick's icon like its ballot oval (`VoteMark`):
 green ✓ for Yes or red ✕ for No, solid once decided, striped while leaning, a dashed ring while possibly or not sure
 (candidate races keep the decided/leaning/not-sure icons) and, under each state measure's number, a topic of a word or
