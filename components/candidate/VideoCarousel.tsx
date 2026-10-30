@@ -17,7 +17,7 @@ export default function VideoCarousel({ videos, tiny = false, label = 'Watch' }:
   const at = Math.min(i, list.length - 1)
   const v = list[at]
   const step = (d: number) => setI((at + d + list.length) % list.length)
-  const arrow = 'rounded-full border border-sky-300 bg-white p-0.5 text-blue-700 hover:bg-sky-100'
+  const arrow = 'rounded-full border border-gray-200 bg-white p-0.5 text-gray-600 hover:bg-gray-50'
   return (
     <section aria-label={`${label}: ${list.length} videos`} className="space-y-1.5">
       <div className="flex items-center gap-1.5 text-[0.6875rem]">
@@ -45,8 +45,8 @@ export default function VideoCarousel({ videos, tiny = false, label = 'Watch' }:
               onClick={() => setI(j)}
               aria-pressed={j === at}
               title={`${w.title} (${w.host ?? w.channel})`}
-              className={`shrink-0 rounded-full border px-2 py-0.5 text-left text-[0.6875rem] leading-tight ${
-                j === at ? 'border-blue-700 bg-blue-50 font-semibold text-blue-900' : 'border-sky-300 bg-white text-blue-700 hover:bg-sky-100'
+              className={`shrink-0 rounded-lg border px-2 py-1 text-left text-[0.6875rem] leading-tight ${
+                j === at ? 'border-blue-700 bg-blue-50 font-semibold text-blue-900' : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
               }`}
             >
               <span className="block text-[0.625rem] uppercase tracking-wide text-gray-500">{TIER_NAMES[videoTier({ video: w })]}</span>

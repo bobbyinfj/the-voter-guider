@@ -56,10 +56,8 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
   }
 
   return (
-    <details className="group/tax rounded border border-sky-200 bg-white text-sm">
-      <summary className="cursor-pointer px-2 py-1.5 text-xs font-semibold text-blue-700 hover:underline">
-        Learn more: tax rates with and without {measureLabel}
-      </summary>
+    <section className="rounded-lg border border-gray-200 bg-white text-sm">
+      <h4 className="px-2 py-1.5 text-xs font-semibold text-sky-950">Tax rates with and without {measureLabel}</h4>
       <div className="space-y-3 px-2 pb-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           {joint ? (
@@ -166,8 +164,7 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
           )}
         </label>
 
-        <details className="text-xs">
-          <summary className="cursor-pointer font-semibold text-blue-700 hover:underline">Show as a table</summary>
+        <div className="text-xs">
           <table className="mt-1 w-full border-collapse text-left">
             <thead>
               <tr className="border-b border-gray-300">
@@ -188,7 +185,7 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
               ))}
             </tbody>
           </table>
-        </details>
+        </div>
 
         <ul className="ml-4 list-disc space-y-0.5 text-xs text-gray-800">
           {rates.quotes.map((q) => (
@@ -204,6 +201,6 @@ export default function TaxRates({ rates, measureLabel }: { rates: MeasureTaxRat
           (retrieved {rates.source.retrieved}).
         </p>
       </div>
-    </details>
+    </section>
   )
 }

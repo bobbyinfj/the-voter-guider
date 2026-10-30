@@ -32,7 +32,7 @@ export default function VideoFacade({
 
   return (
     <figure className={compact ? 'max-w-xs' : ''} title={tiny ? video.title : undefined}>
-      <div className="relative aspect-video w-full overflow-hidden rounded bg-black">
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?${params}`}
@@ -61,6 +61,9 @@ export default function VideoFacade({
                 <Play className={tiny ? 'ml-0.5 h-4 w-4' : 'ml-0.5 h-6 w-6'} fill="currentColor" />
               </span>
             </span>
+            {duration && (
+              <span className="absolute bottom-1.5 right-1.5 rounded bg-black/75 px-1.5 py-0.5 text-[0.6875rem] font-semibold text-white">{duration}</span>
+            )}
           </button>
         )}
       </div>

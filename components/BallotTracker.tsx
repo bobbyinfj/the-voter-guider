@@ -304,6 +304,7 @@ export default function BallotTracker({
 
   const toolButton =
     'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
+  const quietButton = 'flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-gray-600 hover:bg-gray-100'
   const segment = (active: boolean) =>
     `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
   const step = steps[stepIndex]
@@ -385,7 +386,15 @@ export default function BallotTracker({
                 )}
               </div>
             </div>
-            {status}
+            <div className="flex items-center gap-1">
+              {status}
+              <button onClick={handleExport} className={quietButton}>
+                <Download className="h-4 w-4" /> Text
+              </button>
+              <button onClick={() => window.print()} className={quietButton}>
+                <Printer className="h-4 w-4" /> Print
+              </button>
+            </div>
           </div>
           <div className="mb-2 flex items-center justify-between gap-3 text-sm">
             <span className="font-medium text-gray-800">
@@ -441,12 +450,6 @@ export default function BallotTracker({
             )}
             <button onClick={handleCopyForAi} className={toolButton} title="Copies your picks, ?s and notes, with a request for help on the contests you're stuck on">
               <ClipboardCopy className="h-4 w-4" /> Copy for an AI
-            </button>
-            <button onClick={handleExport} className={toolButton}>
-              <Download className="h-4 w-4" /> Text
-            </button>
-            <button onClick={() => window.print()} className={toolButton}>
-              <Printer className="h-4 w-4" /> Print
             </button>
           </div>
           {copied && (

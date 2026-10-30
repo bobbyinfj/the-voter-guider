@@ -106,6 +106,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* What's left that folds reads as a link, not a caret */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
 /* Briefly marks the part of the ballot a link (#laccd-2) pointed to */
 .anchor-flash {
   outline: 3px solid #f59e0b;
