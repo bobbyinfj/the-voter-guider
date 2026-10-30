@@ -1,0 +1,4 @@
+# Reviewed endorsement picks for California (tools/pick.py cache/ca ca-endorsement-picks.txt ca-endorsements.json).
+# Each campaign's own endorsements page, saved to cache/ca/<id>.static.txt; lines repeated under a second heading are left out.
+ca26-robert-luna | src:static ; media:26 ; org:28-51,53-58,61-81,85-86,89,92,95-97 ; official:102-123,125-131,134-195,197-209 ; person:212-217
+ca26-alex-villanueva | src:static ; official:18-43 ; person:45 ; org:47-55,57-59

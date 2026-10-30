@@ -78,7 +78,7 @@ shows as Voter Guider extras (never as ballot text). `npm run seed` loads them i
 - **Washington bar ratings:** `kcba.py` → `wa-ratings.json`, merged as `barRating` on each candidate the King County
   Bar Association rates (its 2026 contested-elections list), plus a link to that list on each race it covers. The
   list's note explains its N/A ("not rated … within the last three years"); N/A is never shown as a rating.
-- Endorsements for CO/CA are not done yet. Ballotpedia blocks automated access, so it isn't used.
+- Endorsements for CO are not done yet; for CA, only the LA County Sheriff race so far. Ballotpedia blocks automated access, so it isn't used.
 
 ## Re-running (Washington)
 
