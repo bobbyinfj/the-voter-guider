@@ -310,7 +310,7 @@ export default function BallotTracker({
     'flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-50'
   const quietButton = 'flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-gray-600 hover:bg-gray-100'
   const segment = (active: boolean) =>
-    `flex items-center gap-1.5 px-3 py-1.5 text-sm ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
+    `flex items-center gap-1 px-2 py-1.5 text-sm sm:gap-1.5 sm:px-3 ${active ? 'bg-ballot-bar text-white' : 'bg-white text-gray-700 hover:bg-gray-50'}`
   const activeFilters = (hiddenIds ? 1 : 0) + (view === 'compare' ? Number(differOnly) + Number(coveredOnly) : 0)
   const step = steps[stepIndex]
   const nav = (
