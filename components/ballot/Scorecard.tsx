@@ -13,7 +13,6 @@ import {
   sortVideos,
   leadRung,
   videoLadder,
-  videoTier,
   watchLength,
   type CandidateVideo,
   type VideoPick,
@@ -37,7 +36,7 @@ import type { BallotCandidate, BallotItem } from './ballot'
 // Each column's title links to its rules on /how-we-score
 function Cell({ title, how, children }: { title: React.ReactNode; how: string; children: React.ReactNode }) {
   return (
-    <div className="min-w-0 rounded border border-sky-200 bg-white px-2 py-1.5">
+    <div className="min-w-0 rounded-lg border border-gray-200 bg-white px-2 py-1.5">
       <p className="mb-0.5 flex items-center justify-between gap-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">
         <span>{title}</span>
         <Link href={`/how-we-score#${how}`} className="font-semibold normal-case tracking-normal text-blue-700 hover:underline" title="How this column is worked out">
@@ -70,52 +69,14 @@ export function sharedVideos(race: BallotItem): CandidateVideo[] {
   return all.filter((v, i) => all.findIndex((w) => w.youtubeId === v.youtubeId) === i)
 }
 
-// Above the candidates: debates with everyone in them. Short ones as column-wide players; long ones (a meal)
-// as buttons with their length, playing only when chosen.
+// Above the candidates: debates with everyone in them, shortest first. Thumbnails only until played.
 export function RaceVideos({ race }: { race: BallotItem }) {
-  const [chosen, setChosen] = useState<string | null>(null)
   const videos = sharedVideos(race)
   if (!videos.length) return null
-  const meal = (v: CandidateVideo) => videoTier({ video: v }) === 'meal'
-  const shown = videos.filter((v) => !meal(v) || v.youtubeId === chosen)
-  const long = videos.filter(meal)
-  return (
-    <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 print:hidden">
-      <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Watch them together</p>
-      {videos.length > 1 ? (
-        <VideoCarousel videos={videos} tiny label="Debates and forums" />
-      ) : (
-      <>
-      {shown.length > 0 && (
-        <div className="flex snap-x gap-2 overflow-x-auto pb-1">
-          {shown.map((v) => (
-            <div key={v.youtubeId} className={`shrink-0 snap-start ${shown.length > 1 ? 'w-[85%]' : 'w-full'}`}>
-              <VideoFacade video={v} tiny />
-            </div>
-          ))}
-        </div>
-      )}
-      {long.length > 0 && (
-        <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[0.6875rem]">
-          {long.map((v) => (
-            <button
-              key={v.youtubeId}
-              type="button"
-              onClick={() => setChosen((c) => (c === v.youtubeId ? null : v.youtubeId))}
-              aria-pressed={chosen === v.youtubeId}
-              title={`${v.title} (${v.channel})`}
-              className={`rounded-full border px-2 py-0.5 font-semibold ${
-                chosen === v.youtubeId ? 'border-blue-700 bg-blue-50 text-blue-900' : 'border-sky-300 bg-white text-blue-700 hover:bg-sky-100'
-              }`}
-            >
-              ▶ {MEAL_NAMES[v.kind]} · {v.channel}
-              {formatDuration(v.durationSec) ? ` · ${formatDuration(v.durationSec)}` : ''}
-            </button>
-          ))}
-        </p>
-      )}
-      </>
-      )}
+  return videos.length > 1 ? <VideoCarousel videos={videos} tiny label="Watch them together" /> : (
+    <div className="space-y-1">
+      <p className="text-[0.6875rem] font-semibold text-sky-900">Watch them together</p>
+      <VideoFacade video={videos[0]} tiny />
     </div>
   )
 }
@@ -225,8 +186,8 @@ function CheckedDetail({ candidate }: { candidate: BallotCandidate }) {
   const { checked, flags } = flagsFor(candidate.profile)
   if (!checked.length) return null
   return (
-    <details className="rounded border border-sky-200 bg-white px-2 py-1 text-xs leading-snug text-gray-700">
-      <summary className="cursor-pointer font-semibold text-blue-700 hover:underline">🚩 What we checked{flags.length ? ' and what we found' : ''}</summary>
+    <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-xs leading-snug text-gray-700">
+      <p className="font-semibold text-gray-900">What we checked{flags.length ? ' and what we found' : ''}</p>
       <ul className="mt-1 list-disc space-y-0.5 pl-4">
         {flags
           .filter((f) => f.detail)
@@ -263,7 +224,7 @@ function CheckedDetail({ candidate }: { candidate: BallotCandidate }) {
           </li>
         )}
       </ul>
-    </details>
+    </div>
   )
 }
 
@@ -272,10 +233,10 @@ function Claims({ candidate }: { candidate: BallotCandidate }) {
   const claims = candidate.profile?.claims ?? []
   if (!claims.length) return null
   return (
-    <details className="rounded border border-sky-200 bg-white px-2 py-1 text-xs leading-snug">
-      <summary className="cursor-pointer font-semibold text-blue-700 hover:underline">
-        💩 {claims.length} claim{claims.length > 1 ? 's' : ''} fact-checked by {[...new Set(claims.map((c) => c.publisher))].join(', ')}
-      </summary>
+    <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-xs leading-snug">
+      <p className="font-semibold text-gray-900">
+        {claims.length} claim{claims.length > 1 ? 's' : ''} fact-checked by {[...new Set(claims.map((c) => c.publisher))].join(', ')}
+      </p>
       <ul className="mt-1 space-y-1.5">
         {claims.map((c) => (
           <li key={c.claim}>
@@ -287,7 +248,7 @@ function Claims({ candidate }: { candidate: BallotCandidate }) {
         ))}
       </ul>
       <p className="mt-1 text-gray-600">In the outlet&apos;s words; not counted in the 💩 %.</p>
-    </details>
+    </div>
   )
 }
 
@@ -511,13 +472,13 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
       aria-expanded={open}
       title={tile.hover}
       aria-label={`${tile.label}. ${tile.hover.replace(/\n/g, '. ')}. ${open ? 'Hide' : 'Show'} details`}
-      className={`relative flex h-10 min-w-10 items-center justify-center rounded-lg border-2 px-1 text-2xl leading-none shadow-sm hover:brightness-95 ${tile.tone} ${
+      className={`relative flex h-10 min-w-10 items-center justify-center rounded-xl border px-1 text-xl leading-none hover:brightness-95 ${tile.tone} ${
         open ? 'ring-2 ring-blue-600 ring-offset-2' : ''
       }`}
     >
       <span aria-hidden>{tile.icon}</span>
       {tile.value && (
-        <span aria-hidden className={`absolute -right-2 -top-2 min-w-5 rounded-full px-1 text-center text-[0.6875rem] font-bold leading-5 shadow ${tile.mark}`}>
+        <span aria-hidden className={`absolute -right-2 -top-2 min-w-5 rounded-full px-1 text-center text-[0.6875rem] font-bold leading-5 ${tile.mark}`}>
           {tile.value}
         </span>
       )}
@@ -527,10 +488,9 @@ function IconTile({ tile, onClick, open }: { tile: TileInfo; onClick: () => void
 
 type Section = 'flags' | 'meter' | 'badges' | 'more'
 
-// Beside one candidate's oval: their video (when we have one) across the whole column, the one-line
-// summary under it, then a row of its own with an icon per column (details on hover). Clicking an
-// icon opens just that column's card below the row; clicking it again closes it. "More" opens the
-// news guide, statement and notes.
+// Beside one candidate's oval: their video (when we have one), with the one-line summary and an icon
+// per column (details on hover) next to it. Clicking an icon opens just that column's card below;
+// clicking it again closes it. "More" opens the news guide, statement and notes.
 export function CandidateScorecard({
   candidate,
   race,
@@ -555,37 +515,36 @@ export function CandidateScorecard({
     ['badges', badgeSummary(candidate, badges)],
   ]
   const ladder = videoLadder(candidateVideos(candidate, race))
-  // The most independent bite or snack plays up front; a meal only when you choose it
+  // The most independent bite or snack leads; with only meals, the shortest (just a thumbnail until clicked)
   const [playing, setPlaying] = useState<number | null>(() => {
+    if (!ladder.length) return null
     const lead = leadRung(ladder)
-    return lead < 0 ? null : lead
+    return lead < 0 ? 0 : lead
   })
   const current = playing === null ? null : ladder[playing]
   return (
-    <div className="h-full space-y-2 bg-sky-50/60 px-3 py-2 font-sans print:hidden">
-      {(current || summary || ladder.length > 0) && (
-        <div className="space-y-2">
-          {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
-          <div className="min-w-0">
-            {summary}
-            <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
+    <div className="h-full space-y-3 bg-white px-3 py-3 font-sans print:hidden">
+      <div className={current ? 'gap-4 md:grid md:grid-cols-2' : ''}>
+        {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
+        <div className={`min-w-0 space-y-3 ${current ? 'mt-3 md:mt-0' : ''}`}>
+          {summary}
+          <div className="grid grid-cols-3 items-start gap-2 pr-2">
+            {tiles.map(([section, tile]) => (
+              <span key={section} className="flex min-w-0 flex-col items-start gap-1">
+                <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
+                <span aria-hidden className="text-[0.6875rem] leading-tight text-gray-600">
+                  {tile.label}
+                </span>
+              </span>
+            ))}
           </div>
+          <VideoSteps ladder={ladder} playing={playing} onPlay={setPlaying} />
+          {children && (
+            <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="text-xs font-semibold text-blue-700 hover:underline">
+              {open === 'more' ? 'Less' : 'More about them'}
+            </button>
+          )}
         </div>
-      )}
-      <div className={`grid grid-cols-3 items-start gap-x-3 gap-y-2 sm:flex sm:flex-wrap sm:items-center sm:gap-x-5 ${current || summary || ladder.length ? 'border-t border-sky-200 pt-3' : ''}`}>
-        {tiles.map(([section, tile]) => (
-          <span key={section} className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
-            <IconTile tile={tile} onClick={() => toggle(section)} open={open === section} />
-            <span aria-hidden className="max-w-28 text-[0.6875rem] leading-tight text-gray-700">
-              {tile.label}
-            </span>
-          </span>
-        ))}
-        {children && (
-          <button type="button" onClick={() => toggle('more')} aria-expanded={open === 'more'} className="col-span-3 justify-self-end text-xs font-semibold text-blue-700 hover:underline sm:ml-auto">
-            {open === 'more' ? 'Less' : 'More about them'}
-          </button>
-        )}
       </div>
       {open === 'flags' && (
         <div className="space-y-1.5">
@@ -607,36 +566,15 @@ export function CandidateScorecard({
 
 // A measure's badges: who recommends Yes and who recommends No
 export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; labels: [string, string] }) {
-  const [open, setOpen] = useState<string | null>(null)
   if (!yes.length && !no.length) return null
   const sides = [[labels[0], yes], [labels[1], no]] as const
-  const shown = sides.find(([label]) => label === open)
   return (
-    <div className="space-y-2 pt-2 font-sans">
-      <div className="flex flex-wrap items-center gap-4">
-        {sides.map(([label, list]) => (
-          <span key={label} className="flex items-center gap-1.5 text-xs font-semibold text-gray-700">
-            <IconTile
-              tile={{
-                icon: '🏅',
-                value: String(list.length),
-                label: `${list.length} say ${label}`,
-                tone: list.length ? 'border-sky-300 bg-sky-50' : 'border-gray-200 bg-white opacity-60',
-                mark: list.length ? 'bg-sky-700 text-white' : 'bg-gray-200 text-gray-700',
-                hover: list.length ? list.map((b) => b.by).join('\n') : 'None in the guides we use',
-              }}
-              onClick={() => setOpen((o) => (o === label ? null : label))}
-              open={open === label}
-            />
-            Say {label}
-          </span>
-        ))}
-      </div>
-      {shown && (
-        <Cell how="badges" title={`🏅 Say ${shown[0]}`}>
-          {shown[1].length ? (
+    <div className="grid gap-2 pt-2 font-sans sm:grid-cols-2">
+      {sides.map(([label, list]) => (
+        <Cell key={label} how="badges" title={`🏅 Say ${label}`}>
+          {list.length ? (
             <div className="flex flex-wrap gap-1">
-              {shown[1].map((b) => (
+              {list.map((b) => (
                 <BadgePill key={b.by} badge={b} />
               ))}
             </div>
@@ -644,8 +582,7 @@ export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; 
             <p className="text-xs text-gray-500">None in the guides we use</p>
           )}
         </Cell>
-      )}
+      ))}
     </div>
   )
 }
-

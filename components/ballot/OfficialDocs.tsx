@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { ExternalLink } from 'lucide-react'
 
 export interface OfficialDoc {
@@ -25,29 +26,44 @@ export function statementOf(metadata: unknown, name: string): OfficialDoc | null
   return isDoc(doc) ? doc : null
 }
 
-// Long official text (impartial analysis, arguments, full text, candidate statements), folded
-// so it doesn't swamp the ballot, each with where it comes from. Plain text only.
+// Long official text (impartial analysis, arguments, full text, candidate statements), one at a time
+// in a scrolling box so it doesn't swamp the ballot, with where it comes from. Plain text only.
 export default function OfficialDocs({ docs, label }: { docs: OfficialDoc[]; label?: string }) {
-  if (!docs.length) return null
+  const [i, setI] = useState(0)
+  const d = docs[Math.min(i, docs.length - 1)]
+  if (!d) return null
   return (
-    <div className="space-y-1">
+    <div className="space-y-1.5">
       {label && <p className="text-[0.6875rem] font-semibold uppercase tracking-wide text-sky-800">{label}</p>}
-      {docs.map((d) => (
-        <details key={d.title} className="rounded border border-sky-200 bg-white">
-          <summary className="cursor-pointer px-2 py-1 text-xs font-semibold">{d.title}</summary>
-          <div className="max-h-96 overflow-y-auto border-t border-sky-100 px-2 py-1.5">
-            <p className="whitespace-pre-line text-xs leading-relaxed text-gray-800">{d.text}</p>
-            <a
-              href={d.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[0.6875rem] text-blue-700 underline"
+      {docs.length > 1 && (
+        <div className="flex flex-wrap gap-1" role="group" aria-label="Pick a document">
+          {docs.map((doc, j) => (
+            <button
+              key={doc.title}
+              type="button"
+              onClick={() => setI(j)}
+              aria-pressed={doc === d}
+              className={`rounded-full border px-2 py-0.5 text-[0.6875rem] font-semibold ${
+                doc === d ? 'border-blue-700 bg-blue-50 text-blue-900' : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
+              }`}
             >
-              Source: Los Angeles County sample ballot data <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
-        </details>
-      ))}
+              {doc.title}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="max-h-56 overflow-y-auto rounded-lg border border-gray-200 bg-white px-2 py-1.5">
+        {docs.length === 1 && <p className="mb-0.5 text-xs font-semibold">{d.title}</p>}
+        <p className="whitespace-pre-line text-xs leading-relaxed text-gray-800">{d.text}</p>
+        <a
+          href={d.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center gap-1 text-[0.6875rem] text-blue-700 underline"
+        >
+          Source: Los Angeles County sample ballot data <ExternalLink className="h-3 w-3" />
+        </a>
+      </div>
     </div>
   )
 }

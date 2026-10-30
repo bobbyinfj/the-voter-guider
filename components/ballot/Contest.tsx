@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Check, CheckCircle2, ChevronDown, CircleHelp, ExternalLink, Info, Link2, PlayCircle } from 'lucide-react'
+import { Check, CheckCircle2, CircleHelp, ExternalLink, Info, Link2 } from 'lucide-react'
 import MeasureExplainer, { measureOfficial } from '@/components/MeasureExplainer'
 import VideoFacade from '@/components/candidate/VideoFacade'
 import RacePositions from '@/components/candidate/RacePositions'
@@ -14,7 +14,7 @@ import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
 import type { CompareView } from '@/components/compare/compare'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
-import { VIDEO_KIND_LABELS, formatDuration, guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
+import { guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
   ABSTAIN,
   MEASURE_VALUES,
@@ -230,6 +230,35 @@ function BesideRow({
     <div id={id} className="sm:grid sm:grid-cols-3 print:block!">
       <div className="flex min-w-0 sm:border-r sm:border-gray-300 print:border-r-0">{children}</div>
       <div className="min-w-0 sm:col-span-2 print:hidden">{aside}</div>
+    </div>
+  )
+}
+
+// Expanded view, above the candidates: what the job is, beside any debate with everyone in it.
+// Retention questions repeat a heading per division, so they keep just the heading's popover.
+function ContestIntro({ item }: { item: BallotItem }) {
+  const entry = glossaryForItem(item)
+  const office = entry && !entry.measures?.length ? entry : null
+  const debates = item.office ? sharedVideos(item).length > 0 : false
+  return (
+    <div className="border-b border-sky-200 bg-sky-50/60 font-sans text-sky-950 print:hidden">
+      <p className="px-3 pt-2 text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>
+      {office || debates ? (
+        <div className="gap-4 px-3 pb-3 pt-1 sm:grid sm:grid-cols-3">
+          {office && (
+            <div className={debates ? '' : 'sm:col-span-3'}>
+              <OfficeExplainer entry={office} brief />
+            </div>
+          )}
+          {debates && (
+            <div className={`mt-2 sm:mt-0 ${office ? 'sm:col-span-2' : 'sm:col-span-2 sm:col-start-2'}`}>
+              <RaceVideos race={item} />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="h-2" />
+      )}
     </div>
   )
 }
@@ -525,7 +554,6 @@ function CandidateSnack({
   // The scorecard already shows it
   hideVideo?: boolean
 }) {
-  const [watching, setWatching] = useState(false)
   const p = c.profile
   const video = hideVideo ? null : p?.video
   return (
@@ -568,25 +596,13 @@ function CandidateSnack({
         </Link>
       )}
       <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs">
-        {video && (
-          <button
-            type="button"
-            onClick={() => setWatching((w) => !w)}
-            aria-expanded={watching}
-            className="inline-flex items-center gap-1 font-semibold text-blue-700 hover:underline"
-          >
-            <PlayCircle className="h-3.5 w-3.5" />
-            {watching ? 'Hide video' : `Watch ${VIDEO_KIND_LABELS[video.kind].toLowerCase()}`}
-            {!watching && formatDuration(video.durationSec) && ` (${formatDuration(video.durationSec)})`}
-          </button>
-        )}
         {isHttpUrl(c.website) && (
           <a href={c.website} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1 text-blue-700 hover:underline">
             Campaign site <ExternalLink className="h-3 w-3" />
           </a>
         )}
       </div>
-      {watching && video && <VideoFacade video={video} compact />}
+      {video && <VideoFacade video={video} compact />}
       {statementOf(race.metadata, c.name) && <OfficialDocs docs={[statementOf(race.metadata, c.name)!]} />}
       {note && <CandidateNote name={c.name} note={note} />}
     </div>
@@ -631,7 +647,6 @@ function Enhancements({
   electionId,
   choice,
   readOnly,
-  density,
   open,
   onChange,
   onClear,
@@ -643,7 +658,6 @@ function Enhancements({
   electionId: string
   choice?: ChoiceValue
   readOnly: boolean
-  density: Density
   open: boolean
   onChange: ContestProps['onChange']
   onClear: ContestProps['onClear']
@@ -657,24 +671,8 @@ function Enhancements({
   const source = official.sourceUrl ?? layoutOf(item)?.contestSource ?? layoutOf(item)?.source
   const selection = choice?.selection
   const people = item.office?.candidates ?? []
-  const incumbents = people.filter((c) => c.incumbent).map((c) => c.name)
-  const bite = measure
-    ? item.description
-    : incumbents.length
-      ? `Incumbent: ${incumbents.join(', ')}`
-      : people.length === 1
-        ? 'Unopposed'
-        : null
 
-  if (!open) {
-    if (density !== 'expanded' || !(bite || choice?.notes)) return null
-    return (
-      <Extra className="text-xs">
-        {bite && <p className="line-clamp-2">{bite}</p>}
-        {choice?.notes && <p className="mt-1 whitespace-pre-line italic">“{choice.notes}”</p>}
-      </Extra>
-    )
-  }
+  if (!open) return null
 
   return (
     <Extra className="space-y-3 text-sm">
@@ -816,11 +814,10 @@ export default function Contest({
   badges,
   onExpand,
 }: ContestProps) {
-  // Expanded view opens every contest's extras; a contest you open or close yourself stays that
-  // way until you switch views
-  const [override, setOverride] = useState<{ density: Density; open: boolean } | null>(null)
-  const open = override?.density === density ? override.open : density === 'expanded'
+  // Expanded view always shows every contest's extras; the Ballot view opens them one at a time
   const wide = density === 'expanded'
+  const [opened, setOpened] = useState(false)
+  const open = wide || opened
   const first = run[0]
   const printed = layoutOf(first)
   const heading = printed?.heading ?? [first.number ? `${first.number} ${first.title}` : first.title]
@@ -843,7 +840,7 @@ export default function Contest({
       <ContestHead
         heading={heading}
         instructions={instructions}
-        titleAside={glossaryForItem(first) && <OfficeExplainerButton entry={glossaryForItem(first)!} />}
+        titleAside={glossaryForItem(first) && (!wide || glossaryForItem(first)!.measures?.length) && <OfficeExplainerButton entry={glossaryForItem(first)!} />}
       >
         <div className="flex shrink-0 items-center gap-1 print:hidden">
           {decided && (
@@ -876,38 +873,20 @@ export default function Contest({
             </button>
           )}
           </span>
-          <button
-            type="button"
-            onClick={() => setOverride({ density, open: !open })}
-            aria-expanded={open}
-            aria-label={`${open ? 'Hide' : 'Show'} Voter Guider info for ${heading.join(' ')}`}
-            className="flex items-center gap-0.5 rounded bg-sky-100 px-1.5 py-0.5 text-[0.6875rem] font-semibold text-sky-800 hover:bg-sky-200"
-          >
-            <Info className="h-3.5 w-3.5" />
-            {density === 'expanded' && (open ? 'Less' : 'More')}
-            <ChevronDown className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`} />
-          </button>
+          {!wide && (
+            <button
+              type="button"
+              onClick={() => setOpened((o) => !o)}
+              aria-expanded={open}
+              aria-label={`${open ? 'Hide' : 'Show'} Voter Guider info for ${heading.join(' ')}`}
+              className="rounded-full bg-sky-100 p-1 text-sky-800 hover:bg-sky-200"
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
+          )}
         </div>
       </ContestHead>
-      {wide && open && (
-        <BesideRow
-          wide
-          aside={
-            <>
-              <p className="border-b border-sky-200 bg-sky-100 px-3 py-1 font-sans text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Voter Guider extras · not on your ballot</p>
-              {/* What the job is, before the candidates (the info panel below them skips it here).
-                  Retention questions repeat a heading per division, so they keep just the heading's popover. */}
-              {glossaryForItem(first) && !glossaryForItem(first)!.measures?.length && (
-                <div className="border-b border-sky-200 bg-sky-50 px-3 py-2 font-sans text-sky-950">
-                  <OfficeExplainer entry={glossaryForItem(first)!} />
-                </div>
-              )}
-            </>
-          }
-        >
-          <div className="flex-1" />
-        </BesideRow>
-      )}
+      {wide && <ContestIntro item={first} />}
       {run.map((item, i) => {
         const choice = choices[item.id]
         const pick = (selection: string) => stepPick(item.id, selection, choice, onChange, onClear)
@@ -928,7 +907,6 @@ export default function Contest({
             electionId={electionId}
             choice={choice}
             readOnly={readOnly}
-            density={density}
             open={open}
             onChange={onChange}
             onClear={onClear}
@@ -946,15 +924,13 @@ export default function Contest({
                     wide
                     aside={
                       <div className="space-y-1">
-                        {open && (
-                          <div className="px-2 pt-2">
-                            <MeasureBadges
-                              yes={badges?.[item.id]?.YES ?? []}
-                              no={badges?.[item.id]?.NO ?? []}
-                              labels={(layoutOf(item)?.responses?.length === 2 ? layoutOf(item)!.responses : ['Yes', 'No']) as [string, string]}
-                            />
-                          </div>
-                        )}
+                        <div className="px-2 pt-2">
+                          <MeasureBadges
+                            yes={badges?.[item.id]?.YES ?? []}
+                            no={badges?.[item.id]?.NO ?? []}
+                            labels={(layoutOf(item)?.responses?.length === 2 ? layoutOf(item)!.responses : ['Yes', 'No']) as [string, string]}
+                          />
+                        </div>
                         {strip}
                         {extras}
                       </div>
@@ -969,11 +945,6 @@ export default function Contest({
                   </BesideRow>
                 ) : (
                   <>
-                    {open && sharedVideos(item).length > 0 && (
-                      <BesideRow wide aside={<RaceVideos race={item} />}>
-                        <div className="flex-1" />
-                      </BesideRow>
-                    )}
                     <RaceChoices
                       item={item}
                       choice={choice}
@@ -981,7 +952,7 @@ export default function Contest({
                       onChange={onChange}
                       onPick={pick}
                       aside={(name) => {
-                        const c = open && item.office?.candidates.find((p) => p.name === name)
+                        const c = item.office?.candidates.find((p) => p.name === name)
                         return c ? (
                           <CandidateScorecard
                             candidate={c}
@@ -999,24 +970,16 @@ export default function Contest({
                               )
                             }
                           >
-                            <details className="group/more text-sm">
-                              <summary className="cursor-pointer text-xs font-semibold text-blue-700 hover:underline">
-                                More on {c.name}: news guide, statement, notes
-                              </summary>
-                              <div className="mt-1.5 rounded border border-sky-200 bg-white p-2">
-                                <CandidateSnack
-                                  candidate={c}
-                                  race={item}
-                                  anchorId={candidateDomId(item, c.name)}
-                                  hideVideo
-                                  note={{
-                                    text: choice?.candidateNotes?.[c.name],
-                                    onSave:
-                                      readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
-                                  }}
-                                />
-                              </div>
-                            </details>
+                            <CandidateSnack
+                              candidate={c}
+                              race={item}
+                              anchorId={candidateDomId(item, c.name)}
+                              hideVideo
+                              note={{
+                                text: choice?.candidateNotes?.[c.name],
+                                onSave: readOnly || !onCandidateNote ? undefined : (text) => onCandidateNote(item.id, c.name, text),
+                              }}
+                            />
                           </CandidateScorecard>
                         ) : null
                       }}
