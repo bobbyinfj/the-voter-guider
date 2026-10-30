@@ -45,7 +45,7 @@ export default function BallotSheet({
     groups.flatMap(([key, g]) => g.items.map((i) => [i.id, { id: key, label: g.label, count: g.items.length }] as const)),
   )
   return (
-    <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-6xl'}>
+    <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-6xl gap-2 print:max-w-none print:columns-3'}>
       {sections.map((section) => (
         <section key={section.key} aria-label={section.label} className="contents">
           {section.notice && (

@@ -227,9 +227,9 @@ function BesideRow({
 }) {
   if (!wide) return <div id={id}>{children}</div>
   return (
-    <div id={id} className="sm:grid sm:grid-cols-3">
-      <div className="flex min-w-0 sm:border-r sm:border-gray-300">{children}</div>
-      <div className="min-w-0 sm:col-span-2">{aside}</div>
+    <div id={id} className="sm:grid sm:grid-cols-3 print:block!">
+      <div className="flex min-w-0 sm:border-r sm:border-gray-300 print:border-r-0">{children}</div>
+      <div className="min-w-0 sm:col-span-2 print:hidden">{aside}</div>
     </div>
   )
 }
