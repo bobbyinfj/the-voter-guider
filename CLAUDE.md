@@ -100,8 +100,8 @@ green ✓ for Yes or red ✕ for No, solid once decided, striped while leaning, 
 (candidate races keep the decided/leaning/not-sure icons) and, under each state measure's number, a topic of a word or
 two (`lib/measureTopics.ts`) built only from words in the official title (a test checks), with that title on hover.
 **Scorecard** (`components/ballot/Scorecard.tsx`, rules in `lib/scorecard.ts`, explained to voters at
-`/how-we-score`). Their video (if any) on the left half of the column, with the one-line summary and a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label under it, details in the
-hover title) beside it; clicking an icon opens just that column's card below, clicking it again closes it. Nothing nests: a card's contents are all shown, and Expanded has no per-contest open/close. No video means no video slot (never a "no video" placeholder).
+`/how-we-score`). Their video (if any) across the whole column with the one-line summary under it, then a row of its own with a 40px icon tile per column (🚩 / 💩 / 🏅, value in a corner marker, a short label beside it, details in the
+hover title); clicking an icon opens just that column's card below the row, clicking it again closes it. Nothing nests: a card's contents are all shown, and Expanded has no per-contest open/close. No video means no video slot (never a "no video" placeholder).
 Videos follow bite / snack / meal (`videoTier`, `videoLadder` in `lib/profile.ts`): a bite is up to 2 min, a snack up to 10, a meal longer (or a
 forum part with no known end). Videos are visible by default, as thumbnails that load nothing until clicked: the most independent bite or snack leads (`leadRung`: a 1-minute meeting clip doesn't beat a 10-minute interview), else the shortest meal, with its length on the thumbnail; buttons step to the other lengths, and a whole-race debate shows in the same way. Most people spend under an hour on their whole ballot.
 A measure or race with several videos shows them as a carousel (`components/candidate/VideoCarousel.tsx`, order
