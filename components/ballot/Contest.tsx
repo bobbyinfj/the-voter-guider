@@ -9,10 +9,8 @@ import RacePositions from '@/components/candidate/RacePositions'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
-import CompareStrip from '@/components/compare/CompareStrip'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
-import type { CompareView } from '@/components/compare/compare'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
@@ -68,7 +66,6 @@ interface ContestProps {
   badges?: BadgeMap | null
   // Basic view: switch to Expanded and show this contest
   onExpand?: (domId: string) => void
-  compare?: CompareView | null
   // Other contests printed under the same jurisdiction line, for "copy a link to all of them"
   linkGroup?: { id: string; label: string; count: number }
 }
@@ -807,7 +804,6 @@ export default function Contest({
   onChange,
   onClear,
   onStatus,
-  compare,
   linkGroup,
   onCandidateNote,
   quiz,
@@ -898,7 +894,6 @@ export default function Contest({
             {quiz?.[item.id] && (
               <QuizStrip quiz={quiz[item.id]} item={item} choice={choice} readOnly={readOnly} onChange={onChange} />
             )}
-            {compare && <CompareStrip item={item} view={compare} mine={choice} />}
           </>
         )
         const extras = (
