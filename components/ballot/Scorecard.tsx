@@ -12,7 +12,9 @@ import {
   raceExtrasOf,
   sortVideos,
   leadRung,
+  shortestFirst,
   videoLadder,
+  videoTier,
   watchLength,
   type CandidateVideo,
   type VideoPick,
@@ -70,9 +72,29 @@ export function sharedVideos(race: BallotItem): CandidateVideo[] {
 }
 
 // Above the candidates: debates with everyone in them, shortest first. Thumbnails only until played.
+// With only long ones, a plain link: the candidates' own short clips are the videos to watch.
 export function RaceVideos({ race }: { race: BallotItem }) {
   const videos = sharedVideos(race)
   if (!videos.length) return null
+  if (videos.every((v) => videoTier({ video: v }) === 'meal'))
+    return (
+      <p className="flex flex-wrap items-center gap-1.5 text-[0.6875rem]">
+        <span className="font-semibold text-sky-900">Go deep, together:</span>
+        {shortestFirst(videos).map((v) => (
+          <a
+            key={v.youtubeId}
+            href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`${v.title} (${v.host ?? v.channel})`}
+            className="rounded-full border border-gray-200 bg-white px-2 py-0.5 font-semibold text-gray-700 hover:bg-gray-50"
+          >
+            ▶ {MEAL_NAMES[v.kind]} · {v.host ?? v.channel}
+            {formatDuration(v.durationSec) ? ` · ${formatDuration(v.durationSec)}` : ''}
+          </a>
+        ))}
+      </p>
+    )
   return videos.length > 1 ? <VideoCarousel videos={videos} tiny label="Watch them together" /> : (
     <div className="space-y-1">
       <p className="text-[0.6875rem] font-semibold text-sky-900">Watch them together</p>
@@ -88,7 +110,7 @@ function candidateVideos(candidate: BallotCandidate, race: BallotItem): VideoPic
   const own = sortVideos((candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))).map((video) => ({ video }))
   const forums = (raceExtrasOf(race.metadata)?.videos ?? []).flatMap((video) => {
     const them = video.participants?.find((p) => p.id === candidate.id)
-    return them?.startSec !== undefined ? [{ video, startSec: them.startSec }] : []
+    return them?.startSec !== undefined ? [{ video, startSec: them.startSec, endSec: them.endSec }] : []
   })
   return [...own, ...forums]
 }
@@ -524,7 +546,7 @@ export function CandidateScorecard({
   const current = playing === null ? null : ladder[playing]
   return (
     <div className="h-full space-y-3 bg-white px-3 py-3 font-sans print:hidden">
-      {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} tiny />}
+      {current && <VideoFacade key={playing} video={current.video} startSec={current.startSec} endSec={current.endSec} tiny />}
       <div className="min-w-0 space-y-3">
         {summary}
         <div className={`grid grid-cols-3 items-start gap-2 pr-2 ${current || summary ? 'border-t border-gray-100 pt-3' : ''}`}>

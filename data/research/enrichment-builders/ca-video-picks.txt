@@ -61,10 +61,10 @@ ca26-alex-villanueva | 1yaw5M2cOFk | interview | independent ; found=YouTube sea
 # Superior Court judicial forum at CSU Dominguez Hills, October 2026 (csuDHTV), from each candidate's
 # one-minute introduction; the moderator says Maria Ghobadi (Office 64) couldn't attend, and Anna
 # Slotky Reitano (Office 65) wasn't on the panel
-ca26-la-superior-64 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-rhonda-a-haymon@1893 ; said=1905 "I'm Rhonda Heyman, and I'm running to bring balance to the bench"
-ca26-la-superior-65 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-justin-allen-clayton@1976 ; said=1982 "My name is Justin Clayton, candidate for Superior Court Judge, Office Number 65."
-ca26-la-superior-87 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-anthony-a-j-bayne@2041,ca26-david-dejute@2102 ; said=2045 "My name is Anthony A.J. Bain. I'm a criminal defense attorney" ; said=2102 "David DeJude, I'm running for Superior Court Judge against AJ."
-ca26-la-superior-131 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-david-ross@2175,ca26-donna-tryfman@2268 ; said=2181 "My name is David Ross." ; said=2269 "My name is Donna Triffman."
+ca26-la-superior-64 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-rhonda-a-haymon@1893-1971 ; said=1905 "I'm Rhonda Heyman, and I'm running to bring balance to the bench"
+ca26-la-superior-65 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-justin-allen-clayton@1976-2041 ; said=1982 "My name is Justin Clayton, candidate for Superior Court Judge, Office Number 65."
+ca26-la-superior-87 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-anthony-a-j-bayne@2041-2093,ca26-david-dejute@2095-2165 ; said=2045 "My name is Anthony A.J. Bain. I'm a criminal defense attorney" ; said=2102 "David DeJude, I'm running for Superior Court Judge against AJ."
+ca26-la-superior-131 | zh-W4Flzx2c | forum | civic ; host=California State University, Dominguez Hills ; found=YouTube search "Los Angeles Superior Court judicial candidates forum 2026" ; with=ca26-david-ross@2175-2266,ca26-donna-tryfman@2268-2335 ; said=2181 "My name is David Ross." ; said=2269 "My name is Donna Triffman."
 
 # Batch 6 (2026-10-24): CA-38. Found in a search for LACCD forums; then both candidates were searched by name
 # ("Hilda Solis 2026 interview", "Pedro Antonio Casas", "Pedro Casas congress 38"): Casas's interviews are from 2024
@@ -86,3 +86,7 @@ ca26-araceli-martinez | yryUxeoSom0 | interview | viewpoint ; host=Talking Downe
 ca26-maria-ghobadi | NeiECRTjFO0 | interview | viewpoint ; host=Talking Downey ; found=Talking Downey channel uploads
 ca26-justin-allen-clayton | dlYtZsOASEU | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads
 ca26-anna-slotky-reitano | Wv2eQl3ukb4 | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads
+
+# Forum clips: with=<id>@START-END marks one candidate's own unbroken turn (their opening statement, or their
+# answer to the first question when the forum has none), read from the transcript: from where they start to
+# where the moderator or the next speaker takes over. The same rule for everyone in the forum.

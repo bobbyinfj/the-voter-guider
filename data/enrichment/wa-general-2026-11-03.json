@@ -1834,7 +1834,8 @@
      "published": "2026-07-17",
      "durationSec": 4029,
      "host": "League of Women Voters of Snohomish County (primary forum)",
-     "startSec": 473
+     "startSec": 473,
+     "endSec": 571
     }
    ]
   },
@@ -1882,7 +1883,8 @@
      "published": "2026-07-17",
      "durationSec": 4029,
      "host": "League of Women Voters of Snohomish County (primary forum)",
-     "startSec": 269
+     "startSec": 270,
+     "endSec": 473
     }
    ]
   },
@@ -2129,7 +2131,8 @@
      "published": "2026-10-14",
      "durationSec": 2697,
      "host": "League of Women Voters of Snohomish County",
-     "startSec": 250
+     "startSec": 254,
+     "endSec": 349
     }
    ]
   },
@@ -2372,7 +2375,8 @@
      "published": "2026-10-14",
      "durationSec": 2697,
      "host": "League of Women Voters of Snohomish County",
-     "startSec": 158
+     "startSec": 158,
+     "endSec": 248
     }
    ]
   },
@@ -15877,11 +15881,13 @@
      "participants": [
       {
        "id": "wa26-imraan-siddiqi",
-       "startSec": 158
+       "startSec": 158,
+       "endSec": 248
       },
       {
        "id": "wa26-lauren-davis",
-       "startSec": 250
+       "startSec": 254,
+       "endSec": 349
       }
      ]
     }
@@ -15901,11 +15907,13 @@
      "participants": [
       {
        "id": "wa26-danica-noble",
-       "startSec": 269
+       "startSec": 270,
+       "endSec": 473
       },
       {
        "id": "wa26-keith-scully",
-       "startSec": 473
+       "startSec": 473,
+       "endSec": 571
       }
      ]
     }

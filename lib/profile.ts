@@ -29,7 +29,7 @@ export interface CandidateVideo {
   sourceUrl?: string
   sourceLabel?: string
   // Race videos: who is in it, and where each first speaks
-  participants?: { id: string; startSec?: number }[]
+  participants?: { id: string; startSec?: number; endSec?: number }[]
 }
 
 // What a news organization's voter guide says about a candidate (data/research/enrichment-builders/
@@ -260,14 +260,16 @@ export const SNACK_SEC = 600
 
 export interface VideoPick {
   video: CandidateVideo
-  // Where their part of a forum starts, when it's not the video's own clip
+  // Their part of a forum, when it's not the video's own clip
   startSec?: number
+  endSec?: number
 }
 
 // How long it asks you to watch: a clip's own length, else the whole video's (unknown for a part of
 // a forum we only know the start of)
-export function watchLength({ video, startSec }: VideoPick): number | undefined {
+export function watchLength({ video, startSec, endSec }: VideoPick): number | undefined {
   const start = startSec ?? video.startSec
+  if (start !== undefined && endSec !== undefined) return endSec - start
   if (start !== undefined && video.endSec !== undefined && startSec === undefined) return video.endSec - start
   if (start !== undefined) return undefined
   return video.durationSec

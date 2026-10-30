@@ -189,3 +189,23 @@ test('a carousel steps from the shortest video to the longest, parts of long sho
   ]).map((x) => x.youtubeId)
   assert.deepEqual(order, ['news', 'campaign-clip', 'segment', 'debate', 'open-ended'])
 })
+
+test("a forum participant's own turn is a bite or snack, not the whole forum", () => {
+  const video = { youtubeId: 'zh-W4Flzx2c', kind: 'forum', title: 'Forum', channel: 'x', durationSec: 6223, origin: 'civic' } as CandidateVideo
+  assert.equal(videoTier({ video, startSec: 2175, endSec: 2266 }), 'bite')
+  assert.equal(videoTier({ video, startSec: 270, endSec: 473 }), 'snack')
+  assert.equal(videoTier({ video, startSec: 2175 }), 'meal')
+})
+
+test('every forum turn in the enrichment data has a sane length', () => {
+  for (const file of readdirSync('data/enrichment')) {
+    const data = JSON.parse(readFileSync(`data/enrichment/${file}`, 'utf8'))
+    for (const race of Object.values<{ videos?: CandidateVideo[] }>(data.races ?? {}))
+      for (const v of race.videos ?? [])
+        for (const p of v.participants ?? [])
+          if (p.endSec !== undefined) {
+            assert.ok(p.startSec !== undefined && p.endSec > p.startSec + 20 && p.endSec - p.startSec <= 600, `${p.id} in ${v.youtubeId}`)
+            assert.ok(!v.durationSec || p.endSec <= v.durationSec)
+          }
+  }
+})
