@@ -48,10 +48,17 @@ export interface CompareOption {
 
 const pairKinds: ComparisonKind[] = ['party', 'advocacy']
 
+// A kind's guides, left first, then right
+function pairOf(data: CompareData, kind: ComparisonKind) {
+  return data.guides
+    .filter((g) => g.kind === kind)
+    .sort((a, b) => (a.lean === b.lean ? a.name.localeCompare(b.name) : a.lean === 'left' ? -1 : 1))
+}
+
 export function compareOptions(data: CompareData): CompareOption[] {
   const options: CompareOption[] = [{ key: 'community', label: 'Voter Guider users (community tally)', group: 'Community' }]
   for (const kind of pairKinds) {
-    const pair = data.guides.filter((g) => g.kind === kind)
+    const pair = pairOf(data, kind)
     if (pair.length >= 2) options.push({ key: kind, label: pair.map((g) => g.name).join(' & '), group: KIND_LABELS[kind] })
   }
   for (const g of data.guides.filter((g) => !pairKinds.includes(g.kind))) {
@@ -64,9 +71,7 @@ export function compareView(data: CompareData, key: string): CompareView | null 
   if (key === 'community') return { key, label: 'Voter Guider users', guides: [], community: data.community }
   if (pairKinds.includes(key as ComparisonKind)) {
     // Left first, then right, always together
-    const guides = data.guides
-      .filter((g) => g.kind === key)
-      .sort((a, b) => (a.lean === b.lean ? a.name.localeCompare(b.name) : a.lean === 'left' ? -1 : 1))
+    const guides = pairOf(data, key as ComparisonKind)
     return guides.length >= 2 ? { key, label: KIND_LABELS[key as ComparisonKind], guides, community: null } : null
   }
   const g = data.guides.find((x) => x.id === key)

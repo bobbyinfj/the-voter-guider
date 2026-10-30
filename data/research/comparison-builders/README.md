@@ -9,12 +9,12 @@ Rules: every pick has a source URL and a verbatim quote that must be on the save
 read, other than a 404) are not used. Party and advocacy guides only as left/right pairs. Leave a
 contest out rather than infer a pick. PDF sources need `pip install pymupdf`.
 
-## Status (2026-10-27)
+## Status (2026-10-30)
 
 Fetches identify as Claude-User and follow robots.txt for that agent (crawler-only blocks don't apply).
 
 | Election | Seeded | Not used, and why |
 |---|---|---|
-| CA (Monterey Park) | California Democratic Party (party PDF + Riverside County Democratic Party relay; cadem.org's pages return 403 to automated requests), California Republican Party, League of Women Voters of California, LA Times editorial board (Prop 40 only: the one 2026 ballot editorial linked from its opinion pages) | SF Chronicle, Press Democrat, Mercury News, SCNG (Daily News, SGV Tribune, Register): robots.txt disallows Claude-User. Sacramento Bee: robots.txt 403. CalMatters: refuses Claude-User. LA County Democratic Party: 403 |
+| CA (Monterey Park) | California Democratic Party (party PDF + Riverside County Democratic Party relay; cadem.org's pages return 403 to automated requests), California Republican Party, League of Women Voters of California, LA Times editorial board (Prop 40 only: the one 2026 ballot editorial linked from its opinion pages), Nikkei Progressives (left) and Howard Jarvis Taxpayers Association (right) advocacy pair. NP's guide is a handwritten scan on Google Drive: picks are transcribed by hand from the Drive viewer (`transcribed` in build.py), since Drive disallows its download URLs and the PDF has no usable text | SF Chronicle, Press Democrat, Mercury News, SCNG (Daily News, SGV Tribune, Register): robots.txt disallows Claude-User. Sacramento Bee: robots.txt 403. mailchi.mp (newsletters linking guides): robots.txt disallows all agents. CalMatters: refuses Claude-User. LA County Democratic Party: 403 |
 | WA (Seattle) | — | Washington State Republican Party and King County GOP: robots.txt 403, so no fair party pair. Seattle Times and The Stranger: refuse Claude-User (robots.txt 403). LWV Washington and KUOW allow it; no 2026 general recommendations found from either yet |
 | CO (Fort Collins) | Tom Cronin and Bob Loevy, Colorado Politics columnists (kind `columnist`; each writer's verdict on every statewide measure and the rail tax, from one shared column) | Denver Post, Colorado Sun, Coloradoan, LWV Colorado: robots.txt blocks or 403. State parties allow it but publish no 2026 ballot positions we found |

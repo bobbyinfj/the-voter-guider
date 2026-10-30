@@ -354,6 +354,250 @@
           "quote": "Vote no on Prop. 40. It ignores education, housing and safety"
         }
       ]
+    },
+    {
+      "id": "nikkei-progressives",
+      "name": "Nikkei Progressives",
+      "kind": "advocacy",
+      "lean": "left",
+      "url": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+      "retrieved": "2026-10-30",
+      "about": "Little Tokyo grassroots community group; positions on statewide propositions only, voted by its members on Sept. 15, 2026. The guide is handwritten, so each quote is Voter Guider's transcription of its page.",
+      "picks": [
+        {
+          "ballot": "ca26-m-prop-1",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "1 Affordable housing bond YES"
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "2 Rainy day fund YES"
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "3 Permanent high-earner income tax YES"
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "4 Public campaign financing YES* … *For too long wealthy donors have been using their money and power to corrupt our democracy. Prop 4 will allow Californians to fight back by allowing for the creation of public financing systems to help qualified candidates compete against big money and special interests."
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "5 Recall election reform YES"
+        },
+        {
+          "ballot": "ca26-m-prop-38",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "38 Immunology research bond NO† … †Too shady, too much money!"
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "39 Voter ID NO* … *Prop 39 aims to make it harder for Californians to vote. It uses language that is purposefully misleading in order to confuse the electorate - don't let this slippery slope get started!"
+        },
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "YES",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "40 Billionaire tax YES"
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "41 Audit new tax spending NO"
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "42 Prohibit new personal property tax & retroactive taxes NO"
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "43 Higher threshold for local special taxes NO"
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "44 Clinic funding NO* … *On the surface Prop 44 seems positive. It mandates that healthcare clinics serving low-income communities spend 90% of funding on patient care; yet, if passed, Prop 44 could force a number of clinics to scale back services or even close due to sizable penalties."
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "NO",
+          "source": "https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view",
+          "quote": "45 Expedited environmental review NO"
+        }
+      ]
+    },
+    {
+      "id": "hjta",
+      "name": "Howard Jarvis Taxpayers Association",
+      "kind": "advocacy",
+      "lean": "right",
+      "url": "https://www.hjta.org/2026votingguide/",
+      "retrieved": "2026-10-30",
+      "about": "Taxpayer group behind Prop 13; its 2026 voting guide on the propositions, with HJTA-PAC candidate endorsements.",
+      "picks": [
+        {
+          "ballot": "ca26-m-prop-1",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 1 Called the \"Veterans and Affordable Housing Bond Act of 2026,\""
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 2 This measure makes changes to the Gann Limit"
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 3 Remember the \"temporary\" income tax rate hike"
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 4 Existing law, the Political Reform Act of 1974"
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 5 This measure alters the constitutional right to recall"
+        },
+        {
+          "ballot": "ca26-m-prop-37",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 37 This measure authorizes $25 billion in bonds"
+        },
+        {
+          "ballot": "ca26-m-prop-38",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 38 Another bond measure, Proposition 38 authorizes"
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "YES",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "YES on Prop. 39 Proposition 39 is the Voter ID initiative."
+        },
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 40 This is the \"wealth tax,\""
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "YES",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "YES on Prop. 41 This measure requires pre-election audits"
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "YES",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "YES on Prop. 42 In direct opposition to the \"wealth tax,\""
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "YES",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "YES on Prop. 43 Proposition 43 is the Local Taxpayer Protection Act to Save Proposition 13"
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "NO on Prop. 44 This measure requires community clinics"
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "YES",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "YES on Prop. 45 Few things have impeded rational housing policy"
+        },
+        {
+          "ballot": "ca26-governor-race",
+          "pick": "Steve Hilton",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Governor Steve Hilton"
+        },
+        {
+          "ballot": "ca26-controller-race",
+          "pick": "Herb W Morgan",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "State Controller Herb Morgan"
+        },
+        {
+          "ballot": "ca26-secretary-of-state-race",
+          "pick": "Donald P. (Don) Wagner",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Secretary of State Don Wagner"
+        },
+        {
+          "ballot": "ca26-attorney-general-race",
+          "pick": "Michael E. Gates",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Attorney General Michael Gates"
+        },
+        {
+          "ballot": "ca26-superintendent-race",
+          "pick": "Sonja Shaw",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Superintendent Sonja Shaw"
+        },
+        {
+          "ballot": "ca26-treasurer-race",
+          "pick": "Jennifer Hawks",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Treasurer Jennifer Hawks"
+        },
+        {
+          "ballot": "ca26-assembly-54-race",
+          "pick": "ALEXANDRA BRISENO",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Alexandra Briseno Assembly District 54"
+        },
+        {
+          "ballot": "ca26-laccd-2-race",
+          "pick": "KRISTINA IRWIN",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Kristina Irwin Los Angeles Community College District, Board of Trustees - Seat 2"
+        },
+        {
+          "ballot": "ca26-laccd-4-race",
+          "pick": "ELAINE ALANIZ",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Elaine Alaniz Los Angeles Community College District, Board of Trustees - Seat 4"
+        },
+        {
+          "ballot": "ca26-laccd-6-race",
+          "pick": "TONIA AREY",
+          "source": "https://www.hjta.org/2026votingguide/",
+          "quote": "Tonia Arey Los Angeles Community College District, Board of Trustees - Seat 6"
+        }
+      ]
     }
   ]
 }
