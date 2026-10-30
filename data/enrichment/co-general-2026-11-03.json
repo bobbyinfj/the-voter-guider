@@ -427,7 +427,8 @@
      "published": "2026-10-01",
      "durationSec": 5394,
      "host": "League of Women Voters",
-     "startSec": 309
+     "startSec": 309,
+     "endSec": 399
     }
    ]
   },
@@ -442,7 +443,8 @@
      "published": "2026-10-01",
      "durationSec": 5394,
      "host": "League of Women Voters",
-     "startSec": 202
+     "startSec": 202,
+     "endSec": 304
     }
    ]
   },
@@ -457,7 +459,8 @@
      "published": "2026-10-01",
      "durationSec": 5394,
      "host": "League of Women Voters",
-     "startSec": 497
+     "startSec": 500,
+     "endSec": 599
     }
    ]
   },
@@ -472,7 +475,8 @@
      "published": "2026-10-01",
      "durationSec": 5394,
      "host": "League of Women Voters",
-     "startSec": 401
+     "startSec": 403,
+     "endSec": 497
     }
    ]
   },
@@ -502,7 +506,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 289
+     "startSec": 289,
+     "endSec": 358
     }
    ]
   },
@@ -517,7 +522,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 363
+     "startSec": 363,
+     "endSec": 412
     }
    ]
   },
@@ -532,7 +538,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 411
+     "startSec": 412,
+     "endSec": 514
     }
    ]
   },
@@ -547,7 +554,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 1670
+     "startSec": 1670,
+     "endSec": 1762
     }
    ]
   },
@@ -562,7 +570,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 1766
+     "startSec": 1766,
+     "endSec": 1864
     }
    ]
   },
@@ -577,7 +586,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 2621
+     "startSec": 2621,
+     "endSec": 2721
     }
    ]
   },
@@ -592,7 +602,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 2726
+     "startSec": 2726,
+     "endSec": 2826
     }
    ]
   },
@@ -607,7 +618,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 3711
+     "startSec": 3711,
+     "endSec": 3800
     }
    ]
   },
@@ -622,7 +634,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 3806
+     "startSec": 3806,
+     "endSec": 3895
     }
    ]
   },
@@ -637,7 +650,8 @@
      "published": "2026-10-08",
      "durationSec": 5192,
      "host": "League of Women Voters",
-     "startSec": 3896
+     "startSec": 3895,
+     "endSec": 3989
     }
    ]
   }
@@ -730,15 +744,18 @@
      "participants": [
       {
        "id": "co26-shane-atkinson",
-       "startSec": 289
+       "startSec": 289,
+       "endSec": 358
       },
       {
        "id": "co26-marc-roberson",
-       "startSec": 363
+       "startSec": 363,
+       "endSec": 412
       },
       {
        "id": "co26-stephen-fowler",
-       "startSec": 411
+       "startSec": 412,
+       "endSec": 514
       }
      ]
     }
@@ -764,11 +781,13 @@
      "participants": [
       {
        "id": "co26-tina-harris",
-       "startSec": 1670
+       "startSec": 1670,
+       "endSec": 1762
       },
       {
        "id": "co26-kenneth-forsythe",
-       "startSec": 1766
+       "startSec": 1766,
+       "endSec": 1864
       }
      ]
     }
@@ -794,11 +813,13 @@
      "participants": [
       {
        "id": "co26-joann-ginal",
-       "startSec": 2621
+       "startSec": 2621,
+       "endSec": 2721
       },
       {
        "id": "co26-steve-olson",
-       "startSec": 2726
+       "startSec": 2726,
+       "endSec": 2826
       }
      ]
     }
@@ -824,15 +845,18 @@
      "participants": [
       {
        "id": "co26-patrick-edwards",
-       "startSec": 3711
+       "startSec": 3711,
+       "endSec": 3800
       },
       {
        "id": "co26-bob-overbeck",
-       "startSec": 3806
+       "startSec": 3806,
+       "endSec": 3895
       },
       {
        "id": "co26-sam-bradley",
-       "startSec": 3896
+       "startSec": 3895,
+       "endSec": 3989
       }
      ]
     }
@@ -981,11 +1005,13 @@
      "participants": [
       {
        "id": "co26-steve-yurash",
-       "startSec": 202
+       "startSec": 202,
+       "endSec": 304
       },
       {
        "id": "co26-yara-zokaie",
-       "startSec": 309
+       "startSec": 309,
+       "endSec": 399
       }
      ]
     }
@@ -1011,11 +1037,13 @@
      "participants": [
       {
        "id": "co26-andy-boesenecker",
-       "startSec": 401
+       "startSec": 403,
+       "endSec": 497
       },
       {
        "id": "co26-daniel-frick",
-       "startSec": 497
+       "startSec": 500,
+       "endSec": 599
       }
      ]
     }

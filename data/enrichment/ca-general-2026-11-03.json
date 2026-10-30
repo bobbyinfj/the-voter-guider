@@ -1857,7 +1857,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 1893
+     "startSec": 1893,
+     "endSec": 1971
     }
    ]
   },
@@ -1982,7 +1983,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 1976
+     "startSec": 1976,
+     "endSec": 2041
     }
    ]
   },
@@ -2035,7 +2037,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 2041
+     "startSec": 2041,
+     "endSec": 2093
     }
    ]
   },
@@ -2088,7 +2091,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 2102
+     "startSec": 2095,
+     "endSec": 2165
     }
    ]
   },
@@ -2141,7 +2145,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 2268
+     "startSec": 2268,
+     "endSec": 2335
     }
    ]
   },
@@ -2194,7 +2199,8 @@
      "published": "2026-10-12",
      "durationSec": 6223,
      "host": "California State University, Dominguez Hills",
-     "startSec": 2175
+     "startSec": 2175,
+     "endSec": 2266
     }
    ]
   },
@@ -2503,7 +2509,8 @@
      "participants": [
       {
        "id": "ca26-rhonda-a-haymon",
-       "startSec": 1893
+       "startSec": 1893,
+       "endSec": 1971
       }
      ]
     }
@@ -2529,7 +2536,8 @@
      "participants": [
       {
        "id": "ca26-justin-allen-clayton",
-       "startSec": 1976
+       "startSec": 1976,
+       "endSec": 2041
       }
      ]
     }
@@ -2555,11 +2563,13 @@
      "participants": [
       {
        "id": "ca26-anthony-a-j-bayne",
-       "startSec": 2041
+       "startSec": 2041,
+       "endSec": 2093
       },
       {
        "id": "ca26-david-dejute",
-       "startSec": 2102
+       "startSec": 2095,
+       "endSec": 2165
       }
      ]
     }
@@ -2585,11 +2595,13 @@
      "participants": [
       {
        "id": "ca26-david-ross",
-       "startSec": 2175
+       "startSec": 2175,
+       "endSec": 2266
       },
       {
        "id": "ca26-donna-tryfman",
-       "startSec": 2268
+       "startSec": 2268,
+       "endSec": 2335
       }
      ]
     }

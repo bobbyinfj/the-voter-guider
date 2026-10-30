@@ -37,7 +37,7 @@
       "named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -89,7 +89,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -121,7 +121,7 @@
       "named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -186,7 +186,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -240,7 +240,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -272,7 +272,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -333,7 +333,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -360,7 +360,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -385,7 +385,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -412,7 +412,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -437,7 +437,7 @@
       "YouTube audio at startSec Whisper-transcribed 2026-10-23 and matches the export's quote"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -457,7 +457,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -479,7 +479,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -499,7 +499,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -522,7 +522,7 @@
       "embedded on the campaign's site https://eleniforca.com (saved 2026-10-23)"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -545,7 +545,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -566,7 +566,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -587,7 +587,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -610,7 +610,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -633,7 +633,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -655,7 +655,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -677,7 +677,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -699,7 +699,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]
@@ -718,7 +718,8 @@
     "participants": [
      {
       "id": "ca26-rhonda-a-haymon",
-      "startSec": 1893
+      "startSec": 1893,
+      "endSec": 1971
      }
     ],
     "evidence": {
@@ -729,7 +730,7 @@
       "ca26-rhonda-a-haymon: transcript at 1905s: \"I'm Rhonda Heyman, and I'm running to bring balance to the bench\" (transcribed as \"heyman\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -746,7 +747,8 @@
     "participants": [
      {
       "id": "ca26-justin-allen-clayton",
-      "startSec": 1976
+      "startSec": 1976,
+      "endSec": 2041
      }
     ],
     "evidence": {
@@ -757,7 +759,7 @@
       "ca26-justin-allen-clayton: transcript at 1982s: \"My name is Justin Clayton, candidate for Superior Court Judge, Office Number 65.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -774,11 +776,13 @@
     "participants": [
      {
       "id": "ca26-anthony-a-j-bayne",
-      "startSec": 2041
+      "startSec": 2041,
+      "endSec": 2093
      },
      {
       "id": "ca26-david-dejute",
-      "startSec": 2102
+      "startSec": 2095,
+      "endSec": 2165
      }
     ],
     "evidence": {
@@ -790,7 +794,7 @@
       "ca26-david-dejute: transcript at 2102s: \"David DeJude, I'm running for Superior Court Judge against AJ.\" (transcribed as \"dejude\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -807,11 +811,13 @@
     "participants": [
      {
       "id": "ca26-david-ross",
-      "startSec": 2175
+      "startSec": 2175,
+      "endSec": 2266
      },
      {
       "id": "ca26-donna-tryfman",
-      "startSec": 2268
+      "startSec": 2268,
+      "endSec": 2335
      }
     ],
     "evidence": {
@@ -823,7 +829,7 @@
       "ca26-donna-tryfman: transcript at 2269s: \"My name is Donna Triffman.\" (transcribed as \"triffman\")"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]
@@ -846,7 +852,7 @@
       "\"Prop 1\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -867,7 +873,7 @@
       "\"Prop 2\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -888,7 +894,7 @@
       "\"Prop 3\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -909,7 +915,7 @@
       "\"Prop 4\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -930,7 +936,7 @@
       "\"Prop 5\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -951,7 +957,7 @@
       "\"Prop 37\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -972,7 +978,7 @@
       "\"Prop 38\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -993,7 +999,7 @@
       "\"Prop 39\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1014,7 +1020,7 @@
       "\"Prop 40\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1035,7 +1041,7 @@
       "\"Prop 41\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1056,7 +1062,7 @@
       "\"Prop 42\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1077,7 +1083,7 @@
       "\"Prop 43\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1098,7 +1104,7 @@
       "\"Prop 44\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1119,7 +1125,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1138,7 +1144,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1157,7 +1163,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1177,7 +1183,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1198,7 +1204,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1220,7 +1226,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1240,7 +1246,7 @@
       "\"Prop 45\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1262,7 +1268,7 @@
       "\"Measure A\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1284,7 +1290,7 @@
       "\"Measure E\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1307,7 +1313,7 @@
       "\"Measure HOM\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1330,7 +1336,7 @@
       "\"Measure AAA\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-28"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]

@@ -3,10 +3,10 @@
 # (cache/transcripts/<id>.json), at the second given; start= is where each candidate's part begins.
 
 # League of Women Voters forum for Larimer County offices, 10/7/26 (the channel first titled it 10/8), on the City of Fort Collins channel
-co26-larimer-commissioner-1 | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-shane-atkinson@289,co26-marc-roberson@363,co26-stephen-fowler@411 ; said=303 "My name is Shane Atkinson, and I'm running for Larimer County Commissioner, District 1." ; said=368 "my name is Mark Roberson" ; said=411 "I'm Stephen Fowler"
-co26-larimer-clerk | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-tina-harris@1670,co26-kenneth-forsythe@1766 ; said=1683 "My name is Tina Harris. I am the current Larimer County Clerk and Recorder." ; said=1778 "My name is Ken Forsythe."
-co26-larimer-treasurer | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-joann-ginal@2621,co26-steve-olson@2726 ; said=2607 "we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson."
-co26-larimer-assessor | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-patrick-edwards@3711,co26-bob-overbeck@3806,co26-sam-bradley@3896 ; said=3698 "We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley." ; said=3812 "I'm Bob Overbeck." ; said=3904 "My name is Sam Bradley."
+co26-larimer-commissioner-1 | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-shane-atkinson@289-358,co26-marc-roberson@363-412,co26-stephen-fowler@412-514 ; said=303 "My name is Shane Atkinson, and I'm running for Larimer County Commissioner, District 1." ; said=368 "my name is Mark Roberson" ; said=411 "I'm Stephen Fowler"
+co26-larimer-clerk | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-tina-harris@1670-1762,co26-kenneth-forsythe@1766-1864 ; said=1683 "My name is Tina Harris. I am the current Larimer County Clerk and Recorder." ; said=1778 "My name is Ken Forsythe."
+co26-larimer-treasurer | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-joann-ginal@2621-2721,co26-steve-olson@2726-2826 ; said=2607 "we turn to County Treasurer, and our candidates are Joanne Ginnall and Steve Olson."
+co26-larimer-assessor | MzQjjlUiVD8 | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-patrick-edwards@3711-3800,co26-bob-overbeck@3806-3895,co26-sam-bradley@3895-3989 ; said=3698 "We have three candidates, Patrick Edwards, Bob Overbeck, and Sam Bradley." ; said=3812 "I'm Bob Overbeck." ; said=3904 "My name is Sam Bradley."
 
 # Statewide debates, participants as named by the publisher
 co26-us-senate | 0B-B0dsDjvs | debate | independent ; found=YouTube search "Colorado US Senate debate 2026" ; with=co26-john-hickenlooper,co26-mark-baisley
@@ -41,8 +41,8 @@ co26-michael-j-allen | n0afj555jsQ | interview | independent ; start=76 ; found=
 co26-mark-baisley | hRaPAmr3000 | interview | independent ; start=484 ; said=506 "And joining me now here on Colorado Point of View is State Senator Mark Baisley." ; found=YouTube search "Colorado US Senate debate 2026 Hickenlooper Baisley"
 
 # League of Women Voters forum, State House districts 52 and 53, 9/30/26, on the City of Fort Collins channel
-co26-house-52 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-steve-yurash@202,co26-yara-zokaie@309 ; said=212 "I'm Steve Urash with the Colorado" ; said=265 "my socialist opponent Yara Zokai's attack"
-co26-house-53 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-andy-boesenecker@401,co26-daniel-frick@497 ; said=188 "Andy Bazenecker" ; said=508 "I'm Daniel Frick."
+co26-house-52 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-steve-yurash@202-304,co26-yara-zokaie@309-399 ; said=212 "I'm Steve Urash with the Colorado" ; said=265 "my socialist opponent Yara Zokai's attack"
+co26-house-53 | OlEsdZF4CYs | forum | independent ; host=League of Women Voters ; found=City of Fort Collins channel ; with=co26-andy-boesenecker@403-497,co26-daniel-frick@500-599 ; said=188 "Andy Bazenecker" ; said=508 "I'm Daniel Frick."
 
 # Measures: local news explainers
 co26-m-amendment-82 | 565glUV-iNA | explainer | independent ; found=YouTube search "9NEWS explaining Colorado amendment 2026"
@@ -79,3 +79,7 @@ co26-janice-marchman | _kZfn8SP614 | statement | campaign ; source=https://www.y
 # Viewpoint outlets (allowed from 2026-10-27, the user's call). CO-2: the only 2026 video of Kelley Anne
 # Dennison found by name is Dr. Drew's interview; Gaylon Kent's channel has nothing from 2026.
 co26-kelley-anne-dennison | jJO9L2xOGb4 | interview | viewpoint ; host=Dr. Drew ; found=YouTube search "Kelley Dennison congress"
+
+# Forum clips: with=<id>@START-END marks one candidate's own unbroken turn (their opening statement, or their
+# answer to the first question when the forum has none), read from the transcript: from where they start to
+# where the moderator or the next speaker takes over. The same rule for everyone in the forum.

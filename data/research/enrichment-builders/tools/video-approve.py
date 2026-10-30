@@ -1,7 +1,7 @@
 # Turn reviewed video picks into <state>-videos.json, re-checking each one and recording the
 # checks (kept as `evidence`, which build.py leaves out of what voters see). One pick per line:
 #   <owner> | <youtubeId> | <kind> | <origin> [; host=Name] [; start=SEC] [; end=SEC]
-#           [; with=<candidate-id>@SEC,<candidate-id>,...] [; source=https://... ; label=Text]
+#           [; with=<candidate-id>@SEC,<candidate-id>@START-END,<candidate-id>,...] [; source=https://... ; label=Text]
 #           [; said=SEC "verbatim words"] [; named=description|title]
 # owner is a candidate id, an office id (a race video) or a measure id. Checks, all required:
 #   - YouTube oEmbed resolves (title and channel are copied from it, never typed)
@@ -181,13 +181,14 @@ def approve(state):
             if not w:
                 continue
             cid, _, sec = w.partition('@')
+            sec, _, end = sec.partition('-')
             if office_of.get(cid) != owner:
                 errors.append(f'{where}: {cid} is not in {owner}'); continue
             how = named(cid)
             if not how:
                 errors.append(f'{where}: participant {person[cid]} not named or quoted'); continue
             checks.append(f'{cid}: {how}')
-            people.append({'id': cid, **({'startSec': int(sec)} if sec else {})})
+            people.append({'id': cid, **({'startSec': int(sec)} if sec else {}), **({'endSec': int(end)} if end else {})})
         if people:
             entry['participants'] = people
         checks += o.get('note', [])

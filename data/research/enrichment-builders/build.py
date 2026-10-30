@@ -223,7 +223,7 @@ def build(state, offline=False):
         vids = videos['candidates'].get(cid, [])
         check_videos(cid, vids)
         # Race forums and debates they're in, from where they first speak when we know it
-        in_race = [{**{k: x for k, x in shown(v).items() if k != 'participants'}, **({'startSec': p['startSec']} if 'startSec' in p else {})}
+        in_race = [{**{k: x for k, x in shown(v).items() if k != 'participants'}, **{k: p[k] for k in ('startSec', 'endSec') if k in p}}
                    for v in race_videos.get(office_of[cid], []) for p in v.get('participants', []) if p['id'] == cid]
         # The race copy (host, start) wins over the same video listed for them alone
         vids = [v for v in vids if v['youtubeId'] not in {r['youtubeId'] for r in in_race}] + in_race

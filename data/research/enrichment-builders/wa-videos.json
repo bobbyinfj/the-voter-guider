@@ -126,7 +126,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -176,7 +176,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -379,7 +379,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -409,7 +409,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -545,7 +545,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -568,7 +568,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -587,7 +587,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -608,7 +608,7 @@
       "named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]
@@ -641,7 +641,7 @@
       "wa26-joe-fitzgibbon: named in the title"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -672,7 +672,7 @@
       "wa26-jesse-salomon: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -700,7 +700,7 @@
       "wa26-jesse-salomon: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -730,7 +730,7 @@
       "wa26-hannah-sabio-howell: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -758,7 +758,7 @@
       "wa26-hannah-sabio-howell: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -788,7 +788,7 @@
       "wa26-will-dreher: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -817,7 +817,7 @@
       "wa26-gerry-pollet: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -848,7 +848,7 @@
       "wa26-sharon-tomiko-santos: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -879,7 +879,7 @@
       "wa26-chipalo-street: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -896,11 +896,13 @@
     "participants": [
      {
       "id": "wa26-imraan-siddiqi",
-      "startSec": 158
+      "startSec": 158,
+      "endSec": 248
      },
      {
       "id": "wa26-lauren-davis",
-      "startSec": 250
+      "startSec": 254,
+      "endSec": 349
      }
     ],
     "evidence": {
@@ -912,7 +914,7 @@
       "wa26-lauren-davis: transcript at 80s: \"Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -929,11 +931,13 @@
     "participants": [
      {
       "id": "wa26-danica-noble",
-      "startSec": 269
+      "startSec": 270,
+      "endSec": 473
      },
      {
       "id": "wa26-keith-scully",
-      "startSec": 473
+      "startSec": 473,
+      "endSec": 571
      }
     ],
     "evidence": {
@@ -945,7 +949,7 @@
       "wa26-keith-scully: transcript at 92s: \"are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully.\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -975,7 +979,7 @@
       "wa26-doug-basler: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1006,7 +1010,7 @@
       "wa26-rodney-star-thornley: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1033,7 +1037,7 @@
       "wa26-sandra-stephens: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1060,7 +1064,7 @@
       "wa26-nirav-sheth: named in the description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]
@@ -1083,7 +1087,7 @@
       "\"Seattle Prop 1\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1103,7 +1107,7 @@
       "\"Seattle Prop 1\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1123,7 +1127,7 @@
       "\"Seattle Prop 1\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1144,7 +1148,7 @@
       "\"IP26-645\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    },
    {
@@ -1163,7 +1167,7 @@
       "\"IP26-645\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1184,7 +1188,7 @@
       "\"IL26-638\" named in the title or description"
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ],
@@ -1206,7 +1210,7 @@
       "transcript: 233 \"this Parents\\' Bill of Rights deals with parental access to student records\""
      ],
      "verifiedBy": "claude",
-     "verifiedAt": "2026-10-23"
+     "verifiedAt": "2026-10-30"
     }
    }
   ]

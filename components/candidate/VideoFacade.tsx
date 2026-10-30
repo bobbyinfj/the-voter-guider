@@ -1,9 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Play } from 'lucide-react'
 import OriginBadge from './OriginBadge'
 import { VIDEO_KIND_LABELS, formatDuration, isHttpUrl, type CandidateVideo } from '@/lib/profile'
+
+// One player at a time: every open player reports its state over YouTube's iframe API, and when one
+// starts, the others pause. Covers restarting a paused player too, which we can't see as a click.
+const players = new Set<HTMLIFrameElement>()
+const command = (frame: HTMLIFrameElement, message: object) => frame.contentWindow?.postMessage(JSON.stringify(message), '*')
+
+function onPlayerMessage(e: MessageEvent) {
+  if (e.origin !== 'https://www.youtube-nocookie.com' || typeof e.data !== 'string') return
+  let state: unknown
+  try {
+    state = JSON.parse(e.data)?.info?.playerState
+  } catch {
+    return
+  }
+  if (state !== 1) return
+  for (const frame of players) {
+    if (frame.contentWindow !== e.source) command(frame, { event: 'command', func: 'pauseVideo', args: [] })
+  }
+}
 
 // Thumbnail first; the YouTube player (privacy-enhanced domain) loads only when clicked.
 // `tiny` (scorecard cells): a one-line caption, with the title on hover. `startSec` overrides the
@@ -13,20 +32,33 @@ export default function VideoFacade({
   compact = false,
   tiny = false,
   startSec,
+  endSec,
 }: {
   video: CandidateVideo
   compact?: boolean
   tiny?: boolean
   startSec?: number
+  endSec?: number
 }) {
   const [playing, setPlaying] = useState(false)
+  const frame = useRef<HTMLIFrameElement>(null)
+  useEffect(() => {
+    const el = frame.current
+    if (!playing || !el) return
+    if (!players.size) window.addEventListener('message', onPlayerMessage)
+    players.add(el)
+    return () => {
+      players.delete(el)
+      if (!players.size) window.removeEventListener('message', onPlayerMessage)
+    }
+  }, [playing])
   const start = startSec ?? video.startSec
-  const end = startSec === undefined ? video.endSec : undefined
+  const end = endSec ?? (startSec === undefined ? video.endSec : undefined)
   const clip = start !== undefined && end !== undefined ? formatDuration(end - start) : null
   const duration = clip ?? formatDuration(video.durationSec)
   const at = start ? ` · from ${clock(start)}` : ''
   const label = `${VIDEO_KIND_LABELS[video.kind]} · ${video.channel}${duration ? ` · ${duration}` : ''}${clip ? '' : at}`
-  const params = `autoplay=1&rel=0${start ? `&start=${start}` : ''}${end ? `&end=${end}` : ''}`
+  const params = `autoplay=1&rel=0&enablejsapi=1${start ? `&start=${start}` : ''}${end ? `&end=${end}` : ''}`
   const watchUrl = `https://www.youtube.com/watch?v=${video.youtubeId}${start ? `&t=${start}s` : ''}`
   const source = video.sourceUrl && isHttpUrl(video.sourceUrl) ? video.sourceUrl : null
 
@@ -35,6 +67,8 @@ export default function VideoFacade({
       <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
         {playing ? (
           <iframe
+            ref={frame}
+            onLoad={(e) => command(e.currentTarget, { event: 'listening' })}
             src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?${params}`}
             title={video.title}
             allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
