@@ -14,6 +14,10 @@
 #     person.
 #   - Party and advocacy guides are only published in left/right pairs (checked again at seed).
 #   - We leave a contest out rather than infer a pick.
+#   - A scanned, handwritten guide has no text to check against. Such a guide sets
+#     `transcribed={'title': ...}`: the build checks the saved page is that document (its title),
+#     every pick names the page it's on, and the guide's `about` says the quotes are our
+#     transcription. Its quotes are typed from the page by hand, not machine-checked.
 #
 # Usage: python3 build.py ca|wa|co
 # cache/ (saved pages) is not committed; delete a file there to re-fetch it.
@@ -80,8 +84,8 @@ def norm(s):
     return re.sub(r'\s+', ' ', s).strip()
 
 
-def pick(ballot, choice, source, quote, alias=None):
-    return {'ballot': ballot, 'pick': choice, 'source': source, 'quote': quote, **({'alias': alias} if alias else {})}
+def pick(ballot, choice, source, quote, alias=None, page=None):
+    return {'ballot': ballot, 'pick': choice, 'source': source, 'quote': quote, **({'alias': alias} if alias else {}), **({'page': page} if page else {})}
 
 
 def build(state):
@@ -102,7 +106,11 @@ def build(state):
                 texts[p['source']] = (raw, norm(page_text(raw)))
                 retrieved.append(fetched)
             raw, text = texts[p['source']]
-            assert norm(p['quote']) in text, f"{g['id']}: quote not on {p['source']}: {p['quote']!r}"
+            if g.get('transcribed'):
+                assert g['transcribed']['title'] in text, f"{g['id']}: {p['source']} isn't {g['transcribed']['title']!r}"
+                assert p.get('page') and 'transcription' in g['about'], f"{g['id']}: transcribed pick needs a page and a disclosed transcription"
+            else:
+                assert norm(p['quote']) in text, f"{g['id']}: quote not on {p['source']}: {p['quote']!r}"
             if p['ballot'] in options:
                 assert p['pick'] in options[p['ballot']], f"{g['id']}: {p['pick']!r} isn't running in {p['ballot']}"
             else:
@@ -112,9 +120,9 @@ def build(state):
         guides.append({
             'id': g['id'], 'name': g['name'], 'kind': g['kind'], **({'lean': g['lean']} if g.get('lean') else {}),
             'url': g['url'], 'retrieved': min(retrieved), 'about': g['about'],
-            'picks': [{k: v for k, v in p.items() if k != 'alias'} for p in g['picks']],
+            'picks': [{k: v for k, v in p.items() if k not in ('alias', 'page')} for p in g['picks']],
         })
-        print(f"{g['id']}: {len(g['picks'])} picks verified")
+        print(f"{g['id']}: {len(g['picks'])} picks {'transcribed (by hand, not machine-checked)' if g.get('transcribed') else 'verified'}")
     out = ROOT / 'data' / 'comparisons' / f'{slug}.json'
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps({'electionSlug': slug, 'guides': guides}, indent=2, ensure_ascii=False) + '\n')

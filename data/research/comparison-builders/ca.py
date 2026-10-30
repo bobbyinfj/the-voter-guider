@@ -85,6 +85,64 @@ lwvc = [
 LAT_40 = 'https://www.latimes.com/opinion/story/2026-09-06/editorial-vote-no-on-proposition-40'
 latimes = [pick(prop(40), 'NO', LAT_40, 'Vote no on Prop. 40. It ignores education, housing and safety')]
 
+# ── Nikkei Progressives (left) ───────────────────────────────────────────────
+# A handwritten, collaged guide (8 pages, scanned to PDF) shared on Google Drive. drive.google.com
+# allows Claude-User on /file/ view pages but disallows the download endpoints, so the guide was
+# read in the Drive viewer and each row transcribed from pages 4–6 by hand (build.py `transcribed`).
+# The newsletter that links it (mailchi.mp) disallows all agents. Prop 37: "No recommendation".
+NP = 'https://drive.google.com/file/d/1Gz61OLtvvaw3SieepOQPIPZf8pm18Gdj/view'
+np_props = [
+    ('1', 'YES', 4, '1 Affordable housing bond YES'),
+    ('2', 'YES', 4, '2 Rainy day fund YES'),
+    ('3', 'YES', 4, '3 Permanent high-earner income tax YES'),
+    ('4', 'YES', 4, '4 Public campaign financing YES* … *For too long wealthy donors have been using their money and power to corrupt our democracy. Prop 4 will allow Californians to fight back by allowing for the creation of public financing systems to help qualified candidates compete against big money and special interests.'),
+    ('5', 'YES', 4, '5 Recall election reform YES'),
+    ('38', 'NO', 5, '38 Immunology research bond NO† … †Too shady, too much money!'),
+    ('39', 'NO', 5, "39 Voter ID NO* … *Prop 39 aims to make it harder for Californians to vote. It uses language that is purposefully misleading in order to confuse the electorate - don't let this slippery slope get started!"),
+    ('40', 'YES', 5, '40 Billionaire tax YES'),
+    ('41', 'NO', 6, '41 Audit new tax spending NO'),
+    ('42', 'NO', 6, '42 Prohibit new personal property tax & retroactive taxes NO'),
+    ('43', 'NO', 6, '43 Higher threshold for local special taxes NO'),
+    ('44', 'NO', 6, '44 Clinic funding NO* … *On the surface Prop 44 seems positive. It mandates that healthcare clinics serving low-income communities spend 90% of funding on patient care; yet, if passed, Prop 44 could force a number of clinics to scale back services or even close due to sizable penalties.'),
+    ('45', 'NO', 6, '45 Expedited environmental review NO'),
+]
+nikkei = [pick(prop(n), v, NP, q, page=pg) for n, v, pg, q in np_props]
+
+# ── Howard Jarvis Taxpayers Association (right) ──────────────────────────────
+# Its 2026 voting guide page; candidate picks are HJTA-PAC's. It names two Court of Appeal
+# justices (Tamzarian, Mori) it disagrees with but makes no retention recommendation, so no pick.
+HJTA = 'https://www.hjta.org/2026votingguide/'
+hjta = [
+    pick(prop(n), v, HJTA, q)
+    for n, v, q in [
+        ('1', 'NO', 'NO on Prop. 1 Called the "Veterans and Affordable Housing Bond Act of 2026,"'),
+        ('2', 'NO', 'NO on Prop. 2 This measure makes changes to the Gann Limit'),
+        ('3', 'NO', 'NO on Prop. 3 Remember the "temporary" income tax rate hike'),
+        ('4', 'NO', 'NO on Prop. 4 Existing law, the Political Reform Act of 1974'),
+        ('5', 'NO', 'NO on Prop. 5 This measure alters the constitutional right to recall'),
+        ('37', 'NO', 'NO on Prop. 37 This measure authorizes $25 billion in bonds'),
+        ('38', 'NO', 'NO on Prop. 38 Another bond measure, Proposition 38 authorizes'),
+        ('39', 'YES', 'YES on Prop. 39 Proposition 39 is the Voter ID initiative.'),
+        ('40', 'NO', 'NO on Prop. 40 This is the "wealth tax,"'),
+        ('41', 'YES', 'YES on Prop. 41 This measure requires pre-election audits'),
+        ('42', 'YES', 'YES on Prop. 42 In direct opposition to the "wealth tax,"'),
+        ('43', 'YES', 'YES on Prop. 43 Proposition 43 is the Local Taxpayer Protection Act to Save Proposition 13'),
+        ('44', 'NO', 'NO on Prop. 44 This measure requires community clinics'),
+        ('45', 'YES', 'YES on Prop. 45 Few things have impeded rational housing policy'),
+    ]
+] + [
+    pick(race('governor'), 'Steve Hilton', HJTA, 'Governor Steve Hilton'),
+    pick(race('controller'), 'Herb W Morgan', HJTA, 'State Controller Herb Morgan', alias='ballot: HERB W MORGAN'),
+    pick(race('secretary-of-state'), 'Donald P. (Don) Wagner', HJTA, 'Secretary of State Don Wagner', alias='ballot: DONALD P. (DON) WAGNER'),
+    pick(race('attorney-general'), 'Michael E. Gates', HJTA, 'Attorney General Michael Gates', alias='ballot: MICHAEL E. GATES'),
+    pick(race('superintendent'), 'Sonja Shaw', HJTA, 'Superintendent Sonja Shaw'),
+    pick(race('treasurer'), 'Jennifer Hawks', HJTA, 'Treasurer Jennifer Hawks'),
+    pick(race('assembly-54'), 'ALEXANDRA BRISENO', HJTA, 'Alexandra Briseno Assembly District 54'),
+    pick(race('laccd-2'), 'KRISTINA IRWIN', HJTA, 'Kristina Irwin Los Angeles Community College District, Board of Trustees - Seat 2'),
+    pick(race('laccd-4'), 'ELAINE ALANIZ', HJTA, 'Elaine Alaniz Los Angeles Community College District, Board of Trustees - Seat 4'),
+    pick(race('laccd-6'), 'TONIA AREY', HJTA, 'Tonia Arey Los Angeles Community College District, Board of Trustees - Seat 6'),
+]
+
 
 def lwvc_icons(texts):
     raw = texts[LWVC][0].decode('utf-8', 'replace')
@@ -110,4 +168,11 @@ GUIDES = [
          about='Nonpartisan; recommends on statewide propositions only, never candidates.', picks=lwvc, checks=[lwvc_icons]),
     dict(id='la-times', name='Los Angeles Times editorial board', kind='editorial', url=LAT_40,
          about='The one 2026 ballot editorial we found linked from the paper\'s opinion pages: Prop 40.', picks=latimes),
+    dict(id='nikkei-progressives', name='Nikkei Progressives', kind='advocacy', lean='left', url=NP,
+         about='Little Tokyo grassroots community group; positions on statewide propositions only, voted by its members on Sept. 15, 2026. '
+               'The guide is handwritten, so each quote is Voter Guider\'s transcription of its page.',
+         picks=nikkei, transcribed={'title': '2026 NP Voter Guide Printable'}),
+    dict(id='hjta', name='Howard Jarvis Taxpayers Association', kind='advocacy', lean='right', url=HJTA,
+         about='Taxpayer group behind Prop 13; its 2026 voting guide on the propositions, with HJTA-PAC candidate endorsements.',
+         picks=hjta),
 ]
