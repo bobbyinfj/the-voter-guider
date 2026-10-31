@@ -165,6 +165,8 @@ As a voter, I want the 💩 meter to rest on more than PolitiFact.
 - Each outlet's verdict maps to one shared scale, published on `/how-we-score`; a claim checked by several outlets counts once.
 - Show a range and a claim count, not one precise-looking percent, and keep a minimum number of claims.
 - Say plainly that it measures the share of checked claims, because fact-checkers choose what to check.
+- Survey on 2026-10-30, 103 federal and state candidates: PolitiFact has rulings on 5, and only one reaches the 5-ruling minimum. FactCheck.org has a person page for 6, mostly older articles in prose with no rating, so they can't feed a score without us inventing one. Snopes search returned 402 to our fetcher.
+- So the Google Fact Check Tools API, which returns each outlet's own rating by claimant, is the first step. It needs a free API key (`GOOGLE_FACTCHECK_API_KEY`, used only at build time).
 
 **E-1. Endorsements for the rest of California and Colorado**
 As a voter, I want to see who backs each candidate, not only in Washington and the LA Sheriff race.
