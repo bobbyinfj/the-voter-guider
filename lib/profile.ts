@@ -30,6 +30,8 @@ export interface CandidateVideo {
   sourceLabel?: string
   // Race videos: who is in it, and where each first speaks
   participants?: { id: string; startSec?: number; endSec?: number }[]
+  // A long interview's short part: the candidate's first full answer, from the transcript
+  clip?: { startSec: number; endSec: number }
 }
 
 // What a news organization's voter guide says about a candidate (data/research/enrichment-builders/

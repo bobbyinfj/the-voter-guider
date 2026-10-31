@@ -1,6 +1,6 @@
 # Turn reviewed video picks into <state>-videos.json, re-checking each one and recording the
 # checks (kept as `evidence`, which build.py leaves out of what voters see). One pick per line:
-#   <owner> | <youtubeId> | <kind> | <origin> [; host=Name] [; start=SEC] [; end=SEC]
+#   <owner> | <youtubeId> | <kind> | <origin> [; host=Name] [; start=SEC] [; end=SEC] [; clip=START-END]
 #           [; with=<candidate-id>@SEC,<candidate-id>@START-END,<candidate-id>,...] [; source=https://... ; label=Text]
 #           [; said=SEC "verbatim words"] [; named=description|title]
 # owner is a candidate id, an office id (a race video) or a measure id. Checks, all required:
@@ -143,6 +143,9 @@ def approve(state):
         for k in ('host', 'source', 'label'):
             if k in o:
                 entry[{'source': 'sourceUrl', 'label': 'sourceLabel'}.get(k, k)] = o[k][0]
+        if 'clip' in o:
+            start, end = map(int, o['clip'][0].split('-'))
+            entry['clip'] = {'startSec': start, 'endSec': end}
         for k in ('start', 'end'):
             if k in o:
                 entry[f'{k}Sec'] = int(o[k][0])

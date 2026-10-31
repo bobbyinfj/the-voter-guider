@@ -2652,7 +2652,11 @@
      "channel": "Talking Downey",
      "published": "2026-05-11",
      "durationSec": 1828,
-     "host": "Talking Downey"
+     "host": "Talking Downey",
+     "clip": {
+      "startSec": 118,
+      "endSec": 193
+     }
     }
    ]
   },
@@ -3077,7 +3081,11 @@
      "title": "Our Community-Meet Hilda Solis, Candidate for US Congress, 38th District",
      "channel": "OC Talk Radio",
      "published": "2026-09-09",
-     "durationSec": 1802
+     "durationSec": 1802,
+     "clip": {
+      "startSec": 81,
+      "endSec": 204
+     }
     }
    ]
   },
@@ -3138,7 +3146,11 @@
      "channel": "Talking Downey",
      "published": "2026-10-23",
      "durationSec": 1596,
-     "host": "Talking Downey"
+     "host": "Talking Downey",
+     "clip": {
+      "startSec": 55,
+      "endSec": 192
+     }
     }
    ]
   },
