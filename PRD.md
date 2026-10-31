@@ -158,6 +158,12 @@ As a voter, I want to see how close a race has been, so I can tell what's really
 
 ### Next: quality of what voters see
 
+**OPS-1. Create the Fact Check API key (blocks F-1)**
+To do once the Google account is cleaned up:
+- In Google Cloud, turn on the Fact Check Tools API and create an API key, restricted to that API.
+- Add it to `.env.local` as `GOOGLE_FACTCHECK_API_KEY`. It's used only at build time, never in the site.
+- Then run all 103 federal and state candidates through it and report the real coverage before building anything.
+
 **F-1. Poop meter from several fact-checkers**
 As a voter, I want the 💩 meter to rest on more than PolitiFact.
 - Add sources whose `robots.txt` allows Claude-User: FactCheck.org, Snopes, Lead Stories, Washington Post, 9NEWS. AP and Reuters disallow it. CalMatters returned 403 on the check.
