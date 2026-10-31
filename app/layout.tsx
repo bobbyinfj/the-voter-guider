@@ -20,7 +20,7 @@ const roboto = Roboto({ variable: "--font-roboto", subsets: ["latin"], weight: [
 const robotoCondensed = Roboto_Condensed({ variable: "--font-roboto-condensed", subsets: ["latin"], preload: false });
 
 export const metadata: Metadata = {
-  title: "The VoTer GuidEr — Know Your Whole Ballot",
+  title: "The Voter Guider — Know Your Whole Ballot",
   description: "An unofficial, independent voter guide (not a government site). Every race and measure on your ballot, sourced from official election offices, with a quiz comparing candidates’ stated positions. Build and share your voter guide.",
   // Moleses, our nearly blind mole wizard (head crop of public/moleses-2.png)
   // app/favicon.ico is linked automatically

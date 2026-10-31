@@ -3,7 +3,7 @@ import { FACTCHECK_MIN, FLAG_RULES, RULING_LABELS, FALSEISH } from "@/lib/scorec
 import { MolesesAvatar } from "@/components/Moleses";
 
 export const metadata: Metadata = {
-  title: "How we score candidates — The VoTer GuidEr",
+  title: "How we score candidates — The Voter Guider",
   description: "How the Expanded view's scorecard is built: videos, flags, the 💩 meter and badges, each from a named source.",
 };
 

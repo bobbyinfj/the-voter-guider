@@ -4,7 +4,7 @@ import OfficeExplainer from "@/components/ballot/OfficeExplainer";
 import { OFFICE_GLOSSARY, STATE_NAMES } from "@/lib/glossary";
 
 export const metadata: Metadata = {
-  title: "What these offices do — The VoTer GuidEr",
+  title: "What these offices do — The Voter Guider",
   description: "Plain-English explanations of the offices on your ballot, each from an official source, and how to choose between candidates.",
 };
 

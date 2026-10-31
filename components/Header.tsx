@@ -28,7 +28,7 @@ export default function Header() {
             </Link>
             <Link href="/" className="hover:opacity-80 transition-opacity">
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">The VoTer GuidEr</h1>
+                <h1 className="text-2xl font-bold text-gray-800">The Voter Guider</h1>
                 <p className="text-sm text-gray-600">Know your whole ballot</p>
               </div>
             </Link>
