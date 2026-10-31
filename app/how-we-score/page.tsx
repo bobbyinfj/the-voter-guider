@@ -111,6 +111,27 @@ export default function HowWeScorePage() {
         </ul>
       </section>
 
+      <section id="stakes" className="scroll-mt-4 space-y-2">
+        <h2 className="text-lg font-bold">Stakes on ballot measures</h2>
+        <p>
+          A long ballot is a lot to get through, so the Expanded view lists each section&apos;s measures with the biggest stakes
+          first (turn that off under Filters). The grade never looks at a measure&apos;s topic or which side is right. It adds up:
+        </p>
+        <ul className="ml-5 list-disc space-y-1">
+          <li>
+            <strong>Money, 0 to 3 points:</strong> the official yearly estimate. 3 for $1 billion or more, 2 for $100 million or
+            more, 1 for $1 million or more, 0 for less or for no dollar figure. We quote the official words beside the grade.
+          </li>
+          <li><strong>Hard to undo, 2 points:</strong> it changes a constitution or a county charter.</li>
+          <li><strong>Published guides disagree, 1 point:</strong> the guides we use land on both Yes and No.</li>
+          <li><strong>Local vote, 1 point:</strong> fewer people vote on it, so each vote counts for more.</li>
+        </ul>
+        <p>
+          4 or more points is High, 2 or 3 is Medium, and under 2 is Lower. Lower doesn&apos;t mean unimportant: a measure with no
+          dollar figure can still matter a great deal to you. Retention questions aren&apos;t graded, since each is about one judge.
+        </p>
+      </section>
+
       <section id="badges" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">🏅 Badges</h2>
         <p>
