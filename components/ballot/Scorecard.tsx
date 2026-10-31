@@ -306,6 +306,7 @@ function FactCheckCell({ candidate, comparable }: { candidate: BallotCandidate; 
           <p className="mt-0.5 text-gray-700">
             {score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'}{' '}
             (<Src href={fc.url}>{rulingsLine(fc)}</Src>)
+            {fc.latestYear && <span className="text-gray-600"> (newest ruling {fc.latestYear})</span>}
           </p>
         </div>
       ) : (
@@ -441,7 +442,7 @@ function meterSummary(candidate: BallotCandidate, comparable: boolean) {
   if (fc && score.pct !== null && comparable)
     return { icon: '💩', value: `${score.pct}%`, label: `${score.pct}% Mostly False or worse`, tone: 'border-amber-700/40 bg-amber-50', mark: 'bg-amber-800 text-white', hover: `${score.falseish} of ${score.total} PolitiFact rulings were Mostly False or worse${extra}` }
   if (fc && score.total)
-    return { icon: '💩', value: `${score.falseish}/${score.total}`, label: `${score.falseish} of ${score.total} rated Mostly False or worse`, tone: 'border-amber-700/30 bg-white', mark: 'bg-amber-100 text-amber-950', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
+    return { icon: '💩', value: `${score.falseish}/${score.total}`, label: `${score.falseish} of ${score.total} PolitiFact rulings Mostly False or worse${fc.latestYear ? ` (newest ${fc.latestYear})` : ''}`, tone: 'border-amber-700/30 bg-white', mark: 'bg-amber-100 text-amber-950', hover: `${score.pct === null ? `Only ${score.total} PolitiFact ruling${score.total === 1 ? '' : 's'}: too few to score` : 'Not scored: not everyone in this race has enough PolitiFact rulings'} (${rulingsLine(fc)})${extra}` }
   return {
     icon: '💩',
     value: claims ? `${claims}✓` : '–',
