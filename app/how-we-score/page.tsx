@@ -69,14 +69,18 @@ export default function HowWeScorePage() {
       <section id="meter" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">💩 The 💩 meter</h2>
         <p>
-          How full of it a candidate has been, by the fact-checkers&apos; count: the share of the candidate&apos;s
-          claims that{" "}
+          A joke name for a plain count: the share of the candidate&apos;s claims that{" "}
           <a href="https://www.politifact.com/" className="text-blue-700 underline" target="_blank" rel="noopener noreferrer">
             PolitiFact
           </a>{" "}
           checked and rated {FALSEISH.map((r) => RULING_LABELS[r]).join(", ").replace(/, ([^,]*)$/, " or $1")}, across
           every PolitiFact ruling on them (not only this campaign). Numbers are copied from the candidate&apos;s
           PolitiFact page on the date shown.
+        </p>
+        <p>
+          The ratings are PolitiFact&apos;s, not ours. We don&apos;t check these claims ourselves, and the meter doesn&apos;t
+          say anyone lied or meant to mislead: a rating is about one statement, and the 💩 is our sense of humor, not a
+          finding about a person.
         </p>
         <p className="rounded border border-gray-300 bg-gray-50 px-3 py-2 font-mono text-sm">
           💩 % = (Mostly False + False + Pants on Fire) ÷ all PolitiFact rulings × 100, rounded
@@ -109,6 +113,13 @@ export default function HowWeScorePage() {
             word for word. We never turn a verdict into a rating, so they don&apos;t count toward the %.
           </li>
         </ul>
+        <p className="text-sm text-gray-700">
+          Spot a mistake, or a number that&apos;s out of date? Tell us through{" "}
+          <a href="https://robertnakano.com" className="text-blue-700 underline" target="_blank" rel="noopener noreferrer">
+            robertnakano.com
+          </a>{" "}
+          and we&apos;ll check it and fix it.
+        </p>
       </section>
 
       <section id="stakes" className="scroll-mt-4 space-y-2">
