@@ -31,7 +31,7 @@ wa26-ld37-rep1 | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of 
 wa26-ld37-sen | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-tatiana-brown,wa26-chipalo-street@495-587
 wa26-adam-smith | mNHcgcVD-HY | interview | independent ; found=KUOW channel
 wa26-ld32-rep2 | 7qaNq5C5NW4 | forum | independent ; host=League of Women Voters of Snohomish County ; found=LWV Snohomish County channel ; with=wa26-imraan-siddiqi@158-248,wa26-lauren-davis@254-349 ; said=80 "Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui." ; said=161 "My name is Imran Siddiqui, and I'm running for position two."
-wa26-ld32-rep1 | IW2SbOo31Ho | forum | independent ; host=League of Women Voters of Snohomish County (primary forum) ; found=LWV Snohomish County channel ; with=wa26-danica-noble@270-473,wa26-keith-scully@473-571 ; said=92 "are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully."
+wa26-ld32-rep1 | IW2SbOo31Ho | forum | independent ; host=League of Women Voters of Snohomish County (primary forum) ; found=LWV Snohomish County channel ; with=wa26-danica-noble@276-366,wa26-keith-scully@478-570 ; said=92 "are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully."
 wa26-us-house-9 | BGQJqxnzvqw | interview | independent ; found=YouTube search "Doug Basler 2026 congress interview" ; with=wa26-adam-smith,wa26-doug-basler
 wa26-nirav-sheth | 4AHY4VrTBXg | interview | independent ; found=YouTube search "Nirav Sheth congress 2026"
 

@@ -1840,8 +1840,8 @@
      "published": "2026-07-17",
      "durationSec": 4029,
      "host": "League of Women Voters of Snohomish County (primary forum)",
-     "startSec": 473,
-     "endSec": 571
+     "startSec": 478,
+     "endSec": 570
     }
    ]
   },
@@ -1889,8 +1889,8 @@
      "published": "2026-07-17",
      "durationSec": 4029,
      "host": "League of Women Voters of Snohomish County (primary forum)",
-     "startSec": 270,
-     "endSec": 473
+     "startSec": 276,
+     "endSec": 366
     }
    ]
   },
@@ -15951,13 +15951,13 @@
      "participants": [
       {
        "id": "wa26-danica-noble",
-       "startSec": 270,
-       "endSec": 473
+       "startSec": 276,
+       "endSec": 366
       },
       {
        "id": "wa26-keith-scully",
-       "startSec": 473,
-       "endSec": 571
+       "startSec": 478,
+       "endSec": 570
       }
      ]
     }
