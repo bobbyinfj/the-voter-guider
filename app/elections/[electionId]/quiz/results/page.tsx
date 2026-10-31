@@ -1,5 +1,6 @@
 "use client";
 
+import { reasonLine } from "@/lib/quiz/insight";
 import { verdictText } from "@/lib/quiz/verdict";
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
@@ -96,6 +97,19 @@ export default function QuizResultsPage() {
           </div>
         </div>
 
+        {results.questionsAnswered > 0 && (
+          <p className="mb-6 border-l-4 border-violet-400 bg-violet-50 px-3 py-2 text-sm text-violet-950">
+            {!results.importanceEffect
+              ? "You rated these topics about the same, so each counted equally."
+              : !results.importanceEffect.races
+                ? "Your importance ratings are counted, but no race has a clear match yet."
+                : results.importanceEffect.changed > 0
+                  ? `Your importance ratings changed the top match in ${results.importanceEffect.changed} of ${results.importanceEffect.races} races with a clear match.`
+                  : `Your importance ratings didn't change the top match in any of the ${results.importanceEffect.races} races with a clear match.`}{" "}
+            A &ldquo;Very important&rdquo; answer counts three times as much as &ldquo;Somewhat&rdquo;.
+          </p>
+        )}
+
         {/* Per-office results */}
         <div className="space-y-8">
           {results.officeResults.filter((o) => o.decidable).map((officeResult) => (
@@ -111,7 +125,7 @@ export default function QuizResultsPage() {
                 </span>
               </div>
               <p className="px-6 pt-3 text-xs text-gray-600">
-                {verdictText(officeResult).detail}
+                {reasonLine(officeResult) ?? verdictText(officeResult).detail}
                 {officeResult.verdict === "not-enough" &&
                   " Below is what each candidate has said on the questions you answered, where we have a source."}
               </p>

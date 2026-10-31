@@ -78,6 +78,8 @@ export interface QuizResults {
   totalQuestions: number;
   overallConfidence: number;
   stopSuggestion: "quick" | "confident" | "thorough" | null;
+  // What the voter's importance ratings changed; absent until they've rated topics differently
+  importanceEffect?: { changed: number; races: number };
 }
 
 export interface NextQuestionResult {

@@ -22,7 +22,8 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Guide not found or unauthorized" }, { status: 403 });
     }
 
-    const results = await computeResults(guideId, guide.electionId, parseModules(searchParams.get("modules")));
+    const top = searchParams.get("top")?.split(",").filter(Boolean) ?? [];
+    const results = await computeResults(guideId, guide.electionId, parseModules(searchParams.get("modules")), top);
     const question = results.nextQuestionId
       ? await prisma.question.findUnique({
           where: { id: results.nextQuestionId },
@@ -47,6 +48,7 @@ export async function GET(req: NextRequest) {
       totalQuestions: results.totalQuestions,
       answered: results.questionsAnswered,
       modules: results.modules,
+      topics: results.topics,
     });
   } catch (error) {
     const { message, statusCode } = handleApiError(error);

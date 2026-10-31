@@ -72,6 +72,16 @@ export default function QuizPage() {
     done: false,
   });
   const [error, setError] = useState<string | null>(null);
+  // Before the first question: the topics that matter most. They're asked first, already rated Very important.
+  const [topics, setTopics] = useState<{ slug: string; name: string }[]>([]);
+  const [topIssues, setTopIssues] = useState<string[]>([]);
+  const [pickingTop, setPickingTop] = useState(false);
+  const nextUrl = (guideId: string, top = topIssues) => {
+    const params = new URLSearchParams({ guideId });
+    if (modulesKey) params.set("modules", modulesKey);
+    if (top.length) params.set("top", top.join(","));
+    return `/api/quiz/next?${params}`;
+  };
 
   // Initialize: create or find a guide, then get first question
   useEffect(() => {
@@ -96,6 +106,8 @@ export default function QuizPage() {
         const nextData = await nextRes.json();
         setModules(nextData.modules ?? []);
         setScope({ races: nextData.races ?? [], total: nextData.totalQuestions ?? 0 });
+        setTopics(nextData.topics ?? []);
+        setPickingTop(!guide.answers?.length && !!nextData.question && (nextData.topics ?? []).length > 3);
 
         setState((prev) => ({
           ...prev,
@@ -130,7 +142,18 @@ export default function QuizPage() {
     if (middle) submitAnswer(middle.id, 0);
   };
 
-  const submitAnswer = async (optionId = state.selectedOption, importance = state.importance ?? 1) => {
+  const startWithTop = async () => {
+    setPickingTop(false);
+    if (!topIssues.length) return;
+    const res = await fetch(nextUrl(state.guideId));
+    if (!res.ok) return;
+    const { question } = await res.json();
+    if (question) setState((prev) => ({ ...prev, question }));
+  };
+  const isTopTopic = !!state.question?.topics.some((t) => topIssues.includes(t.slug));
+  const importance = state.importance ?? (isTopTopic ? 3 : null);
+
+  const submitAnswer = async (optionId = state.selectedOption, rating = importance ?? 1) => {
     if (!optionId || !state.question || !state.guideId || state.submitting) return;
 
     setState((prev) => ({ ...prev, submitting: true }));
@@ -143,7 +166,7 @@ export default function QuizPage() {
           guideId: state.guideId,
           questionId: state.question.id,
           optionId,
-          importance,
+          importance: rating,
           modules: modulesKey || undefined,
         }),
       });
@@ -156,7 +179,7 @@ export default function QuizPage() {
       // Load next question details if there is one
       let nextQuestion: Question | null = null;
       if (data.nextQuestionId) {
-        const nextRes = await fetch(`/api/quiz/next?guideId=${state.guideId}${modulesKey ? `&modules=${modulesKey}` : ""}`);
+        const nextRes = await fetch(nextUrl(state.guideId));
         if (nextRes.ok) {
           const nextData = await nextRes.json();
           nextQuestion = nextData.question;
@@ -288,6 +311,31 @@ export default function QuizPage() {
                   )}
                 </div>
               </div>
+            ) : pickingTop ? (
+              <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
+                <h2 className="text-lg font-semibold text-gray-800 mb-1">What matters most to you?</h2>
+                <p className="text-sm text-gray-600 mb-4">Pick up to 3. We&apos;ll ask about them first and count them as very important. You can change that on each question.</p>
+                <div role="group" aria-label="Topics" className="mb-5 flex flex-wrap gap-1.5">
+                  {topics.map((t) => {
+                    const on = topIssues.includes(t.slug);
+                    return (
+                      <button
+                        key={t.slug}
+                        type="button"
+                        aria-pressed={on}
+                        disabled={!on && topIssues.length >= 3}
+                        onClick={() => setTopIssues((prev) => (on ? prev.filter((x) => x !== t.slug) : [...prev, t.slug]))}
+                        className={`rounded-full border px-3 py-1 text-sm disabled:opacity-40 ${on ? "border-ballot-ink bg-ballot-bar text-white" : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"}`}
+                      >
+                        {t.name}
+                      </button>
+                    );
+                  })}
+                </div>
+                <button onClick={startWithTop} className="w-full py-3 px-6 bg-ballot-accent text-ballot-accent-ink font-bold hover:brightness-95">
+                  {topIssues.length ? "Start with these →" : "Skip this and start →"}
+                </button>
+              </div>
             ) : state.question ? (
               <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-6">
                 {/* Question number */}
@@ -371,7 +419,7 @@ export default function QuizPage() {
                           key={imp.value}
                           onClick={() => setState((prev) => ({ ...prev, importance: imp.value }))}
                           className={`flex-1 py-2 px-2 rounded-lg border text-xs font-medium transition-all ${
-                            state.importance === imp.value
+                            importance === imp.value
                               ? "border-blue-500 bg-blue-50 text-blue-700"
                               : "border-gray-200 text-gray-500 hover:border-gray-300"
                           }`}
