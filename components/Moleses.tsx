@@ -6,11 +6,11 @@ import Link from 'next/link'
 export function MolesesAvatar({ size = 40, className = '' }: { size?: number; className?: string }) {
   return (
     <Image
-      src="/moleses-2.png"
+      src="/moleses-head.png"
       alt="Moleses, the Voter Guider's nearly blind mole wizard mascot, squinting through thick glasses"
       width={size}
       height={size}
-      className={`shrink-0 rounded-full bg-white object-cover ${className}`}
+      className={`shrink-0 rounded-full bg-indigo-100 object-cover ${className}`}
     />
   )
 }
