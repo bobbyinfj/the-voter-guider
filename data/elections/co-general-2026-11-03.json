@@ -1424,6 +1424,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 81 requires law enforcement to notify federal immigration authorities after filing certain criminal charges against individuals who are not confirmed to be lawfully present.",
       "noMeans": "A “no” vote on Amendment 81 maintains current law, which allows cooperation with federal immigration authorities in some criminal matters, but limits state and local law enforcement involvement in civil immigration enforcement.",
+      "fiscalImpact": "Two departments require system updates: the Department of Revenue requires $50,000 to access federal databases and make programming changes, and the Department of Natural Resources requires $10,000 to update computer systems. The measure does not specify a funding source to pay for these costs and it is assumed that they will be paid from the General Fund.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1455,6 +1456,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 82 establishes a state constitutional right to purchase and sell natural gas for use in homes and businesses.",
       "noMeans": "A “no” vote on Amendment 82 maintains current law and regulations related to the purchase and sale of natural gas.",
+      "fiscalImpact": "The measure may minimally increase expenditures for state agencies, primarily the Department of Local Affairs, to revise technical assistance to local governments concerning building codes that conflict with the right to purchase or sell natural gas.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1486,6 +1488,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 83 establishes a state constitutional right to hunt and fish.",
       "noMeans": "A “no” vote on Amendment 83 means that hunting and fishing will continue as allowed under existing state and federal law.",
+      "fiscalImpact": "The measure is not expected to significantly change state spending in the near term, but could result in increased legal costs for the state as the new right to hunt and fish is applied.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1517,6 +1520,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 84 requires voters to provide identification information with their mail ballot, in addition to their signature.",
       "noMeans": "A “no” vote on Amendment 84 continues the current signature-only verification system for mail ballots.",
+      "fiscalImpact": "The measure will increase state and local spending by up to $2.7 million in the initial budget year 2026-27, and $1.2 million annually in future years for voter outreach, printing, and election staff to verify voter information.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1548,6 +1552,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 85 requires that ballot titles be written in plain language, defined as an eighth-grade reading level, and prohibits any law from interfering with this requirement.",
       "noMeans": "A “no” vote on Amendment 85 maintains current law, which requires plain language for ballot titles, but does not specify a particular grade-level reading standard.",
+      "fiscalImpact": "The measure may minimally increase workload for the Title Board to update its standards for plain language and what constitutes an eighth-grade reading level and to apply these standards when setting titles for citizen-initiated ballot measures.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1579,6 +1584,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 86 requires the Colorado Independent Congressional Redistricting Commission to approve any new congressional districts proposed outside of a scheduled redistricting year.",
       "noMeans": "A “no” vote on Amendment 86 continues the current requirements for changing congressional districts every ten years.",
+      "fiscalImpact": "The measure increases costs in the Legislative Department by about $370,000 in any year that the commission must convene and review changes to congressional maps outside of its usual redistricting schedule.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with 55 percent of the vote",
       "ballot": {
@@ -1610,6 +1616,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Amendment 87 creates a graduated state income tax that increases revenue; uses the additional money for K-12 education, health care, and early childhood care and education; and exempts additional revenue collected from the state’s constitutional revenue limit.",
       "noMeans": "A “no” vote on Amendment 87 keeps the current constitutional requirement for a flat state income tax rate.",
+      "fiscalImpact": "The measure increases the amount of state revenue available to spend for the purposes identified in the measure, including K-12 education, health care, and early childhood care and education, in FY 2026-27 and future fiscal years.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1701,6 +1708,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition NN allows the state to keep some or all of the revenue that otherwise would be refunded to taxpayers under TABOR. The retained revenue must be spent on K-12 education, programs that support children, and any other purposes.",
       "noMeans": "A “no” vote on Proposition NN maintains current TABOR refunds and funding levels for K-12 education, programs that support children, and other state purposes.",
+      "fiscalImpact": "Proposition NN is expected to reduce the amount refunded to taxpayers by $329.9 million in the current 2026-27 budget year, $521.0 million in the 2027-28 budget year, and by varying amounts in future years.",
       "placedBy": "Placed on the ballot by the legislature",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1732,6 +1740,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 132 makes possession of any amount of fentanyl a felony, requires a mandatory minimum 8-year prison sentence for any quantity of fentanyl distribution, and eliminates options to reduce penalties for certain possession and distribution offenses.",
       "noMeans": "A “no” vote on Proposition 132 keeps minor possession charges of fentanyl a misdemeanor, maintains tiered felony penalties for fentanyl distribution based on drug quantity, and keeps options to reduce penalties for certain possession and distribution offenses.",
+      "fiscalImpact": "Proposition 132 increases state spending to cover increased criminal justice system costs for the courts, public defenders, and prisons. These costs are paid from the state General Fund.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1763,6 +1772,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 133 increases the penalties for child sex trafficking to life in prison without parole, and expands child sex trafficking to include buying sexual activity with a minor.",
       "noMeans": "A “no” vote on Proposition 133 keeps the existing felony criminal penalties for child sex trafficking with a sentencing range of 8 to 48 years in prison plus a mandatory parole period.",
+      "fiscalImpact": "Costs for the measure are estimated to begin in about 14 years. Initial costs are estimated at $180,000 in budget year 2041-42, and grow by that amount for several years thereafter.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1794,6 +1804,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 134 means that all school-based athletic teams and sports must be designated as being for biological males or biological females only, or as mixed, and requires schools and school districts to adopt policies on sex eligibility for sports.",
       "noMeans": "A “no” vote on Proposition 134 means that individual schools, school districts, and athletic associations may continue to set their own policies in alignment with current state and federal law about who is eligible to participate on a team or in a sport.",
+      "fiscalImpact": "Any costs are assumed to be paid by institutional revenue, such as tuition, fees, or athletic department revenue.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1825,6 +1836,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 135 prohibits surgeries on minors that would alter their biological sex characteristics as a treatment in response to a minor’s perception of sex or gender, and prohibits the use of government funds or health insurance to pay for the surgeries.",
       "noMeans": "A “no” vote on Proposition 135 maintains Colorado law, which protects access to surgery altering minors’ biological sex characteristics and allows public and private health insurance programs to pay for these surgeries.",
+      "fiscalImpact": "Proposition 135 will minimally increase workload and costs for the Department of Regulatory Agencies, which regulates health care professionals and insurers, to update rules and materials pertaining to gender- and sex-based surgeries and to handle complaints if prohibited surgeries are performed or paid for.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1856,6 +1868,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 136 establishes the current state income tax rate of 4.4 percent as the maximum rate.",
       "noMeans": "A “no” vote on Proposition 136 keeps the current state income tax rate of 4.4 percent without establishing a new limit in statute.",
+      "fiscalImpact": "This results in no change to state or local government revenue or spending. For this reason, the measure has no fiscal impact.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {
@@ -1887,6 +1900,7 @@
       "sourceUrl": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf",
       "yesMeans": "A “yes” vote on Proposition 137 directs existing sales tax revenue collected from sales of sporting goods to be spent on certain conservation, wildfire risk mitigation, and outdoor recreation programs, and exempts it from state revenue limitations.",
       "noMeans": "A “no” vote on Proposition 137 keeps the sales tax revenue collected from sporting goods in the state’s general budget and subject to the state’s revenue limit, with the revenue either spent on priorities decided annually by the legislature or refunded to taxpayers when required.",
+      "fiscalImpact": "The measure transfers an estimated $175.0 million in the 2027-28 budget year, and increasing amounts in later years, from the state General Fund to pay for various programs related to forest restoration, wildfire mitigation, conservation, and outdoor recreation. It reduces TABOR refunds in years when revenue exceeds the TABOR limit.",
       "placedBy": "Placed on the ballot by citizen initiative",
       "passes": "Passes with a majority vote",
       "ballot": {

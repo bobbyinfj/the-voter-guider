@@ -72,7 +72,7 @@ import json as _json, os as _os
 OFFICIAL = _json.load(open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "co-measures.json")))
 measures = [measure(P, n, n.replace("Amendment", "Amdt").replace("Proposition", "Prop"), t, "state", None, BLUE,
                     "amendment" if n.startswith("Amendment") else "proposition",
-                    yesMeans=OFFICIAL[n]["yes"], noMeans=OFFICIAL[n]["no"],
+                    yesMeans=OFFICIAL[n]["yes"], noMeans=OFFICIAL[n]["no"], fiscalImpact=OFFICIAL[n]["fiscalImpact"],
                     placedBy=OFFICIAL[n].get("placedBy"), passes=OFFICIAL[n].get("passes"))
             for n, t, d in state_measures]
 measures += [

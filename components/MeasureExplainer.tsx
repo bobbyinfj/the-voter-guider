@@ -49,7 +49,7 @@ export default function MeasureExplainer({ official }: { official: MeasureOffici
       )}
       {fiscalImpact && (
         <p className="text-xs text-gray-600">
-          <span className="font-semibold">Fiscal impact:</span> {fiscalImpact}
+          <span className="font-semibold">Cost and funding:</span> {fiscalImpact}
         </p>
       )}
       {sourceUrl && (

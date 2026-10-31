@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, readdirSync } from 'node:fs'
-import { evaluationMeets, formatDuration, initials, leadRung, isHttpUrl, leadVideo, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
+import { evaluationMeets, formatDuration, initials, leadRung, isHttpUrl, leadVideo, mentionsMoney, videoLadder, videoTier, snippet, sortVideos, type CandidateProfile, type CandidateVideo, type RaceExtras, VIDEO_ORIGINS } from '../lib/profile'
 
 test('initials', () => {
   const i = (name: string, kind: 'org' | 'official' | 'media' | 'person') => initials({ name, kind })
@@ -208,4 +208,12 @@ test('every forum turn in the enrichment data has a sane length', () => {
             assert.ok(!v.durationSec || p.endSec <= v.durationSec)
           }
   }
+})
+
+test('mentionsMoney finds cost language in a quote', () => {
+  assert.equal(mentionsMoney('a state-run authority funded by premiums'), true)
+  assert.equal(mentionsMoney('It would cost $2 billion'), true)
+  assert.equal(mentionsMoney('I am Marie Ledezma, and I am one of you.'), false)
+  assert.equal(mentionsMoney('Costanza refunding the fundamentals'), false)
+  assert.equal(mentionsMoney(null), false)
 })
