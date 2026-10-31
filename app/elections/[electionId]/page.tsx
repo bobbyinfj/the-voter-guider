@@ -2,6 +2,7 @@ import { computeResults } from "@/lib/quiz/db";
 import { quizOnBallot } from "@/lib/quiz/ballot";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Info } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
 import { snippetCandidates } from "@/lib/profile";
@@ -162,7 +163,14 @@ export default async function ElectionPage({ params, searchParams }: Props) {
             </div>
           }
         >
-          {page.description && <p className="mt-2 max-w-3xl text-sm">{page.description}</p>}
+          {page.description && (
+            <details className="mt-2 max-w-3xl text-sm">
+              <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-blue-700 hover:underline [&::-webkit-details-marker]:hidden">
+                <Info className="h-4 w-4" aria-hidden="true" /> About this ballot
+              </summary>
+              <p className="mt-1">{page.description}</p>
+            </details>
+          )}
           {city && cityIds.length > 1 && (
             <p className="mt-1 text-sm">
               Not in {cityLabel(city)}?{" "}
