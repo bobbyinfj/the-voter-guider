@@ -60,9 +60,6 @@ export default async function HomePage() {
             />
             <div>
               <h2 className="text-4xl font-bold text-gray-800 mb-4">Vote better. And easier.</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Your whole ballot in one place, with what each choice means and where it comes from. Mark your picks as you go.
-              </p>
             </div>
           </div>
         </div>
