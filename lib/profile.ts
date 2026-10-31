@@ -357,3 +357,10 @@ export function initials(e: Endorser): string {
 export function guideCredit(g: NewsGuide): string {
   return g.source.byline && g.source.byline !== g.source.publisher ? `${g.source.byline} via ${g.source.publisher}` : g.source.publisher
 }
+
+// Quotes that talk about money: a word match on sourced text, never a judgment of the plan
+const MONEY_WORDS = /\$\d|\bfund(s|ed|ing)?\b|\bbudget|\btax(es)?\b|\brevenue|\bpay for\b|\bcosts?\b|\bdeficit|\b(b|m)illion\b/i
+
+export function mentionsMoney(quote: string | null | undefined): boolean {
+  return !!quote && MONEY_WORDS.test(quote)
+}

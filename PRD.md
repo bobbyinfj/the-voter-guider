@@ -222,6 +222,19 @@ As a voter, I want to recognize who published a guide at a glance. Until permiss
 - Save our own copy of each file, link the source, and say logos identify the publisher and aren't an affiliation.
 - Remove a logo the same day if a group asks. Campaign endorsers keep their initial circles.
 
+### From user interviews
+
+The October 30, 2026 interview found voters run out of attention before they run out of ballot. Shipped from it: Quick view, More room, keeping your place, time left, quiz reasons, top issues first, and official cost and funding lines.
+
+**I-1. Interview five more voters on Quick view**
+One voter is direction, not proof. Ask each to prepare a real or sample ballot on their own device while we watch. Script: Where would you start? Show me a contest you'd decide fastest. What did your quiz answers change? When would you stop? What's missing before you'd trust this? Done when five sessions are written up and we've decided whether Quick becomes the default view.
+
+**I-2. Cost and funding for local measures and Seattle Prop 1**
+State measures in California, Colorado and Washington carry official fiscal text. Local measures need their impartial analyses. Add only verbatim official text.
+
+**I-3. Sourced cost notes on candidate promises**
+The Cost and funding chip shows existing sourced quotes that mention money, which is 14 of 80 positions. Researching more needs a nonpartisan source for each claim, starting with the insurance commissioner race. No estimates or feasibility grades of our own.
+
 ### Won't do
 - Tell voters how to vote, or rank measures by whether we think they're good.
 - Use sources whose terms or `robots.txt` block us: VOTE411 stays link-only; Ballotpedia blocks automated access.

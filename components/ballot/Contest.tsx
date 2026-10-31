@@ -267,7 +267,7 @@ function QuickMeasure({ item, stakes }: { item: BallotItem; stakes: Stakes | nul
         <div className="space-y-0.5 px-2 pt-1 font-sans text-sm leading-snug">
           {official.yesMeans && <p><span className="font-semibold">Yes:</span> {official.yesMeans}</p>}
           {official.noMeans && <p><span className="font-semibold">No:</span> {official.noMeans}</p>}
-          {official.fiscalImpact && <p><span className="font-semibold">Who pays:</span> {official.fiscalImpact}</p>}
+          {official.fiscalImpact && <p><span className="font-semibold">Cost and funding:</span> {official.fiscalImpact}</p>}
         </div>
       )}
     </>

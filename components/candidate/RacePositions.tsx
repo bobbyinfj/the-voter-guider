@@ -2,11 +2,17 @@
 
 import { useState } from 'react'
 import { ExternalLink } from 'lucide-react'
-import { isHttpUrl } from '@/lib/profile'
+import { isHttpUrl, mentionsMoney } from '@/lib/profile'
 import type { BallotCandidate } from '@/components/ballot/ballot'
 
-const quoted = (c: BallotCandidate, slug: string) =>
-  c.stances?.some((s) => s.issue.slug === slug && s.sources.some((src) => isHttpUrl(src.url) && src.quote))
+// Not an issue of its own: quotes from any topic here that talk about money
+const MONEY = 'cost-and-funding'
+
+const quoteOf = (c: BallotCandidate, slug: string) =>
+  c.stances
+    ?.filter((s) => slug === MONEY || s.issue.slug === slug)
+    .flatMap((s) => s.sources)
+    .find((src) => isHttpUrl(src.url) && src.quote && (slug !== MONEY || mentionsMoney(src.quote)))
 
 // "Where they stand" for one race: every topic some candidate here has a sourced position on,
 // each in the source's own words. Nothing for a candidate who has no sourced position on it.
@@ -16,10 +22,11 @@ export default function RacePositions({ people }: { people: BallotCandidate[] })
   const topics = new Map<string, string>()
   for (const c of people) for (const s of c.stances ?? []) topics.set(s.issue.slug, s.issue.name)
   if (!topics.size) return null
-  const count = (slug: string) => people.filter((c) => quoted(c, slug)).length
+  const count = (slug: string) => people.filter((c) => quoteOf(c, slug)).length
   const ordered = [...topics].sort(([a], [b]) => count(b) - count(a))
+  if (count(MONEY)) ordered.push([MONEY, 'Cost and funding'])
   const [slug, name] = ordered.find(([key]) => key === chosen) ?? ordered[0]
-  const none = people.filter((c) => !quoted(c, slug))
+  const none = people.filter((c) => !quoteOf(c, slug))
   return (
     <div className="space-y-1.5">
       <p className="text-[0.625rem] font-bold uppercase tracking-wider text-sky-800">Where they stand, in their sources&apos; words</p>
@@ -41,9 +48,8 @@ export default function RacePositions({ people }: { people: BallotCandidate[] })
       <div className="rounded-lg border border-gray-200 bg-white px-2 py-1.5">
         <ul className="space-y-1.5">
           {people.map((c) => {
-            const stance = c.stances?.find((s) => s.issue.slug === slug)
-            const source = stance?.sources.find((src) => isHttpUrl(src.url) && src.quote)
-            if (!stance || !source) return null
+            const source = quoteOf(c, slug)
+            if (!source) return null
             return (
               <li key={c.id} className="text-xs leading-snug">
                 <span className="font-semibold">{c.name}:</span> “{source.quote}”{' '}
@@ -54,12 +60,19 @@ export default function RacePositions({ people }: { people: BallotCandidate[] })
             )
           })}
         </ul>
-        {none.length > 0 && <p className="mt-1 text-xs text-gray-500">No sourced position found for {none.map((c) => c.name).join(', ')}.</p>}
-        <p className="mt-1 text-[0.6875rem]">
-          <a href={`/issues/${slug}`} className="text-blue-700 hover:underline">
-            Everyone on {name} →
-          </a>
-        </p>
+        {none.length > 0 && (
+          <p className="mt-1 text-xs text-gray-500">
+            {slug === MONEY ? 'Nothing sourced on cost or funding for ' : 'No sourced position found for '}
+            {none.map((c) => c.name).join(', ')}.
+          </p>
+        )}
+        {slug !== MONEY && (
+          <p className="mt-1 text-[0.6875rem]">
+            <a href={`/issues/${slug}`} className="text-blue-700 hover:underline">
+              Everyone on {name} →
+            </a>
+          </p>
+        )}
       </div>
     </div>
   )

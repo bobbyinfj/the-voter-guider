@@ -64,12 +64,15 @@ for pos, names in muni.items():
                           desc="Citywide. Nonpartisan." + (" Unopposed." if len(names) == 1 else "")))
 measures = [
   measure(P, "ip26-645", "IP26-645", "Initiative concerning state and local taxes", "state",
-          "Would repeal the 9.9% tax on annual individual income over $1,000,000, prohibit taxes measured by or on individual income, and define \"income.\" The state's fiscal statement says it would decrease funding for K-12 and higher education and human services (primarily healthcare).", PAMPHLET, "initiative"),
+          "Would repeal the 9.9% tax on annual individual income over $1,000,000, prohibit taxes measured by or on individual income, and define \"income.\" The state's fiscal statement says it would decrease funding for K-12 and higher education and human services (primarily healthcare).", PAMPHLET, "initiative",
+          fiscalImpact="If approved by voters, Initiative Measure No. IP26-645 will result in an estimated loss to state revenue of $11.4 billion over state fiscal years 2027-2031. This would reduce funding to the state general fund to support core government services, particularly public K-12 education, higher education (including universities and community colleges), and human services (primarily healthcare)."),
   measure(P, "il26-001", "IL26-001", "Initiative concerning parental rights relating to their children in public school", "state",
-          "Would restore the parents' rights law (RCW 28A.605.005) as the Legislature passed it in 2024 and repeal the 2025 amendments. It lists rights of parents and guardians of public-school children, such as reviewing school records, receiving notifications, and opting their child out of certain activities.", PAMPHLET, "initiative"),
+          "Would restore the parents' rights law (RCW 28A.605.005) as the Legislature passed it in 2024 and repeal the 2025 amendments. It lists rights of parents and guardians of public-school children, such as reviewing school records, receiving notifications, and opting their child out of certain activities.", PAMPHLET, "initiative",
+          fiscalImpact="The initiative would have no fiscal impact on the state. Local school districts may incur minor costs to update policies and procedures, but this fiscal impact is indeterminate."),
   measure(P, "seattle-prop-1", "Seattle Prop 1", "Seattle Transit Measure", "city", None, KING_SAMPLE["source"], "proposition"),
   measure(P, "il26-638", "IL26-638", "Initiative concerning participation in athletics at K-12 schools", "state",
-          "Would prohibit students it defines as \"biologically male\" from competing in certain school athletic activities intended for female students only, with biological sex verified by students' healthcare providers.", PAMPHLET, "initiative"),
+          "Would prohibit students it defines as \"biologically male\" from competing in certain school athletic activities intended for female students only, with biological sex verified by students' healthcare providers.", PAMPHLET, "initiative",
+          fiscalImpact="The Office of the Superintendent of Public Instruction would incur a one-time cost of approximately $21,000 in SFY 2026 to update existing guidelines to align with the initiative’s requirements."),
 ]
 # Printed ballot layout, from King County's sample ballot
 PARTISAN = KING_SAMPLE["notices"][0]["text"]
