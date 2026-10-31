@@ -10,6 +10,7 @@ import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
 import StakesLine from './StakesLine'
+import type { Stakes } from '@/lib/stakes'
 import { stakesOf } from './stakes'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
@@ -41,16 +42,16 @@ import {
   type ChoiceValue,
 } from './ballot'
 import { ContestHead, Extra } from './Paper'
-import OfficeExplainer, { OfficeExplainerButton } from './OfficeExplainer'
+import OfficeExplainer, { OfficeExplainerButton, SourceLine } from './OfficeExplainer'
 import { glossaryForItem } from '@/lib/glossary'
 import PrimaryResult from './PrimaryResult'
 import { taxRatesFor } from '@/lib/taxRates'
 import TaxRates from './TaxRates'
-import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
+import { BadgePill, CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
 import type { BadgeMap } from '@/lib/scorecard'
 
 // basic: the 3-column ballot replica. expanded: one column with every contest's extras open
-export type Density = 'basic' | 'expanded'
+export type Density = 'basic' | 'quick' | 'expanded'
 
 interface ContestProps {
   // One contest, or several questions printed under one heading (judicial retention)
@@ -236,6 +237,43 @@ function BesideRow({
 
 // Expanded view, above the candidates: what the job is, beside any debate with everyone in it.
 // Retention questions repeat a heading per division, so they keep just the heading's popover.
+const firstSentence = (text: string) => text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? text
+
+// Quick view, above the choices: the job in one sentence, and the way into everything else
+function QuickIntro({ item, onExpand }: { item: BallotItem; onExpand?: () => void }) {
+  const entry = glossaryForItem(item)
+  const office = entry && !entry.measures?.length ? entry : null
+  if (!office && !onExpand) return null
+  return (
+    <p className="flex flex-wrap items-baseline justify-between gap-x-3 border-b border-sky-200 bg-sky-50/60 px-3 py-1.5 font-sans text-sm text-sky-950 print:hidden">
+      {office && <span className="min-w-0 flex-1">{firstSentence(office.plain)} <SourceLine source={office.source} inline /></span>}
+      {onExpand && (
+        <button type="button" onClick={onExpand} className="ml-auto shrink-0 text-xs font-semibold text-blue-700 underline">
+          Full details
+        </button>
+      )}
+    </p>
+  )
+}
+
+// Quick view, beside a measure: what each vote does, its stakes and the official money note
+function QuickMeasure({ item, stakes }: { item: BallotItem; stakes: Stakes | null }) {
+  const official = measureOfficial(item.metadata)
+  const source = official.sourceUrl ?? layoutOf(item)?.contestSource
+  return (
+    <>
+      {stakes && <StakesLine stakes={stakes} source={source} brief />}
+      {(official.yesMeans || official.noMeans || official.fiscalImpact) && (
+        <div className="space-y-0.5 px-2 pt-1 font-sans text-sm leading-snug">
+          {official.yesMeans && <p><span className="font-semibold">Yes:</span> {official.yesMeans}</p>}
+          {official.noMeans && <p><span className="font-semibold">No:</span> {official.noMeans}</p>}
+          {official.fiscalImpact && <p><span className="font-semibold">Who pays:</span> {official.fiscalImpact}</p>}
+        </div>
+      )}
+    </>
+  )
+}
+
 function ContestIntro({ item }: { item: BallotItem }) {
   const entry = glossaryForItem(item)
   const office = entry && !entry.measures?.length ? entry : null
@@ -816,6 +854,8 @@ export default function Contest({
 }: ContestProps) {
   // Expanded view always shows every contest's extras; the Ballot view opens them one at a time
   const wide = density === 'expanded'
+  // Quick view: the same two columns as Expanded, with only what decides most votes beside each choice
+  const quick = density === 'quick'
   const [opened, setOpened] = useState(false)
   const open = wide || opened
   const first = run[0]
@@ -873,7 +913,7 @@ export default function Contest({
             </button>
           )}
           </span>
-          {!wide && (
+          {density === 'basic' && (
             <button
               type="button"
               onClick={() => setOpened((o) => !o)}
@@ -887,6 +927,7 @@ export default function Contest({
         </div>
       </ContestHead>
       {wide && <ContestIntro item={first} />}
+      {quick && <QuickIntro item={first} onExpand={onExpand && (() => onExpand(contestDomId(first)))} />}
       {run.map((item, i) => {
         const choice = choices[item.id]
         const pick = (selection: string) => stepPick(item.id, selection, choice, onChange, onClear)
@@ -916,7 +957,60 @@ export default function Contest({
         )
         return (
           <div key={item.id} id={i > 0 ? contestDomId(item) : undefined} data-item-id={i > 0 ? item.id : undefined} className="scroll-mt-48 border-t border-gray-400">
-            {wide ? (
+            {quick ? (
+              isMeasure(item) ? (
+                <BesideRow
+                  wide
+                  aside={
+                    <div className="space-y-1 pb-2">
+                      <QuickMeasure item={item} stakes={stakesOf(item, badges?.[item.id])} />
+                      <div className="px-2">
+                        <MeasureBadges
+                          yes={badges?.[item.id]?.YES ?? []}
+                          no={badges?.[item.id]?.NO ?? []}
+                          labels={(layoutOf(item)?.responses?.length === 2 ? layoutOf(item)!.responses : ['Yes', 'No']) as [string, string]}
+                        />
+                      </div>
+                      {strip}
+                    </div>
+                  }
+                >
+                  <div className="min-w-0 flex-1">
+                    {!measureOfficial(item.metadata).yesMeans && <PrintedQuestion item={item} />}
+                    <MeasureChoices item={item} choice={choice} readOnly={readOnly} onPick={pick} />
+                    <EvaluationLine item={item} />
+                    {status}
+                  </div>
+                </BesideRow>
+              ) : (
+                <>
+                  <RaceChoices
+                    item={item}
+                    choice={choice}
+                    readOnly={readOnly}
+                    onChange={onChange}
+                    onPick={pick}
+                    aside={(name) => {
+                      const list = badges?.[item.id]?.[name] ?? []
+                      return (
+                        <div className="space-y-1 px-2 py-1.5 font-sans">
+                          <CandidateLine race={item} name={name} />
+                          {list.length > 0 && (
+                            <div className="flex flex-wrap gap-1">
+                              {list.map((b) => (
+                                <BadgePill key={b.by} badge={b} />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    }}
+                  />
+                  {status}
+                  {strip}
+                </>
+              )
+            ) : wide ? (
               <>
                 {isMeasure(item) ? (
                   <BesideRow

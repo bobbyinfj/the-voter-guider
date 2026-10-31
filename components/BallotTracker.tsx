@@ -6,6 +6,7 @@ import {
   ArrowDownToLine,
   Maximize2,
   Minimize2,
+  Zap,
   ArrowLeft,
   ArrowRight,
   CircleHelp,
@@ -106,7 +107,7 @@ export default function BallotTracker({
 }: BallotTrackerProps) {
   const [mode, setMode] = useState<Mode>('ballot')
   const [view, setView] = useState<Density | 'compare'>('expanded')
-  const density: Density = view === 'expanded' ? 'expanded' : 'basic'
+  const density: Density = view === 'compare' ? 'basic' : view
   const [showFilters, setShowFilters] = useState(false)
   const [differOnly, setDifferOnly] = useState(false)
   const [coveredOnly, setCoveredOnly] = useState(false)
@@ -128,7 +129,7 @@ export default function BallotTracker({
       saved = sessionStorage.getItem(DENSITY_KEY)
     } catch {}
     // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
-    if (saved === 'expanded' || saved === 'basic' || saved === 'compare') setView(saved)
+    if (saved === 'expanded' || saved === 'basic' || saved === 'quick' || saved === 'compare') setView(saved)
     try {
       if (localStorage.getItem(ROOM_KEY) === '1') setMoreRoom(true)
     } catch {}
@@ -154,7 +155,7 @@ export default function BallotTracker({
   }
   const printedSections = useMemo(() => groupSections(ballots), [ballots])
   // Ballot order unless the reader asks for measures by importance, which only Expanded shows
-  const sortedByImportance = view === 'expanded' && byImportance
+  const sortedByImportance = (view === 'expanded' || view === 'quick') && byImportance
   const sections = useMemo(
     () => (sortedByImportance ? byStakes(printedSections, badges) : printedSections),
     [printedSections, sortedByImportance, badges],
@@ -379,7 +380,7 @@ export default function BallotTracker({
       onJump={mode === 'step' ? (id) => goStep(stepOf(id)) : jumpTo}
     />
   )
-  const showSidebar = !moreRoom && ((view === 'expanded' && mode === 'ballot') || mode === 'step')
+  const showSidebar = !moreRoom && (((view === 'expanded' || view === 'quick') && mode === 'ballot') || mode === 'step')
   const toGo = ballots.length - answered
   const progress = (
     <>
@@ -422,13 +423,16 @@ export default function BallotTracker({
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
                 <button onClick={() => chooseDensity('basic')} aria-pressed={view === 'basic'} className={segment(view === 'basic')}>
-                  <Columns3 className="h-4 w-4" /> Ballot<span className="max-sm:hidden"> view</span>
+                  <Columns3 className="h-4 w-4 max-sm:hidden" /> Ballot<span className="max-sm:hidden"> view</span>
+                </button>
+                <button onClick={() => chooseDensity('quick')} aria-pressed={view === 'quick'} className={segment(view === 'quick')}>
+                  <Zap className="h-4 w-4 max-sm:hidden" /> Quick<span className="max-sm:hidden"> view</span>
                 </button>
                 <button onClick={() => chooseDensity('expanded')} aria-pressed={view === 'expanded'} className={segment(view === 'expanded')}>
-                  <Rows3 className="h-4 w-4" /> Expanded<span className="max-sm:hidden"> view</span>
+                  <Rows3 className="h-4 w-4 max-sm:hidden" /> Expanded<span className="max-sm:hidden"> view</span>
                 </button>
                 <button onClick={() => chooseDensity('compare')} aria-pressed={view === 'compare'} className={segment(view === 'compare')}>
-                  <GitCompare className="h-4 w-4" /> Compare<span className="max-sm:hidden"> view</span>
+                  <GitCompare className="h-4 w-4 max-sm:hidden" /> Compare<span className="max-sm:hidden"> view</span>
                 </button>
               </div>
               <div className="relative">
@@ -460,6 +464,10 @@ export default function BallotTracker({
                     <p className="mb-2 pr-5">
                       <strong>Ballot view</strong> looks like your paper ballot: same contests, order and wording, in columns
                       (one column on a phone). Tap ⓘ on any contest for more.
+                    </p>
+                    <p className="mb-2">
+                      <strong>Quick view</strong> is the short version: what each contest decides, who backs what, and
+                      your quiz match. Full details are one click away.
                     </p>
                     <p className="mb-2">
                       <strong>Compare view</strong> puts your picks in a column beside up to four sources.
@@ -670,7 +678,7 @@ export default function BallotTracker({
                     type="button"
                     onClick={() => {
                       setByImportance(true)
-                      chooseDensity('expanded')
+                      if (view === 'basic') chooseDensity('expanded')
                     }}
                     className="font-semibold underline"
                   >

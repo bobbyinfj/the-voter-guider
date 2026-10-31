@@ -72,7 +72,7 @@ export default function OfficeExplainer({ entry, brief = false }: { entry: Offic
 }
 
 // "Voter Guider summary of <source> (retrieved <date>)", or just the linked source inline
-function SourceLine({ source, inline = false }: { source: GlossarySource; inline?: boolean }) {
+export function SourceLine({ source, inline = false }: { source: GlossarySource; inline?: boolean }) {
   const link = (
     <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">
       {source.name}
