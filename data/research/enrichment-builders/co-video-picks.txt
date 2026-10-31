@@ -21,23 +21,23 @@ co26-us-senate | xbNKc-nEzjQ | debate | independent ; found=YouTube search "Mark
 co26-us-senate | wRJENYnLSZk | debate | independent ; found=9NEWS channel search "Mark Baisley" ; with=co26-john-hickenlooper,co26-mark-baisley ; named=title
 
 # One-on-one interviews (every candidate in these races was searched the same way)
-co26-kevin-grantham | VghI2Mn05PI | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
+co26-kevin-grantham | VghI2Mn05PI | interview | independent ; clip=12-178 ; found=YouTube search "Colorado treasurer debate 2026"
 co26-jeff-bridges | xSQSJEbEEBY | interview | independent ; found=YouTube search "Colorado treasurer debate 2026"
 co26-attorney-general | 6zJfdMZFRUQ | debate | independent ; host=The Colorado Sun and Noticias Univision Colorado ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen" ; with=co26-jena-griswold,co26-michael-j-allen
-co26-governor | GF8J_vea64Y | forum | civic ; host=Colorado Chamber of Commerce ; found=YouTube search "Victor Marx Phil Weiser debate October 2026" ; with=co26-phil-weiser,co26-victor-marx
+co26-governor | GF8J_vea64Y | forum | civic ; host=Colorado Chamber of Commerce ; found=YouTube search "Victor Marx Phil Weiser debate October 2026" ; with=co26-phil-weiser@141-272,co26-victor-marx@281-414
 co26-phil-weiser | ELnS-duesGM | interview | independent ; found=YouTube search "Colorado Point of View Phil Weiser"
 co26-phil-weiser | sXTw_9IWafs | interview | independent ; host=The Colorado Sun ; found=YouTube search "Victor Marx Phil Weiser debate October 2026"
 co26-victor-marx | n_bgCGlRuP4 | interview | independent ; found=YouTube search "Colorado Point of View Victor Marx"
-co26-victor-marx | KywOV9EkNFg | interview | independent ; found=YouTube search "Colorado Point of View Victor Marx"
+co26-victor-marx | KywOV9EkNFg | interview | independent ; clip=41-93 ; found=YouTube search "Colorado Point of View Victor Marx"
 co26-james-wiley | WAeXmsfjZ9g | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
-co26-amanda-gonzalez | sGKeanwGR3c | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
+co26-amanda-gonzalez | sGKeanwGR3c | interview | independent ; clip=11-42 ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
 co26-amanda-gonzalez | Z7T914tP53Y | interview | independent ; found=YouTube search "Amanda Gonzalez James Wiley Secretary of State interview"
 
 # The campaigns' own videos
 co26-jena-griswold | Bv8jAuBgEdk | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
 co26-jena-griswold | AjzVl1rOeGg | statement | campaign ; source=https://www.jenagriswold.com/ ; label=Shown on the campaign's website ; found=embedded on jenagriswold.com (retrieved 2026-10-23)
 co26-edie-hooton | 7gSOb65jGCY | statement | campaign ; source=https://www.youtube.com/@EdieforColorado ; label=The campaign's YouTube channel ; found=YouTube search "Edie Hooton CU Regent"
-co26-michael-j-allen | n0afj555jsQ | interview | independent ; start=76 ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen"
+co26-michael-j-allen | n0afj555jsQ | interview | independent ; clip=115-135 ; start=76 ; found=YouTube search "Colorado attorney general debate 2026 Griswold Allen"
 co26-mark-baisley | hRaPAmr3000 | interview | independent ; start=484 ; said=506 "And joining me now here on Colorado Point of View is State Senator Mark Baisley." ; found=YouTube search "Colorado US Senate debate 2026 Hickenlooper Baisley"
 
 # League of Women Voters forum, State House districts 52 and 53, 9/30/26, on the City of Fort Collins channel
@@ -67,7 +67,7 @@ co26-m-amendment-85 | eAgNcGrpWdk | explainer | independent ; found=YouTube sear
 co26-m-amendment-86 | B0u9-yYBIOw | explainer | independent ; found=YouTube search "Colorado Amendment 86 redistricting 2026"
 co26-m-proposition-137 | 9o62PU2iiRk | explainer | independent ; found=YouTube search "Colorado Proposition 137 sporting goods conservation"
 co26-m-larimer-1a | GSeVshbGbM8 | explainer | independent ; host=League of Women Voters of Larimer County ; start=2916 ; said=2926 "one is for larimer county so if you live in larimer county you got it so it is a new sales tax" ; found=YouTube search "Larimer County ballot issue 1A 2026"
-co26-bob-chew | Mnh4Hcaxd0I | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
+co26-bob-chew | Mnh4Hcaxd0I | interview | independent ; clip=46-81 ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
 co26-bob-chew | Nnnewd7f2aI | interview | independent ; found=YouTube search "Bob Chew Forward Party Senate Colorado"
 co26-joe-neguse | dJlnOe3BVpA | interview | independent ; found=YouTube search "Joe Neguse 2026 interview"
 

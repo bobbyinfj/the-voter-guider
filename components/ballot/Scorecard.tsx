@@ -107,7 +107,10 @@ export function RaceVideos({ race }: { race: BallotItem }) {
 // their part of a race forum (from where they first speak; the whole forum is already above)
 function candidateVideos(candidate: BallotCandidate, race: BallotItem): VideoPick[] {
   const together = new Set(sharedVideos(race).map((v) => v.youtubeId))
-  const own = sortVideos((candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))).map((video) => ({ video }))
+  const own = sortVideos((candidate.profile?.videos ?? []).filter((v) => !together.has(v.youtubeId))).flatMap((video) => [
+    ...(video.clip ? [{ video, ...video.clip }] : []),
+    { video },
+  ])
   const forums = (raceExtrasOf(race.metadata)?.videos ?? []).flatMap((video) => {
     const them = video.participants?.find((p) => p.id === candidate.id)
     return them?.startSec !== undefined ? [{ video, startSec: them.startSec, endSec: them.endSec }] : []

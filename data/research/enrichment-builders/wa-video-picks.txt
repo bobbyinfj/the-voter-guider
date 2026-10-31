@@ -23,12 +23,12 @@ wa26-m-il26-001 | InVCs2BO8l4 | explainer | independent ; start=216 ; said=233 "
 # Legislative races: League of Women Voters of Snohomish County forums, KUOW Soundside conversations and
 # debates, and the 37th LD forum by Building Changes, the League of Education Voters Foundation and SESEC
 wa26-ld32-sen | NA6rQu_XF1U | forum | independent ; host=League of Women Voters of Snohomish County ; found=LWV Snohomish County channel ; with=wa26-cindy-ryu,wa26-jesse-salomon
-wa26-ld32-sen | wRxnU3IA_Uk | debate | independent ; found=KUOW channel ; with=wa26-cindy-ryu,wa26-jesse-salomon
+wa26-ld32-sen | wRxnU3IA_Uk | debate | independent ; found=KUOW channel ; with=wa26-cindy-ryu@649-714,wa26-jesse-salomon@535-610
 wa26-ld43-sen | PLHGEr5RlKg | interview | independent ; found=KUOW channel ; with=wa26-jamie-pedersen,wa26-hannah-sabio-howell
-wa26-ld43-sen | 0XrRWXF6a8k | interview | independent ; found=KUOW channel ; with=wa26-jamie-pedersen,wa26-hannah-sabio-howell
+wa26-ld43-sen | 0XrRWXF6a8k | interview | independent ; found=KUOW channel ; with=wa26-jamie-pedersen@1036-1061,wa26-hannah-sabio-howell@72-151
 wa26-ld46-rep1 | pEfZRO2pi3o | interview | independent ; found=KUOW channel ; with=wa26-gerry-pollet,wa26-will-dreher
-wa26-ld37-rep1 | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-kelabe-tewolde,wa26-sharon-tomiko-santos
-wa26-ld37-sen | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-tatiana-brown,wa26-chipalo-street
+wa26-ld37-rep1 | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-kelabe-tewolde@380-492,wa26-sharon-tomiko-santos@197-377
+wa26-ld37-sen | h1BPzVTMbQ4 | forum | civic ; host=Building Changes, League of Education Voters Foundation and SESEC ; found=YouTube search "37th district candidates forum 2026 Seattle" ; with=wa26-tatiana-brown,wa26-chipalo-street@495-587
 wa26-adam-smith | mNHcgcVD-HY | interview | independent ; found=KUOW channel
 wa26-ld32-rep2 | 7qaNq5C5NW4 | forum | independent ; host=League of Women Voters of Snohomish County ; found=LWV Snohomish County channel ; with=wa26-imraan-siddiqi@158-248,wa26-lauren-davis@254-349 ; said=80 "Candidates for Legislative District 32, Position 2, are Lauren Davis and Imran Siddiqui." ; said=161 "My name is Imran Siddiqui, and I'm running for position two."
 wa26-ld32-rep1 | IW2SbOo31Ho | forum | independent ; host=League of Women Voters of Snohomish County (primary forum) ; found=LWV Snohomish County channel ; with=wa26-danica-noble@270-473,wa26-keith-scully@473-571 ; said=92 "are Chris Blomquist, Will Chen, Jenna Nand, Danica Noble, Lisa Rezac, and Keith Scully."
@@ -36,10 +36,10 @@ wa26-us-house-9 | BGQJqxnzvqw | interview | independent ; found=YouTube search "
 wa26-nirav-sheth | 4AHY4VrTBXg | interview | independent ; found=YouTube search "Nirav Sheth congress 2026"
 
 # Haller Lake Community Club candidates night, 9/11/26 (attendees as listed by the club)
-wa26-ld46-rep1 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-will-dreher,wa26-gerry-pollet
-wa26-ld46-rep2 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-darya-farivar,wa26-rodney-star-thornley
-wa26-ld46-sen | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-sandra-stephens
-wa26-us-house-7 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-nirav-sheth
+wa26-ld46-rep1 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-will-dreher@421-543,wa26-gerry-pollet@551-676
+wa26-ld46-rep2 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-darya-farivar@804-940,wa26-rodney-star-thornley@681-800
+wa26-ld46-sen | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-sandra-stephens@941-1053
+wa26-us-house-7 | Vx1tCpRr9R4 | forum | civic ; host=Haller Lake Community Club ; found=YouTube search "Darya Farivar Rodney Thornley" ; with=wa26-nirav-sheth@1058-1177
 
 # Forum clips: with=<id>@START-END marks one candidate's own unbroken turn (their opening statement, or their
 # answer to the first question when the forum has none), read from the transcript: from where they start to

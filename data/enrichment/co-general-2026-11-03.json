@@ -133,7 +133,11 @@
      "title": "Independent candidate for U.S. Senate Bob Chew talks about the issues facing Colorado",
      "channel": "CBS Colorado",
      "published": "2026-10-14",
-     "durationSec": 1251
+     "durationSec": 1251,
+     "clip": {
+      "startSec": 46,
+      "endSec": 81
+     }
     },
     {
      "youtubeId": "Nnnewd7f2aI",
@@ -191,7 +195,11 @@
      "title": "Full interview: Colorado Republican gubernatorial candidate Victor Marx",
      "channel": "Next 9NEWS",
      "published": "2026-05-28",
-     "durationSec": 1748
+     "durationSec": 1748,
+     "clip": {
+      "startSec": 41,
+      "endSec": 93
+     }
     },
     {
      "youtubeId": "GF8J_vea64Y",
@@ -201,7 +209,9 @@
      "channel": "The Colorado Chamber of Commerce",
      "published": "2026-10-09",
      "durationSec": 3152,
-     "host": "Colorado Chamber of Commerce"
+     "host": "Colorado Chamber of Commerce",
+     "startSec": 281,
+     "endSec": 414
     }
    ]
   },
@@ -243,7 +253,9 @@
      "channel": "The Colorado Chamber of Commerce",
      "published": "2026-10-09",
      "durationSec": 3152,
-     "host": "Colorado Chamber of Commerce"
+     "host": "Colorado Chamber of Commerce",
+     "startSec": 141,
+     "endSec": 272
     }
    ]
   },
@@ -269,7 +281,11 @@
      "title": "Candidate Interview: Amanda Gonzalez — CO Secretary of State",
      "channel": "Local News Network",
      "published": "2026-10-13",
-     "durationSec": 606
+     "durationSec": 606,
+     "clip": {
+      "startSec": 11,
+      "endSec": 42
+     }
     },
     {
      "youtubeId": "Z7T914tP53Y",
@@ -337,7 +353,11 @@
      "title": "Candidate Interview: Kevin Grantham — CO State Treasurer",
      "channel": "Local News Network",
      "published": "2026-10-06",
-     "durationSec": 1231
+     "durationSec": 1231,
+     "clip": {
+      "startSec": 12,
+      "endSec": 178
+     }
     }
    ]
   },
@@ -351,6 +371,10 @@
      "channel": "FOX31 Denver",
      "published": "2026-09-05",
      "durationSec": 1361,
+     "clip": {
+      "startSec": 115,
+      "endSec": 135
+     },
      "startSec": 76
     },
     {
@@ -715,10 +739,14 @@
      "host": "Colorado Chamber of Commerce",
      "participants": [
       {
-       "id": "co26-phil-weiser"
+       "id": "co26-phil-weiser",
+       "startSec": 141,
+       "endSec": 272
       },
       {
-       "id": "co26-victor-marx"
+       "id": "co26-victor-marx",
+       "startSec": 281,
+       "endSec": 414
       }
      ]
     }

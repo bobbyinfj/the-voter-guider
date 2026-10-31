@@ -579,6 +579,10 @@
     "channel": "OC Talk Radio",
     "published": "2026-09-09",
     "durationSec": 1802,
+    "clip": {
+     "startSec": 81,
+     "endSec": 204
+    },
     "evidence": {
      "foundVia": "YouTube search \"Los Angeles Community College District trustee candidates 2026\"",
      "checks": [
@@ -647,6 +651,10 @@
     "published": "2026-10-23",
     "durationSec": 1596,
     "host": "Talking Downey",
+    "clip": {
+     "startSec": 55,
+     "endSec": 192
+    },
     "evidence": {
      "foundVia": "Talking Downey channel uploads",
      "checks": [
@@ -669,6 +677,10 @@
     "published": "2026-05-11",
     "durationSec": 1828,
     "host": "Talking Downey",
+    "clip": {
+     "startSec": 118,
+     "endSec": 193
+    },
     "evidence": {
      "foundVia": "Talking Downey channel uploads",
      "checks": [

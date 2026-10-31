@@ -68,7 +68,7 @@ ca26-la-superior-131 | zh-W4Flzx2c | forum | civic ; host=California State Unive
 
 # Batch 6 (2026-10-24): CA-38. Found in a search for LACCD forums; then both candidates were searched by name
 # ("Hilda Solis 2026 interview", "Pedro Antonio Casas", "Pedro Casas congress 38"): Casas's interviews are from 2024
-ca26-hilda-solis | 6658KVVwDU0 | interview | independent ; found=YouTube search "Los Angeles Community College District trustee candidates 2026" ; named=title
+ca26-hilda-solis | 6658KVVwDU0 | interview | independent ; clip=81-204 ; found=YouTube search "Los Angeles Community College District trustee candidates 2026" ; named=title
 
 # Batch 7 (2026-10-26): campaign-site scan of every remaining CA candidate with a website (embeds and
 # linked channels). Liu's site links @liulaw; Buelna's links @GabrielBuelna-sbc. Luna's linked channel
@@ -82,8 +82,8 @@ ca26-gabriel-buelna | 2aMhoZn6rqY | statement | campaign ; source=https://www.yo
 # the 2026 uploads of each channel (Talking Downey, CrowdSourceCarrie, LA Progressive, KHTS "Politics and
 # the Pulpit"). Used only where a candidate has no other video, or where the host interviewed every
 # candidate in the race (Office 65). Talking Downey has no Bob Archuleta interview.
-ca26-araceli-martinez | yryUxeoSom0 | interview | viewpoint ; host=Talking Downey ; found=Talking Downey channel uploads
-ca26-maria-ghobadi | NeiECRTjFO0 | interview | viewpoint ; host=Talking Downey ; found=Talking Downey channel uploads
+ca26-araceli-martinez | yryUxeoSom0 | interview | viewpoint ; clip=55-192 ; host=Talking Downey ; found=Talking Downey channel uploads
+ca26-maria-ghobadi | NeiECRTjFO0 | interview | viewpoint ; clip=118-193 ; host=Talking Downey ; found=Talking Downey channel uploads
 ca26-justin-allen-clayton | dlYtZsOASEU | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads
 ca26-anna-slotky-reitano | Wv2eQl3ukb4 | interview | viewpoint ; host=CrowdSourceCarrie ; found=CrowdSourceCarrie channel uploads
 

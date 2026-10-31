@@ -264,7 +264,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 1058,
+     "endSec": 1177
     }
    ]
   },
@@ -1207,7 +1209,9 @@
      "title": "WA Senate Debate: Two Democrats vie to represent Seattle's northern suburbs",
      "channel": "KUOW",
      "published": "2026-10-01",
-     "durationSec": 3089
+     "durationSec": 3089,
+     "startSec": 649,
+     "endSec": 714
     }
    ]
   },
@@ -1474,7 +1478,9 @@
      "title": "WA Senate Debate: Two Democrats vie to represent Seattle's northern suburbs",
      "channel": "KUOW",
      "published": "2026-10-01",
-     "durationSec": 3089
+     "durationSec": 3089,
+     "startSec": 535,
+     "endSec": 610
     }
    ]
   },
@@ -2809,7 +2815,9 @@
      "channel": "Building Changes",
      "published": "2026-10-03",
      "durationSec": 4292,
-     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+     "host": "Building Changes, League of Education Voters Foundation and SESEC",
+     "startSec": 495,
+     "endSec": 587
     }
    ]
   },
@@ -3196,7 +3204,9 @@
      "channel": "Building Changes",
      "published": "2026-10-03",
      "durationSec": 4292,
-     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+     "host": "Building Changes, League of Education Voters Foundation and SESEC",
+     "startSec": 380,
+     "endSec": 492
     }
    ]
   },
@@ -3232,7 +3242,9 @@
      "channel": "Building Changes",
      "published": "2026-10-03",
      "durationSec": 4292,
-     "host": "Building Changes, League of Education Voters Foundation and SESEC"
+     "host": "Building Changes, League of Education Voters Foundation and SESEC",
+     "startSec": 197,
+     "endSec": 377
     }
    ]
   },
@@ -3809,7 +3821,9 @@
      "title": "The candidates for Washington’s 43rd Legislative District talk affordability, policy and progress...",
      "channel": "KUOW",
      "published": "2026-10-03",
-     "durationSec": 2053
+     "durationSec": 2053,
+     "startSec": 1036,
+     "endSec": 1061
     }
    ]
   },
@@ -4023,7 +4037,9 @@
      "title": "The candidates for Washington’s 43rd Legislative District talk affordability, policy and progress...",
      "channel": "KUOW",
      "published": "2026-10-03",
-     "durationSec": 2053
+     "durationSec": 2053,
+     "startSec": 72,
+     "endSec": 151
     }
    ]
   },
@@ -4344,7 +4360,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 941,
+     "endSec": 1053
     }
    ]
   },
@@ -4792,7 +4810,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 551,
+     "endSec": 676
     }
    ]
   },
@@ -4915,7 +4935,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 421,
+     "endSec": 543
     }
    ]
   },
@@ -5041,7 +5063,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 804,
+     "endSec": 940
     }
    ]
   },
@@ -5078,7 +5102,9 @@
      "channel": "Haller Lake Community Club",
      "published": "2026-09-11",
      "durationSec": 6794,
-     "host": "Haller Lake Community Club"
+     "host": "Haller Lake Community Club",
+     "startSec": 681,
+     "endSec": 800
     }
    ]
   },
@@ -15737,10 +15763,14 @@
      "durationSec": 3089,
      "participants": [
       {
-       "id": "wa26-cindy-ryu"
+       "id": "wa26-cindy-ryu",
+       "startSec": 649,
+       "endSec": 714
       },
       {
-       "id": "wa26-jesse-salomon"
+       "id": "wa26-jesse-salomon",
+       "startSec": 535,
+       "endSec": 610
       }
      ]
     }
@@ -15775,10 +15805,14 @@
      "durationSec": 2053,
      "participants": [
       {
-       "id": "wa26-jamie-pedersen"
+       "id": "wa26-jamie-pedersen",
+       "startSec": 1036,
+       "endSec": 1061
       },
       {
-       "id": "wa26-hannah-sabio-howell"
+       "id": "wa26-hannah-sabio-howell",
+       "startSec": 72,
+       "endSec": 151
       }
      ]
     }
@@ -15814,10 +15848,14 @@
      "host": "Haller Lake Community Club",
      "participants": [
       {
-       "id": "wa26-will-dreher"
+       "id": "wa26-will-dreher",
+       "startSec": 421,
+       "endSec": 543
       },
       {
-       "id": "wa26-gerry-pollet"
+       "id": "wa26-gerry-pollet",
+       "startSec": 551,
+       "endSec": 676
       }
      ]
     }
@@ -15836,10 +15874,14 @@
      "host": "Building Changes, League of Education Voters Foundation and SESEC",
      "participants": [
       {
-       "id": "wa26-kelabe-tewolde"
+       "id": "wa26-kelabe-tewolde",
+       "startSec": 380,
+       "endSec": 492
       },
       {
-       "id": "wa26-sharon-tomiko-santos"
+       "id": "wa26-sharon-tomiko-santos",
+       "startSec": 197,
+       "endSec": 377
       }
      ]
     }
@@ -15861,7 +15903,9 @@
        "id": "wa26-tatiana-brown"
       },
       {
-       "id": "wa26-chipalo-street"
+       "id": "wa26-chipalo-street",
+       "startSec": 495,
+       "endSec": 587
       }
      ]
     }
@@ -15953,10 +15997,14 @@
      "host": "Haller Lake Community Club",
      "participants": [
       {
-       "id": "wa26-darya-farivar"
+       "id": "wa26-darya-farivar",
+       "startSec": 804,
+       "endSec": 940
       },
       {
-       "id": "wa26-rodney-star-thornley"
+       "id": "wa26-rodney-star-thornley",
+       "startSec": 681,
+       "endSec": 800
       }
      ]
     }
@@ -15975,7 +16023,9 @@
      "host": "Haller Lake Community Club",
      "participants": [
       {
-       "id": "wa26-sandra-stephens"
+       "id": "wa26-sandra-stephens",
+       "startSec": 941,
+       "endSec": 1053
       }
      ]
     }
@@ -15994,7 +16044,9 @@
      "host": "Haller Lake Community Club",
      "participants": [
       {
-       "id": "wa26-nirav-sheth"
+       "id": "wa26-nirav-sheth",
+       "startSec": 1058,
+       "endSec": 1177
       }
      ]
     }
