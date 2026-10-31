@@ -53,6 +53,11 @@ export function UnofficialFooter() {
             candidate lists) and link to them, but we can make mistakes. Check your official voters&apos; pamphlet,
             and vote using the ballot your county elections office sends you.
           </p>
+          <p>
+            <Link href="/privacy" className="underline underline-offset-2 hover:text-gray-900">
+              Privacy
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
