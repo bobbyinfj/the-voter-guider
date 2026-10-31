@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import {
   ArrowDownToLine,
+  Maximize2,
+  Minimize2,
   ArrowLeft,
   ArrowRight,
   CircleHelp,
@@ -81,6 +83,8 @@ interface BallotTrackerProps {
 type Mode = 'ballot' | 'step' | 'review'
 // Remembered for this browser tab only: every visit starts on Expanded
 const DENSITY_KEY = 'voter-guider:view'
+const ROOM_KEY = 'voter-guider:more-room'
+const placeKey = (electionId: string) => `voter-guider:place:${electionId}`
 
 // A guide laid out like the voter's own ballot (same contests, order and wording as the
 // county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
@@ -107,6 +111,8 @@ export default function BallotTracker({
   const [differOnly, setDifferOnly] = useState(false)
   const [coveredOnly, setCoveredOnly] = useState(false)
   const [byImportance, setByImportance] = useState(false)
+  // Hides the outline and shrinks the toolbar to one line
+  const [moreRoom, setMoreRoom] = useState(false)
   const [showViewHelp, setShowViewHelp] = useState(false)
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
@@ -123,7 +129,16 @@ export default function BallotTracker({
     } catch {}
     // eslint-disable-next-line react-hooks/set-state-in-effect -- browser-only preference, read after hydration
     if (saved === 'expanded' || saved === 'basic' || saved === 'compare') setView(saved)
+    try {
+      if (localStorage.getItem(ROOM_KEY) === '1') setMoreRoom(true)
+    } catch {}
   }, [])
+  const toggleRoom = () => {
+    setMoreRoom(!moreRoom)
+    try {
+      localStorage.setItem(ROOM_KEY, moreRoom ? '0' : '1')
+    } catch {}
+  }
   const chooseDensity = (value: Density | 'compare') => {
     setView(value)
     try {
@@ -268,13 +283,47 @@ export default function BallotTracker({
     }
     return from
   }
-  // ?view=step (the "Go through my ballot" link) opens on the first contest still to decide
+  // On arrival: ?view=step (the "Go through my ballot" link) opens on the first contest still to
+  // decide, then leaves the address bar so a reload doesn't start over. Otherwise, unless a link
+  // points somewhere, a reload or a trip back returns to where you were in this tab.
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).get('view') !== 'step' || !steps.length) return
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- the link's view, read after hydration
-    goStep(firstUndecidedStep(steps.length - 1))
+    if (!steps.length) return
+    const url = new URL(window.location.href)
+    if (url.searchParams.get('view') === 'step') {
+      url.searchParams.delete('view')
+      history.replaceState(null, '', url)
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- the link's view, read after hydration
+      goStep(firstUndecidedStep(steps.length - 1))
+      return
+    }
+    if (url.hash) return
+    let place: { mode?: Mode; itemId?: string } | null = null
+    try {
+      place = JSON.parse(sessionStorage.getItem(placeKey(election.id)) ?? 'null')
+    } catch {}
+    if (!place) return
+    const itemId = place.itemId
+    if (place.mode === 'step' && itemId) return goStep(stepOf(itemId))
+    if (place.mode === 'review') return setMode('review')
+    const item = ballots.find((b) => b.id === itemId)
+    if (!item) return
+    const timer = window.setTimeout(() => {
+      const el = document.getElementById(contestDomId(item))
+      if (el) scrollToElement(el, 'auto')
+    }, 400)
+    return () => clearTimeout(timer)
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only on arrival
   }, [steps.length])
+
+  // Remember the mode and contest for this tab; the top of the ballot needs no remembering
+  useEffect(() => {
+    const itemId = mode === 'step' ? steps[stepIndex]?.run[0].id : activeId
+    if (mode === 'ballot' && !itemId) return
+    try {
+      if (mode === 'ballot' && itemId === pageOrder[0]?.id) sessionStorage.removeItem(placeKey(election.id))
+      else sessionStorage.setItem(placeKey(election.id), JSON.stringify({ mode, itemId }))
+    } catch {}
+  }, [mode, stepIndex, activeId, steps, pageOrder, election.id])
 
   const nextUndecided = () => {
     if (mode === 'step') return goStep(firstUndecidedStep(stepIndex))
@@ -330,7 +379,17 @@ export default function BallotTracker({
       onJump={mode === 'step' ? (id) => goStep(stepOf(id)) : jumpTo}
     />
   )
-  const showSidebar = (view === 'expanded' && mode === 'ballot') || mode === 'step'
+  const showSidebar = !moreRoom && ((view === 'expanded' && mode === 'ballot') || mode === 'step')
+  const toGo = ballots.length - answered
+  const progress = (
+    <>
+      <span className="font-medium text-gray-800">
+        {answered - leaning} decided{leaning > 0 && <>, {leaning} leaning</>} · {toGo} to go
+        {unsure > 0 && <> ({unsure} not sure yet)</>}
+      </span>
+      {toGo > 0 && <span className="text-gray-500 max-sm:hidden" title="Our rough guess, at about a minute a contest">About {toGo} min left</span>}
+    </>
+  )
 
   return (
     <div className={showSidebar ? 'lg:grid lg:grid-cols-[clamp(15rem,27vw,28rem)_minmax(0,1fr)] lg:gap-8 print:block!' : ''}>
@@ -342,8 +401,24 @@ export default function BallotTracker({
       )}
 
       <div className="min-w-0 space-y-4">
-        <div ref={toolbarRef} className="z-20 -mx-4 border-b sm:sticky sm:top-0 border-gray-200 bg-gray-50/95 px-4 py-3 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div ref={toolbarRef} className={`z-20 -mx-4 border-b sm:sticky sm:top-0 border-gray-200 bg-gray-50/95 px-4 font-sans backdrop-blur print:hidden sm:mx-0 sm:rounded-lg sm:border ${moreRoom ? 'py-1.5' : 'py-2'}`}>
+          {moreRoom ? (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+              {progress}
+              <span className="ml-auto flex items-center gap-1">
+                {!readOnly && (
+                  <button onClick={nextUndecided} disabled={answered === ballots.length} className={quietButton}>
+                    <SkipForward className="h-4 w-4" /> Next undecided
+                  </button>
+                )}
+                <button onClick={toggleRoom} aria-pressed className={quietButton}>
+                  <Minimize2 className="h-4 w-4" /> Show tools
+                </button>
+              </span>
+            </div>
+          ) : (
+          <>
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
                 <button onClick={() => chooseDensity('basic')} aria-pressed={view === 'basic'} className={segment(view === 'basic')}>
@@ -408,26 +483,26 @@ export default function BallotTracker({
             </div>
             <div className="flex items-center gap-1">
               {status}
-              <button onClick={handleExport} className={quietButton}>
-                <Download className="h-4 w-4" /> Text
+              <button onClick={handleExport} aria-label="Download as text" className={quietButton}>
+                <Download className="h-4 w-4" /> <span className="max-xl:hidden">Text</span>
               </button>
-              <button onClick={() => window.print()} className={quietButton}>
-                <Printer className="h-4 w-4" /> Print
+              <button onClick={() => window.print()} aria-label="Print" className={quietButton}>
+                <Printer className="h-4 w-4" /> <span className="max-xl:hidden">Print</span>
+              </button>
+              <button onClick={toggleRoom} aria-pressed={false} className={quietButton} title="Hide the outline and shrink this toolbar">
+                <Maximize2 className="h-4 w-4" /> More room
               </button>
             </div>
           </div>
-          <div className="mb-2 flex items-center justify-between gap-3 text-sm">
-            <span className="font-medium text-gray-800">
-              {answered - leaning} decided{leaning > 0 && <>, {leaning} leaning</>} · {ballots.length - answered} to go
-              {unsure > 0 && <> ({unsure} not sure yet)</>}
-            </span>
+          <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            {progress}
+            <div className="h-1.5 min-w-16 flex-1 rounded-full bg-gray-200">
+              <div
+                className="h-1.5 rounded-full bg-ballot-accent transition-all duration-300"
+                style={{ width: `${completionPercentage}%` }}
+              />
+            </div>
             <span className="text-gray-500">{completionPercentage}%</span>
-          </div>
-          <div className="mb-3 h-2 w-full rounded-full bg-gray-200">
-            <div
-              className="h-2 rounded-full bg-ballot-accent transition-all duration-300"
-              style={{ width: `${completionPercentage}%` }}
-            />
           </div>
           <div className="flex flex-wrap gap-2">
             <div role="tablist" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
@@ -441,7 +516,8 @@ export default function BallotTracker({
                   role="tab"
                   aria-selected={mode === value}
                   onClick={() => {
-                    if (value === 'step') return goStep(mode === 'step' ? stepIndex : firstUndecidedStep(steps.length - 1))
+                    // One at a time starts where you are on the ballot, not back at the first contest
+                    if (value === 'step') return goStep(mode === 'step' ? stepIndex : activeId ? stepOf(activeId) : firstUndecidedStep(steps.length - 1))
                     setMode(value)
                     const top = document.getElementById('ballot-top')
                     if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
@@ -518,6 +594,8 @@ export default function BallotTracker({
             </summary>
             <div className="mt-2 max-h-[50vh] overflow-y-auto sm:columns-2 lg:columns-3">{nav}</div>
           </details>
+          </>
+          )}
         </div>
 
         {notice}
