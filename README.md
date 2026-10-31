@@ -1,6 +1,6 @@
 # The VoTer GuidEr
 
-**Know your whole ballot.** Every race and measure on your ballot, from Congress down to
+**Vote better. And easier.** Every race and measure on your ballot, from Congress down to
 city council, sourced from official election offices — plus a quiz that compares you with
 what candidates have actually said, and a guide to record and share your picks.
 
