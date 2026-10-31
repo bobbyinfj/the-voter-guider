@@ -149,6 +149,13 @@ As a voter, I want a measure's stakes grade to rest on the best official number 
 - Figures from PDFs get saved source text so the test can check the quote, as bundle text already does.
 - Open: the Monterey Park, Montebello and LA County measures, and Seattle Prop 1.
 
+**R-1. How each race went last time**
+As a voter, I want to see how close a race has been, so I can tell what's really in play.
+- Show each November candidate's share of this year's primary, from official results, beside the contest.
+- Say that it describes who voted then and isn't a forecast.
+- Done for California statewide, Congress and legislative races and for Washington.
+- Open: Colorado (party primaries, so use the 2022 and 2024 general results for the same office instead), LA County and judge races (LA's results site blocks automated access, so use a certified PDF if one exists), and past results on similar measures.
+
 ### Next: quality of what voters see
 
 **F-1. Poop meter from several fact-checkers**

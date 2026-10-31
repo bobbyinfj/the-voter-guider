@@ -1,0 +1,308 @@
+{
+ "election": "August 4 primary",
+ "publisher": "Washington Secretary of State",
+ "url": "https://results.votewa.gov/results/public/washington/elections/20260804",
+ "retrieved": "2026-10-30",
+ "races": {
+  "wa26-us-house-7": {
+   "contest": "U.S. Representative - Congressional District 7",
+   "total": 216741,
+   "candidates": [
+    {
+     "name": "Pramila Jayapal",
+     "votes": 182844
+    },
+    {
+     "name": "Nirav Sheth",
+     "votes": 21282
+    }
+   ],
+   "others": 12615
+  },
+  "wa26-us-house-9": {
+   "contest": "U.S. Representative - Congressional District 9",
+   "total": 142356,
+   "candidates": [
+    {
+     "name": "Adam Smith",
+     "votes": 67095
+    },
+    {
+     "name": "Doug Basler",
+     "votes": 31070
+    }
+   ],
+   "others": 44191
+  },
+  "wa26-ld11-rep1": {
+   "contest": "State Representative Pos. 1 - Legislative District 11",
+   "total": 25968,
+   "candidates": [
+    {
+     "name": "David Hackney",
+     "votes": 10998
+    },
+    {
+     "name": "Ashley Fedan",
+     "votes": 8298
+    }
+   ],
+   "others": 6672
+  },
+  "wa26-ld32-sen": {
+   "contest": "State Senator - Legislative District 32",
+   "total": 40458,
+   "candidates": [
+    {
+     "name": "Cindy Ryu",
+     "votes": 17876
+    },
+    {
+     "name": "Jesse Salomon",
+     "votes": 15221
+    }
+   ],
+   "others": 7361
+  },
+  "wa26-ld32-rep1": {
+   "contest": "State Representative Pos. 1 - Legislative District 32",
+   "total": 40234,
+   "candidates": [
+    {
+     "name": "Keith Scully",
+     "votes": 10698
+    },
+    {
+     "name": "Danica Noble",
+     "votes": 9735
+    }
+   ],
+   "others": 19801
+  },
+  "wa26-ld32-rep2": {
+   "contest": "State Representative Pos. 2 - Legislative District 32",
+   "total": 37293,
+   "candidates": [
+    {
+     "name": "Lauren Davis",
+     "votes": 26708
+    },
+    {
+     "name": "Imraan Siddiqi",
+     "votes": 9791
+    }
+   ],
+   "others": 794
+  },
+  "wa26-ld34-rep2": {
+   "contest": "State Representative Pos. 2 - Legislative District 34",
+   "total": 41171,
+   "candidates": [
+    {
+     "name": "Joe Fitzgibbon",
+     "votes": 30680
+    },
+    {
+     "name": "Mary Anito",
+     "votes": 9999
+    }
+   ],
+   "others": 492
+  },
+  "wa26-ld36-sen": {
+   "contest": "State Senator - Legislative District 36",
+   "total": 48523,
+   "candidates": [
+    {
+     "name": "Noel C. Frame",
+     "votes": 42548
+    },
+    {
+     "name": "Jillian England",
+     "votes": 5876
+    }
+   ],
+   "others": 99
+  },
+  "wa26-ld37-sen": {
+   "contest": "State Senator - Legislative District 37",
+   "total": 38230,
+   "candidates": [
+    {
+     "name": "Chipalo Street",
+     "votes": 28196
+    },
+    {
+     "name": "Tatiana Brown",
+     "votes": 9729
+    }
+   ],
+   "others": 305
+  },
+  "wa26-ld37-rep1": {
+   "contest": "State Representative Pos. 1 - Legislative District 37",
+   "total": 38669,
+   "candidates": [
+    {
+     "name": "Kelabe Tewolde",
+     "votes": 19902
+    },
+    {
+     "name": "Sharon Tomiko Santos",
+     "votes": 18517
+    }
+   ],
+   "others": 250
+  },
+  "wa26-ld37-rep2": {
+   "contest": "State Representative Pos. 2 - Legislative District 37",
+   "total": 38138,
+   "candidates": [
+    {
+     "name": "Jaelynn Scott",
+     "votes": 33678
+    },
+    {
+     "name": "Evon McCorkle",
+     "votes": 4143
+    }
+   ],
+   "others": 317
+  },
+  "wa26-ld43-sen": {
+   "contest": "State Senator - Legislative District 43",
+   "total": 38177,
+   "candidates": [
+    {
+     "name": "Jamie Pedersen",
+     "votes": 25454
+    },
+    {
+     "name": "Hannah Sabio-Howell",
+     "votes": 8990
+    }
+   ],
+   "others": 3733
+  },
+  "wa26-ld43-rep1": {
+   "contest": "State Representative Pos. 1 - Legislative District 43",
+   "total": 35913,
+   "candidates": [
+    {
+     "name": "Nicole Macri",
+     "votes": 32872
+    },
+    {
+     "name": "Alby Clendennin",
+     "votes": 2647
+    }
+   ],
+   "others": 394
+  },
+  "wa26-ld46-sen": {
+   "contest": "State Senator - Legislative District 46",
+   "total": 45250,
+   "candidates": [
+    {
+     "name": "Javier Valdez",
+     "votes": 40980
+    },
+    {
+     "name": "Sandra Stephens",
+     "votes": 4153
+    }
+   ],
+   "others": 117
+  },
+  "wa26-ld46-rep1": {
+   "contest": "State Representative Pos. 1 - Legislative District 46",
+   "total": 44205,
+   "candidates": [
+    {
+     "name": "Gerry Pollet",
+     "votes": 22807
+    },
+    {
+     "name": "Will Dreher",
+     "votes": 13592
+    }
+   ],
+   "others": 7806
+  },
+  "wa26-ld46-rep2": {
+   "contest": "State Representative Pos. 2 - Legislative District 46",
+   "total": 44038,
+   "candidates": [
+    {
+     "name": "Darya Farivar",
+     "votes": 39373
+    },
+    {
+     "name": "Rodney 'Star' Thornley",
+     "votes": 4386
+    }
+   ],
+   "others": 279
+  },
+  "wa26-supreme-1": {
+   "contest": "Justice Position #01 - Supreme Court",
+   "total": 1721431,
+   "candidates": [
+    {
+     "name": "Colleen Melody",
+     "votes": 911151
+    },
+    {
+     "name": "Scott Edwards",
+     "votes": 504754
+    }
+   ],
+   "others": 305526
+  },
+  "wa26-supreme-3": {
+   "contest": "Justice Position #03 - Supreme Court",
+   "total": 1714992,
+   "candidates": [
+    {
+     "name": "David Stevens",
+     "votes": 602517
+    },
+    {
+     "name": "Jaime Michelle Hawk",
+     "votes": 570660
+    }
+   ],
+   "others": 541815
+  },
+  "wa26-supreme-5": {
+   "contest": "Justice Position #05 - Supreme Court",
+   "total": 1714393,
+   "candidates": [
+    {
+     "name": "Theo Angelis",
+     "votes": 615276
+    },
+    {
+     "name": "Dave Larson",
+     "votes": 550691
+    }
+   ],
+   "others": 548426
+  },
+  "wa26-supreme-7": {
+   "contest": "Justice Position #07 - Supreme Court",
+   "total": 1701223,
+   "candidates": [
+    {
+     "name": "Debra L. Stephens",
+     "votes": 925697
+    },
+    {
+     "name": "Todd A. Bloom",
+     "votes": 460520
+    }
+   ],
+   "others": 315006
+  }
+ }
+}

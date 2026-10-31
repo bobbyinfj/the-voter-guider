@@ -43,6 +43,7 @@ import {
 import { ContestHead, Extra } from './Paper'
 import OfficeExplainer, { OfficeExplainerButton } from './OfficeExplainer'
 import { glossaryForItem } from '@/lib/glossary'
+import PrimaryResult from './PrimaryResult'
 import { taxRatesFor } from '@/lib/taxRates'
 import TaxRates from './TaxRates'
 import { CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
@@ -258,6 +259,7 @@ function ContestIntro({ item }: { item: BallotItem }) {
       ) : (
         <div className="h-2" />
       )}
+      {item.office && <PrimaryResult officeId={item.office.id} />}
     </div>
   )
 }

@@ -1,0 +1,218 @@
+{
+ "election": "June 2 primary",
+ "publisher": "California Secretary of State, Statement of Vote",
+ "url": "https://elections.cdn.sos.ca.gov/sov/2026-primary/sov/csv-voter-nominated.xlsx",
+ "retrieved": "2026-10-30",
+ "races": {
+  "ca26-us-house-28": {
+   "contest": "United States Representative District 28",
+   "total": 186925,
+   "candidates": [
+    {
+     "name": "Judy Chu",
+     "votes": 116321
+    },
+    {
+     "name": "April A. Verlato",
+     "votes": 60020
+    }
+   ],
+   "others": 10584
+  },
+  "ca26-governor": {
+   "contest": "Governor",
+   "total": 9262468,
+   "candidates": [
+    {
+     "name": "Xavier Becerra",
+     "votes": 2591857
+    },
+    {
+     "name": "Steve Hilton",
+     "votes": 2277318
+    }
+   ],
+   "others": 4393293
+  },
+  "ca26-lt-governor": {
+   "contest": "Lieutenant Governor",
+   "total": 8533504,
+   "candidates": [
+    {
+     "name": "Fiona Ma",
+     "votes": 1631935
+    },
+    {
+     "name": "Gloria Romero",
+     "votes": 1521181
+    }
+   ],
+   "others": 5380388
+  },
+  "ca26-secretary-of-state": {
+   "contest": "Secretary of State",
+   "total": 8675198,
+   "candidates": [
+    {
+     "name": "Shirley N. Weber",
+     "votes": 5092491
+    },
+    {
+     "name": "Donald P. (Don) Wagner",
+     "votes": 3187180
+    }
+   ],
+   "others": 395527
+  },
+  "ca26-controller": {
+   "contest": "Controller",
+   "total": 8643528,
+   "candidates": [
+    {
+     "name": "Malia M. Cohen",
+     "votes": 4909613
+    },
+    {
+     "name": "Herb W Morgan",
+     "votes": 3244252
+    }
+   ],
+   "others": 489663
+  },
+  "ca26-treasurer": {
+   "contest": "Treasurer",
+   "total": 8597743,
+   "candidates": [
+    {
+     "name": "Eleni Kounalakis",
+     "votes": 3154323
+    },
+    {
+     "name": "Jennifer Hawks",
+     "votes": 2063253
+    }
+   ],
+   "others": 3380167
+  },
+  "ca26-attorney-general": {
+   "contest": "Attorney General",
+   "total": 8795850,
+   "candidates": [
+    {
+     "name": "Rob Bonta",
+     "votes": 4979967
+    },
+    {
+     "name": "Michael E. Gates",
+     "votes": 3337433
+    }
+   ],
+   "others": 478450
+  },
+  "ca26-insurance-commissioner": {
+   "contest": "Insurance Commissioner",
+   "total": 8499824,
+   "candidates": [
+    {
+     "name": "Jane Kim",
+     "votes": 2328836
+    },
+    {
+     "name": "Ben Allen",
+     "votes": 1649501
+    }
+   ],
+   "others": 4521487
+  },
+  "ca26-superintendent": {
+   "contest": "Superintendent of Public Instruction",
+   "total": 7675588,
+   "candidates": [
+    {
+     "name": "Sonja Shaw",
+     "votes": 1737735
+    },
+    {
+     "name": "Richard Barrera",
+     "votes": 1558298
+    }
+   ],
+   "others": 4379555
+  },
+  "ca26-boe-3": {
+   "contest": "Board of Equalization Member District 3",
+   "total": 1852154,
+   "candidates": [
+    {
+     "name": "Mike Gipson",
+     "votes": 516324
+    },
+    {
+     "name": "Samuel P. Sukaton",
+     "votes": 337313
+    }
+   ],
+   "others": 998517
+  },
+  "ca26-assembly-49": {
+   "contest": "State Assembly Member District 49",
+   "total": 88734,
+   "candidates": [
+    {
+     "name": "Mike Fong",
+     "votes": 60484
+    },
+    {
+     "name": "Long David Liu",
+     "votes": 28250
+    }
+   ],
+   "others": 0
+  },
+  "ca26-us-house-38": {
+   "contest": "United States Representative District 38",
+   "total": 137276,
+   "candidates": [
+    {
+     "name": "HILDA SOLIS",
+     "votes": 65369
+    },
+    {
+     "name": "PEDRO ANTONIO CASAS",
+     "votes": 49196
+    }
+   ],
+   "others": 22711
+  },
+  "ca26-state-senate-30": {
+   "contest": "State Senate District 30",
+   "total": 191871,
+   "candidates": [
+    {
+     "name": "BOB J. ARCHULETA",
+     "votes": 124926
+    },
+    {
+     "name": "ARACELI MARTINEZ",
+     "votes": 66945
+    }
+   ],
+   "others": 0
+  },
+  "ca26-assembly-54": {
+   "contest": "State Assembly Member District 54",
+   "total": 48888,
+   "candidates": [
+    {
+     "name": "MARK GONZALEZ",
+     "votes": 48751
+    },
+    {
+     "name": "ALEXANDRA BRISENO",
+     "votes": 137
+    }
+   ],
+   "others": 0
+  }
+ }
+}
