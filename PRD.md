@@ -215,6 +215,13 @@ As a voter, I want a candidate page to carry the same clips, stakes-style clarit
 **P-2. Whole-site design pass**
 As a visitor, I want the home, candidate and quiz pages to match the cleaned-up ballot pages.
 
+**B-1. Request permission to use logos on published guides**
+As a voter, I want to recognize who published a guide at a glance. Until permission is in hand, we use names only.
+- Email each published guide (party, advocacy, League of Women Voters, editorial boards) asking to show its logo, and keep the replies with the source record.
+- Show logos only with written permission, and for both sides of a left/right pair or neither.
+- Save our own copy of each file, link the source, and say logos identify the publisher and aren't an affiliation.
+- Remove a logo the same day if a group asks. Campaign endorsers keep their initial circles.
+
 ### Won't do
 - Tell voters how to vote, or rank measures by whether we think they're good.
 - Use sources whose terms or `robots.txt` block us: VOTE411 stays link-only; Ballotpedia blocks automated access.
