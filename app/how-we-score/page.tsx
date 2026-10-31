@@ -127,7 +127,7 @@ export default function HowWeScorePage() {
           <li><strong>Local vote, 1 point:</strong> fewer people vote on it, so each vote counts for more.</li>
         </ul>
         <p>
-          4 or more points is High, 2 or 3 is Medium, and under 2 is Lower. Lower doesn&apos;t mean unimportant: a measure with no
+          4 or more points, or $1 billion or more on its own, is High; 2 or 3 is Medium, and under 2 is Lower. Lower doesn&apos;t mean unimportant: a measure with no
           dollar figure can still matter a great deal to you. Retention questions aren&apos;t graded, since each is about one judge.
         </p>
       </section>

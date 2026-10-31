@@ -41,5 +41,5 @@ export function stakesFor(m: MeasureFacts): Stakes | null {
   const locked = /constitutional amendment|amendment to the [a-z ]*constitution|charter amendment|amending the [a-z ]*charter/i.test(m.question ?? '')
   const local = !!m.level && m.level !== 'state'
   const score = (money?.band ?? 0) + (locked ? 2 : 0) + (m.split ? 1 : 0) + (local ? 1 : 0)
-  return { grade: score >= 4 ? 'High' : score >= 2 ? 'Medium' : 'Lower', score, money, locked, split: m.split, local }
+  return { grade: score >= 4 || money?.band === 3 ? 'High' : score >= 2 ? 'Medium' : 'Lower', score, money, locked, split: m.split, local }
 }
