@@ -125,8 +125,8 @@ export default function HowWeScorePage() {
       <section id="stakes" className="scroll-mt-4 space-y-2">
         <h2 className="text-lg font-bold">Stakes on ballot measures</h2>
         <p>
-          A long ballot is a lot to get through, so the Expanded view lists each section&apos;s measures with the biggest stakes
-          first (turn that off under Filters). The grade never looks at a measure&apos;s topic or which side is right. It adds up:
+          A long ballot is a lot to get through, so each measure gets a stakes grade. Your ballot stays in ballot order unless you
+          choose to sort measures by importance, which puts the highest grades first. The grade never looks at a measure&apos;s topic or which side is right. It adds up:
         </p>
         <ul className="ml-5 list-disc space-y-1">
           <li>
