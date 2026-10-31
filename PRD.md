@@ -109,7 +109,6 @@ confidence = min(gap × 2.5 × depthFactor, 1)
 ---
 
 ## Not in scope (v1)
-- User authentication (sessions are anonymous cookies)
 - Admin UI for stance editing
 - Additional locations beyond Seattle, Fort Collins and Monterey Park
 - Automated stance extraction from news/documents
@@ -119,11 +118,89 @@ confidence = min(gap × 2.5 × depthFactor, 1)
 
 ---
 
-## Future roadmap
-1. **Admin UI** for curating stances (with auth)
-2. **More CA locations** (LA City, San Francisco, San Jose)
-3. **Fill remaining Nov 2026 gaps** (Seattle races that skipped the primary, once King County publishes its local pamphlet; more sourced positions for down-ballot races)
-4. **Other states** using the same JSON-bundle import system
-5. **Automated ingestion** from Ballotpedia API / VIP data feeds
-6. **Sharing quiz results** with breakdown (public URL)
-7. **Endorsement integration** (LWV, labor unions, newspapers)
+## Backlog
+
+Stories are in priority order inside each group. Every story inherits the rules in `CLAUDE.md`:
+each fact shows its source beside it, nothing is made up, and any rule applies to everyone in a race
+or to every measure alike. Last updated 2026-10-30.
+
+### Now: before November 3, 2026
+
+**V-1. Short clips for every candidate who has a video**
+As a voter with a few minutes per contest, I want a bite or snack of each candidate before anything long.
+- Each candidate with a long independent video gets their opening statement or first full answer as a clip.
+- Times come from a transcript; no transcript or no such answer means no clip, never an estimate.
+- Open: about a dozen candidates still waiting on captions (YouTube rate limit), and Tatiana Brown, who gave no opening in her forum.
+
+**V-2. Interviews lead over campaign cuts**
+As a voter, I want to see candidates questioned by someone independent before I see their own ad.
+- The 7 candidates whose only short video is a campaign cut, but who have a longer independent video, lead with a clip of it.
+- Candidates with no independent video keep the campaign cut, labeled as one.
+
+**V-3. Video coverage gaps**
+As a voter, I want to see and hear the people on my ballot.
+- Run the same search for every candidate in a race, and record it in the picks files.
+- Today: WA 45 of 75 candidates, CO 30 of 50, CA 31 of 77.
+- No "no video found" placeholders.
+
+**M-1. More sourced dollar figures for stakes**
+As a voter, I want a measure's stakes grade to rest on the best official number available.
+- Every measure either has an official figure with its quote, or says none is available.
+- Figures from PDFs get saved source text so the test can check the quote, as bundle text already does.
+- Open: the Monterey Park, Montebello and LA County measures, and Seattle Prop 1.
+
+### Next: quality of what voters see
+
+**F-1. Poop meter from several fact-checkers**
+As a voter, I want the 💩 meter to rest on more than PolitiFact.
+- Add sources whose `robots.txt` allows Claude-User: FactCheck.org, Snopes, Lead Stories, Washington Post, 9NEWS. AP and Reuters disallow it. CalMatters returned 403 on the check.
+- Add the Google Fact Check Tools API if a key is provided.
+- Each outlet's verdict maps to one shared scale, published on `/how-we-score`; a claim checked by several outlets counts once.
+- Show a range and a claim count, not one precise-looking percent, and keep a minimum number of claims.
+- Say plainly that it measures the share of checked claims, because fact-checkers choose what to check.
+
+**E-1. Endorsements for the rest of California and Colorado**
+As a voter, I want to see who backs each candidate, not only in Washington and the LA Sheriff race.
+- Same method as WA: each campaign's own page, saved, with every name checked against it.
+- Never say "no endorsements"; a campaign may just not publish a list we can read.
+
+**E-2. Comparison sources for Washington and Colorado**
+As a voter, I want Compare view to be as useful in every state.
+- Add published guides where `robots.txt` allows them, party and advocacy guides as left/right pairs.
+
+**D-1. Debates for every state measure**
+As a voter, I want to hear both sides of a measure argued.
+- Follow the Prop 45 pattern: shortest first, each video labeled by who made it.
+
+**J-1. Judicial records**
+As a voter, I want something real to go on for judges.
+- Add rulings or opinions only where a source allows it (courts.ca.gov lists about 120 days; CourtListener blocks Claude-User).
+
+**C-1. Compare view on Print and export**
+As a voter, I want to take a side-by-side with me.
+- Printing Compare view gives a readable table, marked as not a ballot, with sources.
+
+### Later: after the election
+
+**L-1. More locations**
+As a voter elsewhere, I want my own ballot. Start with LA City, San Francisco and San Jose, using `data/research/PLAYBOOK.md`.
+
+**L-2. Next election cycle**
+As a returning voter, I want my account and notes to carry over, with 2026 kept as an archive.
+
+**A-1. Curation tools**
+As a curator, I want to edit stances and clip times in a UI, with the same checks the build runs, behind sign-in.
+
+**Q-1. Share quiz results**
+As a voter, I want a public link to my quiz breakdown that I can send to someone.
+
+**P-1. Fuller candidate pages**
+As a voter, I want a candidate page to carry the same clips, stakes-style clarity and cleanup as the Expanded view.
+
+**P-2. Whole-site design pass**
+As a visitor, I want the home, candidate and quiz pages to match the cleaned-up ballot pages.
+
+### Won't do
+- Tell voters how to vote, or rank measures by whether we think they're good.
+- Use sources whose terms or `robots.txt` block us: VOTE411 stays link-only; Ballotpedia blocks automated access.
+- Show an inferred stance or a score without enough evidence.
