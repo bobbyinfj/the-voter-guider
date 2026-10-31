@@ -22,7 +22,7 @@ const robotoCondensed = Roboto_Condensed({ variable: "--font-roboto-condensed", 
 export const metadata: Metadata = {
   title: "The Voter Guider — Vote better. And easier.",
   description: "An unofficial, independent voter guide (not a government site). Every race and measure on your ballot, sourced from official election offices, with a quiz comparing candidates’ stated positions. Build and share your voter guide.",
-  // Moleses, our nearly blind mole wizard (head crop of public/moleses-2.png)
+  // Moleses, our nearly blind mole wizard (head crop of public/moleses.png)
   // app/favicon.ico is linked automatically
   icons: {
     icon: { url: '/icon.png', type: 'image/png', sizes: '512x512' },
