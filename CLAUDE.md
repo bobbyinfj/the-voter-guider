@@ -142,6 +142,12 @@ headings repeat per Court of Appeal division. Colorado's have their own (`co-jud
 terms, the evaluation commissions and their retention record, from the state's judicial performance office).
 Where no official page describes a job (Montebello City Treasurer: the city lists only who holds it), it has no entry.
 
+### Primary results
+`data/results/<slug>.json` (built by `data/research/results-builders/build.py`, read through `lib/results.ts`) holds how each
+November race went in this year's primary, from the official results; a contest counts only when every November candidate is
+found in it by name. Shown above the candidates in Expanded (`PrimaryResult`) as a fact, never a forecast. CA and WA only:
+Colorado's primaries were party primaries, and LA County's results site blocks automated access. Static file: no seed needed.
+
 ### Stakes on measures
 `lib/stakes.ts` grades each measure High / Medium / Lower by a written rule that ignores topic and side (`/how-we-score#stakes`):
 official dollars (`data/measures/stakes.json`, verbatim quote checked by a test), changing a constitution or charter, published
