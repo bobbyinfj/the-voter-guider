@@ -497,7 +497,7 @@ function QuizStrip({
   return (
     <div className="border-l-2 border-violet-400 bg-violet-50 px-2 py-1.5 font-sans text-xs text-violet-950 print:hidden">
       <p>
-        <span className="font-semibold">Your quiz: {quiz.headline}.</span> {quiz.detail}{' '}
+        <span className="font-semibold">Your quiz: {quiz.headline}.</span> {quiz.because ?? quiz.detail}{' '}
         <a href={quiz.href} className="text-blue-700 underline">
           See why
         </a>
