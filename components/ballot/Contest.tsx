@@ -9,6 +9,8 @@ import RacePositions from '@/components/candidate/RacePositions'
 import { EndorserStrip } from '@/components/candidate/Endorsements'
 import RaceExtras from '@/components/candidate/RaceExtras'
 import NewsGuide from '@/components/candidate/NewsGuide'
+import StakesLine from './StakesLine'
+import { stakesOf } from './stakes'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
 import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
@@ -919,6 +921,9 @@ export default function Contest({
                     wide
                     aside={
                       <div className="space-y-1">
+                        {stakesOf(item, badges?.[item.id]) && (
+                          <StakesLine stakes={stakesOf(item, badges?.[item.id])!} source={measureOfficial(item.metadata).sourceUrl ?? layoutOf(item)?.contestSource} />
+                        )}
                         <div className="px-2 pt-2">
                           <MeasureBadges
                             yes={badges?.[item.id]?.YES ?? []}

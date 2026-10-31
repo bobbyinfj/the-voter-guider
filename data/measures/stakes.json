@@ -1,0 +1,86 @@
+{
+  "ca26-m-prop-1": {
+    "band": 2,
+    "quote": "Increased state cost of $500 million to $600 million annually",
+    "plain": "$500–600 million a year"
+  },
+  "ca26-m-prop-3": {
+    "band": 3,
+    "quote": "Maintains $5 billion to $15 billion of annual state income tax revenue",
+    "plain": "$5–15 billion a year"
+  },
+  "ca26-m-prop-4": {
+    "band": 0,
+    "quote": "a few hundred thousand dollars each year",
+    "plain": "A few hundred thousand dollars a year"
+  },
+  "ca26-m-prop-5": {
+    "band": 1,
+    "quote": "savings or costs of millions of dollars",
+    "plain": "Millions of dollars, only if there is a recall"
+  },
+  "ca26-m-prop-38": {
+    "band": 2,
+    "quote": "Increased state cost of $500 million to $600 million annually",
+    "plain": "$500–600 million a year"
+  },
+  "ca26-m-prop-39": {
+    "band": 2,
+    "quote": "between tens of millions of dollars and low hundreds of millions of dollars each year",
+    "plain": "Tens to low hundreds of millions a year"
+  },
+  "ca26-m-prop-40": {
+    "band": 3,
+    "quote": "Temporary revenue increase of tens of billions of dollars spread over several years",
+    "plain": "Tens of billions over several years"
+  },
+  "ca26-m-prop-44": {
+    "band": 1,
+    "quote": "low tens of millions of dollars per year",
+    "plain": "Low tens of millions a year"
+  },
+  "ca26-m-prop-45": {
+    "band": 2,
+    "quote": "high tens of millions of dollars—potentially exceeding $100 million—annually",
+    "plain": "High tens of millions a year, possibly over $100 million"
+  },
+  "co26-m-amendment-87": {
+    "band": 3,
+    "quote": "INCREASED $2.7 BILLION ANNUALLY",
+    "plain": "$2.7 billion a year"
+  },
+  "co26-m-larimer-1a": {
+    "band": 1,
+    "quote": "$34 1/2 MILLION ANNUALLY",
+    "plain": "$34.5 million a year"
+  },
+  "co26-m-frprd-7a": {
+    "band": 2,
+    "quote": "$295,000,000 ANNUALLY",
+    "plain": "$295 million a year"
+  },
+  "wa26-m-ip26-645": {
+    "band": 3,
+    "quote": "an estimated loss to state revenue of $11.4 billion over state fiscal years 2027-2031",
+    "plain": "$11.4 billion over five years",
+    "source": "https://www.sos.wa.gov/sites/default/files/2026-10/Voters%20Pamphlet%202026%20-%20Edition%2006%20-%20King%20-%20South%20and%20Southeast.pdf"
+  },
+  "co26-m-amendment-84": {
+    "band": 1,
+    "quote": "$1.2 million annually in future years",
+    "plain": "$1.2 million a year",
+    "source": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+  },
+  "co26-m-proposition-nn": {
+    "band": 2,
+    "quote": "$521.0 million in the 2027-28 budget year",
+    "plain": "$521 million in 2027-28",
+    "source": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+  },
+  "co26-m-proposition-137": {
+    "band": 2,
+    "quote": "an estimated $175.0 million in the 2027-28 budget year",
+    "plain": "$175 million in 2027-28, growing",
+    "source": "https://content.leg.colorado.gov/sites/default/files/2026-blue-book-en-accessible.pdf"
+  }
+}

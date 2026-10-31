@@ -27,6 +27,7 @@ import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import CompareSheet from '@/components/compare/CompareSheet'
+import { byStakes } from '@/components/ballot/stakes'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { BadgeMap } from '@/lib/scorecard'
 import { NotABallotStamp, PrintWatermark } from '@/components/Moleses'
@@ -105,6 +106,7 @@ export default function BallotTracker({
   const [showFilters, setShowFilters] = useState(false)
   const [differOnly, setDifferOnly] = useState(false)
   const [coveredOnly, setCoveredOnly] = useState(false)
+  const [paperOrder, setPaperOrder] = useState(false)
   const [showViewHelp, setShowViewHelp] = useState(false)
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
@@ -135,7 +137,12 @@ export default function BallotTracker({
     const el = document.getElementById(domId)
     if (el) scrollToElement(el, 'auto')
   }
-  const sections = useMemo(() => groupSections(ballots), [ballots])
+  const printedSections = useMemo(() => groupSections(ballots), [ballots])
+  // Expanded view puts each section's measures biggest stakes first; everything else keeps the paper's order
+  const sections = useMemo(
+    () => (view === 'expanded' && !paperOrder ? byStakes(printedSections, badges) : printedSections),
+    [printedSections, view, paperOrder, badges],
+  )
   // One step per contest as printed (retention questions under one heading are one step)
   const steps = useMemo(
     () => sections.flatMap((section) => groupRuns(section.items).map((run) => ({ section, run }))),
@@ -489,6 +496,12 @@ export default function BallotTracker({
                 />
                 <ListChecks className="h-4 w-4 text-gray-500" /> Undecided only
               </label>
+              {view === 'expanded' && (
+                <label className="flex items-center gap-1.5">
+                  <input type="checkbox" checked={!paperOrder} onChange={() => setPaperOrder((p) => !p)} />
+                  Measures by stakes, highest first
+                </label>
+              )}
               {view === 'compare' && (
                 <label className="flex items-center gap-1.5">
                   <input type="checkbox" checked={differOnly} onChange={() => setDifferOnly((d) => !d)} />
