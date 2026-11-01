@@ -155,7 +155,9 @@ export default function HowWeScorePage() {
       </section>
 
       <p className="text-sm text-gray-700">
-        Spotted something wrong? The source link on each piece is where it came from, so you can check us.
+        Spotted something wrong? The source link on each piece is where it came from, so you can check us. To ask for a
+        correction, contact us through{" "}
+        <a href="https://robertnakano.com" className="underline">robertnakano.com</a>.
       </p>
     </div>
   );
