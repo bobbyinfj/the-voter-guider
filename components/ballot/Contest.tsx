@@ -157,7 +157,7 @@ function candidateLine(race: BallotItem, name: string): { text: string; source: 
 // The oval a voter fills in; the checkbox input is visually hidden but keeps keyboard and screen
 // reader behaviour (a checkbox, since soft labels can be on several options). It listens for
 // clicks, not changes, so clicking an oval that's already marked steps it on (see stepPick)
-function Oval({
+export function Oval({
   name,
   value,
   checked,
@@ -820,7 +820,7 @@ function Enhancements({
 // Each click on an oval steps its label (stepMark): empty → leaning (hatched) → decided (filled) →
 // possibly (~) → not sure (?) → empty. Soft labels can sit on several ovals; deciding clears the
 // others. Clearing the last label keeps any notes you wrote on the contest.
-function stepPick(
+export function stepPick(
   itemId: string,
   selection: string,
   choice: ChoiceValue | undefined,
