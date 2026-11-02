@@ -25,9 +25,6 @@ import {
 import { Oval, stepPick } from '@/components/ballot/Contest'
 import { compareOptions, compareView, useCompareData, type CompareGuide, type CompareView } from './compare'
 
-// Your column plus up to four sources; more stops being readable
-const MAX_SOURCES = 4
-
 const columnsOf = (view: CompareView) => (view.community ? 1 : view.guides.length)
 
 // Compare view: a column for your ballot and one per source, contest by contest. Party and advocacy
@@ -75,10 +72,6 @@ export default function CompareSheet({
   const used = views.reduce((n, v) => n + columnsOf(v), 0)
   const guides = views.flatMap((v) => v.guides)
   const community = views.find((v) => v.community)?.community ?? null
-  const fits = (key: string) => {
-    const view = data && compareView(data, key)
-    return !!view && used + columnsOf(view) <= MAX_SOURCES
-  }
   const toggle = (key: string) => setKeys((k) => (k.includes(key) ? k.filter((x) => x !== key) : [...k, key]))
 
   const differs = (item: BallotItem) => {
@@ -93,7 +86,7 @@ export default function CompareSheet({
   return (
     <div className="space-y-3 font-sans">
       <div className="rounded-lg border border-gray-200 bg-white p-3">
-        <p className="text-sm font-semibold">Compare your ballot with up to {MAX_SOURCES} sources</p>
+        <p className="text-sm font-semibold">Compare your ballot with as many sources as you like</p>
         {state === 'loading' && <p className="text-sm text-gray-600">Loading…</p>}
         {state === 'error' && <p className="text-sm text-red-700">Couldn&apos;t load guides to compare.</p>}
         <div className="mt-2 space-y-2">
@@ -110,9 +103,8 @@ export default function CompareSheet({
                         key={o.key}
                         type="button"
                         onClick={() => toggle(o.key)}
-                        disabled={!on && !fits(o.key)}
                         aria-pressed={on}
-                        className={`rounded-full border px-2.5 py-1 text-xs font-semibold disabled:opacity-40 ${
+                        className={`rounded-full border px-2.5 py-1 text-xs font-semibold ${
                           on ? 'border-blue-700 bg-blue-50 text-blue-900' : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
                         }`}
                       >
@@ -143,7 +135,7 @@ export default function CompareSheet({
       <div className="rounded-lg border border-gray-200 bg-white">
         <div ref={head} style={{ top }} className="sticky z-10 overflow-hidden rounded-t-lg border-b border-gray-300 bg-gray-50/95 backdrop-blur" aria-hidden>
           <div className="grid gap-3 px-3 py-1.5" style={{ ...grid, minWidth: `${columns * 8}rem` }}>
-            <p className="truncate text-xs font-bold text-gray-900">Your ballot</p>
+            <p className="sticky left-0 z-[1] -my-1.5 -ml-3 truncate border-r border-gray-200 bg-gray-50 py-1.5 pl-3 text-xs font-bold text-gray-900">Your ballot</p>
             {views.map((v) =>
               v.community ? (
                 <p key={v.key} className="truncate text-xs font-semibold text-gray-700" title="Voter Guider users (community tally)">
@@ -171,7 +163,7 @@ export default function CompareSheet({
                   const mine = choices[item.id]?.selection
                   return (
                     <div key={item.id} id={contestDomId(item)} data-item-id={item.id} className="scroll-mt-48 border-t border-gray-200 px-3 py-2">
-                      <button type="button" onClick={() => onOpen(contestDomId(item))} className="text-left text-sm font-semibold text-gray-900 hover:underline">
+                      <button type="button" onClick={() => onOpen(contestDomId(item))} className="sticky left-3 text-left text-sm font-semibold text-gray-900 hover:underline">
                         {navLabel(item)}
                       </button>
                       <div className="mt-1.5 grid gap-3" style={grid}>
@@ -275,7 +267,8 @@ function YourPick({
 
 function Cell({ label, mine = false, children }: { label: string; mine?: boolean; children: React.ReactNode }) {
   return (
-    <div className="min-w-0 text-sm">
+    // Your column stays put when the table scrolls sideways under many sources
+    <div className={`min-w-0 text-sm ${mine ? 'sticky left-0 z-[1] -ml-3 border-r border-gray-200 bg-white pl-3' : ''}`}>
       <p className="sr-only">{label}</p>
       <div className={mine ? 'font-semibold' : ''}>{children}</div>
     </div>
