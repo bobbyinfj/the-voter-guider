@@ -144,3 +144,35 @@ export async function computeResults(
     importanceEffect: ratedDifferently(scoringAnswers) ? importanceEffect(results, score(flatImportance(scoringAnswers))) : undefined,
   };
 }
+
+// Races the quiz could ever compare: some pair of candidates shares at least MIN_SHARED_QUESTIONS
+// questions with sourced positions. Worked out from the stance data alone (no voter's answers), for
+// the "only party signals" line (lib/partySignals.ts).
+export async function decidableOfficeIds(electionId: string): Promise<Set<string>> {
+  const { quiz, offices, issueNames, officeInfo } = await loadQuizContext(electionId);
+  if (!quiz) return new Set();
+  const results = scoreQuiz({
+    candidates: offices.flatMap((o) =>
+      o.candidates.map((c) => ({
+        id: c.id,
+        name: c.name,
+        party: c.party,
+        photoUrl: c.photoUrl,
+        incumbent: c.incumbent,
+        officeId: o.id,
+        stances: c.stances.map((s) => ({ issueId: s.issueId, position: s.position })),
+      })),
+    ),
+    questions: quiz.questions.map((q) => ({
+      id: q.id,
+      prompt: q.prompt,
+      order: q.order,
+      issues: q.issues.map((qi) => ({ issueId: qi.issueId, weight: qi.weight })),
+    })),
+    answers: [],
+    issueNames,
+    officeInfo,
+    totalQuestions: quiz.questions.length,
+  });
+  return new Set(results.officeResults.filter((o) => o.decidable).map((o) => o.officeId));
+}

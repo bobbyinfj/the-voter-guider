@@ -138,6 +138,10 @@ rating (`barRatingTie`), a line saying the rating doesn't separate them; and und
 above the first of them (Quick and Expanded): the count and the retention glossary entry's sourced facts. Both use
 `MolesesPause` (`components/Moleses.tsx`), Moleses holding his staff as the "look before you pick" cue; its image is
 `MOLESES_PAUSE_SRC`, today's full-body art until the raised-staff drawing exists.
+**Where party is all we give** (`lib/partySignals.ts`, `components/ballot/PartySignal.tsx`, Quick and Expanded): a
+race gets an amber line with `MolesesPause` when every published pick is a party or advocacy slate and the quiz can't
+compare it (`decidableOfficeIds` in `lib/quiz/db.ts`, from stance data, not answers), and/or when every candidate has the
+same party preference (partisan races only). Computed on the election page, passed down by `PartySignalContext`.
 
 ### Offices explained (glossary)
 `data/glossary/offices.json` (built by `data/research/glossary-builders/build.py`, read through `lib/glossary.ts`)
