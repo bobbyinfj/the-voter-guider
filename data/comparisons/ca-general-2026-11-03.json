@@ -598,6 +598,167 @@
           "quote": "Tonia Arey Los Angeles Community College District, Board of Trustees - Seat 6"
         }
       ]
+    },
+    {
+      "id": "aft-1521",
+      "name": "AFT 1521, Los Angeles College Faculty Guild",
+      "kind": "advocacy",
+      "lean": "left",
+      "url": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+      "retrieved": "2026-11-02",
+      "about": "The LACCD faculty union's 2026 voter guide: its picks for the three LACCD trustee seats, the statewide candidates it lists as endorsed by its state federation (CFT), and positions on the propositions.",
+      "picks": [
+        {
+          "ballot": "ca26-laccd-2-race",
+          "pick": "STEVEN F. VERES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "SEAT 2 Steve Veres Incumbent"
+        },
+        {
+          "ballot": "ca26-laccd-4-race",
+          "pick": "DARRYN HARRIS",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "SEAT 4 Darryn Harris"
+        },
+        {
+          "ballot": "ca26-laccd-6-race",
+          "pick": "RANDALL WINSTON",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "SEAT 6 Randall Winston"
+        },
+        {
+          "ballot": "ca26-governor-race",
+          "pick": "Xavier Becerra",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Governor Xavier Becerra"
+        },
+        {
+          "ballot": "ca26-lt-governor-race",
+          "pick": "Fiona Ma",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Lieutenant Governor Fiona Ma"
+        },
+        {
+          "ballot": "ca26-attorney-general-race",
+          "pick": "Rob Bonta",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Attorney General Rob Bonta"
+        },
+        {
+          "ballot": "ca26-treasurer-race",
+          "pick": "Eleni Kounalakis",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Treasurer Eleni Kounalakis"
+        },
+        {
+          "ballot": "ca26-secretary-of-state-race",
+          "pick": "Shirley N. Weber",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Secretary of State Shirley Weber"
+        },
+        {
+          "ballot": "ca26-controller-race",
+          "pick": "Malia M. Cohen",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Controller Malia Cohen"
+        },
+        {
+          "ballot": "ca26-superintendent-race",
+          "pick": "Richard Barrera",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Superintendent of Public Instruction Richard Barrera"
+        },
+        {
+          "ballot": "ca26-insurance-commissioner-race",
+          "pick": "Jane Kim",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Insurance Commissioner Jane Kim"
+        },
+        {
+          "ballot": "ca26-boe-3-race",
+          "pick": "Samuel P. Sukaton",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "Board of Equalization, District 3 Sam Sukaton"
+        },
+        {
+          "ballot": "ca26-m-prop-1",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 1 Veterans and affordable housing bond"
+        },
+        {
+          "ballot": "ca26-m-prop-3",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 3 Protect school funding"
+        },
+        {
+          "ballot": "ca26-m-prop-4",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 4 Public financing of political campaigns"
+        },
+        {
+          "ballot": "ca26-m-prop-5",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 5 Recall reform"
+        },
+        {
+          "ballot": "ca26-m-prop-37",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 37 First-time home buyers fund for veterans"
+        },
+        {
+          "ballot": "ca26-m-prop-40",
+          "pick": "YES",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "YES Prop 40 Billionaires tax to protect healthcare"
+        },
+        {
+          "ballot": "ca26-m-prop-2",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 2 Inflate budget reserve"
+        },
+        {
+          "ballot": "ca26-m-prop-39",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 39 Increase barriers to voting"
+        },
+        {
+          "ballot": "ca26-m-prop-41",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 41 Tax audit requirements"
+        },
+        {
+          "ballot": "ca26-m-prop-42",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 42 Keeps luxury assets tax-free for the wealthy"
+        },
+        {
+          "ballot": "ca26-m-prop-43",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 43 Raise vote threshold for public services"
+        },
+        {
+          "ballot": "ca26-m-prop-44",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 44 Restrictions on community clinics"
+        },
+        {
+          "ballot": "ca26-m-prop-45",
+          "pick": "NO",
+          "source": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+          "quote": "NO Prop 45 Gut environmental reviews"
+        }
+      ]
     }
   ]
 }

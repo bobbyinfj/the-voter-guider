@@ -1052,6 +1052,19 @@
    "builder": "glossary-builders/build.py",
    "notes": "Ordinances and budget.",
    "checked": "2026-10-28"
+  },
+  {
+   "id": "aft-1521",
+   "state": "CA",
+   "kind": [
+    "slate"
+   ],
+   "name": "AFT 1521, Los Angeles College Faculty Guild: 2026 voter guide",
+   "url": "https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf",
+   "access": "ok",
+   "builder": "comparison-builders/build.py",
+   "notes": "The LACCD faculty union's own site; robots.txt only blocks wp-admin. Linked from the aft-1521.org home page. Text PDF: page 1 LACCD seats + CFT statewide picks, page 2 propositions. Page 3's Assembly/Senate names sit under a 'find your representatives' box with no endorsement wording, so not used. The old aft1521.org host (no hyphen) serves a blank IIS page with an expired certificate.",
+   "checked": "2026-11-02"
   }
  ]
 }
