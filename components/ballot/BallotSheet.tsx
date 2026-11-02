@@ -1,5 +1,7 @@
 'use client'
 
+import RetentionIntro from './RetentionIntro'
+import { glossaryForItem } from '@/lib/glossary'
 import { Fragment } from 'react'
 import Contest, { type Density } from './Contest'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
@@ -41,6 +43,10 @@ export default function BallotSheet({
   const groupOf = new Map(
     groups.flatMap(([key, g]) => g.items.map((i) => [i.id, { id: key, label: g.label, count: g.items.length }] as const)),
   )
+  // The retention questions get one intro, above the first of them (not in the paper-ballot view)
+  const all = sections.flatMap((s) => s.items)
+  const retention = density === 'basic' ? [] : all.filter((i) => glossaryForItem(i)?.measures?.length)
+  const retentionEntry = retention.length > 1 ? glossaryForItem(retention[0]) : undefined
   return (
     <div className={density === 'basic' ? 'gap-2 md:columns-2 lg:columns-3 print:columns-3' : 'mx-auto max-w-6xl gap-2 print:max-w-none print:columns-3'}>
       {sections.map((section) => (
@@ -65,6 +71,7 @@ export default function BallotSheet({
           {groupRuns(section.items).map((run) => (
             <Fragment key={run[0].id}>
             {groupStarts.has(run[0].id) && <span id={groupStarts.get(run[0].id)} aria-hidden className="block h-0" />}
+            {retentionEntry && run[0].id === retention[0].id && <RetentionIntro entry={retentionEntry} count={retention.length} />}
             <Contest
               run={run}
               electionId={electionId}

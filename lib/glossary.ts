@@ -11,6 +11,8 @@ export interface GlossarySource {
 
 // More context (e.g. retention history), each point with its own source
 export interface GlossaryFact {
+  // Anchor on /glossary (e.g. "bar-ratings"), for links from the ballot
+  id?: string
   plain: string
   quotes: string[]
   source: GlossarySource

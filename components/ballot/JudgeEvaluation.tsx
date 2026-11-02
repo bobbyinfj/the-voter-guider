@@ -1,3 +1,4 @@
+import { MolesesPause } from '@/components/Moleses'
 import { CheckCircle2, ExternalLink, Scale, XCircle } from 'lucide-react'
 import { evaluationMeets, isHttpUrl, raceExtrasOf, type JudgeBiography, type JudgeEvaluation as Evaluation } from '@/lib/profile'
 import { biographyLine, judgeRecord, type BallotItem } from './ballot'
@@ -59,10 +60,20 @@ export function EvaluationLine({ item }: { item: BallotItem }) {
 
 // Under a judicial candidate's name: their bar association's rating, or that its list shows them as
 // N/A (judgeRecord), linked to the list. Nothing when no bar list covers the race.
-export function JudgeRecordLine({ profile, roomy = false }: { profile: ProfileSnippet | null | undefined; roomy?: boolean }) {
+// since: the year they were admitted to the bar, when every candidate in the race has one (lawyerSince)
+export function JudgeRecordLine({
+  profile,
+  roomy = false,
+  since,
+}: {
+  profile: ProfileSnippet | null | undefined
+  roomy?: boolean
+  since?: { year: string; url: string } | null
+}) {
   const r = judgeRecord(profile)
   if (!r) return null
   return (
+    <>
     <span className={`flex items-start gap-1 font-sans leading-snug text-sky-900 print:hidden ${roomy ? 'text-sm' : 'mt-0.5 text-[0.6875rem]'}`} title={r.title}>
       <Scale className={`mt-px shrink-0 text-sky-700 ${roomy ? 'h-4 w-4' : 'h-3.5 w-3.5'}`} aria-hidden />
       <span>
@@ -72,6 +83,35 @@ export function JudgeRecordLine({ profile, roomy = false }: { profile: ProfileSn
         </Link>
       </span>
     </span>
+    {since && (
+      <span className={`block pl-[1.125rem] font-sans leading-snug text-sky-900 print:hidden ${roomy ? 'text-sm' : 'text-[0.6875rem]'}`}>
+        Lawyer since {since.year} ·{' '}
+        <Link href={since.url} className="text-sky-700">
+          State Bar
+        </Link>
+      </span>
+    )}
+    </>
+  )
+}
+
+// Above a judicial race's candidates: what the ⚖ ratings mean, and when they don't separate anyone
+export function BarRatingNote({ tie }: { tie: { value: string; by: string } | null }) {
+  return (
+    <p className="flex items-start gap-1 border-b border-sky-200 bg-sky-50/60 px-3 py-1.5 font-sans text-sm text-sky-950 print:hidden">
+      {tie ? <MolesesPause size={32} className="-my-1" /> : <Scale className="mt-0.5 h-4 w-4 shrink-0 text-sky-700" aria-hidden />}
+      <span>
+        {tie && (
+          <>
+            <strong>The {tie.by.replace(/^Los Angeles County/, 'L.A. County')} rated every candidate here {tie.value}</strong>, so its rating
+            doesn&apos;t separate them.{' '}
+          </>
+        )}
+        <Link href="/glossary#bar-ratings" className="text-xs font-semibold text-blue-700 underline">
+          What the ⚖ ratings mean
+        </Link>
+      </span>
+    </p>
   )
 }
 

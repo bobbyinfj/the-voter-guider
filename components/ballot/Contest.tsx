@@ -13,7 +13,7 @@ import StakesLine from './StakesLine'
 import type { Stakes } from '@/lib/stakes'
 import { stakesOf } from './stakes'
 import OfficialDocs, { documentsOf, statementOf } from './OfficialDocs'
-import JudgeEvaluation, { EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
+import JudgeEvaluation, { BarRatingNote, EvaluationLine, JudgeRecordLine } from './JudgeEvaluation'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import { guideCredit, isHttpUrl, raceExtrasOf } from '@/lib/profile'
 import {
@@ -34,6 +34,9 @@ import {
   markOf,
   optionList,
   stepMark,
+  barRatingTie,
+  isRatedJudgeRace,
+  lawyerSince,
   STATUS_WORDS,
   type BallotCandidate,
   type BallotItem,
@@ -932,6 +935,7 @@ export default function Contest({
       </ContestHead>
       {wide && <ContestIntro item={first} />}
       {quick && <QuickIntro item={first} onExpand={onExpand && (() => onExpand(contestDomId(first)))} />}
+      {(quick || wide) && isRatedJudgeRace(first) && <BarRatingNote tie={barRatingTie(first)} />}
       {run.map((item, i) => {
         const choice = choices[item.id]
         const pick = (selection: string) => stepPick(item.id, selection, choice, onChange, onClear)
@@ -999,6 +1003,7 @@ export default function Contest({
                       return (
                         <div className="space-y-1 px-2 py-1.5 font-sans">
                           <CandidateLine race={item} name={name} />
+                          <JudgeRecordLine profile={item.office?.candidates.find((c) => c.name === name)?.profile} roomy since={lawyerSince(item)?.get(name)} />
                           {list.length > 0 && (
                             <div className="flex flex-wrap gap-1">
                               {list.map((b) => (
@@ -1062,7 +1067,7 @@ export default function Contest({
                               (candidateLine(item, c.name) || judgeRecord(c.profile) || choice?.candidateNotes?.[c.name]) && (
                               <>
                                 <CandidateLine race={item} name={c.name} roomy />
-                                <JudgeRecordLine profile={c.profile} roomy />
+                                <JudgeRecordLine profile={c.profile} roomy since={lawyerSince(item)?.get(c.name)} />
                                 {choice?.candidateNotes?.[c.name] && (
                                   <p className="line-clamp-1 text-xs italic text-gray-700">Your note: “{choice.candidateNotes[c.name]}”</p>
                                 )}

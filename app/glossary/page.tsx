@@ -59,7 +59,7 @@ export default function GlossaryPage() {
           {OFFICE_GLOSSARY.filter((e) => e.state === state).map((e) => (
             <article key={e.key} id={e.key} className="scroll-mt-4 space-y-1 rounded border-l-2 border-sky-400 bg-sky-50 p-3 text-sky-950">
               <h3 className="font-bold">{e.title}</h3>
-              <OfficeExplainer entry={e} />
+              <OfficeExplainer entry={e} anchors />
             </article>
           ))}
         </section>

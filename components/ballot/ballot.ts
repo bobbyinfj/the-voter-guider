@@ -411,6 +411,32 @@ export function judgeRecord(
   return null
 }
 
+// A judicial race where one bar association rated every candidate the same: its rating doesn't
+// separate them, and we say so (J-2). Null when anyone is unrated or the ratings differ.
+export function barRatingTie(item: BallotItem): { value: string; by: string } | null {
+  const ratings = (item.office?.candidates ?? []).map((c) => c.profile?.barRating ?? null)
+  if (ratings.length < 2 || ratings.some((r) => !r)) return null
+  const [first] = ratings as NonNullable<(typeof ratings)[number]>[]
+  return ratings.every((r) => r!.value === first.value && r!.by === first.by) ? { value: first.value, by: first.by } : null
+}
+
+// Any candidate in the race has a bar rating (or is listed as unrated): a judicial race
+export const isRatedJudgeRace = (item: BallotItem) => (item.office?.candidates ?? []).some((c) => c.profile?.barRating || c.profile?.barUnrated)
+
+// The year each candidate was admitted to the California bar, from their State Bar profile (J-3).
+// All or nothing: if anyone in the race lacks it, nobody gets the line.
+export function lawyerSince(item: BallotItem): Map<string, { year: string; url: string }> | null {
+  const out = new Map<string, { year: string; url: string }>()
+  const candidates = item.office?.candidates ?? []
+  for (const c of candidates) {
+    const bar = c.profile?.bar
+    const year = bar?.admitted?.match(/\b(\d{4})$/)?.[1]
+    if (!year || !bar?.url || bar.unmatched) return null
+    out.set(c.name, { year, url: bar.url })
+  }
+  return candidates.length ? out : null
+}
+
 // One line under a California retention question from the court's biography of the justice: the
 // nominee rating it quotes, else their title and "Since <year>" (Court of Appeal pages), else the
 // biography's opening sentence (Supreme Court pages, which have neither), quoted

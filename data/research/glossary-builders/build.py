@@ -32,6 +32,7 @@ import build as cb  # noqa: E402
 cb.CACHE = HERE / 'cache'
 ROOT = HERE.parents[2]
 
+LACBA_JEEC = 'https://lacba.org/JEEC2026'
 ASSEMBLY_ACA8 = (
     'https://aelc.assembly.ca.gov/system/files/2025-07/aca-8-pellerin-175252940213150.pdf',
     'California Assembly Elections Committee, analysis of ACA 8 (2025)',
@@ -262,7 +263,21 @@ ENTRIES = [
         'plain': "A trial judge on the county's Superior Court, where most California cases start: criminal and civil cases, plus family, probate, juvenile and traffic cases. The judge (sometimes with a jury) hears the evidence and decides by applying the law.",
         'source': ('https://www.courts.ca.gov/2113.htm', 'Judicial Branch of California, California Judicial System'),
         'quotes': ['Most cases in California start in one of the 58 superior courts, or trial courts, handling both civil and criminal cases, such as family, probate, mental health, juvenile, and traffic cases.'],
-        'facts': [{'plain': 'In a trial, a judge (and sometimes a jury) hears testimony and evidence and decides the case by applying the law to the facts.', 'source': ('https://courts.ca.gov/courts/superior-courts', 'Judicial Branch of California, Superior Courts'), 'quotes': ["In trial (superior) courts, a judge and sometimes a jury hears witnesses' testimony and other evidence and decides cases by applying the relevant law to the relevant facts."]}],
+        'facts': [
+            {'plain': 'In a trial, a judge (and sometimes a jury) hears testimony and evidence and decides the case by applying the law to the facts.', 'source': ('https://courts.ca.gov/courts/superior-courts', 'Judicial Branch of California, Superior Courts'), 'quotes': ["In trial (superior) courts, a judge and sometimes a jury hears witnesses' testimony and other evidence and decides cases by applying the relevant law to the relevant facts."]},
+            # The ⚖ ratings beside each candidate, in the bar association's own words (its 2026 report;
+            # lacba.org/JEEC2026 serves the PDF from LACBA's document store)
+            {
+                'id': 'bar-ratings',
+                'plain': 'The ⚖ rating beside each candidate is from the Los Angeles County Bar Association’s Judicial Elections Evaluation Committee. From best: Exceptionally Well Qualified, Well Qualified, Qualified, Not Qualified. Qualified means fit to do the job satisfactorily; Well Qualified means superior fitness; it takes over 50% of the committee to rate a candidate Qualified, over 60% for Well Qualified and over 75% for Exceptionally Well Qualified.',
+                'source': (LACBA_JEEC, 'Los Angeles County Bar Association, Judicial Elections Evaluation Committee, 2026 final report'),
+                'quotes': [
+                    'To be “Well Qualified,” the candidate must possess professional ability, experience, competence, integrity and temperament indicative of superior fitness to perform the judicial function with a high degree of skill and effectiveness.',
+                    'To be “Qualified,” the candidate must possess professional ability, experience, competence, integrity and temperament indicative of fitness to perform the judicial function satisfactorily.',
+                    'a vote of over 50 percent of the Committee quorum present is required for a rating of “Qualified,” over 60 percent for a rating of “Well Qualified,” and over 75 percent is required for the rating of “Exceptionally Well Qualified.”',
+                ],
+            },
+        ],
         'ask': [],
     },
     {

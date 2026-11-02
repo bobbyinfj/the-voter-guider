@@ -1065,6 +1065,19 @@
    "builder": "comparison-builders/build.py",
    "notes": "The LACCD faculty union's own site; robots.txt only blocks wp-admin. Linked from the aft-1521.org home page. Text PDF: page 1 LACCD seats + CFT statewide picks, page 2 propositions. Page 3's Assembly/Senate names sit under a 'find your representatives' box with no endorsement wording, so not used. The old aft1521.org host (no hyphen) serves a blank IIS page with an expired certificate.",
    "checked": "2026-11-02"
+  },
+  {
+   "id": "lacba-jeec-report",
+   "state": "CA",
+   "kind": [
+    "bar-rating"
+   ],
+   "name": "Los Angeles County Bar Association, Judicial Elections Evaluation Committee 2026 final report",
+   "url": "https://lacba.org/JEEC2026",
+   "access": "ok",
+   "builder": "glossary-builders/build.py",
+   "notes": "lacba.org allows Claude-User; the link redirects to the PDF in LACBA's document store on S3 (same delivery as the ratings list, lacba.org/docDownload/3141411). Gives the rating definitions ('Evaluation Standards') and the committee vote each rating needs; quoted in the Superior Court glossary entry.",
+   "checked": "2026-11-02"
   }
  ]
 }

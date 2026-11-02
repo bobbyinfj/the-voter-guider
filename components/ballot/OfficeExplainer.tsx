@@ -7,7 +7,8 @@ import type { GlossarySource, OfficeGlossary } from '@/lib/glossary'
 // What this office does, in plain English, with the official words it's based on and questions to
 // ask every candidate. Shown at the top of a contest's info panel and in the heading's popover.
 // `brief` (Expanded view, above the candidates): the summary and its source; the rest is on /glossary.
-export default function OfficeExplainer({ entry, brief = false }: { entry: OfficeGlossary; brief?: boolean }) {
+// anchors: give facts their ids (only on /glossary, where each entry shows once)
+export default function OfficeExplainer({ entry, brief = false, anchors = false }: { entry: OfficeGlossary; brief?: boolean; anchors?: boolean }) {
   const vote = !!entry.measures?.length
   if (brief)
     return (
@@ -30,7 +31,7 @@ export default function OfficeExplainer({ entry, brief = false }: { entry: Offic
       {entry.facts?.length ? (
         <ul className="ml-4 list-disc space-y-1">
           {entry.facts.map((f) => (
-            <li key={f.plain}>
+            <li key={f.plain} id={anchors ? f.id : undefined} className="scroll-mt-24 target:bg-yellow-100">
               {f.plain} <SourceLine source={f.source} inline />
             </li>
           ))}
