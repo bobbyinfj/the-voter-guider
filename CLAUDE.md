@@ -131,6 +131,13 @@ Judges' records sit right on the ballot (`components/ballot/JudgeEvaluation.tsx`
 covered race never shows a rating for one side only; and under each retention question's ovals, the
 commission's finding (CO) or the court biography's rating, title and since-year, or opening sentence (CA).
 Each credit links to its source; `tests/profile.test.ts` checks every judge gets one.
+Quick and Expanded view add, for a rated judicial race, `BarRatingNote` above the candidates: a link to the bar's own rating
+definitions (`/glossary#bar-ratings`, a quote-checked glossary fact from LACBA's 2026 report) and, when everyone got the same
+rating (`barRatingTie`), a line saying the rating doesn't separate them; and under each candidate "Lawyer since YEAR · State Bar"
+(`lawyerSince`, only when every candidate in the race has an admission date). Retention questions get one `RetentionIntro`
+above the first of them (Quick and Expanded): the count and the retention glossary entry's sourced facts. Both use
+`MolesesPause` (`components/Moleses.tsx`), Moleses holding his staff as the "look before you pick" cue; its image is
+`MOLESES_PAUSE_SRC`, today's full-body art until the raised-staff drawing exists.
 
 ### Offices explained (glossary)
 `data/glossary/offices.json` (built by `data/research/glossary-builders/build.py`, read through `lib/glossary.ts`)

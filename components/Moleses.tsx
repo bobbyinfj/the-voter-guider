@@ -15,6 +15,23 @@ export function MolesesAvatar({ size = 40, className = '' }: { size?: number; cl
   )
 }
 
+// Moleses holding up his staff: the "hold on a moment, look before you pick" cue. Used only where
+// the usual signals run out (S-1 party-only races, judges' tied ratings, the retention block).
+// The raised-staff art isn't drawn yet, so this points at today's full-body art; swap the file here.
+export const MOLESES_PAUSE_SRC = '/moleses.png'
+
+export function MolesesPause({ size = 44, className = '' }: { size?: number; className?: string }) {
+  return (
+    <Image
+      src={MOLESES_PAUSE_SRC}
+      alt="Moleses the mole wizard holding his staff: a moment to look before you pick"
+      width={size}
+      height={size}
+      className={`shrink-0 object-contain ${className}`}
+    />
+  )
+}
+
 // Thin bar on every page
 export function UnofficialBar() {
   return (
