@@ -122,7 +122,7 @@ confidence = min(gap × 2.5 × depthFactor, 1)
 
 Stories are in priority order inside each group. Every story inherits the rules in `CLAUDE.md`:
 each fact shows its source beside it, nothing is made up, and any rule applies to everyone in a race
-or to every measure alike. Last updated 2026-10-30.
+or to every measure alike. Last updated 2026-11-02.
 
 ### Now: before November 3, 2026
 
@@ -234,6 +234,119 @@ State measures in California, Colorado and Washington carry official fiscal text
 
 **I-3. Sourced cost notes on candidate promises**
 The Cost and funding chip shows existing sourced quotes that mention money, which is 14 of 80 positions. Researching more needs a nonpartisan source for each claim, starting with the insurance commissioner race. No estimates or feasibility grades of our own.
+
+### Case study: filling out our own LA County ballot (November 2, 2026)
+
+**Notes, as written by the user**
+- I still didn't have a good idea of how to vote for many of the higher state offices that are less well known (Treasurer, etc.).
+- A lot of my votes came down to party lines instead of strong analysis.
+- I had no clue on any of the judges: the Superior Court races and the judicial retention questions. That's a huge area for improvement.
+
+**What the guide gave this voter (measured from `data/` on 2026-11-02, CA bundle)**
+
+| Contest | Quiz stances per candidate | Published guides with a pick | Other help on the page |
+|---|---|---|---|
+| Governor | 8 / 8 | 4 (both parties, HJTA, AFT 1521) | Video, LAist guide, PolitiFact (1 of 2) |
+| Attorney General | 3 / 3 | 4 | Video, LAist guide |
+| Insurance Commissioner (both Democrats) | 2 / 2 | 1 (AFT 1521) | Video, LAist guide |
+| Superintendent (nonpartisan) | 1 / 1 | 3 | Video, LAist guide |
+| Lt. Governor, Secretary of State | 0 / 1 | 3 | Video, LAist guide |
+| Treasurer, Controller | 0 / 0 | 3 (party slates and HJTA or AFT) | Video (Treasurer: 1 of 2), LAist guide |
+| Board of Equalization 3 (both Democrats) | 0 / 0 | 1 (AFT 1521) | Video (1 of 2), LAist guide |
+| Superior Court, 4 races | none (judges get no quiz) | 0 | LACBA rating, LAist guide, a video for everyone |
+| 20 retention questions | none | 0 | The court's biography; 10 of 20 quote a rating from when the justice was appointed |
+
+**Analysis**
+1. **Party-line votes were what we designed, not a failure of the voter.** Below Governor and Attorney General, the quiz
+   needs 2 shared sourced positions per race (`MIN_SHARED_QUESTIONS`) and Treasurer, Controller, Board of Equalization,
+   Secretary of State and Lt. Governor have 0 or 1. So the only thing on the page that tells candidates apart is
+   who picked them, and every guide that picks in these races is a party or advocacy slate (the League of Women Voters
+   covers measures only). The guide never says that out loud, so it looks like analysis when it isn't.
+2. **We explain the job, but not who would do it better.** Every one of these offices has a "What's this job?" entry
+   with questions to ask candidates (e.g. Treasurer: "How would they balance safety and returns when investing state
+   money?"), but nothing answers those questions per candidate.
+3. **Same-party races are where the party line breaks completely.** Insurance Commissioner (Allen vs. Kim) and Board
+   of Equalization 3 (Gipson vs. Sukaton) are both Democrat vs. Democrat, and they're among the thinnest races we have.
+4. **Judges: the information exists but doesn't add up to a decision.**
+   - Superior Court: the bar's rating is the strongest signal, and in 2 of 4 races both candidates got the same rating
+     ("Qualified"), so it doesn't separate them. We also never explain what the ratings mean or how they're decided.
+   - Retention: a biography isn't a reason to vote yes or no, and 20 questions in a row with no signal is where voters
+     give up. The facts that would help (no Court of Appeal justice has lost a retention vote since 1934; whether a
+     justice has public discipline on record) are buried in a popover or not collected at all.
+5. **Attention runs out where information is thinnest.** These contests sit at the bottom of the ballot, after a voter
+   has already spent their time. Quick view has to do the most work here and currently has the least to show.
+
+**Action plan** (stories in priority order; the same rules as the rest of the backlog: sourced, same method for every
+candidate, never a recommendation)
+
+**S-1. Say when a race only has party signals**
+As a voter, I want to know when I'm about to vote a party line by default.
+- When every published guide picking in a race is a party or advocacy slate and the quiz can't compare it, Quick and
+  Expanded view say so in one line, e.g. "Only party and advocacy slates have picked in this race. Neither the quiz
+  nor any nonpartisan guide compares these candidates."
+- In a race where every candidate has the same party, say so from the SOS certified list ("Both candidates are
+  Democrats: party doesn't separate them here").
+- Moleses holds up his staff beside the line: the "hold on a moment" pose, used only for this check and for the
+  judge lines in J-2 (bar rating doesn't separate them) and J-4 (start of the retention block), so it keeps meaning
+  "pause before you pick". Same squint and glasses; still levity, never a verdict on a candidate.
+- Art: today's `public/moleses.png` holds the staff at his side, so this needs a new raised-staff image in the same
+  style (and a small head-and-staff crop for inline use). We don't draw it ourselves from scratch; it comes from
+  whoever made the current art, or is made from it with the user's sign-off.
+- Done when every CA, CO and WA race gets the line exactly when the rule holds, with a test.
+
+**S-2. Answer the "What's this job?" questions per candidate**
+As a voter in a down-ballot race, I want to see how each candidate would do this specific job.
+- For each statewide office, take the glossary's `ask` questions and show each candidate's answer, quoted verbatim
+  from their own statement, LAist survey answers, or a forum or interview transcript we already have, with its source.
+- Where a candidate's sources don't address a question, say "Not addressed in [the sources we checked]" for that
+  candidate, and list the sources checked. Same sources for everyone in the race.
+- Order: Board of Equalization 3, Insurance Commissioner, Treasurer, Controller, Secretary of State, Lt. Governor.
+- Done when each of these races has at least 3 questions with an answer or a checked "not addressed" for every candidate.
+
+**S-3. Experience side by side**
+As a voter, I want to compare what each candidate has done that bears on the job.
+- One row per candidate: current and past offices (with years), professional background, and ballot designation,
+  each from an official record or the candidate's own statement, with the source.
+- For a candidate who now holds the office or a related one, link the office's own nonpartisan public reports
+  (e.g. audits or annual reports), without grading them.
+
+**S-4. Enough quiz positions to compare the down-ballot races**
+As a voter who took the quiz, I want it to say something about Treasurer and Controller, not just Governor.
+- Add 2 or 3 job-specific questions per office through `quiz-builders/` (verbatim quotes, checked against the source),
+  aiming for at least `MIN_SHARED_QUESTIONS` shared positions in every statewide race.
+- If the sources don't have positions, keep "not enough sourced positions" rather than lowering the bar.
+
+**J-2. Explain the bar rating, and say when it doesn't separate the candidates**
+As a voter, I want to know what "Qualified" and "Well Qualified" mean and whether they help me choose.
+- Beside each ⚖ line: the LACBA rating scale and how ratings are decided, quoted from LACBA's own document.
+- When both candidates got the same rating, say so ("The bar rated both Qualified: its rating doesn't separate them here").
+
+**J-3. What kind of lawyer each judicial candidate has been**
+As a voter, I want to compare the judicial candidates' experience.
+- Years admitted to practice, and practice type (prosecutor, public defender, civil, sitting commissioner) from the
+  State Bar profile and ballot designation, which we already use for discipline. Same fields for both candidates.
+- The video we already have leads in Quick view, since every Superior Court candidate has one.
+
+**J-4. Something to go on for each retention question**
+As a voter facing 20 retention questions, I want a reason to vote either way, or to know there's no red flag.
+- Search the Commission on Judicial Performance's public discipline records (cjp.ca.gov allows Claude-User, crawl
+  delay 10 seconds) for every justice. Show the result as a check that ran: "No public discipline found in CJP
+  records (searched November 2026)" or the record with its link. Never "clean record".
+- Show the appointment year and appointing governor from the court's biography, and the evaluation commission's rating
+  where the biography quotes it (10 of 20 today). Ratings for the other 10 only from an official source, else nothing.
+- Put the retention history fact (no Court of Appeal justice defeated since 1934, three Supreme Court justices in 1986;
+  source: Assembly Elections Committee analysis of ACA 8) at the top of the retention block in Quick view, not only in
+  the heading's popover.
+
+**J-5. Treat the retention questions as one block in Quick view**
+As a voter, I want to get through 20 retention questions without wading through 20 blank contests.
+- One block with the shared facts above, a time estimate, and each justice on one line with their facts and their own
+  Yes/No ovals. Every vote stays separate; nothing marks them all at once.
+
+**I-4. Run this case study again**
+After S-1 to S-4 and J-2 to J-5 ship, fill out the same ballot again (and ask one of the I-1 interviewees to do the
+same) and note, for each statewide and judicial contest, whether the pick came with a reason other than party. Done when
+most of these contests do, or we've written down what's still missing.
 
 ### Won't do
 - Tell voters how to vote, or rank measures by whether we think they're good.
