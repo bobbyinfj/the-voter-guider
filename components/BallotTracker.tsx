@@ -729,7 +729,17 @@ export default function BallotTracker({
             />
           </div>
         ) : mode === 'ballot' && view === 'compare' ? (
-          <CompareSheet electionId={election.id} sections={visibleSections} choices={choices} differOnly={differOnly} coveredOnly={coveredOnly} onOpen={expandAt} />
+          <CompareSheet
+            electionId={election.id}
+            sections={visibleSections}
+            choices={choices}
+            differOnly={differOnly}
+            coveredOnly={coveredOnly}
+            onOpen={expandAt}
+            onChange={readOnly ? undefined : onChoiceChange}
+            onClear={readOnly ? undefined : onChoiceClear}
+            toolbar={toolbarRef}
+          />
         ) : visibleSections.length === 0 ? (
           <div className="border-2 border-dashed border-gray-300 bg-white p-6 text-center text-gray-600">
             Every contest has a choice.{' '}

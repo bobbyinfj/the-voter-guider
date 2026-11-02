@@ -1,8 +1,28 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Check, ExternalLink } from 'lucide-react'
-import { choiceLabel, contestDomId, isPick, isSettled, navLabel, type BallotItem, type BallotSection, type ChoiceValue } from '@/components/ballot/ballot'
+import {
+  ABSTAIN,
+  MEASURE_VALUES,
+  UNSURE,
+  WRITE_IN,
+  choiceLabel,
+  contestDomId,
+  isMeasure,
+  isPick,
+  isSettled,
+  layoutOf,
+  markOf,
+  navLabel,
+  optionList,
+  type BallotItem,
+  type BallotSection,
+  type ChoiceStatus,
+  type ChoiceValue,
+  type SoftStatus,
+} from '@/components/ballot/ballot'
+import { Oval, stepPick } from '@/components/ballot/Contest'
 import { compareOptions, compareView, useCompareData, type CompareGuide, type CompareView } from './compare'
 
 // Your column plus up to four sources; more stops being readable
@@ -19,6 +39,9 @@ export default function CompareSheet({
   differOnly,
   coveredOnly,
   onOpen,
+  onChange,
+  onClear,
+  toolbar,
 }: {
   electionId: string
   sections: BallotSection[]
@@ -26,12 +49,25 @@ export default function CompareSheet({
   differOnly: boolean
   coveredOnly: boolean
   onOpen: (domId: string) => void
+  // Change your picks right here (left out for someone else's guide)
+  onChange?: OnChange
+  onClear?: (ballotId: string) => void
+  // The ballot toolbar, sticky from the sm breakpoint up: the column headings stick just under it
+  toolbar?: React.RefObject<HTMLElement | null>
 }) {
   const { data, state, load } = useCompareData(electionId)
   const [keys, setKeys] = useState<string[]>([])
   useEffect(() => {
     load()
   }, [load])
+  const top = useStickyTop(toolbar)
+  // The headings sit outside the table's sideways scroller (so they can stick to the page) and
+  // follow its scroll position
+  const head = useRef<HTMLDivElement>(null)
+  const body = useRef<HTMLDivElement>(null)
+  const syncScroll = () => {
+    if (head.current && body.current) head.current.scrollLeft = body.current.scrollLeft
+  }
 
   const options = data ? compareOptions(data) : []
   const groups = [...new Set(options.map((o) => o.group))]
@@ -104,8 +140,27 @@ export default function CompareSheet({
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white">
-        <div style={{ minWidth: `${columns * 8}rem` }}>
+      <div className="rounded-lg border border-gray-200 bg-white">
+        <div ref={head} style={{ top }} className="sticky z-10 overflow-hidden rounded-t-lg border-b border-gray-300 bg-gray-50/95 backdrop-blur" aria-hidden>
+          <div className="grid gap-3 px-3 py-1.5" style={{ ...grid, minWidth: `${columns * 8}rem` }}>
+            <p className="truncate text-xs font-bold text-gray-900">Your ballot</p>
+            {views.map((v) =>
+              v.community ? (
+                <p key={v.key} className="truncate text-xs font-semibold text-gray-700" title="Voter Guider users (community tally)">
+                  Voter Guider users
+                </p>
+              ) : (
+                v.guides.map((g) => (
+                  <p key={g.id} className="line-clamp-2 text-xs font-semibold text-gray-700" title={g.name}>
+                    {g.name}
+                  </p>
+                ))
+              ),
+            )}
+          </div>
+        </div>
+        <div ref={body} onScroll={syncScroll} className="overflow-x-auto">
+          <div style={{ minWidth: `${columns * 8}rem` }}>
           {sections.map((section) => {
             const shown = items(section)
             if (!shown.length) return null
@@ -121,7 +176,13 @@ export default function CompareSheet({
                       </button>
                       <div className="mt-1.5 grid gap-3" style={grid}>
                         <Cell label="Your ballot" mine>
-                          {isPick(mine) ? choiceLabel(mine!, item) : <span className="font-normal text-gray-500">{mine ? choiceLabel(mine, item) : 'No pick yet'}</span>}
+                          {onChange && onClear ? (
+                            <YourPick item={item} choice={choices[item.id]} onChange={onChange} onClear={onClear} />
+                          ) : isPick(mine) ? (
+                            choiceLabel(mine!, item)
+                          ) : (
+                            <span className="font-normal text-gray-500">{mine ? choiceLabel(mine, item) : 'No pick yet'}</span>
+                          )}
                         </Cell>
                         {views.map((v) =>
                           v.community ? (
@@ -137,8 +198,77 @@ export default function CompareSheet({
               </section>
             )
           })}
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+type OnChange = (ballotId: string, selection: string, notes?: string, status?: ChoiceStatus, marks?: Record<string, SoftStatus> | null) => void
+
+// How far down the page the column headings stick: under the toolbar while it's sticky (sm and
+// up), at the top of the screen otherwise
+function useStickyTop(toolbar?: React.RefObject<HTMLElement | null>) {
+  const [top, setTop] = useState(0)
+  useEffect(() => {
+    const bar = toolbar?.current
+    if (!bar) return
+    const measure = () => setTop(getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight : 0)
+    measure()
+    const seen = new ResizeObserver(measure)
+    seen.observe(bar)
+    window.addEventListener('resize', measure)
+    return () => {
+      seen.disconnect()
+      window.removeEventListener('resize', measure)
+    }
+  }, [toolbar])
+  return top
+}
+
+// Your column: the contest's ovals, which step through the same labels as on the ballot
+// (leaning → decided → possibly → not sure → empty)
+function YourPick({
+  item,
+  choice,
+  onChange,
+  onClear,
+}: {
+  item: BallotItem
+  choice?: ChoiceValue
+  onChange: OnChange
+  onClear: (ballotId: string) => void
+}) {
+  const printed = layoutOf(item)
+  const values = isMeasure(item) ? [...MEASURE_VALUES] : (printed?.candidates?.map((c) => c.name) ?? optionList(item.options))
+  // A write-in you marked on the ballot (written there; it can be stepped or cleared here)
+  const writeIns = [choice?.selection, ...Object.keys(choice?.marks ?? {})].filter(
+    (o, i, all): o is string => !!o && o.startsWith(WRITE_IN) && !!markOf(choice, o) && all.indexOf(o) === i,
+  )
+  return (
+    <div className="-mx-2 font-normal">
+      {[...values, ...writeIns].map((value) => {
+        const mark = markOf(choice, value)
+        const label = choiceLabel(value, item)
+        return (
+          <Oval
+            key={value}
+            name={`compare-${item.id}`}
+            value={value}
+            checked={!!mark}
+            status={mark}
+            disabled={false}
+            onSelect={() => stepPick(item.id, value, choice, onChange, onClear)}
+            label={label}
+          >
+            <span className={`text-xs ${mark === 'decided' ? 'font-semibold' : ''}`}>{label}</span>
+          </Oval>
+        )
+      })}
+      {(choice?.selection === ABSTAIN || choice?.selection === UNSURE) && (
+        <p className="px-2 text-xs text-gray-500">{choiceLabel(choice.selection, item)}</p>
+      )}
     </div>
   )
 }
@@ -146,9 +276,7 @@ export default function CompareSheet({
 function Cell({ label, mine = false, children }: { label: string; mine?: boolean; children: React.ReactNode }) {
   return (
     <div className="min-w-0 text-sm">
-      <p className={`mb-0.5 truncate text-[0.6875rem] ${mine ? 'font-semibold text-gray-700' : 'text-gray-500'}`} title={label}>
-        {label}
-      </p>
+      <p className="sr-only">{label}</p>
       <div className={mine ? 'font-semibold' : ''}>{children}</div>
     </div>
   )
