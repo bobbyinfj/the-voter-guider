@@ -144,6 +144,47 @@ hjta = [
 ]
 
 
+# ── AFT 1521, Los Angeles College Faculty Guild (left) ───────────────────────
+# The LACCD faculty union's 2026 voter guide, a PDF on its own site (aft-1521.org allows
+# Claude-User; the old aft1521.org host is a blank server page with an expired certificate).
+# Page 1: its LACCD trustee picks and the statewide offices it lists as "CFT endorsed";
+# page 2: propositions (nothing on Prop 38; Measure PRK isn't on this ballot). Page 3 lists
+# Assembly and Senate names under a "find your California state representatives" box without
+# saying they're endorsements, so AD 49 and AD 54 are left out.
+AFT1521 = 'https://www.aft-1521.org/app/uploads/2026/10/AFT_1521_Voter_Guide_2026-IMAGE-3.pdf'
+aft1521 = [
+    pick(race('laccd-2'), 'STEVEN F. VERES', AFT1521, 'SEAT 2 Steve Veres Incumbent', alias='ballot: STEVEN F. VERES, the Seat 2 incumbent'),
+    pick(race('laccd-4'), 'DARRYN HARRIS', AFT1521, 'SEAT 4 Darryn Harris'),
+    pick(race('laccd-6'), 'RANDALL WINSTON', AFT1521, 'SEAT 6 Randall Winston'),
+    pick(race('governor'), 'Xavier Becerra', AFT1521, 'Governor Xavier Becerra'),
+    pick(race('lt-governor'), 'Fiona Ma', AFT1521, 'Lieutenant Governor Fiona Ma'),
+    pick(race('attorney-general'), 'Rob Bonta', AFT1521, 'Attorney General Rob Bonta'),
+    pick(race('treasurer'), 'Eleni Kounalakis', AFT1521, 'Treasurer Eleni Kounalakis'),
+    pick(race('secretary-of-state'), 'Shirley N. Weber', AFT1521, 'Secretary of State Shirley Weber', alias='ballot: Shirley N. Weber'),
+    pick(race('controller'), 'Malia M. Cohen', AFT1521, 'Controller Malia Cohen', alias='ballot: Malia M. Cohen'),
+    pick(race('superintendent'), 'Richard Barrera', AFT1521, 'Superintendent of Public Instruction Richard Barrera'),
+    pick(race('insurance-commissioner'), 'Jane Kim', AFT1521, 'Insurance Commissioner Jane Kim'),
+    pick(race('boe-3'), 'Samuel P. Sukaton', AFT1521, 'Board of Equalization, District 3 Sam Sukaton', alias='ballot: Samuel P. Sukaton'),
+] + [
+    pick(prop(n), v, AFT1521, q)
+    for n, v, q in [
+        ('1', 'YES', 'YES Prop 1 Veterans and affordable housing bond'),
+        ('3', 'YES', 'YES Prop 3 Protect school funding'),
+        ('4', 'YES', 'YES Prop 4 Public financing of political campaigns'),
+        ('5', 'YES', 'YES Prop 5 Recall reform'),
+        ('37', 'YES', 'YES Prop 37 First-time home buyers fund for veterans'),
+        ('40', 'YES', 'YES Prop 40 Billionaires tax to protect healthcare'),
+        ('2', 'NO', 'NO Prop 2 Inflate budget reserve'),
+        ('39', 'NO', 'NO Prop 39 Increase barriers to voting'),
+        ('41', 'NO', 'NO Prop 41 Tax audit requirements'),
+        ('42', 'NO', 'NO Prop 42 Keeps luxury assets tax-free for the wealthy'),
+        ('43', 'NO', 'NO Prop 43 Raise vote threshold for public services'),
+        ('44', 'NO', 'NO Prop 44 Restrictions on community clinics'),
+        ('45', 'NO', 'NO Prop 45 Gut environmental reviews'),
+    ]
+]
+
+
 def lwvc_icons(texts):
     raw = texts[LWVC][0].decode('utf-8', 'replace')
     heads = [(m.start(), m.group(1)) for m in re.finditer(r'>\s*Proposition (\d+)\s*<', raw)]
@@ -175,4 +216,8 @@ GUIDES = [
     dict(id='hjta', name='Howard Jarvis Taxpayers Association', kind='advocacy', lean='right', url=HJTA,
          about='Taxpayer group behind Prop 13; its 2026 voting guide on the propositions, with HJTA-PAC candidate endorsements.',
          picks=hjta),
+    dict(id='aft-1521', name='AFT 1521, Los Angeles College Faculty Guild', kind='advocacy', lean='left', url=AFT1521,
+         about="The LACCD faculty union's 2026 voter guide: its picks for the three LACCD trustee seats, the statewide "
+               "candidates it lists as endorsed by its state federation (CFT), and positions on the propositions.",
+         picks=aft1521),
 ]
