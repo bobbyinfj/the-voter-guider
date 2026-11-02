@@ -152,6 +152,11 @@ export default function HowWeScorePage() {
           association&apos;s rating for judges, key endorsements as a news voter guide lists them, and the endorsements
           on the campaign&apos;s own site. Hover a badge for the quote; click it for the source.
         </p>
+        <p>
+          You can ♥ or 👎 a published guide (in Quick or Compare view). In Quick view that puts badges from guides you ♥
+          first, with a ♥, and greys out the ones you 👎. It only changes what you see: your ratings are private, never
+          shared or counted, and they don&apos;t change a measure&apos;s stakes grade or the badge count.
+        </p>
       </section>
 
       <p className="text-sm text-gray-700">

@@ -114,6 +114,11 @@ ran, so "none found" is never a clean bill of health), the 💩 meter (share of 
 False or worse; no % under `FACTCHECK_MIN` rulings, and a race shows % only when every candidate qualifies; below that the icon shows the raw count, e.g. "1/5"; a race where nobody has PolitiFact rulings or fact-checked claims gets no 💩 tile at all, `raceHasAnyFactChecks`)
 and 🏅 badges (published guides' picks from the comparison templates via `badgesFrom`, bar ratings, news
 guides' key endorsements, campaign-site endorsements; the 🏅 tile counts badges plus endorsements, e.g. "1 badge · 105 endorsements"). Measures get "Say Yes / Say No" badges.
+**Your ♥ / 👎 on published guides** (`lib/guideRatings.ts`, panel `components/ballot/GuideRatings.tsx`, shown in Quick and Compare view):
+private to the voter, stored as `metadata.guideRatings` (template guide id → heart/dislike) on their default guide for the election,
+saved whole by PATCH `/api/guides` (only ids of that election's templates), and stripped by `toResponse` for anyone but the owner.
+In Quick view `rankBadges` puts hearted guides' badges first (♥) and greys out disliked ones; it never hides a badge or changes
+stakes or counts. Not shared or counted anywhere: sharing them would need its own explicit opt-in (not `shareCommunity`).
 Every part of the ballot is linkable: `#laccd-2` (contest: ballot id minus the election prefix),
 `#laccd-2--roy-payan` (candidate row), `#los-angeles-community-college-district` (every contest under
 one printed jurisdiction line), old `#contest-<ballot id>` links too (`resolveAnchor` in `ballot.ts`).

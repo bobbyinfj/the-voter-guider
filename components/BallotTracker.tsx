@@ -30,6 +30,7 @@ import BallotSheet from '@/components/ballot/BallotSheet'
 import BallotNav from '@/components/ballot/BallotNav'
 import ReviewSheet from '@/components/ballot/ReviewSheet'
 import CompareSheet from '@/components/compare/CompareSheet'
+import GuideRatingsPanel from '@/components/ballot/GuideRatings'
 import { byStakes, stakesOf } from '@/components/ballot/stakes'
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { BadgeMap } from '@/lib/scorecard'
@@ -691,6 +692,7 @@ export default function BallotTracker({
           )}
         </div>
 
+        {mode === 'ballot' && (view === 'quick' || view === 'compare') && <GuideRatingsPanel badges={badges} />}
         {mode === 'review' ? (
           <ReviewSheet sections={sections} choices={choices} readOnly={readOnly} onEdit={jumpTo} />
         ) : mode === 'step' && step ? (

@@ -2,7 +2,7 @@
 
 import type { QuizOnBallot } from '@/lib/quiz/ballot'
 import type { BadgeMap } from '@/lib/scorecard'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { FilePlus2, Share2 } from 'lucide-react'
@@ -15,6 +15,8 @@ import { useGuideEditor, type EditableGuide } from './useGuideEditor'
 import { useAccount } from './useAccount'
 import SaveStatus from './SaveStatus'
 import KeepGuidePrompt from './KeepGuidePrompt'
+import { GuideRatingsContext } from '@/components/ballot/GuideRatings'
+import { ratingsOf, withRating, type GuideRating, type GuideRatings } from '@/lib/guideRatings'
 
 type Ballot = BallotItem & { districtType: string | null; districtCode: string | null }
 
@@ -101,6 +103,21 @@ export default function ElectionGuide({
   const { guide, choices } = editor
   const [creating, setCreating] = useState(false)
 
+  // Your ♥ / 👎 on published guides (private; lib/guideRatings.ts). Shown at once, saved in order
+  // with the whole map each time, so quick clicks end on your last choice.
+  const [ratings, setRatings] = useState(() => ratingsOf(initialGuide?.metadata))
+  const latest = useRef<GuideRatings | null>(null)
+  const saving = useRef<Promise<unknown>>(Promise.resolve())
+  const rate = (guideId: string, rating: GuideRating | null) => {
+    const next = withRating(latest.current ?? ratings, guideId, rating)
+    latest.current = next
+    setRatings(next)
+    saving.current = saving.current
+      .then(() => editor.patchGuide({ guideRatings: latest.current }, "Couldn't save your ♥ / 👎."))
+      .catch(() => {})
+  }
+  const ratingsValue = useMemo(() => ({ ratings, onRate: rate }), [ratings]) // eslint-disable-line react-hooks/exhaustive-deps
+
   const items = useMemo(() => orderForBallot(ballots.filter((b) => matchesSelection(b, districts))), [ballots, districts])
   const answered = items.filter((b) => choices[b.id]).length
 
@@ -169,34 +186,36 @@ export default function ElectionGuide({
       {items.length === 0 ? (
         <p className="text-sm italic text-gray-600">No contests loaded yet.</p>
       ) : (
-        <BallotTracker
-          ballots={items}
-          guideTitle={guide?.title ?? `My ballot: ${election.title}`}
-          election={election}
-          choices={choices}
-          readOnly={readOnly}
-          quiz={quiz}
-          badges={badges}
-          status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
-          notice={<KeepGuidePrompt show={answered > 0} />}
-          setup={
-            pickerOptions.length > 0 && options.length > 0 ? (
-              <div className="print:hidden">
-                <DistrictPicker
-                  options={options}
-                  selection={districts}
-                  lookupUrl={election.districtLookupUrl}
-                  onChange={changeDistrict}
-                  maps={maps}
-                />
-              </div>
-            ) : null
-          }
-          onChoiceChange={editor.setChoice}
-          onChoiceClear={editor.clearChoice}
-          onStatusChange={editor.setStatus}
-          onCandidateNote={editor.setCandidateNote}
-        />
+        <GuideRatingsContext.Provider value={readOnly ? null : ratingsValue}>
+          <BallotTracker
+            ballots={items}
+            guideTitle={guide?.title ?? `My ballot: ${election.title}`}
+            election={election}
+            choices={choices}
+            readOnly={readOnly}
+            quiz={quiz}
+            badges={badges}
+            status={<SaveStatus state={editor.saveState} hasGuide={!!guide} signedIn={!!account?.email} />}
+            notice={<KeepGuidePrompt show={answered > 0} />}
+            setup={
+              pickerOptions.length > 0 && options.length > 0 ? (
+                <div className="print:hidden">
+                  <DistrictPicker
+                    options={options}
+                    selection={districts}
+                    lookupUrl={election.districtLookupUrl}
+                    onChange={changeDistrict}
+                    maps={maps}
+                  />
+                </div>
+              ) : null
+            }
+            onChoiceChange={editor.setChoice}
+            onChoiceClear={editor.clearChoice}
+            onStatusChange={editor.setStatus}
+            onCandidateNote={editor.setCandidateNote}
+          />
+        </GuideRatingsContext.Provider>
       )}
     </div>
   )

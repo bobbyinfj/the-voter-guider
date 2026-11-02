@@ -131,7 +131,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
   // Published guides' picks (party slates, editorial boards, the League), as badges
   const templates = await prisma.guide.findMany({
     where: { electionId, isTemplate: true, visibility: "public" },
-    select: { title: true, metadata: true, choices: { select: { ballotId: true, selection: true, sourceUrl: true, notes: true } } },
+    select: { id: true, title: true, metadata: true, choices: { select: { ballotId: true, selection: true, sourceUrl: true, notes: true } } },
     orderBy: { title: "asc" },
   });
   const badges = badgesFrom(templates);

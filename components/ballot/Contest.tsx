@@ -45,6 +45,8 @@ import { ContestHead, Extra } from './Paper'
 import OfficeExplainer, { OfficeExplainerButton, SourceLine } from './OfficeExplainer'
 import { glossaryForItem } from '@/lib/glossary'
 import PrimaryResult from './PrimaryResult'
+import { useGuideRatings } from './GuideRatings'
+import { rankBadges } from '@/lib/guideRatings'
 import { taxRatesFor } from '@/lib/taxRates'
 import TaxRates from './TaxRates'
 import { BadgePill, CandidateScorecard, MeasureBadges, RaceVideos, sharedVideos } from './Scorecard'
@@ -856,6 +858,8 @@ export default function Contest({
   const wide = density === 'expanded'
   // Quick view: the same two columns as Expanded, with only what decides most votes beside each choice
   const quick = density === 'quick'
+  // Your ♥ / 👎 on published guides reorder and dim their badges here (only you see them)
+  const ratings = useGuideRatings()?.ratings ?? {}
   const [opened, setOpened] = useState(false)
   const open = wide || opened
   const first = run[0]
@@ -966,8 +970,8 @@ export default function Contest({
                       <QuickMeasure item={item} stakes={stakesOf(item, badges?.[item.id])} />
                       <div className="px-2">
                         <MeasureBadges
-                          yes={badges?.[item.id]?.YES ?? []}
-                          no={badges?.[item.id]?.NO ?? []}
+                          yes={rankBadges(badges?.[item.id]?.YES ?? [], ratings)}
+                          no={rankBadges(badges?.[item.id]?.NO ?? [], ratings)}
                           labels={(layoutOf(item)?.responses?.length === 2 ? layoutOf(item)!.responses : ['Yes', 'No']) as [string, string]}
                         />
                       </div>
@@ -991,7 +995,7 @@ export default function Contest({
                     onChange={onChange}
                     onPick={pick}
                     aside={(name) => {
-                      const list = badges?.[item.id]?.[name] ?? []
+                      const list = rankBadges(badges?.[item.id]?.[name] ?? [], ratings)
                       return (
                         <div className="space-y-1 px-2 py-1.5 font-sans">
                           <CandidateLine race={item} name={name} />
