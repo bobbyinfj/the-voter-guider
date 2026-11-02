@@ -470,7 +470,7 @@ export default function BallotTracker({
                       your quiz match. Full details are one click away.
                     </p>
                     <p className="mb-2">
-                      <strong>Compare view</strong> puts your picks in a column beside up to four sources.
+                      <strong>Compare view</strong> puts your picks in a column beside as many sources as you choose.
                     </p>
                     <p className="mb-2">
                       <strong>Expanded view</strong> puts the ballot on the left and a scorecard beside each name: a
