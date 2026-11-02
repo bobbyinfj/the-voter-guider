@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma'
 import { getViewer, isOwner, ownedBy } from '@/lib/owner'
 import { handleApiError } from '@/lib/errors'
 import { districtsFrom, guideInclude, text, toResponse } from '@/lib/guides'
+import { cleanRatings } from '@/lib/guideRatings'
 
 const VISIBILITIES = new Set(['private', 'friends', 'public'])
 
@@ -118,10 +119,27 @@ export async function PATCH(request: NextRequest) {
       data.visibility = body.visibility
     }
     if (typeof body.shareCommunity === 'boolean') data.shareCommunity = body.shareCommunity
+    const metadata: Record<string, unknown> = existing.metadata && typeof existing.metadata === 'object' ? { ...(existing.metadata as object) } : {}
+    let metadataChanged = false
     if (body.districts !== undefined) {
-      const metadata = existing.metadata && typeof existing.metadata === 'object' ? existing.metadata : {}
-      data.metadata = { ...metadata, districts: districtsFrom({ districts: body.districts }) }
+      metadata.districts = districtsFrom({ districts: body.districts })
+      metadataChanged = true
     }
+    // Your ♥ / 👎 on published guides: the whole map each time (so two quick clicks can't race),
+    // only for guides published for this election
+    if (body.guideRatings !== undefined) {
+      const ratings = cleanRatings(body.guideRatings)
+      if (!ratings) return NextResponse.json({ error: 'guideRatings must be an object' }, { status: 400 })
+      const ids = Object.keys(ratings)
+      const known = ids.length
+        ? new Set(
+            (await prisma.guide.findMany({ where: { id: { in: ids }, electionId: existing.electionId, isTemplate: true }, select: { id: true } })).map((g) => g.id),
+          )
+        : new Set<string>()
+      metadata.guideRatings = Object.fromEntries(Object.entries(ratings).filter(([id]) => known.has(id)))
+      metadataChanged = true
+    }
+    if (metadataChanged) data.metadata = metadata as Prisma.InputJsonValue
 
     const guide = await prisma.guide.update({ where: { id }, data, include: guideInclude })
     return NextResponse.json(toResponse(guide, viewer))

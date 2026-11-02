@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import type { GuideRating } from '@/lib/guideRatings'
 import Link from 'next/link'
 import { ExternalLink, Flag as FlagIcon } from 'lucide-react'
 import VideoFacade from '@/components/candidate/VideoFacade'
@@ -329,13 +330,24 @@ const BADGE_STYLE: Record<string, string> = {
   rating: 'border-sky-300 bg-sky-100 text-sky-950',
 }
 
-export function BadgePill({ badge }: { badge: Badge }) {
+// rating: your own ♥ / 👎 on the guide (Quick view; lib/guideRatings.ts): ♥ marks it, 👎 greys it out
+export function BadgePill({ badge }: { badge: Badge & { rating?: GuideRating } }) {
   const tone = badge.kind === 'rating' ? 'rating' : badge.lean ?? 'neutral'
+  const yours = badge.rating === 'heart' ? 'You ♥ this guide (only you see this)' : badge.rating === 'dislike' ? 'You 👎 this guide (only you see this)' : null
+  const title = [yours, badge.quote ? `“${badge.quote}”` : null].filter(Boolean).join('\n') || undefined
   const body = (
     <span
-      title={badge.quote ? `“${badge.quote}”` : undefined}
-      className={`inline-block max-w-full rounded-xl border px-1.5 py-px text-[0.6875rem] font-semibold leading-snug ${BADGE_STYLE[tone]}`}
+      title={title}
+      className={`inline-block max-w-full rounded-xl border px-1.5 py-px text-[0.6875rem] font-semibold leading-snug ${
+        badge.rating === 'dislike' ? 'border-gray-200 bg-gray-50 text-gray-400 opacity-70' : BADGE_STYLE[tone]
+      }`}
     >
+      {badge.rating === 'heart' && (
+        <span aria-label="you hearted this guide" className="mr-0.5 text-rose-600">
+          ♥
+        </span>
+      )}
+      {badge.rating === 'dislike' && <span className="sr-only">(you disliked this guide) </span>}
       {badge.label}
     </span>
   )
@@ -589,7 +601,7 @@ export function CandidateScorecard({
 }
 
 // A measure's badges: who recommends Yes and who recommends No
-export function MeasureBadges({ yes, no, labels }: { yes: Badge[]; no: Badge[]; labels: [string, string] }) {
+export function MeasureBadges({ yes, no, labels }: { yes: (Badge & { rating?: GuideRating })[]; no: (Badge & { rating?: GuideRating })[]; labels: [string, string] }) {
   if (!yes.length && !no.length) return null
   const sides = [[labels[0], yes], [labels[1], no]] as const
   return (

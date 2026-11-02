@@ -3,6 +3,7 @@ import { Prisma } from '@/generated/prisma/client'
 import { parseDistrictSelection } from '@/lib/districts'
 import { snippetCandidates } from '@/lib/profile'
 import { isOwner, type Viewer } from '@/lib/owner'
+import { withoutRatings } from '@/lib/guideRatings'
 
 export const guideInclude = {
   choices: true,
@@ -37,8 +38,11 @@ type GuideWithRelations = Prisma.GuideGetPayload<{ include: typeof guideInclude 
 export function toResponse(guide: GuideWithRelations, viewer: Viewer) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { sessionId, userId, defaultKey, ...rest } = guide
+  const owner = isOwner(guide, viewer)
   return {
     ...rest,
+    // Your ♥ / 👎 on published guides are yours alone (lib/guideRatings.ts)
+    metadata: owner ? rest.metadata : withoutRatings(rest.metadata),
     election: {
       ...rest.election,
       ballots: rest.election.ballots.map((b) => ({
@@ -46,7 +50,7 @@ export function toResponse(guide: GuideWithRelations, viewer: Viewer) {
         office: b.office && { ...b.office, candidates: snippetCandidates(b.office.candidates) },
       })),
     },
-    isOwner: isOwner(guide, viewer),
+    isOwner: owner,
     isDefault: !!defaultKey,
   }
 }

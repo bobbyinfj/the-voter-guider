@@ -198,6 +198,8 @@ export interface Badge {
   label: string
   url: string | null
   quote?: string | null
+  // The published guide (template guide id) the badge comes from, for the voter's own ♥ / 👎
+  guideId?: string
 }
 
 // ballot id → selection (candidate name or YES/NO) → badges
@@ -205,7 +207,7 @@ export type BadgeMap = Record<string, Record<string, Badge[]>>
 
 // Published guides' picks (comparison template guides), turned into badges on what they pick
 export function badgesFrom(
-  guides: { title: string; metadata: unknown; choices: { ballotId: string; selection: string; sourceUrl: string | null; notes: string | null }[] }[],
+  guides: { id?: string; title: string; metadata: unknown; choices: { ballotId: string; selection: string; sourceUrl: string | null; notes: string | null }[] }[],
 ): BadgeMap {
   const map: BadgeMap = {}
   for (const g of guides) {
@@ -213,7 +215,7 @@ export function badgesFrom(
     if (!meta?.kind) continue
     for (const c of g.choices) {
       const list = ((map[c.ballotId] ??= {})[c.selection] ??= [])
-      list.push({ by: g.title, kind: meta.kind, lean: meta.lean ?? null, label: g.title, url: c.sourceUrl ?? meta.url ?? null, quote: c.notes })
+      list.push({ by: g.title, kind: meta.kind, lean: meta.lean ?? null, label: g.title, url: c.sourceUrl ?? meta.url ?? null, quote: c.notes, ...(g.id ? { guideId: g.id } : {}) })
     }
   }
   return map
