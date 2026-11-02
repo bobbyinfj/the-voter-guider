@@ -43,3 +43,14 @@ test('every Superior Court candidate gets a "lawyer since" year from the State B
   ;(one.office!.candidates[0].profile as { bar: unknown }).bar = null
   assert.equal(lawyerSince(one), null)
 })
+
+test('every California retention question was checked against the CJP index', async () => {
+  const { cjpChecks, CJP_SOURCE } = await import('@/lib/cjp')
+  const retention = bundle.measures.filter((m) => /^Retain /.test(m.title)).map((m) => m.id)
+  assert.equal(retention.length, 20)
+  const checks = cjpChecks(retention)
+  assert.ok(checks, 'a retention question has no CJP check')
+  assert.match(CJP_SOURCE.url, /^https:\/\/cjp\.ca\.gov\//)
+  assert.match(CJP_SOURCE.retrieved, /^\d{4}-\d{2}-\d{2}$/)
+  assert.equal(cjpChecks([...retention, 'ca26-m-prop-1']), null, 'all or nothing')
+})

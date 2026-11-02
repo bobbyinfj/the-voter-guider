@@ -71,7 +71,7 @@ export default function BallotSheet({
           {groupRuns(section.items).map((run) => (
             <Fragment key={run[0].id}>
             {groupStarts.has(run[0].id) && <span id={groupStarts.get(run[0].id)} aria-hidden className="block h-0" />}
-            {retentionEntry && run[0].id === retention[0].id && <RetentionIntro entry={retentionEntry} count={retention.length} />}
+            {retentionEntry && run[0].id === retention[0].id && <RetentionIntro entry={retentionEntry} measureIds={retention.map((i) => i.id)} />}
             <Contest
               run={run}
               electionId={electionId}
