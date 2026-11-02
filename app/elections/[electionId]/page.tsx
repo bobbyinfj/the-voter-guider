@@ -199,12 +199,13 @@ export default async function ElectionPage({ params, searchParams }: Props) {
         </BallotHeader>
 
         {quizIssues.length > 0 && (
-          <div className="border-[1.5px] border-ballot-ink bg-ballot-paper p-4 font-sans">
-            <h2 className="mb-1 text-sm font-semibold">Where candidates stand</h2>
-            <p className="mb-3 text-xs text-gray-600">
-              Each topic shows candidates&apos; stated positions, quoted from their sources.
-            </p>
-            <div className="flex flex-wrap gap-1.5">
+          // One line until opened: the topics are a way in, not something to read before the ballot
+          <details className="border-[1.5px] border-ballot-ink bg-ballot-paper px-4 py-2 font-sans">
+            <summary className="cursor-pointer text-sm">
+              <span className="font-semibold">Where candidates stand</span>{" "}
+              <span className="text-gray-600">on {quizIssues.length} topics, quoted from their sources</span>
+            </summary>
+            <div className="mt-2 flex flex-wrap gap-1.5 pb-1">
               {quizIssues.map((issue) => (
                 <Link
                   key={issue.slug}
@@ -215,7 +216,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
                 </Link>
               ))}
             </div>
-          </div>
+          </details>
         )}
 
 
