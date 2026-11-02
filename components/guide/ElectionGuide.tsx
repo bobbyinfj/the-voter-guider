@@ -16,6 +16,8 @@ import { useAccount } from './useAccount'
 import SaveStatus from './SaveStatus'
 import KeepGuidePrompt from './KeepGuidePrompt'
 import { GuideRatingsContext } from '@/components/ballot/GuideRatings'
+import { PartySignalContext } from '@/components/ballot/PartySignal'
+import type { PartySignal } from '@/lib/partySignals'
 import { ratingsOf, withRating, type GuideRating, type GuideRatings } from '@/lib/guideRatings'
 
 type Ballot = BallotItem & { districtType: string | null; districtCode: string | null }
@@ -35,6 +37,8 @@ interface Props {
   quiz?: Record<string, QuizOnBallot> | null
   // Published guides' picks, shown as badges in the Expanded view
   badges?: BadgeMap | null
+  // Races where party is the only signal we give (lib/partySignals.ts)
+  signals?: Record<string, PartySignal>
   // This page is one city's ballot: the city isn't offered in the picker
   city?: string | null
   maps?: DistrictMaps | null
@@ -72,6 +76,7 @@ export default function ElectionGuide({
   readOnly = false,
   quiz,
   badges,
+  signals = {},
   city,
   maps,
 }: Props) {
@@ -186,6 +191,7 @@ export default function ElectionGuide({
       {items.length === 0 ? (
         <p className="text-sm italic text-gray-600">No contests loaded yet.</p>
       ) : (
+        <PartySignalContext.Provider value={signals}>
         <GuideRatingsContext.Provider value={readOnly ? null : ratingsValue}>
           <BallotTracker
             ballots={items}
@@ -216,6 +222,7 @@ export default function ElectionGuide({
             onCandidateNote={editor.setCandidateNote}
           />
         </GuideRatingsContext.Provider>
+        </PartySignalContext.Provider>
       )}
     </div>
   )

@@ -1,4 +1,4 @@
-import { computeResults } from "@/lib/quiz/db";
+import { computeResults, decidableOfficeIds } from "@/lib/quiz/db";
 import { quizOnBallot } from "@/lib/quiz/ballot";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
 import { snippetCandidates } from "@/lib/profile";
 import { badgesFrom } from "@/lib/scorecard";
+import { partySignals } from "@/lib/partySignals";
 import { BallotHeader, outlineButton } from "@/components/ballot/Paper";
 import { orderForBallot } from "@/components/ballot/ballot";
 import { cityLabel, cityPagesOf, districtOptions, matchesSelection, parseDistrictSelection } from "@/lib/districts";
@@ -135,6 +136,8 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     orderBy: { title: "asc" },
   });
   const badges = badgesFrom(templates);
+  // Where party is the only signal we give (lib/partySignals.ts)
+  const signals = partySignals(election.ballots, badges, await decidableOfficeIds(electionId));
   const initialGuide: EditableGuide | null = defaultGuide && { ...defaultGuide, isDefault: true, isOwner: true };
   // What your quiz answers matched in each race, shown on the ballot
   const answered = defaultGuide && hasQuiz ? await prisma.userAnswer.count({ where: { guideId: defaultGuide.id } }) : 0;
@@ -232,6 +235,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
           readOnly={election.status === "completed"}
           quiz={quiz}
           badges={badges}
+          signals={signals}
           city={city}
           maps={districtMapsOf(election.metadata)}
         />
