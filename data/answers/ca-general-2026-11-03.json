@@ -1,0 +1,153 @@
+{
+ "source": {
+  "name": "California Secretary of State, Official Voter Information Guide, November 3, 2026: candidate statements",
+  "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
+  "retrieved": "2026-10-20"
+ },
+ "offices": {
+  "ca26-boe-3": {
+   "questions": [
+    "How would they keep property taxes assessed the same way in every county?",
+    "What experience do they have with taxes or property assessment?"
+   ],
+   "candidates": {
+    "ca26-mike-gipson": {
+     "answers": [
+      null,
+      "Previously serving as Chief of Staff to the former Board of Equalization Chairman, Mike currently serves as Chair of the Assembly Revenue and Taxation Committee, which oversees the Board of Equalization."
+     ]
+    },
+    "ca26-samuel-p-sukaton": {
+     "noStatement": true,
+     "answers": [
+      null,
+      null
+     ]
+    }
+   }
+  },
+  "ca26-insurance-commissioner": {
+   "questions": [
+    "How strictly would they regulate insurance companies, and what would that mean for prices and coverage?",
+    "What would they do for people with complaints about their insurer?",
+    "What experience do they have with insurance or consumer protection?"
+   ],
+   "candidates": {
+    "ca26-ben-allen": {
+     "answers": [
+      "As Insurance Commissioner, I'll increase competition to bring down costs, protect consumers who are unfairly dropped, make insurers accountable and the process transparent, and expedite rebuilding.",
+      "When fires ravaged my district, I helped hundreds of constituents who lost everything rebuild their homes and lives, holding insurance companies accountable to pay what they owed.",
+      "That's why I authored laws requiring insurers to increase upfront payments for claims, creating low-interest loans for home improvements that reduce fire risk, and helping homeowners keep their coverage when they fix hazards on their property."
+     ]
+    },
+    "ca26-jane-kim": {
+     "answers": [
+      "I'll hold them accountable to make insurance more affordable and available and make sure our money works for us.",
+      "I'll make claims fast and fair, cap excessive profits, and crack down on illegal price-fixing.",
+      "I'm a civil rights attorney and consumer advocate, and I know how to take on big challenges and win."
+     ]
+    }
+   }
+  },
+  "ca26-treasurer": {
+   "questions": [
+    "How would they balance safety and returns when investing state money?",
+    "What experience do they have with investing or public finance?"
+   ],
+   "candidates": {
+    "ca26-eleni-kounalakis": {
+     "answers": [
+      "I'm running for state Treasurer to responsibly manage California's finances, strengthen our economy, and make smart investments that create opportunity.",
+      "I built housing communities and financed infrastructure projects in the private sector."
+     ]
+    },
+    "ca26-jennifer-hawks": {
+     "answers": [
+      "I will advocate for responsible investing, greater accountability, and honest stewardship of the public's money.",
+      "I'm a business professional who has spent my career managing budgets, improving operations, and demanding accountability."
+     ]
+    }
+   }
+  },
+  "ca26-controller": {
+   "questions": [
+    "What would they audit first, and why?",
+    "What experience do they have with accounting, auditing or managing large budgets?"
+   ],
+   "candidates": {
+    "ca26-herb-w-morgan": {
+     "answers": [
+      null,
+      null
+     ]
+    },
+    "ca26-malia-m-cohen": {
+     "answers": [
+      null,
+      "As California State Controller, Malia Cohen serves as the state's chief fiscal officer, safeguarding the finances of the world's fourth-largest economy."
+     ]
+    }
+   }
+  },
+  "ca26-secretary-of-state": {
+   "questions": [
+    "How would they run elections that are both secure and easy to vote in?",
+    "How would they make campaign and lobbying money easier to follow?"
+   ],
+   "candidates": {
+    "ca26-shirley-n-weber": {
+     "answers": [
+      "I will continue to fight to make sure that nothing stands between you and the ballot box.",
+      null
+     ]
+    },
+    "ca26-donald-p-don-wagner": {
+     "answers": [
+      "As Secretary of State, I pledge to speed up vote counting, secure our elections, and remove the chief elections officer from partisan politics.",
+      null
+     ]
+    }
+   }
+  },
+  "ca26-lt-governor": {
+   "questions": [
+    "Are they ready to step in as governor?",
+    "How would they use a tie-breaking vote in the State Senate?"
+   ],
+   "candidates": {
+    "ca26-fiona-ma": {
+     "answers": [
+      "Voters elected me to four public offices where I focus on accountability, transparency, fixing broken systems, cutting waste, and delivering results.",
+      null
+     ]
+    },
+    "ca26-gloria-romero": {
+     "answers": [
+      "I served as California Senate Majority Leader, fought for transparency in government, authored landmark school-choice reforms to give parents and students trapped in failing schools real opportunities, and stood up for survivors of violence and sexual harassment.",
+      null
+     ]
+    }
+   }
+  },
+  "ca26-superintendent": {
+   "questions": [
+    "What would they change about how the state supports local schools?",
+    "What experience do they have in education?"
+   ],
+   "candidates": {
+    "ca26-richard-barrera": {
+     "answers": [
+      "As State Superintendent, Barrera will roll up his sleeves and work with the same energy and zeal to bring those reforms to every school in California.",
+      "An 18-year veteran of the San Diego Unified School Board (and current President), Barrera brought parents, educators and the community together to cut waste/bureaucracy and invest in students and the classroom."
+     ]
+    },
+    "ca26-sonja-shaw": {
+     "answers": [
+      "My plan is simple: restore high academic standards in reading, writing, and math; protect Title IX, ensuring fairness and safety for girls; cut wasteful bureaucracy; and demand fiscal transparency to ensure money reaches classrooms where it belongs, supporting our students and our great teachers.",
+      "As a mother of two daughters, I was elected President of the Chino Valley Unified School Board because parents demanded change."
+     ]
+    }
+   }
+  }
+ }
+}

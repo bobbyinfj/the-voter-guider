@@ -284,8 +284,12 @@ candidate, never a recommendation)
   J-3 (bar rating and "Lawyer since" in Quick view, #121), J-4 (retention history up front, CJP discipline check for all
   20 justices: none on its index), J-5 in part (one intro above the retention block; each question still separate), and
   a cleanup pass (one-row toolbar, collapsed topic chips, short source credits, #123).
-- Not yet: S-2, S-3 and S-4. Each needs per-candidate research with quotes matched to job questions; doing it overnight
-  would risk uneven coverage or made-up "not addressed" claims, so it waits for a careful pass after the election.
+- S-2 shipped for the seven CA statewide down-ballot races: each job question answered with one sentence from each
+  candidate's state voter guide statement (20 of 30 answered; the rest say "Not addressed in their statement", and
+  Sukaton, who filed none, says so). The user chose to keep using the SOS statements PDF downloaded before its server
+  started refusing robots.txt.
+- Not yet: S-3 (experience side by side beyond the ballot designation and these sentences) and S-4 (more quiz positions);
+  both need new sources per candidate and wait for a careful pass after the election.
 - Art: Moleses' raised-staff pose still needs drawing; `MOLESES_PAUSE_SRC` uses today's full-body art until then.
 
 **S-1. Say when a race only has party signals**

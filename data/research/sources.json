@@ -147,8 +147,8 @@
    "name": "CA SOS voter guide PDFs (vig.cdn.sos.ca.gov)",
    "url": "https://vig.cdn.sos.ca.gov/2026/general/pdf/candidate-statements.pdf",
    "access": "robots-403",
-   "builder": "enrichment-builders/build.py (CA_GUIDE, cached earlier)",
-   "notes": "robots.txt returns S3 AccessDenied (2026-10-27), which our fetcher treats as a block. The candidate statements PDF in the cache predates that check: decide whether a missing-file 403 on a CDN counts as a block.",
+   "builder": "enrichment-builders/build.py, job_answers.py (cached copy only)",
+   "notes": "robots.txt returns S3 AccessDenied (2026-10-27), which our fetcher treats as a block. The candidate statements PDF in the cache predates that check: decide whether a missing-file 403 on a CDN counts as a block. Decided by the user 2026-11-02: keep using the copy downloaded 2026-10-20 (a missing robots.txt on a file server isn't a disallow), never re-fetch it; used for statements' opening sentences and the job answers (enrichment-builders/job_answers.py).",
    "checked": "2026-10-27"
   },
   {
