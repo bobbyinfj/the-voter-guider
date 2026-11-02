@@ -1078,6 +1078,19 @@
    "builder": "glossary-builders/build.py",
    "notes": "lacba.org allows Claude-User; the link redirects to the PDF in LACBA's document store on S3 (same delivery as the ratings list, lacba.org/docDownload/3141411). Gives the rating definitions ('Evaluation Standards') and the committee vote each rating needs; quoted in the Superior Court glossary entry.",
    "checked": "2026-11-02"
+  },
+  {
+   "id": "ca-cjp-decisions",
+   "state": "CA",
+   "kind": [
+    "judicial-evaluation"
+   ],
+   "name": "Commission on Judicial Performance, Decisions by Judge's Name",
+   "url": "https://cjp.ca.gov/decisions_by_judges/",
+   "access": "ok",
+   "builder": "enrichment-builders/cjp.py",
+   "notes": "robots.txt allows Claude-User, Crawl-delay 10. One A-Z page of public decisions (about 256 parseable rows plus 'Other Cases' titles). cjp.py matches surname + first name and fails if a surname appears on the page more often than it parsed rows for it. 2026-11-02: none of the 20 CA retention justices on it (ADAMS rows are other judges).",
+   "checked": "2026-11-02"
   }
  ]
 }

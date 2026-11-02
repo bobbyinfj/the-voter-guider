@@ -1,0 +1,134 @@
+{
+ "source": {
+  "url": "https://cjp.ca.gov/decisions_by_judges/",
+  "name": "Commission on Judicial Performance, Decisions by Judge’s Name",
+  "retrieved": "2026-11-02"
+ },
+ "rows": 256,
+ "checks": [
+  {
+   "measure": "ca26-m-retain-joshua-groban",
+   "name": "JOSHUA GROBAN",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-kelli-m-evans",
+   "name": "KELLI M. EVANS",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-rashida-a-adams",
+   "name": "RASHIDA A. ADAMS",
+   "found": [],
+   "surnameOnly": [
+    "ADAMS, G. Dennis",
+    "ADAMS, Thomas R.",
+    "Adams v. Commission on Judicial Performance (1994)"
+   ]
+  },
+  {
+   "measure": "ca26-m-retain-helen-zukin",
+   "name": "HELEN ZUKIN",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-brian-m-hoffstadt",
+   "name": "BRIAN M. HOFFSTADT",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-tari-l-cody",
+   "name": "TARI L. CODY",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-gonzalo-c-martinez",
+   "name": "GONZALO C. MARTINEZ",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-michelle-c-kim",
+   "name": "MICHELLE C. KIM",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-gregory-j-weingart",
+   "name": "GREGORY J. WEINGART",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-anne-richardson",
+   "name": "ANNE RICHARDSON",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-steve-goorvitch",
+   "name": "STEVE GOORVITCH",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-mark-hanasono",
+   "name": "MARK HANASONO",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-nicholas-daum",
+   "name": "NICHOLAS DAUM",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-audra-m-mori",
+   "name": "AUDRA M. MORI",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-armen-tamzarian",
+   "name": "ARMEN TAMZARIAN",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-kenneth-r-yegan",
+   "name": "KENNETH R. YEGAN",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-natalie-stone",
+   "name": "NATALIE STONE",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-john-wiley",
+   "name": "JOHN WILEY",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-matthew-a-scherb",
+   "name": "MATTHEW A. SCHERB",
+   "found": [],
+   "surnameOnly": []
+  },
+  {
+   "measure": "ca26-m-retain-victor-g-viramontes",
+   "name": "VICTOR G. VIRAMONTES",
+   "found": [],
+   "surnameOnly": []
+  }
+ ]
+}

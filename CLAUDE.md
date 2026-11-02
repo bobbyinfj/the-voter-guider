@@ -138,7 +138,9 @@ Quick and Expanded view add, for a rated judicial race, `BarRatingNote` above th
 definitions (`/glossary#bar-ratings`, a quote-checked glossary fact from LACBA's 2026 report) and, when everyone got the same
 rating (`barRatingTie`), a line saying the rating doesn't separate them; and under each candidate "Lawyer since YEAR · State Bar"
 (`lawyerSince`, only when every candidate in the race has an admission date). Retention questions get one `RetentionIntro`
-above the first of them (Quick and Expanded): the count and the retention glossary entry's sourced facts. Both use
+above the first of them (Quick and Expanded): the count, the retention glossary entry's sourced facts, and the result of
+checking every justice against the Commission on Judicial Performance's index of public decisions (`data/judges/ca-cjp.json`,
+built by `enrichment-builders/cjp.py`, read by `lib/cjp.ts`; shown only when every question on the page was checked). Both use
 `MolesesPause` (`components/Moleses.tsx`), Moleses holding his staff as the "look before you pick" cue; its image is
 `MOLESES_PAUSE_SRC`, today's full-body art until the raised-staff drawing exists.
 **Where party is all we give** (`lib/partySignals.ts`, `components/ballot/PartySignal.tsx`, Quick and Expanded): a

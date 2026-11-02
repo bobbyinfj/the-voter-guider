@@ -279,6 +279,15 @@ The Cost and funding chip shows existing sourced quotes that mention money, whic
 **Action plan** (stories in priority order; the same rules as the rest of the backlog: sourced, same method for every
 candidate, never a recommendation)
 
+**Status, November 2, 2026 (evening):**
+- Shipped: S-1 (party-only and same-party lines, #122), J-2 (rating definitions from LACBA's report, tie line, #121),
+  J-3 (bar rating and "Lawyer since" in Quick view, #121), J-4 (retention history up front, CJP discipline check for all
+  20 justices: none on its index), J-5 in part (one intro above the retention block; each question still separate), and
+  a cleanup pass (one-row toolbar, collapsed topic chips, short source credits, #123).
+- Not yet: S-2, S-3 and S-4. Each needs per-candidate research with quotes matched to job questions; doing it overnight
+  would risk uneven coverage or made-up "not addressed" claims, so it waits for a careful pass after the election.
+- Art: Moleses' raised-staff pose still needs drawing; `MOLESES_PAUSE_SRC` uses today's full-body art until then.
+
 **S-1. Say when a race only has party signals**
 As a voter, I want to know when I'm about to vote a party line by default.
 - When every published guide picking in a race is a party or advocacy slate and the quiz can't compare it, Quick and
