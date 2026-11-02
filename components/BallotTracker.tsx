@@ -6,24 +6,21 @@ import {
   ArrowDownToLine,
   Maximize2,
   Minimize2,
-  Zap,
   ArrowLeft,
   ArrowRight,
   CircleHelp,
   ClipboardCopy,
-  Columns3,
-  GitCompare,
   Download,
   ExternalLink,
   Eye,
   ListChecks,
   ListOrdered,
   Printer,
-  Rows3,
   SlidersHorizontal,
   SkipForward,
   Vote,
   X,
+  MoreHorizontal,
 } from 'lucide-react'
 import { type Density } from '@/components/ballot/Contest'
 import BallotSheet from '@/components/ballot/BallotSheet'
@@ -90,6 +87,16 @@ const placeKey = (electionId: string) => `voter-guider:place:${electionId}`
 
 // A guide laid out like the voter's own ballot (same contests, order and wording as the
 // county's sample ballot), plus what paper can't do: notes, research, jump-to-undecided
+// The toolbar's More menu, in order
+const MORE_ITEMS = [
+  { key: 'step', label: 'One contest at a time', Icon: ListOrdered, title: undefined },
+  { key: 'review', label: 'Review my picks', Icon: Eye, title: undefined },
+  { key: 'ai', label: 'Copy for an AI', Icon: ClipboardCopy, title: "Copies your picks, ?s and notes, with a request for help on the contests you're stuck on" },
+  { key: 'text', label: 'Download as text', Icon: Download, title: undefined },
+  { key: 'print', label: 'Print', Icon: Printer, title: undefined },
+  { key: 'room', label: 'More room (hide the outline)', Icon: Maximize2, title: 'Hide the outline and shrink this toolbar' },
+] as const
+
 export default function BallotTracker({
   ballots,
   guideTitle,
@@ -116,6 +123,21 @@ export default function BallotTracker({
   // Hides the outline and shrinks the toolbar to one line
   const [moreRoom, setMoreRoom] = useState(false)
   const [showViewHelp, setShowViewHelp] = useState(false)
+  // The toolbar's More menu (One at a time, Review, Copy for an AI, Text, Print, More room)
+  const [showMore, setShowMore] = useState(false)
+  const moreRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!showMore) return
+    const close = (e: Event) => {
+      if (e instanceof KeyboardEvent ? e.key === 'Escape' : !moreRef.current?.contains(e.target as Node)) setShowMore(false)
+    }
+    document.addEventListener('mousedown', close)
+    document.addEventListener('keydown', close)
+    return () => {
+      document.removeEventListener('mousedown', close)
+      document.removeEventListener('keydown', close)
+    }
+  }, [showMore])
   const [activeId, setActiveId] = useState<string | null>(null)
   // Snapshot of contests decided when the filter was turned on, so a contest doesn't
   // vanish the moment you mark it
@@ -383,6 +405,14 @@ export default function BallotTracker({
   )
   const showSidebar = !moreRoom && (((view === 'expanded' || view === 'quick') && mode === 'ballot') || mode === 'step')
   const toGo = ballots.length - answered
+  // Ballot, One at a time or Review. One at a time starts where you are on the ballot, not back at the first contest.
+  const chooseMode = (value: 'ballot' | 'step' | 'review') => {
+    if (value === 'step') return goStep(mode === 'step' ? stepIndex : activeId ? stepOf(activeId) : firstUndecidedStep(steps.length - 1))
+    setMode(value)
+    const top = document.getElementById('ballot-top')
+    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
+  }
+
   const progress = (
     <>
       <span className="font-medium text-gray-800">
@@ -420,20 +450,21 @@ export default function BallotTracker({
             </div>
           ) : (
           <>
-          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+          {/* One row: view, progress, the two tools used most, and everything else under More */}
+          <div className="flex flex-wrap items-center gap-2">
             <div className="flex items-center gap-1.5">
               <div role="group" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
                 <button onClick={() => chooseDensity('basic')} aria-pressed={view === 'basic'} className={segment(view === 'basic')}>
-                  <Columns3 className="h-4 w-4 max-sm:hidden" /> Ballot<span className="max-sm:hidden"> view</span>
+                  Ballot
                 </button>
                 <button onClick={() => chooseDensity('quick')} aria-pressed={view === 'quick'} className={segment(view === 'quick')}>
-                  <Zap className="h-4 w-4 max-sm:hidden" /> Quick<span className="max-sm:hidden"> view</span>
+                  Quick
                 </button>
                 <button onClick={() => chooseDensity('expanded')} aria-pressed={view === 'expanded'} className={segment(view === 'expanded')}>
-                  <Rows3 className="h-4 w-4 max-sm:hidden" /> Expanded<span className="max-sm:hidden"> view</span>
+                  Expanded
                 </button>
                 <button onClick={() => chooseDensity('compare')} aria-pressed={view === 'compare'} className={segment(view === 'compare')}>
-                  <GitCompare className="h-4 w-4 max-sm:hidden" /> Compare<span className="max-sm:hidden"> view</span>
+                  Compare
                 </button>
               </div>
               <div className="relative">
@@ -490,70 +521,73 @@ export default function BallotTracker({
                 )}
               </div>
             </div>
-            <div className="flex items-center gap-1">
-              {status}
-              <button onClick={handleExport} aria-label="Download as text" className={quietButton}>
-                <Download className="h-4 w-4" /> <span className="max-xl:hidden">Text</span>
+            {mode !== 'ballot' && (
+              <button onClick={() => chooseMode('ballot')} className={toolButton}>
+                <Vote className="h-4 w-4" /> Back to the ballot
               </button>
-              <button onClick={() => window.print()} aria-label="Print" className={quietButton}>
-                <Printer className="h-4 w-4" /> <span className="max-xl:hidden">Print</span>
-              </button>
-              <button onClick={toggleRoom} aria-pressed={false} className={quietButton} title="Hide the outline and shrink this toolbar">
-                <Maximize2 className="h-4 w-4" /> More room
-              </button>
-            </div>
-          </div>
-          <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-            {progress}
-            <div className="h-1.5 min-w-16 flex-1 rounded-full bg-gray-200">
-              <div
-                className="h-1.5 rounded-full bg-ballot-accent transition-all duration-300"
-                style={{ width: `${completionPercentage}%` }}
-              />
-            </div>
-            <span className="text-gray-500">{completionPercentage}%</span>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <div role="tablist" aria-label="View" className="flex overflow-hidden rounded-md border border-gray-300">
-              {([
-                { value: 'ballot', label: 'Ballot', Icon: Vote },
-                { value: 'step', label: 'One at a time', Icon: ListOrdered },
-                { value: 'review', label: 'Review', Icon: Eye },
-              ] as const).map(({ value, label, Icon }) => (
-                <button
-                  key={value}
-                  role="tab"
-                  aria-selected={mode === value}
-                  onClick={() => {
-                    // One at a time starts where you are on the ballot, not back at the first contest
-                    if (value === 'step') return goStep(mode === 'step' ? stepIndex : activeId ? stepOf(activeId) : firstUndecidedStep(steps.length - 1))
-                    setMode(value)
-                    const top = document.getElementById('ballot-top')
-                    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' })
-                  }}
-                  className={segment(mode === value)}
-                >
-                  <Icon className="h-4 w-4" /> {label}
-                </button>
-              ))}
+            )}
+            {/* Progress gets its own thin line under the buttons */}
+            <div className="order-last flex basis-full items-center gap-2 text-sm" title={`${completionPercentage}% done`}>
+              <span className="flex shrink-0 flex-wrap items-baseline gap-x-2">{progress}</span>
+              <div className="h-1.5 min-w-10 flex-1 rounded-full bg-gray-200" aria-hidden>
+                <div className="h-1.5 rounded-full bg-ballot-accent transition-all duration-300" style={{ width: `${completionPercentage}%` }} />
+              </div>
+              {status && <span className="shrink-0 text-xs text-gray-500 max-md:hidden">{status}</span>}
             </div>
             {!readOnly && (
               <button onClick={nextUndecided} disabled={answered === ballots.length} className={toolButton}>
-                <SkipForward className="h-4 w-4" /> Next undecided
+                <SkipForward className="h-4 w-4" /> <span className="max-sm:hidden">Next undecided</span>
+                <span className="sm:hidden">Next</span>
               </button>
             )}
             {mode === 'ballot' && (
               <button
                 onClick={() => setShowFilters((f) => !f)}
                 aria-expanded={showFilters}
+                aria-label={`Filters${activeFilters ? ` (${activeFilters} on)` : ''}`}
                 className={`${toolButton} ${activeFilters ? 'border-blue-400 bg-blue-50 text-blue-900' : ''}`}
               >
-                <SlidersHorizontal className="h-4 w-4" /> Filters{activeFilters > 0 && ` (${activeFilters})`}
+                <SlidersHorizontal className="h-4 w-4" /> <span className="max-sm:hidden">Filters</span>
+                {activeFilters > 0 && ` (${activeFilters})`}
               </button>
             )}
-            <button onClick={handleCopyForAi} className={toolButton} title="Copies your picks, ?s and notes, with a request for help on the contests you're stuck on">
-              <ClipboardCopy className="h-4 w-4" /> Copy for an AI
-            </button>
+            <div ref={moreRef} className="relative ml-auto">
+              <button
+                type="button"
+                onClick={() => setShowMore((m) => !m)}
+                aria-expanded={showMore}
+                aria-haspopup="menu"
+                className={toolButton}
+              >
+                <MoreHorizontal className="h-4 w-4" /> More
+              </button>
+              {showMore && (
+                <div role="menu" className="absolute right-0 top-full z-30 mt-1 w-60 rounded-lg border border-gray-200 bg-white py-1 text-sm shadow-lg">
+                  {MORE_ITEMS.map(({ key, label, Icon, title }) => {
+                    const on = (key === 'step' && mode === 'step') || (key === 'review' && mode === 'review')
+                    return (
+                    <button
+                      key={key}
+                      type="button"
+                      role="menuitem"
+                      title={title}
+                      onClick={() => {
+                        setShowMore(false)
+                        if (key === 'step' || key === 'review') chooseMode(key)
+                        else if (key === 'ai') handleCopyForAi()
+                        else if (key === 'text') handleExport()
+                        else if (key === 'print') window.print()
+                        else toggleRoom()
+                      }}
+                      className={`flex w-full items-center gap-2 px-3 py-1.5 text-left hover:bg-gray-50 ${on ? 'font-semibold text-blue-900' : 'text-gray-800'}`}
+                    >
+                      <Icon className="h-4 w-4 text-gray-500" /> {label}
+                    </button>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
           </div>
           {copied && (
             <p role="status" className="mt-2 text-sm">

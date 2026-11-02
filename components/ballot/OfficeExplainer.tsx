@@ -73,10 +73,12 @@ export default function OfficeExplainer({ entry, brief = false, anchors = false 
 }
 
 // "Voter Guider summary of <source> (retrieved <date>)", or just the linked source inline
+// inline: just the publisher (the part of the name before the first comma, e.g. "California Secretary of
+// State"), with the full title and retrieval date on hover; the full credit is on /glossary
 export function SourceLine({ source, inline = false }: { source: GlossarySource; inline?: boolean }) {
   const link = (
-    <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">
-      {source.name}
+    <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline" title={inline ? `${source.name} (retrieved ${source.retrieved})` : undefined}>
+      {inline ? source.name.split(',')[0] : source.name}
       <ExternalLink className="ml-0.5 inline h-3 w-3 align-[-1px]" />
     </a>
   )

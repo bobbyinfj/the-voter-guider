@@ -15,8 +15,8 @@ export default function PartySignalNote({ item }: { item: BallotItem }) {
   if (!signal) return null
   const count = item.office?.candidates.length ?? 0
   return (
-    <div className="flex items-start gap-2 border-b border-amber-200 bg-amber-50 px-3 py-1.5 font-sans text-sm text-amber-950 print:hidden">
-      <MolesesPause size={32} className="-my-0.5" />
+    <div className="flex items-center gap-2 border-b border-amber-200 bg-amber-50 px-3 py-1 font-sans text-xs text-amber-950 print:hidden">
+      <MolesesPause size={24} />
       <p className="min-w-0">
         {signal.sameParty && (
           <>
