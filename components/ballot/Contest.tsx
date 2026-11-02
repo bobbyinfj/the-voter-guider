@@ -49,6 +49,7 @@ import OfficeExplainer, { OfficeExplainerButton, SourceLine } from './OfficeExpl
 import { glossaryForItem } from '@/lib/glossary'
 import PrimaryResult from './PrimaryResult'
 import PartySignalNote from './PartySignal'
+import JobAnswers from './JobAnswers'
 import { useGuideRatings } from './GuideRatings'
 import { rankBadges } from '@/lib/guideRatings'
 import { taxRatesFor } from '@/lib/taxRates'
@@ -937,6 +938,7 @@ export default function Contest({
       {wide && <ContestIntro item={first} />}
       {quick && <QuickIntro item={first} onExpand={onExpand && (() => onExpand(contestDomId(first)))} />}
       {(quick || wide) && <PartySignalNote item={first} />}
+      {(quick || wide) && <JobAnswers item={first} />}
       {(quick || wide) && isRatedJudgeRace(first) && <BarRatingNote tie={barRatingTie(first)} />}
       {run.map((item, i) => {
         const choice = choices[item.id]

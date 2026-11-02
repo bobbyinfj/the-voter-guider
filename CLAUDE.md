@@ -147,6 +147,11 @@ built by `enrichment-builders/cjp.py`, read by `lib/cjp.ts`; shown only when eve
 race gets an amber line with `MolesesPause` when every published pick is a party or advocacy slate and the quiz can't
 compare it (`decidableOfficeIds` in `lib/quiz/db.ts`, from stance data, not answers), and/or when every candidate has the
 same party preference (partisan races only). Computed on the election page, passed down by `PartySignalContext`.
+**The job's questions, in their own words** (`components/ballot/JobAnswers.tsx`, `lib/jobAnswers.ts`, Quick and Expanded,
+CA statewide down-ballot races): each glossary `ask` question with one verbatim sentence from each candidate's state voter
+guide statement, or "Not addressed in their statement" / "No statement in the state voter guide". Picks are made by hand in
+`enrichment-builders/job_answers.py`, which fails on any sentence not in that candidate's statement; a test fails if the
+glossary questions change. The statements come from the SOS PDF downloaded 2026-10-20, kept by the user's decision, never re-fetched.
 
 ### Offices explained (glossary)
 `data/glossary/offices.json` (built by `data/research/glossary-builders/build.py`, read through `lib/glossary.ts`)
