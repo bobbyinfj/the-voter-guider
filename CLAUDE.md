@@ -325,6 +325,21 @@ Several people and agents merge to `main`, often several times a day. Always wor
 - Never force-push `main` or rewrite history others have pulled. Never merge a schema change before its Neon
   migration is applied (see Deploying): another dev's deploy would run your code against the old schema.
 
+## Caching (keeps Neon asleep)
+Neon bills per hour its compute is awake, and any query wakes it for at least 5 minutes, so public pages
+don't query the database per visit:
+- `/`, `/issues/[slug]`, `/candidates/[id]` and `/elections/[id]/offices/[officeId]` are ISR: `revalidate = 3600`,
+  rendered on first visit (`generateStaticParams` returns `[]`). Don't add `force-dynamic`, `cookies()`,
+  `headers()` or `searchParams` to them; that makes every visit (and every crawler hit) a query again.
+- `/elections/[id]` shows the visitor's own guide, so it renders per request, but everything public on it
+  comes from `cachedPublic` (`lib/publicCache.ts`, per deployment, hourly). Only public data goes in there.
+- A request whose session cookie the proxy just issued carries `x-vg-new-session` (`isNewSession()`): it
+  owns no guides, so the election page skips the guide lookups unless the visitor is signed in. First
+  visits and crawlers then need nothing from the database.
+- Data changes reach these pages within the hour: Vercel's deploy and the seed run in parallel, so a page
+  rendered before the seed finished keeps the old data until it revalidates. Follow-up (needs a secret):
+  have `deploy-data.yml` call a Vercel deploy hook after seeding to refresh at once.
+
 ## Deploying
 Updates ship to production by default. Merge to `main`: Vercel deploys the code, and
 `.github/workflows/deploy-data.yml` backs up Neon, runs `prisma migrate deploy` and `npm run seed` on every
@@ -333,7 +348,7 @@ step with `prisma/seed.ts`). No hand-run dump, migrate or seed is needed.
 Neon is shared by Preview and Production, and Vercel can go live before the workflow finishes, so for a
 schema change run the workflow from the branch first (`gh workflow run deploy-data.yml --ref <branch>
 -f status_only=false`), wait for it to pass, then merge. Keep migrations additive so the old code still
-works against the new schema. Then smoke-test the live site.
+works against the new schema. Then smoke-test the live site (a data change can take up to an hour to show; see Caching).
 A seed from a branch prunes whatever `main` has that the branch doesn't, and pruning a ballot item deletes
 every voter's pick on it (`Choice` cascades), so rebase onto `main` before running it from a branch.
 

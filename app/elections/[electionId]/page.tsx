@@ -15,19 +15,16 @@ import ElectionGuide from "@/components/guide/ElectionGuide";
 import { districtMapsOf } from "@/lib/maps";
 import type { EditableGuide } from "@/components/guide/useGuideEditor";
 import { defaultKeyFor, getViewer, ownedBy } from "@/lib/owner";
+import { isNewSession } from "@/lib/session";
+import { cachedPublic } from "@/lib/publicCache";
 
 interface Props {
   params: Promise<{ electionId: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function ElectionPage({ params, searchParams }: Props) {
-  const { electionId } = await params;
-  const rawParams = await searchParams;
-  const selection = parseDistrictSelection(
-    Object.fromEntries(Object.entries(rawParams).filter(([, v]) => typeof v === "string")),
-  );
-
+// Everything on this page that's the same for every visitor, cached (lib/publicCache.ts)
+const loadElectionPublic = cachedPublic("election-page", async (electionId: string) => {
   const election = await prisma.election.findUnique({
     where: { id: electionId },
     include: {
@@ -70,7 +67,35 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     },
   });
 
-  if (!election) notFound();
+  if (!election) return null;
+  const [issuesWithOffices, templates, decidable] = await Promise.all([
+    // Topics where at least one candidate on this ballot has a sourced position
+    prisma.issue.findMany({
+      where: { stances: { some: { candidate: { office: { electionId } } } } },
+      select: { slug: true, name: true, stances: { select: { candidate: { select: { officeId: true } } } } },
+      orderBy: { name: "asc" },
+    }),
+    // Published guides' picks (party slates, editorial boards, the League), as badges
+    prisma.guide.findMany({
+      where: { electionId, isTemplate: true, visibility: "public" },
+      select: { id: true, title: true, metadata: true, choices: { select: { ballotId: true, selection: true, sourceUrl: true, notes: true } } },
+      orderBy: { title: "asc" },
+    }),
+    decidableOfficeIds(electionId),
+  ]);
+  return { election, issuesWithOffices, templates, decidableOfficeIds: [...decidable] };
+});
+
+export default async function ElectionPage({ params, searchParams }: Props) {
+  const { electionId } = await params;
+  const rawParams = await searchParams;
+  const selection = parseDistrictSelection(
+    Object.fromEntries(Object.entries(rawParams).filter(([, v]) => typeof v === "string")),
+  );
+
+  const publicData = await loadElectionPublic(electionId);
+  if (!publicData) notFound();
+  const { election } = publicData;
 
   // An election covering several cities: each city is its own page (?city=<id>); without one,
   // this page asks which city
@@ -97,11 +122,7 @@ export default async function ElectionPage({ params, searchParams }: Props) {
 
   const hasQuiz = (election.quiz?.questions.length ?? 0) > 0;
   // Topics where at least one candidate on this ballot (this city's, on a city page) has a sourced position
-  const issuesWithOffices = await prisma.issue.findMany({
-    where: { stances: { some: { candidate: { office: { electionId } } } } },
-    select: { slug: true, name: true, stances: { select: { candidate: { select: { officeId: true } } } } },
-    orderBy: { name: "asc" },
-  });
+  const { issuesWithOffices } = publicData;
   const onThisPage = new Set(
     election.ballots.filter((b) => !city || matchesSelection(b, { city })).flatMap((b) => (b.office ? [b.office.id] : [])),
   );
@@ -116,12 +137,15 @@ export default async function ElectionPage({ params, searchParams }: Props) {
 
   // Your guide for this election: the checks on this ballot (if you've made any), and any
   // other guides you've started for it
+  // A session the proxy issued just now owns no guides (unless signed in), so first visits and
+  // crawlers skip the lookups and the page needs nothing from the database but cached data
   const viewer = await getViewer();
+  const lookUpGuides = Boolean(viewer.userId) || !(await isNewSession());
   const guideSelect = {
     id: true, title: true, visibility: true, shareToken: true, shareCommunity: true, notes: true, metadata: true,
     choices: { select: { ballotId: true, selection: true, notes: true, status: true, marks: true, candidateNotes: true } },
   } as const;
-  const [defaultGuide, otherGuides] = await Promise.all([
+  const [defaultGuide, otherGuides] = !lookUpGuides ? [null, []] : await Promise.all([
     prisma.guide.findUnique({ where: { defaultKey: defaultKeyFor(viewer, electionId) }, select: guideSelect }),
     prisma.guide.findMany({
       where: { AND: [ownedBy(viewer), { electionId, defaultKey: null, isTemplate: false }] },
@@ -130,14 +154,10 @@ export default async function ElectionPage({ params, searchParams }: Props) {
     }),
   ]);
   // Published guides' picks (party slates, editorial boards, the League), as badges
-  const templates = await prisma.guide.findMany({
-    where: { electionId, isTemplate: true, visibility: "public" },
-    select: { id: true, title: true, metadata: true, choices: { select: { ballotId: true, selection: true, sourceUrl: true, notes: true } } },
-    orderBy: { title: "asc" },
-  });
+  const { templates } = publicData;
   const badges = badgesFrom(templates);
   // Where party is the only signal we give (lib/partySignals.ts)
-  const signals = partySignals(election.ballots, badges, await decidableOfficeIds(electionId));
+  const signals = partySignals(election.ballots, badges, new Set(publicData.decidableOfficeIds));
   const initialGuide: EditableGuide | null = defaultGuide && { ...defaultGuide, isDefault: true, isOwner: true };
   // What your quiz answers matched in each race, shown on the ballot
   const answered = defaultGuide && hasQuiz ? await prisma.userAnswer.count({ where: { guideId: defaultGuide.id } }) : 0;

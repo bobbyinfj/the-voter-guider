@@ -5,8 +5,9 @@ import { prisma } from "@/lib/prisma";
 import { formatElectionDate } from "@/lib/format";
 import { cityLabel, cityPagesOf, matchesSelection } from "@/lib/districts";
 
-// Always read the current list of curated elections
-export const dynamic = "force-dynamic";
+// Cached and refreshed at most hourly (ISR): the list only changes when a data merge re-seeds the
+// database or an election date passes, and a cache hit doesn't wake Neon's compute.
+export const revalidate = 3600;
 
 export default async function HomePage() {
   // Only elections that haven't happened yet, whatever their stored status says

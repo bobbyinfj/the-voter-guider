@@ -14,6 +14,14 @@ interface Props {
   params: Promise<{ candidateId: string }>;
 }
 
+// Cached and refreshed at most hourly (ISR), rendered on first visit rather than at build:
+// the data only changes when a data merge re-seeds the database, and a cache hit doesn't
+// wake Neon's compute. See CLAUDE.md, "Caching".
+export const revalidate = 3600;
+export function generateStaticParams() {
+  return [];
+}
+
 export default async function CandidatePage({ params }: Props) {
   const { candidateId } = await params;
 
